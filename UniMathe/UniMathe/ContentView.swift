@@ -1207,34 +1207,6 @@ struct ExercisesView: View {
     }
 }
 
-struct Exercise: Identifiable {
-    let id: Int
-    let title: String
-    let description: String
-    let difficulty: Difficulty
-    let points: Int
-}
-
-enum Difficulty {
-    case easy, medium, hard
-    
-    var color: Color {
-        switch self {
-        case .easy: return .green
-        case .medium: return .orange
-        case .hard: return .red
-        }
-    }
-    
-    var text: String {
-        switch self {
-        case .easy: return "Einfach"
-        case .medium: return "Mittel"
-        case .hard: return "Schwer"
-        }
-    }
-}
-
 struct ExerciseCard: View {
     let exercise: Exercise
     
@@ -1268,9 +1240,7 @@ struct ExerciseCard: View {
                 
                 Spacer()
                 
-                Button(action: {
-                    // Action to start the exercise
-                }) {
+                NavigationLink(destination: ExerciseDetailView(exercise: exercise)) {
                     Text("Start")
                         .font(.subheadline)
                         .foregroundColor(.white)
@@ -1291,6 +1261,34 @@ struct ExerciseCard: View {
             RoundedRectangle(cornerRadius: 12)
                 .stroke(Color.blue.opacity(0.1), lineWidth: 1)
         )
+    }
+}
+
+struct Exercise: Identifiable {
+    let id: Int
+    let title: String
+    let description: String
+    let difficulty: Difficulty
+    let points: Int
+}
+
+enum Difficulty {
+    case easy, medium, hard
+    
+    var color: Color {
+        switch self {
+        case .easy: return .green
+        case .medium: return .orange
+        case .hard: return .red
+        }
+    }
+    
+    var text: String {
+        switch self {
+        case .easy: return "Einfach"
+        case .medium: return "Mittel"
+        case .hard: return "Schwer"
+        }
     }
 }
 
