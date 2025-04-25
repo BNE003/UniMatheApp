@@ -1142,6 +1142,20 @@ struct ExercisesView: View {
                         description: "Gegeben sind die Mengen A = {a, b} und B = {1, 2}. Bestimmen Sie A × B.",
                         difficulty: .easy,
                         points: 5
+                    ),
+                    Exercise(
+                        id: 10,
+                        title: "Potenzmenge",
+                        description: "Bestimmen Sie die Potenzmenge P(A) für A = {1, 2, 3}.",
+                        difficulty: .easy,
+                        points: 5
+                    ),
+                    Exercise(
+                        id: 11,
+                        title: "Mengengleichheit",
+                        description: "Sind die Mengen A = {1, 2, 3} und B = {3, 2, 1} gleich? Begründen Sie Ihre Antwort.",
+                        difficulty: .easy,
+                        points: 5
                     )
                 ]
             case .medium:
@@ -1166,6 +1180,20 @@ struct ExercisesView: View {
                         description: "Beweisen Sie die Distributivgesetze für Mengen:\n1. A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)\n2. A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)",
                         difficulty: .medium,
                         points: 10
+                    ),
+                    Exercise(
+                        id: 12,
+                        title: "Inverse Abbildungen",
+                        description: "Gegeben ist die Abbildung f: ℝ → ℝ, f(x) = 3x - 2.\nBestimmen Sie die Umkehrabbildung f⁻¹ und zeigen Sie, dass f⁻¹∘f = id und f∘f⁻¹ = id gilt.",
+                        difficulty: .medium,
+                        points: 10
+                    ),
+                    Exercise(
+                        id: 13,
+                        title: "Mengenoperationen mit Intervallen",
+                        description: "Gegeben sind die Intervalle A = [0, 2] und B = [1, 3].\nBestimmen Sie A ∩ B, A ∪ B und A \\ B.",
+                        difficulty: .medium,
+                        points: 10
                     )
                 ]
             case .hard:
@@ -1188,6 +1216,20 @@ struct ExercisesView: View {
                         id: 9,
                         title: "Äquivalenzrelationen",
                         description: "Sei M eine nichtleere Menge. Zeigen Sie, dass die Relation R = {(A,B) ∈ P(M) × P(M) | |A| = |B|} eine Äquivalenzrelation auf der Potenzmenge P(M) ist.",
+                        difficulty: .hard,
+                        points: 15
+                    ),
+                    Exercise(
+                        id: 14,
+                        title: "Kardinalität von Mengen",
+                        description: "Zeigen Sie, dass die Menge der reellen Zahlen ℝ überabzählbar ist, indem Sie das Cantorsche Diagonalargument verwenden.",
+                        difficulty: .hard,
+                        points: 15
+                    ),
+                    Exercise(
+                        id: 15,
+                        title: "Komplexe Mengenoperationen",
+                        description: "Beweisen Sie die De Morganschen Gesetze für Mengen:\n1. (A ∪ B)ᶜ = Aᶜ ∩ Bᶜ\n2. (A ∩ B)ᶜ = Aᶜ ∪ Bᶜ",
                         difficulty: .hard,
                         points: 15
                     )
