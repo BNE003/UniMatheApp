@@ -265,6 +265,9 @@ struct ContentSelectionView: View {
 struct ExercisesView: View {
     let topic: MathTopic
     @State private var selectedDifficulty: Difficulty?
+    @State private var exercises: [Exercise] = []
+    @State private var isLoading = true
+    @State private var error: Error?
     
     var body: some View {
         ZStack {
@@ -320,10 +323,24 @@ struct ExercisesView: View {
                 }
                 .padding(.horizontal)
                 
-                if let selectedDifficulty = selectedDifficulty {
+                if isLoading {
+                    ProgressView()
+                        .scaleEffect(1.5)
+                } else if let error = error {
+                    VStack {
+                        Text("Fehler beim Laden der Übungen")
+                            .font(.headline)
+                            .foregroundColor(.red)
+                        Text(error.localizedDescription)
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .multilineTextAlignment(.center)
+                            .padding()
+                    }
+                } else if let selectedDifficulty = selectedDifficulty {
                     ScrollView {
                         VStack(spacing: 20) {
-                            ForEach(getExercises(for: topic.title, difficulty: selectedDifficulty), id: \.id) { exercise in
+                            ForEach(filteredExercises) { exercise in
                                 ExerciseCard(exercise: exercise)
                             }
                         }
@@ -340,137 +357,30 @@ struct ExercisesView: View {
         }
         .navigationTitle("Übungen: \(topic.title)")
         .navigationBarTitleDisplayMode(.large)
+        .onAppear {
+            loadExercises()
+        }
     }
     
-    private func getExercises(for topic: String, difficulty: Difficulty) -> [Exercise] {
-        switch topic {
-        case "Mengen und Abbildungen":
-            switch difficulty {
-            case .easy:
-                return [
-                    Exercise(
-                        id: 1,
-                        title: "Mengenoperationen",
-                        description: "Gegeben sind die Mengen A = {1, 2, 3, 4} und B = {3, 4, 5, 6}. Bestimmen Sie:\n1. A ∪ B\n2. A ∩ B\n3. A \\ B\n4. B \\ A",
-                        difficulty: .easy,
-                        points: 5
-                    ),
-                    Exercise(
-                        id: 2,
-                        title: "Teilmengen",
-                        description: "Welche der folgenden Aussagen sind wahr?\n1. {1, 2} ⊆ {1, 2, 3}\n2. {1, 2, 3} ⊆ {1, 2}\n3. ∅ ⊆ {1, 2, 3}\n4. {1, 2, 3} ⊆ ∅",
-                        difficulty: .easy,
-                        points: 5
-                    ),
-                    Exercise(
-                        id: 3,
-                        title: "Kartesisches Produkt",
-                        description: "Gegeben sind die Mengen A = {a, b} und B = {1, 2}. Bestimmen Sie A × B.",
-                        difficulty: .easy,
-                        points: 5
-                    ),
-                    Exercise(
-                        id: 10,
-                        title: "Potenzmenge",
-                        description: "Bestimmen Sie die Potenzmenge P(A) für A = {1, 2, 3}.",
-                        difficulty: .easy,
-                        points: 5
-                    ),
-                    Exercise(
-                        id: 11,
-                        title: "Mengengleichheit",
-                        description: "Sind die Mengen A = {1, 2, 3} und B = {3, 2, 1} gleich? Begründen Sie Ihre Antwort.",
-                        difficulty: .easy,
-                        points: 5
-                    )
-                ]
-            case .medium:
-                return [
-                    Exercise(
-                        id: 4,
-                        title: "Abbildungseigenschaften",
-                        description: "Untersuchen Sie die Abbildung f: ℝ → ℝ, f(x) = x² auf Injektivität und Surjektivität. Begründen Sie Ihre Antwort.",
-                        difficulty: .medium,
-                        points: 10
-                    ),
-                    Exercise(
-                        id: 5,
-                        title: "Komposition von Abbildungen",
-                        description: "Gegeben sind die Abbildungen f: ℝ → ℝ, f(x) = 2x + 1 und g: ℝ → ℝ, g(x) = x².\nBestimmen Sie f∘g und g∘f.",
-                        difficulty: .medium,
-                        points: 10
-                    ),
-                    Exercise(
-                        id: 6,
-                        title: "Mengenidentitäten",
-                        description: "Beweisen Sie die Distributivgesetze für Mengen:\n1. A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)\n2. A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)",
-                        difficulty: .medium,
-                        points: 10
-                    ),
-                    Exercise(
-                        id: 12,
-                        title: "Inverse Abbildungen",
-                        description: "Gegeben ist die Abbildung f: ℝ → ℝ, f(x) = 3x - 2.\nBestimmen Sie die Umkehrabbildung f⁻¹ und zeigen Sie, dass f⁻¹∘f = id und f∘f⁻¹ = id gilt.",
-                        difficulty: .medium,
-                        points: 10
-                    ),
-                    Exercise(
-                        id: 13,
-                        title: "Mengenoperationen mit Intervallen",
-                        description: "Gegeben sind die Intervalle A = [0, 2] und B = [1, 3].\nBestimmen Sie A ∩ B, A ∪ B und A \\ B.",
-                        difficulty: .medium,
-                        points: 10
-                    )
-                ]
-            case .hard:
-                return [
-                    Exercise(
-                        id: 7,
-                        title: "Bijektive Abbildungen",
-                        description: "Zeigen Sie, dass die Abbildung f: ℝ → ℝ, f(x) = x³ + 2x bijektiv ist. Bestimmen Sie die Umkehrabbildung f⁻¹.",
-                        difficulty: .hard,
-                        points: 15
-                    ),
-                    Exercise(
-                        id: 8,
-                        title: "Mächtigkeit von Mengen",
-                        description: "Beweisen Sie, dass die Menge der rationalen Zahlen ℚ abzählbar unendlich ist.",
-                        difficulty: .hard,
-                        points: 15
-                    ),
-                    Exercise(
-                        id: 9,
-                        title: "Äquivalenzrelationen",
-                        description: "Sei M eine nichtleere Menge. Zeigen Sie, dass die Relation R = {(A,B) ∈ P(M) × P(M) | |A| = |B|} eine Äquivalenzrelation auf der Potenzmenge P(M) ist.",
-                        difficulty: .hard,
-                        points: 15
-                    ),
-                    Exercise(
-                        id: 14,
-                        title: "Kardinalität von Mengen",
-                        description: "Zeigen Sie, dass die Menge der reellen Zahlen ℝ überabzählbar ist, indem Sie das Cantorsche Diagonalargument verwenden.",
-                        difficulty: .hard,
-                        points: 15
-                    ),
-                    Exercise(
-                        id: 15,
-                        title: "Komplexe Mengenoperationen",
-                        description: "Beweisen Sie die De Morganschen Gesetze für Mengen:\n1. (A ∪ B)ᶜ = Aᶜ ∩ Bᶜ\n2. (A ∩ B)ᶜ = Aᶜ ∪ Bᶜ",
-                        difficulty: .hard,
-                        points: 15
-                    )
-                ]
-            }
-        default:
-            return [
-                Exercise(
-                    id: 1,
-                    title: "Beispielaufgabe",
-                    description: "Dies ist eine Beispielaufgabe zum Thema \(topic)",
-                    difficulty: difficulty,
-                    points: difficulty == .easy ? 5 : (difficulty == .medium ? 10 : 15)
-                )
-            ]
+    private var filteredExercises: [Exercise] {
+        exercises.filter { $0.topic == topic.title && $0.difficultyEnum == selectedDifficulty }
+    }
+    
+    private func loadExercises() {
+        guard let url = Bundle.main.url(forResource: "exercises", withExtension: "json") else {
+            error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "JSON file not found"])
+            isLoading = false
+            return
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let response = try JSONDecoder().decode(ExercisesResponse.self, from: data)
+            exercises = response.exercises
+            isLoading = false
+        } catch {
+            self.error = error
+            isLoading = false
         }
     }
 }
@@ -498,12 +408,12 @@ struct ExerciseCard: View {
                 .lineSpacing(4)
             
             HStack {
-                Text(exercise.difficulty.text)
+                Text(exercise.difficultyEnum.text)
                     .font(.caption)
                     .foregroundColor(.white)
                     .padding(.horizontal, 8)
                     .padding(.vertical, 4)
-                    .background(exercise.difficulty.color)
+                    .background(exercise.difficultyEnum.color)
                     .cornerRadius(4)
                 
                 Spacer()
@@ -529,34 +439,6 @@ struct ExerciseCard: View {
             RoundedRectangle(cornerRadius: 12)
                 .stroke(Color.blue.opacity(0.1), lineWidth: 1)
         )
-    }
-}
-
-struct Exercise: Identifiable {
-    let id: Int
-    let title: String
-    let description: String
-    let difficulty: Difficulty
-    let points: Int
-}
-
-enum Difficulty {
-    case easy, medium, hard
-    
-    var color: Color {
-        switch self {
-        case .easy: return .green
-        case .medium: return .orange
-        case .hard: return .red
-        }
-    }
-    
-    var text: String {
-        switch self {
-        case .easy: return "Einfach"
-        case .medium: return "Mittel"
-        case .hard: return "Schwer"
-        }
     }
 }
 
