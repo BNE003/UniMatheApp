@@ -1,0 +1,140 @@
+{
+  "title": "Komplexe Zahlenn",
+  "icon": "i.circle.fill",
+  "description": "Die komplexen Zahlen und ihre geometrische Interpretation.",
+  "content": {
+    "sections": [
+      {
+        "title": "Definition und Grundlagen",
+        "content": "Eine komplexe Zahl ist eine Zahl der Form z = a + bi, wobei a und b reelle Zahlen und i die imaginäre Einheit mit i² = -1 ist.",
+        "formulas": [
+          {
+            "expression": "i² = -1",
+            "explanation": "Definition der imaginären Einheit"
+          },
+          {
+            "expression": "z = a + bi",
+            "explanation": "Allgemeine Form einer komplexen Zahl"
+          }
+        ],
+        "examples": [
+          {
+            "title": "Beispiel 1: z = 2 + 3i",
+            "content": "Realteil: Re(z) = 2\nImaginärteil: Im(z) = 3\nBetrag: |z| = √13\nKonjugierte: z̄ = 2 - 3i"
+          },
+          {
+            "title": "Beispiel 2: z = -1 + 2i",
+            "content": "Realteil: Re(z) = -1\nImaginärteil: Im(z) = 2\nBetrag: |z| = √5\nKonjugierte: z̄ = -1 - 2i"
+          }
+        ]
+      },
+      {
+        "title": "Rechenoperationen",
+        "content": "Mit komplexen Zahlen können wir die grundlegenden arithmetischen Operationen durchführen.",
+        "formulas": [
+          {
+            "expression": "(a + bi) ± (c + di) = (a ± c) + (b ± d)i",
+            "explanation": "Addition und Subtraktion komplexer Zahlen"
+          },
+          {
+            "expression": "(a + bi)(c + di) = (ac - bd) + (ad + bc)i",
+            "explanation": "Multiplikation komplexer Zahlen"
+          },
+          {
+            "expression": "\\frac{a + bi}{c + di} = \\frac{(ac + bd) + (bc - ad)i}{c^2 + d^2}",
+            "explanation": "Division komplexer Zahlen"
+          }
+        ],
+        "examples": [
+          {
+            "title": "Addition und Subtraktion",
+            "content": "Beispiel 1: (2+3i) + (1-2i) = 3 + i\nBeispiel 2: (5+2i) - (3+4i) = 2 - 2i\n\nGeometrische Interpretation:\n- Addition: Vektoraddition in der Ebene\n- Subtraktion: Vektorsubtraktion in der Ebene"
+          },
+          {
+            "title": "Multiplikation",
+            "content": "Beispiel 1: (2+3i)(1-2i) = 8 - i\nBeispiel 2: (1+i)(1-i) = 2\n\nGeometrische Interpretation:\n- Beträge werden multipliziert\n- Winkel werden addiert"
+          },
+          {
+            "title": "Division",
+            "content": "Beispiel 1: \\frac{2+3i}{1-2i} = -\\frac{4}{5} + \\frac{7}{5}i\nBeispiel 2: \\frac{1+i}{1-i} = i\n\nGeometrische Interpretation:\n- Beträge werden dividiert\n- Winkel werden subtrahiert"
+          }
+        ]
+      },
+      {
+        "title": "Geometrische Darstellung",
+        "content": "Komplexe Zahlen können als Punkte in der Ebene dargestellt werden.",
+        "formulas": [
+          {
+            "expression": "z = r(\\cos\\varphi + i\\sin\\varphi) = re^{i\\varphi}",
+            "explanation": "Polarform einer komplexen Zahl"
+          }
+        ],
+        "examples": [
+          {
+            "title": "Gaußsche Zahlenebene",
+            "content": "Komplexe Zahlen können als Punkte in der Ebene dargestellt werden:\n- Realteil auf der x-Achse\n- Imaginärteil auf der y-Achse\n- Betrag ist der Abstand vom Ursprung\n- Argument ist der Winkel zur positiven x-Achse"
+          },
+          {
+            "title": "Beispiel 1: z = 3 + 4i",
+            "content": "Punkt: (3,4)\nBetrag: 5\nArgument: arctan(4/3) ≈ 53.13°"
+          },
+          {
+            "title": "Beispiel 2: z = -2 + i",
+            "content": "Punkt: (-2,1)\nBetrag: √5\nArgument: π - arctan(1/2) ≈ 153.43°"
+          }
+        ]
+      },
+      {
+        "title": "Anwendungen",
+        "content": "Komplexe Zahlen haben vielfältige Anwendungen in verschiedenen Bereichen.",
+        "formulas": [
+          {
+            "expression": "V(t) = V_0e^{i\\omega t}",
+            "explanation": "Wechselspannung in der Physik"
+          },
+          {
+            "expression": "H(\\omega) = \\frac{1}{1 + i\\omega RC}",
+            "explanation": "Übertragungsfunktion eines Filters"
+          },
+          {
+            "expression": "p(z) = z^2 + 1",
+            "explanation": "Polynom mit komplexen Nullstellen"
+          }
+        ],
+        "examples": [
+          {
+            "title": "Physik",
+            "content": "Anwendungen in der Physik:\n- Darstellung von Schwingungen\n- Wechselstromrechnung\n- Quantenmechanik"
+          },
+          {
+            "title": "Ingenieurwissenschaften",
+            "content": "Anwendungen in den Ingenieurwissenschaften:\n- Signalverarbeitung\n- Steuerungstechnik\n- Filterdesign"
+          },
+          {
+            "title": "Mathematik",
+            "content": "Anwendungen in der Mathematik:\n- Fundamentalsatz der Algebra\n- Komplexe Analysis\n- Fourier-Transformation"
+          }
+        ]
+      }
+    ]
+  },
+  "exercises": [
+    {
+      "id": 20,
+      "title": "Komplexe Zahlen (erweitert)",
+      "description": "Umfassende Übungen zu komplexen Zahlen",
+      "difficulty": "hard",
+      "points": 15,
+      "steps": [
+        {
+          "title": "Addition und Subtraktion komplexer Zahlen",
+          "content": "Gegeben: z₁ = 2 + 5i und z₂ = 3 - 2i\n\nAddition:\n(2+5i) + (3-2i) = (2+3) + (5-2)i = 5 + 3i\n\nSubtraktion:\n(2+5i) - (3-2i) = (2-3) + (5-(-2))i = -1 + 7i"
+        },
+        {
+          "title": "Multiplikation und Division komplexer Zahlen",
+          "content": "Multiplikation:\n(2+5i)(3-2i) = 2×3 + 2×(-2i) + 5i×3 + 5i×(-2i)\n= 6 -4i + 15i -10(i²)\n= 6 +11i +10\n= 16 +11i\n\nDivision:\n\\[\n\\frac{2+5i}{3-2i} = \\frac{(2+5i)(3+2i)}{(3-2i)(3+2i)} = \\frac{6+4i+15i+10i²}{9+4} = \\frac{-4+19i}{13} = -\\frac{4}{13} + \\frac{19}{13}i\n\\]"
+        }
+      ]
+    }
+  ]
+} 

@@ -195,6 +195,20 @@ struct ExerciseDetailView: View {
                 "Schritt 3: Beweis des zweiten Gesetzes",
                 "Schritt 4: Zusammenfassung"
             ]
+        case 20: // Komplexe Zahlen (erweitert)
+            return [
+                "Aufgabe 1: Addition und Subtraktion komplexer Zahlen",
+                "Aufgabe 2: Multiplikation und Division komplexer Zahlen",
+                "Aufgabe 3: Betrag und Konjugation einer komplexen Zahl",
+                "Aufgabe 4: Umrechnung in Polarform",
+                "Aufgabe 5: Bestimmung der Argumente komplexer Zahlen",
+                "Aufgabe 6: Komplexe Zahlen potenzieren",
+                "Aufgabe 7: Komplexe Gleichungen lösen",
+                "Aufgabe 8: Multiplikation komplexer Zahlen in Polarform",
+                "Aufgabe 9: Division komplexer Zahlen in Polarform",
+                "Aufgabe 10: Anwendung der De-Moivre-Formel",
+                "Zusammenfassung der wichtigsten Eigenschaften"
+            ]
         default:
             return ["Schritt 1: Lösung"]
         }
@@ -416,6 +430,169 @@ struct SolutionStepView: View {
                 return "Beweis des zweiten Gesetzes:\n- x ∈ (A ∩ B)ᶜ ⇔ x ∉ A ∩ B\n- ⇔ x ∉ A oder x ∉ B\n- ⇔ x ∈ Aᶜ oder x ∈ Bᶜ\n- ⇔ x ∈ Aᶜ ∪ Bᶜ"
             case 3:
                 return "Zusammenfassung:\nDie De Morganschen Gesetze zeigen den Zusammenhang zwischen Komplement, Vereinigung und Durchschnitt."
+            default:
+                return ""
+            }
+        case 20:
+            switch step {
+            case 0:
+                return """
+Aufgabe 1: Addition und Subtraktion komplexer Zahlen
+
+Gegeben: z₁ = 2 + 5i und z₂ = 3 - 2i
+
+Addition:
+(2+5i) + (3-2i) = (2+3) + (5-2)i = 5 + 3i
+
+Subtraktion:
+(2+5i) - (3-2i) = (2-3) + (5-(-2))i = -1 + 7i
+"""
+            case 1:
+                return """
+Aufgabe 2: Multiplikation und Division komplexer Zahlen
+
+Multiplikation:
+(2+5i)(3-2i) = 2×3 + 2×(-2i) + 5i×3 + 5i×(-2i)
+= 6 -4i + 15i -10(i²)
+= 6 +11i +10
+= 16 +11i
+
+Division:
+\\[
+\\frac{2+5i}{3-2i} = \\frac{(2+5i)(3+2i)}{(3-2i)(3+2i)} = \\frac{6+4i+15i+10i²}{9+4} = \\frac{-4+19i}{13} = -\\frac{4}{13} + \\frac{19}{13}i
+\\]
+"""
+            case 2:
+                return """
+Aufgabe 3: Betrag und Konjugation einer komplexen Zahl
+
+Gegeben: z = 4 - 3i
+
+Betrag:
+|z| = √(4² + (-3)²) = √(16+9) = √25 = 5
+
+Konjugierte Zahl:
+\\[
+\\overline{z} = 4 + 3i
+\\]
+"""
+            case 3:
+                return """
+Aufgabe 4: Umrechnung in Polarform
+
+Gegeben: z = 1 + √3 i
+
+Betrag:
+\\[
+r = |z| = \\sqrt{1^2 + (\\sqrt{3})^2} = \\sqrt{1+3} = 2
+\\]
+
+Winkel:
+\\[
+\\varphi = \\arctan\\left(\\frac{\\sqrt{3}}{1}\\right) = \\frac{\\pi}{3}
+\\]
+
+Polarform:
+\\[
+z = 2 \\left( \\cos\\left(\\frac{\\pi}{3}\\right) + i \\sin\\left(\\frac{\\pi}{3}\\right) \\right)
+\\]
+"""
+            case 4:
+                return """
+Aufgabe 5: Bestimmung der Argumente komplexer Zahlen
+
+Gegeben: z = -1 + i
+
+Argument:
+\\[
+\\varphi = \\arctan\\left(\\frac{1}{-1}\\right) = \\arctan(-1) = -\\frac{\\pi}{4}
+\\]
+Da z im 2. Quadranten liegt, ist das Argument:
+\\[
+\\varphi = \\pi - \\frac{\\pi}{4} = \\frac{3\\pi}{4}
+\\]
+"""
+            case 5:
+                return """
+Aufgabe 6: Komplexe Zahlen potenzieren
+
+Gegeben: z = 2e^{i\\frac{\\pi}{6}}, n = 3
+
+Potenzieren:
+\\[
+z^3 = 2^3 e^{i 3 \\frac{\\pi}{6}} = 8 e^{i\\frac{\\pi}{2}} = 8i
+\\]
+"""
+            case 6:
+                return """
+Aufgabe 7: Komplexe Gleichungen lösen
+
+Löse: z^2 = 1 + i
+
+Schreibe 1 + i in Polarform:
+Betrag: \\( r = \\sqrt{2} \\), Winkel: \\( \\varphi = \\frac{\\pi}{4} \\)
+
+Lösungen:
+\\[
+z = \\sqrt{\\sqrt{2}} \\cdot e^{i(\\frac{\\pi}{8} + k\\pi)},\\quad k = 0,1
+\\]
+"""
+            case 7:
+                return """
+Aufgabe 8: Multiplikation komplexer Zahlen in Polarform
+
+Gegeben: z₁ = r₁ e^{i\\varphi_1}, z₂ = r₂ e^{i\\varphi_2}
+
+Multiplikation:
+\\[
+z₁ z₂ = r₁ r₂ e^{i(\\varphi_1 + \\varphi_2)}
+\\]
+Beispiel: r₁=2, \\(\\varphi_1=\\frac{\\pi}{6}\\), r₂=3, \\(\\varphi_2=\\frac{\\pi}{4}\\)
+\\[
+z₁ z₂ = 6 e^{i(\\frac{\\pi}{6} + \\frac{\\pi}{4})} = 6 e^{i\\frac{5\\pi}{12}}
+\\]
+"""
+            case 8:
+                return """
+Aufgabe 9: Division komplexer Zahlen in Polarform
+
+Gegeben: z₁ = r₁ e^{i\\varphi_1}, z₂ = r₂ e^{i\\varphi_2}
+
+Division:
+\\[
+\\frac{z₁}{z₂} = \\frac{r₁}{r₂} e^{i(\\varphi_1 - \\varphi_2)}
+\\]
+Beispiel: r₁=4, \\(\\varphi_1=\\frac{3\\pi}{8}\\), r₂=2, \\(\\varphi_2=\\frac{\\pi}{8}\\)
+\\[
+\\frac{z₁}{z₂} = 2 e^{i(\\frac{3\\pi}{8} - \\frac{\\pi}{8})} = 2 e^{i\\frac{\\pi}{4}}
+\\]
+"""
+            case 9:
+                return """
+Aufgabe 10: Anwendung der De-Moivre-Formel
+
+Gegeben: z = r e^{i\\varphi}, n ∈ \\mathbb{N}
+
+De-Moivre-Formel:
+\\[
+z^n = r^n e^{i n\\varphi}
+\\]
+Beispiel: z = 2 e^{i\\frac{\\pi}{3}}, n=4
+\\[
+z^4 = 16 e^{i\\frac{4\\pi}{3}}
+\\]
+"""
+            case 10:
+                return """
+Zusammenfassung der wichtigsten Eigenschaften
+
+- Komplexe Zahlen lassen sich in der Form a+bi oder r·e^{i\\varphi} schreiben.
+- Addition/Subtraktion: Komponentenweise.
+- Multiplikation/Division: Am besten in Polarform.
+- Betrag: |z| = \\sqrt{a^2 + b^2}
+- Konjugierte: \\overline{z} = a - bi
+- De-Moivre-Formel: Potenzen und Wurzeln in Polarform.
+"""
             default:
                 return ""
             }
