@@ -1,0 +1,131 @@
+{
+    "exercises": [
+        {
+            "id": 16,
+            "topic": "Logik",
+            "title": "Wahrheitstafeln zu logischen Operatorenn",
+            "description": "Erstellen Sie die Wahrheitstafel für die Operatoren $\\land$ (UND), $\\lor$ (ODER) und $\\rightarrow$ (Implikation) für die Aussagen $A$ und $B$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Mögliche Belegungen für $A$ und $B$ aufstellen:\n\n\\begin{array}{c|c}\nA & B \\\\\\hline\nw & w \\\\\nw & f \\\\\nf & w \\\\\nf & f \\\\\n\\end{array}",
+                "Schritt 2: Wahrheitstafel für $A \\land B$:\n\n\\begin{array}{c|c|c}\nA & B & A \\land B \\\\\\hline\nw & w & w \\\\\nw & f & f \\\\\nf & w & f \\\\\nf & f & f \\\\\n\\end{array}",
+                "Schritt 3: Wahrheitstafel für $A \\lor B$:\n\n\\begin{array}{c|c|c}\nA & B & A \\lor B \\\\\\hline\nw & w & w \\\\\nw & f & w \\\\\nf & w & w \\\\\nf & f & f \\\\\n\\end{array}",
+                "Schritt 4: Wahrheitstafel für $A \\rightarrow B$:\n\n\\begin{array}{c|c|c}\nA & B & A \\rightarrow B \\\\\\hline\nw & w & w \\\\\nw & f & f \\\\\nf & w & w \\\\\nf & f & w \\\\\n\\end{array}"
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Logik",
+            "title": "Beweis der de Morganschen Gesetze",
+            "description": "Beweisen Sie in der Aussagenlogik die de Morganschen Gesetze:\n1. $\\neg (A \\land B) \\equiv (\\neg A) \\lor (\\neg B)$\n2. $\\neg (A \\lor B) \\equiv (\\neg A) \\land (\\neg B)$",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Erstellen Sie für beide Gesetze die Wahrheitstafeln.",
+                "Für das erste Gesetz:\n\\begin{array}{c|c|c|c|c|c}\nA & B & A \\land B & \\neg (A \\land B) & \\neg A & \\neg B & (\\neg A) \\lor (\\neg B) \\\\\\hline\nw & w & w & f & f & f & f \\\\\nw & f & f & w & f & w & w \\\\\nf & w & f & w & w & f & w \\\\\nf & f & f & w & w & w & w \\\\\n\\end{array}\nMan sieht: $\\neg (A \\land B)$ und $(\\neg A) \\lor (\\neg B)$ haben stets den gleichen Wahrheitswert.",
+                "Schritt 3: Für das zweite Gesetz:\n\\begin{array}{c|c|c|c|c|c}\nA & B & A \\lor B & \\neg (A \\lor B) & \\neg A & \\neg B & (\\neg A) \\land (\\neg B) \\\\\\hline\nw & w & w & f & f & f & f \\\\\nw & f & w & f & f & w & f \\\\\nf & w & w & f & w & f & f \\\\\nf & f & f & w & w & w & w \\\\\n\\end{array}\nAuch hier stimmen die Spalten überein.",
+                "Schritt 4: Beide Gesetze sind durch die Wahrheitstafeln bewiesen."
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Logik",
+            "title": "Normalformen bestimmen: KNF und DNF",
+            "description": "Bestimmen Sie die konjunktive (KNF) und disjunktive Normalform (DNF) der Aussage $\\neg (A \\rightarrow B)$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Umformung der Aussage:\n$A \\rightarrow B \\equiv \\neg A \\lor B$\nAlso $\\neg (A \\rightarrow B) \\equiv \\neg (\\neg A \\lor B)$.",
+                "Schritt 2: Wende de Morgans Gesetz an:\n$\\neg (\\neg A \\lor B) \\equiv A \\land \\neg B$",
+                "Schritt 3: DNF: $A \\land \\neg B$ ist bereits eine Disjunktive Normalform.",
+                "Schritt 4: KNF: Schreibe die KNF:\n$A \\land \\neg B \\equiv (A) \\land (\\neg B)$\nDies ist bereits eine KNF, da sie als Konjunktion von Klauseln vorliegt.",
+                "Schritt 5: Zusammenfassung:\nDie DNF und KNF von $\\neg (A \\rightarrow B)$ ist $A \\land \\neg B$."
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Logik",
+            "title": "Quantoren und ihre Negation",
+            "description": "Formulieren Sie die Negation der Aussage: $\\forall x \\in \\mathbb{N}: \\exists y \\in \\mathbb{N}: x < y$ und schreiben Sie die negierte Aussage in möglichst einfacher Form.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Ursprüngliche Aussage:\n\"Für alle $x$ gibt es ein $y$ mit $x < y$.\"",
+                "Schritt 2: Negation der Aussage:\n$\\neg (\\forall x\\; \\exists y: x < y) \\equiv \\exists x\\; \\forall y: x \\geq y$",
+                "Schritt 3: Interpretation:\nEs existiert ein $x$, das für alle $y$ größer oder gleich $y$ ist, d.h. $x$ ist das größte Element.",
+                "Schritt 4: In $\\mathbb{N}$ gibt es kein größtes Element, daher ist die Negation falsch.",
+                "Schritt 5: Die Negation lautet also: \"Es gibt eine natürliche Zahl, die größer oder gleich jeder natürlichen Zahl ist.\""
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Logik",
+            "title": "Logische Äquivalenz mit Wahrheitstafeln überprüfen",
+            "description": "Überprüfen Sie, ob die Aussagen $A \\rightarrow B$ und $\\neg A \\lor B$ logisch äquivalent sind, indem Sie eine Wahrheitstafel erstellen.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Wahrheitstafel für $A$, $B$, $A \\rightarrow B$ und $\\neg A \\lor B$ aufstellen:\n\\begin{array}{c|c|c|c|c}\nA & B & \\neg A & A \\rightarrow B & \\neg A \\lor B \\\\\\hline\nw & w & f & w & w \\\\\nw & f & f & f & f \\\\\nf & w & w & w & w \\\\\nf & f & w & w & w \\\\\n\\end{array}",
+                "Schritt 2: Vergleich der Spalten $A \\rightarrow B$ und $\\neg A \\lor B$:\nDie Spalten sind identisch.",
+                "Schritt 3: Die Aussagen sind logisch äquivalent."
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Logik",
+            "title": "Tautologie",
+            "description": "Zeigen Sie, dass $A \\lor \\neg A$ eine Tautologie ist.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Erstellen Sie die Wahrheitstafel für $A$ und $\\neg A$.",
+                "Schritt 2: Tabelle:\n\\begin{array}{c|c|c}\nA & \\neg A & A \\lor \\neg A \\\\ \\hline\nw & f & w \\\\f & w & w \\\\\\end{array}",
+                "Schritt 3: Die Aussage ist immer wahr, also eine Tautologie."
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Logik",
+            "title": "Beweis durch Kontraposition und Widerspruch",
+            "description": "Beweisen Sie durch Kontraposition und durch Widerspruch: \"Wenn $n^2$ gerade ist, dann ist $n$ gerade.\"",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Kontraposition:\nDie Kontraposition der Aussage ist:\n\"Wenn $n$ ungerade ist, dann ist $n^2$ ungerade.\"",
+                "Beweis:\nSei $n = 2k + 1$ (ungerade).\nDann $n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$ (ungerade).",
+                "Schritt 2: Widerspruchsbeweis:\nAngenommen, $n^2$ ist gerade, aber $n$ ist ungerade.\nDann wie oben: $n^2$ wäre ungerade, Widerspruch.",
+                "Schritt 3: Beide Beweisarten zeigen: Ist $n^2$ gerade, so ist $n$ gerade."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Logik",
+            "title": "Vereinfachung logischer Ausdrücke",
+            "description": "Vereinfachen Sie den Ausdruck $\\neg (A \\lor (\\neg A \\land B))$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Wende das Distributivgesetz an:\n$A \\lor (\\neg A \\land B) \\equiv (A \\lor \\neg A) \\land (A \\lor B)$",
+                "Schritt 2: $A \\lor \\neg A$ ist immer wahr, also:\n$\\equiv \\text{wahr} \\land (A \\lor B) = (A \\lor B)$",
+                "Schritt 3: Nun $\\neg (A \\lor B)$ bleibt übrig.",
+                "Schritt 4: Endergebnis:\n$\\neg (A \\lor (\\neg A \\land B)) \\equiv \\neg (A \\lor B)$"
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Logik",
+            "title": "Gesetze der booleschen Algebra: Idempotenzgesetz",
+            "description": "Beweisen Sie das Idempotenzgesetz der booleschen Algebra: $A \\lor A = A$ und $A \\land A = A$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Erstellen Sie die Wahrheitstafeln für beide Gesetze.",
+                "Für $A \\lor A$:\n\\begin{array}{c|c}\nA & A \\lor A \\\\\\hline\nw & w \\\\\nf & f \\\\\n\\end{array}",
+                "Für $A \\land A$:\n\\begin{array}{c|c}\nA & A \\land A \\\\\\hline\nw & w \\\\\nf & f \\\\\n\\end{array}",
+                "Schritt 2: In beiden Fällen stimmt der Wahrheitswert mit $A$ überein.",
+                "Schritt 3: Das Idempotenzgesetz ist bewiesen."
+            ]
+        }
+    ]
+} 

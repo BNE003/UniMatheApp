@@ -1,0 +1,144 @@
+{
+    "exercises": [
+        {
+            "id": 45,
+            "topic": "Binomische Formeln",
+            "title": "Erste Binomische Formel",
+            "description": "Berechnen Sie $(a + b)^2$ und zeigen Sie, dass es gleich $a^2 + 2ab + b^2$ ist.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Definition des Quadrats\n$(a + b)^2$ bedeutet $(a + b)$ mit sich selbst multipliziert, also $(a + b)(a + b)$",
+                "Schritt 2: Ausmultiplizieren mit dem Distributivgesetz\nWir multiplizieren jeden Term der ersten Klammer mit jedem Term der zweiten Klammer:\n$a \\cdot a + a \\cdot b + b \\cdot a + b \\cdot b$",
+                "Schritt 3: Berechnung der Produkte\n$a \\cdot a = a^2$\n$a \\cdot b = ab$\n$b \\cdot a = ba = ab$ (Kommutativgesetz)\n$b \\cdot b = b^2$",
+                "Schritt 4: Zusammenfassen der Terme\n$a^2 + ab + ab + b^2 = a^2 + 2ab + b^2$"
+            ]
+        },
+        {
+            "id": 46,
+            "topic": "Binomische Formeln",
+            "title": "Zweite Binomische Formel",
+            "description": "Berechnen Sie $(a - b)^2$ und zeigen Sie, dass es gleich $a^2 - 2ab + b^2$ ist.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Definition des Quadrats\n$(a - b)^2$ bedeutet $(a - b)$ mit sich selbst multipliziert, also $(a - b)(a - b)$",
+                "Schritt 2: Ausmultiplizieren mit dem Distributivgesetz\nWir multiplizieren jeden Term der ersten Klammer mit jedem Term der zweiten Klammer:\n$a \\cdot a + a \\cdot (-b) + (-b) \\cdot a + (-b) \\cdot (-b)$",
+                "Schritt 3: Berechnung der Produkte\n$a \\cdot a = a^2$\n$a \\cdot (-b) = -ab$\n$(-b) \\cdot a = -ba = -ab$ (Kommutativgesetz)\n$(-b) \\cdot (-b) = b^2$ (Minus mal Minus ergibt Plus)",
+                "Schritt 4: Zusammenfassen der Terme\n$a^2 - ab - ab + b^2 = a^2 - 2ab + b^2$"
+            ]
+        },
+        {
+            "id": 47,
+            "topic": "Binomische Formeln",
+            "title": "Dritte Binomische Formel",
+            "description": "Berechnen Sie $(a + b)(a - b)$ und zeigen Sie, dass es gleich $a^2 - b^2$ ist.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Ausmultiplizieren mit dem Distributivgesetz\nWir multiplizieren jeden Term der ersten Klammer mit jedem Term der zweiten Klammer:\n$a \\cdot a + a \\cdot (-b) + b \\cdot a + b \\cdot (-b)$",
+                "Schritt 2: Berechnung der Produkte\n$a \\cdot a = a^2$\n$a \\cdot (-b) = -ab$\n$b \\cdot a = ba = ab$ (Kommutativgesetz)\n$b \\cdot (-b) = -b^2$",
+                "Schritt 3: Zusammenfassen der Terme\n$a^2 - ab + ab - b^2$",
+                "Schritt 4: Vereinfachen\n$-ab + ab$ hebt sich auf, also bleibt $a^2 - b^2$"
+            ]
+        },
+        {
+            "id": 48,
+            "topic": "Binomische Formeln",
+            "title": "Anwendung der ersten binomischen Formel",
+            "description": "Berechnen Sie $(2x + 3y)^2$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Anwendung der ersten binomischen Formel\n$(2x + 3y)^2 = (2x)^2 + 2 \\cdot 2x \\cdot 3y + (3y)^2$",
+                "Schritt 2: Berechnung der Quadrate\n$(2x)^2 = 2^2 \\cdot x^2 = 4x^2$\n$(3y)^2 = 3^2 \\cdot y^2 = 9y^2$",
+                "Schritt 3: Berechnung des gemischten Terms\n$2 \\cdot 2x \\cdot 3y = 2 \\cdot 2 \\cdot 3 \\cdot x \\cdot y = 12xy$",
+                "Schritt 4: Zusammenfassen aller Terme\n$4x^2 + 12xy + 9y^2$"
+            ]
+        },
+        {
+            "id": 49,
+            "topic": "Binomische Formeln",
+            "title": "Anwendung der zweiten binomischen Formel",
+            "description": "Berechnen Sie $(5a - 2b)^2$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Anwendung der zweiten binomischen Formel\n$(5a - 2b)^2 = (5a)^2 - 2 \\cdot 5a \\cdot 2b + (2b)^2$",
+                "Schritt 2: Berechnung der Quadrate\n$(5a)^2 = 5^2 \\cdot a^2 = 25a^2$\n$(2b)^2 = 2^2 \\cdot b^2 = 4b^2$",
+                "Schritt 3: Berechnung des gemischten Terms\n$-2 \\cdot 5a \\cdot 2b = -2 \\cdot 5 \\cdot 2 \\cdot a \\cdot b = -20ab$",
+                "Schritt 4: Zusammenfassen aller Terme\n$25a^2 - 20ab + 4b^2$"
+            ]
+        },
+        {
+            "id": 50,
+            "topic": "Binomische Formeln",
+            "title": "Anwendung der dritten binomischen Formel",
+            "description": "Berechnen Sie $(3x + 4y)(3x - 4y)$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Anwendung der dritten binomischen Formel\n$(3x + 4y)(3x - 4y) = (3x)^2 - (4y)^2$",
+                "Schritt 2: Berechnung der Quadrate\n$(3x)^2 = 3^2 \\cdot x^2 = 9x^2$\n$(4y)^2 = 4^2 \\cdot y^2 = 16y^2$",
+                "Schritt 3: Subtraktion der Quadrate\n$9x^2 - 16y^2$"
+            ]
+        },
+        {
+            "id": 51,
+            "topic": "Binomische Formeln",
+            "title": "Faktorisieren mit der ersten binomischen Formel",
+            "description": "Faktorisieren Sie den Ausdruck $x^2 + 6x + 9$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Ausdrucks\nDer Ausdruck hat die Form $x^2 + 6x + 9$\nWir suchen zwei Zahlen, deren Summe 6 und deren Produkt 9 ist",
+                "Schritt 2: Erkennen der ersten binomischen Formel\n$x^2 + 6x + 9 = x^2 + 2 \\cdot x \\cdot 3 + 3^2$",
+                "Schritt 3: Anwendung der Formel\nDies entspricht der Form $(a + b)^2 = a^2 + 2ab + b^2$\nMit $a = x$ und $b = 3$",
+                "Schritt 4: Faktorisierung\n$(x + 3)^2$"
+            ]
+        },
+        {
+            "id": 52,
+            "topic": "Binomische Formeln",
+            "title": "Faktorisieren mit der zweiten binomischen Formel",
+            "description": "Faktorisieren Sie den Ausdruck $4x^2 - 12xy + 9y^2$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Ausdrucks\nDer Ausdruck hat die Form $4x^2 - 12xy + 9y^2$\nWir suchen zwei Zahlen, deren Summe -12 und deren Produkt 36 ist",
+                "Schritt 2: Erkennen der zweiten binomischen Formel\n$4x^2 - 12xy + 9y^2 = (2x)^2 - 2 \\cdot 2x \\cdot 3y + (3y)^2$",
+                "Schritt 3: Anwendung der Formel\nDies entspricht der Form $(a - b)^2 = a^2 - 2ab + b^2$\nMit $a = 2x$ und $b = 3y$",
+                "Schritt 4: Faktorisierung\n$(2x - 3y)^2$"
+            ]
+        },
+        {
+            "id": 53,
+            "topic": "Binomische Formeln",
+            "title": "Faktorisieren mit der dritten binomischen Formel",
+            "description": "Faktorisieren Sie den Ausdruck $16a^2 - 25b^2$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Ausdrucks\nDer Ausdruck hat die Form $16a^2 - 25b^2$\nDies ist eine Differenz zweier Quadrate",
+                "Schritt 2: Erkennen der dritten binomischen Formel\n$16a^2 - 25b^2 = (4a)^2 - (5b)^2$",
+                "Schritt 3: Anwendung der Formel\nDies entspricht der Form $(a + b)(a - b) = a^2 - b^2$\nMit $a = 4a$ und $b = 5b$",
+                "Schritt 4: Faktorisierung\n$(4a + 5b)(4a - 5b)$"
+            ]
+        },
+        {
+            "id": 54,
+            "topic": "Binomische Formeln",
+            "title": "Kombinierte Anwendung",
+            "description": "Vereinfachen Sie den Ausdruck $(x + y)^2 - (x - y)^2$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Anwendung der ersten binomischen Formel\n$(x + y)^2 = x^2 + 2xy + y^2$",
+                "Schritt 2: Anwendung der zweiten binomischen Formel\n$(x - y)^2 = x^2 - 2xy + y^2$",
+                "Schritt 3: Subtraktion der beiden Ausdrücke\n$(x^2 + 2xy + y^2) - (x^2 - 2xy + y^2)$",
+                "Schritt 4: Auflösen der Klammern\n$x^2 + 2xy + y^2 - x^2 + 2xy - y^2$",
+                "Schritt 5: Zusammenfassen der Terme\n$x^2 - x^2 + 2xy + 2xy + y^2 - y^2$\n$= 4xy$"
+            ]
+        }
+    ]
+} 

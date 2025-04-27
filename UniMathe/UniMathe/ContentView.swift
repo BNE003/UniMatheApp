@@ -264,10 +264,17 @@ struct ContentSelectionView: View {
 
 struct ExercisesView: View {
     let topic: MathTopic
-    @State private var selectedDifficulty: Difficulty?
     @State private var exercises: [Exercise] = []
-    @State private var isLoading = true
+    @State private var selectedDifficulty: Difficulty?
+    @State private var isLoading = false
     @State private var error: Error?
+    
+    private var filteredExercises: [Exercise] {
+        if let difficulty = selectedDifficulty {
+            return exercises.filter { $0.difficultyEnum == difficulty }
+        }
+        return exercises
+    }
     
     var body: some View {
         ZStack {
@@ -361,27 +368,84 @@ struct ExercisesView: View {
             loadExercises()
         }
     }
-    
-    private var filteredExercises: [Exercise] {
-        exercises.filter { $0.topic == topic.title && $0.difficultyEnum == selectedDifficulty }
-    }
-    
+    //------------------------------------------------------------
     private func loadExercises() {
-        guard let url = Bundle.main.url(forResource: "exercises", withExtension: "json") else {
-            error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "JSON file not found"])
-            isLoading = false
-            return
-        }
-        
         do {
-            let data = try Data(contentsOf: url)
-            let response = try JSONDecoder().decode(ExercisesResponse.self, from: data)
-            exercises = response.exercises
-            isLoading = false
+            // Load exercises from the relevant JSON file based on the topic
+            var allExercises: [Exercise] = []
+            let fileName: String
+            
+            // Determine which file to load based on the topic
+            switch topic.title {
+            case "Mengen und Abbildungen":
+                fileName = "mengen_und_abbildungen"
+            case "Logik":
+                fileName = "logik"
+            case "Vollständige Induktion":
+                fileName = "vollstaendige_induktion"
+            case "Binomische Formeln":
+                fileName = "binomische_formeln"
+            default:
+                error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Keine passende JSON-Datei für das Thema gefunden"])
+                isLoading = false
+                return
+            }
+            
+            // Load the specific JSON file
+            if let fileURL = Bundle.main.url(forResource: fileName, withExtension: "json") {
+                let data = try Data(contentsOf: fileURL)
+                let response = try JSONDecoder().decode(ExercisesResponse.self, from: data)
+                allExercises = response.exercises
+                exercises = allExercises
+                isLoading = false
+            } else {
+                error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "JSON-Datei nicht gefunden"])
+                isLoading = false
+            }
         } catch {
             self.error = error
             isLoading = false
         }
+    }
+}
+
+struct ExerciseRow: View {
+    let exercise: Exercise
+    @State private var descriptionHeight: CGFloat = 100
+    @State private var titleHeight: CGFloat = 20
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                LaTeXView(content: "<span style='font-size:1.2em;font-weight:bold;'>" + addHtmlLineBreaks(exercise.title) + "</span>", height: $titleHeight)
+                    .frame(height: titleHeight)
+                Spacer()
+                Text("\(exercise.points) Punkte")
+                    .font(.subheadline)
+                    .foregroundColor(.blue)
+            }
+            
+            LaTeXView(content: addHtmlLineBreaks(exercise.description), height: $descriptionHeight)
+                .frame(height: descriptionHeight)
+            
+            HStack {
+                Text(exercise.difficultyEnum.text)
+                    .font(.caption)
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(exercise.difficultyEnum.color)
+                    .cornerRadius(4)
+                
+                Spacer()
+                
+                Text("Start")
+                    .font(.subheadline)
+                    .foregroundColor(.blue)
+            }
+        }
+        .padding()
+        .background(Color.white)
     }
 }
 
