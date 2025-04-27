@@ -180,6 +180,8 @@ struct LaTeXView: UIViewRepresentable {
                 ul {
                     list-style-type: none;
                     padding-left: 0;
+                    margin-left: 0;
+                    overflow-x: hidden;
                 }
                 
                 li {
@@ -187,6 +189,8 @@ struct LaTeXView: UIViewRepresentable {
                     padding-left: calc(var(--spacing-unit) * 2);
                     position: relative;
                     font-size: 0.95em;
+                    text-indent: -1em;
+                    overflow-x: hidden;
                 }
                 
                 li:before {
