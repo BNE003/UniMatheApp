@@ -3,11 +3,21 @@ import WebKit
 
 struct LaTeXView: UIViewRepresentable {
     let content: String
+    @Binding var height: CGFloat
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
     
     func makeUIView(context: Context) -> WKWebView {
         let webView = WKWebView()
         webView.isOpaque = false
         webView.backgroundColor = .clear
+        webView.navigationDelegate = context.coordinator
+        
+        // Add message handler for size updates
+        webView.configuration.userContentController.add(context.coordinator, name: "sizeHandler")
+        
         return webView
     }
     
@@ -36,6 +46,13 @@ struct LaTeXView: UIViewRepresentable {
                     },
                     svg: {
                         fontCache: 'global'
+                    },
+                    startup: {
+                        pageReady: () => {
+                            return MathJax.startup.defaultPageReady().then(() => {
+                                window.webkit.messageHandlers.sizeHandler.postMessage(document.body.scrollHeight);
+                            });
+                        }
                     }
                 };
             </script>
@@ -108,9 +125,8 @@ struct LaTeXView: UIViewRepresentable {
                 }
                 
                 .math {
-                    font-size: 1.1em;
-                    overflow-x: auto;
-                    padding: var(--spacing-unit);
+                    font-size: 1.2em;
+                    padding: 8px;
                 }
                 
                 .math-inline {
@@ -203,10 +219,46 @@ struct LaTeXView: UIViewRepresentable {
             </style>
         </head>
         <body>
-            \(content)
+            <div class="content-container">
+                \(content)
+            </div>
         </body>
         </html>
         """
         uiView.loadHTMLString(html, baseURL: nil)
+    }
+    
+    class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
+        var parent: LaTeXView
+        
+        init(_ parent: LaTeXView) {
+            self.parent = parent
+        }
+        
+        func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+            let script = """
+                window.webkit.messageHandlers.sizeHandler.postMessage(document.body.scrollHeight);
+            """
+            webView.evaluateJavaScript(script)
+        }
+        
+        func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+            if let height = message.body as? CGFloat {
+                parent.height = height
+            }
+        }
+    }
+}
+
+extension UIColor {
+    var hexString: String {
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
+        var a: CGFloat = 0
+        
+        getRed(&r, green: &g, blue: &b, alpha: &a)
+        
+        return String(format: "#%02X%02X%02X", Int(r * 255), Int(g * 255), Int(b * 255))
     }
 } 

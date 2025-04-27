@@ -3,267 +3,209 @@
         {
             "id": 1,
             "topic": "Mengen und Abbildungen",
-            "title": "Mengenoperationennn",
-            "description": "Gegeben sind die Mengen A = {1, 2, 3, 4} und B = {3, 4, 5, 6}. Bestimmen Sie:\n1. A ∪ B\n2. A ∩ B\n3. A \\ B\n4. B \\ A",
+            "title": "Mengenoperationen",
+            "description": "Gegeben sind die Mengen $A = \\{1, 2, 3, 4\\}$ und $B = \\{3, 4, 5, 6\\}$. Bestimmen Sie:\n1. $A \\cup B$\n2. $A \\cap B$\n3. $A \\setminus B$\n4. $B \\setminus A$",
             "difficulty": "easy",
             "points": 5,
             "solutionSteps": [
-                "Schritt 1: Bestimme die Vereinigung A ∪ B",
-                "A ∪ B = {1, 2, 3, 4, 5, 6}",
-                "Schritt 2: Bestimme den Durchschnitt A ∩ B",
-                "A ∩ B = {3, 4}",
-                "Schritt 3: Bestimme die Differenz A \\ B",
-                "A \\ B = {1, 2}",
-                "Schritt 4: Bestimme die Differenz B \\ A",
-                "B \\ A = {5, 6}"
+                "Schritt 1: Bestimme die Vereinigung $A \\cup B$\n$A \\cup B = \\{1, 2, 3, 4, 5, 6\\}$",
+                "Schritt 2: Bestimme den Durchschnitt $A \\cap B$\n$A \\cap B = \\{3, 4\\}$",
+                "Schritt 3: Bestimme die Differenz $A \\setminus B$\n$A \\setminus B = \\{1, 2\\}$",
+                "Schritt 4: Bestimme die Differenz $B \\setminus A$\n$B \\setminus A = \\{5, 6\\}$"
             ]
         },
         {
             "id": 2,
             "topic": "Mengen und Abbildungen",
             "title": "Teilmengen",
-            "description": "Welche der folgenden Aussagen sind wahr?\n1. {1, 2} ⊆ {1, 2, 3}\n2. {1, 2, 3} ⊆ {1, 2}\n3. ∅ ⊆ {1, 2, 3}\n4. {1, 2, 3} ⊆ ∅",
+            "description": "Welche der folgenden Aussagen sind wahr?\n1. $\\{1, 2\\} \\subseteq \\{1, 2, 3\\}$\n2. $\\{1, 2, 3\\} \\subseteq \\{1, 2\\}$\n3. $\\emptyset \\subseteq \\{1, 2, 3\\}$\n4. $\\{1, 2, 3\\} \\subseteq \\emptyset$",
             "difficulty": "easy",
             "points": 5,
             "solutionSteps": [
-                "Schritt 1: Überprüfe die Definition einer Teilmenge",
-                "Eine Menge A ist Teilmenge von B, wenn jedes Element von A auch in B enthalten ist.",
-                "Schritt 2: Analysiere jede Aussage einzeln",
-                "1. {1, 2} ⊆ {1, 2, 3} ist wahr, da jedes Element von {1, 2} auch in {1, 2, 3} enthalten ist.\n2. {1, 2, 3} ⊆ {1, 2} ist falsch, da 3 nicht in {1, 2} enthalten ist.\n3. ∅ ⊆ {1, 2, 3} ist wahr, da die leere Menge Teilmenge jeder Menge ist.\n4. {1, 2, 3} ⊆ ∅ ist falsch, da die leere Menge keine Elemente enthält.",
-                "Schritt 3: Bestimme die wahren Aussagen",
-                "Die wahren Aussagen sind 1 und 3."
+                "Schritt 1: Überprüfe die Definition einer Teilmenge\nEine Menge $A$ ist Teilmenge von $B$, wenn jedes Element von $A$ auch in $B$ enthalten ist.",
+                "Schritt 2: Analysiere jede Aussage einzeln\n1. $\\{1, 2\\} \\subseteq \\{1, 2, 3\\}$ ist wahr, da jedes Element von $\\{1, 2\\}$ auch in $\\{1, 2, 3\\}$ enthalten ist.\n2. $\\{1, 2, 3\\} \\subseteq \\{1, 2\\}$ ist falsch, da $3$ nicht in $\\{1, 2\\}$ enthalten ist.\n3. $\\emptyset \\subseteq \\{1, 2, 3\\}$ ist wahr, da die leere Menge Teilmenge jeder Menge ist.\n4. $\\{1, 2, 3\\} \\subseteq \\emptyset$ ist falsch, da die leere Menge keine Elemente enthält.",
+                "Schritt 3: Bestimme die wahren Aussagen\nDie wahren Aussagen sind 1 und 3."
             ]
         },
         {
             "id": 3,
             "topic": "Mengen und Abbildungen",
             "title": "Kartesisches Produkt",
-            "description": "Gegeben sind die Mengen A = {a, b} und B = {1, 2}. Bestimmen Sie A × B.",
+            "description": "Gegeben sind die Mengen $A = \\{a, b\\}$ und $B = \\{1, 2\\}$. Bestimmen Sie $A \\times B$.",
             "difficulty": "easy",
             "points": 5,
             "solutionSteps": [
-                "Schritt 1: Definition des kartesischen Produkts",
-                "Das kartesische Produkt A × B ist die Menge aller geordneten Paare (a,b) mit a ∈ A und b ∈ B.",
-                "Schritt 2: Bestimmung aller möglichen Paare",
-                "Mögliche Paare:\n- (a,1), (a,2)\n- (b,1), (b,2)",
-                "Schritt 3: Aufstellung des kartesischen Produkts",
-                "A × B = {(a,1), (a,2), (b,1), (b,2)}"
+                "Schritt 1: Definition des kartesischen Produkts\nDas kartesische Produkt $A \\times B$ ist die Menge aller geordneten Paare $(a,b)$ mit $a \\in A$ und $b \\in B$.",
+                "Schritt 2: Bestimmung aller möglichen Paare\nMögliche Paare:\n$(a,1)$, $(a,2)$\n$(b,1)$, $(b,2)$",
+                "Schritt 3: Aufstellung des kartesischen Produkts\n$A \\times B = \\{(a,1), (a,2), (b,1), (b,2)\\}$"
             ]
         },
         {
             "id": 4,
             "topic": "Mengen und Abbildungen",
             "title": "Abbildungseigenschaften",
-            "description": "Untersuchen Sie die Abbildung f: ℝ → ℝ, f(x) = x² auf Injektivität und Surjektivität. Begründen Sie Ihre Antwort.",
+            "description": "Untersuchen Sie die Abbildung $f: \\mathbb{R} \\rightarrow \\mathbb{R}$, $f(x) = x^2$ auf Injektivität und Surjektivität. Begründen Sie Ihre Antwort.",
             "difficulty": "medium",
             "points": 10,
             "solutionSteps": [
-                "Schritt 1: Definition von Injektivität",
-                "Eine Abbildung f: A → B heißt injektiv, wenn verschiedene Elemente aus A auf verschiedene Elemente aus B abgebildet werden.",
-                "Schritt 2: Überprüfung der Injektivität",
-                "Für f(x) = x²:\n- f(-1) = f(1) = 1\n- Also ist f nicht injektiv, da verschiedene Elemente auf denselben Wert abgebildet werden.",
-                "Schritt 3: Definition von Surjektivität",
-                "Eine Abbildung f: A → B heißt surjektiv, wenn jedes Element aus B als Bild vorkommt.",
-                "Schritt 4: Überprüfung der Surjektivität",
-                "Für f(x) = x²:\n- Negative Zahlen kommen nicht als Bild vor\n- Also ist f nicht surjektiv auf ℝ",
-                "Schritt 5: Zusammenfassung",
-                "Die Abbildung f(x) = x² ist weder injektiv noch surjektiv auf ℝ."
+                "Schritt 1: Definition von Injektivität\nEine Abbildung $f: A \\rightarrow B$ heißt injektiv, wenn verschiedene Elemente aus $A$ auf verschiedene Elemente aus $B$ abgebildet werden.",
+                "Schritt 2: Überprüfung der Injektivität\nFür $f(x) = x^2$:\n$f(-1) = f(1) = 1$\nAlso ist $f$ nicht injektiv, da verschiedene Elemente auf denselben Wert abgebildet werden.",
+                "Schritt 3: Definition von Surjektivität\nEine Abbildung $f: A \\rightarrow B$ heißt surjektiv, wenn jedes Element aus $B$ als Bild vorkommt.",
+                "Schritt 4: Überprüfung der Surjektivität\nFür $f(x) = x^2$:\nNegative Zahlen kommen nicht als Bild vor\nAlso ist $f$ nicht surjektiv auf $\\mathbb{R}$",
+                "Schritt 5: Zusammenfassung\nDie Abbildung $f(x) = x^2$ ist weder injektiv noch surjektiv auf $\\mathbb{R}$."
             ]
         },
         {
             "id": 5,
             "topic": "Mengen und Abbildungen",
             "title": "Komposition von Abbildungen",
-            "description": "Gegeben sind die Abbildungen f: ℝ → ℝ, f(x) = 2x + 1 und g: ℝ → ℝ, g(x) = x².\nBestimmen Sie f∘g und g∘f.",
+            "description": "Gegeben sind die Abbildungen $f: \\mathbb{R} \\rightarrow \\mathbb{R}$, $f(x) = 2x + 1$ und $g: \\mathbb{R} \\rightarrow \\mathbb{R}$, $g(x) = x^2$. Bestimmen Sie $f\\circ g$ und $g\\circ f$.",
             "difficulty": "medium",
             "points": 10,
             "solutionSteps": [
-                "Schritt 1: Definition der Komposition",
-                "Die Komposition f∘g ist definiert durch (f∘g)(x) = f(g(x)).",
-                "Schritt 2: Berechnung von f∘g",
-                "(f∘g)(x) = f(g(x)) = f(x²) = 2x² + 1",
-                "Schritt 3: Berechnung von g∘f",
-                "(g∘f)(x) = g(f(x)) = g(2x + 1) = (2x + 1)² = 4x² + 4x + 1",
-                "Schritt 4: Vergleich der Ergebnisse",
-                "Vergleich:\n- f∘g ≠ g∘f\n- Die Komposition von Abbildungen ist im Allgemeinen nicht kommutativ."
+                "Schritt 1: Definition der Komposition\nDie Komposition $f\\circ g$ ist definiert durch $(f\\circ g)(x) = f(g(x))$.",
+                "Schritt 2: Berechnung von $f\\circ g$\n$(f\\circ g)(x) = f(g(x)) = f(x^2) = 2x^2 + 1$",
+                "Schritt 3: Berechnung von $g\\circ f$\n$(g\\circ f)(x) = g(f(x)) = g(2x + 1) = (2x + 1)^2 = 4x^2 + 4x + 1$",
+                "Schritt 4: Vergleich der Ergebnisse\nVergleich:\n$f\\circ g \\neq g\\circ f$\nDie Komposition von Abbildungen ist im Allgemeinen nicht kommutativ."
             ]
         },
         {
             "id": 6,
             "topic": "Mengen und Abbildungen",
             "title": "Mengenidentitäten",
-            "description": "Beweisen Sie die Distributivgesetze für Mengen:\n1. A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)\n2. A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)",
+            "description": "Beweisen Sie die Distributivgesetze für Mengen:\n1. $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$\n2. $A \\cup (B \\cap C) = (A \\cup B) \\cap (A \\cup C)$",
             "difficulty": "medium",
             "points": 10,
             "solutionSteps": [
-                "Schritt 1: Formulierung der Distributivgesetze",
-                "Zu beweisen sind die Distributivgesetze:\n1. A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)\n2. A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)",
-                "Schritt 2: Beweis des ersten Distributivgesetzes",
-                "Sei x ∈ A ∩ (B ∪ C). Dann gilt:\n- x ∈ A und x ∈ B ∪ C\n- Falls x ∈ B, dann x ∈ A ∩ B\n- Falls x ∈ C, dann x ∈ A ∩ C\n- Also x ∈ (A ∩ B) ∪ (A ∩ C)",
-                "Schritt 3: Beweis des zweiten Distributivgesetzes",
-                "Sei x ∈ A ∪ (B ∩ C). Dann gilt:\n- x ∈ A oder x ∈ B ∩ C\n- Falls x ∈ A, dann x ∈ A ∪ B und x ∈ A ∪ C\n- Falls x ∈ B ∩ C, dann x ∈ B und x ∈ C\n- Also x ∈ (A ∪ B) ∩ (A ∪ C)",
-                "Schritt 4: Zusammenfassung",
-                "Die Distributivgesetze zeigen, wie sich Durchschnitt und Vereinigung gegenseitig beeinflussen."
+                "Schritt 1: Formulierung der Distributivgesetze\nZu beweisen sind die Distributivgesetze:\n1. $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$\n2. $A \\cup (B \\cap C) = (A \\cup B) \\cap (A \\cup C)$",
+                "Schritt 2: Beweis des ersten Distributivgesetzes\nSei $x \\in A \\cap (B \\cup C)$. Dann gilt:\n$x \\in A$ und $x \\in B \\cup C$\nFalls $x \\in B$, dann $x \\in A \\cap B$\nFalls $x \\in C$, dann $x \\in A \\cap C$\nAlso $x \\in (A \\cap B) \\cup (A \\cap C)$",
+                "Schritt 3: Beweis des zweiten Distributivgesetzes\nSei $x \\in A \\cup (B \\cap C)$. Dann gilt:\n$x \\in A$ oder $x \\in B \\cap C$\nFalls $x \\in A$, dann $x \\in A \\cup B$ und $x \\in A \\cup C$\nFalls $x \\in B \\cap C$, dann $x \\in B$ und $x \\in C$\nAlso $x \\in (A \\cup B) \\cap (A \\cup C)$",
+                "Schritt 4: Zusammenfassung\nDie Distributivgesetze zeigen, wie sich Durchschnitt und Vereinigung gegenseitig beeinflussen."
             ]
         },
         {
             "id": 7,
             "topic": "Mengen und Abbildungen",
             "title": "Bijektive Abbildungen",
-            "description": "Zeigen Sie, dass die Abbildung f: ℝ → ℝ, f(x) = x³ + 2x bijektiv ist. Bestimmen Sie die Umkehrabbildung f⁻¹.",
+            "description": "Zeigen Sie, dass die Abbildung $f: \\mathbb{R} \\rightarrow \\mathbb{R}$, $f(x) = x^3 + 2x$ bijektiv ist. Bestimmen Sie die Umkehrabbildung $f^{-1}$.",
             "difficulty": "hard",
             "points": 15,
             "solutionSteps": [
-                "Schritt 1: Überprüfung der Injektivität",
-                "Überprüfung der Injektivität von f(x) = x³ + 2x:\n- f'(x) = 3x² + 2 > 0 für alle x ∈ ℝ\n- Also ist f streng monoton steigend und damit injektiv.",
-                "Schritt 2: Überprüfung der Surjektivität",
-                "Überprüfung der Surjektivität:\n- lim_{x → -∞} f(x) = -∞\n- lim_{x → ∞} f(x) = ∞\n- Nach dem Zwischenwertsatz ist f surjektiv.",
-                "Schritt 3: Bestimmung der Umkehrabbildung",
-                "Bestimmung der Umkehrabbildung:\n- y = x³ + 2x\n- Auflösen nach x ergibt die Umkehrabbildung",
-                "Schritt 4: Verifikation",
-                "Verifikation:\n- f(f⁻¹(y)) = y\n- f⁻¹(f(x)) = x"
+                "Schritt 1: Überprüfung der Injektivität\nÜberprüfung der Injektivität von $f(x) = x^3 + 2x$:\n$f'(x) = 3x^2 + 2 > 0$ für alle $x \\in \\mathbb{R}$\nAlso ist $f$ streng monoton steigend und damit injektiv.",
+                "Schritt 2: Überprüfung der Surjektivität\nÜberprüfung der Surjektivität:\n$\\lim_{x \\rightarrow -\\infty} f(x) = -\\infty$\n$\\lim_{x \\rightarrow \\infty} f(x) = \\infty$\nNach dem Zwischenwertsatz ist $f$ surjektiv.",
+                "Schritt 3: Bestimmung der Umkehrabbildung\nBestimmung der Umkehrabbildung:\n$y = x^3 + 2x$\nAuflösen nach $x$ ergibt die Umkehrabbildung",
+                "Schritt 4: Verifikation\nVerifikation:\n$f(f^{-1}(y)) = y$\n$f^{-1}(f(x)) = x$"
             ]
         },
         {
             "id": 8,
             "topic": "Mengen und Abbildungen",
             "title": "Mächtigkeit von Mengen",
-            "description": "Beweisen Sie, dass die Menge der rationalen Zahlen ℚ abzählbar unendlich ist.",
+            "description": "Beweisen Sie, dass die Menge der rationalen Zahlen $\\mathbb{Q}$ abzählbar unendlich ist.",
             "difficulty": "hard",
             "points": 15,
             "solutionSteps": [
-                "Schritt 1: Definition der Abzählbarkeit",
-                "Eine Menge heißt abzählbar unendlich, wenn sie bijektiv auf ℕ abgebildet werden kann.",
-                "Schritt 2: Konstruktion einer Bijektion",
-                "Konstruktion einer Bijektion ℚ → ℕ:\n- Anordnung der rationalen Zahlen in einem unendlichen Gitter\n- Diagonalabzählung nach Cantor",
-                "Schritt 3: Nachweis der Bijektivität",
-                "Nachweis der Bijektivität:\n- Jede rationale Zahl wird genau einmal getroffen\n- Jeder natürlichen Zahl wird genau eine rationale Zahl zugeordnet",
-                "Schritt 4: Zusammenfassung",
-                "Die Menge der rationalen Zahlen ist abzählbar unendlich, da sie sich bijektiv auf ℕ abbilden lässt."
+                "Schritt 1: Definition der Abzählbarkeit\nEine Menge heißt abzählbar unendlich, wenn sie bijektiv auf $\\mathbb{N}$ abgebildet werden kann.",
+                "Schritt 2: Konstruktion einer Bijektion\nKonstruktion einer Bijektion $\\mathbb{Q} \\rightarrow \\mathbb{N}$:\nAnordnung der rationalen Zahlen in einem unendlichen Gitter\nDiagonalabzählung nach Cantor",
+                "Schritt 3: Nachweis der Bijektivität\nNachweis der Bijektivität:\nJede rationale Zahl wird genau einmal getroffen\nJeder natürlichen Zahl wird genau eine rationale Zahl zugeordnet",
+                "Schritt 4: Zusammenfassung\nDie Menge der rationalen Zahlen ist abzählbar unendlich, da sie sich bijektiv auf $\\mathbb{N}$ abbilden lässt."
             ]
         },
         {
             "id": 9,
             "topic": "Mengen und Abbildungen",
             "title": "Äquivalenzrelationen",
-            "description": "Sei M eine nichtleere Menge. Zeigen Sie, dass die Relation R = {(A,B) ∈ P(M) × P(M) | |A| = |B|} eine Äquivalenzrelation auf der Potenzmenge P(M) ist.",
+            "description": "Sei $M$ eine nichtleere Menge. Zeigen Sie, dass die Relation $R = \\{(A,B) \\in P(M) \\times P(M) \\mid |A| = |B|\\}$ eine Äquivalenzrelation auf der Potenzmenge $P(M)$ ist.",
             "difficulty": "hard",
             "points": 15,
             "solutionSteps": [
-                "Schritt 1: Definition der Äquivalenzrelation",
-                "Eine Relation R auf einer Menge M heißt Äquivalenzrelation, wenn sie reflexiv, symmetrisch und transitiv ist.",
-                "Schritt 2: Überprüfung der Reflexivität",
-                "Überprüfung der Reflexivität:\n- Für jede Menge A ∈ P(M) gilt |A| = |A|\n- Also (A,A) ∈ R",
-                "Schritt 3: Überprüfung der Symmetrie",
-                "Überprüfung der Symmetrie:\n- Wenn (A,B) ∈ R, dann |A| = |B|\n- Also |B| = |A| und (B,A) ∈ R",
-                "Schritt 4: Überprüfung der Transitivität",
-                "Überprüfung der Transitivität:\n- Wenn (A,B) ∈ R und (B,C) ∈ R, dann |A| = |B| und |B| = |C|\n- Also |A| = |C| und (A,C) ∈ R",
-                "Schritt 5: Zusammenfassung",
-                "Die Relation R ist eine Äquivalenzrelation, da sie reflexiv, symmetrisch und transitiv ist."
+                "Schritt 1: Definition der Äquivalenzrelation\nEine Relation $R$ auf einer Menge $M$ heißt Äquivalenzrelation, wenn sie reflexiv, symmetrisch und transitiv ist.",
+                "Schritt 2: Überprüfung der Reflexivität\nÜberprüfung der Reflexivität:\nFür jede Menge $A \\in P(M)$ gilt $|A| = |A|$\nAlso $(A,A) \\in R$",
+                "Schritt 3: Überprüfung der Symmetrie\nÜberprüfung der Symmetrie:\nWenn $(A,B) \\in R$, dann $|A| = |B|$\nAlso $|B| = |A|$ und $(B,A) \\in R$",
+                "Schritt 4: Überprüfung der Transitivität\nÜberprüfung der Transitivität:\nWenn $(A,B) \\in R$ und $(B,C) \\in R$, dann $|A| = |B|$ und $|B| = |C|$\nAlso $|A| = |C|$ und $(A,C) \\in R$",
+                "Schritt 5: Zusammenfassung\nDie Relation $R$ ist eine Äquivalenzrelation, da sie reflexiv, symmetrisch und transitiv ist."
             ]
         },
         {
             "id": 10,
             "topic": "Mengen und Abbildungen",
             "title": "Potenzmenge",
-            "description": "Bestimmen Sie die Potenzmenge P(A) für A = {1, 2, 3}.",
+            "description": "Bestimmen Sie die Potenzmenge $P(A)$ für $A = \\{1, 2, 3\\}$.",
             "difficulty": "easy",
             "points": 5,
             "solutionSteps": [
-                "Schritt 1: Definition der Potenzmenge",
-                "Die Potenzmenge P(A) ist die Menge aller Teilmengen von A.",
-                "Schritt 2: Bestimmung aller Teilmengen",
-                "Teilmengen von A = {1, 2, 3}:\n- ∅\n- {1}, {2}, {3}\n- {1,2}, {1,3}, {2,3}\n- {1,2,3}",
-                "Schritt 3: Aufstellung der Potenzmenge",
-                "P(A) = {∅, {1}, {2}, {3}, {1,2}, {1,3}, {2,3}, {1,2,3}}"
+                "Schritt 1: Definition der Potenzmenge\nDie Potenzmenge $P(A)$ ist die Menge aller Teilmengen von $A$.",
+                "Schritt 2: Bestimmung aller Teilmengen\nTeilmengen von $A = \\{1, 2, 3\\}$:\n$\\emptyset$\n$\\{1\\}$, $\\{2\\}$, $\\{3\\}$\n$\\{1,2\\}$, $\\{1,3\\}$, $\\{2,3\\}$\n$\\{1,2,3\\}$",
+                "Schritt 3: Aufstellung der Potenzmenge\n$P(A) = \\{\\emptyset, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\}, \\{1,3\\}, \\{2,3\\}, \\{1,2,3\\}\\}$"
             ]
         },
         {
             "id": 11,
             "topic": "Mengen und Abbildungen",
             "title": "Mengengleichheit",
-            "description": "Sind die Mengen A = {1, 2, 3} und B = {3, 2, 1} gleich? Begründen Sie Ihre Antwort.",
+            "description": "Sind die Mengen $A = \\{1, 2, 3\\}$ und $B = \\{3, 2, 1\\}$ gleich? Begründen Sie Ihre Antwort.",
             "difficulty": "easy",
             "points": 5,
             "solutionSteps": [
-                "Schritt 1: Definition der Mengengleichheit",
-                "Zwei Mengen sind gleich, wenn sie die gleichen Elemente enthalten, unabhängig von der Reihenfolge.",
-                "Schritt 2: Überprüfung der Elemente",
-                "A und B enthalten die gleichen Elemente: 1, 2 und 3.",
-                "Schritt 3: Begründung der Antwort",
-                "Die Mengen sind gleich, da sie die gleichen Elemente enthalten. Die Reihenfolge spielt bei Mengen keine Rolle."
+                "Schritt 1: Definition der Mengengleichheit\nZwei Mengen sind gleich, wenn sie die gleichen Elemente enthalten, unabhängig von der Reihenfolge.",
+                "Schritt 2: Überprüfung der Elemente\n$A$ und $B$ enthalten die gleichen Elemente: $1$, $2$ und $3$.",
+                "Schritt 3: Begründung der Antwort\nDie Mengen sind gleich, da sie die gleichen Elemente enthalten. Die Reihenfolge spielt bei Mengen keine Rolle."
             ]
         },
         {
             "id": 12,
             "topic": "Mengen und Abbildungen",
             "title": "Inverse Abbildungen",
-            "description": "Gegeben ist die Abbildung f: ℝ → ℝ, f(x) = 3x - 2.\nBestimmen Sie die Umkehrabbildung f⁻¹ und zeigen Sie, dass f⁻¹∘f = id und f∘f⁻¹ = id gilt.",
+            "description": "Gegeben ist die Abbildung $f: \\mathbb{R} \\rightarrow \\mathbb{R}$, $f(x) = 3x - 2$. Bestimmen Sie die Umkehrabbildung $f^{-1}$ und zeigen Sie, dass $f^{-1}\\circ f = id$ und $f\\circ f^{-1} = id$ gilt.",
             "difficulty": "medium",
             "points": 10,
             "solutionSteps": [
-                "Schritt 1: Bestimmung der Umkehrabbildung",
-                "Umkehrabbildung von f(x) = 3x - 2:\n- y = 3x - 2\n- x = (y + 2)/3\n- Also f⁻¹(y) = (y + 2)/3",
-                "Schritt 2: Überprüfung von f⁻¹∘f = id",
-                "Überprüfung von f⁻¹∘f = id:\n- f⁻¹(f(x)) = f⁻¹(3x - 2) = ((3x - 2) + 2)/3 = x",
-                "Schritt 3: Überprüfung von f∘f⁻¹ = id",
-                "Überprüfung von f∘f⁻¹ = id:\n- f(f⁻¹(y)) = f((y + 2)/3) = 3((y + 2)/3) - 2 = y",
-                "Schritt 4: Zusammenfassung",
-                "Die Umkehrabbildung ist korrekt, da beide Kompositionen die Identität ergeben."
+                "Schritt 1: Bestimmung der Umkehrabbildung\nUmkehrabbildung von $f(x) = 3x - 2$:\n$y = 3x - 2$\n$x = \\frac{y + 2}{3}$\nAlso $f^{-1}(y) = \\frac{y + 2}{3}$",
+                "Schritt 2: Überprüfung von $f^{-1}\\circ f = id$\nÜberprüfung von $f^{-1}\\circ f = id$:\n$f^{-1}(f(x)) = f^{-1}(3x - 2) = \\frac{(3x - 2) + 2}{3} = x$",
+                "Schritt 3: Überprüfung von $f\\circ f^{-1} = id$\nÜberprüfung von $f\\circ f^{-1} = id$:\n$f(f^{-1}(y)) = f(\\frac{y + 2}{3}) = 3(\\frac{y + 2}{3}) - 2 = y$",
+                "Schritt 4: Zusammenfassung\nDie Umkehrabbildung ist korrekt, da beide Kompositionen die Identität ergeben."
             ]
         },
         {
             "id": 13,
             "topic": "Mengen und Abbildungen",
             "title": "Mengenoperationen mit Intervallen",
-            "description": "Gegeben sind die Intervalle A = [0, 2] und B = [1, 3].\nBestimmen Sie A ∩ B, A ∪ B und A \\ B.",
+            "description": "Gegeben sind die Intervalle $A = [0, 2]$ und $B = [1, 3]$. Bestimmen Sie $A \\cap B$, $A \\cup B$ und $A \\setminus B$.",
             "difficulty": "medium",
             "points": 10,
             "solutionSteps": [
-                "Schritt 1: Bestimmung des Durchschnitts",
-                "A ∩ B = [1, 2]",
-                "Schritt 2: Bestimmung der Vereinigung",
-                "A ∪ B = [0, 3]",
-                "Schritt 3: Bestimmung der Differenz",
-                "A \\ B = [0, 1)",
-                "Schritt 4: Zusammenfassung",
-                "Die Intervalle zeigen, wie sich Mengenoperationen auf kontinuierliche Mengen anwenden lassen."
+                "Schritt 1: Bestimmung des Durchschnitts\n$A \\cap B = [1, 2]$",
+                "Schritt 2: Bestimmung der Vereinigung\n$A \\cup B = [0, 3]$",
+                "Schritt 3: Bestimmung der Differenz\n$A \\setminus B = [0, 1)$",
+                "Schritt 4: Zusammenfassung\nDie Intervalle zeigen, wie sich Mengenoperationen auf kontinuierliche Mengen anwenden lassen."
             ]
         },
         {
             "id": 14,
             "topic": "Mengen und Abbildungen",
             "title": "Kardinalität von Mengen",
-            "description": "Zeigen Sie, dass die Menge der reellen Zahlen ℝ überabzählbar ist, indem Sie das Cantorsche Diagonalargument verwenden.",
+            "description": "Zeigen Sie, dass die Menge der reellen Zahlen $\\mathbb{R}$ überabzählbar ist, indem Sie das Cantorsche Diagonalargument verwenden.",
             "difficulty": "hard",
             "points": 15,
             "solutionSteps": [
-                "Schritt 1: Einführung des Cantorschen Diagonalarguments",
-                "Einführung des Cantorschen Diagonalarguments:\n- Angenommen, ℝ wäre abzählbar\n- Dann gäbe es eine Abzählung aller reellen Zahlen",
-                "Schritt 2: Konstruktion einer reellen Zahl",
-                "Konstruktion einer reellen Zahl:\n- Nehme die n-te Dezimalstelle der n-ten Zahl\n- Ändere diese Stelle\n- Die resultierende Zahl kann nicht in der Abzählung vorkommen",
-                "Schritt 3: Widerspruchsbeweis",
-                "Widerspruchsbeweis:\n- Die konstruierte Zahl widerspricht der Annahme der Abzählbarkeit",
-                "Schritt 4: Zusammenfassung",
-                "Die Menge der reellen Zahlen ist überabzählbar, da sie sich nicht bijektiv auf ℕ abbilden lässt."
+                "Schritt 1: Einführung des Cantorschen Diagonalarguments\nEinführung des Cantorschen Diagonalarguments:\nAngenommen, $\\mathbb{R}$ wäre abzählbar\nDann gäbe es eine Abzählung aller reellen Zahlen",
+                "Schritt 2: Konstruktion einer reellen Zahl\nKonstruktion einer reellen Zahl:\nNehme die $n$-te Dezimalstelle der $n$-ten Zahl\nÄndere diese Stelle\nDie resultierende Zahl kann nicht in der Abzählung vorkommen",
+                "Schritt 3: Widerspruchsbeweis\nWiderspruchsbeweis:\nDie konstruierte Zahl widerspricht der Annahme der Abzählbarkeit",
+                "Schritt 4: Zusammenfassung\nDie Menge der reellen Zahlen ist überabzählbar, da sie sich nicht bijektiv auf $\\mathbb{N}$ abbilden lässt."
             ]
         },
         {
             "id": 15,
             "topic": "Mengen und Abbildungen",
             "title": "Komplexe Mengenoperationen",
-            "description": "Beweisen Sie die De Morganschen Gesetze für Mengen:\n1. (A ∪ B)ᶜ = Aᶜ ∩ Bᶜ\n2. (A ∩ B)ᶜ = Aᶜ ∪ Bᶜ",
+            "description": "Beweisen Sie die De Morganschen Gesetze für Mengen:\n1. $(A \\cup B)^c = A^c \\cap B^c$\n2. $(A \\cap B)^c = A^c \\cup B^c$",
             "difficulty": "hard",
             "points": 15,
             "solutionSteps": [
-                "Schritt 1: Formulierung der De Morganschen Gesetze",
-                "Die De Morganschen Gesetze für Mengen:\n1. (A ∪ B)ᶜ = Aᶜ ∩ Bᶜ\n2. (A ∩ B)ᶜ = Aᶜ ∪ Bᶜ",
-                "Schritt 2: Beweis des ersten Gesetzes",
-                "Beweis des ersten Gesetzes:\n- x ∈ (A ∪ B)ᶜ ⇔ x ∉ A ∪ B\n- ⇔ x ∉ A und x ∉ B\n- ⇔ x ∈ Aᶜ und x ∈ Bᶜ\n- ⇔ x ∈ Aᶜ ∩ Bᶜ",
-                "Schritt 3: Beweis des zweiten Gesetzes",
-                "Beweis des zweiten Gesetzes:\n- x ∈ (A ∩ B)ᶜ ⇔ x ∉ A ∩ B\n- ⇔ x ∉ A oder x ∉ B\n- ⇔ x ∈ Aᶜ oder x ∈ Bᶜ\n- ⇔ x ∈ Aᶜ ∪ Bᶜ",
-                "Schritt 4: Zusammenfassung",
-                "Die De Morganschen Gesetze zeigen den Zusammenhang zwischen Komplement, Vereinigung und Durchschnitt."
+                "Schritt 1: Formulierung der De Morganschen Gesetze\nDie De Morganschen Gesetze für Mengen:\n1. $(A \\cup B)^c = A^c \\cap B^c$\n2. $(A \\cap B)^c = A^c \\cup B^c$",
+                "Schritt 2: Beweis des ersten Gesetzes\nBeweis des ersten Gesetzes:\n$x \\in (A \\cup B)^c \\Leftrightarrow x \\notin A \\cup B$\n$\\Leftrightarrow x \\notin A$ und $x \\notin B$\n$\\Leftrightarrow x \\in A^c$ und $x \\in B^c$\n$\\Leftrightarrow x \\in A^c \\cap B^c$",
+                "Schritt 3: Beweis des zweiten Gesetzes\nBeweis des zweiten Gesetzes:\n$x \\in (A \\cap B)^c \\Leftrightarrow x \\notin A \\cap B$\n$\\Leftrightarrow x \\notin A$ oder $x \\notin B$\n$\\Leftrightarrow x \\in A^c$ oder $x \\in B^c$\n$\\Leftrightarrow x \\in A^c \\cup B^c$",
+                "Schritt 4: Zusammenfassung\nDie De Morganschen Gesetze zeigen den Zusammenhang zwischen Komplement, Vereinigung und Durchschnitt."
             ]
         }
     ]

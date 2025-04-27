@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematik Übungen - Mengen und Abbildungen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .exercise {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .exercise-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .difficulty {
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .easy { background-color: #d4edda; color: #155724; }
+        .medium { background-color: #fff3cd; color: #856404; }
+        .hard { background-color: #f8d7da; color: #721c24; }
+        .solution-steps {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+        .solution-step {
+            margin-bottom: 10px;
+        }
+        h2 {
+            color: #333;
+            margin-top: 0;
+        }
+        .points {
+            font-weight: bold;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mathematik Übungen - Mengen und Abbildungen</h1>
+
+    <div class="exercise">
+        <div class="exercise-header">
+            <h2>Mengenoperationen</h2>
+            <div class="difficulty easy">Einfach</div>
+        </div>
+        <p class="points">Punkte: 5</p>
+        <p><strong>Aufgabe:</strong> Gegeben sind die Mengen A = {1, 2, 3, 4} und B = {3, 4, 5, 6}. Bestimmen Sie:</p>
+        <ol>
+            <li>A ∪ B</li>
+            <li>A ∩ B</li>
+            <li>A \ B</li>
+            <li>B \ A</li>
+        </ol>
+        <div class="solution-steps">
+            <h3>Lösungsschritte:</h3>
+            <div class="solution-step">1. Bestimme die Vereinigung A ∪ B</div>
+            <div class="solution-step">A ∪ B = {1, 2, 3, 4, 5, 6}</div>
+            <div class="solution-step">2. Bestimme den Durchschnitt A ∩ B</div>
+            <div class="solution-step">A ∩ B = {3, 4}</div>
+            <div class="solution-step">3. Bestimme die Differenz A \ B</div>
+            <div class="solution-step">A \ B = {1, 2}</div>
+            <div class="solution-step">4. Bestimme die Differenz B \ A</div>
+            <div class="solution-step">B \ A = {5, 6}</div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <div class="exercise-header">
+            <h2>Teilmengen</h2>
+            <div class="difficulty easy">Einfach</div>
+        </div>
+        <p class="points">Punkte: 5</p>
+        <p><strong>Aufgabe:</strong> Welche der folgenden Aussagen sind wahr?</p>
+        <ol>
+            <li>{1, 2} ⊆ {1, 2, 3}</li>
+            <li>{1, 2, 3} ⊆ {1, 2}</li>
+            <li>∅ ⊆ {1, 2, 3}</li>
+            <li>{1, 2, 3} ⊆ ∅</li>
+        </ol>
+        <div class="solution-steps">
+            <h3>Lösungsschritte:</h3>
+            <div class="solution-step">1. Überprüfe die Definition einer Teilmenge</div>
+            <div class="solution-step">Eine Menge A ist Teilmenge von B, wenn jedes Element von A auch in B enthalten ist.</div>
+            <div class="solution-step">2. Analysiere jede Aussage einzeln</div>
+            <div class="solution-step">1. {1, 2} ⊆ {1, 2, 3} ist wahr, da jedes Element von {1, 2} auch in {1, 2, 3} enthalten ist.<br>
+            2. {1, 2, 3} ⊆ {1, 2} ist falsch, da 3 nicht in {1, 2} enthalten ist.<br>
+            3. ∅ ⊆ {1, 2, 3} ist wahr, da die leere Menge Teilmenge jeder Menge ist.<br>
+            4. {1, 2, 3} ⊆ ∅ ist falsch, da die leere Menge keine Elemente enthält.</div>
+            <div class="solution-step">3. Bestimme die wahren Aussagen</div>
+            <div class="solution-step">Die wahren Aussagen sind 1 und 3.</div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <div class="exercise-header">
+            <h2>Kartesisches Produkt</h2>
+            <div class="difficulty easy">Einfach</div>
+        </div>
+        <p class="points">Punkte: 5</p>
+        <p><strong>Aufgabe:</strong> Gegeben sind die Mengen A = {a, b} und B = {1, 2}. Bestimmen Sie A × B.</p>
+        <div class="solution-steps">
+            <h3>Lösungsschritte:</h3>
+            <div class="solution-step">1. Definition des kartesischen Produkts</div>
+            <div class="solution-step">Das kartesische Produkt A × B ist die Menge aller geordneten Paare (a,b) mit a ∈ A und b ∈ B.</div>
+            <div class="solution-step">2. Bestimmung aller möglichen Paare</div>
+            <div class="solution-step">Mögliche Paare:<br>
+            - (a,1), (a,2)<br>
+            - (b,1), (b,2)</div>
+            <div class="solution-step">3. Aufstellung des kartesischen Produkts</div>
+            <div class="solution-step">A × B = {(a,1), (a,2), (b,1), (b,2)}</div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <div class="exercise-header">
+            <h2>Abbildungseigenschaften</h2>
+            <div class="difficulty medium">Mittel</div>
+        </div>
+        <p class="points">Punkte: 10</p>
+        <p><strong>Aufgabe:</strong> Untersuchen Sie die Abbildung f: ℝ → ℝ, f(x) = x² auf Injektivität und Surjektivität. Begründen Sie Ihre Antwort.</p>
+        <div class="solution-steps">
+            <h3>Lösungsschritte:</h3>
+            <div class="solution-step">1. Definition von Injektivität</div>
+            <div class="solution-step">Eine Abbildung f: A → B heißt injektiv, wenn verschiedene Elemente aus A auf verschiedene Elemente aus B abgebildet werden.</div>
+            <div class="solution-step">2. Überprüfung der Injektivität</div>
+            <div class="solution-step">Für f(x) = x²:<br>
+            - f(-1) = f(1) = 1<br>
+            - Also ist f nicht injektiv, da verschiedene Elemente auf denselben Wert abgebildet werden.</div>
+            <div class="solution-step">3. Definition von Surjektivität</div>
+            <div class="solution-step">Eine Abbildung f: A → B heißt surjektiv, wenn jedes Element aus B als Bild vorkommt.</div>
+            <div class="solution-step">4. Überprüfung der Surjektivität</div>
+            <div class="solution-step">Für f(x) = x²:<br>
+            - Negative Zahlen kommen nicht als Bild vor<br>
+            - Also ist f nicht surjektiv auf ℝ</div>
+            <div class="solution-step">5. Zusammenfassung</div>
+            <div class="solution-step">Die Abbildung f(x) = x² ist weder injektiv noch surjektiv auf ℝ.</div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <div class="exercise-header">
+            <h2>Komposition von Abbildungen</h2>
+            <div class="difficulty medium">Mittel</div>
+        </div>
+        <p class="points">Punkte: 10</p>
+        <p><strong>Aufgabe:</strong> Gegeben sind die Abbildungen f: ℝ → ℝ, f(x) = 2x + 1 und g: ℝ → ℝ, g(x) = x².<br>
+        Bestimmen Sie f∘g und g∘f.</p>
+        <div class="solution-steps">
+            <h3>Lösungsschritte:</h3>
+            <div class="solution-step">1. Definition der Komposition</div>
+            <div class="solution-step">Die Komposition f∘g ist definiert durch (f∘g)(x) = f(g(x)).</div>
+            <div class="solution-step">2. Berechnung von f∘g</div>
+            <div class="solution-step">(f∘g)(x) = f(g(x)) = f(x²) = 2x² + 1</div>
+            <div class="solution-step">3. Berechnung von g∘f</div>
+            <div class="solution-step">(g∘f)(x) = g(f(x)) = g(2x + 1) = (2x + 1)² = 4x² + 4x + 1</div>
+            <div class="solution-step">4. Vergleich der Ergebnisse</div>
+            <div class="solution-step">Vergleich:<br>
+            - f∘g ≠ g∘f<br>
+            - Die Komposition von Abbildungen ist im Allgemeinen nicht kommutativ.</div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <div class="exercise-header">
+            <h2>Mengenidentitäten</h2>
+            <div class="difficulty medium">Mittel</div>
+        </div>
+        <p class="points">Punkte: 10</p>
+        <p><strong>Aufgabe:</strong> Beweisen Sie die Distributivgesetze für Mengen:</p>
+        <ol>
+            <li>A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)</li>
+            <li>A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</li>
+        </ol>
+        <div class="solution-steps">
+            <h3>Lösungsschritte:</h3>
+            <div class="solution-step">1. Formulierung der Distributivgesetze</div>
+            <div class="solution-step">Zu beweisen sind die Distributivgesetze:<br>
+            1. A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)<br>
+            2. A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</div>
+            <div class="solution-step">2. Beweis des ersten Distributivgesetzes</div>
+            <div class="solution-step">Sei x ∈ A ∩ (B ∪ C). Dann gilt:<br>
+            - x ∈ A und x ∈ B ∪ C<br>
+            - Falls x ∈ B, dann x ∈ A ∩ B<br>
+            - Falls x ∈ C, dann x ∈ A ∩ C<br>
+            - Also x ∈ (A ∩ B) ∪ (A ∩ C)</div>
+            <div class="solution-step">3. Beweis des zweiten Distributivgesetzes</div>
+            <div class="solution-step">Sei x ∈ A ∪ (B ∩ C). Dann gilt:<br>
+            - x ∈ A oder x ∈ B ∩ C<br>
+            - Falls x ∈ A, dann x ∈ A ∪ B und x ∈ A ∪ C<br>
+            - Falls x ∈ B ∩ C, dann x ∈ B und x ∈ C<br>
+            - Also x ∈ (A ∪ B) ∩ (A ∪ C)</div>
+            <div class="solution-step">4. Zusammenfassung</div>
+            <div class="solution-step">Die Distributivgesetze zeigen, wie sich Durchschnitt und Vereinigung gegenseitig beeinflussen.</div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <div class="exercise-header">
+            <h2>Bijektive Abbildungen</h2>
+            <div class="difficulty hard">Schwer</div>
+        </div>
+        <p class="points">Punkte: 15</p>
+        <p><strong>Aufgabe:</strong> Zeigen Sie, dass die Abbildung f: ℝ → ℝ, f(x) = x³ + 2x bijektiv ist. Bestimmen Sie die Umkehrabbildung f⁻¹.</p>
+        <div class="solution-steps">
+            <h3>Lösungsschritte:</h3>
+            <div class="solution-step">1. Überprüfung der Injektivität</div>
+            <div class="solution-step">Überprüfung der Injektivität von f(x) = x³ + 2x:<br>
+            - f'(x) = 3x² + 2 > 0 für alle x ∈ ℝ<br>
+            - Also ist f streng monoton steigend und damit injektiv.</div>
+            <div class="solution-step">2. Überprüfung der Surjektivität</div>
+            <div class="solution-step">Überprüfung der Surjektivität:<br>
+            - lim_{x → -∞} f(x) = -∞<br>
+            - lim_{x → ∞} f(x) = ∞<br>
+            - Nach dem Zwischenwertsatz ist f surjektiv.</div>
+            <div class="solution-step">3. Bestimmung der Umkehrabbildung</div>
+            <div class="solution-step">Bestimmung der Umkehrabbildung:<br>
+            - y = x³ + 2x<br>
+            - Auflösen nach x ergibt die Umkehrabbildung</div>
+            <div class="solution-step">4. Verifikation</div>
+            <div class="solution-step">Verifikation:<br>
+            - f(f⁻¹(y)) = y<br>
+            - f⁻¹(f(x)) = x</div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <div class="exercise-header">
+            <h2>Mächtigkeit von Mengen</h2>
+            <div class="difficulty hard">Schwer</div>
+        </div>
+        <p class="points">Punkte: 15</p>
+        <p><strong>Aufgabe:</strong> Beweisen Sie, dass die Menge der rationalen Zahlen ℚ abzählbar unendlich ist.</p>
+        <div class="solution-steps">
+            <h3>Lösungsschritte:</h3>
+            <div class="solution-step">1. Definition der Abzählbarkeit</div>
+            <div class="solution-step">Eine Menge heißt abzählbar unendlich, wenn sie bijektiv auf ℕ abgebildet werden kann.</div>
+            <div class="solution-step">2. Konstruktion einer Bijektion</div>
+            <div class="solution-step">Konstruktion einer Bijektion ℚ → ℕ:<br>
+            - Anordnung der rationalen Zahlen in einem unendlichen Gitter<br>
+            - Diagonalabzählung nach Cantor</div>
+            <div class="solution-step">3. Nachweis der Bijektivität</div>
+            <div class="solution-step">Nachweis der Bijektivität:<br>
+            - Jede rationale Zahl wird genau einmal getroffen<br>
+            - Jeder natürlichen Zahl wird genau eine rationale Zahl zugeordnet</div>
+            <div class="solution-step">4. Zusammenfassung</div>
+            <div class="solution-step">Die Menge der rationalen Zahlen ist abzählbar unendlich, da sie sich bijektiv auf ℕ abbilden lässt.</div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <div class="exercise-header">
+            <h2>Äquivalenzrelationen</h2>
+            <div class="difficulty hard">Schwer</div>
+        </div>
+        <p class="points">Punkte: 15</p>
+        <p><strong>Aufgabe:</strong> Sei M eine nichtleere Menge. Zeigen Sie, dass die Relation R = {(A,B) ∈ P(M) × P(M) | |A| = |B|} eine Äquivalenzrelation auf der Potenzmenge P(M) ist.</p>
+        <div class="solution-steps">
+            <h3>Lösungsschritte:</h3>
+            <div class="solution-step">1. Definition der Äquivalenzrelation</div>
+            <div class="solution-step">Eine Relation R auf einer Menge M heißt Äquivalenzrelation, wenn sie reflexiv, symmetrisch und transitiv ist.</div>
+            <div class="solution-step">2. Überprüfung der Reflexivität</div>
+            <div class="solution-step">Überprüfung der Reflexivität:<br>
+            - Für jede Menge A ∈ P(M) gilt |A| = |A|<br>
+            - Also (A,A) ∈ R</div>
+            <div class="solution-step">3. Überprüfung der Symmetrie</div>
+            <div class="solution-step">Überprüfung der Symmetrie:<br>
+            - Wenn (A,B) ∈ R, dann |A| = |B|<br>
+            - Also |B| = |A| und (B,A) ∈ R</div>
+            <div class="solution-step">4. Überprüfung der Transitivität</div>
+            <div class="solution-step">Überprüfung der Transitivität:<br>
+            - Wenn (A,B) ∈ R und (B,C) ∈ R, dann |A| = |B| und |B| = |C|<br>
+            - Also |A| = |C| und (A,C) ∈ R</div>
+            <div class="solution-step">5. Zusammenfassung</div>
+            <div class="solution-step">Die Relation R ist eine Äquivalenzrelation, da sie reflexiv, symmetrisch und transitiv ist.</div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <div class="exercise-header">
+            <h2>Potenzmenge</h2>
+            <div class="difficulty easy">Einfach</div>
+        </div>
+        <p class="points">Punkte: 5</p>
+        <p><strong>Aufgabe:</strong> Bestimmen Sie die Potenzmenge P(A) für A = {1, 2, 3}.</p>
+        <div class="solution-steps">
+            <h3>Lösungsschritte:</h3>
+            <div class="solution-step">1. Definition der Potenzmenge</div>
+            <div class="solution-step">Die Potenzmenge P(A) ist die Menge aller Teilmengen von A.</div>
+            <div class="solution-step">2. Bestimmung aller Teilmengen</div>
+            <div class="solution-step">Teilmengen von A = {1, 2, 3}:<br>
+            - ∅<br>
+            - {1}, {2}, {3}<br>
+            - {1,2}, {1,3}, {2,3}<br>
+            - {1,2,3}</div>
+            <div class="solution-step">3. Aufstellung der Potenzmenge</div>
+            <div class="solution-step">P(A) = {∅, {1}, {2}, {3}, {1,2}, {1,3}, {2,3}, {1,2,3}}</div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <div class="exercise-header">
+            <h2>Mengengleichheit</h2>
+            <div class="difficulty easy">Einfach</div>
+        </div>
+        <p class="points">Punkte: 5</p>
+        <p><strong>Aufgabe:</strong> Sind die Mengen A = {1, 2, 3} und B = {3, 2, 1} gleich? Begründen Sie Ihre Antwort.</p>
+        <div class="solution-steps">
+            <h3>Lösungsschritte:</h3>
+            <div class="solution-step">1. Definition der Mengengleichheit</div>
+            <div class="solution-step">Zwei Mengen sind gleich, wenn sie die gleichen Elemente enthalten, unabhängig von der Reihenfolge.</div>
+            <div class="solution-step">2. Überprüfung der Elemente</div>
+            <div class="solution-step">A und B enthalten die gleichen Elemente: 1, 2 und 3.</div>
+            <div class="solution-step">3. Begründung der Antwort</div>
+            <div class="solution-step">Die Mengen sind gleich, da sie die gleichen Elemente enthalten. Die Reihenfolge spielt bei Mengen keine Rolle.</div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <div class="exercise-header">
+            <h2>Inverse Abbildungen</h2>
+            <div class="difficulty medium">Mittel</div>
+        </div>
+        <p class="points">Punkte: 10</p>
+        <p><strong>Aufgabe:</strong> Gegeben ist die Abbildung f: ℝ → ℝ, f(x) = 3x - 2.<br>
+        Bestimmen Sie die Umkehrabbildung f⁻¹ und zeigen Sie, dass f⁻¹∘f = id und f∘f⁻¹ = id gilt.</p>
+        <div class="solution-steps">
+            <h3>Lösungsschritte:</h3>
+            <div class="solution-step">1. Bestimmung der Umkehrabbildung</div>
+            <div class="solution-step">Umkehrabbildung von f(x) = 3x - 2:<br>
+            - y = 3x - 2<br>
+            - x = (y + 2)/3<br>
+            - Also f⁻¹(y) = (y + 2)/3</div>
+            <div class="solution-step">2. Überprüfung von f⁻¹∘f = id</div>
+            <div class="solution-step">Überprüfung von f⁻¹∘f = id:<br>
+            - f⁻¹(f(x)) = f⁻¹(3x - 2) = ((3x - 2) + 2)/3 = x</div>
+            <div class="solution-step">3. Überprüfung von f∘f⁻¹ = id</div>
+            <div class="solution-step">Überprüfung von f∘f⁻¹ = id:<br>
+            - f(f⁻¹(y)) = f((y + 2)/3) = 3((y + 2)/3) - 2 = y</div>
+            <div class="solution-step">4. Zusammenfassung</div>
+            <div class="solution-step">Die Umkehrabbildung ist korrekt, da beide Kompositionen die Identität ergeben.</div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <div class="exercise-header">
+            <h2>Mengenoperationen mit Intervallen</h2>
+            <div class="difficulty medium">Mittel</div>
+        </div>
+        <p class="points">Punkte: 10</p>
+        <p><strong>Aufgabe:</strong> Gegeben sind die Intervalle A = [0, 2] und B = [1, 3].<br>
+        Bestimmen Sie A ∩ B, A ∪ B und A \ B.</p>
+        <div class="solution-steps">
+            <h3>Lösungsschritte:</h3>
+            <div class="solution-step">1. Bestimmung des Durchschnitts</div>
+            <div class="solution-step">A ∩ B = [1, 2]</div>
+            <div class="solution-step">2. Bestimmung der Vereinigung</div>
+            <div class="solution-step">A ∪ B = [0, 3]</div>
+            <div class="solution-step">3. Bestimmung der Differenz</div>
+            <div class="solution-step">A \ B = [0, 1)</div>
+            <div class="solution-step">4. Zusammenfassung</div>
+            <div class="solution-step">Die Intervalle zeigen, wie sich Mengenoperationen auf kontinuierliche Mengen anwenden lassen.</div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <div class="exercise-header">
+            <h2>Kardinalität von Mengen</h2>
+            <div class="difficulty hard">Schwer</div>
+        </div>
+        <p class="points">Punkte: 15</p>
+        <p><strong>Aufgabe:</strong> Zeigen Sie, dass die Menge der reellen Zahlen ℝ überabzählbar ist, indem Sie das Cantorsche Diagonalargument verwenden.</p>
+        <div class="solution-steps">
+            <h3>Lösungsschritte:</h3>
+            <div class="solution-step">1. Einführung des Cantorschen Diagonalarguments</div>
+            <div class="solution-step">Einführung des Cantorschen Diagonalarguments:<br>
+            - Angenommen, ℝ wäre abzählbar<br>
+            - Dann gäbe es eine Abzählung aller reellen Zahlen</div>
+            <div class="solution-step">2. Konstruktion einer reellen Zahl</div>
+            <div class="solution-step">Konstruktion einer reellen Zahl:<br>
+            - Nehme die n-te Dezimalstelle der n-ten Zahl<br>
+            - Ändere diese Stelle<br>
+            - Die resultierende Zahl kann nicht in der Abzählung vorkommen</div>
+            <div class="solution-step">3. Widerspruchsbeweis</div>
+            <div class="solution-step">Widerspruchsbeweis:<br>
+            - Die konstruierte Zahl widerspricht der Annahme der Abzählbarkeit</div>
+            <div class="solution-step">4. Zusammenfassung</div>
+            <div class="solution-step">Die Menge der reellen Zahlen ist überabzählbar, da sie sich nicht bijektiv auf ℕ abbilden lässt.</div>
+        </div>
+    </div>
+
+    <div class="exercise">
+        <div class="exercise-header">
+            <h2>Komplexe Mengenoperationen</h2>
+            <div class="difficulty hard">Schwer</div>
+        </div>
+        <p class="points">Punkte: 15</p>
+        <p><strong>Aufgabe:</strong> Beweisen Sie die De Morganschen Gesetze für Mengen:</p>
+        <ol>
+            <li>(A ∪ B)ᶜ = Aᶜ ∩ Bᶜ</li>
+            <li>(A ∩ B)ᶜ = Aᶜ ∪ Bᶜ</li>
+        </ol>
+        <div class="solution-steps">
+            <h3>Lösungsschritte:</h3>
+            <div class="solution-step">1. Formulierung der De Morganschen Gesetze</div>
+            <div class="solution-step">Die De Morganschen Gesetze für Mengen:<br>
+            1. (A ∪ B)ᶜ = Aᶜ ∩ Bᶜ<br>
+            2. (A ∩ B)ᶜ = Aᶜ ∪ Bᶜ</div>
+            <div class="solution-step">2. Beweis des ersten Gesetzes</div>
+            <div class="solution-step">Beweis des ersten Gesetzes:<br>
+            - x ∈ (A ∪ B)ᶜ ⇔ x ∉ A ∪ B<br>
+            - ⇔ x ∉ A und x ∉ B<br>
+            - ⇔ x ∈ Aᶜ und x ∈ Bᶜ<br>
+            - ⇔ x ∈ Aᶜ ∩ Bᶜ</div>
+            <div class="solution-step">3. Beweis des zweiten Gesetzes</div>
+            <div class="solution-step">Beweis des zweiten Gesetzes:<br>
+            - x ∈ (A ∩ B)ᶜ ⇔ x ∉ A ∩ B<br>
+            - ⇔ x ∉ A oder x ∉ B<br>
+            - ⇔ x ∈ Aᶜ oder x ∈ Bᶜ<br>
+            - ⇔ x ∈ Aᶜ ∪ Bᶜ</div>
+            <div class="solution-step">4. Zusammenfassung</div>
+            <div class="solution-step">Die De Morganschen Gesetze zeigen den Zusammenhang zwischen Komplement, Vereinigung und Durchschnitt.</div>
+        </div>
+    </div>
+</body>
+</html> 

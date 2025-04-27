@@ -387,6 +387,7 @@ struct ExercisesView: View {
 
 struct ExerciseCard: View {
     let exercise: Exercise
+    @State private var descriptionHeight: CGFloat = 100
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -402,10 +403,8 @@ struct ExerciseCard: View {
                     .foregroundColor(.blue)
             }
             
-            Text(exercise.description)
-                .font(.body)
-                .foregroundColor(.gray)
-                .lineSpacing(4)
+            LaTeXView(content: exercise.description, height: $descriptionHeight)
+                .frame(height: descriptionHeight)
             
             HStack {
                 Text(exercise.difficultyEnum.text)
@@ -484,7 +483,7 @@ struct TopicDetailView: View {
             ScrollView {
                 VStack(spacing: 0) {
                     if let markdownContent = topic.markdownContent {
-                        LaTeXView(content: markdownContent)
+                        LaTeXView(content: markdownContent, height: .constant(0))
                             .frame(minHeight: UIScreen.main.bounds.height - 100)
                     } else {
                         Text(topic.description)
