@@ -77,7 +77,7 @@
             "difficulty": "medium",
             "points": 10,
             "solutionSteps": [
-                "Schritt 1: Formulierung der Distributivgesetze\nZu beweisen sind die Distributivgesetze:\n1. $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$\n2. $A \\cup (B \\cap C) = (A \\cup B) \\cap (A \\cup C)$",
+                "Schritt 1: Formulierung der Distributivgesetze\nZu beweisen sind die Distributivgesetze:\n1. $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$\n  2. $A \\cup (B \\cap C) = (A \\cup B) \\cap (A \\cup C)$",
                 "Schritt 2: Beweis des ersten Distributivgesetzes\nSei $x \\in A \\cap (B \\cup C)$. Dann gilt:\n$x \\in A$ und $x \\in B \\cup C$\nFalls $x \\in B$, dann $x \\in A \\cap B$\nFalls $x \\in C$, dann $x \\in A \\cap C$\nAlso $x \\in (A \\cap B) \\cup (A \\cap C)$",
                 "Schritt 3: Beweis des zweiten Distributivgesetzes\nSei $x \\in A \\cup (B \\cap C)$. Dann gilt:\n$x \\in A$ oder $x \\in B \\cap C$\nFalls $x \\in A$, dann $x \\in A \\cup B$ und $x \\in A \\cup C$\nFalls $x \\in B \\cap C$, dann $x \\in B$ und $x \\in C$\nAlso $x \\in (A \\cup B) \\cap (A \\cup C)$",
                 "Schritt 4: Zusammenfassung\nDie Distributivgesetze zeigen, wie sich Durchschnitt und Vereinigung gegenseitig beeinflussen."

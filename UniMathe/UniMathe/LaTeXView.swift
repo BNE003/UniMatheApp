@@ -82,12 +82,11 @@ struct LaTeXView: UIViewRepresentable {
                     -webkit-text-size-adjust: 100%;
                 }
                 
-                .content-container {
-                    display: flex;
-                    flex-direction: column;
-                    gap: calc(var(--spacing-unit) * 2);
+                .content-container, .exercise-content {
+                    word-break: break-word;
+                    overflow-wrap: anywhere;
                     max-width: 100%;
-                    overflow-x: hidden;
+                    box-sizing: border-box;
                 }
                 
                 .section {

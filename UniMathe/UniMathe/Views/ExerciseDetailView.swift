@@ -30,7 +30,7 @@ struct ExerciseDetailView: View {
                             .fontWeight(.bold)
                             .foregroundColor(.primary)
                         
-                        LaTeXView(content: exercise.description, height: $descriptionHeight)
+                        LaTeXView(content: addHtmlLineBreaks(exercise.description), height: $descriptionHeight)
                             .frame(height: descriptionHeight)
                     }
                     .padding()
@@ -107,7 +107,7 @@ struct SolutionStepView: View {
                 .font(.headline)
                 .foregroundColor(.primary)
             
-            LaTeXView(content: exercise.solutionSteps[step], height: $height)
+            LaTeXView(content: addHtmlLineBreaks(exercise.solutionSteps[step]), height: $height)
                 .frame(height: height)
         }
         .padding()
@@ -118,6 +118,11 @@ struct SolutionStepView: View {
         )
         .padding(.horizontal)
     }
+}
+
+// Hilfsfunktion, um Zeilenumbrüche in <br> umzuwandeln
+fileprivate func addHtmlLineBreaks(_ text: String) -> String {
+    text.replacingOccurrences(of: "\n", with: "<br>")
 }
 
 #Preview {

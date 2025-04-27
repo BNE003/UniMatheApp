@@ -403,7 +403,7 @@ struct ExerciseCard: View {
                     .foregroundColor(.blue)
             }
             
-            LaTeXView(content: exercise.description, height: $descriptionHeight)
+            LaTeXView(content: addHtmlLineBreaks(exercise.description), height: $descriptionHeight)
                 .frame(height: descriptionHeight)
             
             HStack {
@@ -439,6 +439,11 @@ struct ExerciseCard: View {
                 .stroke(Color.blue.opacity(0.1), lineWidth: 1)
         )
     }
+}
+
+// Hilfsfunktion, um Zeilenumbrüche in <br> umzuwandeln
+fileprivate func addHtmlLineBreaks(_ text: String) -> String {
+    text.replacingOccurrences(of: "\n", with: "<br>")
 }
 
 struct TopicDetailView: View {
