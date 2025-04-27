@@ -368,7 +368,7 @@ struct ExercisesView: View {
             loadExercises()
         }
     }
-    //------------------------------------------------------------
+    //-------------------------AUFGABEN DATEI HIER HINZUFÜGEN-----------
     private func loadExercises() {
         do {
             // Load exercises from the relevant JSON file based on the topic
@@ -385,11 +385,16 @@ struct ExercisesView: View {
                 fileName = "vollstaendige_induktion"
             case "Binomische Formeln":
                 fileName = "binomische_formeln"
+            case "Größter gemeinsamer Teiler":
+                fileName = "groesster_gemeinsamer_teiler"
+            case "Gruppen":
+                fileName = "gruppen"
             default:
                 error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Keine passende JSON-Datei für das Thema gefunden"])
                 isLoading = false
                 return
             }
+//--------------------------------------------------------------
             
             // Load the specific JSON file
             if let fileURL = Bundle.main.url(forResource: fileName, withExtension: "json") {

@@ -1,0 +1,150 @@
+{
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Gruppen",
+            "title": "Gruppenaxiome überprüfen",
+            "description": "Überprüfen Sie, ob die Menge $\\mathbb{Z}$ mit der Operation $a \\ast b = a + b + 1$ eine Gruppe bildet.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überprüfung der Abgeschlossenheit\nFür alle $a,b \\in \\mathbb{Z}$ gilt $a \\ast b = a + b + 1 \\in \\mathbb{Z}$\nAlso ist die Operation abgeschlossen.",
+                "Schritt 2: Überprüfung der Assoziativität\n$(a \\ast b) \\ast c = (a + b + 1) \\ast c = (a + b + 1) + c + 1 = a + b + c + 2$\n$a \\ast (b \\ast c) = a \\ast (b + c + 1) = a + (b + c + 1) + 1 = a + b + c + 2$\nDie Operation ist assoziativ.",
+                "Schritt 3: Existenz des neutralen Elements\nGesucht ist $e \\in \\mathbb{Z}$ mit $a \\ast e = a$ für alle $a \\in \\mathbb{Z}$\n$a + e + 1 = a \\Rightarrow e = -1$\n$-1$ ist das neutrale Element.",
+                "Schritt 4: Existenz der Inversen\nFür jedes $a \\in \\mathbb{Z}$ suchen wir $a^{-1}$ mit $a \\ast a^{-1} = -1$\n$a + a^{-1} + 1 = -1 \\Rightarrow a^{-1} = -a - 2$\nJedes Element hat ein Inverses.",
+                "Schritt 5: Schlussfolgerung\n$(\\mathbb{Z}, \\ast)$ erfüllt alle Gruppenaxiome und ist somit eine Gruppe."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Gruppen",
+            "title": "Untergruppen und Normalteiler",
+            "description": "Sei $G = S_3$ die symmetrische Gruppe auf 3 Elementen. Bestimmen Sie alle Untergruppen von $G$ und prüfen Sie, welche davon Normalteiler sind.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Elemente von $S_3$\n$S_3 = \\{id, (12), (13), (23), (123), (132)\\}$\nOrdnung: $|S_3| = 6$",
+                "Schritt 2: Bestimmung der Untergruppen\nTriviale Untergruppen: $\\{id\\}$ und $S_3$\nZyklische Untergruppen:\n$\\langle (12) \\rangle = \\{id, (12)\\}$\n$\\langle (13) \\rangle = \\{id, (13)\\}$\n$\\langle (23) \\rangle = \\{id, (23)\\}$\n$\\langle (123) \\rangle = \\{id, (123), (132)\\}$",
+                "Schritt 3: Überprüfung auf Normalteiler\n$\\{id\\}$ und $S_3$ sind immer Normalteiler\n$\\langle (123) \\rangle$ ist Normalteiler, da Index 2\nDie 2-elementigen Untergruppen sind keine Normalteiler, da sie nicht invariant unter Konjugation sind",
+                "Schritt 4: Zusammenfassung\nUntergruppen: $\\{id\\}, S_3, \\langle (12) \\rangle, \\langle (13) \\rangle, \\langle (23) \\rangle, \\langle (123) \\rangle$\nNormalteiler: $\\{id\\}, S_3, \\langle (123) \\rangle$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Gruppen",
+            "title": "Homomorphismen und Isomorphismen",
+            "description": "Sei $G = (\\mathbb{R}^+, \\cdot)$ die multiplikative Gruppe der positiven reellen Zahlen und $H = (\\mathbb{R}, +)$ die additive Gruppe der reellen Zahlen. Zeigen Sie, dass die Abbildung $\\varphi: G \\rightarrow H$ mit $\\varphi(x) = \\ln(x)$ ein Gruppenisomorphismus ist.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Überprüfung der Homomorphismus-Eigenschaft\n$\\varphi(xy) = \\ln(xy) = \\ln(x) + \\ln(y) = \\varphi(x) + \\varphi(y)$\nAlso ist $\\varphi$ ein Homomorphismus.",
+                "Schritt 2: Injektivität\nSei $\\varphi(x) = \\varphi(y)$\n$\\ln(x) = \\ln(y) \\Rightarrow x = y$\nAlso ist $\\varphi$ injektiv.",
+                "Schritt 3: Surjektivität\nFür jedes $y \\in \\mathbb{R}$ existiert $x = e^y \\in \\mathbb{R}^+$ mit $\\varphi(x) = y$\nAlso ist $\\varphi$ surjektiv.",
+                "Schritt 4: Schlussfolgerung\nDa $\\varphi$ ein bijektiver Homomorphismus ist, ist es ein Isomorphismus."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Gruppen",
+            "title": "Faktorgruppen",
+            "description": "Sei $G = \\mathbb{Z} \\times \\mathbb{Z}$ und $H = \\langle (2,0), (0,3) \\rangle$. Bestimmen Sie die Faktorgruppe $G/H$ und zeigen Sie, dass sie isomorph zu $\\mathbb{Z}_2 \\times \\mathbb{Z}_3$ ist.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Beschreibung von $H$\n$H = \\{(2k, 3l) \\mid k,l \\in \\mathbb{Z}\\}$",
+                "Schritt 2: Bestimmung der Nebenklassen\n$G/H = \\{(0,0)+H, (0,1)+H, (0,2)+H, (1,0)+H, (1,1)+H, (1,2)+H\\}$",
+                "Schritt 3: Gruppenstruktur auf $G/H$\n$(a,b)+H + (c,d)+H = (a+c,b+d)+H$\nDie Operation ist wohldefiniert.",
+                "Schritt 4: Isomorphismus zu $\\mathbb{Z}_2 \\times \\mathbb{Z}_3$\nDefiniere $\\varphi: G/H \\rightarrow \\mathbb{Z}_2 \\times \\mathbb{Z}_3$ durch\n$\\varphi((a,b)+H) = (a \\mod 2, b \\mod 3)$\n$\\varphi$ ist ein Isomorphismus."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Gruppen",
+            "title": "Sylow-Sätze",
+            "description": "Bestimmen Sie die Anzahl der 2-Sylow-Untergruppen und 3-Sylow-Untergruppen in $S_4$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Ordnung von $S_4$\n$|S_4| = 24 = 2^3 \\cdot 3$",
+                "Schritt 2: Anzahl der 2-Sylow-Untergruppen\nNach dem 3. Sylow-Satz:\n$n_2 \\equiv 1 \\mod 2$ und $n_2$ teilt 3\nMögliche Werte: $n_2 = 1$ oder $n_2 = 3$\nTatsächlich gibt es 3 2-Sylow-Untergruppen (Dieder-Gruppen der Ordnung 8)",
+                "Schritt 3: Anzahl der 3-Sylow-Untergruppen\nNach dem 3. Sylow-Satz:\n$n_3 \\equiv 1 \\mod 3$ und $n_3$ teilt 8\nMögliche Werte: $n_3 = 1$ oder $n_3 = 4$\nTatsächlich gibt es 4 3-Sylow-Untergruppen (zyklische Gruppen der Ordnung 3)",
+                "Schritt 4: Verifikation\nDie Dieder-Gruppen sind:\n$\\langle (1234), (13) \\rangle$\n$\\langle (1234), (12) \\rangle$\n$\\langle (1234), (14) \\rangle$\nDie 3-Sylow-Untergruppen sind:\n$\\langle (123) \\rangle$\n$\\langle (124) \\rangle$\n$\\langle (134) \\rangle$\n$\\langle (234) \\rangle$"
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Gruppen",
+            "title": "Direkte Produkte",
+            "description": "Zeigen Sie, dass die Gruppe $\\mathbb{Z}_6$ isomorph zum direkten Produkt $\\mathbb{Z}_2 \\times \\mathbb{Z}_3$ ist.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Definition des Isomorphismus\nDefiniere $\\varphi: \\mathbb{Z}_6 \\rightarrow \\mathbb{Z}_2 \\times \\mathbb{Z}_3$ durch\n$\\varphi([x]_6) = ([x]_2, [x]_3)$",
+                "Schritt 2: Wohldefiniertheit\nWenn $x \\equiv y \\mod 6$, dann $x \\equiv y \\mod 2$ und $x \\equiv y \\mod 3$\nAlso ist $\\varphi$ wohldefiniert.",
+                "Schritt 3: Homomorphismus\n$\\varphi([x]_6 + [y]_6) = \\varphi([x+y]_6) = ([x+y]_2, [x+y]_3) = ([x]_2 + [y]_2, [x]_3 + [y]_3) = \\varphi([x]_6) + \\varphi([y]_6)$",
+                "Schritt 4: Injektivität\n$\\varphi([x]_6) = \\varphi([y]_6) \\Rightarrow x \\equiv y \\mod 2$ und $x \\equiv y \\mod 3$\nDa 2 und 3 teilerfremd sind, folgt $x \\equiv y \\mod 6$",
+                "Schritt 5: Surjektivität\n$|\\mathbb{Z}_6| = |\\mathbb{Z}_2 \\times \\mathbb{Z}_3| = 6$\nDa $\\varphi$ injektiv ist, ist es auch surjektiv.",
+                "Schritt 6: Schlussfolgerung\n$\\varphi$ ist ein Isomorphismus."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Gruppen",
+            "title": "Automorphismen",
+            "description": "Bestimmen Sie die Automorphismengruppe $\\text{Aut}(\\mathbb{Z}_8)$ der zyklischen Gruppe $\\mathbb{Z}_8$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Generatoren von $\\mathbb{Z}_8$\n$\\mathbb{Z}_8 = \\langle 1 \\rangle$\nDie Generatoren sind $\\{1,3,5,7\\}$",
+                "Schritt 2: Automorphismen\nJeder Automorphismus $\\varphi$ ist durch das Bild von 1 eindeutig bestimmt\n$\\varphi$ muss einen Generator auf einen Generator abbilden",
+                "Schritt 3: Bestimmung aller Automorphismen\n$\\varphi_1: 1 \\mapsto 1$\n$\\varphi_3: 1 \\mapsto 3$\n$\\varphi_5: 1 \\mapsto 5$\n$\\varphi_7: 1 \\mapsto 7$",
+                "Schritt 4: Gruppenstruktur\n$\\text{Aut}(\\mathbb{Z}_8) \\cong \\mathbb{Z}_8^\\times = \\{1,3,5,7\\}$\nDie Gruppe ist isomorph zu $\\mathbb{Z}_2 \\times \\mathbb{Z}_2$",
+                "Schritt 5: Verifikation\nMultiplikationstabelle:\n$\\begin{array}{c|cccc}\n\\cdot & 1 & 3 & 5 & 7 \\\\\\hline\n1 & 1 & 3 & 5 & 7 \\\\\n3 & 3 & 1 & 7 & 5 \\\\\n5 & 5 & 7 & 1 & 3 \\\\\n7 & 7 & 5 & 3 & 1\n\\end{array}$"
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Gruppen",
+            "title": "Gruppenoperationen",
+            "description": "Sei $G = D_4$ die Diedergruppe der Ordnung 8 (Symmetriegruppe des Quadrats). Bestimmen Sie die Bahnen und Stabilisatoren der Operation von $G$ auf der Menge der Ecken des Quadrats.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Elemente von $D_4$\n$D_4 = \\{id, r, r^2, r^3, s, sr, sr^2, sr^3\\}$\nwobei $r$ eine 90°-Drehung und $s$ eine Spiegelung ist",
+                "Schritt 2: Bahnen\nDie Menge der Ecken ist $X = \\{1,2,3,4\\}$\nEs gibt nur eine Bahn, da jede Ecke auf jede andere Ecke abgebildet werden kann",
+                "Schritt 3: Stabilisatoren\n$G_1 = \\{id, s\\}$\n$G_2 = \\{id, sr\\}$\n$G_3 = \\{id, sr^2\\}$\n$G_4 = \\{id, sr^3\\}$",
+                "Schritt 4: Bahnformel\n$|G| = |G_x| \\cdot |Gx|$ für jedes $x \\in X$\n$8 = 2 \\cdot 4$",
+                "Schritt 5: Interpretation\nDie Operation ist transitiv (eine Bahn)\nDie Stabilisatoren sind die Spiegelungen, die die jeweilige Ecke festhalten"
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Gruppen",
+            "title": "Endliche abelsche Gruppen",
+            "description": "Bestimmen Sie alle abelschen Gruppen der Ordnung 36 bis auf Isomorphie.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Primfaktorzerlegung\n$36 = 2^2 \\cdot 3^2$",
+                "Schritt 2: Mögliche Zerlegungen\nNach dem Hauptsatz über endliche abelsche Gruppen:\n$\\mathbb{Z}_4 \\times \\mathbb{Z}_9$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_9$\n$\\mathbb{Z}_4 \\times \\mathbb{Z}_3 \\times \\mathbb{Z}_3$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_3 \\times \\mathbb{Z}_3$",
+                "Schritt 3: Verifikation der Ordnungen\nAlle Gruppen haben Ordnung 36\nKeine zwei der Gruppen sind isomorph",
+                "Schritt 4: Elementarteiler\n$\\mathbb{Z}_4 \\times \\mathbb{Z}_9$: $(4,9)$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_9$: $(2,2,9)$\n$\\mathbb{Z}_4 \\times \\mathbb{Z}_3 \\times \\mathbb{Z}_3$: $(4,3,3)$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_3 \\times \\mathbb{Z}_3$: $(2,2,3,3)$"
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Gruppen",
+            "title": "Gruppenerweiterungen",
+            "description": "Zeigen Sie, dass die Quaternionengruppe $Q_8$ eine zentrale Erweiterung von $\\mathbb{Z}_2$ durch $\\mathbb{Z}_4$ ist.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Definition von $Q_8$\n$Q_8 = \\{\\pm 1, \\pm i, \\pm j, \\pm k\\}$\nmit $i^2 = j^2 = k^2 = -1$, $ij = k$, $jk = i$, $ki = j$",
+                "Schritt 2: Zentrum\n$Z(Q_8) = \\{\\pm 1\\} \\cong \\mathbb{Z}_2$",
+                "Schritt 3: Faktorgruppe\n$Q_8/Z(Q_8) \\cong \\mathbb{Z}_2 \\times \\mathbb{Z}_2$",
+                "Schritt 4: Erweiterung\nDie kurze exakte Sequenz\n$1 \\rightarrow \\mathbb{Z}_2 \\rightarrow Q_8 \\rightarrow \\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\rightarrow 1$\nist eine zentrale Erweiterung",
+                "Schritt 5: Verifikation\nDie Erweiterung ist nicht trivial, da $Q_8$ nicht isomorph zu $\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_2$ ist"
+            ]
+        }
+    ]
+} 

@@ -1,0 +1,142 @@
+{
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Euklidischer Algorithmus",
+            "description": "Berechnen Sie den größten gemeinsamen Teiler von 1071 und 462 mit Hilfe des euklidischen Algorithmus.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Anwendung des euklidischen Algorithmus\nDer euklidische Algorithmus basiert auf der Division mit Rest:\n$a = b \\cdot q + r$, wobei $0 \\leq r < b$",
+                "Schritt 2: Erste Division\n$1071 = 462 \\cdot 2 + 147$\nHier ist $a = 1071$, $b = 462$, $q = 2$ und $r = 147$",
+                "Schritt 3: Zweite Division\n$462 = 147 \\cdot 3 + 21$\nJetzt ist $a = 462$, $b = 147$, $q = 3$ und $r = 21$",
+                "Schritt 4: Dritte Division\n$147 = 21 \\cdot 7 + 0$\nDa der Rest 0 ist, ist der letzte nicht-verschwindende Rest der ggT",
+                "Schritt 5: Ergebnis\n$\\text{ggT}(1071, 462) = 21$"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Erweiterter euklidischer Algorithmus",
+            "description": "Finden Sie mit Hilfe des erweiterten euklidischen Algorithmus ganze Zahlen $x$ und $y$, sodass $1071x + 462y = \\text{ggT}(1071, 462)$ gilt.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Rückwärtsrechnung des euklidischen Algorithmus\nAus der vorherigen Aufgabe wissen wir:\n$21 = 462 - 147 \\cdot 3$",
+                "Schritt 2: Ersetzen von 147\n$147 = 1071 - 462 \\cdot 2$\nAlso: $21 = 462 - (1071 - 462 \\cdot 2) \\cdot 3$",
+                "Schritt 3: Vereinfachen\n$21 = 462 - 1071 \\cdot 3 + 462 \\cdot 6$\n$21 = 462 \\cdot 7 - 1071 \\cdot 3$",
+                "Schritt 4: Ergebnis\n$x = -3$, $y = 7$\n$1071 \\cdot (-3) + 462 \\cdot 7 = 21$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Lineare diophantische Gleichung",
+            "description": "Finden Sie alle ganzzahligen Lösungen der Gleichung $1071x + 462y = 42$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Überprüfung der Lösbarkeit\nDa $\\text{ggT}(1071, 462) = 21$ und $21$ teilt $42$, ist die Gleichung lösbar",
+                "Schritt 2: Finden einer speziellen Lösung\nTeilen wir beide Seiten durch 21:\n$51x + 22y = 2$\nAus der vorherigen Aufgabe wissen wir:\n$51 \\cdot (-3) + 22 \\cdot 7 = 1$\nAlso: $51 \\cdot (-6) + 22 \\cdot 14 = 2$",
+                "Schritt 3: Allgemeine Lösung\nDie allgemeine Lösung ist:\n$x = -6 + 22k$\n$y = 14 - 51k$\nfür $k \\in \\mathbb{Z}$",
+                "Schritt 4: Verifikation\nEinsetzen in die ursprüngliche Gleichung:\n$1071(-6 + 22k) + 462(14 - 51k) = 42$"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Primfaktorzerlegung und ggT",
+            "description": "Berechnen Sie den größten gemeinsamen Teiler von $2^4 \\cdot 3^2 \\cdot 5^3 \\cdot 7$ und $2^3 \\cdot 3^4 \\cdot 5 \\cdot 11$ mit Hilfe der Primfaktorzerlegung.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Definition des ggT über Primfaktoren\nDer ggT ist das Produkt der kleinsten Exponenten für jede Primzahl",
+                "Schritt 2: Vergleich der Exponenten\nFür 2: min(4,3) = 3\nFür 3: min(2,4) = 2\nFür 5: min(3,1) = 1\nFür 7: min(1,0) = 0\nFür 11: min(0,1) = 0",
+                "Schritt 3: Berechnung des ggT\n$\\text{ggT} = 2^3 \\cdot 3^2 \\cdot 5 = 8 \\cdot 9 \\cdot 5 = 360$"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Teilerfremdheit und ggT",
+            "description": "Zeigen Sie: Wenn $\\text{ggT}(a,b) = 1$ und $\\text{ggT}(a,c) = 1$, dann ist $\\text{ggT}(a,bc) = 1$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Definition der Teilerfremdheit\n$\\text{ggT}(a,b) = 1$ bedeutet, dass $a$ und $b$ teilerfremd sind",
+                "Schritt 2: Anwendung des Lemmas von Bézout\nEs existieren ganze Zahlen $x_1,y_1,x_2,y_2$ mit:\n$ax_1 + by_1 = 1$\n$ax_2 + cy_2 = 1$",
+                "Schritt 3: Multiplikation der Gleichungen\n$(ax_1 + by_1)(ax_2 + cy_2) = 1$\n$a(ax_1x_2 + bx_1y_2 + cx_2y_1) + bc(y_1y_2) = 1$",
+                "Schritt 4: Schlussfolgerung\nDa sich 1 als Linearkombination von $a$ und $bc$ darstellen lässt, sind $a$ und $bc$ teilerfremd"
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und kgV",
+            "description": "Beweisen Sie: Für alle natürlichen Zahlen $a,b$ gilt $\\text{ggT}(a,b) \\cdot \\text{kgV}(a,b) = a \\cdot b$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Primfaktorzerlegung\nSei $a = \\prod_{p \\text{ prim}} p^{\\alpha_p}$\n$b = \\prod_{p \\text{ prim}} p^{\\beta_p}$",
+                "Schritt 2: Definition von ggT und kgV\n$\\text{ggT}(a,b) = \\prod_{p \\text{ prim}} p^{\\min(\\alpha_p,\\beta_p)}$\n$\\text{kgV}(a,b) = \\prod_{p \\text{ prim}} p^{\\max(\\alpha_p,\\beta_p)}$",
+                "Schritt 3: Multiplikation\n$\\text{ggT}(a,b) \\cdot \\text{kgV}(a,b) = \\prod_{p \\text{ prim}} p^{\\min(\\alpha_p,\\beta_p) + \\max(\\alpha_p,\\beta_p)}$",
+                "Schritt 4: Vereinfachung\n$\\min(\\alpha_p,\\beta_p) + \\max(\\alpha_p,\\beta_p) = \\alpha_p + \\beta_p$\nAlso: $\\text{ggT}(a,b) \\cdot \\text{kgV}(a,b) = a \\cdot b$"
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Kongruenzen",
+            "description": "Lösen Sie die Kongruenz $1071x \\equiv 42 \\mod 462$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Überprüfung der Lösbarkeit\n$\\text{ggT}(1071, 462) = 21$ teilt 42, also ist die Kongruenz lösbar",
+                "Schritt 2: Vereinfachung\nTeilen durch 21:\n$51x \\equiv 2 \\mod 22$",
+                "Schritt 3: Finden des Inversen\nWir suchen $y$ mit $51y \\equiv 1 \\mod 22$\n$51 \\equiv 7 \\mod 22$\n$7 \\cdot 19 \\equiv 1 \\mod 22$\nAlso ist $y = 19$ das Inverse",
+                "Schritt 4: Lösung\n$x \\equiv 2 \\cdot 19 \\mod 22$\n$x \\equiv 38 \\mod 22$\n$x \\equiv 16 \\mod 22$\nAllgemeine Lösung: $x = 16 + 22k$ für $k \\in \\mathbb{Z}$"
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Polynome",
+            "description": "Berechnen Sie den größten gemeinsamen Teiler der Polynome $f(x) = x^3 - 2x^2 - x + 2$ und $g(x) = x^3 - 3x^2 + 4$ über $\\mathbb{Q}[x]$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Polynomdivision\n$f(x) = g(x) \\cdot 1 + (x^2 - x - 2)$",
+                "Schritt 2: Weiter Division\n$g(x) = (x^2 - x - 2)(x - 2) + (2x)$",
+                "Schritt 3: Letzte Division\n$x^2 - x - 2 = (2x)(\\frac{1}{2}x - \\frac{1}{2}) + (-2)$",
+                "Schritt 4: Normalisierung\nDa wir über $\\mathbb{Q}$ arbeiten, können wir den letzten nicht-verschwindenden Rest normieren:\n$\\text{ggT}(f,g) = 1$"
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Matrizen",
+            "description": "Berechnen Sie den größten gemeinsamen Teiler der Determinanten der Matrizen $A = \\begin{pmatrix} 2 & 3 \\\\ 4 & 5 \\end{pmatrix}$ und $B = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Berechnung der Determinanten\n$\\det(A) = 2 \\cdot 5 - 3 \\cdot 4 = 10 - 12 = -2$\n$\\det(B) = 1 \\cdot 4 - 2 \\cdot 3 = 4 - 6 = -2$",
+                "Schritt 2: Berechnung des ggT\n$\\text{ggT}(-2, -2) = 2$"
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Fibonacci-Zahlen",
+            "description": "Zeigen Sie: $\\text{ggT}(F_n, F_{n+1}) = 1$ für alle $n \\in \\mathbb{N}$, wobei $F_n$ die $n$-te Fibonacci-Zahl ist.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Induktionsanfang\nFür $n=1$: $F_1 = 1$, $F_2 = 1$, also $\\text{ggT}(1,1) = 1$",
+                "Schritt 2: Induktionsvoraussetzung\nAnnahme: $\\text{ggT}(F_k, F_{k+1}) = 1$ für ein $k \\in \\mathbb{N}$",
+                "Schritt 3: Induktionsschritt\n$\\text{ggT}(F_{k+1}, F_{k+2}) = \\text{ggT}(F_{k+1}, F_{k+1} + F_k)$\n$= \\text{ggT}(F_{k+1}, F_k) = \\text{ggT}(F_k, F_{k+1}) = 1$",
+                "Schritt 4: Schlussfolgerung\nNach dem Prinzip der vollständigen Induktion gilt die Aussage für alle $n \\in \\mathbb{N}$"
+            ]
+        }
+    ]
+} 
