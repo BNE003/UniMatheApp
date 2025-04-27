@@ -388,16 +388,14 @@ struct ExercisesView: View {
 struct ExerciseCard: View {
     let exercise: Exercise
     @State private var descriptionHeight: CGFloat = 100
+    @State private var titleHeight: CGFloat = 20
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Text(exercise.title)
-                    .font(.headline)
-                    .foregroundColor(.black)
-                
+                LaTeXView(content: "<span style='font-size:1.2em;font-weight:bold;'>" + addHtmlLineBreaks(exercise.title) + "</span>", height: $titleHeight)
+                    .frame(height: titleHeight)
                 Spacer()
-                
                 Text("\(exercise.points) Punkte")
                     .font(.subheadline)
                     .foregroundColor(.blue)

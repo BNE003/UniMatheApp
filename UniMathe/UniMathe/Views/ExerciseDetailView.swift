@@ -6,6 +6,7 @@ struct ExerciseDetailView: View {
     @State private var showSolution = false
     @State private var descriptionHeight: CGFloat = 100
     @State private var solutionHeights: [CGFloat] = []
+    @State private var titleHeight: CGFloat = 32
     @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
@@ -25,11 +26,8 @@ struct ExerciseDetailView: View {
                 VStack(spacing: 24) {
                     // Exercise Card
                     VStack(alignment: .leading, spacing: 16) {
-                        Text(exercise.title)
-                            .font(.title2)
-                            .fontWeight(.bold)
-                            .foregroundColor(.primary)
-                        
+                        LaTeXView(content: "<span style='font-size:1.2em;font-weight:bold;'>" + addHtmlLineBreaks(exercise.title) + "</span>", height: $titleHeight)
+                            .frame(height: titleHeight)
                         LaTeXView(content: addHtmlLineBreaks(exercise.description), height: $descriptionHeight)
                             .frame(height: descriptionHeight)
                     }
