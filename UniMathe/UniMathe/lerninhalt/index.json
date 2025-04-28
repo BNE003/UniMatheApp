@@ -1,0 +1,120 @@
+{
+    "topics": [
+        {
+            "id": "1",
+            "title": "Grundlagen der Höheren Mathematik",
+            "filename": "grundlagen_der_hoeheren_mathematik_content.json",
+            "subTopics": [
+                {
+                    "id": "1.1",
+                    "title": "Mengen und Abbildungen",
+                    "filename": "mengen_und_abbildungen_content.json"
+                },
+                {
+                    "id": "1.2",
+                    "title": "Logik",
+                    "filename": "logik_content.json"
+                },
+                {
+                    "id": "1.3",
+                    "title": "Vollständige Induktion",
+                    "filename": "vollstaendige_induktion_content.json"
+                },
+                {
+                    "id": "1.4",
+                    "title": "Binomische Formeln",
+                    "filename": "binomische_formeln_content.json"
+                },
+                {
+                    "id": "1.5",
+                    "title": "Größter gemeinsamer Teiler",
+                    "filename": "groesster_gemeinsamer_teiler_content.json"
+                },
+                {
+                    "id": "1.6",
+                    "title": "Gruppen",
+                    "filename": "gruppen_content.json"
+                },
+                {
+                    "id": "1.7",
+                    "title": "Ringe",
+                    "filename": "ringe_content.json"
+                },
+                {
+                    "id": "1.8",
+                    "title": "Körper",
+                    "filename": "koerper_content.json"
+                },
+                {
+                    "id": "1.9",
+                    "title": "Komplexe Zahlen",
+                    "filename": "komplexe_zahlen_content.json"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "title": "Analysis",
+            "filename": "analysis_content.json",
+            "subTopics": [
+                {
+                    "id": "2.1",
+                    "title": "Folgen und Reihen",
+                    "filename": "folgen_und_reihen_content.json"
+                },
+                {
+                    "id": "2.2",
+                    "title": "Grenzwerte",
+                    "filename": "grenzwerte_content.json"
+                },
+                {
+                    "id": "2.3",
+                    "title": "Differentialrechnung",
+                    "filename": "differentialrechnung_content.json"
+                },
+                {
+                    "id": "2.4",
+                    "title": "Integralrechnung",
+                    "filename": "integralrechnung_content.json"
+                },
+                {
+                    "id": "2.5",
+                    "title": "Mehrdimensionale Analysis",
+                    "filename": "mehrdimensionale_analysis_content.json"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "title": "Lineare Algebra",
+            "filename": "lineare_algebra_content.json",
+            "subTopics": [
+                {
+                    "id": "3.1",
+                    "title": "Vektorräume",
+                    "filename": "vektorraeume_content.json"
+                },
+                {
+                    "id": "3.2",
+                    "title": "Matrizen",
+                    "filename": "matrizen_content.json"
+                },
+                {
+                    "id": "3.3",
+                    "title": "Lineare Abbildungen",
+                    "filename": "lineare_abbildungen_content.json"
+                },
+                {
+                    "id": "3.4",
+                    "title": "Determinanten",
+                    "filename": "determinanten_content.json"
+                },
+                {
+                    "id": "3.5",
+                    "title": "Eigenwerte und Eigenvektoren",
+                    "filename": "eigenwerte_content.json"
+                }
+            ]
+        }
+    ]
+}
