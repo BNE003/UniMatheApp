@@ -231,7 +231,7 @@ struct ContentSelectionView: View {
     
     private func loadTopicContent() {
         // Convert topic ID to filename
-        let filename = topic.title.lowercased().replacingOccurrences(of: " ", with: "_")
+        let filename = normalizedFileName(from: topic.title)
         let fullFilename = "\(filename)_content.json"
         
         // Direkter Zugriff auf die Dateien im Dateisystem

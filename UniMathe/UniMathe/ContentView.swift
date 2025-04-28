@@ -7,6 +7,20 @@
 
 import SwiftUI
 
+// MARK: - Hilfsfunktion für normierte Dateinamen
+func normalizedFileName(from title: String) -> String {
+    var fileName = title.lowercased()
+    fileName = fileName.replacingOccurrences(of: "ä", with: "ae")
+    fileName = fileName.replacingOccurrences(of: "ö", with: "oe")
+    fileName = fileName.replacingOccurrences(of: "ü", with: "ue")
+    fileName = fileName.replacingOccurrences(of: "ß", with: "ss")
+    let allowed = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyz0123456789_")
+    fileName = fileName.replacingOccurrences(of: " ", with: "_")
+    fileName = String(fileName.unicodeScalars.filter { allowed.contains($0) })
+    return fileName
+}
+
+// MARK: - ContentView
 struct ContentView: View {
     @State private var topics: [MathTopic] = []
     @State private var isLoading = true
@@ -101,9 +115,12 @@ struct ContentView: View {
             
             // Load each topic from its individual file
             for topicIndex in indexResponse.topics {
+                let filename = normalizedFileName(from: topicIndex.title)
+                let fullFilename = "\(filename)_content.json"
+                
                 // Direkter Zugriff auf die Dateien im Dateisystem
                 let lerninhaltsPath = "/Users/benediktheld/Desktop/app/UniMatheApp/UniMathe/UniMathe/lerninhalt"
-                let topicUrl = URL(fileURLWithPath: "\(lerninhaltsPath)/\(topicIndex.filename)")
+                let topicUrl = URL(fileURLWithPath: "\(lerninhaltsPath)/\(fullFilename)")
                 
                 guard FileManager.default.fileExists(atPath: topicUrl.path) else {
                     print("Could not find file for topic: \(topicIndex.title) at \(topicUrl.path)")
@@ -279,7 +296,7 @@ struct ExercisesView: View {
                 fileName = "mengen_und_abbildungen"
             case "Logik":
                 fileName = "logik"
-            case "Vollständige Induktion":
+            case "vollstaendige induktion":
                 fileName = "vollstaendige_induktion"
             case "Binomische Formeln":
                 fileName = "binomische_formeln"
