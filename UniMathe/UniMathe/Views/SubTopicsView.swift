@@ -83,12 +83,10 @@ struct SubTopicsView: View {
     }
     
     private func loadSubTopics() {
-        // Direkter Zugriff auf die Dateien im Dateisystem statt über Bundle.main.url
-        let lerninhaltsPath = "/Users/benediktheld/Desktop/app/UniMatheApp/UniMathe/UniMathe/lerninhalt"
-        let indexUrl = URL(fileURLWithPath: "\(lerninhaltsPath)/index.json")
-        
-        guard FileManager.default.fileExists(atPath: indexUrl.path) else {
-            error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Index file not found at \(indexUrl.path)"])
+        // Lade die Dateien aus dem App-Bundle ("lerninhalt"-Unterordner) statt über absolute Pfade
+        guard let indexUrl = Bundle.main.url(forResource: "index", withExtension: "json", subdirectory: "lerninhalt") ??
+              Bundle.main.url(forResource: "index", withExtension: "json") else {
+            error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Index file not found in bundle"])
             isLoading = false
             return
         }
@@ -105,17 +103,13 @@ struct SubTopicsView: View {
                 
                 // Load each subtopic from its individual file
                 for subTopicIndex in subTopicIndices {
-                    // Direkter Zugriff auf die Dateien im Dateisystem
-                    let lerninhaltsPath = "/Users/benediktheld/Desktop/app/UniMatheApp/UniMathe/UniMathe/lerninhalt"
-                    let subTopicUrl = URL(fileURLWithPath: "\(lerninhaltsPath)/\(subTopicIndex.filename)")
-                    
-                    guard FileManager.default.fileExists(atPath: subTopicUrl.path) else {
-                        print("Could not find file for subtopic: \(subTopicIndex.title) at \(subTopicUrl.path)")
+                    guard let subTopicUrl = Bundle.main.url(forResource: subTopicIndex.filename, withExtension: nil, subdirectory: "lerninhalt") ??
+                          Bundle.main.url(forResource: subTopicIndex.filename, withExtension: nil) else {
+                        print("Could not find file for subtopic: \(subTopicIndex.title) in bundle")
                         continue
                     }
                     
                     let subTopicData = try Data(contentsOf: subTopicUrl)
-                    // Direkte Dekodierung des einzelnen MathTopic-Objekts (kein Array)
                     let subTopic = try JSONDecoder().decode(MathTopic.self, from: subTopicData)
                     loadedSubTopics.append(subTopic)
                 }
@@ -127,7 +121,6 @@ struct SubTopicsView: View {
                     subTopics = existingSubTopics
                 }
             }
-            
             isLoading = false
         } catch {
             print("Error loading subtopics: \(error)")
@@ -230,23 +223,19 @@ struct ContentSelectionView: View {
     }
     
     private func loadTopicContent() {
-        // Convert topic ID to filename
+        // Convert topic title to filename
         let filename = normalizedFileName(from: topic.title)
         let fullFilename = "\(filename)_content.json"
         
-        // Direkter Zugriff auf die Dateien im Dateisystem
-        let lerninhaltsPath = "/Users/benediktheld/Desktop/app/UniMatheApp/UniMathe/UniMathe/lerninhalt"
-        let url = URL(fileURLWithPath: "\(lerninhaltsPath)/\(fullFilename)")
-        
-        guard FileManager.default.fileExists(atPath: url.path) else {
-            error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Topic file not found: \(url.path)"])
+        guard let url = Bundle.main.url(forResource: fullFilename, withExtension: nil, subdirectory: "lerninhalt") ??
+              Bundle.main.url(forResource: fullFilename, withExtension: nil) else {
+            error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Topic file not found in bundle"])
             isLoading = false
             return
         }
         
         do {
             let data = try Data(contentsOf: url)
-            // Direkte Dekodierung des einzelnen MathTopic-Objekts (kein Array)
             let loadedTopic = try JSONDecoder().decode(MathTopic.self, from: data)
             self.loadedTopic = loadedTopic
             isLoading = false

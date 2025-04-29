@@ -96,12 +96,11 @@ struct ContentView: View {
     }
     
     private func loadTopics() {
-        // Direkter Zugriff auf die Dateien im Dateisystem statt über Bundle.main.url
-        let lerninhaltsPath = "/Users/benediktheld/Desktop/app/UniMatheApp/UniMathe/UniMathe/lerninhalt"
-        let indexUrl = URL(fileURLWithPath: "\(lerninhaltsPath)/index.json")
-        
-        guard FileManager.default.fileExists(atPath: indexUrl.path) else {
-            error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Index file not found at \(indexUrl.path)"])
+        // Lade die Dateien aus dem App-Bundle ("lerninhalt"-Unterordner) anstatt über absolute Dateipfade
+        // Versuche zuerst im Unterordner "lerninhalt", fallback auf Bundle-Root falls die Dateien als Gruppe eingebunden wurden
+        guard let indexUrl = Bundle.main.url(forResource: "index", withExtension: "json", subdirectory: "lerninhalt") ??
+              Bundle.main.url(forResource: "index", withExtension: "json") else {
+            error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Index file not found in bundle"])
             isLoading = false
             return
         }
@@ -116,14 +115,12 @@ struct ContentView: View {
             // Load each topic from its individual file
             for topicIndex in indexResponse.topics {
                 let filename = normalizedFileName(from: topicIndex.title)
-                let fullFilename = "\(filename)_content.json"
+                let fullFilename = "\(filename)_content.json" // enthält bereits die Endung
                 
-                // Direkter Zugriff auf die Dateien im Dateisystem
-                let lerninhaltsPath = "Users/benediktheld/Desktop/app/UniMatheApp/UniMathe/UniMathe/lerninhalt"
-                let topicUrl = URL(fileURLWithPath: "\(lerninhaltsPath)/\(fullFilename)")
-                
-                guard FileManager.default.fileExists(atPath: topicUrl.path) else {
-                    print("Could not find file for topic: \(topicIndex.title) at \(topicUrl.path)")
+                // Datei aus dem Bundle holen
+                guard let topicUrl = Bundle.main.url(forResource: fullFilename, withExtension: nil, subdirectory: "lerninhalt") ??
+                                    Bundle.main.url(forResource: fullFilename, withExtension: nil) else {
+                    print("Could not find file for topic: \(topicIndex.title) in bundle")
                     continue
                 }
                 
