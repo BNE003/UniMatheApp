@@ -301,6 +301,11 @@ struct ExercisesView: View {
                 fileName = "groesster_gemeinsamer_teiler"
             case "Gruppen":
                 fileName = "gruppen"
+//LINEARE ALGEBRA:
+            case "Vektorräume":
+                fileName = "vektorraeume"
+            case "Matrizen":
+                fileName = "matrizen"
             default:
                 error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Keine passende JSON-Datei für das Thema gefunden"])
                 isLoading = false
