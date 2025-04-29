@@ -2,7 +2,38 @@
   "id": "2",
   "title": "Analysis",
   "icon": "function",
-  "description": "Grundlagen der Analysis.",
-  "markdownContent": "",
-  "subTopics": null
+  "description": "Grundlagen der Analysis mit ausführlichen Erklärungen und Beispielen.",
+  "markdownContent": "<div class=\"content-container\">\n    <h1>📈 Analysis</h1>\n    \n    <div class=\"chapter-intro\">\n        <p>Die Analysis ist ein zentrales Gebiet der Mathematik, das sich mit Grenzwerten, stetigen Funktionen, Differenziation und Integration beschäftigt. Sie bildet die mathematische Grundlage für das Verständnis von Veränderungen und kontinuierlichen Prozessen.</p>\n    </div>\n    \n    <div class=\"section\">\n        <h2>Hauptthemen der Analysis:</h2>\n        \n        <div class=\"topic-overview\">\n            <div class=\"topic\">\n                <h3>1. Folgen und Reihen</h3>\n                <p>Grundlegende Konzepte der Analysis.</p>\n                <ul>\n                    <li>Konvergenz und Divergenz</li>\n                    <li>Monotonie und Beschränktheit</li>\n                    <li>Reihenkriterien</li>\n                </ul>\n            </div>\n            \n            <div class=\"topic\">\n                <h3>2. Grenzwerte</h3>\n                <p>Fundamentales Konzept für Stetigkeit und Differenzierbarkeit.</p>\n                <ul>\n                    <li>Grenzwerte von Funktionen</li>\n                    <li>Stetigkeit</li>\n                    <li>Zwischenwertsatz</li>\n                </ul>\n            </div>\n            \n            <div class=\"topic\">\n                <h3>3. Differentialrechnung</h3>\n                <p>Untersuchung lokaler Eigenschaften von Funktionen.</p>\n                <ul>\n                    <li>Ableitungsregeln</li>\n                    <li>Extremwerte</li>\n                    <li>Kurvendiskussion</li>\n                </ul>\n            </div>\n            \n            <div class=\"topic\">\n                <h3>4. Integralrechnung</h3>\n                <p>Berechnung von Flächen und Volumina.</p>\n                <ul>\n                    <li>Riemann-Integral</li>\n                    <li>Stammfunktionen</li>\n                    <li>Integrationsregeln</li>\n                </ul>\n            </div>\n            \n            <div class=\"topic\">\n                <h3>5. Mehrdimensionale Analysis</h3>\n                <p>Erweiterung auf Funktionen mehrerer Variablen.</p>\n                <ul>\n                    <li>Partielle Ableitungen</li>\n                    <li>Mehrfachintegrale</li>\n                    <li>Vektoranalysis</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n    \n    <div class=\"section\">\n        <h2>Anwendungen</h2>\n        \n        <div class=\"applications\">\n            <div class=\"application\">\n                <h3>Physik</h3>\n                <ul>\n                    <li>Bewegungsgleichungen</li>\n                    <li>Wärmeleitung</li>\n                    <li>Elektrodynamik</li>\n                </ul>\n            </div>\n            \n            <div class=\"application\">\n                <h3>Wirtschaft</h3>\n                <ul>\n                    <li>Optimierung</li>\n                    <li>Wachstumsmodelle</li>\n                    <li>Kostenanalyse</li>\n                </ul>\n            </div>\n            \n            <div class=\"application\">\n                <h3>Technik</h3>\n                <ul>\n                    <li>Regelungstechnik</li>\n                    <li>Signalverarbeitung</li>\n                    <li>Strömungsmechanik</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</div>",
+  "subTopics": [
+    {
+      "id": "2.1",
+      "title": "Folgen und Reihen",
+      "icon": "chart.line.uptrend.xyaxis",
+      "description": "Grundlegende Konzepte der Folgen und Reihen."
+    },
+    {
+      "id": "2.2",
+      "title": "Grenzwerte",
+      "icon": "arrow.right.to.line",
+      "description": "Theorie der Grenzwerte und Stetigkeit."
+    },
+    {
+      "id": "2.3",
+      "title": "Differentialrechnung",
+      "icon": "function",
+      "description": "Grundlagen der Differentialrechnung und ihre Anwendungen."
+    },
+    {
+      "id": "2.4",
+      "title": "Integralrechnung",
+      "icon": "square.on.square",
+      "description": "Theorie und Anwendungen der Integralrechnung."
+    },
+    {
+      "id": "2.5",
+      "title": "Mehrdimensionale Analysis",
+      "icon": "cube.transparent",
+      "description": "Analysis für Funktionen mehrerer Variablen."
+    }
+  ]
 }

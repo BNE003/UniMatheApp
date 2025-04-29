@@ -2,7 +2,38 @@
   "id": "3",
   "title": "Lineare Algebra",
   "icon": "square.grid.2x2.fill",
-  "description": "Grundlagen der Linearen Algebra.",
-  "markdownContent": "",
-  "subTopics": null
+  "description": "Grundlagen der Linearen Algebra mit ausführlichen Erklärungen und Beispielen.",
+  "markdownContent": "<div class=\"content-container\">\n    <h1>📐 Lineare Algebra</h1>\n    \n    <div class=\"chapter-intro\">\n        <p>Die Lineare Algebra ist ein fundamentales Gebiet der Mathematik, das sich mit Vektorräumen, linearen Abbildungen, Matrizen und deren Anwendungen beschäftigt. Sie bildet die Grundlage für viele Bereiche der Mathematik und ihre Anwendungen in Naturwissenschaften, Technik und Informatik.</p>\n    </div>\n    \n    <div class=\"section\">\n        <h2>Hauptthemen der Linearen Algebra:</h2>\n        \n        <div class=\"topic-overview\">\n            <div class=\"topic\">\n                <h3>1. Vektorräume</h3>\n                <p>Grundlegende algebraische Strukturen mit Vektoren und deren Operationen.</p>\n                <ul>\n                    <li>Vektoren und ihre Eigenschaften</li>\n                    <li>Linearkombinationen</li>\n                    <li>Basis und Dimension</li>\n                </ul>\n            </div>\n            \n            <div class=\"topic\">\n                <h3>2. Matrizen</h3>\n                <p>Rechteckige Anordnungen von Zahlen und ihre Operationen.</p>\n                <ul>\n                    <li>Matrizenoperationen</li>\n                    <li>Spezielle Matrizen</li>\n                    <li>Matrixinversion</li>\n                </ul>\n            </div>\n            \n            <div class=\"topic\">\n                <h3>3. Lineare Abbildungen</h3>\n                <p>Strukturerhaltende Abbildungen zwischen Vektorräumen.</p>\n                <ul>\n                    <li>Definition und Eigenschaften</li>\n                    <li>Matrixdarstellung</li>\n                    <li>Kern und Bild</li>\n                </ul>\n            </div>\n            \n            <div class=\"topic\">\n                <h3>4. Determinanten</h3>\n                <p>Wichtige Kenngrößen von quadratischen Matrizen.</p>\n                <ul>\n                    <li>Berechnung</li>\n                    <li>Eigenschaften</li>\n                    <li>Anwendungen</li>\n                </ul>\n            </div>\n            \n            <div class=\"topic\">\n                <h3>5. Eigenwerte und Eigenvektoren</h3>\n                <p>Charakteristische Größen linearer Abbildungen.</p>\n                <ul>\n                    <li>Eigenwertproblem</li>\n                    <li>Diagonalisierung</li>\n                    <li>Anwendungen</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n    \n    <div class=\"section\">\n        <h2>Anwendungen</h2>\n        \n        <div class=\"applications\">\n            <div class=\"application\">\n                <h3>Naturwissenschaften</h3>\n                <ul>\n                    <li>Quantenmechanik</li>\n                    <li>Schwingungssysteme</li>\n                    <li>Populationsdynamik</li>\n                </ul>\n            </div>\n            \n            <div class=\"application\">\n                <h3>Technik</h3>\n                <ul>\n                    <li>Computergrafik</li>\n                    <li>Signalverarbeitung</li>\n                    <li>Regelungstechnik</li>\n                </ul>\n            </div>\n            \n            <div class=\"application\">\n                <h3>Informatik</h3>\n                <ul>\n                    <li>Suchmaschinen</li>\n                    <li>Maschinelles Lernen</li>\n                    <li>Kryptographie</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</div>",
+  "subTopics": [
+    {
+      "id": "3.1",
+      "title": "Vektorräume",
+      "icon": "arrow.up.right.and.arrow.down.left",
+      "description": "Grundlagen der Vektorräume und ihre Eigenschaften."
+    },
+    {
+      "id": "3.2",
+      "title": "Matrizen",
+      "icon": "square.grid.2x2.fill",
+      "description": "Grundlagen der Matrizenrechnung mit ausführlichen Erklärungen und Beispielen."
+    },
+    {
+      "id": "3.3",
+      "title": "Lineare Abbildungen",
+      "icon": "arrow.left.and.right",
+      "description": "Theorie und Anwendungen linearer Abbildungen."
+    },
+    {
+      "id": "3.4",
+      "title": "Determinanten",
+      "icon": "number.square.fill",
+      "description": "Berechnung und Eigenschaften von Determinanten."
+    },
+    {
+      "id": "3.5",
+      "title": "Eigenwerte und Eigenvektoren",
+      "icon": "arrow.up.forward",
+      "description": "Eigenwertprobleme und ihre Anwendungen."
+    }
+  ]
 }

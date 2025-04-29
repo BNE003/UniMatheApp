@@ -119,7 +119,7 @@ struct ContentView: View {
                 let fullFilename = "\(filename)_content.json"
                 
                 // Direkter Zugriff auf die Dateien im Dateisystem
-                let lerninhaltsPath = "/Users/benediktheld/Desktop/app/UniMatheApp/UniMathe/UniMathe/lerninhalt"
+                let lerninhaltsPath = "Users/benediktheld/Desktop/app/UniMatheApp/UniMathe/UniMathe/lerninhalt"
                 let topicUrl = URL(fileURLWithPath: "\(lerninhaltsPath)/\(fullFilename)")
                 
                 guard FileManager.default.fileExists(atPath: topicUrl.path) else {
