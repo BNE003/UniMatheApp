@@ -1,0 +1,38 @@
+{
+    "id": "ee0e8400-e29b-41d4-a716-446655440000",
+    "title": "Integralrechnung",
+    "description": "Lass uns die grundlegenden Konzepte der Integralrechnung Schritt für Schritt erkunden.",
+    "steps": [
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440001",
+            "text": "Das bestimmte Integral berechnet die Fläche unter einer Funktion zwischen zwei Grenzen.",
+            "formula": "\\int_a^b f(x) \\, dx = F(b) - F(a)",
+            "explanation": "Dabei ist F(x) eine Stammfunktion von f(x), also F'(x) = f(x)."
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440002",
+            "text": "Die wichtigsten Integrationsregeln sind die Summenregel und die Faktorregel.",
+            "formula": "\\begin{align*} \\int (f(x) + g(x)) \\, dx &= \\int f(x) \\, dx + \\int g(x) \\, dx \\\\ \\int c \\cdot f(x) \\, dx &= c \\cdot \\int f(x) \\, dx \\end{align*}",
+            "explanation": "Die Summenregel erlaubt das Aufteilen von Integralen, die Faktorregel das Herausziehen konstanter Faktoren."
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440003",
+            "text": "Die partielle Integration ist eine wichtige Technik für Produkte von Funktionen.",
+            "formula": "\\int u(x) \\cdot v'(x) \\, dx = u(x) \\cdot v(x) - \\int u'(x) \\cdot v(x) \\, dx",
+            "explanation": "Diese Regel ist besonders nützlich bei Produkten von Polynomen mit Exponential- oder trigonometrischen Funktionen."
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440004",
+            "text": "Die Substitutionsregel erlaubt das Vereinfachen von Integralen durch Variablentransformation.",
+            "formula": "\\int f(g(x)) \\cdot g'(x) \\, dx = \\int f(u) \\, du",
+            "explanation": "Dabei wird u = g(x) substituiert und du = g'(x)dx. Diese Regel ist besonders nützlich bei verketteten Funktionen."
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440005",
+            "text": "Ein Beispiel für die Integration einer Polynomfunktion.",
+            "formula": "\\int (x^2 + 2x + 1) \\, dx = \\frac{x^3}{3} + x^2 + x + C",
+            "explanation": "Die Integration erfolgt termweise, wobei der Exponent um 1 erhöht und durch den neuen Exponenten geteilt wird."
+        }
+    ],
+    "topic": "Integralrechnung"
+} 

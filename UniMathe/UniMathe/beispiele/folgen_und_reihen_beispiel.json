@@ -1,0 +1,38 @@
+{
+    "id": "880e8400-e29b-41d4-a716-446655440000",
+    "title": "Folgen und Reihen",
+    "description": "Lass uns die grundlegenden Konzepte von Folgen und Reihen Schritt für Schritt erkunden.",
+    "topic": "Folgen und Reihen",
+    "steps": [
+        {
+            "id": "880e8400-e29b-41d4-a716-446655440001",
+            "text": "Eine Folge ist eine Abbildung von den natürlichen Zahlen in eine Menge.",
+            "formula": "(a_n)_{n \\in \\mathbb{N}} = (a_1, a_2, a_3, ...)",
+            "explanation": "Eine Folge ordnet jeder natürlichen Zahl n ein Element a_n zu."
+        },
+        {
+            "id": "880e8400-e29b-41d4-a716-446655440002",
+            "text": "Eine Folge konvergiert gegen einen Grenzwert a, wenn sich die Folgenglieder a_n beliebig nahe an a annähern.",
+            "formula": "\\lim_{n \\to \\infty} a_n = a \\quad \\Leftrightarrow \\quad \\forall \\varepsilon > 0 \\, \\exists N \\in \\mathbb{N} \\, \\forall n \\geq N: |a_n - a| < \\varepsilon",
+            "explanation": "Die Folge konvergiert gegen a, wenn für jede noch so kleine positive Zahl ε ein Index N existiert, ab dem alle Folgenglieder weniger als ε von a entfernt sind."
+        },
+        {
+            "id": "880e8400-e29b-41d4-a716-446655440003",
+            "text": "Eine Reihe ist die Summe der Glieder einer Folge.",
+            "formula": "\\sum_{n=1}^{\\infty} a_n = a_1 + a_2 + a_3 + ...",
+            "explanation": "Die Reihe ist die Summe aller Folgenglieder. Die Folge der Partialsummen s_n = a_1 + ... + a_n konvergiert gegen den Wert der Reihe."
+        },
+        {
+            "id": "880e8400-e29b-41d4-a716-446655440004",
+            "text": "Die geometrische Reihe ist ein wichtiges Beispiel für eine konvergente Reihe.",
+            "formula": "\\sum_{n=0}^{\\infty} q^n = \\frac{1}{1-q} \\quad \\text{für} \\quad |q| < 1",
+            "explanation": "Die geometrische Reihe konvergiert für |q| < 1 und divergiert für |q| ≥ 1. Sie ist ein wichtiges Beispiel für die Konvergenzuntersuchung von Reihen."
+        },
+        {
+            "id": "880e8400-e29b-41d4-a716-446655440005",
+            "text": "Das Quotientenkriterium ist ein wichtiges Konvergenzkriterium für Reihen.",
+            "formula": "\\lim_{n \\to \\infty} \\left| \\frac{a_{n+1}}{a_n} \\right| = q \\quad \\Rightarrow \\quad \\begin{cases} q < 1 & \\text{Reihe konvergiert} \\\\ q > 1 & \\text{Reihe divergiert} \\\\ q = 1 & \\text{keine Aussage möglich} \\end{cases}",
+            "explanation": "Das Quotientenkriterium vergleicht aufeinanderfolgende Glieder der Reihe. Es ist besonders nützlich bei Reihen mit Fakultäten oder Potenzen."
+        }
+    ]
+} 

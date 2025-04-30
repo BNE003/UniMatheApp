@@ -1,56 +1,44 @@
 {
     "id": "ee0e8400-e29b-41d4-a716-446655440000",
-    "title": "Determinanten",
-    "description": "Lass uns die Konzepte der Determinanten Schritt für Schritt erkunden.",
+    "title": "Berechnung von Determinanten",
+    "description": "Lass uns verschiedene Methoden zur Berechnung von Determinanten Schritt für Schritt erkunden.",
     "topic": "Determinanten",
     "steps": [
         {
             "id": "ee0e8400-e29b-41d4-a716-446655440001",
-            "text": "Die Determinante einer 2×2-Matrix ist definiert als ad - bc.",
-            "formula": "\\det\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = a \\cdot d - b \\cdot c",
-            "explanation": "Die Determinante einer 2×2-Matrix ist das Produkt der Hauptdiagonalelemente minus dem Produkt der Nebendiagonalelemente."
+            "text": "Für eine 2×2-Matrix berechnet man die Determinante als Produkt der Hauptdiagonale minus Produkt der Nebendiagonale.",
+            "formula": "\\det\\begin{pmatrix} 2 & 3 \\\\ 1 & 4 \\end{pmatrix} = 2 \\cdot 4 - 3 \\cdot 1 = 8 - 3 = 5",
+            "explanation": "Bei einer 2×2-Matrix multipliziert man die Elemente der Hauptdiagonale (oben links nach unten rechts) und subtrahiert davon das Produkt der Nebendiagonale (oben rechts nach unten links)."
         },
         {
             "id": "ee0e8400-e29b-41d4-a716-446655440002",
-            "text": "Für eine 3×3-Matrix verwendet man die Regel von Sarrus.",
-            "formula": "\\det\\begin{pmatrix} a & b & c \\\\ d & e & f \\\\ g & h & i \\end{pmatrix} = a \\cdot e \\cdot i + b \\cdot f \\cdot g + c \\cdot d \\cdot h - c \\cdot e \\cdot g - b \\cdot d \\cdot i - a \\cdot f \\cdot h",
-            "explanation": "Man schreibt die ersten beiden Spalten nochmal rechts daneben und bildet die Summe der Produkte der Hauptdiagonalen minus der Summe der Produkte der Nebendiagonalen."
+            "text": "Für eine 3×3-Matrix verwendet man die Regel von Sarrus. Man schreibt die ersten beiden Spalten nochmal rechts daneben.",
+            "formula": "\\det\\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \\end{pmatrix} = 1 \\cdot 5 \\cdot 9 + 2 \\cdot 6 \\cdot 7 + 3 \\cdot 4 \\cdot 8 - 3 \\cdot 5 \\cdot 7 - 2 \\cdot 4 \\cdot 9 - 1 \\cdot 6 \\cdot 8 = 0",
+            "explanation": "Man bildet die Summe der Produkte der Hauptdiagonalen (von links oben nach rechts unten) und subtrahiert davon die Summe der Produkte der Nebendiagonalen (von rechts oben nach links unten)."
         },
         {
             "id": "ee0e8400-e29b-41d4-a716-446655440003",
-            "text": "Die Determinante einer n×n-Matrix kann durch Entwicklung nach einer Zeile oder Spalte berechnet werden.",
-            "formula": "\\det(A) = \\sum_{j=1}^n (-1)^{i+j} \\cdot a_{ij} \\cdot \\det(A_{ij})",
-            "explanation": "A_ij ist die Matrix, die durch Streichen der i-ten Zeile und j-ten Spalte entsteht. Die Vorzeichen wechseln schachbrettartig."
+            "text": "Bei größeren Matrizen verwendet man die Entwicklung nach einer Zeile oder Spalte. Wähle am besten eine Zeile/Spalte mit vielen Nullen.",
+            "formula": "\\det\\begin{pmatrix} 1 & 0 & 2 \\\\ 3 & 4 & 0 \\\\ 5 & 6 & 7 \\end{pmatrix} = 1 \\cdot \\det\\begin{pmatrix} 4 & 0 \\\\ 6 & 7 \\end{pmatrix} - 0 \\cdot \\det\\begin{pmatrix} 3 & 0 \\\\ 5 & 7 \\end{pmatrix} + 2 \\cdot \\det\\begin{pmatrix} 3 & 4 \\\\ 5 & 6 \\end{pmatrix}",
+            "explanation": "Man entwickelt nach der ersten Zeile. Jedes Element wird mit der Determinante der Matrix multipliziert, die durch Streichen der zugehörigen Zeile und Spalte entsteht. Die Vorzeichen wechseln schachbrettartig."
         },
         {
             "id": "ee0e8400-e29b-41d4-a716-446655440004",
-            "text": "Die Determinante ändert sich bei elementaren Zeilenumformungen.",
-            "formula": "\\begin{cases} \\det(A') = -\\det(A) & \\text{bei Zeilenvertauschung} \\\\ \\det(A') = \\lambda \\cdot \\det(A) & \\text{bei Multiplikation mit } \\lambda \\\\ \\det(A') = \\det(A) & \\text{bei Addition eines Vielfachen} \\end{cases}",
-            "explanation": "Diese Eigenschaften werden beim Gauß-Verfahren zur Berechnung der Determinante genutzt."
+            "text": "Das Gauß-Verfahren ist besonders effizient für größere Matrizen. Man bringt die Matrix in Dreiecksform.",
+            "formula": "\\begin{pmatrix} 2 & 1 & 1 \\\\ 1 & 2 & 1 \\\\ 1 & 1 & 2 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 2 & 1 & 1 \\\\ 0 & 1.5 & 0.5 \\\\ 0 & 0 & 1.33 \\end{pmatrix}",
+            "explanation": "Durch elementare Zeilenumformungen bringt man die Matrix in Dreiecksform. Die Determinante ist dann das Produkt der Diagonalelemente, multipliziert mit (-1)^k, wobei k die Anzahl der Zeilenvertauschungen ist."
         },
         {
             "id": "ee0e8400-e29b-41d4-a716-446655440005",
-            "text": "Die Determinante des Produkts zweier Matrizen ist das Produkt der Determinanten.",
-            "formula": "\\det(A \\cdot B) = \\det(A) \\cdot \\det(B)",
-            "explanation": "Diese Eigenschaft ist nützlich bei der Berechnung der Determinante von Matrixpotenzen."
+            "text": "Bei einer Blockmatrix kann man die Determinante vereinfachen, wenn einer der Blöcke eine Nullmatrix ist.",
+            "formula": "\\det\\begin{pmatrix} A & 0 \\\\ C & D \\end{pmatrix} = \\det(A) \\cdot \\det(D)",
+            "explanation": "Wenn eine Blockmatrix eine Nullmatrix als Block enthält, kann man die Determinante als Produkt der Determinanten der nicht-null Blöcke berechnen."
         },
         {
             "id": "ee0e8400-e29b-41d4-a716-446655440006",
-            "text": "Die Determinante der transponierten Matrix ist gleich der Determinante der ursprünglichen Matrix.",
-            "formula": "\\det(A^T) = \\det(A)",
-            "explanation": "Dies bedeutet, dass alle Aussagen über Zeilen auch für Spalten gelten."
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440007",
-            "text": "Eine Matrix ist genau dann invertierbar, wenn ihre Determinante ungleich Null ist.",
-            "formula": "A \\text{ invertierbar} \\Leftrightarrow \\det(A) \\neq 0",
-            "explanation": "Die Determinante gibt also Auskunft über die Invertierbarkeit einer Matrix."
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440008",
-            "text": "Die Determinante einer Dreiecksmatrix ist das Produkt der Diagonalelemente.",
-            "formula": "\\det\\begin{pmatrix} a_{11} & a_{12} & \\cdots & a_{1n} \\\\ 0 & a_{22} & \\cdots & a_{2n} \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ 0 & 0 & \\cdots & a_{nn} \\end{pmatrix} = \\prod_{i=1}^n a_{ii}",
-            "explanation": "Dies ist eine wichtige Eigenschaft, die bei der Berechnung von Determinanten durch Gauß-Elimination genutzt wird."
+            "text": "Die Determinante einer Dreiecksmatrix ist einfach das Produkt der Diagonalelemente.",
+            "formula": "\\det\\begin{pmatrix} 2 & 1 & 3 \\\\ 0 & 3 & 2 \\\\ 0 & 0 & 4 \\end{pmatrix} = 2 \\cdot 3 \\cdot 4 = 24",
+            "explanation": "Bei einer oberen oder unteren Dreiecksmatrix ist die Determinante das Produkt der Elemente auf der Hauptdiagonale. Dies ist besonders nützlich nach Anwendung des Gauß-Verfahrens."
         }
     ]
 } 

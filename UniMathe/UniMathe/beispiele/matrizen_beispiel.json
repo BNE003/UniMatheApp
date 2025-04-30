@@ -1,38 +1,38 @@
 {
-    "id": "990e8400-e29b-41d4-a716-446655440000",
-    "title": "Einführung in Matrizen",
+    "id": "dd0e8400-e29b-41d4-a716-446655440000",
+    "title": "Matrizen",
     "description": "Lass uns die grundlegenden Konzepte der Matrizen Schritt für Schritt erkunden.",
-    "topic": "Matrizen",
     "steps": [
         {
-            "id": "990e8400-e29b-41d4-a716-446655440001",
+            "id": "dd0e8400-e29b-41d4-a716-446655440001",
             "text": "Eine Matrix ist ein rechteckiges Schema von Zahlen, das in Zeilen und Spalten angeordnet ist.",
             "formula": "A = \\begin{pmatrix} a_{11} & a_{12} & \\cdots & a_{1n} \\\\ a_{21} & a_{22} & \\cdots & a_{2n} \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ a_{m1} & a_{m2} & \\cdots & a_{mn} \\end{pmatrix}",
-            "explanation": "Eine Matrix mit m Zeilen und n Spalten heißt m×n-Matrix."
+            "explanation": "Die Matrix A hat m Zeilen und n Spalten. Wir schreiben A ∈ ℝ^(m×n)."
         },
         {
-            "id": "990e8400-e29b-41d4-a716-446655440002",
+            "id": "dd0e8400-e29b-41d4-a716-446655440002",
             "text": "Die Addition von Matrizen erfolgt elementweise.",
             "formula": "\\begin{pmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\end{pmatrix} + \\begin{pmatrix} b_{11} & b_{12} \\\\ b_{21} & b_{22} \\end{pmatrix} = \\begin{pmatrix} a_{11}+b_{11} & a_{12}+b_{12} \\\\ a_{21}+b_{21} & a_{22}+b_{22} \\end{pmatrix}",
             "explanation": "Nur Matrizen gleicher Dimension können addiert werden."
         },
         {
-            "id": "990e8400-e29b-41d4-a716-446655440003",
+            "id": "dd0e8400-e29b-41d4-a716-446655440003",
             "text": "Die Multiplikation einer Matrix mit einem Skalar erfolgt ebenfalls elementweise.",
             "formula": "\\lambda \\cdot \\begin{pmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\end{pmatrix} = \\begin{pmatrix} \\lambda a_{11} & \\lambda a_{12} \\\\ \\lambda a_{21} & \\lambda a_{22} \\end{pmatrix}",
             "explanation": "Jedes Element der Matrix wird mit dem Skalar multipliziert."
         },
         {
-            "id": "990e8400-e29b-41d4-a716-446655440004",
+            "id": "dd0e8400-e29b-41d4-a716-446655440004",
             "text": "Die Matrixmultiplikation ist definiert als Summe der Produkte der entsprechenden Elemente.",
             "formula": "\\begin{pmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\end{pmatrix} \\cdot \\begin{pmatrix} b_{11} & b_{12} \\\\ b_{21} & b_{22} \\end{pmatrix} = \\begin{pmatrix} a_{11}b_{11}+a_{12}b_{21} & a_{11}b_{12}+a_{12}b_{22} \\\\ a_{21}b_{11}+a_{22}b_{21} & a_{21}b_{12}+a_{22}b_{22} \\end{pmatrix}",
-            "explanation": "Die Anzahl der Spalten der ersten Matrix muss gleich der Anzahl der Zeilen der zweiten Matrix sein."
+            "explanation": "Die Matrixmultiplikation ist nur definiert, wenn die Anzahl der Spalten der ersten Matrix gleich der Anzahl der Zeilen der zweiten Matrix ist."
         },
         {
-            "id": "990e8400-e29b-41d4-a716-446655440005",
-            "text": "Die Determinante einer 2×2-Matrix ist definiert als ad - bc.",
-            "formula": "\\det\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = ad - bc",
-            "explanation": "Die Determinante gibt Auskunft über die Invertierbarkeit einer Matrix."
+            "id": "dd0e8400-e29b-41d4-a716-446655440005",
+            "text": "Die Transponierte einer Matrix entsteht durch Spiegelung an der Hauptdiagonale.",
+            "formula": "A^T = \\begin{pmatrix} a_{11} & a_{21} \\\\ a_{12} & a_{22} \\end{pmatrix}",
+            "explanation": "Die Zeilen werden zu Spalten und die Spalten zu Zeilen."
         }
-    ]
+    ],
+    "topic": "Matrizen"
 } 

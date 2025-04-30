@@ -1,0 +1,32 @@
+{
+    "id": "aa0e8400-e29b-41d4-a716-446655440000",
+    "title": "Grenzwert einer Funktion",
+    "description": "Wir untersuchen den Grenzwert der Funktion f(x) = (x² - 1)/(x - 1) für x → 1",
+    "steps": [
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440001",
+            "text": "Zuerst setzen wir x = 1 direkt in die Funktion ein und erhalten 0/0. Dies ist ein unbestimmter Ausdruck.",
+            "formula": "f(1) = \\frac{1^2 - 1}{1 - 1} = \\frac{0}{0}",
+            "explanation": "Der direkte Einsetzen führt zu einem unbestimmten Ausdruck, was bedeutet, dass wir weitere Schritte benötigen."
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440002",
+            "text": "Wir können den Zähler faktorisieren, da x² - 1 eine Differenz von Quadraten ist.",
+            "formula": "x^2 - 1 = (x + 1)(x - 1)",
+            "explanation": "Die Differenz von Quadraten kann immer als Produkt der Summe und Differenz der Basen geschrieben werden."
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440003",
+            "text": "Nach der Faktorisierung können wir den Term (x - 1) kürzen.",
+            "formula": "\\frac{(x + 1)(x - 1)}{x - 1} = x + 1",
+            "explanation": "Da x ≠ 1 ist, können wir den Term (x - 1) kürzen."
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440004",
+            "text": "Jetzt können wir den Grenzwert berechnen, indem wir x = 1 in den vereinfachten Ausdruck einsetzen.",
+            "formula": "\\lim_{x \\to 1} (x + 1) = 1 + 1 = 2",
+            "explanation": "Der Grenzwert existiert und ist gleich 2. Dies bedeutet, dass sich die Funktion dem Wert 2 annähert, wenn x sich 1 nähert."
+        }
+    ],
+    "topic": "Grenzwerte"
+} 

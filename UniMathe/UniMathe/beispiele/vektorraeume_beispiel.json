@@ -1,38 +1,38 @@
 {
-    "id": "880e8400-e29b-41d4-a716-446655440000",
-    "title": "Einführung in Vektorräume",
+    "id": "cc0e8400-e29b-41d4-a716-446655440000",
+    "title": "Vektorräume",
     "description": "Lass uns die grundlegenden Konzepte der Vektorräume Schritt für Schritt erkunden.",
-    "topic": "Vektorräume",
     "steps": [
         {
-            "id": "880e8400-e29b-41d4-a716-446655440001",
-            "text": "Ein Vektorraum V über einem Körper K ist eine Menge mit zwei Verknüpfungen: Addition von Vektoren und Skalarmultiplikation.",
-            "formula": "V = (V, +, \\cdot)",
-            "explanation": "Die Elemente von V heißen Vektoren, die Elemente von K Skalare."
+            "id": "cc0e8400-e29b-41d4-a716-446655440001",
+            "text": "Ein Vektorraum ist eine Menge V mit einer Addition und einer Skalarmultiplikation, die bestimmte Eigenschaften erfüllen.",
+            "formula": "\\begin{align*} \\vec{v} + \\vec{w} &\\in V \\\\ \\alpha \\cdot \\vec{v} &\\in V \\end{align*}",
+            "explanation": "Die Addition zweier Vektoren und die Multiplikation eines Vektors mit einem Skalar müssen wieder einen Vektor aus V ergeben."
         },
         {
-            "id": "880e8400-e29b-41d4-a716-446655440002",
-            "text": "Die Addition von Vektoren muss eine abelsche Gruppe bilden.",
-            "formula": "\\vec{v} + (\\vec{w} + \\vec{u}) = (\\vec{v} + \\vec{w}) + \\vec{u} \\\\ \\vec{v} + \\vec{w} = \\vec{w} + \\vec{v} \\\\ \\vec{v} + \\vec{0} = \\vec{0} + \\vec{v} = \\vec{v} \\\\ \\vec{v} + (-\\vec{v}) = \\vec{0}",
-            "explanation": "Diese Eigenschaften sind analog zu denen der Vektoraddition im ℝ² oder ℝ³."
+            "id": "cc0e8400-e29b-41d4-a716-446655440002",
+            "text": "Die Addition muss kommutativ und assoziativ sein, und es muss ein neutrales Element (Nullvektor) existieren.",
+            "formula": "\\begin{align*} \\vec{v} + \\vec{w} &= \\vec{w} + \\vec{v} \\\\ (\\vec{v} + \\vec{w}) + \\vec{u} &= \\vec{v} + (\\vec{w} + \\vec{u}) \\\\ \\vec{v} + \\vec{0} &= \\vec{v} \\end{align*}",
+            "explanation": "Diese Eigenschaften stellen sicher, dass die Addition von Vektoren sich wie die gewöhnliche Addition verhält."
         },
         {
-            "id": "880e8400-e29b-41d4-a716-446655440003",
-            "text": "Die Skalarmultiplikation muss bestimmte Eigenschaften erfüllen.",
-            "formula": "\\lambda \\cdot (\\mu \\cdot \\vec{v}) = (\\lambda \\cdot \\mu) \\cdot \\vec{v} \\\\ 1 \\cdot \\vec{v} = \\vec{v} \\\\ \\lambda \\cdot (\\vec{v} + \\vec{w}) = \\lambda \\cdot \\vec{v} + \\lambda \\cdot \\vec{w} \\\\ (\\lambda + \\mu) \\cdot \\vec{v} = \\lambda \\cdot \\vec{v} + \\mu \\cdot \\vec{v}",
-            "explanation": "Diese Eigenschaften stellen sicher, dass die Skalarmultiplikation mit der Vektoraddition verträglich ist."
+            "id": "cc0e8400-e29b-41d4-a716-446655440003",
+            "text": "Die Skalarmultiplikation muss distributiv sein und mit der Addition verträglich sein.",
+            "formula": "\\begin{align*} \\alpha(\\vec{v} + \\vec{w}) &= \\alpha\\vec{v} + \\alpha\\vec{w} \\\\ (\\alpha + \\beta)\\vec{v} &= \\alpha\\vec{v} + \\beta\\vec{v} \\end{align*}",
+            "explanation": "Diese Eigenschaften stellen sicher, dass die Skalarmultiplikation sich natürlich mit der Addition verhält."
         },
         {
-            "id": "880e8400-e29b-41d4-a716-446655440004",
+            "id": "cc0e8400-e29b-41d4-a716-446655440004",
             "text": "Ein wichtiges Beispiel ist der ℝⁿ, der Vektorraum der n-Tupel reeller Zahlen.",
             "formula": "\\mathbb{R}^n = \\{(x_1, x_2, ..., x_n) \\mid x_i \\in \\mathbb{R}\\}",
-            "explanation": "Der ℝ² und ℝ³ sind die bekanntesten Beispiele für Vektorräume."
+            "explanation": "Der ℝⁿ ist der Standardvektorraum, in dem die Vektoren als n-Tupel reeller Zahlen dargestellt werden."
         },
         {
-            "id": "880e8400-e29b-41d4-a716-446655440005",
+            "id": "cc0e8400-e29b-41d4-a716-446655440005",
             "text": "Ein weiteres Beispiel ist der Vektorraum der Polynome vom Grad ≤ n.",
-            "formula": "P_n = \\{a_nx^n + a_{n-1}x^{n-1} + ... + a_0 \\mid a_i \\in \\mathbb{R}\\}",
-            "explanation": "Die Addition und Skalarmultiplikation erfolgen koeffizientenweise."
+            "formula": "P_n = \\{a_0 + a_1x + a_2x^2 + ... + a_nx^n \\mid a_i \\in \\mathbb{R}\\}",
+            "explanation": "Die Polynome bilden einen Vektorraum, da sie addiert und mit Skalaren multipliziert werden können."
         }
-    ]
+    ],
+    "topic": "Vektorräume"
 } 

@@ -1,0 +1,38 @@
+{
+    "id": "ff0e8400-e29b-41d4-a716-446655440000",
+    "title": "Mehrdimensionale Analysis",
+    "description": "Lass uns die grundlegenden Konzepte der mehrdimensionalen Analysis Schritt für Schritt erkunden.",
+    "topic": "Mehrdimensionale Analysis",
+    "steps": [
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440001",
+            "text": "Eine Funktion mehrerer Variablen ordnet jedem Punkt im Definitionsbereich einen Wert zu.",
+            "formula": "f: \\mathbb{R}^n \\to \\mathbb{R}, \\quad (x_1, ..., x_n) \\mapsto f(x_1, ..., x_n)",
+            "explanation": "Die Funktion hängt von mehreren unabhängigen Variablen ab und liefert einen reellen Wert."
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440002",
+            "text": "Die partielle Ableitung misst die Änderung der Funktion in Richtung einer Koordinate.",
+            "formula": "\\frac{\\partial f}{\\partial x_i} = \\lim_{h \\to 0} \\frac{f(x_1, ..., x_i + h, ..., x_n) - f(x_1, ..., x_n)}{h}",
+            "explanation": "Bei der partiellen Ableitung werden alle anderen Variablen als konstant betrachtet."
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440003",
+            "text": "Der Gradient ist ein Vektor aller partiellen Ableitungen und zeigt in Richtung des steilsten Anstiegs.",
+            "formula": "\\nabla f = \\begin{pmatrix} \\frac{\\partial f}{\\partial x_1} \\\\ \\vdots \\\\ \\frac{\\partial f}{\\partial x_n} \\end{pmatrix}",
+            "explanation": "Der Gradient gibt die Richtung des stärksten Anstiegs der Funktion an einem Punkt an."
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440004",
+            "text": "Das mehrdimensionale Integral berechnet das Volumen unter einer Funktion mehrerer Variablen.",
+            "formula": "\\int \\cdots \\int_D f(x_1, ..., x_n) \\, dx_1 \\cdots dx_n",
+            "explanation": "Das Integral wird über einen n-dimensionalen Bereich D berechnet und ergibt das Volumen zwischen dem Graphen und der xy-Ebene."
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440005",
+            "text": "Die Hesse-Matrix enthält alle zweiten partiellen Ableitungen und ist wichtig für die Analyse von Extrema.",
+            "formula": "H_f = \\begin{pmatrix} \\frac{\\partial^2 f}{\\partial x_1^2} & \\cdots & \\frac{\\partial^2 f}{\\partial x_1 \\partial x_n} \\\\ \\vdots & \\ddots & \\vdots \\\\ \\frac{\\partial^2 f}{\\partial x_n \\partial x_1} & \\cdots & \\frac{\\partial^2 f}{\\partial x_n^2} \\end{pmatrix}",
+            "explanation": "Die Hesse-Matrix wird verwendet, um lokale Maxima und Minima zu identifizieren und zu klassifizieren."
+        }
+    ]
+} 
