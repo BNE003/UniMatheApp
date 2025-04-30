@@ -374,11 +374,38 @@ struct ExercisesView: View {
                 fileName = "groesster_gemeinsamer_teiler"
             case "Gruppen":
                 fileName = "gruppen"
-//LINEARE ALGEBRA:
-            case "Vektorräume":
-                fileName = "vektorraeume"
+            case "Ringe":
+                fileName = "ringe"
+            case "Körper":
+                fileName = "koerper"
+            case "Komplexe Zahlen":
+                fileName = "komplexe_zahlen"
+//Analyis:
+                
+            case "Folgen und Reihen":
+                fileName = "folgen_und_reihen"
+            case "Grenzwerte":
+                fileName = "grenzwerte"
+            case "Differentialrechnung":
+                fileName = "differentialrechnung"
+            case "Integralrechnung":
+                fileName = "integralrechnung"
+            case "Mehrdimensionale Analysis":
+                fileName = "mehrdimensionale_analysis"
+            
+//Lineare Algebra
             case "Matrizen":
                 fileName = "matrizen"
+            case "Vektorräume":
+                fileName = "vektorraeume"
+            case "Determinanten":
+                fileName = "determinanten"
+            case "Lineare Abbildungen":
+                fileName = "lineare_abbildungen"
+            case "Eigenwerte und Eigenvektoren":
+                fileName = "eigenwerte"
+                
+                
             default:
                 error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Keine passende JSON-Datei für das Thema gefunden"])
                 isLoading = false

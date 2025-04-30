@@ -1,0 +1,74 @@
+{
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Integralrechnung",
+            "title": "Partielle Integration",
+            "description": "Berechnen Sie das Integral $\\int x^2\\ln(x)dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Wahl von $u$ und $v'$\n$u = \\ln(x) \\Rightarrow u' = \\frac{1}{x}$\n$v' = x^2 \\Rightarrow v = \\frac{x^3}{3}$",
+                "Schritt 2: Partielle Integration\n$\\int x^2\\ln(x)dx = \\frac{x^3}{3}\\ln(x) - \\int \\frac{x^3}{3} \\cdot \\frac{1}{x}dx$",
+                "Schritt 3: Vereinfachung\n$= \\frac{x^3}{3}\\ln(x) - \\frac{1}{3}\\int x^2dx$",
+                "Schritt 4: Lösung\n$= \\frac{x^3}{3}\\ln(x) - \\frac{x^3}{9} + C$"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Integralrechnung",
+            "title": "Substitutionsmethode",
+            "description": "Berechnen Sie das Integral $\\int \\frac{\\sin(\\sqrt{x})}{\\sqrt{x}}dx$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Substitution\n$u = \\sqrt{x} \\Rightarrow du = \\frac{1}{2\\sqrt{x}}dx$\n$2du = \\frac{1}{\\sqrt{x}}dx$",
+                "Schritt 2: Umformung\n$\\int \\frac{\\sin(\\sqrt{x})}{\\sqrt{x}}dx = 2\\int \\sin(u)du$",
+                "Schritt 3: Integration\n$= -2\\cos(u) + C$",
+                "Schritt 4: Rücksubstitution\n$= -2\\cos(\\sqrt{x}) + C$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Integralrechnung",
+            "title": "Uneigentliche Integrale",
+            "description": "Untersuchen Sie die Konvergenz des uneigentlichen Integrals $\\int_0^\\infty \\frac{x}{1+x^4}dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Substitution\n$u = x^2 \\Rightarrow du = 2xdx$\n$\\frac{1}{2}du = xdx$",
+                "Schritt 2: Umformung\n$\\int_0^\\infty \\frac{x}{1+x^4}dx = \\frac{1}{2}\\int_0^\\infty \\frac{1}{1+u^2}du$",
+                "Schritt 3: Integration\n$= \\frac{1}{2}[\\arctan(u)]_0^\\infty$",
+                "Schritt 4: Grenzwert\n$= \\frac{1}{2}(\\frac{\\pi}{2} - 0) = \\frac{\\pi}{4}$\nDas Integral konvergiert."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Integralrechnung",
+            "title": "Flächenberechnung",
+            "description": "Berechnen Sie die Fläche zwischen den Kurven $y = x^2$ und $y = 2x - x^2$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Schnittpunkte\n$x^2 = 2x - x^2 \\Rightarrow 2x^2 - 2x = 0$\n$x = 0$ oder $x = 1$",
+                "Schritt 2: Integrand\n$f(x) = (2x - x^2) - x^2 = 2x - 2x^2$",
+                "Schritt 3: Integration\n$\\int_0^1 (2x - 2x^2)dx = [x^2 - \\frac{2}{3}x^3]_0^1$",
+                "Schritt 4: Berechnung\n$= 1 - \\frac{2}{3} = \\frac{1}{3}$"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Integralrechnung",
+            "title": "Volumenberechnung",
+            "description": "Berechnen Sie das Volumen des Rotationskörpers, der durch Rotation der Kurve $y = \\sqrt{x}$ um die $x$-Achse im Intervall $[0,4]$ entsteht.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Volumenformel\n$V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 x dx$",
+                "Schritt 2: Integration\n$= \\pi [\\frac{x^2}{2}]_0^4$",
+                "Schritt 3: Berechnung\n$= \\pi (\\frac{16}{2} - 0) = 8\\pi$",
+                "Schritt 4: Einheiten\nDas Volumen beträgt $8\\pi$ Volumeneinheiten."
+            ]
+        }
+    ]
+} 

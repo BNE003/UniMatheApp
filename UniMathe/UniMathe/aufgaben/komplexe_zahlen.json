@@ -1,0 +1,69 @@
+{
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Komplexe Zahlen",
+            "title": "Grundrechenarten",
+            "description": "Berechnen Sie $(2+3i)(4-5i)$ und $\\frac{1+2i}{3-4i}$ in der Form $a+bi$ mit $a,b \\in \\mathbb{R}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Multiplikation\n$(2+3i)(4-5i) = 2\\cdot 4 + 2\\cdot(-5i) + 3i\\cdot 4 + 3i\\cdot(-5i)$\n$= 8 - 10i + 12i - 15i^2$\n$= 8 + 2i + 15 = 23 + 2i$",
+                "Schritt 2: Division\n$\\frac{1+2i}{3-4i} = \\frac{(1+2i)(3+4i)}{(3-4i)(3+4i)}$\n$= \\frac{3 + 4i + 6i + 8i^2}{9 + 16}$\n$= \\frac{-5 + 10i}{25} = -\\frac{1}{5} + \\frac{2}{5}i$"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Komplexe Zahlen",
+            "title": "Polardarstellung",
+            "description": "Geben Sie die komplexe Zahl $z = 1 + \\sqrt{3}i$ in Polardarstellung an und berechnen Sie $z^6$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Betrag\n$|z| = \\sqrt{1^2 + (\\sqrt{3})^2} = \\sqrt{1 + 3} = 2$",
+                "Schritt 2: Argument\n$\\arg(z) = \\arctan(\\frac{\\sqrt{3}}{1}) = \\frac{\\pi}{3}$",
+                "Schritt 3: Polardarstellung\n$z = 2(\\cos(\\frac{\\pi}{3}) + i\\sin(\\frac{\\pi}{3}))$",
+                "Schritt 4: Potenzierung\n$z^6 = 2^6(\\cos(6\\cdot\\frac{\\pi}{3}) + i\\sin(6\\cdot\\frac{\\pi}{3}))$\n$= 64(\\cos(2\\pi) + i\\sin(2\\pi)) = 64$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Komplexe Zahlen",
+            "title": "Wurzeln",
+            "description": "Bestimmen Sie alle komplexen Lösungen der Gleichung $z^4 = -16$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Polardarstellung von -16\n$-16 = 16(\\cos(\\pi) + i\\sin(\\pi))$",
+                "Schritt 2: Wurzelformel\n$z_k = \\sqrt[4]{16}(\\cos(\\frac{\\pi + 2k\\pi}{4}) + i\\sin(\\frac{\\pi + 2k\\pi}{4}))$\nfür $k = 0,1,2,3$",
+                "Schritt 3: Berechnung der Lösungen\n$z_0 = 2(\\cos(\\frac{\\pi}{4}) + i\\sin(\\frac{\\pi}{4})) = \\sqrt{2} + i\\sqrt{2}$\n$z_1 = 2(\\cos(\\frac{3\\pi}{4}) + i\\sin(\\frac{3\\pi}{4})) = -\\sqrt{2} + i\\sqrt{2}$\n$z_2 = 2(\\cos(\\frac{5\\pi}{4}) + i\\sin(\\frac{5\\pi}{4})) = -\\sqrt{2} - i\\sqrt{2}$\n$z_3 = 2(\\cos(\\frac{7\\pi}{4}) + i\\sin(\\frac{7\\pi}{4})) = \\sqrt{2} - i\\sqrt{2}$"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Komplexe Zahlen",
+            "title": "Komplexe Exponentialfunktion",
+            "description": "Berechnen Sie $e^{1+\\frac{\\pi}{4}i}$ und zeigen Sie, dass $e^{i\\pi} + 1 = 0$ gilt (Eulersche Identität).",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Berechnung von $e^{1+\\frac{\\pi}{4}i}$\n$e^{1+\\frac{\\pi}{4}i} = e^1 \\cdot e^{\\frac{\\pi}{4}i}$\n$= e(\\cos(\\frac{\\pi}{4}) + i\\sin(\\frac{\\pi}{4}))$\n$= e(\\frac{\\sqrt{2}}{2} + i\\frac{\\sqrt{2}}{2})$",
+                "Schritt 2: Eulersche Identität\n$e^{i\\pi} = \\cos(\\pi) + i\\sin(\\pi) = -1 + i\\cdot 0 = -1$\nAlso $e^{i\\pi} + 1 = 0$"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Komplexe Zahlen",
+            "title": "Komplexe Logarithmen",
+            "description": "Bestimmen Sie alle komplexen Logarithmen von $z = -1 + i$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Polardarstellung\n$|z| = \\sqrt{2}$\n$\\arg(z) = \\frac{3\\pi}{4}$\n$z = \\sqrt{2}e^{i\\frac{3\\pi}{4}}$",
+                "Schritt 2: Hauptwert des Logarithmus\n$\\ln(z) = \\ln(\\sqrt{2}) + i\\frac{3\\pi}{4}$",
+                "Schritt 3: Alle Logarithmen\n$\\log(z) = \\ln(\\sqrt{2}) + i(\\frac{3\\pi}{4} + 2k\\pi)$\nfür $k \\in \\mathbb{Z}$",
+                "Schritt 4: Vereinfachung\n$\\log(z) = \\frac{1}{2}\\ln(2) + i(\\frac{3\\pi}{4} + 2k\\pi)$"
+            ]
+        }
+    ]
+} 

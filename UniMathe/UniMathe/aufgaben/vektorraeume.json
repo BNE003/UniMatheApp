@@ -1,0 +1,74 @@
+{
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Vektorräume",
+            "title": "Unterräume und lineare Unabhängigkeit",
+            "description": "Untersuchen Sie, ob die Vektoren $\\vec{v}_1 = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}, \\vec{v}_2 = \\begin{pmatrix} 2 \\\\ 4 \\\\ 6 \\end{pmatrix}, \\vec{v}_3 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$ linear unabhängig sind und bestimmen Sie die Dimension des von ihnen aufgespannten Unterraums.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Lineare Unabhängigkeit\nWir untersuchen die Gleichung $\\lambda_1\\vec{v}_1 + \\lambda_2\\vec{v}_2 + \\lambda_3\\vec{v}_3 = \\vec{0}$",
+                "Schritt 2: Gleichungssystem\n$\\begin{pmatrix} 1 & 2 & 1 \\\\ 2 & 4 & 1 \\\\ 3 & 6 & 1 \\end{pmatrix} \\begin{pmatrix} \\lambda_1 \\\\ \\lambda_2 \\\\ \\lambda_3 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}$",
+                "Schritt 3: Gauß-Elimination\n$\\vec{v}_2 = 2\\vec{v}_1}$, also sind die Vektoren linear abhängig",
+                "Schritt 4: Dimension\n$\\dim(\\text{span}\\{\\vec{v}_1, \\vec{v}_2, \\vec{v}_3\\}) = 2$, da $\\vec{v}_1$ und $\\vec{v}_3$ linear unabhängig sind"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Vektorräume",
+            "title": "Basis und Koordinaten",
+            "description": "Gegeben sei der Vektorraum $V = \\mathbb{R}^3$ mit der Basis $B = \\{\\vec{b}_1 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}, \\vec{b}_2 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\vec{b}_3 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}\\}$. Bestimmen Sie die Koordinaten des Vektors $\\vec{v} = \\begin{pmatrix} 2 \\\\ 3 \\\\ 4 \\end{pmatrix}$ bezüglich der Basis $B$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Koordinatengleichung\n$\\vec{v} = x_1\\vec{b}_1 + x_2\\vec{b}_2 + x_3\\vec{b}_3$",
+                "Schritt 2: Gleichungssystem\n$\\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\\\ 1 & 0 & 1 \\end{pmatrix} \\begin{pmatrix} x_1 \\\\ x_2 \\\\ x_3 \\end{pmatrix} = \\begin{pmatrix} 2 \\\\ 3 \\\\ 4 \\end{pmatrix}$",
+                "Schritt 3: Lösung\n$x_1 = 1, x_2 = 1, x_3 = 2$",
+                "Schritt 4: Koordinatenvektor\n$[\\vec{v}]_B = \\begin{pmatrix} 1 \\\\ 1 \\\\ 2 \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Vektorräume",
+            "title": "Dualräume",
+            "description": "Sei $V = \\mathbb{R}^3$ und $\\varphi: V \\to \\mathbb{R}$ eine lineare Abbildung mit $\\varphi(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = 1, \\varphi(\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}) = 2, \\varphi(\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}) = 3$. Bestimmen Sie die Darstellungsmatrix von $\\varphi$ bezüglich der Standardbasis.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Basisvektoren\n$\\vec{e}_1 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\vec{e}_2 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\vec{e}_3 = \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 2: Lineare Unabhängigkeit\n$\\vec{e}_2 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} - \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}$\n$\\vec{e}_3 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix} - \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$",
+                "Schritt 3: Funktionswerte\n$\\varphi(\\vec{e}_1) = 1$\n$\\varphi(\\vec{e}_2) = 2 - 1 = 1$\n$\\varphi(\\vec{e}_3) = 3 - 2 = 1$",
+                "Schritt 4: Darstellungsmatrix\n$[\\varphi] = (1, 1, 1)$"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Vektorräume",
+            "title": "Quotientenvektorräume",
+            "description": "Sei $V = \\mathbb{R}^4$ und $U = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 1 \\end{pmatrix}\\}$. Bestimmen Sie eine Basis des Quotientenvektorraums $V/U$ und die Dimension von $V/U$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Dimension von U\n$\\dim(U) = 2$, da die Vektoren linear unabhängig sind",
+                "Schritt 2: Dimension von V/U\n$\\dim(V/U) = \\dim(V) - \\dim(U) = 4 - 2 = 2$",
+                "Schritt 3: Basis von V/U\n$\\{\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ 0 \\end{pmatrix} + U, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix} + U\\}$",
+                "Schritt 4: Verifikation\nDie Vektoren sind linear unabhängig modulo U und bilden eine Basis von V/U"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Vektorräume",
+            "title": "Konvexe Mengen",
+            "description": "Zeigen Sie, dass die Menge $K = \\{(x,y) \\in \\mathbb{R}^2 \\mid x^2 + y^2 \\leq 1\\}$ konvex ist und bestimmen Sie ihre Extremalpunkte.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Konvexität\nSeien $\\vec{p}, \\vec{q} \\in K$ und $\\lambda \\in [0,1]$\n$\\||\\lambda\\vec{p} + (1-\\lambda)\\vec{q}\\| \\leq \\lambda\\|\\vec{p}\\| + (1-\\lambda)\\|\\vec{q}\\| \\leq 1$",
+                "Schritt 2: Extremalpunkte\nDie Extremalpunkte sind die Punkte auf dem Rand $\\{(x,y) \\mid x^2 + y^2 = 1\\}$",
+                "Schritt 3: Begründung\nJeder Punkt im Inneren kann als Konvexkombination zweier anderer Punkte dargestellt werden",
+                "Schritt 4: Parametrisierung\n$\\{(\\cos(\\phi), \\sin(\\phi)) \\mid \\phi \\in [0,2\\pi]\\}$"
+            ]
+        }
+    ]
+} 

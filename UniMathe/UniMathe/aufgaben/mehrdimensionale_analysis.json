@@ -1,0 +1,74 @@
+{
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Partielle Ableitungen",
+            "description": "Berechnen Sie alle partiellen Ableitungen erster und zweiter Ordnung der Funktion $f(x,y) = x^2y + \\sin(xy)$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Partielle Ableitungen erster Ordnung\n$\\frac{\\partial f}{\\partial x} = 2xy + y\\cos(xy)$\n$\\frac{\\partial f}{\\partial y} = x^2 + x\\cos(xy)$",
+                "Schritt 2: Partielle Ableitungen zweiter Ordnung\n$\\frac{\\partial^2 f}{\\partial x^2} = 2y - y^2\\sin(xy)$\n$\\frac{\\partial^2 f}{\\partial y^2} = -x^2\\sin(xy)$",
+                "Schritt 3: Gemischte Ableitungen\n$\\frac{\\partial^2 f}{\\partial x \\partial y} = 2x + \\cos(xy) - xy\\sin(xy)$\n$\\frac{\\partial^2 f}{\\partial y \\partial x} = 2x + \\cos(xy) - xy\\sin(xy)$",
+                "Schritt 4: Verifikation\nDie gemischten Ableitungen sind gleich (Satz von Schwarz)"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Gradient und Richtungsableitung",
+            "description": "Berechnen Sie den Gradienten der Funktion $f(x,y,z) = x^2 + y^2 + z^2$ im Punkt $(1,2,3)$ und die Richtungsableitung in Richtung des Vektors $\\vec{v} = (1,1,1)$.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Gradient\n$\\nabla f = (2x, 2y, 2z)$\n$\\nabla f(1,2,3) = (2, 4, 6)$",
+                "Schritt 2: Normalisierung des Richtungsvektors\n$\\vec{v}_0 = \\frac{1}{\\sqrt{3}}(1,1,1)$",
+                "Schritt 3: Richtungsableitung\n$D_{\\vec{v}}f = \\nabla f \\cdot \\vec{v}_0 = \\frac{1}{\\sqrt{3}}(2 + 4 + 6) = \\frac{12}{\\sqrt{3}}$",
+                "Schritt 4: Interpretation\nDie Richtungsableitung gibt die Änderungsrate von $f$ in Richtung $\\vec{v}$ an."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Extremwertaufgaben",
+            "description": "Finden Sie die lokalen Extrema der Funktion $f(x,y) = x^3 + y^3 - 3xy$ und bestimmen Sie deren Art.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Kritische Punkte\n$\\frac{\\partial f}{\\partial x} = 3x^2 - 3y = 0$\n$\\frac{\\partial f}{\\partial y} = 3y^2 - 3x = 0$\nLösung: $(0,0)$ und $(1,1)$",
+                "Schritt 2: Hesse-Matrix\n$H_f = \\begin{pmatrix} 6x & -3 \\\\ -3 & 6y \\end{pmatrix}$",
+                "Schritt 3: Determinante und Spur\n$\\det(H_f) = 36xy - 9$\n$\\text{tr}(H_f) = 6(x+y)$",
+                "Schritt 4: Klassifikation\n$(0,0)$: $\\det(H_f) = -9 < 0$ (Sattelpunkt)\n$(1,1)$: $\\det(H_f) = 27 > 0$, $\\text{tr}(H_f) = 12 > 0$ (Minimum)"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Mehrfachintegrale",
+            "description": "Berechnen Sie das Doppelintegral $\\iint_D (x^2 + y^2) dxdy$ über den Bereich $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid 0 \\leq x \\leq 1, 0 \\leq y \\leq x\\}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Integrationsgrenzen\n$\\int_0^1 \\int_0^x (x^2 + y^2) dy dx$",
+                "Schritt 2: Innere Integration\n$\\int_0^x (x^2 + y^2) dy = x^2y + \\frac{y^3}{3}|_0^x = x^3 + \\frac{x^3}{3} = \\frac{4}{3}x^3$",
+                "Schritt 3: Äußere Integration\n$\\int_0^1 \\frac{4}{3}x^3 dx = \\frac{4}{3} \\cdot \\frac{x^4}{4}|_0^1 = \\frac{1}{3}$",
+                "Schritt 4: Ergebnis\n$\\iint_D (x^2 + y^2) dxdy = \\frac{1}{3}$"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Koordinatentransformation",
+            "description": "Berechnen Sie das Integral $\\iint_D \\frac{1}{\\sqrt{x^2 + y^2}} dxdy$ über den Bereich $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid 1 \\leq x^2 + y^2 \\leq 4\\}$ durch Transformation in Polarkoordinaten.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Polarkoordinaten\n$x = r\\cos(\\phi), y = r\\sin(\\phi)$\n$dxdy = r dr d\\phi$",
+                "Schritt 2: Integrationsbereich\n$1 \\leq r \\leq 2, 0 \\leq \\phi \\leq 2\\pi$",
+                "Schritt 3: Transformation\n$\\int_0^{2\\pi} \\int_1^2 \\frac{1}{r} \\cdot r dr d\\phi = \\int_0^{2\\pi} \\int_1^2 1 dr d\\phi$",
+                "Schritt 4: Berechnung\n$= \\int_0^{2\\pi} (2-1) d\\phi = 2\\pi$"
+            ]
+        }
+    ]
+} 

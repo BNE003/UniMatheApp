@@ -1,0 +1,73 @@
+{
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Folgen und Reihen",
+            "title": "Konvergenz von Folgen",
+            "description": "Untersuchen Sie die Konvergenz der Folge $(a_n)$ mit $a_n = \\frac{n^2 + 3n + 1}{2n^2 - n + 4}$ und bestimmen Sie gegebenenfalls den Grenzwert.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Umformung\n$a_n = \\frac{n^2 + 3n + 1}{2n^2 - n + 4} = \\frac{1 + \\frac{3}{n} + \\frac{1}{n^2}}{2 - \\frac{1}{n} + \\frac{4}{n^2}}$",
+                "Schritt 2: Grenzwertberechnung\n$\\lim_{n \\to \\infty} a_n = \\frac{1 + 0 + 0}{2 - 0 + 0} = \\frac{1}{2}$",
+                "Schritt 3: Konvergenznachweis\nDie Folge konvergiert gegen $\\frac{1}{2}$, da alle Summanden mit $n$ im Nenner gegen 0 konvergieren."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Folgen und Reihen",
+            "title": "Geometrische Reihe",
+            "description": "Berechnen Sie die Summe der Reihe $\\sum_{n=0}^{\\infty} \\frac{2^n}{3^n}$ und zeigen Sie die Konvergenz.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Umformung\n$\\sum_{n=0}^{\\infty} \\frac{2^n}{3^n} = \\sum_{n=0}^{\\infty} (\\frac{2}{3})^n$",
+                "Schritt 2: Geometrische Reihe\n$q = \\frac{2}{3} < 1$, also konvergiert die Reihe",
+                "Schritt 3: Summenformel\n$\\sum_{n=0}^{\\infty} q^n = \\frac{1}{1-q}$ für $|q| < 1$",
+                "Schritt 4: Berechnung\n$\\sum_{n=0}^{\\infty} (\\frac{2}{3})^n = \\frac{1}{1-\\frac{2}{3}} = 3$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Folgen und Reihen",
+            "title": "Konvergenzkriterien",
+            "description": "Untersuchen Sie die Konvergenz der Reihe $\\sum_{n=1}^{\\infty} \\frac{n!}{n^n}$ mit Hilfe des Quotientenkriteriums.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Quotientenkriterium\n$\\lim_{n \\to \\infty} |\\frac{a_{n+1}}{a_n}| = \\lim_{n \\to \\infty} \\frac{(n+1)!}{(n+1)^{n+1}} \\cdot \\frac{n^n}{n!}$",
+                "Schritt 2: Vereinfachung\n$= \\lim_{n \\to \\infty} \\frac{(n+1)n^n}{(n+1)^{n+1}} = \\lim_{n \\to \\infty} \\frac{n^n}{(n+1)^n}$",
+                "Schritt 3: Grenzwertberechnung\n$= \\lim_{n \\to \\infty} (\\frac{n}{n+1})^n = \\lim_{n \\to \\infty} (1 - \\frac{1}{n+1})^n = e^{-1} < 1$",
+                "Schritt 4: Konvergenz\nNach dem Quotientenkriterium konvergiert die Reihe absolut."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Folgen und Reihen",
+            "title": "Alternierende Reihen",
+            "description": "Untersuchen Sie die Konvergenz der alternierenden Reihe $\\sum_{n=1}^{\\infty} (-1)^n \\frac{\\ln n}{n}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Leibniz-Kriterium\nÜberprüfung der Voraussetzungen:\n1. $a_n = \\frac{\\ln n}{n} > 0$ für $n > 1$\n2. $a_n \\to 0$ für $n \\to \\infty$\n3. $(a_n)$ ist monoton fallend",
+                "Schritt 2: Monotonie\n$f(x) = \\frac{\\ln x}{x}$\n$f'(x) = \\frac{1 - \\ln x}{x^2} < 0$ für $x > e$\nAlso ist $(a_n)$ monoton fallend ab $n \\geq 3$",
+                "Schritt 3: Grenzwert\n$\\lim_{n \\to \\infty} \\frac{\\ln n}{n} = 0$ (nach L'Hospital)",
+                "Schritt 4: Konvergenz\nNach dem Leibniz-Kriterium konvergiert die Reihe."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Folgen und Reihen",
+            "title": "Potenzreihen",
+            "description": "Bestimmen Sie den Konvergenzradius der Potenzreihe $\\sum_{n=0}^{\\infty} \\frac{n^n}{n!} x^n$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Quotientenkriterium\n$\\lim_{n \\to \\infty} |\\frac{a_{n+1}}{a_n}| = \\lim_{n \\to \\infty} \\frac{(n+1)^{n+1}}{(n+1)!} \\cdot \\frac{n!}{n^n}$",
+                "Schritt 2: Vereinfachung\n$= \\lim_{n \\to \\infty} \\frac{(n+1)^n}{n^n} = \\lim_{n \\to \\infty} (1 + \\frac{1}{n})^n = e$",
+                "Schritt 3: Konvergenzradius\n$R = \\frac{1}{e}$",
+                "Schritt 4: Konvergenzbereich\nDie Reihe konvergiert für $|x| < \\frac{1}{e}$ und divergiert für $|x| > \\frac{1}{e}$."
+            ]
+        }
+    ]
+} 

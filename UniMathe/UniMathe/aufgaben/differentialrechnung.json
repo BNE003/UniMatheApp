@@ -1,0 +1,74 @@
+{
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Differentialrechnung",
+            "title": "Ableitungsregeln",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\frac{\\sin(x^2)}{\\ln(x)}$ für $x > 0, x \\neq 1$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Quotientenregel\n$f'(x) = \\frac{\\ln(x) \\cdot \\frac{d}{dx}(\\sin(x^2)) - \\sin(x^2) \\cdot \\frac{d}{dx}(\\ln(x))}{(\\ln(x))^2}$",
+                "Schritt 2: Kettenregel für $\\sin(x^2)$\n$\\frac{d}{dx}(\\sin(x^2)) = \\cos(x^2) \\cdot 2x$",
+                "Schritt 3: Ableitung von $\\ln(x)$\n$\\frac{d}{dx}(\\ln(x)) = \\frac{1}{x}$",
+                "Schritt 4: Zusammenfassung\n$f'(x) = \\frac{2x\\ln(x)\\cos(x^2) - \\frac{\\sin(x^2)}{x}}{(\\ln(x))^2}$"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Differentialrechnung",
+            "title": "Implizite Differentiation",
+            "description": "Bestimmen Sie $\\frac{dy}{dx}$ für die implizite Funktion $x^2y + y^3 = \\sin(xy)$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Ableitung beider Seiten\n$\\frac{d}{dx}(x^2y + y^3) = \\frac{d}{dx}(\\sin(xy))$",
+                "Schritt 2: Produktregel und Kettenregel\n$2xy + x^2y' + 3y^2y' = \\cos(xy)(y + xy')$",
+                "Schritt 3: Auflösen nach $y'$\n$y'(x^2 + 3y^2 - x\\cos(xy)) = -2xy + y\\cos(xy)$",
+                "Schritt 4: Lösung\n$y' = \\frac{-2xy + y\\cos(xy)}{x^2 + 3y^2 - x\\cos(xy)}$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Differentialrechnung",
+            "title": "Extremwertaufgaben",
+            "description": "Finden Sie die lokalen Extrema der Funktion $f(x) = x^3e^{-x}$ und bestimmen Sie deren Art.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Erste Ableitung\n$f'(x) = 3x^2e^{-x} - x^3e^{-x} = x^2e^{-x}(3-x)$",
+                "Schritt 2: Kritische Punkte\n$f'(x) = 0 \\Rightarrow x = 0$ oder $x = 3$",
+                "Schritt 3: Zweite Ableitung\n$f''(x) = (6x-6x^2+x^3)e^{-x}$",
+                "Schritt 4: Art der Extrema\n$f''(0) = 0$ (keine Aussage möglich)\n$f''(3) = -9e^{-3} < 0$ (Maximum bei $x=3$)"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Differentialrechnung",
+            "title": "Taylor-Reihen",
+            "description": "Entwickeln Sie die Funktion $f(x) = \\sqrt{1+x}$ in eine Taylor-Reihe um $x_0 = 0$ bis zur Ordnung 3.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Ableitungen\n$f(x) = (1+x)^{1/2}$\n$f'(x) = \\frac{1}{2}(1+x)^{-1/2}$\n$f''(x) = -\\frac{1}{4}(1+x)^{-3/2}$\n$f'''(x) = \\frac{3}{8}(1+x)^{-5/2}$",
+                "Schritt 2: Funktionswerte bei $x=0$\n$f(0) = 1$\n$f'(0) = \\frac{1}{2}$\n$f''(0) = -\\frac{1}{4}$\n$f'''(0) = \\frac{3}{8}$",
+                "Schritt 3: Taylor-Polynom\n$T_3(x) = 1 + \\frac{1}{2}x - \\frac{1}{8}x^2 + \\frac{1}{16}x^3$",
+                "Schritt 4: Restglied\n$R_3(x) = \\frac{f^{(4)}(\\xi)}{4!}x^4$ mit $\\xi$ zwischen 0 und $x$"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Differentialrechnung",
+            "title": "Differentialgleichungen",
+            "description": "Lösen Sie die Differentialgleichung $y' + 2xy = x$ mit der Anfangsbedingung $y(0) = 1$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Integrierender Faktor\n$\\mu(x) = e^{\\int 2x dx} = e^{x^2}$",
+                "Schritt 2: Multiplikation\n$e^{x^2}y' + 2xe^{x^2}y = xe^{x^2}$",
+                "Schritt 3: Integration\n$e^{x^2}y = \\int xe^{x^2}dx = \\frac{1}{2}e^{x^2} + C$",
+                "Schritt 4: Lösung\n$y = \\frac{1}{2} + Ce^{-x^2}$\nMit $y(0) = 1$ folgt $C = \\frac{1}{2}$\nAlso $y = \\frac{1}{2}(1 + e^{-x^2})$"
+            ]
+        }
+    ]
+} 
