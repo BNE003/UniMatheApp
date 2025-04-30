@@ -1,0 +1,50 @@
+{
+    "id": "cc0e8400-e29b-41d4-a716-446655440000",
+    "title": "Lineare Abbildungen",
+    "description": "Lass uns die Konzepte der linearen Abbildungen Schritt für Schritt erkunden.",
+    "topic": "Lineare Abbildungen",
+    "steps": [
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440001",
+            "text": "Eine lineare Abbildung f: V → W zwischen Vektorräumen erhält die Vektorraumstruktur.",
+            "formula": "f(\\lambda v + \\mu w) = \\lambda f(v) + \\mu f(w)",
+            "explanation": "Die Abbildung ist additiv und homogen. Sie bildet Geraden auf Geraden ab und erhält den Nullpunkt."
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440002",
+            "text": "Jede lineare Abbildung f: ℝⁿ → ℝᵐ kann durch eine m×n-Matrix A dargestellt werden.",
+            "formula": "f(x) = Ax",
+            "explanation": "Die Spalten der Matrix A sind die Bilder der Standardbasisvektoren. Die Matrixdarstellung hängt von der gewählten Basis ab."
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440003",
+            "text": "Der Kern einer linearen Abbildung ist die Menge aller Vektoren, die auf den Nullvektor abgebildet werden.",
+            "formula": "\\ker(f) = \\{v \\in V \\mid f(v) = 0\\}",
+            "explanation": "Der Kern ist ein Untervektorraum von V. Seine Dimension heißt Defekt der Abbildung."
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440004",
+            "text": "Das Bild einer linearen Abbildung ist die Menge aller Bildvektoren.",
+            "formula": "\\text{im}(f) = \\{f(v) \\mid v \\in V\\}",
+            "explanation": "Das Bild ist ein Untervektorraum von W. Seine Dimension heißt Rang der Abbildung."
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440005",
+            "text": "Der Dimensionssatz verbindet Kern und Bild einer linearen Abbildung.",
+            "formula": "\\dim V = \\dim \\ker(f) + \\dim \\text{im}(f)",
+            "explanation": "Die Summe aus Defekt und Rang ist gleich der Dimension des Definitionsbereichs."
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440006",
+            "text": "Eine lineare Abbildung ist injektiv genau dann, wenn ihr Kern nur den Nullvektor enthält.",
+            "formula": "f \\text{ injektiv} \\Leftrightarrow \\ker(f) = \\{0\\}",
+            "explanation": "Injektive Abbildungen sind umkehrbar auf ihrem Bild. Sie erhalten die lineare Unabhängigkeit von Vektoren."
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440007",
+            "text": "Die Verkettung linearer Abbildungen ist wieder linear.",
+            "formula": "(g \\circ f)(v) = g(f(v))",
+            "explanation": "Die Matrix der Verkettung ist das Produkt der einzelnen Matrizen in umgekehrter Reihenfolge."
+        }
+    ]
+} 

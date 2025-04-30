@@ -1,0 +1,50 @@
+{
+    "id": "bb0e8400-e29b-41d4-a716-446655440000",
+    "title": "Eigenwerte und Eigenvektoren",
+    "description": "Lass uns die Konzepte der Eigenwerte und Eigenvektoren Schritt für Schritt erkunden.",
+    "topic": "Eigenwerte",
+    "steps": [
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440001",
+            "text": "Ein Eigenvektor einer Matrix A ist ein Vektor v ≠ 0, der durch Multiplikation mit A nur gestreckt wird.",
+            "formula": "A \\cdot v = \\lambda \\cdot v",
+            "explanation": "Der Streckungsfaktor λ heißt Eigenwert. Eigenvektoren zeigen die Richtungen, in denen die Matrix nur streckt oder staucht."
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440002",
+            "text": "Die Eigenwerte sind die Nullstellen des charakteristischen Polynoms.",
+            "formula": "\\det(A - \\lambda \\cdot I) = 0",
+            "explanation": "I ist die Einheitsmatrix. Das charakteristische Polynom ist ein Polynom n-ten Grades, wenn A eine n×n-Matrix ist."
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440003",
+            "text": "Für eine 2×2-Matrix A = (a b; c d) ist das charakteristische Polynom:",
+            "formula": "\\det\\begin{pmatrix} a-\\lambda & b \\\\ c & d-\\lambda \\end{pmatrix} = (a-\\lambda)(d-\\lambda) - b \\cdot c = 0",
+            "explanation": "Dies führt zu einer quadratischen Gleichung in λ, deren Lösungen die Eigenwerte sind."
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440004",
+            "text": "Die Eigenvektoren zu einem Eigenwert λ erhält man durch Lösen des homogenen Systems:",
+            "formula": "(A - \\lambda \\cdot I) \\cdot v = 0",
+            "explanation": "Die Lösungen bilden den Eigenraum zum Eigenwert λ. Die Dimension des Eigenraums heißt geometrische Vielfachheit."
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440005",
+            "text": "Eine Matrix ist diagonalisierbar, wenn sie n linear unabhängige Eigenvektoren hat.",
+            "formula": "A = P \\cdot \\Lambda \\cdot P^{-1}",
+            "explanation": "P ist die Matrix der Eigenvektoren, Λ die Diagonalmatrix der Eigenwerte. Dies ermöglicht einfache Potenzierung: A^k = P·Λ^k·P^(-1)."
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440006",
+            "text": "Die Spur einer Matrix ist die Summe ihrer Eigenwerte.",
+            "formula": "\\text{tr}(A) = \\sum_{i=1}^n \\lambda_i",
+            "explanation": "Die Spur ist die Summe der Diagonalelemente und invariant unter Ähnlichkeitstransformationen."
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440007",
+            "text": "Die Determinante einer Matrix ist das Produkt ihrer Eigenwerte.",
+            "formula": "\\det(A) = \\prod_{i=1}^n \\lambda_i",
+            "explanation": "Dies erklärt, warum eine Matrix genau dann invertierbar ist, wenn alle Eigenwerte ungleich Null sind."
+        }
+    ]
+} 
