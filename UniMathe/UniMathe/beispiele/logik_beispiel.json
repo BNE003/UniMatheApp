@@ -1,0 +1,47 @@
+{
+    "title": "Logische Äquivalenzen",
+    "description": "Lass uns die grundlegenden Konzepte der Logik Schritt für Schritt erkunden",
+    "steps": [
+        {
+            "text": "Willkommen! Lass uns mit den Grundlagen der Logik beginnen",
+            "formula": "p, q \\in \\{wahr, falsch\\}",
+            "explanation": "In der Logik arbeiten wir mit Aussagen, die entweder wahr oder falsch sein können. Hier betrachten wir zwei Aussagen p und q."
+        },
+        {
+            "text": "Die Konjunktion (UND) verbindet zwei Aussagen",
+            "formula": "p \\land q",
+            "explanation": "Die Konjunktion ist nur dann wahr, wenn beide Aussagen p und q wahr sind. Das Symbol ∧ steht für 'und'."
+        },
+        {
+            "text": "Die Disjunktion (ODER) erlaubt mindestens eine wahre Aussage",
+            "formula": "p \\lor q",
+            "explanation": "Die Disjunktion ist wahr, wenn mindestens eine der Aussagen p oder q wahr ist. Das Symbol ∨ steht für 'oder'."
+        },
+        {
+            "text": "Die Implikation beschreibt eine Wenn-Dann-Beziehung",
+            "formula": "p \\rightarrow q",
+            "explanation": "Die Implikation ist nur dann falsch, wenn p wahr und q falsch ist. Das Symbol → bedeutet 'wenn p, dann q'."
+        },
+        {
+            "text": "Die Äquivalenz zeigt eine Genau-Dann-Wenn-Beziehung",
+            "formula": "p \\leftrightarrow q",
+            "explanation": "Die Äquivalenz ist wahr, wenn beide Aussagen den gleichen Wahrheitswert haben. Das Symbol ↔ bedeutet 'genau dann, wenn'."
+        },
+        {
+            "text": "Die Negation kehrt den Wahrheitswert um",
+            "formula": "\\neg p",
+            "explanation": "Die Negation macht aus einer wahren Aussage eine falsche und umgekehrt. Das Symbol ¬ steht für 'nicht'."
+        },
+        {
+            "text": "Lass uns ein Beispiel mit konkreten Aussagen betrachten",
+            "formula": "p: \\text{'Es regnet'}, \\quad q: \\text{'Die Straße ist nass'}",
+            "explanation": "Wir betrachten zwei zusammenhängende Aussagen: 'Es regnet' und 'Die Straße ist nass'."
+        },
+        {
+            "text": "Die Implikation zwischen diesen Aussagen",
+            "formula": "p \\rightarrow q: \\text{'Wenn es regnet, dann ist die Straße nass'}",
+            "explanation": "Diese Implikation ist logisch korrekt, da Regen normalerweise zu einer nassen Straße führt."
+        }
+    ],
+    "topic": "Logik"
+} 

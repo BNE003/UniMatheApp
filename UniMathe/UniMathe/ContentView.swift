@@ -7,6 +7,79 @@
 
 import SwiftUI
 
+// MARK: - Model Definitions
+struct InteractiveExample: Codable, Identifiable {
+    let id: UUID
+    let title: String
+    let description: String
+    let steps: [InteractiveExampleStep]
+    let topic: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id, title, description, steps, topic
+    }
+    
+    init(id: UUID = UUID(), title: String, description: String, steps: [InteractiveExampleStep], topic: String) {
+        self.id = id
+        self.title = title
+        self.description = description
+        self.steps = steps
+        self.topic = topic
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decodeIfPresent(UUID.self, forKey: .id) ?? UUID()
+        title = try container.decode(String.self, forKey: .title)
+        description = try container.decode(String.self, forKey: .description)
+        steps = try container.decode([InteractiveExampleStep].self, forKey: .steps)
+        topic = try container.decode(String.self, forKey: .topic)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(title, forKey: .title)
+        try container.encode(description, forKey: .description)
+        try container.encode(steps, forKey: .steps)
+        try container.encode(topic, forKey: .topic)
+    }
+}
+
+struct InteractiveExampleStep: Codable, Identifiable {
+    let id: UUID
+    let text: String
+    let formula: String?
+    let explanation: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id, text, formula, explanation
+    }
+    
+    init(id: UUID = UUID(), text: String, formula: String? = nil, explanation: String? = nil) {
+        self.id = id
+        self.text = text
+        self.formula = formula
+        self.explanation = explanation
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decodeIfPresent(UUID.self, forKey: .id) ?? UUID()
+        text = try container.decode(String.self, forKey: .text)
+        formula = try container.decodeIfPresent(String.self, forKey: .formula)
+        explanation = try container.decodeIfPresent(String.self, forKey: .explanation)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(text, forKey: .text)
+        try container.encodeIfPresent(formula, forKey: .formula)
+        try container.encodeIfPresent(explanation, forKey: .explanation)
+    }
+}
+
 // MARK: - Hilfsfunktion für normierte Dateinamen
 func normalizedFileName(from title: String) -> String {
     var fileName = title.lowercased()
@@ -430,6 +503,335 @@ fileprivate func addHtmlLineBreaks(_ text: String) -> String {
     text.replacingOccurrences(of: "\n", with: "<br>")
 }
 
+// MARK: - Interactive Learning Components
+struct ProgressHeader: View {
+    let currentStep: Int
+    let totalSteps: Int
+    let showProgress: Bool
+    
+    var body: some View {
+        VStack(spacing: 8) {
+            if showProgress {
+                GeometryReader { geometry in
+                    ZStack(alignment: .leading) {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.gray.opacity(0.2))
+                            .frame(height: 8)
+                        
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.blue)
+                            .frame(width: geometry.size.width * CGFloat(currentStep + 1) / CGFloat(totalSteps), height: 8)
+                    }
+                }
+                .frame(height: 8)
+                .transition(.opacity.combined(with: .scale))
+            }
+            
+            Text("Schritt \(currentStep + 1) von \(totalSteps)")
+                .font(.subheadline)
+                .foregroundColor(.gray)
+                .transition(.opacity.combined(with: .scale))
+        }
+        .padding()
+        .background(Color.white)
+        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+    }
+}
+
+struct ContentHeader: View {
+    let title: String
+    let description: String
+    let opacity: Double
+    let slideOffset: CGFloat
+    
+    var body: some View {
+        VStack(spacing: 8) {
+            Text(title)
+                .font(.title2)
+                .fontWeight(.bold)
+                .multilineTextAlignment(.center)
+            
+            Text(description)
+                .font(.subheadline)
+                .foregroundColor(.gray)
+                .multilineTextAlignment(.center)
+        }
+        .padding(.top)
+        .opacity(opacity)
+        .offset(y: slideOffset)
+    }
+}
+
+struct ExplanationContent: View {
+    let step: InteractiveExampleStep
+    let showCurrentStep: Bool
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text(step.text)
+                .font(.body)
+                .foregroundColor(.black)
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(Color.white)
+                        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+                )
+                .transition(.asymmetric(
+                    insertion: .scale(scale: 0.8).combined(with: .opacity),
+                    removal: .scale(scale: 0.8).combined(with: .opacity)
+                ))
+            
+            if let formula = step.formula {
+                LaTeXView(content: "$$" + formula + "$$", height: .constant(50))
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 50)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 16)
+                            .fill(Color.blue.opacity(0.1))
+                    )
+                    .transition(.asymmetric(
+                        insertion: .scale(scale: 0.8).combined(with: .opacity),
+                        removal: .scale(scale: 0.8).combined(with: .opacity)
+                    ))
+                    .animation(.spring(response: 0.5, dampingFraction: 0.7).delay(0.2), value: showCurrentStep)
+            }
+            
+            if let explanation = step.explanation {
+                Text(explanation)
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(
+                        RoundedRectangle(cornerRadius: 16)
+                            .fill(Color.gray.opacity(0.1))
+                    )
+                    .transition(.asymmetric(
+                        insertion: .scale(scale: 0.8).combined(with: .opacity),
+                        removal: .scale(scale: 0.8).combined(with: .opacity)
+                    ))
+                    .animation(.spring(response: 0.5, dampingFraction: 0.7).delay(0.4), value: showCurrentStep)
+            }
+        }
+        .frame(maxWidth: .infinity)
+    }
+}
+
+struct BotAvatar: View {
+    let showCurrentStep: Bool
+    
+    var body: some View {
+        Image(systemName: "brain.head.profile")
+            .font(.system(size: 40))
+            .foregroundColor(.blue)
+            .padding()
+            .background(
+                Circle()
+                    .fill(Color.white)
+                    .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
+            )
+    }
+}
+
+struct ContinueButton: View {
+    let currentStep: Int
+    let totalSteps: Int
+    let showCurrentStep: Bool
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            HStack {
+                Text(currentStep < totalSteps - 1 ? "Weiter" : "Zurück zur Übersicht")
+                Image(systemName: "arrow.right")
+            }
+            .font(.headline)
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.blue)
+                    .shadow(color: Color.blue.opacity(0.3), radius: 5, x: 0, y: 2)
+            )
+        }
+        .padding(.horizontal)
+        .disabled(currentStep >= totalSteps - 1)
+        .scaleEffect(showCurrentStep ? 1 : 0.95)
+        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: showCurrentStep)
+    }
+}
+
+struct InteractiveLearningView: View {
+    let topic: MathTopic
+    @State private var currentStep = 0
+    @State private var showNextStep = false
+    @State private var example: InteractiveExample?
+    @State private var isLoading = true
+    @State private var error: Error?
+    @State private var showCurrentStep = false
+    @State private var showProgress = false
+    @State private var slideOffset: CGFloat = 50
+    @State private var opacity: Double = 0
+    
+    var body: some View {
+        ZStack {
+            // Hintergrund
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color(red: 0.95, green: 0.97, blue: 1.0),
+                    Color(red: 0.98, green: 0.98, blue: 1.0)
+                ]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
+            
+            if isLoading {
+                ProgressView()
+                    .scaleEffect(1.5)
+            } else if let error = error {
+                VStack {
+                    Text("Fehler beim Laden des Beispiels")
+                        .font(.headline)
+                        .foregroundColor(.red)
+                    Text(error.localizedDescription)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .multilineTextAlignment(.center)
+                        .padding()
+                }
+            } else if let example = example {
+                VStack(spacing: 0) {
+                    ProgressHeader(
+                        currentStep: currentStep,
+                        totalSteps: example.steps.count,
+                        showProgress: showProgress
+                    )
+                    
+                    ScrollView {
+                        VStack(spacing: 24) {
+                            ContentHeader(
+                                title: example.title,
+                                description: example.description,
+                                opacity: opacity,
+                                slideOffset: slideOffset
+                            )
+                            
+                            HStack(alignment: .top, spacing: 16) {
+                                BotAvatar(showCurrentStep: showCurrentStep)
+                                
+                                if showCurrentStep {
+                                    ExplanationContent(
+                                        step: example.steps[currentStep],
+                                        showCurrentStep: showCurrentStep
+                                    )
+                                }
+                            }
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                        }
+                        .padding(.bottom, 100) // Extra padding for the button
+                    }
+                    
+                    // Fixed button at bottom
+                    VStack {
+                        ContinueButton(
+                            currentStep: currentStep,
+                            totalSteps: example.steps.count,
+                            showCurrentStep: showCurrentStep
+                        ) {
+                            withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                                if currentStep < example.steps.count - 1 {
+                                    showCurrentStep = false
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                        currentStep += 1
+                                        withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                                            showCurrentStep = true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .background(
+                        Rectangle()
+                            .fill(Color.white)
+                            .shadow(color: Color.black.opacity(0.05), radius: 5, y: -2)
+                    )
+                }
+            }
+        }
+        .navigationTitle(topic.title)
+        .navigationBarTitleDisplayMode(.large)
+        .onAppear {
+            loadExample()
+        }
+    }
+    
+    private func loadExample() {
+        let fileName = normalizedFileName(from: topic.title) + "_beispiel"
+        print("Versuche Datei zu laden: \(fileName).json")
+        
+        if let fileURL = Bundle.main.url(forResource: fileName, withExtension: "json", subdirectory: "beispiele") {
+            print("Datei gefunden in beispiele/\(fileName).json")
+            do {
+                let data = try Data(contentsOf: fileURL)
+                print("Daten erfolgreich geladen, Größe: \(data.count) bytes")
+                example = try JSONDecoder().decode(InteractiveExample.self, from: data)
+                print("JSON erfolgreich dekodiert")
+                isLoading = false
+                
+                withAnimation(.easeOut(duration: 0.5).delay(0.3)) {
+                    showProgress = true
+                }
+                
+                withAnimation(.spring(response: 0.6, dampingFraction: 0.7).delay(0.6)) {
+                    showCurrentStep = true
+                    opacity = 1
+                    slideOffset = 0
+                }
+            } catch {
+                print("Fehler beim Laden/Dekodieren: \(error)")
+                self.error = error
+                isLoading = false
+            }
+        } else if let fileURL = Bundle.main.url(forResource: fileName, withExtension: "json") {
+            print("Datei gefunden im Hauptverzeichnis: \(fileName).json")
+            do {
+                let data = try Data(contentsOf: fileURL)
+                print("Daten erfolgreich geladen, Größe: \(data.count) bytes")
+                example = try JSONDecoder().decode(InteractiveExample.self, from: data)
+                print("JSON erfolgreich dekodiert")
+                isLoading = false
+                
+                withAnimation(.easeOut(duration: 0.5).delay(0.3)) {
+                    showProgress = true
+                }
+                
+                withAnimation(.spring(response: 0.6, dampingFraction: 0.7).delay(0.6)) {
+                    showCurrentStep = true
+                    opacity = 1
+                    slideOffset = 0
+                }
+            } catch {
+                print("Fehler beim Laden/Dekodieren: \(error)")
+                self.error = error
+                isLoading = false
+            }
+        } else {
+            print("Datei nicht gefunden: \(fileName).json")
+            error = NSError(domain: "", code: -1, userInfo: [
+                NSLocalizedDescriptionKey: "Beispieldatei nicht gefunden: \(fileName).json"
+            ])
+            isLoading = false
+        }
+    }
+}
+
 struct TopicDetailView: View {
     let topic: MathTopic
     
@@ -481,6 +883,23 @@ struct TopicDetailView: View {
                             .lineSpacing(8)
                             .padding()
                     }
+                    
+                    // Weitere Beispiele Button
+                    NavigationLink(destination: InteractiveLearningView(topic: topic)) {
+                        HStack {
+                            Image(systemName: "brain.head.profile")
+                            Text("Lass uns das genauer anschauen!")
+                        }
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(12)
+                        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom, 20)
                 }
                 .background(
                     RoundedRectangle(cornerRadius: 24)

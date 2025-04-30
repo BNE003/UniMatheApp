@@ -1,0 +1,42 @@
+{
+    "title": "Mengen und Abbildungen",
+    "description": "Lass uns die grundlegenden Konzepte der Mengenlehre und Abbildungen Schritt für Schritt erkunden",
+    "steps": [
+        {
+            "text": "Willkommen! Lass uns mit einer einfachen Menge A beginnen",
+            "formula": "A = \\{1, 2, 3, 4, 5\\}",
+            "explanation": "Eine Menge ist eine Zusammenfassung von Elementen. Hier haben wir die Menge A mit den Zahlen 1 bis 5."
+        },
+        {
+            "text": "Die Mächtigkeit von A gibt uns die Anzahl der Elemente",
+            "formula": "|A| = 5",
+            "explanation": "Die Mächtigkeit einer Menge wird durch |A| dargestellt und zählt die Anzahl der Elemente in der Menge."
+        },
+        {
+            "text": "Wir können Teilmengen von A bilden, zum Beispiel B",
+            "formula": "B = \\{2, 4\\} \\subset A",
+            "explanation": "B ist eine Teilmenge von A, da alle Elemente von B auch in A enthalten sind. Das Symbol ⊂ bedeutet 'ist Teilmenge von'."
+        },
+        {
+            "text": "Die Vereinigung von A und B ergibt A selbst",
+            "formula": "A \\cup B = A",
+            "explanation": "Da B eine Teilmenge von A ist, enthält die Vereinigung keine neuen Elemente. Das Symbol ∪ steht für die Vereinigung."
+        },
+        {
+            "text": "Die Potenzmenge von A enthält alle möglichen Teilmengen",
+            "formula": "\\mathcal{P}(A) = \\{\\emptyset, \\{1\\}, \\{2\\}, \\{3\\}, \\{4\\}, \\{5\\}, \\{1,2\\}, \\{1,3\\}, \\{1,4\\}, \\{1,5\\}, \\{2,3\\}, \\{2,4\\}, \\{2,5\\}, \\{3,4\\}, \\{3,5\\}, \\{4,5\\}, \\{1,2,3\\}, \\{1,2,4\\}, \\{1,2,5\\}, \\{1,3,4\\}, \\{1,3,5\\}, \\{1,4,5\\}, \\{2,3,4\\}, \\{2,3,5\\}, \\{2,4,5\\}, \\{3,4,5\\}, \\{1,2,3,4\\}, \\{1,2,3,5\\}, \\{1,2,4,5\\}, \\{1,3,4,5\\}, \\{2,3,4,5\\}, \\{1,2,3,4,5\\}\\}",
+            "explanation": "Die Potenzmenge enthält alle möglichen Teilmengen von A, einschließlich der leeren Menge ∅ und A selbst."
+        },
+        {
+            "text": "Jetzt betrachten wir eine Abbildung f von A nach B",
+            "formula": "f: A \\rightarrow B, \\quad f(x) = x^2",
+            "explanation": "Eine Abbildung ordnet jedem Element der Definitionsmenge A genau ein Element der Zielmenge B zu. Hier quadrieren wir jedes Element."
+        },
+        {
+            "text": "Die Bildmenge von f zeigt uns alle erreichten Werte",
+            "formula": "f(A) = \\{1, 4, 9, 16, 25\\}",
+            "explanation": "Die Bildmenge enthält alle Elemente, die durch die Abbildung f erreicht werden. Jeder Wert ist das Quadrat eines Elements aus A."
+        }
+    ],
+    "topic": "Mengen und Abbildungen"
+} 
