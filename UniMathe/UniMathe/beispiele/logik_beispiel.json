@@ -1,46 +1,67 @@
 {
+    "id": "550e8400-e29b-41d4-a716-446655440000",
     "title": "Logische Äquivalenzen",
-    "description": "Lass uns die grundlegenden Konzepte der Logik Schritt für Schritt erkunden",
+    "description": "Lass uns die grundlegenden Konzepte der Logik Schritt für Schritt erkunden.",
     "steps": [
         {
-            "text": "Willkommen! Lass uns mit den Grundlagen der Logik beginnen",
-            "formula": "p, q \\in \\{wahr, falsch\\}",
-            "explanation": "In der Logik arbeiten wir mit Aussagen, die entweder wahr oder falsch sein können. Hier betrachten wir zwei Aussagen p und q."
+            "id": "550e8400-e29b-41d4-a716-446655440001",
+            "text": "Willkommen in der Logik! Hier beschäftigen wir uns mit Aussagen, die entweder wahr oder falsch sein können. Lass uns mit den grundlegenden logischen Operatoren beginnen.",
+            "formula": null,
+            "explanation": "In der Logik arbeiten wir mit Aussagen, die wir mit logischen Operatoren verknüpfen können. Diese Verknüpfungen ergeben neue Aussagen, deren Wahrheitswert wir bestimmen können."
         },
         {
-            "text": "Die Konjunktion (UND) verbindet zwei Aussagen",
+            "id": "550e8400-e29b-41d4-a716-446655440002",
+            "text": "Die Konjunktion (UND) verbindet zwei Aussagen. Sie ist nur dann wahr, wenn beide Aussagen wahr sind.",
             "formula": "p \\land q",
-            "explanation": "Die Konjunktion ist nur dann wahr, wenn beide Aussagen p und q wahr sind. Das Symbol ∧ steht für 'und'."
+            "explanation": "Das Symbol ∧ bedeutet 'und'. Die Aussage 'p ∧ q' ist nur wahr, wenn sowohl p als auch q wahr sind. In allen anderen Fällen ist sie falsch."
         },
         {
-            "text": "Die Disjunktion (ODER) erlaubt mindestens eine wahre Aussage",
+            "id": "550e8400-e29b-41d4-a716-446655440003",
+            "text": "Die Disjunktion (ODER) ist wahr, wenn mindestens eine der Aussagen wahr ist.",
             "formula": "p \\lor q",
-            "explanation": "Die Disjunktion ist wahr, wenn mindestens eine der Aussagen p oder q wahr ist. Das Symbol ∨ steht für 'oder'."
+            "explanation": "Das Symbol ∨ bedeutet 'oder'. Die Aussage 'p ∨ q' ist wahr, wenn entweder p oder q oder beide wahr sind. Nur wenn beide falsch sind, ist die Gesamtaussage falsch."
         },
         {
-            "text": "Die Implikation beschreibt eine Wenn-Dann-Beziehung",
+            "id": "550e8400-e29b-41d4-a716-446655440004",
+            "text": "Die Implikation (wenn-dann) ist nur dann falsch, wenn die erste Aussage wahr und die zweite falsch ist.",
             "formula": "p \\rightarrow q",
-            "explanation": "Die Implikation ist nur dann falsch, wenn p wahr und q falsch ist. Das Symbol → bedeutet 'wenn p, dann q'."
+            "explanation": "Das Symbol → bedeutet 'wenn p, dann q'. Die Implikation ist nur falsch, wenn p wahr und q falsch ist. In allen anderen Fällen ist sie wahr."
         },
         {
-            "text": "Die Äquivalenz zeigt eine Genau-Dann-Wenn-Beziehung",
+            "id": "550e8400-e29b-41d4-a716-446655440005",
+            "text": "Die Äquivalenz ist wahr, wenn beide Aussagen den gleichen Wahrheitswert haben.",
             "formula": "p \\leftrightarrow q",
-            "explanation": "Die Äquivalenz ist wahr, wenn beide Aussagen den gleichen Wahrheitswert haben. Das Symbol ↔ bedeutet 'genau dann, wenn'."
+            "explanation": "Das Symbol ↔ bedeutet 'genau dann, wenn'. Die Äquivalenz ist wahr, wenn p und q beide wahr oder beide falsch sind."
         },
         {
-            "text": "Die Negation kehrt den Wahrheitswert um",
+            "id": "550e8400-e29b-41d4-a716-446655440006",
+            "text": "Die Negation kehrt den Wahrheitswert einer Aussage um.",
             "formula": "\\neg p",
-            "explanation": "Die Negation macht aus einer wahren Aussage eine falsche und umgekehrt. Das Symbol ¬ steht für 'nicht'."
+            "explanation": "Das Symbol ¬ bedeutet 'nicht'. Wenn p wahr ist, ist ¬p falsch und umgekehrt."
         },
         {
-            "text": "Lass uns ein Beispiel mit konkreten Aussagen betrachten",
-            "formula": "p: \\text{'Es regnet'}, \\quad q: \\text{'Die Straße ist nass'}",
-            "explanation": "Wir betrachten zwei zusammenhängende Aussagen: 'Es regnet' und 'Die Straße ist nass'."
+            "id": "550e8400-e29b-41d4-a716-446655440007",
+            "text": "Lass uns ein konkretes Beispiel betrachten: 'Wenn es regnet, dann ist die Straße nass.'",
+            "formula": "Regen \\rightarrow nasseStraße",
+            "explanation": "Diese Implikation ist logisch korrekt, da Regen typischerweise zu einer nassen Straße führt. Sie wäre nur falsch, wenn es regnet, aber die Straße trocken bleibt."
         },
         {
-            "text": "Die Implikation zwischen diesen Aussagen",
-            "formula": "p \\rightarrow q: \\text{'Wenn es regnet, dann ist die Straße nass'}",
-            "explanation": "Diese Implikation ist logisch korrekt, da Regen normalerweise zu einer nassen Straße führt."
+            "id": "550e8400-e29b-41d4-a716-446655440008",
+            "text": "Jetzt schauen wir uns eine komplexere Verknüpfung an: 'Wenn es regnet und die Sonne scheint, dann gibt es einen Regenbogen.'",
+            "formula": "(Regen \\land Sonne) \\rightarrow Regenbogen",
+            "explanation": "Hier haben wir eine Konjunktion (Regen und Sonne) als Voraussetzung für eine Implikation. Die Aussage ist nur falsch, wenn es gleichzeitig regnet und die Sonne scheint, aber kein Regenbogen zu sehen ist."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440009",
+            "text": "Eine noch komplexere Aussage: 'Ein Regenbogen ist genau dann zu sehen, wenn es regnet und die Sonne scheint.'",
+            "formula": "Regenbogen \\leftrightarrow (Regen \\land Sonne)",
+            "explanation": "Diese Äquivalenz besagt, dass ein Regenbogen nur unter genau diesen Bedingungen zu sehen ist. Die Aussage ist wahr, wenn entweder beides (Regenbogen und Regen+Sonne) wahr oder beides falsch ist."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440010",
+            "text": "Zum Abschluss eine Aussage mit Negation: 'Es gibt keinen Regenbogen, wenn es nicht regnet oder die Sonne nicht scheint.'",
+            "formula": "\\neg Regenbogen \\leftrightarrow (\\neg Regen \\lor \\neg Sonne)",
+            "explanation": "Diese komplexe Aussage verbindet Negation, Disjunktion und Äquivalenz. Sie ist wahr, wenn entweder kein Regenbogen zu sehen ist und mindestens eine Bedingung (Regen oder Sonne) nicht erfüllt ist, oder wenn ein Regenbogen zu sehen ist und beide Bedingungen erfüllt sind."
         }
     ],
     "topic": "Logik"

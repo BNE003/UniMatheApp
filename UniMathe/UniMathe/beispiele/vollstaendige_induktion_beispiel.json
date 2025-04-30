@@ -1,0 +1,44 @@
+{
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "title": "Vollständige Induktion",
+    "description": "Lass uns die Methode der vollständigen Induktion Schritt für Schritt verstehen.",
+    "topic": "vollstaendige induktion",
+    "steps": [
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440001",
+            "text": "Die vollständige Induktion ist eine wichtige Beweismethode in der Mathematik. Sie wird verwendet, um Aussagen für alle natürlichen Zahlen zu beweisen.",
+            "formula": null,
+            "explanation": "Stell dir vor, du möchtest beweisen, dass eine Aussage für alle natürlichen Zahlen gilt. Die vollständige Induktion hilft dir dabei, dies systematisch zu tun."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440002",
+            "text": "Der Beweis besteht aus zwei Schritten: dem Induktionsanfang und dem Induktionsschritt.",
+            "formula": "\\text{1. Induktionsanfang: } P(1) \\text{ ist wahr}\n\\text{2. Induktionsschritt: } P(n) \\Rightarrow P(n+1)",
+            "explanation": "Im Induktionsanfang zeigst du, dass die Aussage für die kleinste Zahl (meist n=1) gilt. Im Induktionsschritt zeigst du, dass wenn die Aussage für n gilt, sie auch für n+1 gilt."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440003",
+            "text": "Lass uns ein Beispiel betrachten: Die Summe der ersten n natürlichen Zahlen.",
+            "formula": "1 + 2 + 3 + ... + n = \\frac{n(n+1)}{2}",
+            "explanation": "Wir wollen beweisen, dass diese Formel für alle natürlichen Zahlen n gilt. Dafür verwenden wir die vollständige Induktion."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440004",
+            "text": "Induktionsanfang: Wir zeigen, dass die Formel für n=1 gilt.",
+            "formula": "1 = \\frac{1(1+1)}{2} = \\frac{2}{2} = 1",
+            "explanation": "Für n=1 haben wir nur die Zahl 1. Die Formel liefert auch 1, also ist der Induktionsanfang erfüllt."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440005",
+            "text": "Induktionsschritt: Wir nehmen an, die Formel gilt für n und zeigen, dass sie dann auch für n+1 gilt.",
+            "formula": "1 + 2 + ... + n + (n+1) = \\frac{n(n+1)}{2} + (n+1) = \\frac{(n+1)(n+2)}{2}",
+            "explanation": "Wir addieren (n+1) zu beiden Seiten und formen um. Das Ergebnis zeigt, dass die Formel auch für n+1 gilt."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440006",
+            "text": "Da wir den Induktionsanfang und den Induktionsschritt bewiesen haben, gilt die Formel für alle natürlichen Zahlen.",
+            "formula": "\\text{Für alle } n \\in \\mathbb{N}: 1 + 2 + ... + n = \\frac{n(n+1)}{2}",
+            "explanation": "Die vollständige Induktion erlaubt uns, von einem einzelnen Fall auf alle Fälle zu schließen. Das ist wie eine unendliche Kette von Dominosteinen: Wenn der erste fällt und jeder den nächsten umstößt, fallen alle."
+        }
+    ]
+} 

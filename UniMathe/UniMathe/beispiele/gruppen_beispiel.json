@@ -1,0 +1,44 @@
+{
+    "id": "550e8400-e29b-41d4-a716-446655440300",
+    "title": "Gruppen",
+    "description": "Lass uns die grundlegenden Konzepte der Gruppentheorie verstehen.",
+    "topic": "Gruppen",
+    "steps": [
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440301",
+            "text": "Eine Gruppe ist eine Menge G zusammen mit einer Verknüpfung, die bestimmte Eigenschaften erfüllt.",
+            "formula": "\\text{Eine Gruppe } (G, \\circ) \\text{ erfüllt:}\n\\begin{align*}\n&1. \\text{ Abgeschlossenheit: } a \\circ b \\in G \\\\\n&2. \\text{ Assoziativität: } (a \\circ b) \\circ c = a \\circ (b \\circ c) \\\\\n&3. \\text{ Neutrales Element: } \\exists e \\in G: e \\circ a = a \\circ e = a \\\\\n&4. \\text{ Inverses Element: } \\forall a \\in G \\exists a^{-1}: a \\circ a^{-1} = a^{-1} \\circ a = e\n\\end{align*}",
+            "explanation": "Diese vier Eigenschaften definieren eine Gruppe. Sie stellen sicher, dass wir in der Gruppe 'vernünftig' rechnen können."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440302",
+            "text": "Ein einfaches Beispiel ist die additive Gruppe der ganzen Zahlen.",
+            "formula": "(\\mathbb{Z}, +)",
+            "explanation": "Die ganzen Zahlen mit der Addition bilden eine Gruppe. Das neutrale Element ist 0, und das inverse Element zu a ist -a."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440303",
+            "text": "Die symmetrische Gruppe S₃ besteht aus allen Permutationen von drei Elementen.",
+            "formula": "S_3 = \\{(1), (12), (13), (23), (123), (132)\\}",
+            "explanation": "Jedes Element in S₃ ist eine Permutation, also eine Umordnung der Zahlen 1, 2 und 3. Die Verknüpfung ist die Hintereinanderausführung der Permutationen."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440304",
+            "text": "Die Ordnung einer Gruppe ist die Anzahl ihrer Elemente.",
+            "formula": "|G| = \\text{Anzahl der Elemente in } G",
+            "explanation": "Die Ordnung gibt uns wichtige Informationen über die Struktur der Gruppe. Zum Beispiel hat S₃ die Ordnung 6, da es 6 verschiedene Permutationen gibt."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440305",
+            "text": "Eine Untergruppe ist eine Teilmenge einer Gruppe, die selbst eine Gruppe ist.",
+            "formula": "H \\subseteq G \\text{ ist Untergruppe } \\Leftrightarrow \\begin{cases}\n1. \\, e \\in H \\\\\n2. \\, a,b \\in H \\Rightarrow a \\circ b \\in H \\\\\n3. \\, a \\in H \\Rightarrow a^{-1} \\in H\n\\end{cases}",
+            "explanation": "Eine Untergruppe muss das neutrale Element enthalten, abgeschlossen unter der Verknüpfung sein und zu jedem Element auch dessen Inverses enthalten."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440306",
+            "text": "Die zyklische Gruppe wird von einem Element erzeugt.",
+            "formula": "\\langle a \\rangle = \\{a^n \\mid n \\in \\mathbb{Z}\\}",
+            "explanation": "Eine zyklische Gruppe entsteht, wenn wir ein Element a immer wieder mit sich selbst verknüpfen. Sie ist die einfachste Art von Gruppe und spielt eine wichtige Rolle in der Gruppentheorie."
+        }
+    ]
+} 

@@ -1,41 +1,49 @@
 {
-    "title": "Mengen und Abbildungen",
-    "description": "Lass uns die grundlegenden Konzepte der Mengenlehre und Abbildungen Schritt für Schritt erkunden",
+    "id": "550e8400-e29b-41d4-a716-446655440011",
+    "title": "Grundlagen der Mengenlehre",
+    "description": "Lass uns die grundlegenden Konzepte der Mengenlehre Schritt für Schritt erkunden.",
     "steps": [
         {
-            "text": "Willkommen! Lass uns mit einer einfachen Menge A beginnen",
+            "id": "550e8400-e29b-41d4-a716-446655440012",
+            "text": "Willkommen in der Mengenlehre! Hier beschäftigen wir uns mit Mengen, ihren Eigenschaften und Beziehungen. Lass uns mit einer einfachen Menge beginnen.",
             "formula": "A = \\{1, 2, 3, 4, 5\\}",
-            "explanation": "Eine Menge ist eine Zusammenfassung von Elementen. Hier haben wir die Menge A mit den Zahlen 1 bis 5."
+            "explanation": "Eine Menge ist eine Zusammenfassung von verschiedenen Elementen. Hier haben wir die Menge A, die die Zahlen 1 bis 5 enthält. Die geschweiften Klammern zeigen an, dass es sich um eine Menge handelt."
         },
         {
-            "text": "Die Mächtigkeit von A gibt uns die Anzahl der Elemente",
+            "id": "550e8400-e29b-41d4-a716-446655440013",
+            "text": "Die Mächtigkeit einer Menge gibt an, wie viele Elemente sie enthält.",
             "formula": "|A| = 5",
-            "explanation": "Die Mächtigkeit einer Menge wird durch |A| dargestellt und zählt die Anzahl der Elemente in der Menge."
+            "explanation": "Die Mächtigkeit der Menge A ist 5, da sie genau 5 Elemente enthält. Die senkrechten Striche | | bezeichnen die Mächtigkeit einer Menge."
         },
         {
-            "text": "Wir können Teilmengen von A bilden, zum Beispiel B",
-            "formula": "B = \\{2, 4\\} \\subset A",
-            "explanation": "B ist eine Teilmenge von A, da alle Elemente von B auch in A enthalten sind. Das Symbol ⊂ bedeutet 'ist Teilmenge von'."
+            "id": "550e8400-e29b-41d4-a716-446655440014",
+            "text": "Eine Teilmenge enthält nur Elemente, die auch in der ursprünglichen Menge enthalten sind.",
+            "formula": "B = \\{2, 4\\} \\subseteq A",
+            "explanation": "Die Menge B ist eine Teilmenge von A, da alle Elemente von B (2 und 4) auch in A enthalten sind. Das Symbol ⊆ bedeutet 'ist Teilmenge von'."
         },
         {
-            "text": "Die Vereinigung von A und B ergibt A selbst",
-            "formula": "A \\cup B = A",
-            "explanation": "Da B eine Teilmenge von A ist, enthält die Vereinigung keine neuen Elemente. Das Symbol ∪ steht für die Vereinigung."
+            "id": "550e8400-e29b-41d4-a716-446655440015",
+            "text": "Die Vereinigung zweier Mengen enthält alle Elemente, die in mindestens einer der Mengen vorkommen.",
+            "formula": "A \\cup B = \\{1, 2, 3, 4, 5\\}",
+            "explanation": "Die Vereinigung von A und B enthält alle Elemente, die in A oder B vorkommen. Da B eine Teilmenge von A ist, ist die Vereinigung gleich A."
         },
         {
-            "text": "Die Potenzmenge von A enthält alle möglichen Teilmengen",
+            "id": "550e8400-e29b-41d4-a716-446655440016",
+            "text": "Die Potenzmenge einer Menge enthält alle möglichen Teilmengen.",
             "formula": "\\mathcal{P}(A) = \\{\\emptyset, \\{1\\}, \\{2\\}, \\{3\\}, \\{4\\}, \\{5\\}, \\{1,2\\}, \\{1,3\\}, \\{1,4\\}, \\{1,5\\}, \\{2,3\\}, \\{2,4\\}, \\{2,5\\}, \\{3,4\\}, \\{3,5\\}, \\{4,5\\}, \\{1,2,3\\}, \\{1,2,4\\}, \\{1,2,5\\}, \\{1,3,4\\}, \\{1,3,5\\}, \\{1,4,5\\}, \\{2,3,4\\}, \\{2,3,5\\}, \\{2,4,5\\}, \\{3,4,5\\}, \\{1,2,3,4\\}, \\{1,2,3,5\\}, \\{1,2,4,5\\}, \\{1,3,4,5\\}, \\{2,3,4,5\\}, \\{1,2,3,4,5\\}\\}",
-            "explanation": "Die Potenzmenge enthält alle möglichen Teilmengen von A, einschließlich der leeren Menge ∅ und A selbst."
+            "explanation": "Die Potenzmenge von A enthält alle möglichen Teilmengen von A, einschließlich der leeren Menge und A selbst. Die Mächtigkeit der Potenzmenge ist 2^5 = 32, da es für jedes Element zwei Möglichkeiten gibt: es ist in der Teilmenge enthalten oder nicht."
         },
         {
-            "text": "Jetzt betrachten wir eine Abbildung f von A nach B",
-            "formula": "f: A \\rightarrow B, \\quad f(x) = x^2",
-            "explanation": "Eine Abbildung ordnet jedem Element der Definitionsmenge A genau ein Element der Zielmenge B zu. Hier quadrieren wir jedes Element."
+            "id": "550e8400-e29b-41d4-a716-446655440017",
+            "text": "Eine Abbildung ordnet jedem Element der Definitionsmenge genau ein Element der Zielmenge zu.",
+            "formula": "f: A \\rightarrow \\mathbb{N}, f(x) = x^2",
+            "explanation": "Diese Abbildung f ordnet jeder Zahl aus A ihr Quadrat zu. Zum Beispiel wird 2 auf 4 abgebildet, 3 auf 9, usw. Die Abbildung ist eindeutig, da jede Zahl genau ein Quadrat hat."
         },
         {
-            "text": "Die Bildmenge von f zeigt uns alle erreichten Werte",
+            "id": "550e8400-e29b-41d4-a716-446655440018",
+            "text": "Das Bild einer Abbildung enthält alle Elemente, die als Funktionswerte auftreten.",
             "formula": "f(A) = \\{1, 4, 9, 16, 25\\}",
-            "explanation": "Die Bildmenge enthält alle Elemente, die durch die Abbildung f erreicht werden. Jeder Wert ist das Quadrat eines Elements aus A."
+            "explanation": "Das Bild von f enthält alle Quadratzahlen der Elemente aus A. Diese Menge zeigt uns, welche Werte die Abbildung tatsächlich annimmt."
         }
     ],
     "topic": "Mengen und Abbildungen"

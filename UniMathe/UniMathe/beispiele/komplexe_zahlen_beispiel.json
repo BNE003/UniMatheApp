@@ -1,0 +1,44 @@
+{
+    "id": "770e8400-e29b-41d4-a716-446655440000",
+    "title": "Einführung in komplexe Zahlen",
+    "description": "Lass uns die grundlegenden Konzepte der komplexen Zahlen Schritt für Schritt erkunden.",
+    "topic": "Komplexe Zahlen",
+    "steps": [
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440001",
+            "text": "Eine komplexe Zahl z besteht aus einem Realteil a und einem Imaginärteil b, wobei i die imaginäre Einheit ist.",
+            "formula": "z = a + bi \\quad \\text{mit} \\quad a,b \\in \\mathbb{R} \\quad \\text{und} \\quad i^2 = -1",
+            "explanation": "Die imaginäre Einheit i ist definiert als die Lösung der Gleichung x² = -1."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440002",
+            "text": "Die Addition zweier komplexer Zahlen erfolgt komponentenweise.",
+            "formula": "(a + bi) + (c + di) = (a + c) + (b + d)i",
+            "explanation": "Realteil und Imaginärteil werden jeweils separat addiert."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440003",
+            "text": "Die Multiplikation zweier komplexer Zahlen erfolgt durch Ausmultiplizieren und Nutzen von i² = -1.",
+            "formula": "(a + bi) \\cdot (c + di) = (ac - bd) + (ad + bc)i",
+            "explanation": "Die Formel ergibt sich durch Ausmultiplizieren und Zusammenfassen der Terme."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440004",
+            "text": "Jede komplexe Zahl z = a + bi hat eine konjugiert komplexe Zahl z* = a - bi.",
+            "formula": "z = a + bi \\quad \\Rightarrow \\quad z^* = a - bi",
+            "explanation": "Die konjugiert komplexe Zahl entsteht durch Vorzeichenwechsel des Imaginärteils."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440005",
+            "text": "Der Betrag einer komplexen Zahl z = a + bi ist definiert als |z| = √(a² + b²).",
+            "formula": "|z| = \\sqrt{a^2 + b^2} = \\sqrt{z \\cdot z^*}",
+            "explanation": "Der Betrag gibt den Abstand der Zahl vom Ursprung in der komplexen Ebene an."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440006",
+            "text": "Komplexe Zahlen können in der Gaußschen Zahlenebene dargestellt werden.",
+            "formula": "z = a + bi \\quad \\Leftrightarrow \\quad (a,b) \\in \\mathbb{R}^2",
+            "explanation": "Die x-Achse repräsentiert den Realteil, die y-Achse den Imaginärteil."
+        }
+    ]
+} 

@@ -565,6 +565,7 @@ struct ContentHeader: View {
 struct ExplanationContent: View {
     let step: InteractiveExampleStep
     let showCurrentStep: Bool
+    @State private var formulaHeight: CGFloat = 50
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -578,20 +579,22 @@ struct ExplanationContent: View {
                         .fill(Color.white)
                         .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
                 )
+                .fixedSize(horizontal: false, vertical: true)
                 .transition(.asymmetric(
                     insertion: .scale(scale: 0.8).combined(with: .opacity),
                     removal: .scale(scale: 0.8).combined(with: .opacity)
                 ))
             
             if let formula = step.formula {
-                LaTeXView(content: "$$" + formula + "$$", height: .constant(50))
+                LaTeXView(content: "$$" + formula + "$$", height: $formulaHeight)
                     .frame(maxWidth: .infinity)
-                    .frame(height: 50)
+                    .frame(height: formulaHeight)
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 16)
                             .fill(Color.blue.opacity(0.1))
                     )
+                    .fixedSize(horizontal: false, vertical: true)
                     .transition(.asymmetric(
                         insertion: .scale(scale: 0.8).combined(with: .opacity),
                         removal: .scale(scale: 0.8).combined(with: .opacity)
@@ -602,13 +605,14 @@ struct ExplanationContent: View {
             if let explanation = step.explanation {
                 Text(explanation)
                     .font(.subheadline)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.black)
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(
                         RoundedRectangle(cornerRadius: 16)
                             .fill(Color.gray.opacity(0.1))
                     )
+                    .fixedSize(horizontal: false, vertical: true)
                     .transition(.asymmetric(
                         insertion: .scale(scale: 0.8).combined(with: .opacity),
                         removal: .scale(scale: 0.8).combined(with: .opacity)
@@ -617,6 +621,7 @@ struct ExplanationContent: View {
             }
         }
         .frame(maxWidth: .infinity)
+        .padding(.horizontal, 8)
     }
 }
 
@@ -641,12 +646,19 @@ struct ContinueButton: View {
     let totalSteps: Int
     let showCurrentStep: Bool
     let action: () -> Void
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        Button(action: action) {
+        Button(action: {
+            if currentStep >= totalSteps - 1 {
+                presentationMode.wrappedValue.dismiss()
+            } else {
+                action()
+            }
+        }) {
             HStack {
                 Text(currentStep < totalSteps - 1 ? "Weiter" : "Zurück zur Übersicht")
-                Image(systemName: "arrow.right")
+                Image(systemName: currentStep < totalSteps - 1 ? "arrow.right" : "arrow.left")
             }
             .font(.headline)
             .foregroundColor(.white)
@@ -659,7 +671,6 @@ struct ContinueButton: View {
             )
         }
         .padding(.horizontal)
-        .disabled(currentStep >= totalSteps - 1)
         .scaleEffect(showCurrentStep ? 1 : 0.95)
         .animation(.spring(response: 0.3, dampingFraction: 0.7), value: showCurrentStep)
     }
@@ -712,7 +723,7 @@ struct InteractiveLearningView: View {
                         showProgress: showProgress
                     )
                     
-                    ScrollView {
+                    ScrollView(.vertical, showsIndicators: false) {
                         VStack(spacing: 24) {
                             ContentHeader(
                                 title: example.title,
@@ -834,10 +845,12 @@ struct InteractiveLearningView: View {
 
 struct TopicDetailView: View {
     let topic: MathTopic
+    @State private var showExampleButton = false
+    @State private var scrollPosition: CGFloat = 0
     
     var body: some View {
         ZStack {
-            // Modern gradient background with abstract shapes
+            // Background gradient
             LinearGradient(
                 gradient: Gradient(colors: [
                     Color(red: 0.95, green: 0.97, blue: 1.0),
@@ -848,47 +861,44 @@ struct TopicDetailView: View {
             )
             .ignoresSafeArea()
             
-            // Abstract background elements
-            GeometryReader { geometry in
-                ZStack {
-                    // Large circle
-                    Circle()
-                        .fill(Color.blue.opacity(0.03))
-                        .frame(width: geometry.size.width * 1.2)
-                        .offset(x: -geometry.size.width * 0.2, y: -geometry.size.height * 0.1)
-                    
-                    // Medium circle
-                    Circle()
-                        .fill(Color.purple.opacity(0.03))
-                        .frame(width: geometry.size.width * 0.8)
-                        .offset(x: geometry.size.width * 0.3, y: geometry.size.height * 0.3)
-                    
-                    // Small circle
-                    Circle()
-                        .fill(Color.blue.opacity(0.02))
-                        .frame(width: geometry.size.width * 0.4)
-                        .offset(x: -geometry.size.width * 0.1, y: geometry.size.height * 0.6)
-                }
-            }
-            
-            ScrollView {
-                VStack(spacing: 0) {
-                    if let markdownContent = topic.markdownContent {
-                        LaTeXView(content: markdownContent, height: .constant(0))
-                            .frame(minHeight: UIScreen.main.bounds.height - 100)
-                    } else {
-                        Text(topic.description)
-                            .font(.body)
-                            .foregroundColor(.black)
-                            .lineSpacing(8)
-                            .padding()
+            VStack(spacing: 0) {
+                ScrollViewReader { proxy in
+                    ScrollView {
+                        VStack(spacing: 0) {
+                            if let markdownContent = topic.markdownContent {
+                                LaTeXView(content: markdownContent, height: .constant(0))
+                                    .frame(minHeight: UIScreen.main.bounds.height - 100)
+                            } else {
+                                Text(topic.description)
+                                    .font(.body)
+                                    .foregroundColor(.black)
+                                    .lineSpacing(8)
+                                    .padding()
+                            }
+                        }
+                        .background(
+                            GeometryReader { geometry in
+                                Color.clear
+                                    .preference(key: ScrollOffsetPreferenceKey.self,
+                                              value: geometry.frame(in: .named("scrollView")).minY)
+                            }
+                        )
                     }
-                    
-                    // Weitere Beispiele Button
+                    .coordinateSpace(name: "scrollView")
+                    .onPreferenceChange(ScrollOffsetPreferenceKey.self) { value in
+                        scrollPosition = value
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            showExampleButton = value < -10
+                        }
+                    }
+                }
+                
+                // Example Button
+                if showExampleButton {
                     NavigationLink(destination: InteractiveLearningView(topic: topic)) {
                         HStack {
                             Image(systemName: "brain.head.profile")
-                            Text("Lass uns das genauer anschauen!")
+                            Text("MathAssistance")
                         }
                         .font(.headline)
                         .foregroundColor(.white)
@@ -899,22 +909,22 @@ struct TopicDetailView: View {
                         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
                     }
                     .padding(.horizontal)
-                    .padding(.bottom, 20)
+                    .padding(.vertical, 10)
+                    .background(Color.white)
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
-                .background(
-                    RoundedRectangle(cornerRadius: 24)
-                        .fill(Color.white.opacity(0.9))
-                        .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
-                )
-                .overlay(
-                    RoundedRectangle(cornerRadius: 24)
-                        .stroke(Color.blue.opacity(0.1), lineWidth: 1)
-                )
-                .padding(.horizontal)
             }
         }
         .navigationTitle(topic.title)
         .navigationBarTitleDisplayMode(.large)
+        .onAppear {
+            // Ensure button appears after a short delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                withAnimation {
+                    showExampleButton = true
+                }
+            }
+        }
     }
 }
 

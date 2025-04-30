@@ -1,0 +1,38 @@
+{
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "title": "Einführung in Ringe",
+    "description": "Lass uns die grundlegenden Konzepte der Ringtheorie Schritt für Schritt erkunden.",
+    "topic": "Ringe",
+    "steps": [
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440001",
+            "text": "Ein Ring ist eine algebraische Struktur, die aus einer Menge R und zwei Verknüpfungen besteht: Addition (+) und Multiplikation (·).",
+            "formula": "R = (R, +, \\cdot)",
+            "explanation": "Die Addition und Multiplikation müssen bestimmte Eigenschaften erfüllen, damit wir von einem Ring sprechen können."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440002",
+            "text": "Die Addition muss eine abelsche Gruppe bilden. Das bedeutet, sie ist assoziativ, kommutativ, hat ein neutrales Element (0) und jedes Element hat ein additives Inverses.",
+            "formula": "a + (b + c) = (a + b) + c \\\\ a + b = b + a \\\\ a + 0 = 0 + a = a \\\\ a + (-a) = 0",
+            "explanation": "Diese Eigenschaften sind uns bereits von den ganzen Zahlen bekannt."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440003",
+            "text": "Die Multiplikation muss assoziativ sein und das Distributivgesetz muss gelten.",
+            "formula": "a \\cdot (b \\cdot c) = (a \\cdot b) \\cdot c \\\\ a \\cdot (b + c) = a \\cdot b + a \\cdot c \\\\ (a + b) \\cdot c = a \\cdot c + b \\cdot c",
+            "explanation": "Die Multiplikation muss nicht kommutativ sein. Wenn sie es ist, sprechen wir von einem kommutativen Ring."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440004",
+            "text": "Ein wichtiges Beispiel für einen Ring sind die ganzen Zahlen ℤ mit der üblichen Addition und Multiplikation.",
+            "formula": "\\mathbb{Z} = \\{..., -2, -1, 0, 1, 2, ...\\}",
+            "explanation": "Die ganzen Zahlen bilden einen kommutativen Ring, da die Multiplikation kommutativ ist."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440005",
+            "text": "Ein weiteres Beispiel ist der Ring der Polynome über einem Körper K.",
+            "formula": "K[x] = \\{a_nx^n + a_{n-1}x^{n-1} + ... + a_0 \\mid a_i \\in K\\}",
+            "explanation": "Die Addition und Multiplikation von Polynomen erfolgt nach den üblichen Regeln."
+        }
+    ]
+} 

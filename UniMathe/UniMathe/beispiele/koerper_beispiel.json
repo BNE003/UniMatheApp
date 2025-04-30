@@ -1,0 +1,38 @@
+{
+    "id": "660e8400-e29b-41d4-a716-446655440000",
+    "title": "Einführung in Körper",
+    "description": "Lass uns die grundlegenden Konzepte der Körpertheorie Schritt für Schritt erkunden.",
+    "topic": "Körper",
+    "steps": [
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440001",
+            "text": "Ein Körper ist eine algebraische Struktur, die aus einer Menge K und zwei Verknüpfungen besteht: Addition (+) und Multiplikation (·).",
+            "formula": "K = (K, +, \\cdot)",
+            "explanation": "Ein Körper ist ein spezieller Ring, bei dem zusätzliche Eigenschaften gelten."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440002",
+            "text": "Die Addition bildet eine abelsche Gruppe mit neutralem Element 0.",
+            "formula": "a + (b + c) = (a + b) + c \\\\ a + b = b + a \\\\ a + 0 = 0 + a = a \\\\ a + (-a) = 0",
+            "explanation": "Diese Eigenschaften sind uns von den reellen Zahlen bekannt."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440003",
+            "text": "Die Multiplikation bildet auf K\\{0} eine abelsche Gruppe mit neutralem Element 1.",
+            "formula": "a \\cdot (b \\cdot c) = (a \\cdot b) \\cdot c \\\\ a \\cdot b = b \\cdot a \\\\ a \\cdot 1 = 1 \\cdot a = a \\\\ a \\cdot a^{-1} = 1",
+            "explanation": "Jedes Element außer 0 hat ein multiplikatives Inverses."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440004",
+            "text": "Das Distributivgesetz verbindet Addition und Multiplikation.",
+            "formula": "a \\cdot (b + c) = a \\cdot b + a \\cdot c \\\\ (a + b) \\cdot c = a \\cdot c + b \\cdot c",
+            "explanation": "Dieses Gesetz ist uns aus der Schulmathematik bekannt."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440005",
+            "text": "Wichtige Beispiele für Körper sind die rationalen Zahlen ℚ, die reellen Zahlen ℝ und die komplexen Zahlen ℂ.",
+            "formula": "\\mathbb{Q} \\subset \\mathbb{R} \\subset \\mathbb{C}",
+            "explanation": "Diese Zahlbereiche erfüllen alle Körperaxiome und sind in dieser Reihenfolge ineinander enthalten."
+        }
+    ]
+} 

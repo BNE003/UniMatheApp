@@ -1,0 +1,44 @@
+{
+    "id": "550e8400-e29b-41d4-a716-446655440100",
+    "title": "Binomische Formeln",
+    "description": "Lass uns die wichtigsten binomischen Formeln und ihre Anwendungen verstehen.",
+    "topic": "Binomische Formeln",
+    "steps": [
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440101",
+            "text": "Die binomischen Formeln sind wichtige Hilfsmittel zum Ausmultiplizieren von Klammern. Sie helfen uns, bestimmte Ausdrücke schneller zu berechnen.",
+            "formula": null,
+            "explanation": "Binomische Formeln sind wie Abkürzungen für das Ausmultiplizieren von Klammern. Sie sparen uns Zeit und reduzieren Fehler."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440102",
+            "text": "Die erste binomische Formel beschreibt das Quadrat einer Summe.",
+            "formula": "(a + b)^2 = a^2 + 2ab + b^2",
+            "explanation": "Wenn wir (a + b)² ausmultiplizieren, erhalten wir a² + 2ab + b². Der mittlere Term 2ab kommt durch das doppelte Produkt der beiden Summanden zustande."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440103",
+            "text": "Die zweite binomische Formel beschreibt das Quadrat einer Differenz.",
+            "formula": "(a - b)^2 = a^2 - 2ab + b^2",
+            "explanation": "Bei (a - b)² ist der mittlere Term negativ, also -2ab. Das Quadrat von b bleibt positiv, da ein negatives Vorzeichen im Quadrat positiv wird."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440104",
+            "text": "Die dritte binomische Formel beschreibt das Produkt einer Summe und einer Differenz.",
+            "formula": "(a + b)(a - b) = a^2 - b^2",
+            "explanation": "Wenn wir (a + b)(a - b) ausmultiplizieren, heben sich die gemischten Terme auf, und es bleibt nur a² - b² übrig."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440105",
+            "text": "Lass uns ein konkretes Beispiel berechnen: (x + 3)²",
+            "formula": "(x + 3)^2 = x^2 + 2 \\cdot x \\cdot 3 + 3^2 = x^2 + 6x + 9",
+            "explanation": "Wir setzen a = x und b = 3 in die erste binomische Formel ein. Das Ergebnis ist x² + 6x + 9."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440106",
+            "text": "Die binomischen Formeln können auch rückwärts angewendet werden, um Ausdrücke zu faktorisieren.",
+            "formula": "x^2 + 6x + 9 = (x + 3)^2",
+            "explanation": "Wenn wir einen Ausdruck in der Form a² + 2ab + b² sehen, können wir ihn als (a + b)² schreiben. Das ist besonders nützlich beim Lösen von Gleichungen."
+        }
+    ]
+} 

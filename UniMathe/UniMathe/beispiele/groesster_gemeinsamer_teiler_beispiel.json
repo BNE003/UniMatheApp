@@ -1,0 +1,44 @@
+{
+    "id": "550e8400-e29b-41d4-a716-446655440200",
+    "title": "Größter gemeinsamer Teiler",
+    "description": "Lass uns den größten gemeinsamen Teiler und den euklidischen Algorithmus verstehen.",
+    "topic": "Größter gemeinsamer Teiler",
+    "steps": [
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440201",
+            "text": "Der größte gemeinsame Teiler (ggT) zweier Zahlen ist die größte Zahl, die beide Zahlen ohne Rest teilt.",
+            "formula": "\\text{ggT}(a,b) = \\max\\{d \\in \\mathbb{N} \\mid d \\mid a \\text{ und } d \\mid b\\}",
+            "explanation": "Wenn wir zum Beispiel die Zahlen 12 und 18 betrachten, ist der ggT 6, da 6 die größte Zahl ist, die sowohl 12 als auch 18 teilt."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440202",
+            "text": "Der euklidische Algorithmus ist eine effiziente Methode, um den ggT zu berechnen.",
+            "formula": "\\text{ggT}(a,b) = \\text{ggT}(b, a \\bmod b)",
+            "explanation": "Der Algorithmus nutzt aus, dass der ggT zweier Zahlen gleich dem ggT der kleineren Zahl und dem Rest der Division der größeren durch die kleinere Zahl ist."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440203",
+            "text": "Lass uns ein Beispiel durchrechnen: ggT(48, 18)",
+            "formula": "\\begin{align*}\n\\text{ggT}(48, 18) &= \\text{ggT}(18, 48 \\bmod 18) \\\\\n&= \\text{ggT}(18, 12) \\\\\n&= \\text{ggT}(12, 18 \\bmod 12) \\\\\n&= \\text{ggT}(12, 6) \\\\\n&= \\text{ggT}(6, 12 \\bmod 6) \\\\\n&= \\text{ggT}(6, 0) \\\\\n&= 6\n\\end{align*}",
+            "explanation": "Wir teilen immer die größere durch die kleinere Zahl und nehmen den Rest. Wenn der Rest 0 ist, haben wir den ggT gefunden."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440204",
+            "text": "Der erweiterte euklidische Algorithmus findet zusätzlich Zahlen x und y, sodass ax + by = ggT(a,b).",
+            "formula": "ax + by = \\text{ggT}(a,b)",
+            "explanation": "Diese Darstellung ist besonders wichtig für die modulare Arithmetik und das Lösen von diophantischen Gleichungen."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440205",
+            "text": "Für unser Beispiel 48 und 18 finden wir:",
+            "formula": "48 \\cdot (-1) + 18 \\cdot 3 = 6",
+            "explanation": "Die Zahlen -1 und 3 sind die Koeffizienten, die wir durch den erweiterten euklidischen Algorithmus finden. Sie zeigen, wie wir den ggT als Linearkombination der Ausgangszahlen darstellen können."
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440206",
+            "text": "Der ggT hat viele wichtige Anwendungen, zum Beispiel beim Kürzen von Brüchen.",
+            "formula": "\\frac{a}{b} = \\frac{a/\\text{ggT}(a,b)}{b/\\text{ggT}(a,b)}",
+            "explanation": "Wenn wir einen Bruch kürzen wollen, teilen wir Zähler und Nenner durch ihren ggT. Das ergibt den Bruch in seiner einfachsten Form."
+        }
+    ]
+} 
