@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import StoreKit
+// Falls ProFeaturesView in einem anderen Modul/Ordner liegt:
+// import UniMathe // oder das entsprechende Modul, falls nötig
 
 // MARK: - Model Definitions
 struct InteractiveExample: Codable, Identifiable {
@@ -95,6 +98,7 @@ func normalizedFileName(from title: String) -> String {
 
 // MARK: - ContentView
 struct ContentView: View {
+    @ObservedObject private var storeManager = StoreKitManager.shared
     @State private var topics: [MathTopic] = []
     @State private var isLoading = true
     @State private var error: Error?
@@ -143,19 +147,46 @@ struct ContentView: View {
                             .padding()
                     }
                 } else {
-                ScrollView {
-                    LazyVGrid(columns: [
-                        GridItem(.flexible(), spacing: 16)
-                    ], spacing: 16) {
-                        ForEach(topics) { topic in
-                            NavigationLink(destination: topic.subTopics != nil ? 
-                                AnyView(SubTopicsView(topic: topic)) : 
-                                AnyView(TopicDetailView(topic: topic))) {
-                                TopicCard(topic: topic)
+                    VStack {
+                        // Get Pro Button - only show if not purchased
+                        if storeManager.purchasedProductIDs.isEmpty {
+                            NavigationLink(destination: ProFeaturesView()) {
+                                HStack {
+                                    Image(systemName: "star.fill")
+                                    Text("Get Pro")
+                                }
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [.blue, .blue.opacity(0.8)]),
+                                        startPoint: .leading,
+                                        endPoint: .trailing
+                                    )
+                                )
+                                .cornerRadius(12)
+                                .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
                             }
+                            .padding(.horizontal)
+                            .padding(.top)
                         }
-                    }
-                    .padding(16)
+                        
+                        ScrollView {
+                            LazyVGrid(columns: [
+                                GridItem(.flexible(), spacing: 16)
+                            ], spacing: 16) {
+                                ForEach(topics) { topic in
+                                    NavigationLink(destination: topic.subTopics != nil ? 
+                                        AnyView(SubTopicsView(topic: topic)) : 
+                                        AnyView(TopicDetailView(topic: topic))) {
+                                        TopicCard(topic: topic)
+                                    }
+                                }
+                            }
+                            .padding(16)
+                        }
                     }
                 }
             }
@@ -734,6 +765,8 @@ struct InteractiveLearningView: View {
     @State private var showProgress = false
     @State private var slideOffset: CGFloat = 50
     @State private var opacity: Double = 0
+    @State private var showProSheet = false
+    @ObservedObject private var storeManager = StoreKitManager.shared
     
     var body: some View {
         ZStack {
@@ -827,6 +860,18 @@ struct InteractiveLearningView: View {
         .navigationBarTitleDisplayMode(.large)
         .onAppear {
             loadExample()
+        }
+        .onChange(of: currentStep) { newStep in
+            if newStep >= 2 && storeManager.purchasedProductIDs.isEmpty {
+                showProSheet = true
+            }
+        }
+        .sheet(isPresented: $showProSheet, onDismiss: {
+            if currentStep >= 2 && storeManager.purchasedProductIDs.isEmpty {
+                currentStep = 1
+            }
+        }) {
+            ProFeaturesView()
         }
     }
     

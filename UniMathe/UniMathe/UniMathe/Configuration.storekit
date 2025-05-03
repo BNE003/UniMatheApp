@@ -1,0 +1,39 @@
+{
+  "identifier" : "UniMatheConfiguration",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "4,99 €",
+      "familyShareable" : false,
+      "internalID" : "unimathe.pro.lifetime",
+      "localizations" : [
+        {
+          "description" : "Get access to all premium features",
+          "displayName" : "UniMathe Pro Lifetime",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Erhalten Sie Zugriff auf alle Premium-Funktionen",
+          "displayName" : "UniMathe Pro Lifetime",
+          "locale" : "de_DE"
+        }
+      ],
+      "productID" : "unimathe.pro.lifetime",
+      "referenceName" : "UniMathe Pro Lifetime",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "com.yourcompany.unimathe",
+    "_developerTeamID" : "XXXXXXXXXX",
+    "_lastSynchronizedDate" : 710000000.00000000000000000
+  },
+  "subscriptionGroups" : [
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+} 
