@@ -145,7 +145,6 @@ struct ContentView: View {
                 } else {
                 ScrollView {
                     LazyVGrid(columns: [
-                        GridItem(.flexible(), spacing: 16),
                         GridItem(.flexible(), spacing: 16)
                     ], spacing: 16) {
                         ForEach(topics) { topic in
@@ -217,24 +216,45 @@ struct TopicCard: View {
     let topic: MathTopic
     
     var body: some View {
-        VStack {
+        HStack(spacing: 16) {
             Image(systemName: topic.icon)
-                .font(.system(size: 40))
-                .foregroundColor(.blue)
-                .padding()
+                .font(.system(size: 32))
+                .foregroundColor(.white)
+                .frame(width: 60, height: 60)
+                .background(
+                    Circle()
+                        .fill(
+                            LinearGradient(
+                                gradient: Gradient(colors: [.blue, .blue.opacity(0.8)]),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                )
+                .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
             
-            Text(topic.title)
-                .font(.headline)
-                .foregroundColor(.black)
-                .multilineTextAlignment(.center)
-                .padding(.bottom, 8)
+            VStack(alignment: .leading, spacing: 4) {
+                Text(topic.title)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                
+                Text(topic.description)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+                    .lineLimit(2)
+            }
+            
+            Spacer()
+            
+            Image(systemName: "chevron.right")
+                .font(.system(size: 14, weight: .semibold))
+                .foregroundColor(.secondary)
         }
-        .frame(maxWidth: .infinity)
-        .frame(height: 150)
+        .padding(16)
         .background(
             RoundedRectangle(cornerRadius: 16)
                 .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+                .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
         )
         .overlay(
             RoundedRectangle(cornerRadius: 16)

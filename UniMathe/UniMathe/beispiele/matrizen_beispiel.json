@@ -1,38 +1,98 @@
 {
     "id": "dd0e8400-e29b-41d4-a716-446655440000",
     "title": "Matrizen",
-    "description": "Lass uns die grundlegenden Konzepte der Matrizen Schritt für Schritt erkunden.",
+    "description": "Wir schauen uns jetzt Matrizen genauer an!.",
+    "topic": "Matrizen",
     "steps": [
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440001",
-            "text": "Eine Matrix ist ein rechteckiges Schema von Zahlen, das in Zeilen und Spalten angeordnet ist.",
+            "text": "Eine Matrix ist ein rechteckiges Schema von Zahlen, das in Zeilen und Spalten angeordnet ist. Jede Zahl in der Matrix wird als Element oder Eintrag bezeichnet. Die Position eines Elements wird durch seine Zeilen- und Spaltennummer angegeben.",
             "formula": "A = \\begin{pmatrix} a_{11} & a_{12} & \\cdots & a_{1n} \\\\ a_{21} & a_{22} & \\cdots & a_{2n} \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ a_{m1} & a_{m2} & \\cdots & a_{mn} \\end{pmatrix}",
-            "explanation": "Die Matrix A hat m Zeilen und n Spalten. Wir schreiben A ∈ ℝ^(m×n)."
+            "explanation": "Die Matrix A hat m Zeilen und n Spalten. Wir schreiben A ∈ ℝ^(m×n). Der Eintrag a_ij befindet sich in der i-ten Zeile und j-ten Spalte. Zum Beispiel ist a_23 das Element in der zweiten Zeile und dritten Spalte. Die Dimension der Matrix wird als m×n gelesen (m mal n)."
         },
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440002",
-            "text": "Die Addition von Matrizen erfolgt elementweise.",
-            "formula": "\\begin{pmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\end{pmatrix} + \\begin{pmatrix} b_{11} & b_{12} \\\\ b_{21} & b_{22} \\end{pmatrix} = \\begin{pmatrix} a_{11}+b_{11} & a_{12}+b_{12} \\\\ a_{21}+b_{21} & a_{22}+b_{22} \\end{pmatrix}",
-            "explanation": "Nur Matrizen gleicher Dimension können addiert werden."
+            "text": "Lass uns ein konkretes Beispiel einer 2×3-Matrix anschauen. Diese Matrix hat 2 Zeilen und 3 Spalten. Wir können uns die Matrix als ein System von Gleichungen vorstellen.",
+            "formula": "A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix}",
+            "explanation": "Hier sehen wir eine Matrix mit 6 Elementen. Das Element a_12 ist 2 (erste Zeile, zweite Spalte), a_21 ist 4 (zweite Zeile, erste Spalte), und so weiter. Jedes Element hat eine eindeutige Position in der Matrix. Diese Matrix könnte zum Beispiel ein lineares Gleichungssystem mit 2 Gleichungen und 3 Unbekannten darstellen."
         },
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440003",
-            "text": "Die Multiplikation einer Matrix mit einem Skalar erfolgt ebenfalls elementweise.",
-            "formula": "\\lambda \\cdot \\begin{pmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\end{pmatrix} = \\begin{pmatrix} \\lambda a_{11} & \\lambda a_{12} \\\\ \\lambda a_{21} & \\lambda a_{22} \\end{pmatrix}",
-            "explanation": "Jedes Element der Matrix wird mit dem Skalar multipliziert."
+            "text": "Die Addition von Matrizen erfolgt elementweise. Das bedeutet, wir addieren die entsprechenden Elemente der Matrizen. Wichtig: Nur Matrizen gleicher Dimension können addiert werden.",
+            "formula": "\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} + \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix} = \\begin{pmatrix} 1+5 & 2+6 \\\\ 3+7 & 4+8 \\end{pmatrix} = \\begin{pmatrix} 6 & 8 \\\\ 10 & 12 \\end{pmatrix}",
+            "explanation": "Wir addieren einfach die entsprechenden Elemente der Matrizen. Die Addition ist kommutativ (A+B = B+A) und assoziativ ((A+B)+C = A+(B+C)). Das bedeutet, die Reihenfolge der Addition spielt keine Rolle. Die Addition von Matrizen entspricht der komponentenweisen Addition von Vektoren."
         },
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440004",
-            "text": "Die Matrixmultiplikation ist definiert als Summe der Produkte der entsprechenden Elemente.",
-            "formula": "\\begin{pmatrix} a_{11} & a_{12} \\\\ a_{21} & a_{22} \\end{pmatrix} \\cdot \\begin{pmatrix} b_{11} & b_{12} \\\\ b_{21} & b_{22} \\end{pmatrix} = \\begin{pmatrix} a_{11}b_{11}+a_{12}b_{21} & a_{11}b_{12}+a_{12}b_{22} \\\\ a_{21}b_{11}+a_{22}b_{21} & a_{21}b_{12}+a_{22}b_{22} \\end{pmatrix}",
-            "explanation": "Die Matrixmultiplikation ist nur definiert, wenn die Anzahl der Spalten der ersten Matrix gleich der Anzahl der Zeilen der zweiten Matrix ist."
+            "text": "Die Multiplikation einer Matrix mit einem Skalar (einer Zahl) erfolgt ebenfalls elementweise. Jedes Element der Matrix wird mit dem Skalar multipliziert.",
+            "formula": "2 \\cdot \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} = \\begin{pmatrix} 2 \\cdot 1 & 2 \\cdot 2 \\\\ 2 \\cdot 3 & 2 \\cdot 4 \\end{pmatrix} = \\begin{pmatrix} 2 & 4 \\\\ 6 & 8 \\end{pmatrix}",
+            "explanation": "Jedes Element der Matrix wird mit dem Skalar multipliziert. Diese Operation ist distributiv über der Matrixaddition: k(A+B) = kA + kB. Die Skalarmultiplikation entspricht einer Streckung oder Stauchung der Matrix in alle Richtungen."
         },
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440005",
-            "text": "Die Transponierte einer Matrix entsteht durch Spiegelung an der Hauptdiagonale.",
-            "formula": "A^T = \\begin{pmatrix} a_{11} & a_{21} \\\\ a_{12} & a_{22} \\end{pmatrix}",
-            "explanation": "Die Zeilen werden zu Spalten und die Spalten zu Zeilen."
+            "text": "Die Matrixmultiplikation ist etwas komplizierter. Das Produkt AB ist nur definiert, wenn die Anzahl der Spalten von A gleich der Anzahl der Zeilen von B ist. Das Ergebnis hat dann die Dimension (Anzahl Zeilen von A) × (Anzahl Spalten von B).",
+            "formula": "\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} \\cdot \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix} = \\begin{pmatrix} 1 \\cdot 5 + 2 \\cdot 7 & 1 \\cdot 6 + 2 \\cdot 8 \\\\ 3 \\cdot 5 + 4 \\cdot 7 & 3 \\cdot 6 + 4 \\cdot 8 \\end{pmatrix} = \\begin{pmatrix} 19 & 22 \\\\ 43 & 50 \\end{pmatrix}",
+            "explanation": "Das Element (AB)_ij ist die Summe der Produkte der Elemente der i-ten Zeile von A mit den Elementen der j-ten Spalte von B. Die Matrixmultiplikation ist assoziativ ((AB)C = A(BC)), aber nicht kommutativ (AB ≠ BA im Allgemeinen). Die Matrixmultiplikation entspricht der Verkettung linearer Abbildungen."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440006",
+            "text": "Die Transponierte einer Matrix entsteht durch Spiegelung an der Hauptdiagonale. Zeilen werden zu Spalten und Spalten zu Zeilen. Die Transponierte einer m×n-Matrix ist eine n×m-Matrix.",
+            "formula": "\\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix}^T = \\begin{pmatrix} 1 & 4 \\\\ 2 & 5 \\\\ 3 & 6 \\end{pmatrix}",
+            "explanation": "Die Transponierte einer Matrix A wird mit A^T bezeichnet. Die Transponierte der Transponierten ist die ursprüngliche Matrix: (A^T)^T = A. Die Transponierte eines Produkts ist das Produkt der Transponierten in umgekehrter Reihenfolge: (AB)^T = B^T A^T."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440007",
+            "text": "Eine quadratische Matrix hat gleich viele Zeilen wie Spalten. Die Hauptdiagonale einer quadratischen Matrix verläuft von oben links nach unten rechts. Die Elemente auf der Hauptdiagonale sind a_11, a_22, a_33, usw.",
+            "formula": "A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \\end{pmatrix}",
+            "explanation": "Quadratische Matrizen sind besonders wichtig, da sie lineare Transformationen im gleichen Vektorraum beschreiben. Die Hauptdiagonale spielt eine wichtige Rolle bei vielen Eigenschaften der Matrix, wie der Spur und der Determinante."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440008",
+            "text": "Die Einheitsmatrix I ist eine quadratische Matrix, bei der alle Elemente auf der Hauptdiagonale 1 sind und alle anderen Elemente 0 sind. Sie ist das neutrale Element der Matrixmultiplikation.",
+            "formula": "I = \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}",
+            "explanation": "Die Einheitsmatrix ist das neutrale Element der Matrixmultiplikation: AI = IA = A für jede Matrix A passender Dimension. Sie entspricht der identischen Abbildung im Vektorraum. Die Einheitsmatrix ist die einzige Matrix, die sowohl links- als auch rechtsneutral ist."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440009",
+            "text": "Eine Matrix A ist invertierbar, wenn es eine Matrix A^(-1) gibt, sodass AA^(-1) = A^(-1)A = I gilt. Nicht jede Matrix ist invertierbar.",
+            "formula": "\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}^{-1} = \\frac{1}{-2} \\begin{pmatrix} 4 & -2 \\\\ -3 & 1 \\end{pmatrix}",
+            "explanation": "Eine Matrix ist genau dann invertierbar, wenn ihre Determinante nicht null ist. Die Inverse einer 2×2-Matrix kann mit einer einfachen Formel berechnet werden. Die Inverse macht die Wirkung der ursprünglichen Matrix rückgängig. Die Inverse eines Produkts ist das Produkt der Inversen in umgekehrter Reihenfolge: (AB)^(-1) = B^(-1) A^(-1)."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440010",
+            "text": "Eine symmetrische Matrix ist gleich ihrer Transponierten: A = A^T. Die Elemente sind spiegelsymmetrisch zur Hauptdiagonale.",
+            "formula": "\\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 5 \\\\ 3 & 5 & 6 \\end{pmatrix}",
+            "explanation": "Bei einer symmetrischen Matrix sind die Elemente spiegelsymmetrisch zur Hauptdiagonale. Symmetrische Matrizen haben viele wichtige Eigenschaften, besonders in der Theorie der quadratischen Formen. Sie treten häufig in Anwendungen auf, zum Beispiel bei der Beschreibung von physikalischen Systemen."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440011",
+            "text": "Eine obere Dreiecksmatrix hat unterhalb der Hauptdiagonale nur Nullen. Eine untere Dreiecksmatrix hat oberhalb der Hauptdiagonale nur Nullen.",
+            "formula": "\\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 4 & 5 \\\\ 0 & 0 & 6 \\end{pmatrix}",
+            "explanation": "Dreiecksmatrizen sind besonders nützlich bei der Lösung von linearen Gleichungssystemen. Die Determinante einer Dreiecksmatrix ist das Produkt der Diagonalelemente. Dreiecksmatrizen treten häufig bei der LU-Zerlegung auf, einer wichtigen Methode zur Lösung von linearen Gleichungssystemen."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440012",
+            "text": "Eine Diagonalmatrix hat nur auf der Hauptdiagonale von null verschiedene Elemente. Alle anderen Elemente sind null.",
+            "formula": "\\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 2 & 0 \\\\ 0 & 0 & 3 \\end{pmatrix}",
+            "explanation": "Diagonalmatrizen sind besonders einfach zu multiplizieren: Man multipliziert einfach die entsprechenden Diagonalelemente. Die Potenz einer Diagonalmatrix ist einfach die Potenz der Diagonalelemente. Diagonalmatrizen treten häufig bei der Diagonalisierung von Matrizen auf."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440013",
+            "text": "Die Spur einer quadratischen Matrix ist die Summe ihrer Diagonalelemente. Sie ist eine wichtige Invariante der Matrix.",
+            "formula": "\\text{tr}\\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \\end{pmatrix} = 1 + 5 + 9 = 15",
+            "explanation": "Die Spur ist eine wichtige Invariante einer Matrix. Sie bleibt unter Ähnlichkeitstransformationen erhalten und ist die Summe der Eigenwerte. Die Spur ist linear: tr(A+B) = tr(A) + tr(B) und tr(kA) = k·tr(A). Die Spur des Produkts ist unabhängig von der Reihenfolge: tr(AB) = tr(BA)."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440014",
+            "text": "Eine nilpotente Matrix A erfüllt A^n = 0 für ein n ∈ ℕ. Das bedeutet, dass eine Potenz der Matrix die Nullmatrix ergibt.",
+            "formula": "\\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}^2 = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}",
+            "explanation": "Nilpotente Matrizen sind wichtig in der Theorie der Jordan-Normalform. Sie haben nur den Eigenwert 0. Nilpotente Matrizen treten häufig bei der Beschreibung von linearen Abbildungen auf, die nach endlich vielen Anwendungen den Nullvektor erzeugen."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440015",
+            "text": "Eine idempotente Matrix erfüllt A^2 = A. Das bedeutet, dass die Matrix bei Multiplikation mit sich selbst unverändert bleibt.",
+            "formula": "\\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}^2 = \\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}",
+            "explanation": "Idempotente Matrizen beschreiben Projektionen. Sie haben nur die Eigenwerte 0 und 1. Idempotente Matrizen treten häufig bei der Zerlegung von Vektorräumen in direkte Summen auf. Sie sind wichtig in der Statistik und der Quantenmechanik."
         }
-    ],
-    "topic": "Matrizen"
+    ]
 } 

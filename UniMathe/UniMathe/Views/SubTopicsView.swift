@@ -8,29 +8,37 @@ struct SubTopicsView: View {
     
     var body: some View {
         ZStack {
-            // Subtle gradient background
+            // Modern abstract background
             LinearGradient(
                 gradient: Gradient(colors: [
-                    Color(red: 0.98, green: 0.98, blue: 1.0),
-                    Color(red: 0.95, green: 0.97, blue: 1.0)
+                    Color(red: 0.95, green: 0.97, blue: 1.0),
+                    Color(red: 0.98, green: 0.98, blue: 1.0)
                 ]),
                 startPoint: .top,
                 endPoint: .bottom
             )
             .ignoresSafeArea()
             
-            // Subtle color elements
+            // Abstract background elements
             GeometryReader { geometry in
                 ZStack {
+                    // Large blue circle
                     Circle()
                         .fill(Color.blue.opacity(0.05))
-                        .frame(width: geometry.size.width * 0.8)
-                        .offset(x: -geometry.size.width * 0.3, y: -geometry.size.height * 0.2)
+                        .frame(width: geometry.size.width * 1.2)
+                        .offset(x: -geometry.size.width * 0.2, y: -geometry.size.height * 0.1)
                     
+                    // Medium purple circle
                     Circle()
-                        .fill(Color.purple.opacity(0.05))
-                        .frame(width: geometry.size.width * 0.6)
-                        .offset(x: geometry.size.width * 0.3, y: geometry.size.height * 0.2)
+                        .fill(Color.purple.opacity(0.03))
+                        .frame(width: geometry.size.width * 0.8)
+                        .offset(x: geometry.size.width * 0.3, y: geometry.size.height * 0.3)
+                    
+                    // Small blue circle
+                    Circle()
+                        .fill(Color.blue.opacity(0.04))
+                        .frame(width: geometry.size.width * 0.4)
+                        .offset(x: -geometry.size.width * 0.3, y: geometry.size.height * 0.4)
                 }
             }
             
@@ -64,7 +72,7 @@ struct SubTopicsView: View {
                             ], spacing: 16) {
                                 ForEach(subTopics) { subTopic in
                                     NavigationLink(destination: ContentSelectionView(topic: subTopic)) {
-                                        TopicCard(topic: subTopic)
+                                        SubTopicCard(topic: subTopic)
                                     }
                                 }
                             }
@@ -130,6 +138,51 @@ struct SubTopicsView: View {
     }
 }
 
+struct SubTopicCard: View {
+    let topic: MathTopic
+    
+    var body: some View {
+        VStack {
+            Image(systemName: topic.icon)
+                .font(.system(size: 32))
+                .foregroundColor(.white)
+                .frame(width: 64, height: 64)
+                .background(
+                    Circle()
+                        .fill(
+                            LinearGradient(
+                                gradient: Gradient(colors: [
+                                    Color.blue,
+                                    Color.blue.opacity(0.8)
+                                ]),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .shadow(color: Color.blue.opacity(0.3), radius: 8, x: 0, y: 4)
+                )
+                .padding()
+            
+            Text(topic.title)
+                .font(.headline)
+                .foregroundColor(.black)
+                .multilineTextAlignment(.center)
+                .padding(.bottom, 8)
+        }
+        .frame(maxWidth: .infinity)
+        .frame(height: 150)
+        .background(
+            RoundedRectangle(cornerRadius: 16)
+                .fill(Color.white)
+                .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 16)
+                .stroke(Color.blue.opacity(0.1), lineWidth: 1)
+        )
+    }
+}
+
 struct ContentSelectionView: View {
     let topic: MathTopic
     @State private var loadedTopic: MathTopic?
@@ -191,7 +244,7 @@ struct ContentSelectionView: View {
                     ], spacing: 16) {
                         // Lerninhalte tile
                         NavigationLink(destination: TopicDetailView(topic: loadedTopic ?? topic)) {
-                            TopicCard(topic: MathTopic(
+                            SubTopicCard(topic: MathTopic(
                                 id: "\(topic.id)_learn",
                                 title: "Lerninhalte",
                                 icon: "book.fill",
@@ -201,7 +254,7 @@ struct ContentSelectionView: View {
                         
                         // Übungen tile
                         NavigationLink(destination: ExercisesView(topic: loadedTopic ?? topic)) {
-                            TopicCard(topic: MathTopic(
+                            SubTopicCard(topic: MathTopic(
                                 id: "\(topic.id)_exercises",
                                 title: "Übungen",
                                 icon: "pencil.and.list.clipboard",

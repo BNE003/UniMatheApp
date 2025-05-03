@@ -1,50 +1,98 @@
 {
     "id": "cc0e8400-e29b-41d4-a716-446655440000",
     "title": "Lineare Abbildungen",
-    "description": "Lass uns die Konzepte der linearen Abbildungen Schritt für Schritt erkunden.",
+    "description": "Lass uns die faszinierende Welt der linearen Abbildungen erkunden - ein zentrales Konzept der linearen Algebra, das uns hilft, geometrische Transformationen und lineare Gleichungssysteme zu verstehen.",
     "topic": "Lineare Abbildungen",
     "steps": [
         {
             "id": "cc0e8400-e29b-41d4-a716-446655440001",
-            "text": "Eine lineare Abbildung f: V → W zwischen Vektorräumen erhält die Vektorraumstruktur.",
+            "text": "Eine lineare Abbildung f: V → W zwischen Vektorräumen erhält die Vektorraumstruktur. Sie ist additiv und homogen.",
             "formula": "f(\\lambda v + \\mu w) = \\lambda f(v) + \\mu f(w)",
-            "explanation": "Die Abbildung ist additiv und homogen. Sie bildet Geraden auf Geraden ab und erhält den Nullpunkt."
+            "explanation": "Diese Eigenschaft bedeutet, dass die Abbildung Geraden auf Geraden abbildet und den Nullpunkt erhält. Sie ist die grundlegende Definition einer linearen Abbildung."
         },
         {
             "id": "cc0e8400-e29b-41d4-a716-446655440002",
-            "text": "Jede lineare Abbildung f: ℝⁿ → ℝᵐ kann durch eine m×n-Matrix A dargestellt werden.",
-            "formula": "f(x) = Ax",
-            "explanation": "Die Spalten der Matrix A sind die Bilder der Standardbasisvektoren. Die Matrixdarstellung hängt von der gewählten Basis ab."
+            "text": "Lass uns ein konkretes Beispiel einer linearen Abbildung im ℝ² anschauen: die Rotation um den Ursprung.",
+            "formula": "f\\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} \\cos \\theta & -\\sin \\theta \\\\ \\sin \\theta & \\cos \\theta \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}",
+            "explanation": "Diese Abbildung dreht jeden Vektor um den Winkel θ gegen den Uhrzeigersinn. Sie ist linear, da sie die Vektorraumstruktur erhält und Geraden auf Geraden abbildet."
         },
         {
             "id": "cc0e8400-e29b-41d4-a716-446655440003",
-            "text": "Der Kern einer linearen Abbildung ist die Menge aller Vektoren, die auf den Nullvektor abgebildet werden.",
-            "formula": "\\ker(f) = \\{v \\in V \\mid f(v) = 0\\}",
-            "explanation": "Der Kern ist ein Untervektorraum von V. Seine Dimension heißt Defekt der Abbildung."
+            "text": "Jede lineare Abbildung f: ℝⁿ → ℝᵐ kann durch eine m×n-Matrix A dargestellt werden. Die Spalten der Matrix sind die Bilder der Standardbasisvektoren.",
+            "formula": "f(x) = Ax = \\begin{pmatrix} a_{11} & \\cdots & a_{1n} \\\\ \\vdots & \\ddots & \\vdots \\\\ a_{m1} & \\cdots & a_{mn} \\end{pmatrix} \\begin{pmatrix} x_1 \\\\ \\vdots \\\\ x_n \\end{pmatrix}",
+            "explanation": "Die Matrixdarstellung hängt von der gewählten Basis ab. Die Spalten der Matrix zeigen uns, wohin die Basisvektoren abgebildet werden."
         },
         {
             "id": "cc0e8400-e29b-41d4-a716-446655440004",
-            "text": "Das Bild einer linearen Abbildung ist die Menge aller Bildvektoren.",
-            "formula": "\\text{im}(f) = \\{f(v) \\mid v \\in V\\}",
-            "explanation": "Das Bild ist ein Untervektorraum von W. Seine Dimension heißt Rang der Abbildung."
+            "text": "Der Kern einer linearen Abbildung ist die Menge aller Vektoren, die auf den Nullvektor abgebildet werden. Er ist ein Untervektorraum.",
+            "formula": "\\ker(f) = \\{v \\in V \\mid f(v) = 0\\}",
+            "explanation": "Der Kern gibt uns wichtige Informationen über die Abbildung. Seine Dimension heißt Defekt der Abbildung. Ein großer Kern bedeutet, dass viele Vektoren auf den Nullvektor abgebildet werden."
         },
         {
             "id": "cc0e8400-e29b-41d4-a716-446655440005",
-            "text": "Der Dimensionssatz verbindet Kern und Bild einer linearen Abbildung.",
-            "formula": "\\dim V = \\dim \\ker(f) + \\dim \\text{im}(f)",
-            "explanation": "Die Summe aus Defekt und Rang ist gleich der Dimension des Definitionsbereichs."
+            "text": "Das Bild einer linearen Abbildung ist die Menge aller Bildvektoren. Es ist ebenfalls ein Untervektorraum.",
+            "formula": "\\text{im}(f) = \\{f(v) \\mid v \\in V\\}",
+            "explanation": "Das Bild zeigt uns, welche Vektoren überhaupt erreicht werden können. Seine Dimension heißt Rang der Abbildung. Ein großes Bild bedeutet, dass viele Vektoren im Zielraum erreicht werden können."
         },
         {
             "id": "cc0e8400-e29b-41d4-a716-446655440006",
-            "text": "Eine lineare Abbildung ist injektiv genau dann, wenn ihr Kern nur den Nullvektor enthält.",
-            "formula": "f \\text{ injektiv} \\Leftrightarrow \\ker(f) = \\{0\\}",
-            "explanation": "Injektive Abbildungen sind umkehrbar auf ihrem Bild. Sie erhalten die lineare Unabhängigkeit von Vektoren."
+            "text": "Der Dimensionssatz verbindet Kern und Bild einer linearen Abbildung. Er ist eine fundamentale Beziehung.",
+            "formula": "\\dim V = \\dim \\ker(f) + \\dim \\text{im}(f)",
+            "explanation": "Dieser Satz sagt uns, dass die Summe aus Defekt und Rang gleich der Dimension des Definitionsbereichs ist. Er ist nützlich, um den Rang einer Matrix zu bestimmen."
         },
         {
             "id": "cc0e8400-e29b-41d4-a716-446655440007",
-            "text": "Die Verkettung linearer Abbildungen ist wieder linear.",
+            "text": "Eine lineare Abbildung ist injektiv genau dann, wenn ihr Kern nur den Nullvektor enthält.",
+            "formula": "f \\text{ injektiv} \\Leftrightarrow \\ker(f) = \\{0\\}",
+            "explanation": "Injektive Abbildungen sind umkehrbar auf ihrem Bild. Sie erhalten die lineare Unabhängigkeit von Vektoren. Das bedeutet, dass verschiedene Vektoren auf verschiedene Bilder abgebildet werden."
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440008",
+            "text": "Eine lineare Abbildung ist surjektiv genau dann, wenn ihr Bild der gesamte Zielraum ist.",
+            "formula": "f \\text{ surjektiv} \\Leftrightarrow \\text{im}(f) = W",
+            "explanation": "Surjektive Abbildungen erreichen jeden Vektor im Zielraum. Das bedeutet, dass für jeden Vektor im Zielraum mindestens ein Urbild existiert."
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440009",
+            "text": "Eine lineare Abbildung ist bijektiv genau dann, wenn sie injektiv und surjektiv ist.",
+            "formula": "f \\text{ bijektiv} \\Leftrightarrow f \\text{ injektiv} \\wedge f \\text{ surjektiv}",
+            "explanation": "Bijektive Abbildungen sind umkehrbar. Sie stellen eine eineindeutige Zuordnung zwischen Definitions- und Zielbereich her."
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440010",
+            "text": "Die Verkettung linearer Abbildungen ist wieder linear. Die Matrix der Verkettung ist das Produkt der einzelnen Matrizen.",
             "formula": "(g \\circ f)(v) = g(f(v))",
-            "explanation": "Die Matrix der Verkettung ist das Produkt der einzelnen Matrizen in umgekehrter Reihenfolge."
+            "explanation": "Die Verkettung entspricht der Matrixmultiplikation. Die Reihenfolge ist wichtig: g∘f bedeutet, dass zuerst f und dann g angewendet wird."
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440011",
+            "text": "Eine lineare Abbildung kann durch ihre Wirkung auf eine Basis vollständig beschrieben werden.",
+            "formula": "f(v) = f(\\sum_{i=1}^n \\lambda_i b_i) = \\sum_{i=1}^n \\lambda_i f(b_i)",
+            "explanation": "Wenn wir wissen, wohin die Basisvektoren abgebildet werden, können wir die Abbildung für jeden Vektor berechnen. Dies ist die Grundlage für die Matrixdarstellung."
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440012",
+            "text": "Der Rang einer Matrix ist die Dimension des Bildes der zugehörigen linearen Abbildung.",
+            "formula": "\\text{rang}(A) = \\dim \\text{im}(f_A)",
+            "explanation": "Der Rang gibt uns die maximale Anzahl linear unabhängiger Spalten (oder Zeilen) der Matrix. Er ist wichtig für die Lösbarkeit von linearen Gleichungssystemen."
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440013",
+            "text": "Eine lineare Abbildung ist genau dann invertierbar, wenn sie bijektiv ist.",
+            "formula": "f^{-1}(f(v)) = v \\text{ und } f(f^{-1}(w)) = w",
+            "explanation": "Die inverse Abbildung macht die Wirkung der ursprünglichen Abbildung rückgängig. Ihre Matrix ist die inverse Matrix der ursprünglichen Matrix."
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440014",
+            "text": "Die Determinante einer linearen Abbildung gibt das Volumenverhältnis an.",
+            "formula": "\\det(f) = \\frac{\\text{Volumen}(f(P))}{\\text{Volumen}(P)}",
+            "explanation": "Die Determinante zeigt uns, wie sich Volumina unter der Abbildung ändern. Eine Determinante von 0 bedeutet, dass die Abbildung das Volumen auf 0 zusammenzieht."
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440015",
+            "text": "Eigenwerte und Eigenvektoren einer linearen Abbildung sind besonders wichtig.",
+            "formula": "f(v) = \\lambda v",
+            "explanation": "Eigenvektoren werden nur gestreckt oder gestaucht, ihre Richtung bleibt erhalten. Die zugehörigen Eigenwerte geben den Streckungsfaktor an."
         }
     ]
 } 
