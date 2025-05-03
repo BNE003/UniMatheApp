@@ -301,117 +301,136 @@ struct TopicCard: View {
 struct ExercisesView: View {
     let topic: MathTopic
     @State private var exercises: [Exercise] = []
-    @State private var selectedDifficulty: Difficulty?
-    @State private var isLoading = false
+    @State private var selectedDifficulty: String?
+    @State private var isLoading = true
     @State private var error: Error?
+    @State private var showProSheet = false
+    @ObservedObject private var storeManager = StoreKitManager.shared
     
     private var filteredExercises: [Exercise] {
-        if let difficulty = selectedDifficulty {
-            return exercises.filter { $0.difficultyEnum == difficulty }
-        }
-        return exercises
+        guard let difficulty = selectedDifficulty else { return [] }
+        return exercises.filter { $0.difficulty == difficulty }
+    }
+    
+    private var freeExercises: [Exercise] {
+        guard let difficulty = selectedDifficulty else { return [] }
+        let exercisesForDifficulty = exercises.filter { $0.difficulty == difficulty }
+        return Array(exercisesForDifficulty.prefix(1))
+    }
+    
+    private var proExercises: [Exercise] {
+        guard let difficulty = selectedDifficulty else { return [] }
+        let exercisesForDifficulty = exercises.filter { $0.difficulty == difficulty }
+        return Array(exercisesForDifficulty.dropFirst())
     }
     
     var body: some View {
-        ZStack {
-            // Modern gradient background with abstract shapes
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(red: 0.95, green: 0.97, blue: 1.0),
-                    Color(red: 0.98, green: 0.98, blue: 1.0)
-                ]),
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .ignoresSafeArea()
-            
-            // Abstract background elements
-            GeometryReader { geometry in
-                ZStack {
-                    Circle()
-                        .fill(Color.blue.opacity(0.03))
-                        .frame(width: geometry.size.width * 1.2)
-                        .offset(x: -geometry.size.width * 0.2, y: -geometry.size.height * 0.1)
-                    
-                    Circle()
-                        .fill(Color.purple.opacity(0.03))
-                        .frame(width: geometry.size.width * 0.8)
-                        .offset(x: geometry.size.width * 0.3, y: geometry.size.height * 0.3)
+        VStack {
+            // Schwierigkeitsgrad-Auswahl
+            HStack(spacing: 16) {
+                ForEach(["easy", "medium", "hard"], id: \.self) { difficulty in
+                    Button(action: {
+                        withAnimation {
+                            selectedDifficulty = difficulty
+                        }
+                    }) {
+                        Text(difficulty == "easy" ? "Leicht" : 
+                             difficulty == "medium" ? "Mittel" : "Schwer")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 10)
+                            .background(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .fill(difficulty == "easy" ? Color.green :
+                                          difficulty == "medium" ? Color.orange : Color.red)
+                                    .shadow(color: (difficulty == "easy" ? Color.green :
+                                                  difficulty == "medium" ? Color.orange : Color.red).opacity(0.3),
+                                           radius: 5, x: 0, y: 2)
+                            )
+                    }
                 }
             }
+            .padding()
             
-            VStack(spacing: 20) {
-                Text("Wählen Sie den Schwierigkeitsgrad:")
-                    .font(.title2)
-                    .fontWeight(.bold)
-                    .padding(.top)
-                
-                HStack(spacing: 16) {
-                    ForEach([Difficulty.easy, .medium, .hard], id: \.self) { difficulty in
-                        Button(action: {
-                            selectedDifficulty = difficulty
-                        }) {
-                            Text(difficulty.text)
-                                .font(.headline)
-                                .foregroundColor(.white)
-                                .padding(.horizontal, 20)
-                                .padding(.vertical, 10)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .fill(difficulty.color)
-                                        .shadow(color: difficulty.color.opacity(0.3), radius: 5, x: 0, y: 2)
-                                )
-                        }
-                    }
+            if isLoading {
+                ProgressView()
+                    .scaleEffect(1.5)
+            } else if let error = error {
+                VStack {
+                    Text("Fehler beim Laden der Übungen")
+                        .font(.headline)
+                        .foregroundColor(.red)
+                    Text(error.localizedDescription)
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .multilineTextAlignment(.center)
+                        .padding()
                 }
-                .padding(.horizontal)
-                
-                if isLoading {
-                    ProgressView()
-                        .scaleEffect(1.5)
-                } else if let error = error {
-                    VStack {
-                        Text("Fehler beim Laden der Übungen")
-                            .font(.headline)
-                            .foregroundColor(.red)
-                        Text(error.localizedDescription)
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
-                            .multilineTextAlignment(.center)
-                            .padding()
-                    }
-                } else if let selectedDifficulty = selectedDifficulty {
-                    ScrollView {
-                        VStack(spacing: 20) {
+            } else if let selectedDifficulty = selectedDifficulty {
+                ScrollView {
+                    VStack(spacing: 20) {
+                        if !storeManager.purchasedProductIDs.isEmpty {
+                            // PRO: Alle Übungen sichtbar
                             ForEach(filteredExercises) { exercise in
                                 ExerciseCard(exercise: exercise)
                             }
+                        } else {
+                            // FREE: 1 frei, Rest geblurrt
+                            ForEach(freeExercises) { exercise in
+                                ExerciseCard(exercise: exercise)
+                            }
+                            if !proExercises.isEmpty {
+                                VStack(spacing: 16) {
+                                    ForEach(proExercises) { exercise in
+                                        ZStack {
+                                            ExerciseCard(exercise: exercise)
+                                                .blur(radius: 3)
+                                            VStack {
+                                                Image(systemName: "lock.fill")
+                                                    .font(.system(size: 30))
+                                                    .foregroundColor(.blue)
+                                                Text("Pro freischalten")
+                                                    .font(.headline)
+                                                    .foregroundColor(.blue)
+                                            }
+                                            .padding()
+                                            .background(Color.white.opacity(0.9))
+                                            .cornerRadius(12)
+                                        }
+                                        .onTapGesture {
+                                            showProSheet = true
+                                        }
+                                    }
+                                }
+                            }
                         }
-                        .padding()
                     }
-                } else {
-                    Spacer()
-                    Text("Bitte wählen Sie einen Schwierigkeitsgrad aus")
-                        .foregroundColor(.gray)
-                        .font(.headline)
-                    Spacer()
+                    .padding()
                 }
+            } else {
+                Spacer()
+                Text("Bitte wählen Sie einen Schwierigkeitsgrad aus")
+                    .foregroundColor(.gray)
+                    .font(.headline)
+                Spacer()
             }
         }
         .navigationTitle("Übungen: \(topic.title)")
         .navigationBarTitleDisplayMode(.large)
+        .sheet(isPresented: $showProSheet) {
+            ProFeaturesView()
+        }
         .onAppear {
             loadExercises()
         }
     }
-    //-------------------------AUFGABEN DATEI HIER HINZUFÜGEN-----------
+    
     private func loadExercises() {
         do {
-            // Load exercises from the relevant JSON file based on the topic
             var allExercises: [Exercise] = []
             let fileName: String
             
-            // Determine which file to load based on the topic
             switch topic.title {
             case "Mengen und Abbildungen":
                 fileName = "mengen_und_abbildungen"
@@ -431,8 +450,6 @@ struct ExercisesView: View {
                 fileName = "koerper"
             case "Komplexe Zahlen":
                 fileName = "komplexe_zahlen"
-//Analyis:
-                
             case "Folgen und Reihen":
                 fileName = "folgen_und_reihen"
             case "Grenzwerte":
@@ -443,8 +460,6 @@ struct ExercisesView: View {
                 fileName = "integralrechnung"
             case "Mehrdimensionale Analysis":
                 fileName = "mehrdimensionale_analysis"
-            
-//Lineare Algebra
             case "Matrizen":
                 fileName = "matrizen"
             case "Vektorräume":
@@ -455,16 +470,12 @@ struct ExercisesView: View {
                 fileName = "lineare_abbildungen"
             case "Eigenwerte und Eigenvektoren":
                 fileName = "eigenwerte"
-                
-                
             default:
                 error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Keine passende JSON-Datei für das Thema gefunden"])
                 isLoading = false
                 return
             }
-//--------------------------------------------------------------
             
-            // Load the specific JSON file
             if let fileURL = Bundle.main.url(forResource: fileName, withExtension: "json") {
                 let data = try Data(contentsOf: fileURL)
                 let response = try JSONDecoder().decode(ExercisesResponse.self, from: data)
@@ -1030,3 +1041,4 @@ struct ScrollOffsetPreferenceKey: PreferenceKey {
 #Preview {
     ContentView()
 }
+
