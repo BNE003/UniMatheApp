@@ -1,39 +1,93 @@
 {
-  "identifier" : "UniMatheConfiguration",
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "de",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "4F035C90",
   "nonRenewingSubscriptions" : [
 
   ],
   "products" : [
     {
-      "displayPrice" : "4,99 €",
+      "displayPrice" : "4.99",
       "familyShareable" : false,
-      "internalID" : "unimathe.pro.lifetime",
+      "internalID" : "9B65A823",
       "localizations" : [
         {
-          "description" : "Get access to all premium features",
-          "displayName" : "UniMathe Pro Lifetime",
-          "locale" : "en_US"
-        },
-        {
-          "description" : "Erhalten Sie Zugriff auf alle Premium-Funktionen",
-          "displayName" : "UniMathe Pro Lifetime",
-          "locale" : "de_DE"
+          "description" : "Erhatle Zugriff auf alle Funktionen, ein leben lang.",
+          "displayName" : "HigherMath Pro Lifetime",
+          "locale" : "de"
         }
       ],
       "productID" : "unimathe.pro.lifetime",
-      "referenceName" : "UniMathe Pro Lifetime",
-      "type" : "NonConsumable"
+      "referenceName" : "HigherMath Pro lifetime",
+      "type" : "NonConsumable",
+      "price" : 4.99
     }
   ],
   "settings" : {
-    "_applicationInternalID" : "com.yourcompany.unimathe",
-    "_developerTeamID" : "XXXXXXXXXX",
-    "_lastSynchronizedDate" : 710000000.00000000000000000
+    "_failTransactionsEnabled" : false,
+    "_locale" : "de",
+    "_storefront" : "DEU",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
   },
   "subscriptionGroups" : [
+
   ],
   "version" : {
-    "major" : 2,
+    "major" : 4,
     "minor" : 0
   }
-} 
+}

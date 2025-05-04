@@ -21,6 +21,13 @@ class StoreKitManager: ObservableObject {
     func loadProducts() async {
         do {
             products = try await Product.products(for: productIDs)
+            
+            for product in products {
+                print("Product loaded: \(product.id)")
+                print("Display price: \(product.displayPrice)")
+                print("Price: \(product.price)")
+                print("Price format: \(product.priceFormatStyle)")
+            }
         } catch {
             print("Failed to load products:", error)
         }
