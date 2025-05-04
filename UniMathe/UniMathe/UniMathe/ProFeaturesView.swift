@@ -14,7 +14,7 @@ struct ProFeaturesView: View {
                         .font(.system(size: 60))
                         .foregroundColor(.blue)
                     
-                    Text("UniMathe Pro")
+                    Text("HigherMath Pro")
                         .font(.title)
                         .fontWeight(.bold)
                     
@@ -25,8 +25,9 @@ struct ProFeaturesView: View {
                 
                 // Feature-Liste
                 VStack(alignment: .leading, spacing: 12) {
-                    FeatureRow(icon: "checkmark.seal.fill", text: "Alle interaktiven Beispiele freischalten")
-                    FeatureRow(icon: "checkmark.seal.fill", text: "Zukünftige Pro-Features inklusive")
+                    FeatureRow(icon: "checkmark.seal.fill", text: "Alle interaktiven Lektionen freischalten")
+                    FeatureRow(icon: "checkmark.seal.fill", text: "Vollen Zugriff auf über 200 Aufgaben ")
+                    FeatureRow(icon: "checkmark.seal.fill", text: "Detalierte Lösungschritte")
                     FeatureRow(icon: "checkmark.seal.fill", text: "Unterstütze die Weiterentwicklung")
                 }
                 .padding(.horizontal)
