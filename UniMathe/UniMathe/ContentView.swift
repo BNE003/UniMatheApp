@@ -436,7 +436,7 @@ struct ExercisesView: View {
                 fileName = "mengen_und_abbildungen"
             case "Logik":
                 fileName = "logik"
-            case "vollstaendige induktion":
+            case "Vollständige Induktion":
                 fileName = "vollstaendige_induktion"
             case "Binomische Formeln":
                 fileName = "binomische_formeln"
