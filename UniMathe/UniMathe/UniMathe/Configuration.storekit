@@ -25,10 +25,10 @@
           "locale" : "de"
         }
       ],
+      "price" : 4.9900000000000002,
       "productID" : "unimathe.pro.lifetime",
       "referenceName" : "HigherMath Pro lifetime",
-      "type" : "NonConsumable",
-      "price" : 4.99
+      "type" : "NonConsumable"
     }
   ],
   "settings" : {

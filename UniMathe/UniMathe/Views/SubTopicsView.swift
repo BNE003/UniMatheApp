@@ -111,8 +111,11 @@ struct SubTopicsView: View {
                 
                 // Load each subtopic from its individual file
                 for subTopicIndex in subTopicIndices {
-                    guard let subTopicUrl = Bundle.main.url(forResource: subTopicIndex.filename, withExtension: nil, subdirectory: "lerninhalt") ??
-                          Bundle.main.url(forResource: subTopicIndex.filename, withExtension: nil) else {
+                    // Verwende den Dateinamen direkt aus dem Index
+                    let fullFilename = subTopicIndex.filename
+                    
+                    guard let subTopicUrl = Bundle.main.url(forResource: fullFilename, withExtension: nil, subdirectory: "lerninhalt") ??
+                          Bundle.main.url(forResource: fullFilename, withExtension: nil) else {
                         print("Could not find file for subtopic: \(subTopicIndex.title) in bundle")
                         continue
                     }
@@ -276,18 +279,42 @@ struct ContentSelectionView: View {
     }
     
     private func loadTopicContent() {
-        // Convert topic title to filename
-        let filename = normalizedFileName(from: topic.title)
-        let fullFilename = "\(filename)_content.json"
-        
-        guard let url = Bundle.main.url(forResource: fullFilename, withExtension: nil, subdirectory: "lerninhalt") ??
-              Bundle.main.url(forResource: fullFilename, withExtension: nil) else {
-            error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Topic file not found in bundle"])
+        // Load index.json first to get the correct filename
+        guard let indexUrl = Bundle.main.url(forResource: "index", withExtension: "json", subdirectory: "lerninhalt") ??
+              Bundle.main.url(forResource: "index", withExtension: "json") else {
+            error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Index file not found in bundle"])
             isLoading = false
             return
         }
         
         do {
+            let indexData = try Data(contentsOf: indexUrl)
+            let indexResponse = try JSONDecoder().decode(IndexResponse.self, from: indexData)
+            
+            // Find the current topic in the index
+            var filename: String?
+            for topicIndex in indexResponse.topics {
+                if let subTopics = topicIndex.subTopics {
+                    if let subTopic = subTopics.first(where: { $0.title == topic.title }) {
+                        filename = subTopic.filename
+                        break
+                    }
+                }
+            }
+            
+            guard let fullFilename = filename else {
+                error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Topic not found in index"])
+                isLoading = false
+                return
+            }
+            
+            guard let url = Bundle.main.url(forResource: fullFilename, withExtension: nil, subdirectory: "lerninhalt") ??
+                  Bundle.main.url(forResource: fullFilename, withExtension: nil) else {
+                error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Topic file not found in bundle"])
+                isLoading = false
+                return
+            }
+            
             let data = try Data(contentsOf: url)
             let loadedTopic = try JSONDecoder().decode(MathTopic.self, from: data)
             self.loadedTopic = loadedTopic

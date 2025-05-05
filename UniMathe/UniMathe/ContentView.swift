@@ -190,7 +190,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationTitle("Höhere Mathematik")
+            .navigationTitle("Higher Math")
             .navigationBarTitleDisplayMode(.large)
         }
         .onAppear {
@@ -217,8 +217,8 @@ struct ContentView: View {
             
             // Load each topic from its individual file
             for topicIndex in indexResponse.topics {
-                let filename = normalizedFileName(from: topicIndex.title)
-                let fullFilename = "\(filename)_content.json" // enthält bereits die Endung
+                // Verwende den Dateinamen direkt aus dem Index
+                let fullFilename = topicIndex.filename
                 
                 // Datei aus dem Bundle holen
                 guard let topicUrl = Bundle.main.url(forResource: fullFilename, withExtension: nil, subdirectory: "lerninhalt") ??

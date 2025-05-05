@@ -1,0 +1,39 @@
+{
+    "id": "0",
+    "title": "Brückenkurs Mathematik",
+    "icon": "graduationcap.fill",
+    "description": "Vorbereitungskurs für den Übergang von der Schule zur Universität",
+    "markdownContent": "<div class='content-container'><div class='section'><h2>Brückenkurs Mathematik</h2><p>Der Brückenkurs Mathematik ist speziell für Studienanfänger konzipiert, um den Übergang von der Schulmathematik zur universitären Mathematik zu erleichtern. In diesem Kurs werden die wichtigsten mathematischen Grundlagen wiederholt und vertieft, die für ein erfolgreiches Studium der Mathematik oder eines mathematiknahen Faches unerlässlich sind.</p></div><div class='section'><h3>Kursstruktur</h3><p>Der Brückenkurs ist in fünf Hauptbereiche gegliedert:</p><ul><li>Grundlagen der Schulmathematik</li><li>Funktionen und Gleichungen</li><li>Differentialrechnung</li><li>Integralrechnung</li><li>Vektoren und Matrizen</li></ul></div><div class='section'><h3>Ziel des Kurses</h3><p>Das Ziel des Brückenkurses ist es, die mathematischen Grundlagen zu festigen und auf die Anforderungen der universitären Mathematik vorzubereiten. Dabei werden sowohl theoretische Konzepte als auch praktische Anwendungen behandelt.</p></div></div>",
+    "subTopics": [
+        {
+            "id": "0.1",
+            "title": "Grundlagen der Schulmathematik",
+            "icon": "function",
+            "description": "Wiederholung und Vertiefung der wichtigsten mathematischen Grundlagen aus der Schulzeit"
+        },
+        {
+            "id": "0.2",
+            "title": "Funktionen und Gleichungen",
+            "icon": "chart.xyaxis.line",
+            "description": "Vertiefung der Analysis-Grundlagen und Funktionenlehre"
+        },
+        {
+            "id": "0.3",
+            "title": "Differentialrechnung",
+            "icon": "chart.line.uptrend.xyaxis",
+            "description": "Grundlagen der Differentialrechnung und deren Anwendungen"
+        },
+        {
+            "id": "0.4",
+            "title": "Integralrechnung",
+            "icon": "chart.area",
+            "description": "Einführung in die Integralrechnung und Flächenberechnung"
+        },
+        {
+            "id": "0.5",
+            "title": "Vektoren und Matrizen",
+            "icon": "arrow.up.left.and.arrow.down.right",
+            "description": "Grundlagen der Vektorrechnung und Matrizen"
+        }
+    ]
+} 
