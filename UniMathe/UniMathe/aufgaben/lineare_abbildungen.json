@@ -69,6 +69,252 @@
                 "Schritt 3: Darstellungsmatrix\n$[P] = I_3 - \\frac{1}{3}\\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & 1 & 1 \\\\ 1 & 1 & 1 \\end{pmatrix}$",
                 "Schritt 4: Berechnung\n$[P] = \\frac{1}{3}\\begin{pmatrix} 2 & -1 & -1 \\\\ -1 & 2 & -1 \\\\ -1 & -1 & 2 \\end{pmatrix}$"
             ]
+        },
+        {
+            "id": 6,
+            "topic": "Lineare Abbildungen",
+            "title": "Einfache Darstellungsmatrix",
+            "description": "Bestimmen Sie die Darstellungsmatrix der linearen Abbildung $f: \\mathbb{R}^2 \\to \\mathbb{R}^2$ mit $f(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} 2x + y \\\\ x + 2y \\end{pmatrix}$ bezüglich der Standardbasis.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Bilder der Basisvektoren\n$f(\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$\n$f(\\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}$",
+                "Schritt 2: Darstellungsmatrix\n$[f] = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$",
+                "Schritt 3: Verifikation\n$f(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}\\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} 2x + y \\\\ x + 2y \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Lineare Abbildungen",
+            "title": "Einfache Abbildung",
+            "description": "Bestimmen Sie die Darstellungsmatrix der linearen Abbildung $f: \\mathbb{R}^3 \\to \\mathbb{R}^2$ mit $f(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} x + y \\\\ y + z \\end{pmatrix}$ bezüglich der Standardbasen.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Bilder der Basisvektoren\n$f(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$\n$f(\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$\n$f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 2: Darstellungsmatrix\n$[f] = \\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\end{pmatrix}$",
+                "Schritt 3: Verifikation\n$f(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\end{pmatrix}\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} x + y \\\\ y + z \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Lineare Abbildungen",
+            "title": "Einfache Projektion",
+            "description": "Bestimmen Sie die Darstellungsmatrix der Projektion $P: \\mathbb{R}^2 \\to \\mathbb{R}^2$ auf die Gerade $g = \\{\\begin{pmatrix} x \\\\ y \\end{pmatrix} \\in \\mathbb{R}^2 \\mid y = x\\}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Richtungsvektor\n$\\vec{v} = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 2: Projektionsformel\n$P(\\vec{w}) = \\frac{\\vec{w} \\cdot \\vec{v}}{\\|\\vec{v}\\|^2}\\vec{v}$",
+                "Schritt 3: Darstellungsmatrix\n$[P] = \\frac{1}{2}\\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\n$P(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\frac{1}{2}\\begin{pmatrix} x + y \\\\ x + y \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Lineare Abbildungen",
+            "title": "Einfache Spiegelung",
+            "description": "Bestimmen Sie die Darstellungsmatrix der Spiegelung $S: \\mathbb{R}^2 \\to \\mathbb{R}^2$ an der Geraden $g = \\{\\begin{pmatrix} x \\\\ y \\end{pmatrix} \\in \\mathbb{R}^2 \\mid y = x\\}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Spiegelungsformel\n$S(\\vec{v}) = 2P(\\vec{v}) - \\vec{v}$",
+                "Schritt 2: Darstellungsmatrix\n$[S] = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$",
+                "Schritt 3: Verifikation\n$S(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} y \\\\ x \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Lineare Abbildungen",
+            "title": "Einfache Rotation",
+            "description": "Bestimmen Sie die Darstellungsmatrix der Rotation $R: \\mathbb{R}^2 \\to \\mathbb{R}^2$ um den Winkel $\\frac{\\pi}{4}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Rotationsmatrix\n$[R] = \\begin{pmatrix} \\cos(\\frac{\\pi}{4}) & -\\sin(\\frac{\\pi}{4}) \\\\ \\sin(\\frac{\\pi}{4}) & \\cos(\\frac{\\pi}{4}) \\end{pmatrix}$",
+                "Schritt 2: Berechnung\n$[R] = \\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 & -1 \\\\ 1 & 1 \\end{pmatrix}$",
+                "Schritt 3: Verifikation\n$R(\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}) = \\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Lineare Abbildungen",
+            "title": "Einfache Streckung",
+            "description": "Bestimmen Sie die Darstellungsmatrix der Streckung $S: \\mathbb{R}^2 \\to \\mathbb{R}^2$ mit Streckfaktor 2 in x-Richtung und 3 in y-Richtung.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Streckungsmatrix\n$[S] = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}$",
+                "Schritt 2: Verifikation\n$S(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} 2x \\\\ 3y \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Lineare Abbildungen",
+            "title": "Einfache Scherung",
+            "description": "Bestimmen Sie die Darstellungsmatrix der Scherung $S: \\mathbb{R}^2 \\to \\mathbb{R}^2$ mit Scherfaktor 2 in x-Richtung.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Scherungsmatrix\n$[S] = \\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}$",
+                "Schritt 2: Verifikation\n$S(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} x + 2y \\\\ y \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Lineare Abbildungen",
+            "title": "Mittelschwere Abbildung",
+            "description": "Bestimmen Sie die Darstellungsmatrix der linearen Abbildung $f: \\mathbb{R}^3 \\to \\mathbb{R}^3$ mit $f(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} x + y + z \\\\ x - y + z \\\\ x + y - z \\end{pmatrix}$ bezüglich der Standardbasis.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Bilder der Basisvektoren\n$f(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$\n$f(\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ -1 \\\\ 1 \\end{pmatrix}$\n$f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\\\ -1 \\end{pmatrix}$",
+                "Schritt 2: Darstellungsmatrix\n$[f] = \\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & -1 & 1 \\\\ 1 & 1 & -1 \\end{pmatrix}$",
+                "Schritt 3: Verifikation\n$f(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & -1 & 1 \\\\ 1 & 1 & -1 \\end{pmatrix}\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} x + y + z \\\\ x - y + z \\\\ x + y - z \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Lineare Abbildungen",
+            "title": "Mittelschwere Projektion",
+            "description": "Bestimmen Sie die Darstellungsmatrix der Projektion $P: \\mathbb{R}^3 \\to \\mathbb{R}^3$ auf die Ebene $E = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} \\in \\mathbb{R}^3 \\mid x + y = 0\\}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Normalenvektor\n$\\vec{n} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$",
+                "Schritt 2: Projektionsformel\n$P(\\vec{v}) = \\vec{v} - \\frac{\\vec{v} \\cdot \\vec{n}}{\\|\\vec{n}\\|^2}\\vec{n}$",
+                "Schritt 3: Darstellungsmatrix\n$[P] = \\begin{pmatrix} \\frac{1}{2} & -\\frac{1}{2} & 0 \\\\ -\\frac{1}{2} & \\frac{1}{2} & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\n$P(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} \\frac{x-y}{2} \\\\ \\frac{y-x}{2} \\\\ z \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Lineare Abbildungen",
+            "title": "Mittelschwere Spiegelung",
+            "description": "Bestimmen Sie die Darstellungsmatrix der Spiegelung $S: \\mathbb{R}^3 \\to \\mathbb{R}^3$ an der Ebene $E = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} \\in \\mathbb{R}^3 \\mid x + y + z = 0\\}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Normalenvektor\n$\\vec{n} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 2: Spiegelungsformel\n$S(\\vec{v}) = \\vec{v} - 2\\frac{\\vec{v} \\cdot \\vec{n}}{\\|\\vec{n}\\|^2}\\vec{n}$",
+                "Schritt 3: Darstellungsmatrix\n$[S] = \\frac{1}{3}\\begin{pmatrix} 1 & -2 & -2 \\\\ -2 & 1 & -2 \\\\ -2 & -2 & 1 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\frac{1}{3}\\begin{pmatrix} x - 2y - 2z \\\\ -2x + y - 2z \\\\ -2x - 2y + z \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Lineare Abbildungen",
+            "title": "Mittelschwere Rotation",
+            "description": "Bestimmen Sie die Darstellungsmatrix der Rotation $R: \\mathbb{R}^3 \\to \\mathbb{R}^3$ um die z-Achse mit Winkel $\\frac{\\pi}{3}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Rotationsmatrix\n$[R] = \\begin{pmatrix} \\cos(\\frac{\\pi}{3}) & -\\sin(\\frac{\\pi}{3}) & 0 \\\\ \\sin(\\frac{\\pi}{3}) & \\cos(\\frac{\\pi}{3}) & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$",
+                "Schritt 2: Berechnung\n$[R] = \\begin{pmatrix} \\frac{1}{2} & -\\frac{\\sqrt{3}}{2} & 0 \\\\ \\frac{\\sqrt{3}}{2} & \\frac{1}{2} & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$",
+                "Schritt 3: Verifikation\n$R(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} \\frac{1}{2} \\\\ \\frac{\\sqrt{3}}{2} \\\\ 0 \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Lineare Abbildungen",
+            "title": "Mittelschwere Streckung",
+            "description": "Bestimmen Sie die Darstellungsmatrix der Streckung $S: \\mathbb{R}^3 \\to \\mathbb{R}^3$ mit Streckfaktoren 2, 3 und 4 in x-, y- und z-Richtung.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Streckungsmatrix\n$[S] = \\begin{pmatrix} 2 & 0 & 0 \\\\ 0 & 3 & 0 \\\\ 0 & 0 & 4 \\end{pmatrix}$",
+                "Schritt 2: Verifikation\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} 2x \\\\ 3y \\\\ 4z \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Lineare Abbildungen",
+            "title": "Mittelschwere Scherung",
+            "description": "Bestimmen Sie die Darstellungsmatrix der Scherung $S: \\mathbb{R}^3 \\to \\mathbb{R}^3$ mit Scherfaktor 2 in x-Richtung und 3 in y-Richtung.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Scherungsmatrix\n$[S] = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$",
+                "Schritt 2: Verifikation\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} x + 2y + 3z \\\\ y \\\\ z \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Lineare Abbildungen",
+            "title": "Schwere Abbildung",
+            "description": "Bestimmen Sie die Darstellungsmatrix der linearen Abbildung $f: \\mathbb{R}^4 \\to \\mathbb{R}^4$ mit $f(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\begin{pmatrix} x + y + z + w \\\\ x - y + z - w \\\\ x + y - z - w \\\\ x - y - z + w \\end{pmatrix}$ bezüglich der Standardbasis.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Bilder der Basisvektoren\n$f(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$\n$f(\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ -1 \\\\ 1 \\\\ -1 \\end{pmatrix}$\n$f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\\\ -1 \\\\ -1 \\end{pmatrix}$\n$f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ -1 \\\\ -1 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 2: Darstellungsmatrix\n$[f] = \\begin{pmatrix} 1 & 1 & 1 & 1 \\\\ 1 & -1 & 1 & -1 \\\\ 1 & 1 & -1 & -1 \\\\ 1 & -1 & -1 & 1 \\end{pmatrix}$",
+                "Schritt 3: Verifikation\n$f(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\begin{pmatrix} 1 & 1 & 1 & 1 \\\\ 1 & -1 & 1 & -1 \\\\ 1 & 1 & -1 & -1 \\\\ 1 & -1 & -1 & 1 \\end{pmatrix}\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix} = \\begin{pmatrix} x + y + z + w \\\\ x - y + z - w \\\\ x + y - z - w \\\\ x - y - z + w \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Lineare Abbildungen",
+            "title": "Schwere Projektion",
+            "description": "Bestimmen Sie die Darstellungsmatrix der Projektion $P: \\mathbb{R}^4 \\to \\mathbb{R}^4$ auf den Unterraum $U = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix} \\in \\mathbb{R}^4 \\mid x + y + z + w = 0\\}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Normalenvektor\n$\\vec{n} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 2: Projektionsformel\n$P(\\vec{v}) = \\vec{v} - \\frac{\\vec{v} \\cdot \\vec{n}}{\\|\\vec{n}\\|^2}\\vec{n}$",
+                "Schritt 3: Darstellungsmatrix\n$[P] = \\frac{1}{4}\\begin{pmatrix} 3 & -1 & -1 & -1 \\\\ -1 & 3 & -1 & -1 \\\\ -1 & -1 & 3 & -1 \\\\ -1 & -1 & -1 & 3 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\n$P(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\frac{1}{4}\\begin{pmatrix} 3x - y - z - w \\\\ -x + 3y - z - w \\\\ -x - y + 3z - w \\\\ -x - y - z + 3w \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Lineare Abbildungen",
+            "title": "Schwere Spiegelung",
+            "description": "Bestimmen Sie die Darstellungsmatrix der Spiegelung $S: \\mathbb{R}^4 \\to \\mathbb{R}^4$ an dem Unterraum $U = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix} \\in \\mathbb{R}^4 \\mid x + y = z + w = 0\\}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Normalenvektoren\n$\\vec{n}_1 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\vec{n}_2 = \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 2: Spiegelungsformel\n$S(\\vec{v}) = \\vec{v} - 2\\frac{\\vec{v} \\cdot \\vec{n}_1}{\\|\\vec{n}_1\\|^2}\\vec{n}_1 - 2\\frac{\\vec{v} \\cdot \\vec{n}_2}{\\|\\vec{n}_2\\|^2}\\vec{n}_2$",
+                "Schritt 3: Darstellungsmatrix\n$[S] = \\begin{pmatrix} 0 & -1 & 0 & 0 \\\\ -1 & 0 & 0 & 0 \\\\ 0 & 0 & 0 & -1 \\\\ 0 & 0 & -1 & 0 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\begin{pmatrix} -y \\\\ -x \\\\ -w \\\\ -z \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Lineare Abbildungen",
+            "title": "Schwere Rotation",
+            "description": "Bestimmen Sie die Darstellungsmatrix der Rotation $R: \\mathbb{R}^4 \\to \\mathbb{R}^4$ um die Ebene $E = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix} \\in \\mathbb{R}^4 \\mid x = y = 0\\}$ mit Winkel $\\frac{\\pi}{4}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Rotationsmatrix\n$[R] = \\begin{pmatrix} 1 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & \\cos(\\frac{\\pi}{4}) & -\\sin(\\frac{\\pi}{4}) \\\\ 0 & 0 & \\sin(\\frac{\\pi}{4}) & \\cos(\\frac{\\pi}{4}) \\end{pmatrix}$",
+                "Schritt 2: Berechnung\n$[R] = \\begin{pmatrix} 1 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & \\frac{1}{\\sqrt{2}} & -\\frac{1}{\\sqrt{2}} \\\\ 0 & 0 & \\frac{1}{\\sqrt{2}} & \\frac{1}{\\sqrt{2}} \\end{pmatrix}$",
+                "Schritt 3: Verifikation\n$R(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 0 \\\\ 0 \\\\ \\frac{1}{\\sqrt{2}} \\\\ \\frac{1}{\\sqrt{2}} \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Lineare Abbildungen",
+            "title": "Schwere Streckung",
+            "description": "Bestimmen Sie die Darstellungsmatrix der Streckung $S: \\mathbb{R}^4 \\to \\mathbb{R}^4$ mit Streckfaktoren 2, 3, 4 und 5 in x-, y-, z- und w-Richtung.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Streckungsmatrix\n$[S] = \\begin{pmatrix} 2 & 0 & 0 & 0 \\\\ 0 & 3 & 0 & 0 \\\\ 0 & 0 & 4 & 0 \\\\ 0 & 0 & 0 & 5 \\end{pmatrix}$",
+                "Schritt 2: Verifikation\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\begin{pmatrix} 2x \\\\ 3y \\\\ 4z \\\\ 5w \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Lineare Abbildungen",
+            "title": "Schwere Scherung",
+            "description": "Bestimmen Sie die Darstellungsmatrix der Scherung $S: \\mathbb{R}^4 \\to \\mathbb{R}^4$ mit Scherfaktoren 2, 3 und 4 in x-, y- und z-Richtung.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Scherungsmatrix\n$[S] = \\begin{pmatrix} 1 & 2 & 3 & 4 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & 1 & 0 \\\\ 0 & 0 & 0 & 1 \\end{pmatrix}$",
+                "Schritt 2: Verifikation\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\begin{pmatrix} x + 2y + 3z + 4w \\\\ y \\\\ z \\\\ w \\end{pmatrix}$"
+            ]
         }
     ]
 } 

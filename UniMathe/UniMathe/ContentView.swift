@@ -451,6 +451,8 @@ struct ExercisesView: View {
             case "Komplexe Zahlen":
                 fileName = "komplexe_zahlen"
             case "Folgen und Reihen":
+                
+//Analysis
                 fileName = "folgen_und_reihen"
             case "Grenzwerte":
                 fileName = "grenzwerte"
@@ -461,6 +463,7 @@ struct ExercisesView: View {
             case "Mehrdimensionale Analysis":
                 fileName = "mehrdimensionale_analysis"
             case "Matrizen":
+//Lineare algebra
                 fileName = "matrizen"
             case "Vektorräume":
                 fileName = "vektorraeume"

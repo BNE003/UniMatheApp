@@ -3,6 +3,135 @@
         {
             "id": 1,
             "topic": "Integralrechnung",
+            "title": "Bestimmtes Integral einer Polynomfunktion",
+            "description": "Berechnen Sie das bestimmte Integral $\\int_{0}^{2} (x^3 - 2x^2 + 3x - 1) \\, dx$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion $f(x) = x^3 - 2x^2 + 3x - 1$ ist ein Polynom 3. Grades.",
+                "Schritt 2: Anwendung der Potenzregel\nFür jeden Summanden $ax^n$ gilt: $\\int ax^n \\, dx = \\frac{a}{n+1}x^{n+1} + C$",
+                "Schritt 3: Berechnung der Stammfunktion\n$F(x) = \\frac{1}{4}x^4 - \\frac{2}{3}x^3 + \\frac{3}{2}x^2 - x + C$\nErklärung: Wir integrieren jeden Summanden einzeln.",
+                "Schritt 4: Einsetzen der Grenzen\n$\\int_{0}^{2} (x^3 - 2x^2 + 3x - 1) \\, dx = F(2) - F(0)$\n$= (\\frac{1}{4} \\cdot 16 - \\frac{2}{3} \\cdot 8 + \\frac{3}{2} \\cdot 4 - 2) - (0)$",
+                "Schritt 5: Vereinfachung\n$= 4 - \\frac{16}{3} + 6 - 2 = \\frac{8}{3}$\nErklärung: Wir berechnen die Differenz der Funktionswerte.",
+                "Schritt 6: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(\\frac{1}{4}x^4 - \\frac{2}{3}x^3 + \\frac{3}{2}x^2 - x) = x^3 - 2x^2 + 3x - 1$",
+                "Schritt 7: Zusammenfassung\nDas bestimmte Integral ist $\\frac{8}{3}$."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Integralrechnung",
+            "title": "Bestimmtes Integral einer Exponentialfunktion",
+            "description": "Berechnen Sie das bestimmte Integral $\\int_{0}^{1} e^x \\, dx$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion $f(x) = e^x$ ist die natürliche Exponentialfunktion.",
+                "Schritt 2: Anwendung der Integrationsregel\nFür $f(x) = e^x$ gilt: $\\int e^x \\, dx = e^x + C$",
+                "Schritt 3: Berechnung der Stammfunktion\n$F(x) = e^x + C$\nErklärung: Die Stammfunktion der Exponentialfunktion ist die Funktion selbst.",
+                "Schritt 4: Einsetzen der Grenzen\n$\\int_{0}^{1} e^x \\, dx = F(1) - F(0)$\n$= e^1 - e^0 = e - 1$",
+                "Schritt 5: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(e^x) = e^x$",
+                "Schritt 6: Zusammenfassung\nDas bestimmte Integral ist $e - 1$."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Integralrechnung",
+            "title": "Bestimmtes Integral einer trigonometrischen Funktion",
+            "description": "Berechnen Sie das bestimmte Integral $\\int_{0}^{\\pi} \\sin x \\, dx$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion $f(x) = \\sin x$ ist die Sinusfunktion.",
+                "Schritt 2: Anwendung der Integrationsregel\nFür $f(x) = \\sin x$ gilt: $\\int \\sin x \\, dx = -\\cos x + C$",
+                "Schritt 3: Berechnung der Stammfunktion\n$F(x) = -\\cos x + C$\nErklärung: Die Stammfunktion der Sinusfunktion ist der negative Kosinus.",
+                "Schritt 4: Einsetzen der Grenzen\n$\\int_{0}^{\\pi} \\sin x \\, dx = F(\\pi) - F(0)$\n$= -\\cos(\\pi) - (-\\cos(0)) = -(-1) - (-1) = 2$",
+                "Schritt 5: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(-\\cos x) = \\sin x$",
+                "Schritt 6: Zusammenfassung\nDas bestimmte Integral ist 2."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Integralrechnung",
+            "title": "Bestimmtes Integral einer Wurzelfunktion",
+            "description": "Berechnen Sie das bestimmte Integral $\\int_{0}^{4} \\sqrt{x} \\, dx$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion $f(x) = \\sqrt{x}$ kann auch als $f(x) = x^{\\frac{1}{2}}$ geschrieben werden.",
+                "Schritt 2: Anwendung der Potenzregel\nFür $f(x) = x^n$ gilt: $\\int x^n \\, dx = \\frac{1}{n+1}x^{n+1} + C$",
+                "Schritt 3: Berechnung der Stammfunktion\n$F(x) = \\frac{2}{3}x^{\\frac{3}{2}} + C$\nErklärung: Wir wenden die Potenzregel mit n = 1/2 an.",
+                "Schritt 4: Einsetzen der Grenzen\n$\\int_{0}^{4} \\sqrt{x} \\, dx = F(4) - F(0)$\n$= \\frac{2}{3} \\cdot 4^{\\frac{3}{2}} - 0 = \\frac{2}{3} \\cdot 8 = \\frac{16}{3}$",
+                "Schritt 5: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(\\frac{2}{3}x^{\\frac{3}{2}}) = \\sqrt{x}$",
+                "Schritt 6: Zusammenfassung\nDas bestimmte Integral ist $\\frac{16}{3}$."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Integralrechnung",
+            "title": "Bestimmtes Integral einer konstanten Funktion",
+            "description": "Berechnen Sie das bestimmte Integral $\\int_{1}^{5} 3 \\, dx$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion $f(x) = 3$ ist eine konstante Funktion.",
+                "Schritt 2: Anwendung der Integrationsregel\nFür $f(x) = c$ gilt: $\\int c \\, dx = cx + C$",
+                "Schritt 3: Berechnung der Stammfunktion\n$F(x) = 3x + C$\nErklärung: Die Stammfunktion einer konstanten Funktion ist eine lineare Funktion.",
+                "Schritt 4: Einsetzen der Grenzen\n$\\int_{1}^{5} 3 \\, dx = F(5) - F(1)$\n$= 3 \\cdot 5 - 3 \\cdot 1 = 15 - 3 = 12$",
+                "Schritt 5: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(3x) = 3$",
+                "Schritt 6: Zusammenfassung\nDas bestimmte Integral ist 12."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Integralrechnung",
+            "title": "Bestimmtes Integral einer linearen Funktion",
+            "description": "Berechnen Sie das bestimmte Integral $\\int_{0}^{2} (2x + 1) \\, dx$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion $f(x) = 2x + 1$ ist eine lineare Funktion.",
+                "Schritt 2: Anwendung der Integrationsregeln\nFür jeden Summanden $ax^n$ gilt: $\\int ax^n \\, dx = \\frac{a}{n+1}x^{n+1} + C$",
+                "Schritt 3: Berechnung der Stammfunktion\n$F(x) = x^2 + x + C$\nErklärung: Wir integrieren jeden Summanden einzeln.",
+                "Schritt 4: Einsetzen der Grenzen\n$\\int_{0}^{2} (2x + 1) \\, dx = F(2) - F(0)$\n$= (4 + 2) - (0 + 0) = 6$",
+                "Schritt 5: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(x^2 + x) = 2x + 1$",
+                "Schritt 6: Zusammenfassung\nDas bestimmte Integral ist 6."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Integralrechnung",
+            "title": "Bestimmtes Integral einer quadratischen Funktion",
+            "description": "Berechnen Sie das bestimmte Integral $\\int_{-1}^{1} (x^2 + 2x + 1) \\, dx$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion $f(x) = x^2 + 2x + 1$ ist eine quadratische Funktion.",
+                "Schritt 2: Anwendung der Integrationsregeln\nFür jeden Summanden $ax^n$ gilt: $\\int ax^n \\, dx = \\frac{a}{n+1}x^{n+1} + C$",
+                "Schritt 3: Berechnung der Stammfunktion\n$F(x) = \\frac{1}{3}x^3 + x^2 + x + C$\nErklärung: Wir integrieren jeden Summanden einzeln.",
+                "Schritt 4: Einsetzen der Grenzen\n$\\int_{-1}^{1} (x^2 + 2x + 1) \\, dx = F(1) - F(-1)$\n$= (\\frac{1}{3} + 1 + 1) - (-\\frac{1}{3} + 1 - 1) = \\frac{7}{3} - (-\\frac{1}{3}) = \\frac{8}{3}$",
+                "Schritt 5: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(\\frac{1}{3}x^3 + x^2 + x) = x^2 + 2x + 1$",
+                "Schritt 6: Zusammenfassung\nDas bestimmte Integral ist $\\frac{8}{3}$."
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Integralrechnung",
+            "title": "Bestimmtes Integral einer Logarithmusfunktion",
+            "description": "Berechnen Sie das bestimmte Integral $\\int_{1}^{e} \\frac{1}{x} \\, dx$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion $f(x) = \\frac{1}{x}$ ist die Ableitung des natürlichen Logarithmus.",
+                "Schritt 2: Anwendung der Integrationsregel\nFür $f(x) = \\frac{1}{x}$ gilt: $\\int \\frac{1}{x} \\, dx = \\ln|x| + C$",
+                "Schritt 3: Berechnung der Stammfunktion\n$F(x) = \\ln|x| + C$\nErklärung: Die Stammfunktion von 1/x ist der natürliche Logarithmus.",
+                "Schritt 4: Einsetzen der Grenzen\n$\\int_{1}^{e} \\frac{1}{x} \\, dx = F(e) - F(1)$\n$= \\ln(e) - \\ln(1) = 1 - 0 = 1$",
+                "Schritt 5: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(\\ln|x|) = \\frac{1}{x}$",
+                "Schritt 6: Zusammenfassung\nDas bestimmte Integral ist 1."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Integralrechnung",
             "title": "Partielle Integration",
             "description": "Berechnen Sie das Integral $\\int x^2\\ln(x)dx$.",
             "difficulty": "medium",
@@ -15,7 +144,7 @@
             ]
         },
         {
-            "id": 2,
+            "id": 10,
             "topic": "Integralrechnung",
             "title": "Substitutionsmethode",
             "description": "Berechnen Sie das Integral $\\int \\frac{\\sin(\\sqrt{x})}{\\sqrt{x}}dx$.",
@@ -29,7 +158,7 @@
             ]
         },
         {
-            "id": 3,
+            "id": 11,
             "topic": "Integralrechnung",
             "title": "Uneigentliche Integrale",
             "description": "Untersuchen Sie die Konvergenz des uneigentlichen Integrals $\\int_0^\\infty \\frac{x}{1+x^4}dx$.",
@@ -43,7 +172,7 @@
             ]
         },
         {
-            "id": 4,
+            "id": 12,
             "topic": "Integralrechnung",
             "title": "Flächenberechnung",
             "description": "Berechnen Sie die Fläche zwischen den Kurven $y = x^2$ und $y = 2x - x^2$.",
@@ -57,7 +186,7 @@
             ]
         },
         {
-            "id": 5,
+            "id": 13,
             "topic": "Integralrechnung",
             "title": "Volumenberechnung",
             "description": "Berechnen Sie das Volumen des Rotationskörpers, der durch Rotation der Kurve $y = \\sqrt{x}$ um die $x$-Achse im Intervall $[0,4]$ entsteht.",
@@ -68,6 +197,279 @@
                 "Schritt 2: Integration\n$= \\pi [\\frac{x^2}{2}]_0^4$",
                 "Schritt 3: Berechnung\n$= \\pi (\\frac{16}{2} - 0) = 8\\pi$",
                 "Schritt 4: Einheiten\nDas Volumen beträgt $8\\pi$ Volumeneinheiten."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Integralrechnung",
+            "title": "Integration durch Substitution mit trigonometrischer Funktion",
+            "description": "Berechnen Sie das Integral $\\int \\frac{\\cos x}{\\sqrt{\\sin x + 1}} \\, dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion enthält eine trigonometrische Funktion im Nenner und deren Ableitung im Zähler.",
+                "Schritt 2: Substitution\n$u = \\sin x + 1 \\Rightarrow du = \\cos x \\, dx$\nErklärung: Wir wählen die Substitution so, dass der Nenner vereinfacht wird.",
+                "Schritt 3: Umformung des Integrals\n$\\int \\frac{\\cos x}{\\sqrt{\\sin x + 1}} \\, dx = \\int \\frac{1}{\\sqrt{u}} \\, du$\nErklärung: Durch die Substitution vereinfacht sich das Integral.",
+                "Schritt 4: Integration\n$= 2\\sqrt{u} + C$\nErklärung: Wir wenden die Potenzregel für n = -1/2 an.",
+                "Schritt 5: Rücksubstitution\n$= 2\\sqrt{\\sin x + 1} + C$\nErklärung: Wir setzen u wieder ein.",
+                "Schritt 6: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(2\\sqrt{\\sin x + 1}) = \\frac{\\cos x}{\\sqrt{\\sin x + 1}}$",
+                "Schritt 7: Zusammenfassung\nDie Stammfunktion ist $2\\sqrt{\\sin x + 1} + C$."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Integralrechnung",
+            "title": "Partielle Integration mit Exponentialfunktion",
+            "description": "Berechnen Sie das Integral $\\int x^2 e^x \\, dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion ist ein Produkt aus Polynom und Exponentialfunktion.",
+                "Schritt 2: Partielle Integration\n$u = x^2 \\Rightarrow u' = 2x$\n$v' = e^x \\Rightarrow v = e^x$\nErklärung: Wir wählen das Polynom als u, da es sich durch Ableitung vereinfacht.",
+                "Schritt 3: Anwendung der Formel\n$\\int x^2 e^x \\, dx = x^2 e^x - \\int 2x e^x \\, dx$\nErklärung: Wir wenden die Formel für partielle Integration an.",
+                "Schritt 4: Zweite partielle Integration\n$u = 2x \\Rightarrow u' = 2$\n$v' = e^x \\Rightarrow v = e^x$\n$= x^2 e^x - (2x e^x - \\int 2 e^x \\, dx)$",
+                "Schritt 5: Vereinfachung\n$= x^2 e^x - 2x e^x + 2 e^x + C$\n$= e^x(x^2 - 2x + 2) + C$\nErklärung: Wir fassen die Terme zusammen.",
+                "Schritt 6: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(e^x(x^2 - 2x + 2)) = x^2 e^x$",
+                "Schritt 7: Zusammenfassung\nDie Stammfunktion ist $e^x(x^2 - 2x + 2) + C$."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Integralrechnung",
+            "title": "Integration einer rationalen Funktion",
+            "description": "Berechnen Sie das Integral $\\int \\frac{x^2 + 2x + 1}{x^2 + 1} \\, dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion ist eine unechte rationale Funktion.",
+                "Schritt 2: Polynomdivision\n$\\frac{x^2 + 2x + 1}{x^2 + 1} = 1 + \\frac{2x}{x^2 + 1}$\nErklärung: Wir führen eine Polynomdivision durch.",
+                "Schritt 3: Aufspaltung des Integrals\n$\\int \\frac{x^2 + 2x + 1}{x^2 + 1} \\, dx = \\int 1 \\, dx + \\int \\frac{2x}{x^2 + 1} \\, dx$\nErklärung: Wir spalten das Integral in zwei Teile auf.",
+                "Schritt 4: Integration\n$= x + \\ln(x^2 + 1) + C$\nErklärung: Der erste Teil ist trivial, der zweite Teil wird durch Substitution gelöst.",
+                "Schritt 5: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(x + \\ln(x^2 + 1)) = 1 + \\frac{2x}{x^2 + 1}$",
+                "Schritt 6: Zusammenfassung\nDie Stammfunktion ist $x + \\ln(x^2 + 1) + C$."
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Integralrechnung",
+            "title": "Integration mit trigonometrischer Substitution",
+            "description": "Berechnen Sie das Integral $\\int \\frac{1}{\\sqrt{4 - x^2}} \\, dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion enthält einen Wurzelausdruck mit quadratischem Term.",
+                "Schritt 2: Trigonometrische Substitution\n$x = 2\\sin t \\Rightarrow dx = 2\\cos t \\, dt$\nErklärung: Wir wählen eine Substitution, die den Wurzelausdruck vereinfacht.",
+                "Schritt 3: Umformung\n$\\int \\frac{1}{\\sqrt{4 - x^2}} \\, dx = \\int \\frac{2\\cos t}{\\sqrt{4 - 4\\sin^2 t}} \\, dt$\n$= \\int \\frac{2\\cos t}{2\\cos t} \\, dt = \\int 1 \\, dt$",
+                "Schritt 4: Integration\n$= t + C$\nErklärung: Das vereinfachte Integral ist trivial.",
+                "Schritt 5: Rücksubstitution\n$= \\arcsin(\\frac{x}{2}) + C$\nErklärung: Wir setzen t wieder ein.",
+                "Schritt 6: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(\\arcsin(\\frac{x}{2})) = \\frac{1}{\\sqrt{4 - x^2}}$",
+                "Schritt 7: Zusammenfassung\nDie Stammfunktion ist $\\arcsin(\\frac{x}{2}) + C$."
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Integralrechnung",
+            "title": "Integration einer Produktfunktion",
+            "description": "Berechnen Sie das Integral $\\int x \\sin(2x) \\, dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion ist ein Produkt aus linearer und trigonometrischer Funktion.",
+                "Schritt 2: Partielle Integration\n$u = x \\Rightarrow u' = 1$\n$v' = \\sin(2x) \\Rightarrow v = -\\frac{1}{2}\\cos(2x)$\nErklärung: Wir wählen das Polynom als u, da es sich durch Ableitung vereinfacht.",
+                "Schritt 3: Anwendung der Formel\n$\\int x \\sin(2x) \\, dx = -\\frac{x}{2}\\cos(2x) - \\int -\\frac{1}{2}\\cos(2x) \\, dx$\nErklärung: Wir wenden die Formel für partielle Integration an.",
+                "Schritt 4: Vereinfachung\n$= -\\frac{x}{2}\\cos(2x) + \\frac{1}{2}\\int \\cos(2x) \\, dx$\n$= -\\frac{x}{2}\\cos(2x) + \\frac{1}{4}\\sin(2x) + C$\nErklärung: Wir integrieren den verbleibenden Term.",
+                "Schritt 5: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(-\\frac{x}{2}\\cos(2x) + \\frac{1}{4}\\sin(2x)) = x\\sin(2x)$",
+                "Schritt 6: Zusammenfassung\nDie Stammfunktion ist $-\\frac{x}{2}\\cos(2x) + \\frac{1}{4}\\sin(2x) + C$."
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Integralrechnung",
+            "title": "Integration einer Wurzelfunktion mit Substitution",
+            "description": "Berechnen Sie das Integral $\\int \\frac{x}{\\sqrt{x^2 + 4}} \\, dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion enthält einen Wurzelausdruck im Nenner und dessen Ableitung im Zähler.",
+                "Schritt 2: Substitution\n$u = x^2 + 4 \\Rightarrow du = 2x \\, dx$\n$\\frac{1}{2}du = x \\, dx$\nErklärung: Wir wählen die Substitution so, dass der Nenner vereinfacht wird.",
+                "Schritt 3: Umformung des Integrals\n$\\int \\frac{x}{\\sqrt{x^2 + 4}} \\, dx = \\frac{1}{2}\\int \\frac{1}{\\sqrt{u}} \\, du$\nErklärung: Durch die Substitution vereinfacht sich das Integral.",
+                "Schritt 4: Integration\n$= \\sqrt{u} + C$\nErklärung: Wir wenden die Potenzregel für n = -1/2 an.",
+                "Schritt 5: Rücksubstitution\n$= \\sqrt{x^2 + 4} + C$\nErklärung: Wir setzen u wieder ein.",
+                "Schritt 6: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(\\sqrt{x^2 + 4}) = \\frac{x}{\\sqrt{x^2 + 4}}$",
+                "Schritt 7: Zusammenfassung\nDie Stammfunktion ist $\\sqrt{x^2 + 4} + C$."
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Integralrechnung",
+            "title": "Integration einer Logarithmusfunktion",
+            "description": "Berechnen Sie das Integral $\\int \\ln(x^2 + 1) \\, dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion ist eine Logarithmusfunktion mit quadratischem Argument.",
+                "Schritt 2: Partielle Integration\n$u = \\ln(x^2 + 1) \\Rightarrow u' = \\frac{2x}{x^2 + 1}$\n$v' = 1 \\Rightarrow v = x$\nErklärung: Wir wählen den Logarithmus als u, da seine Ableitung einfacher ist.",
+                "Schritt 3: Anwendung der Formel\n$\\int \\ln(x^2 + 1) \\, dx = x\\ln(x^2 + 1) - \\int \\frac{2x^2}{x^2 + 1} \\, dx$\nErklärung: Wir wenden die Formel für partielle Integration an.",
+                "Schritt 4: Vereinfachung des zweiten Integrals\n$\\frac{2x^2}{x^2 + 1} = 2 - \\frac{2}{x^2 + 1}$\n$= x\\ln(x^2 + 1) - 2x + 2\\arctan(x) + C$\nErklärung: Wir spalten den Bruch auf und integrieren.",
+                "Schritt 5: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(x\\ln(x^2 + 1) - 2x + 2\\arctan(x)) = \\ln(x^2 + 1)$",
+                "Schritt 6: Zusammenfassung\nDie Stammfunktion ist $x\\ln(x^2 + 1) - 2x + 2\\arctan(x) + C$."
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Integralrechnung",
+            "title": "Integration einer Exponentialfunktion mit trigonometrischem Argument",
+            "description": "Berechnen Sie das Integral $\\int e^x \\sin x \\, dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion ist ein Produkt aus Exponential- und trigonometrischer Funktion.",
+                "Schritt 2: Partielle Integration\n$u = e^x \\Rightarrow u' = e^x$\n$v' = \\sin x \\Rightarrow v = -\\cos x$\nErklärung: Wir wählen die Exponentialfunktion als u.",
+                "Schritt 3: Anwendung der Formel\n$\\int e^x \\sin x \\, dx = -e^x\\cos x + \\int e^x\\cos x \\, dx$\nErklärung: Wir wenden die Formel für partielle Integration an.",
+                "Schritt 4: Zweite partielle Integration\n$u = e^x \\Rightarrow u' = e^x$\n$v' = \\cos x \\Rightarrow v = \\sin x$\n$= -e^x\\cos x + e^x\\sin x - \\int e^x\\sin x \\, dx$",
+                "Schritt 5: Auflösen nach dem gesuchten Integral\n$2\\int e^x\\sin x \\, dx = e^x(\\sin x - \\cos x) + C$\n$\\int e^x\\sin x \\, dx = \\frac{e^x}{2}(\\sin x - \\cos x) + C$\nErklärung: Wir lösen die Gleichung nach dem gesuchten Integral auf.",
+                "Schritt 6: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(\\frac{e^x}{2}(\\sin x - \\cos x)) = e^x\\sin x$",
+                "Schritt 7: Zusammenfassung\nDie Stammfunktion ist $\\frac{e^x}{2}(\\sin x - \\cos x) + C$."
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Integralrechnung",
+            "title": "Integration einer komplexen rationalen Funktion",
+            "description": "Berechnen Sie das Integral $\\int \\frac{x^4 + 2x^3 + 3x^2 + 4x + 5}{(x^2 + 1)(x^2 + 2x + 2)} \\, dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion ist eine komplexe rationale Funktion mit quadratischen Faktoren im Nenner.",
+                "Schritt 2: Partialbruchzerlegung\n$\\frac{x^4 + 2x^3 + 3x^2 + 4x + 5}{(x^2 + 1)(x^2 + 2x + 2)} = \\frac{Ax + B}{x^2 + 1} + \\frac{Cx + D}{x^2 + 2x + 2}$\nErklärung: Wir zerlegen den Bruch in Partialbrüche.",
+                "Schritt 3: Bestimmung der Koeffizienten\nDurch Koeffizientenvergleich erhalten wir:\n$A = 1, B = 2, C = 0, D = 1$",
+                "Schritt 4: Aufspaltung des Integrals\n$\\int \\frac{x^4 + 2x^3 + 3x^2 + 4x + 5}{(x^2 + 1)(x^2 + 2x + 2)} \\, dx = \\int \\frac{x + 2}{x^2 + 1} \\, dx + \\int \\frac{1}{x^2 + 2x + 2} \\, dx$\nErklärung: Wir integrieren jeden Partialbruch einzeln.",
+                "Schritt 5: Integration der Partialbrüche\n$= \\frac{1}{2}\\ln(x^2 + 1) + 2\\arctan(x) + \\arctan(x + 1) + C$\nErklärung: Wir verwenden verschiedene Integrationstechniken für jeden Term.",
+                "Schritt 6: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(\\frac{1}{2}\\ln(x^2 + 1) + 2\\arctan(x) + \\arctan(x + 1)) = \\frac{x^4 + 2x^3 + 3x^2 + 4x + 5}{(x^2 + 1)(x^2 + 2x + 2)}$",
+                "Schritt 7: Zusammenfassung\nDie Stammfunktion ist $\\frac{1}{2}\\ln(x^2 + 1) + 2\\arctan(x) + \\arctan(x + 1) + C$."
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Integralrechnung",
+            "title": "Integration einer trigonometrischen Funktion mit mehrfacher Substitution",
+            "description": "Berechnen Sie das Integral $\\int \\frac{\\sin^3 x}{\\cos^4 x} \\, dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion ist eine komplexe trigonometrische Funktion mit Potenzen.",
+                "Schritt 2: Umformung\n$\\frac{\\sin^3 x}{\\cos^4 x} = \\frac{\\sin^2 x \\cdot \\sin x}{\\cos^4 x} = \\frac{(1 - \\cos^2 x)\\sin x}{\\cos^4 x}$\nErklärung: Wir nutzen die trigonometrische Identität $\\sin^2 x = 1 - \\cos^2 x$.",
+                "Schritt 3: Substitution\n$u = \\cos x \\Rightarrow du = -\\sin x \\, dx$\n$\\int \\frac{(1 - u^2)(-du)}{u^4} = -\\int \\frac{1 - u^2}{u^4} \\, du$\nErklärung: Wir substituieren $\\cos x$ durch $u$.",
+                "Schritt 4: Vereinfachung\n$= -\\int (\\frac{1}{u^4} - \\frac{1}{u^2}) \\, du = -(-\\frac{1}{3u^3} + \\frac{1}{u}) + C$\nErklärung: Wir spalten das Integral auf und integrieren jeden Term.",
+                "Schritt 5: Rücksubstitution\n$= \\frac{1}{3\\cos^3 x} - \\frac{1}{\\cos x} + C = \\frac{1}{3}\\sec^3 x - \\sec x + C$\nErklärung: Wir setzen $u$ wieder ein und drücken das Ergebnis in Sekanten aus.",
+                "Schritt 6: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(\\frac{1}{3}\\sec^3 x - \\sec x) = \\frac{\\sin^3 x}{\\cos^4 x}$",
+                "Schritt 7: Zusammenfassung\nDie Stammfunktion ist $\\frac{1}{3}\\sec^3 x - \\sec x + C$."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Integralrechnung",
+            "title": "Integration einer Exponentialfunktion mit komplexem Argument",
+            "description": "Berechnen Sie das Integral $\\int e^{\\sin x} \\cos x \\, dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion ist eine Exponentialfunktion mit trigonometrischem Argument.",
+                "Schritt 2: Substitution\n$u = \\sin x \\Rightarrow du = \\cos x \\, dx$\nErklärung: Wir substituieren den Exponenten der Exponentialfunktion.",
+                "Schritt 3: Umformung\n$\\int e^{\\sin x} \\cos x \\, dx = \\int e^u \\, du$\nErklärung: Durch die Substitution vereinfacht sich das Integral.",
+                "Schritt 4: Integration\n$= e^u + C$\nErklärung: Die Integration der Exponentialfunktion ist trivial.",
+                "Schritt 5: Rücksubstitution\n$= e^{\\sin x} + C$\nErklärung: Wir setzen $u$ wieder ein.",
+                "Schritt 6: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(e^{\\sin x}) = e^{\\sin x} \\cos x$",
+                "Schritt 7: Zusammenfassung\nDie Stammfunktion ist $e^{\\sin x} + C$."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Integralrechnung",
+            "title": "Integration einer Wurzelfunktion mit trigonometrischer Substitution",
+            "description": "Berechnen Sie das Integral $\\int \\sqrt{x^2 - 4} \\, dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion enthält einen Wurzelausdruck mit quadratischem Term.",
+                "Schritt 2: Trigonometrische Substitution\n$x = 2\\sec t \\Rightarrow dx = 2\\sec t \\tan t \\, dt$\nErklärung: Wir wählen eine Substitution, die den Wurzelausdruck vereinfacht.",
+                "Schritt 3: Umformung\n$\\int \\sqrt{x^2 - 4} \\, dx = \\int \\sqrt{4\\sec^2 t - 4} \\cdot 2\\sec t \\tan t \\, dt$\n$= 2\\int \\sqrt{\\sec^2 t - 1} \\cdot \\sec t \\tan t \\, dt = 2\\int \\tan t \\cdot \\sec t \\tan t \\, dt$\nErklärung: Wir vereinfachen den Wurzelausdruck.",
+                "Schritt 4: Integration\n$= 2\\int \\sec t \\tan^2 t \\, dt = 2\\int \\sec t (\\sec^2 t - 1) \\, dt$\n$= 2\\int (\\sec^3 t - \\sec t) \\, dt$\nErklärung: Wir spalten das Integral auf.",
+                "Schritt 5: Berechnung\n$= 2(\\frac{1}{2}\\sec t \\tan t + \\frac{1}{2}\\ln|\\sec t + \\tan t| - \\ln|\\sec t + \\tan t|) + C$\n$= \\sec t \\tan t - \\ln|\\sec t + \\tan t| + C$\nErklärung: Wir integrieren jeden Term einzeln.",
+                "Schritt 6: Rücksubstitution\n$= \\frac{x}{2}\\sqrt{x^2 - 4} - \\ln|x + \\sqrt{x^2 - 4}| + C$\nErklärung: Wir setzen t wieder ein und vereinfachen.",
+                "Schritt 7: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(\\frac{x}{2}\\sqrt{x^2 - 4} - \\ln|x + \\sqrt{x^2 - 4}|) = \\sqrt{x^2 - 4}$",
+                "Schritt 8: Zusammenfassung\nDie Stammfunktion ist $\\frac{x}{2}\\sqrt{x^2 - 4} - \\ln|x + \\sqrt{x^2 - 4}| + C$."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Integralrechnung",
+            "title": "Integration einer Logarithmusfunktion mit mehrfacher Substitution",
+            "description": "Berechnen Sie das Integral $\\int \\frac{\\ln(\\ln x)}{x \\ln x} \\, dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion enthält einen verschachtelten Logarithmus.",
+                "Schritt 2: Erste Substitution\n$u = \\ln x \\Rightarrow du = \\frac{1}{x} \\, dx$\nErklärung: Wir substituieren den äußeren Logarithmus.",
+                "Schritt 3: Umformung\n$\\int \\frac{\\ln(\\ln x)}{x \\ln x} \\, dx = \\int \\frac{\\ln u}{u} \\, du$\nErklärung: Durch die erste Substitution vereinfacht sich das Integral.",
+                "Schritt 4: Zweite Substitution\n$v = \\ln u \\Rightarrow dv = \\frac{1}{u} \\, du$\nErklärung: Wir substituieren den verbleibenden Logarithmus.",
+                "Schritt 5: Integration\n$\\int \\frac{\\ln u}{u} \\, du = \\int v \\, dv = \\frac{v^2}{2} + C$\nErklärung: Das vereinfachte Integral ist trivial.",
+                "Schritt 6: Rücksubstitution\n$= \\frac{(\\ln u)^2}{2} + C = \\frac{(\\ln(\\ln x))^2}{2} + C$\nErklärung: Wir setzen die Substitutionen in umgekehrter Reihenfolge ein.",
+                "Schritt 7: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(\\frac{(\\ln(\\ln x))^2}{2}) = \\frac{\\ln(\\ln x)}{x \\ln x}$",
+                "Schritt 8: Zusammenfassung\nDie Stammfunktion ist $\\frac{(\\ln(\\ln x))^2}{2} + C$."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Integralrechnung",
+            "title": "Integration einer komplexen trigonometrischen Funktion",
+            "description": "Berechnen Sie das Integral $\\int \\frac{\\sin^4 x}{\\cos^6 x} \\, dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion ist eine komplexe trigonometrische Funktion mit hohen Potenzen.",
+                "Schritt 2: Umformung\n$\\frac{\\sin^4 x}{\\cos^6 x} = \\frac{(\\sin^2 x)^2}{\\cos^6 x} = \\frac{(1 - \\cos^2 x)^2}{\\cos^6 x}$\nErklärung: Wir nutzen die trigonometrische Identität $\\sin^2 x = 1 - \\cos^2 x$.",
+                "Schritt 3: Vereinfachung\n$= \\frac{1 - 2\\cos^2 x + \\cos^4 x}{\\cos^6 x} = \\frac{1}{\\cos^6 x} - \\frac{2}{\\cos^4 x} + \\frac{1}{\\cos^2 x}$\nErklärung: Wir entwickeln den Zähler und teilen durch den Nenner.",
+                "Schritt 4: Integration\n$= \\int \\sec^6 x \\, dx - 2\\int \\sec^4 x \\, dx + \\int \\sec^2 x \\, dx$\nErklärung: Wir spalten das Integral in drei Teile auf.",
+                "Schritt 5: Berechnung\n$= \\frac{1}{5}\\sec^5 x \\tan x + \\frac{4}{5}\\int \\sec^4 x \\, dx - 2\\int \\sec^4 x \\, dx + \\tan x + C$\nErklärung: Wir integrieren jeden Term einzeln.",
+                "Schritt 6: Vereinfachung\n$= \\frac{1}{5}\\sec^5 x \\tan x - \\frac{6}{5}\\int \\sec^4 x \\, dx + \\tan x + C$\n$= \\frac{1}{5}\\sec^5 x \\tan x - \\frac{6}{5}(\\frac{1}{3}\\sec^3 x \\tan x + \\frac{2}{3}\\int \\sec^2 x \\, dx) + \\tan x + C$\n$= \\frac{1}{5}\\sec^5 x \\tan x - \\frac{2}{5}\\sec^3 x \\tan x - \\frac{4}{5}\\tan x + \\tan x + C$\n$= \\frac{1}{5}\\sec^5 x \\tan x - \\frac{2}{5}\\sec^3 x \\tan x + \\frac{1}{5}\\tan x + C$\nErklärung: Wir vereinfachen die Terme.",
+                "Schritt 7: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(\\frac{1}{5}\\sec^5 x \\tan x - \\frac{2}{5}\\sec^3 x \\tan x + \\frac{1}{5}\\tan x) = \\frac{\\sin^4 x}{\\cos^6 x}$",
+                "Schritt 8: Zusammenfassung\nDie Stammfunktion ist $\\frac{1}{5}\\sec^5 x \\tan x - \\frac{2}{5}\\sec^3 x \\tan x + \\frac{1}{5}\\tan x + C$."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Integralrechnung",
+            "title": "Integration einer komplexen Exponentialfunktion",
+            "description": "Berechnen Sie das Integral $\\int e^{x^2} x \\, dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion ist eine Exponentialfunktion mit quadratischem Argument.",
+                "Schritt 2: Substitution\n$u = x^2 \\Rightarrow du = 2x \\, dx$\n$\\frac{1}{2}du = x \\, dx$\nErklärung: Wir substituieren das Argument der Exponentialfunktion.",
+                "Schritt 3: Umformung\n$\\int e^{x^2} x \\, dx = \\frac{1}{2}\\int e^u \\, du$\nErklärung: Durch die Substitution vereinfacht sich das Integral.",
+                "Schritt 4: Integration\n$= \\frac{1}{2}e^u + C$\nErklärung: Die Integration der Exponentialfunktion ist trivial.",
+                "Schritt 5: Rücksubstitution\n$= \\frac{1}{2}e^{x^2} + C$\nErklärung: Wir setzen $u$ wieder ein.",
+                "Schritt 6: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(\\frac{1}{2}e^{x^2}) = e^{x^2} x$",
+                "Schritt 7: Zusammenfassung\nDie Stammfunktion ist $\\frac{1}{2}e^{x^2} + C$."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Integralrechnung",
+            "title": "Integration einer komplexen Wurzelfunktion",
+            "description": "Berechnen Sie das Integral $\\int \\frac{\\sqrt{x^2 + 1}}{x} \\, dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Integranden\nDie Funktion enthält einen Wurzelausdruck im Zähler und eine Variable im Nenner.",
+                "Schritt 2: Substitution\n$u = \\sqrt{x^2 + 1} \\Rightarrow u^2 = x^2 + 1$\n$2u \\, du = 2x \\, dx \\Rightarrow x \\, dx = u \\, du$\nErklärung: Wir substituieren den Wurzelausdruck.",
+                "Schritt 3: Umformung\n$\\int \\frac{\\sqrt{x^2 + 1}}{x} \\, dx = \\int \\frac{u}{\\sqrt{u^2 - 1}} \\, du$\nErklärung: Durch die Substitution vereinfacht sich das Integral.",
+                "Schritt 4: Zweite Substitution\n$v = u^2 - 1 \\Rightarrow dv = 2u \\, du$\n$\\frac{1}{2}dv = u \\, du$\nErklärung: Wir substituieren den Nenner.",
+                "Schritt 5: Integration\n$\\int \\frac{u}{\\sqrt{u^2 - 1}} \\, du = \\frac{1}{2}\\int \\frac{1}{\\sqrt{v}} \\, dv = \\sqrt{v} + C$\nErklärung: Das vereinfachte Integral ist trivial.",
+                "Schritt 6: Rücksubstitution\n$= \\sqrt{u^2 - 1} + C = \\sqrt{x^2} + C = |x| + C$\nErklärung: Wir setzen die Substitutionen in umgekehrter Reihenfolge ein.",
+                "Schritt 7: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(|x|) = \\frac{\\sqrt{x^2 + 1}}{x}$",
+                "Schritt 8: Zusammenfassung\nDie Stammfunktion ist $|x| + C$."
             ]
         }
     ]

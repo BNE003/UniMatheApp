@@ -26,7 +26,7 @@ struct ProFeaturesView: View {
                 // Feature-Liste
                 VStack(alignment: .leading, spacing: 12) {
                     FeatureRow(icon: "checkmark.seal.fill", text: "Alle interaktiven Lektionen freischalten")
-                    FeatureRow(icon: "checkmark.seal.fill", text: "Vollen Zugriff auf über 200 Aufgaben ")
+                    FeatureRow(icon: "checkmark.seal.fill", text: "Vollen Zugriff auf über 300 Aufgaben ")
                     FeatureRow(icon: "checkmark.seal.fill", text: "Detalierte Lösungschritte")
                     FeatureRow(icon: "checkmark.seal.fill", text: "Unterstütze die Weiterentwicklung")
                 }

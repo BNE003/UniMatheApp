@@ -3,71 +3,399 @@
         {
             "id": 1,
             "topic": "Differentialrechnung",
-            "title": "Ableitungsregeln",
-            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\frac{\\sin(x^2)}{\\ln(x)}$ für $x > 0, x \\neq 1$.",
-            "difficulty": "medium",
-            "points": 8,
+            "title": "Ableitung einer Polynomfunktion",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = 3x^4 - 2x^3 + 5x^2 - 7x + 2$.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Quotientenregel\n$f'(x) = \\frac{\\ln(x) \\cdot \\frac{d}{dx}(\\sin(x^2)) - \\sin(x^2) \\cdot \\frac{d}{dx}(\\ln(x))}{(\\ln(x))^2}$",
-                "Schritt 2: Kettenregel für $\\sin(x^2)$\n$\\frac{d}{dx}(\\sin(x^2)) = \\cos(x^2) \\cdot 2x$",
-                "Schritt 3: Ableitung von $\\ln(x)$\n$\\frac{d}{dx}(\\ln(x)) = \\frac{1}{x}$",
-                "Schritt 4: Zusammenfassung\n$f'(x) = \\frac{2x\\ln(x)\\cos(x^2) - \\frac{\\sin(x^2)}{x}}{(\\ln(x))^2}$"
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = 3x^4 - 2x^3 + 5x^2 - 7x + 2$ ist ein Polynom 4. Grades.",
+                "Schritt 2: Anwendung der Potenzregel\nFür jeden Summanden $ax^n$ gilt: $(ax^n)' = n \\cdot ax^{n-1}$",
+                "Schritt 3: Ableitung berechnen\n$f'(x) = 4 \\cdot 3x^3 - 3 \\cdot 2x^2 + 2 \\cdot 5x - 7 + 0$\nErklärung: Wir wenden die Potenzregel auf jeden Summanden an.",
+                "Schritt 4: Vereinfachung\n$f'(x) = 12x^3 - 6x^2 + 10x - 7$\nErklärung: Wir führen die Multiplikationen aus.",
+                "Schritt 5: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 1:\n$f(1) = 3 - 2 + 5 - 7 + 2 = 1$\n$f'(1) = 12 - 6 + 10 - 7 = 9$\nDie Steigung der Tangente bei x = 1 ist 9.",
+                "Schritt 6: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = 12x^3 - 6x^2 + 10x - 7$."
             ]
         },
         {
             "id": 2,
             "topic": "Differentialrechnung",
-            "title": "Implizite Differentiation",
-            "description": "Bestimmen Sie $\\frac{dy}{dx}$ für die implizite Funktion $x^2y + y^3 = \\sin(xy)$.",
-            "difficulty": "hard",
-            "points": 12,
+            "title": "Ableitung einer Wurzelfunktion",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\sqrt{x}$.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Ableitung beider Seiten\n$\\frac{d}{dx}(x^2y + y^3) = \\frac{d}{dx}(\\sin(xy))$",
-                "Schritt 2: Produktregel und Kettenregel\n$2xy + x^2y' + 3y^2y' = \\cos(xy)(y + xy')$",
-                "Schritt 3: Auflösen nach $y'$\n$y'(x^2 + 3y^2 - x\\cos(xy)) = -2xy + y\\cos(xy)$",
-                "Schritt 4: Lösung\n$y' = \\frac{-2xy + y\\cos(xy)}{x^2 + 3y^2 - x\\cos(xy)}$"
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = \\sqrt{x}$ kann auch als $f(x) = x^{\\frac{1}{2}}$ geschrieben werden.",
+                "Schritt 2: Anwendung der Potenzregel\nFür $f(x) = x^n$ gilt: $f'(x) = n \\cdot x^{n-1}$",
+                "Schritt 3: Ableitung berechnen\n$f'(x) = \\frac{1}{2} \\cdot x^{-\\frac{1}{2}}$\nErklärung: Wir wenden die Potenzregel mit n = 1/2 an.",
+                "Schritt 4: Umformung\n$f'(x) = \\frac{1}{2\\sqrt{x}}$\nErklärung: Wir formen den negativen Exponenten in einen Bruch um.",
+                "Schritt 5: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 4:\n$f(4) = \\sqrt{4} = 2$\n$f'(4) = \\frac{1}{2\\sqrt{4}} = \\frac{1}{4}$\nDie Steigung der Tangente bei x = 4 ist 1/4.",
+                "Schritt 6: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = \\frac{1}{2\\sqrt{x}}$."
             ]
         },
         {
             "id": 3,
             "topic": "Differentialrechnung",
-            "title": "Extremwertaufgaben",
-            "description": "Finden Sie die lokalen Extrema der Funktion $f(x) = x^3e^{-x}$ und bestimmen Sie deren Art.",
-            "difficulty": "medium",
-            "points": 10,
+            "title": "Ableitung einer Exponentialfunktion",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = e^x$.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Erste Ableitung\n$f'(x) = 3x^2e^{-x} - x^3e^{-x} = x^2e^{-x}(3-x)$",
-                "Schritt 2: Kritische Punkte\n$f'(x) = 0 \\Rightarrow x = 0$ oder $x = 3$",
-                "Schritt 3: Zweite Ableitung\n$f''(x) = (6x-6x^2+x^3)e^{-x}$",
-                "Schritt 4: Art der Extrema\n$f''(0) = 0$ (keine Aussage möglich)\n$f''(3) = -9e^{-3} < 0$ (Maximum bei $x=3$)"
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = e^x$ ist die natürliche Exponentialfunktion.",
+                "Schritt 2: Anwendung der Ableitungsregel\nFür $f(x) = e^x$ gilt: $f'(x) = e^x$\nErklärung: Die Ableitung der Exponentialfunktion ist die Funktion selbst.",
+                "Schritt 3: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 0:\n$f(0) = e^0 = 1$\n$f'(0) = e^0 = 1$\nDie Steigung der Tangente bei x = 0 ist 1.",
+                "Schritt 4: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = e^x$."
             ]
         },
         {
             "id": 4,
             "topic": "Differentialrechnung",
-            "title": "Taylor-Reihen",
-            "description": "Entwickeln Sie die Funktion $f(x) = \\sqrt{1+x}$ in eine Taylor-Reihe um $x_0 = 0$ bis zur Ordnung 3.",
-            "difficulty": "hard",
-            "points": 15,
+            "title": "Ableitung einer trigonometrischen Funktion",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\sin x$.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Ableitungen\n$f(x) = (1+x)^{1/2}$\n$f'(x) = \\frac{1}{2}(1+x)^{-1/2}$\n$f''(x) = -\\frac{1}{4}(1+x)^{-3/2}$\n$f'''(x) = \\frac{3}{8}(1+x)^{-5/2}$",
-                "Schritt 2: Funktionswerte bei $x=0$\n$f(0) = 1$\n$f'(0) = \\frac{1}{2}$\n$f''(0) = -\\frac{1}{4}$\n$f'''(0) = \\frac{3}{8}$",
-                "Schritt 3: Taylor-Polynom\n$T_3(x) = 1 + \\frac{1}{2}x - \\frac{1}{8}x^2 + \\frac{1}{16}x^3$",
-                "Schritt 4: Restglied\n$R_3(x) = \\frac{f^{(4)}(\\xi)}{4!}x^4$ mit $\\xi$ zwischen 0 und $x$"
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = \\sin x$ ist die Sinusfunktion.",
+                "Schritt 2: Anwendung der Ableitungsregel\nFür $f(x) = \\sin x$ gilt: $f'(x) = \\cos x$\nErklärung: Die Ableitung der Sinusfunktion ist die Kosinusfunktion.",
+                "Schritt 3: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 0:\n$f(0) = \\sin 0 = 0$\n$f'(0) = \\cos 0 = 1$\nDie Steigung der Tangente bei x = 0 ist 1.",
+                "Schritt 4: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = \\cos x$."
             ]
         },
         {
             "id": 5,
             "topic": "Differentialrechnung",
-            "title": "Differentialgleichungen",
-            "description": "Lösen Sie die Differentialgleichung $y' + 2xy = x$ mit der Anfangsbedingung $y(0) = 1$.",
-            "difficulty": "hard",
-            "points": 15,
+            "title": "Ableitung einer Logarithmusfunktion",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\ln x$.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Integrierender Faktor\n$\\mu(x) = e^{\\int 2x dx} = e^{x^2}$",
-                "Schritt 2: Multiplikation\n$e^{x^2}y' + 2xe^{x^2}y = xe^{x^2}$",
-                "Schritt 3: Integration\n$e^{x^2}y = \\int xe^{x^2}dx = \\frac{1}{2}e^{x^2} + C$",
-                "Schritt 4: Lösung\n$y = \\frac{1}{2} + Ce^{-x^2}$\nMit $y(0) = 1$ folgt $C = \\frac{1}{2}$\nAlso $y = \\frac{1}{2}(1 + e^{-x^2})$"
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = \\ln x$ ist der natürliche Logarithmus.",
+                "Schritt 2: Anwendung der Ableitungsregel\nFür $f(x) = \\ln x$ gilt: $f'(x) = \\frac{1}{x}$\nErklärung: Die Ableitung des natürlichen Logarithmus ist der Kehrwert von x.",
+                "Schritt 3: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 1:\n$f(1) = \\ln 1 = 0$\n$f'(1) = \\frac{1}{1} = 1$\nDie Steigung der Tangente bei x = 1 ist 1.",
+                "Schritt 4: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = \\frac{1}{x}$."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung einer konstanten Funktion",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = 5$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = 5$ ist eine konstante Funktion.",
+                "Schritt 2: Anwendung der Ableitungsregel\nFür $f(x) = c$ gilt: $f'(x) = 0$\nErklärung: Die Ableitung einer konstanten Funktion ist immer 0.",
+                "Schritt 3: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 2:\n$f(2) = 5$\n$f'(2) = 0$\nDie Steigung der Tangente ist überall 0.",
+                "Schritt 4: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = 0$."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung einer linearen Funktion",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = 3x + 2$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = 3x + 2$ ist eine lineare Funktion.",
+                "Schritt 2: Anwendung der Ableitungsregeln\nFür $f(x) = ax + b$ gilt: $f'(x) = a$\nErklärung: Die Ableitung einer linearen Funktion ist der Koeffizient von x.",
+                "Schritt 3: Ableitung berechnen\n$f'(x) = 3$\nErklärung: Der Koeffizient von x ist 3.",
+                "Schritt 4: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 1:\n$f(1) = 3 \\cdot 1 + 2 = 5$\n$f'(1) = 3$\nDie Steigung der Tangente ist überall 3.",
+                "Schritt 5: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = 3$."
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung einer quadratischen Funktion",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = x^2 + 3x - 4$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = x^2 + 3x - 4$ ist eine quadratische Funktion.",
+                "Schritt 2: Anwendung der Potenzregel\nFür jeden Summanden $ax^n$ gilt: $(ax^n)' = n \\cdot ax^{n-1}$",
+                "Schritt 3: Ableitung berechnen\n$f'(x) = 2x + 3$\nErklärung: Wir wenden die Potenzregel auf jeden Summanden an.",
+                "Schritt 4: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 2:\n$f(2) = 4 + 6 - 4 = 6$\n$f'(2) = 4 + 3 = 7$\nDie Steigung der Tangente bei x = 2 ist 7.",
+                "Schritt 5: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = 2x + 3$."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung mit Produktregel",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = x^2 \\cdot e^x$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = x^2 \\cdot e^x$ ist ein Produkt aus $u(x) = x^2$ und $v(x) = e^x$.",
+                "Schritt 2: Anwendung der Produktregel\n$(u \\cdot v)' = u' \\cdot v + u \\cdot v'$\nErklärung: Die Produktregel besagt, dass die Ableitung eines Produkts die Summe der Ableitungen der Faktoren ist.",
+                "Schritt 3: Ableitungen der Faktoren\n$u'(x) = 2x$\n$v'(x) = e^x$\nErklärung: Wir berechnen die Ableitungen der einzelnen Faktoren.",
+                "Schritt 4: Einsetzen in die Produktregel\n$f'(x) = 2x \\cdot e^x + x^2 \\cdot e^x$\nErklärung: Wir setzen die Ableitungen in die Produktregel ein.",
+                "Schritt 5: Vereinfachung\n$f'(x) = e^x(2x + x^2)$\nErklärung: Wir klammern $e^x$ aus.",
+                "Schritt 6: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 1:\n$f(1) = 1 \\cdot e = e$\n$f'(1) = e(2 + 1) = 3e$\nDie Steigung der Tangente bei x = 1 ist 3e.",
+                "Schritt 7: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = e^x(2x + x^2)$."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung mit Quotientenregel",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\frac{x^2 + 1}{x - 1}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = \\frac{x^2 + 1}{x - 1}$ ist ein Quotient aus $u(x) = x^2 + 1$ und $v(x) = x - 1$.",
+                "Schritt 2: Anwendung der Quotientenregel\n$(\\frac{u}{v})' = \\frac{u' \\cdot v - u \\cdot v'}{v^2}$\nErklärung: Die Quotientenregel gibt die Ableitung eines Quotienten an.",
+                "Schritt 3: Ableitungen der Faktoren\n$u'(x) = 2x$\n$v'(x) = 1$\nErklärung: Wir berechnen die Ableitungen von Zähler und Nenner.",
+                "Schritt 4: Einsetzen in die Quotientenregel\n$f'(x) = \\frac{2x(x - 1) - (x^2 + 1) \\cdot 1}{(x - 1)^2}$\nErklärung: Wir setzen die Ableitungen in die Quotientenregel ein.",
+                "Schritt 5: Vereinfachung\n$f'(x) = \\frac{2x^2 - 2x - x^2 - 1}{(x - 1)^2} = \\frac{x^2 - 2x - 1}{(x - 1)^2}$\nErklärung: Wir multiplizieren aus und fassen zusammen.",
+                "Schritt 6: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 2:\n$f(2) = \\frac{5}{1} = 5$\n$f'(2) = \\frac{4 - 4 - 1}{1} = -1$\nDie Steigung der Tangente bei x = 2 ist -1.",
+                "Schritt 7: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = \\frac{x^2 - 2x - 1}{(x - 1)^2}$."
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung mit Kettenregel",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\sin(x^2)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = \\sin(x^2)$ ist eine Verkettung von $u(x) = \\sin x$ und $v(x) = x^2$.",
+                "Schritt 2: Anwendung der Kettenregel\n$(u \\circ v)' = u'(v(x)) \\cdot v'(x)$\nErklärung: Die Kettenregel gibt die Ableitung einer verketteten Funktion an.",
+                "Schritt 3: Ableitungen der Teilfunktionen\n$u'(x) = \\cos x$\n$v'(x) = 2x$\nErklärung: Wir berechnen die Ableitungen der inneren und äußeren Funktion.",
+                "Schritt 4: Einsetzen in die Kettenregel\n$f'(x) = \\cos(x^2) \\cdot 2x$\nErklärung: Wir setzen die Ableitungen in die Kettenregel ein.",
+                "Schritt 5: Vereinfachung\n$f'(x) = 2x \\cos(x^2)$\nErklärung: Wir ordnen die Faktoren.",
+                "Schritt 6: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 1:\n$f(1) = \\sin(1)$\n$f'(1) = 2 \\cdot \\cos(1)$\nDie Steigung der Tangente bei x = 1 ist $2\\cos(1)$.",
+                "Schritt 7: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = 2x \\cos(x^2)$."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung mit mehrfacher Verkettung",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\ln(\\sin x)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = \\ln(\\sin x)$ ist eine Verkettung von $u(x) = \\ln x$ und $v(x) = \\sin x$.",
+                "Schritt 2: Anwendung der Kettenregel\n$(u \\circ v)' = u'(v(x)) \\cdot v'(x)$\nErklärung: Die Kettenregel gibt die Ableitung einer verketteten Funktion an.",
+                "Schritt 3: Ableitungen der Teilfunktionen\n$u'(x) = \\frac{1}{x}$\n$v'(x) = \\cos x$\nErklärung: Wir berechnen die Ableitungen der inneren und äußeren Funktion.",
+                "Schritt 4: Einsetzen in die Kettenregel\n$f'(x) = \\frac{1}{\\sin x} \\cdot \\cos x$\nErklärung: Wir setzen die Ableitungen in die Kettenregel ein.",
+                "Schritt 5: Vereinfachung\n$f'(x) = \\frac{\\cos x}{\\sin x} = \\cot x$\nErklärung: Wir formen den Bruch in den Kotangens um.",
+                "Schritt 6: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = \\frac{\\pi}{4}:\n$f(\\frac{\\pi}{4}) = \\ln(\\frac{\\sqrt{2}}{2})$\n$f'(\\frac{\\pi}{4}) = \\cot(\\frac{\\pi}{4}) = 1$\nDie Steigung der Tangente bei x = \\frac{\\pi}{4} ist 1.",
+                "Schritt 7: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = \\cot x$."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung mit Produkt- und Kettenregel",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = x \\cdot \\ln(x^2)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = x \\cdot \\ln(x^2)$ ist ein Produkt aus $u(x) = x$ und $v(x) = \\ln(x^2)$.",
+                "Schritt 2: Anwendung der Produktregel\n$(u \\cdot v)' = u' \\cdot v + u \\cdot v'$\nErklärung: Wir beginnen mit der Produktregel.",
+                "Schritt 3: Ableitung des ersten Faktors\n$u'(x) = 1$\nErklärung: Die Ableitung von x ist 1.",
+                "Schritt 4: Ableitung des zweiten Faktors\n$v(x) = \\ln(x^2)$ ist eine Verkettung.\nMit der Kettenregel: $v'(x) = \\frac{1}{x^2} \\cdot 2x = \\frac{2}{x}$\nErklärung: Wir wenden die Kettenregel auf den Logarithmus an.",
+                "Schritt 5: Einsetzen in die Produktregel\n$f'(x) = 1 \\cdot \\ln(x^2) + x \\cdot \\frac{2}{x}$\nErklärung: Wir setzen die Ableitungen in die Produktregel ein.",
+                "Schritt 6: Vereinfachung\n$f'(x) = \\ln(x^2) + 2$\nErklärung: Wir vereinfachen den Ausdruck.",
+                "Schritt 7: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 1:\n$f(1) = 1 \\cdot \\ln(1) = 0$\n$f'(1) = \\ln(1) + 2 = 2$\nDie Steigung der Tangente bei x = 1 ist 2.",
+                "Schritt 8: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = \\ln(x^2) + 2$."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung mit Quotienten- und Kettenregel",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\frac{e^x}{\\sin x}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = \\frac{e^x}{\\sin x}$ ist ein Quotient aus $u(x) = e^x$ und $v(x) = \\sin x$.",
+                "Schritt 2: Anwendung der Quotientenregel\n$(\\frac{u}{v})' = \\frac{u' \\cdot v - u \\cdot v'}{v^2}$\nErklärung: Wir beginnen mit der Quotientenregel.",
+                "Schritt 3: Ableitungen der Faktoren\n$u'(x) = e^x$\n$v'(x) = \\cos x$\nErklärung: Wir berechnen die Ableitungen von Zähler und Nenner.",
+                "Schritt 4: Einsetzen in die Quotientenregel\n$f'(x) = \\frac{e^x \\cdot \\sin x - e^x \\cdot \\cos x}{\\sin^2 x}$\nErklärung: Wir setzen die Ableitungen in die Quotientenregel ein.",
+                "Schritt 5: Vereinfachung\n$f'(x) = \\frac{e^x(\\sin x - \\cos x)}{\\sin^2 x}$\nErklärung: Wir klammern $e^x$ aus.",
+                "Schritt 6: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = \\frac{\\pi}{4}:\n$f(\\frac{\\pi}{4}) = \\frac{e^{\\pi/4}}{\\frac{\\sqrt{2}}{2}}$\n$f'(\\frac{\\pi}{4}) = \\frac{e^{\\pi/4}(0)}{\\frac{1}{2}} = 0$\nDie Steigung der Tangente bei x = \\frac{\\pi}{4} ist 0.",
+                "Schritt 7: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = \\frac{e^x(\\sin x - \\cos x)}{\\sin^2 x}$."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung mit mehrfacher Produktregel",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = x^2 \\cdot e^x \\cdot \\sin x$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = x^2 \\cdot e^x \\cdot \\sin x$ ist ein Produkt aus drei Faktoren.",
+                "Schritt 2: Anwendung der Produktregel\n$(u \\cdot v \\cdot w)' = u' \\cdot v \\cdot w + u \\cdot v' \\cdot w + u \\cdot v \\cdot w'$\nErklärung: Wir erweitern die Produktregel auf drei Faktoren.",
+                "Schritt 3: Ableitungen der Faktoren\n$u'(x) = 2x$\n$v'(x) = e^x$\n$w'(x) = \\cos x$\nErklärung: Wir berechnen die Ableitungen der einzelnen Faktoren.",
+                "Schritt 4: Einsetzen in die Produktregel\n$f'(x) = 2x \\cdot e^x \\cdot \\sin x + x^2 \\cdot e^x \\cdot \\sin x + x^2 \\cdot e^x \\cdot \\cos x$\nErklärung: Wir setzen die Ableitungen in die Produktregel ein.",
+                "Schritt 5: Vereinfachung\n$f'(x) = e^x(2x \\sin x + x^2 \\sin x + x^2 \\cos x)$\nErklärung: Wir klammern $e^x$ aus.",
+                "Schritt 6: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 0:\n$f(0) = 0$\n$f'(0) = 0$\nDie Steigung der Tangente bei x = 0 ist 0.",
+                "Schritt 7: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = e^x(2x \\sin x + x^2 \\sin x + x^2 \\cos x)$."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung mit Quotienten- und Produktregel",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\frac{x \\cdot e^x}{\\ln x}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = \\frac{x \\cdot e^x}{\\ln x}$ ist ein Quotient, wobei der Zähler ein Produkt ist.",
+                "Schritt 2: Anwendung der Quotientenregel\n$(\\frac{u}{v})' = \\frac{u' \\cdot v - u \\cdot v'}{v^2}$\nErklärung: Wir beginnen mit der Quotientenregel.",
+                "Schritt 3: Ableitung des Zählers (Produktregel)\n$u(x) = x \\cdot e^x$\n$u'(x) = 1 \\cdot e^x + x \\cdot e^x = e^x(1 + x)$\nErklärung: Wir wenden die Produktregel auf den Zähler an.",
+                "Schritt 4: Ableitung des Nenners\n$v'(x) = \\frac{1}{x}$\nErklärung: Die Ableitung des natürlichen Logarithmus ist 1/x.",
+                "Schritt 5: Einsetzen in die Quotientenregel\n$f'(x) = \\frac{e^x(1 + x) \\cdot \\ln x - x \\cdot e^x \\cdot \\frac{1}{x}}{(\\ln x)^2}$\nErklärung: Wir setzen die Ableitungen in die Quotientenregel ein.",
+                "Schritt 6: Vereinfachung\n$f'(x) = \\frac{e^x((1 + x)\\ln x - 1)}{(\\ln x)^2}$\nErklärung: Wir klammern $e^x$ aus und vereinfachen.",
+                "Schritt 7: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = e:\n$f(e) = \\frac{e \\cdot e^e}{1} = e^{e+1}$\n$f'(e) = \\frac{e^e((1 + e) \\cdot 1 - 1)}{1} = e^e \\cdot e$\nDie Steigung der Tangente bei x = e ist $e^{e+1}$.",
+                "Schritt 8: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = \\frac{e^x((1 + x)\\ln x - 1)}{(\\ln x)^2}$."
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung mit mehrfacher Verkettung und Produktregel",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = e^{\\sin(x^2)} \\cdot \\ln(\\cos x)$.",
+            "difficulty": "hard",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = e^{\\sin(x^2)} \\cdot \\ln(\\cos x)$ ist ein Produkt aus zwei verketteten Funktionen.",
+                "Schritt 2: Anwendung der Produktregel\n$(u \\cdot v)' = u' \\cdot v + u \\cdot v'$\nErklärung: Wir beginnen mit der Produktregel.",
+                "Schritt 3: Ableitung des ersten Faktors\n$u(x) = e^{\\sin(x^2)}$ ist eine dreifache Verkettung.\nMit der Kettenregel: $u'(x) = e^{\\sin(x^2)} \\cdot \\cos(x^2) \\cdot 2x$\nErklärung: Wir wenden die Kettenregel dreimal an.",
+                "Schritt 4: Ableitung des zweiten Faktors\n$v(x) = \\ln(\\cos x)$ ist eine Verkettung.\nMit der Kettenregel: $v'(x) = \\frac{1}{\\cos x} \\cdot (-\\sin x) = -\\tan x$\nErklärung: Wir wenden die Kettenregel an.",
+                "Schritt 5: Einsetzen in die Produktregel\n$f'(x) = e^{\\sin(x^2)} \\cdot \\cos(x^2) \\cdot 2x \\cdot \\ln(\\cos x) + e^{\\sin(x^2)} \\cdot (-\\tan x)$\nErklärung: Wir setzen die Ableitungen in die Produktregel ein.",
+                "Schritt 6: Vereinfachung\n$f'(x) = e^{\\sin(x^2)}(2x \\cos(x^2) \\ln(\\cos x) - \\tan x)$\nErklärung: Wir klammern $e^{\\sin(x^2)}$ aus.",
+                "Schritt 7: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 0:\n$f(0) = e^0 \\cdot \\ln(1) = 0$\n$f'(0) = 1(0 - 0) = 0$\nDie Steigung der Tangente bei x = 0 ist 0.",
+                "Schritt 8: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = e^{\\sin(x^2)}(2x \\cos(x^2) \\ln(\\cos x) - \\tan x)$."
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung mit Quotientenregel und mehrfacher Verkettung",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\frac{\\sin(e^x)}{\\ln(\\sqrt{x})}$.",
+            "difficulty": "hard",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = \\frac{\\sin(e^x)}{\\ln(\\sqrt{x})}$ ist ein Quotient aus zwei verketteten Funktionen.",
+                "Schritt 2: Anwendung der Quotientenregel\n$(\\frac{u}{v})' = \\frac{u' \\cdot v - u \\cdot v'}{v^2}$\nErklärung: Wir beginnen mit der Quotientenregel.",
+                "Schritt 3: Ableitung des Zählers\n$u(x) = \\sin(e^x)$ ist eine Verkettung.\nMit der Kettenregel: $u'(x) = \\cos(e^x) \\cdot e^x$\nErklärung: Wir wenden die Kettenregel an.",
+                "Schritt 4: Ableitung des Nenners\n$v(x) = \\ln(\\sqrt{x})$ ist eine Verkettung.\nMit der Kettenregel: $v'(x) = \\frac{1}{\\sqrt{x}} \\cdot \\frac{1}{2\\sqrt{x}} = \\frac{1}{2x}$\nErklärung: Wir wenden die Kettenregel an.",
+                "Schritt 5: Einsetzen in die Quotientenregel\n$f'(x) = \\frac{\\cos(e^x) \\cdot e^x \\cdot \\ln(\\sqrt{x}) - \\sin(e^x) \\cdot \\frac{1}{2x}}{(\\ln(\\sqrt{x}))^2}$\nErklärung: Wir setzen die Ableitungen in die Quotientenregel ein.",
+                "Schritt 6: Vereinfachung\n$f'(x) = \\frac{2x \\cos(e^x) \\cdot e^x \\cdot \\ln(\\sqrt{x}) - \\sin(e^x)}{2x(\\ln(\\sqrt{x}))^2}$\nErklärung: Wir erweitern mit 2x.",
+                "Schritt 7: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 1:\n$f(1) = \\frac{\\sin(e)}{\\ln(1)} = \\text{undefiniert}$\nDie Funktion ist bei x = 1 nicht definiert.",
+                "Schritt 8: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = \\frac{2x \\cos(e^x) \\cdot e^x \\cdot \\ln(\\sqrt{x}) - \\sin(e^x)}{2x(\\ln(\\sqrt{x}))^2}$."
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung mit mehrfacher Produkt- und Kettenregel",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = x^2 \\cdot e^{\\sin x} \\cdot \\ln(\\cos x)$.",
+            "difficulty": "hard",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = x^2 \\cdot e^{\\sin x} \\cdot \\ln(\\cos x)$ ist ein Produkt aus drei Faktoren, wobei zwei verkettet sind.",
+                "Schritt 2: Anwendung der Produktregel\n$(u \\cdot v \\cdot w)' = u' \\cdot v \\cdot w + u \\cdot v' \\cdot w + u \\cdot v \\cdot w'$\nErklärung: Wir erweitern die Produktregel auf drei Faktoren.",
+                "Schritt 3: Ableitungen der Faktoren\n$u'(x) = 2x$\n$v(x) = e^{\\sin x}$ ist eine Verkettung.\n$v'(x) = e^{\\sin x} \\cdot \\cos x$\n$w(x) = \\ln(\\cos x)$ ist eine Verkettung.\n$w'(x) = \\frac{1}{\\cos x} \\cdot (-\\sin x) = -\\tan x$\nErklärung: Wir berechnen die Ableitungen der einzelnen Faktoren.",
+                "Schritt 4: Einsetzen in die Produktregel\n$f'(x) = 2x \\cdot e^{\\sin x} \\cdot \\ln(\\cos x) + x^2 \\cdot e^{\\sin x} \\cdot \\cos x \\cdot \\ln(\\cos x) + x^2 \\cdot e^{\\sin x} \\cdot (-\\tan x)$\nErklärung: Wir setzen die Ableitungen in die Produktregel ein.",
+                "Schritt 5: Vereinfachung\n$f'(x) = e^{\\sin x}(2x \\ln(\\cos x) + x^2 \\cos x \\ln(\\cos x) - x^2 \\tan x)$\nErklärung: Wir klammern $e^{\\sin x}$ aus.",
+                "Schritt 6: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 0:\n$f(0) = 0 \\cdot e^0 \\cdot \\ln(1) = 0$\n$f'(0) = 1(0 + 0 - 0) = 0$\nDie Steigung der Tangente bei x = 0 ist 0.",
+                "Schritt 7: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = e^{\\sin x}(2x \\ln(\\cos x) + x^2 \\cos x \\ln(\\cos x) - x^2 \\tan x)$."
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung mit Quotientenregel und mehrfacher Produktregel",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\frac{x^2 \\cdot e^x \\cdot \\sin x}{\\ln(x^2)}$.",
+            "difficulty": "hard",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = \\frac{x^2 \\cdot e^x \\cdot \\sin x}{\\ln(x^2)}$ ist ein Quotient, wobei der Zähler ein Produkt aus drei Faktoren ist.",
+                "Schritt 2: Anwendung der Quotientenregel\n$(\\frac{u}{v})' = \\frac{u' \\cdot v - u \\cdot v'}{v^2}$\nErklärung: Wir beginnen mit der Quotientenregel.",
+                "Schritt 3: Ableitung des Zählers (Produktregel)\n$u(x) = x^2 \\cdot e^x \\cdot \\sin x$\n$u'(x) = 2x \\cdot e^x \\cdot \\sin x + x^2 \\cdot e^x \\cdot \\sin x + x^2 \\cdot e^x \\cdot \\cos x$\nErklärung: Wir wenden die Produktregel auf drei Faktoren an.",
+                "Schritt 4: Ableitung des Nenners\n$v(x) = \\ln(x^2)$ ist eine Verkettung.\n$v'(x) = \\frac{1}{x^2} \\cdot 2x = \\frac{2}{x}$\nErklärung: Wir wenden die Kettenregel an.",
+                "Schritt 5: Einsetzen in die Quotientenregel\n$f'(x) = \\frac{(2x \\cdot e^x \\cdot \\sin x + x^2 \\cdot e^x \\cdot \\sin x + x^2 \\cdot e^x \\cdot \\cos x) \\cdot \\ln(x^2) - x^2 \\cdot e^x \\cdot \\sin x \\cdot \\frac{2}{x}}{(\\ln(x^2))^2}$\nErklärung: Wir setzen die Ableitungen in die Quotientenregel ein.",
+                "Schritt 6: Vereinfachung\n$f'(x) = \\frac{e^x(2x \\sin x + x^2 \\sin x + x^2 \\cos x) \\ln(x^2) - 2x e^x \\sin x}{(\\ln(x^2))^2}$\nErklärung: Wir klammern $e^x$ aus und vereinfachen.",
+                "Schritt 7: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 1:\n$f(1) = \\frac{1 \\cdot e \\cdot \\sin(1)}{\\ln(1)} = \\text{undefiniert}$\nDie Funktion ist bei x = 1 nicht definiert.",
+                "Schritt 8: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = \\frac{e^x(2x \\sin x + x^2 \\sin x + x^2 \\cos x) \\ln(x^2) - 2x e^x \\sin x}{(\\ln(x^2))^2}$."
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung mit mehrfacher Verkettung und Quotientenregel",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\frac{\\ln(\\sin(e^x))}{\\cos(\\ln x)}$.",
+            "difficulty": "hard",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = \\frac{\\ln(\\sin(e^x))}{\\cos(\\ln x)}$ ist ein Quotient aus zwei mehrfach verketteten Funktionen.",
+                "Schritt 2: Anwendung der Quotientenregel\n$(\\frac{u}{v})' = \\frac{u' \\cdot v - u \\cdot v'}{v^2}$\nErklärung: Wir beginnen mit der Quotientenregel.",
+                "Schritt 3: Ableitung des Zählers\n$u(x) = \\ln(\\sin(e^x))$ ist eine dreifache Verkettung.\nMit der Kettenregel: $u'(x) = \\frac{1}{\\sin(e^x)} \\cdot \\cos(e^x) \\cdot e^x$\nErklärung: Wir wenden die Kettenregel dreimal an.",
+                "Schritt 4: Ableitung des Nenners\n$v(x) = \\cos(\\ln x)$ ist eine Verkettung.\nMit der Kettenregel: $v'(x) = -\\sin(\\ln x) \\cdot \\frac{1}{x}$\nErklärung: Wir wenden die Kettenregel an.",
+                "Schritt 5: Einsetzen in die Quotientenregel\n$f'(x) = \\frac{\\frac{1}{\\sin(e^x)} \\cdot \\cos(e^x) \\cdot e^x \\cdot \\cos(\\ln x) - \\ln(\\sin(e^x)) \\cdot (-\\sin(\\ln x) \\cdot \\frac{1}{x})}{(\\cos(\\ln x))^2}$\nErklärung: Wir setzen die Ableitungen in die Quotientenregel ein.",
+                "Schritt 6: Vereinfachung\n$f'(x) = \\frac{e^x \\cot(e^x) \\cos(\\ln x) + \\frac{\\ln(\\sin(e^x)) \\sin(\\ln x)}{x}}{\\cos^2(\\ln x)}$\nErklärung: Wir formen um und vereinfachen.",
+                "Schritt 7: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 1:\n$f(1) = \\frac{\\ln(\\sin(e))}{\\cos(0)} = \\ln(\\sin(e))$\n$f'(1) = \\frac{e \\cot(e) + \\ln(\\sin(e)) \\sin(0)}{1} = e \\cot(e)$\nDie Steigung der Tangente bei x = 1 ist $e \\cot(e)$.",
+                "Schritt 8: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = \\frac{e^x \\cot(e^x) \\cos(\\ln x) + \\frac{\\ln(\\sin(e^x)) \\sin(\\ln x)}{x}}{\\cos^2(\\ln x)}$."
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung mit mehrfacher Produkt- und Quotientenregel",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\frac{x^2 \\cdot e^x \\cdot \\sin x}{\\ln(x^2) \\cdot \\cos x}$.",
+            "difficulty": "hard",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = \\frac{x^2 \\cdot e^x \\cdot \\sin x}{\\ln(x^2) \\cdot \\cos x}$ ist ein Quotient, wobei Zähler und Nenner Produkte sind.",
+                "Schritt 2: Anwendung der Quotientenregel\n$(\\frac{u}{v})' = \\frac{u' \\cdot v - u \\cdot v'}{v^2}$\nErklärung: Wir beginnen mit der Quotientenregel.",
+                "Schritt 3: Ableitung des Zählers (Produktregel)\n$u(x) = x^2 \\cdot e^x \\cdot \\sin x$\n$u'(x) = 2x \\cdot e^x \\cdot \\sin x + x^2 \\cdot e^x \\cdot \\sin x + x^2 \\cdot e^x \\cdot \\cos x$\nErklärung: Wir wenden die Produktregel auf drei Faktoren an.",
+                "Schritt 4: Ableitung des Nenners (Produktregel)\n$v(x) = \\ln(x^2) \\cdot \\cos x$\n$v'(x) = \\frac{2}{x} \\cdot \\cos x + \\ln(x^2) \\cdot (-\\sin x)$\nErklärung: Wir wenden die Produktregel an.",
+                "Schritt 5: Einsetzen in die Quotientenregel\n$f'(x) = \\frac{(2x \\cdot e^x \\cdot \\sin x + x^2 \\cdot e^x \\cdot \\sin x + x^2 \\cdot e^x \\cdot \\cos x) \\cdot \\ln(x^2) \\cdot \\cos x - x^2 \\cdot e^x \\cdot \\sin x \\cdot (\\frac{2}{x} \\cdot \\cos x + \\ln(x^2) \\cdot (-\\sin x))}{(\\ln(x^2) \\cdot \\cos x)^2}$\nErklärung: Wir setzen die Ableitungen in die Quotientenregel ein.",
+                "Schritt 6: Vereinfachung\n$f'(x) = \\frac{e^x(2x \\sin x + x^2 \\sin x + x^2 \\cos x) \\ln(x^2) \\cos x - x^2 e^x \\sin x(\\frac{2}{x} \\cos x - \\ln(x^2) \\sin x)}{(\\ln(x^2) \\cos x)^2}$\nErklärung: Wir klammern $e^x$ aus und vereinfachen.",
+                "Schritt 7: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 1:\n$f(1) = \\frac{1 \\cdot e \\cdot \\sin(1)}{\\ln(1) \\cdot \\cos(1)} = \\text{undefiniert}$\nDie Funktion ist bei x = 1 nicht definiert.",
+                "Schritt 8: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = \\frac{e^x(2x \\sin x + x^2 \\sin x + x^2 \\cos x) \\ln(x^2) \\cos x - x^2 e^x \\sin x(\\frac{2}{x} \\cos x - \\ln(x^2) \\sin x)}{(\\ln(x^2) \\cos x)^2}$."
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung mit mehrfacher Verkettung und Produktregel",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = e^{\\sin(\\ln x)} \\cdot \\cos(e^x) \\cdot \\ln(\\sin x)$.",
+            "difficulty": "hard",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = e^{\\sin(\\ln x)} \\cdot \\cos(e^x) \\cdot \\ln(\\sin x)$ ist ein Produkt aus drei mehrfach verketteten Funktionen.",
+                "Schritt 2: Anwendung der Produktregel\n$(u \\cdot v \\cdot w)' = u' \\cdot v \\cdot w + u \\cdot v' \\cdot w + u \\cdot v \\cdot w'$\nErklärung: Wir erweitern die Produktregel auf drei Faktoren.",
+                "Schritt 3: Ableitungen der Faktoren\n$u(x) = e^{\\sin(\\ln x)}$ ist eine dreifache Verkettung.\n$u'(x) = e^{\\sin(\\ln x)} \\cdot \\cos(\\ln x) \\cdot \\frac{1}{x}$\n$v(x) = \\cos(e^x)$ ist eine Verkettung.\n$v'(x) = -\\sin(e^x) \\cdot e^x$\n$w(x) = \\ln(\\sin x)$ ist eine Verkettung.\n$w'(x) = \\frac{1}{\\sin x} \\cdot \\cos x = \\cot x$\nErklärung: Wir berechnen die Ableitungen der einzelnen Faktoren.",
+                "Schritt 4: Einsetzen in die Produktregel\n$f'(x) = e^{\\sin(\\ln x)} \\cdot \\cos(\\ln x) \\cdot \\frac{1}{x} \\cdot \\cos(e^x) \\cdot \\ln(\\sin x) + e^{\\sin(\\ln x)} \\cdot (-\\sin(e^x) \\cdot e^x) \\cdot \\ln(\\sin x) + e^{\\sin(\\ln x)} \\cdot \\cos(e^x) \\cdot \\cot x$\nErklärung: Wir setzen die Ableitungen in die Produktregel ein.",
+                "Schritt 5: Vereinfachung\n$f'(x) = e^{\\sin(\\ln x)}(\\frac{\\cos(\\ln x)}{x} \\cos(e^x) \\ln(\\sin x) - e^x \\sin(e^x) \\ln(\\sin x) + \\cos(e^x) \\cot x)$\nErklärung: Wir klammern $e^{\\sin(\\ln x)}$ aus.",
+                "Schritt 6: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = \\frac{\\pi}{2}:\n$f(\\frac{\\pi}{2}) = e^{\\sin(\\ln(\\frac{\\pi}{2}))} \\cdot \\cos(e^{\\pi/2}) \\cdot \\ln(1) = 0$\n$f'(\\frac{\\pi}{2}) = e^{\\sin(\\ln(\\frac{\\pi}{2}))}(\\frac{\\cos(\\ln(\\frac{\\pi}{2}))}{\\pi/2} \\cos(e^{\\pi/2}) \\cdot 0 - e^{\\pi/2} \\sin(e^{\\pi/2}) \\cdot 0 + \\cos(e^{\\pi/2}) \\cdot 0) = 0$\nDie Steigung der Tangente bei x = \\frac{\\pi}{2} ist 0.",
+                "Schritt 7: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = e^{\\sin(\\ln x)}(\\frac{\\cos(\\ln x)}{x} \\cos(e^x) \\ln(\\sin x) - e^x \\sin(e^x) \\ln(\\sin x) + \\cos(e^x) \\cot x)$."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung mit mehrfacher Verkettung und Quotientenregel",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\frac{\\sin(e^{\\ln x})}{\\cos(\\ln(\\sin x))}$.",
+            "difficulty": "hard",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = \\frac{\\sin(e^{\\ln x})}{\\cos(\\ln(\\sin x))}$ ist ein Quotient aus zwei mehrfach verketteten Funktionen.",
+                "Schritt 2: Anwendung der Quotientenregel\n$(\\frac{u}{v})' = \\frac{u' \\cdot v - u \\cdot v'}{v^2}$\nErklärung: Wir beginnen mit der Quotientenregel.",
+                "Schritt 3: Ableitung des Zählers\n$u(x) = \\sin(e^{\\ln x})$ ist eine dreifache Verkettung.\nMit der Kettenregel: $u'(x) = \\cos(e^{\\ln x}) \\cdot e^{\\ln x} \\cdot \\frac{1}{x} = \\cos(x) \\cdot x \\cdot \\frac{1}{x} = \\cos(x)$\nErklärung: Wir wenden die Kettenregel an und vereinfachen.",
+                "Schritt 4: Ableitung des Nenners\n$v(x) = \\cos(\\ln(\\sin x))$ ist eine dreifache Verkettung.\nMit der Kettenregel: $v'(x) = -\\sin(\\ln(\\sin x)) \\cdot \\frac{1}{\\sin x} \\cdot \\cos x$\nErklärung: Wir wenden die Kettenregel an.",
+                "Schritt 5: Einsetzen in die Quotientenregel\n$f'(x) = \\frac{\\cos(x) \\cdot \\cos(\\ln(\\sin x)) - \\sin(e^{\\ln x}) \\cdot (-\\sin(\\ln(\\sin x)) \\cdot \\frac{1}{\\sin x} \\cdot \\cos x)}{(\\cos(\\ln(\\sin x)))^2}$\nErklärung: Wir setzen die Ableitungen in die Quotientenregel ein.",
+                "Schritt 6: Vereinfachung\n$f'(x) = \\frac{\\cos(x) \\cos(\\ln(\\sin x)) + \\sin(x) \\sin(\\ln(\\sin x)) \\cot x}{\\cos^2(\\ln(\\sin x))}$\nErklärung: Wir vereinfachen und formen um.",
+                "Schritt 7: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = \\frac{\\pi}{2}:\n$f(\\frac{\\pi}{2}) = \\frac{\\sin(e^{\\ln(\\pi/2)})}{\\cos(\\ln(1))} = \\frac{\\sin(\\pi/2)}{\\cos(0)} = 1$\n$f'(\\frac{\\pi}{2}) = \\frac{0 \\cdot 1 + 1 \\cdot 0 \\cdot 0}{1} = 0$\nDie Steigung der Tangente bei x = \\frac{\\pi}{2} ist 0.",
+                "Schritt 8: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = \\frac{\\cos(x) \\cos(\\ln(\\sin x)) + \\sin(x) \\sin(\\ln(\\sin x)) \\cot x}{\\cos^2(\\ln(\\sin x))}$."
             ]
         }
     ]

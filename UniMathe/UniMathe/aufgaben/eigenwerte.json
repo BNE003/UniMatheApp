@@ -69,6 +69,272 @@
                 "Schritt 3: Stabilitätsanalyse\nAlle Eigenwerte haben negativen Realteil, also ist das System asymptotisch stabil",
                 "Schritt 4: Allgemeine Lösung\n$\\vec{x}(t) = c_1e^{-t}\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} + c_2e^{-3t}\\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}$"
             ]
+        },
+        {
+            "id": 6,
+            "topic": "Eigenwerte",
+            "title": "Einfache Eigenwerte",
+            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = (2-\\lambda)(3-\\lambda) = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda_1 = 2, \\lambda_2 = 3$",
+                "Schritt 3: Eigenvektoren\nFür $\\lambda = 2$: $\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$\nFür $\\lambda = 3$: $\\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\n$A\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} = 2\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$\n$A\\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix} = 3\\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Eigenwerte",
+            "title": "Diagonalmatrix",
+            "description": "Bestimmen Sie die Eigenwerte der Matrix $A = \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 2 & 0 \\\\ 0 & 0 & 3 \\end{pmatrix}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = (1-\\lambda)(2-\\lambda)(3-\\lambda) = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda_1 = 1, \\lambda_2 = 2, \\lambda_3 = 3$",
+                "Schritt 3: Eigenvektoren\nFür $\\lambda = 1$: $\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}$\nFür $\\lambda = 2$: $\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}$\nFür $\\lambda = 3$: $\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\nDie Eigenwerte sind die Diagonaleinträge der Matrix"
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Eigenwerte",
+            "title": "Einfache Matrix",
+            "description": "Bestimmen Sie die Eigenwerte der Matrix $A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = (1-\\lambda)^2 = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda = 1$ (doppelte Nullstelle)",
+                "Schritt 3: Eigenvektoren\n$\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\n$A\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Eigenwerte",
+            "title": "Dreiecksmatrix",
+            "description": "Bestimmen Sie die Eigenwerte der Matrix $A = \\begin{pmatrix} 2 & 1 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = (2-\\lambda)^3 = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda = 2$ (dreifache Nullstelle)",
+                "Schritt 3: Eigenvektoren\n$\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\n$A\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix} = 2\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Eigenwerte",
+            "title": "Symmetrische Matrix",
+            "description": "Bestimmen Sie die Eigenwerte der Matrix $A = \\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = \\lambda^2 - 2\\lambda = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda_1 = 0, \\lambda_2 = 2$",
+                "Schritt 3: Eigenvektoren\nFür $\\lambda = 0$: $\\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}$\nFür $\\lambda = 2$: $\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Eigenwerte",
+            "title": "Einfache Eigenwerte",
+            "description": "Bestimmen Sie die Eigenwerte der Matrix $A = \\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = \\lambda^2 + 1 = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda_1 = i, \\lambda_2 = -i$",
+                "Schritt 3: Eigenvektoren\nFür $\\lambda = i$: $\\begin{pmatrix} 1 \\\\ i \\end{pmatrix}$\nFür $\\lambda = -i$: $\\begin{pmatrix} 1 \\\\ -i \\end{pmatrix}$",
+                "Schritt 4: Verifikation\nDie Eigenwerte sind konjugiert komplex"
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Eigenwerte",
+            "title": "Einfache Matrix",
+            "description": "Bestimmen Sie die Eigenwerte der Matrix $A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 1 \\end{pmatrix}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = \\lambda^2 - 2\\lambda - 3 = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda_1 = 3, \\lambda_2 = -1$",
+                "Schritt 3: Eigenvektoren\nFür $\\lambda = 3$: $\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$\nFür $\\lambda = -1$: $\\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Eigenwerte",
+            "title": "Mittelschwere Matrix",
+            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 2 & 1 & 0 \\\\ 1 & 2 & 1 \\\\ 0 & 1 & 2 \\end{pmatrix}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = -\\lambda^3 + 6\\lambda^2 - 10\\lambda + 4 = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda_1 = 2, \\lambda_2 = 2 + \\sqrt{2}, \\lambda_3 = 2 - \\sqrt{2}$",
+                "Schritt 3: Eigenvektoren\nFür $\\lambda = 2$: $\\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix}$\nFür $\\lambda = 2 + \\sqrt{2}$: $\\begin{pmatrix} 1 \\\\ \\sqrt{2} \\\\ 1 \\end{pmatrix}$\nFür $\\lambda = 2 - \\sqrt{2}$: $\\begin{pmatrix} 1 \\\\ -\\sqrt{2} \\\\ 1 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Eigenwerte",
+            "title": "Mittelschwere Matrix",
+            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & 1 & 1 \\\\ 1 & 1 & 1 \\end{pmatrix}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = -\\lambda^3 + 3\\lambda^2 = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda_1 = 0$ (doppelt), $\\lambda_2 = 3$",
+                "Schritt 3: Eigenvektoren\nFür $\\lambda = 0$: $\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix}$\nFür $\\lambda = 3$: $\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Eigenwerte",
+            "title": "Mittelschwere Matrix",
+            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 0 & 1 & 0 \\\\ -1 & 0 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = (1-\\lambda)(\\lambda^2 + 1) = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda_1 = 1, \\lambda_2 = i, \\lambda_3 = -i$",
+                "Schritt 3: Eigenvektoren\nFür $\\lambda = 1$: $\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$\nFür $\\lambda = i$: $\\begin{pmatrix} 1 \\\\ i \\\\ 0 \\end{pmatrix}$\nFür $\\lambda = -i$: $\\begin{pmatrix} 1 \\\\ -i \\\\ 0 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Eigenwerte",
+            "title": "Mittelschwere Matrix",
+            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 2 & 1 & 1 \\\\ 1 & 2 & 1 \\\\ 1 & 1 & 2 \\end{pmatrix}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = -\\lambda^3 + 6\\lambda^2 - 9\\lambda + 4 = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda_1 = 1$ (doppelt), $\\lambda_2 = 4$",
+                "Schritt 3: Eigenvektoren\nFür $\\lambda = 1$: $\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix}$\nFür $\\lambda = 4$: $\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Eigenwerte",
+            "title": "Mittelschwere Matrix",
+            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 1 & 2 & 0 \\\\ 2 & 1 & 0 \\\\ 0 & 0 & 3 \\end{pmatrix}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = (3-\\lambda)(\\lambda^2 - 2\\lambda - 3) = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda_1 = 3, \\lambda_2 = 3, \\lambda_3 = -1$",
+                "Schritt 3: Eigenvektoren\nFür $\\lambda = 3$: $\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$\nFür $\\lambda = -1$: $\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Eigenwerte",
+            "title": "Mittelschwere Matrix",
+            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 0 & 1 & 1 \\\\ 1 & 0 & 1 \\\\ 1 & 1 & 0 \\end{pmatrix}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = -\\lambda^3 + 3\\lambda + 2 = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda_1 = 2, \\lambda_2 = -1$ (doppelt)",
+                "Schritt 3: Eigenvektoren\nFür $\\lambda = 2$: $\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$\nFür $\\lambda = -1$: $\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Eigenwerte",
+            "title": "Schwere Matrix",
+            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 2 & 1 & 1 & 1 \\\\ 1 & 2 & 1 & 1 \\\\ 1 & 1 & 2 & 1 \\\\ 1 & 1 & 1 & 2 \\end{pmatrix}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = \\lambda^4 - 8\\lambda^3 + 20\\lambda^2 - 16\\lambda = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda_1 = 0, \\lambda_2 = 2$ (dreifach), $\\lambda_3 = 5$",
+                "Schritt 3: Eigenvektoren\nFür $\\lambda = 0$: $\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\\\ 0 \\end{pmatrix}$\nFür $\\lambda = 2$: $\\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ -1 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 1 \\\\ -1 \\\\ 0 \\end{pmatrix}$\nFür $\\lambda = 5$: $\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Eigenwerte",
+            "title": "Schwere Matrix",
+            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 1 & 1 & 1 & 1 \\\\ 1 & 1 & 1 & 1 \\\\ 1 & 1 & 1 & 1 \\\\ 1 & 1 & 1 & 1 \\end{pmatrix}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = \\lambda^4 - 4\\lambda^3 = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda_1 = 0$ (dreifach), $\\lambda_2 = 4$",
+                "Schritt 3: Eigenvektoren\nFür $\\lambda = 0$: $\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ -1 \\end{pmatrix}$\nFür $\\lambda = 4$: $\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Eigenwerte",
+            "title": "Schwere Matrix",
+            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 0 & 1 & 0 & 0 \\\\ -1 & 0 & 0 & 0 \\\\ 0 & 0 & 0 & 1 \\\\ 0 & 0 & -1 & 0 \\end{pmatrix}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = (\\lambda^2 + 1)^2 = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda_1 = i$ (doppelt), $\\lambda_2 = -i$ (doppelt)",
+                "Schritt 3: Eigenvektoren\nFür $\\lambda = i$: $\\begin{pmatrix} 1 \\\\ i \\\\ 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ i \\end{pmatrix}$\nFür $\\lambda = -i$: $\\begin{pmatrix} 1 \\\\ -i \\\\ 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ -i \\end{pmatrix}$",
+                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Eigenwerte",
+            "title": "Schwere Matrix",
+            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 2 & 1 & 0 & 0 \\\\ 1 & 2 & 1 & 0 \\\\ 0 & 1 & 2 & 1 \\\\ 0 & 0 & 1 & 2 \\end{pmatrix}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = \\lambda^4 - 8\\lambda^3 + 20\\lambda^2 - 16\\lambda + 3 = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda_1 = 2 + \\sqrt{2 + \\sqrt{2}}, \\lambda_2 = 2 + \\sqrt{2 - \\sqrt{2}}, \\lambda_3 = 2 - \\sqrt{2 + \\sqrt{2}}, \\lambda_4 = 2 - \\sqrt{2 - \\sqrt{2}}$",
+                "Schritt 3: Eigenvektoren\nFür $\\lambda_1$: $\\begin{pmatrix} 1 \\\\ \\sqrt{2 + \\sqrt{2}} \\\\ \\sqrt{2} \\\\ 1 \\end{pmatrix}$\nFür $\\lambda_2$: $\\begin{pmatrix} 1 \\\\ \\sqrt{2 - \\sqrt{2}} \\\\ -\\sqrt{2} \\\\ 1 \\end{pmatrix}$\nFür $\\lambda_3$: $\\begin{pmatrix} 1 \\\\ -\\sqrt{2 + \\sqrt{2}} \\\\ \\sqrt{2} \\\\ 1 \\end{pmatrix}$\nFür $\\lambda_4$: $\\begin{pmatrix} 1 \\\\ -\\sqrt{2 - \\sqrt{2}} \\\\ -\\sqrt{2} \\\\ 1 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Eigenwerte",
+            "title": "Schwere Matrix",
+            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 1 & 1 & 1 & 1 \\\\ 1 & 2 & 2 & 2 \\\\ 1 & 2 & 3 & 3 \\\\ 1 & 2 & 3 & 4 \\end{pmatrix}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = \\lambda^4 - 10\\lambda^3 + 35\\lambda^2 - 50\\lambda + 24 = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda_1 = 1, \\lambda_2 = 2, \\lambda_3 = 3, \\lambda_4 = 4$",
+                "Schritt 3: Eigenvektoren\nFür $\\lambda = 1$: $\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\\\ 0 \\end{pmatrix}$\nFür $\\lambda = 2$: $\\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\\\ 0 \\end{pmatrix}$\nFür $\\lambda = 3$: $\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ -1 \\end{pmatrix}$\nFür $\\lambda = 4$: $\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Eigenwerte",
+            "title": "Schwere Matrix",
+            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 0 & 1 & 1 & 1 \\\\ 1 & 0 & 1 & 1 \\\\ 1 & 1 & 0 & 1 \\\\ 1 & 1 & 1 & 0 \\end{pmatrix}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = \\lambda^4 - 6\\lambda^2 - 8\\lambda - 3 = 0$",
+                "Schritt 2: Eigenwerte\n$\\lambda_1 = 3, \\lambda_2 = -1$ (dreifach)",
+                "Schritt 3: Eigenvektoren\nFür $\\lambda = 3$: $\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$\nFür $\\lambda = -1$: $\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ -1 \\end{pmatrix}$",
+                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
+            ]
         }
     ]
 } 

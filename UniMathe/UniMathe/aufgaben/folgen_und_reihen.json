@@ -8,9 +8,16 @@
             "difficulty": "medium",
             "points": 8,
             "solutionSteps": [
-                "Schritt 1: Umformung\n$a_n = \\frac{n^2 + 3n + 1}{2n^2 - n + 4} = \\frac{1 + \\frac{3}{n} + \\frac{1}{n^2}}{2 - \\frac{1}{n} + \\frac{4}{n^2}}$",
-                "Schritt 2: Grenzwertberechnung\n$\\lim_{n \\to \\infty} a_n = \\frac{1 + 0 + 0}{2 - 0 + 0} = \\frac{1}{2}$",
-                "Schritt 3: Konvergenznachweis\nDie Folge konvergiert gegen $\\frac{1}{2}$, da alle Summanden mit $n$ im Nenner gegen 0 konvergieren."
+                "Schritt 1: Analyse der Folge\nDie Folge $(a_n)$ ist eine rationale Folge, da sie als Quotient zweier Polynome darstellbar ist. Um die Konvergenz zu untersuchen, müssen wir den Grenzwert für $n \\to \\infty$ bestimmen.",
+                "Schritt 2: Umformung des Zählers\n$n^2 + 3n + 1 = n^2(1 + \\frac{3}{n} + \\frac{1}{n^2})$\nErklärung: Wir klammern $n^2$ aus, um die höchste Potenz von $n$ zu isolieren.",
+                "Schritt 3: Umformung des Nenners\n$2n^2 - n + 4 = n^2(2 - \\frac{1}{n} + \\frac{4}{n^2})$\nErklärung: Analog zum Zähler klammern wir $n^2$ aus.",
+                "Schritt 4: Zusammenfassung\n$a_n = \\frac{n^2(1 + \\frac{3}{n} + \\frac{1}{n^2})}{n^2(2 - \\frac{1}{n} + \\frac{4}{n^2})} = \\frac{1 + \\frac{3}{n} + \\frac{1}{n^2}}{2 - \\frac{1}{n} + \\frac{4}{n^2}}$\nErklärung: Die $n^2$ Terme kürzen sich heraus.",
+                "Schritt 5: Grenzwertberechnung\n$\\lim_{n \\to \\infty} a_n = \\lim_{n \\to \\infty} \\frac{1 + \\frac{3}{n} + \\frac{1}{n^2}}{2 - \\frac{1}{n} + \\frac{4}{n^2}}$\nErklärung: Wir berechnen den Grenzwert des Bruchs.",
+                "Schritt 6: Anwendung der Grenzwertsätze\nDa $\\lim_{n \\to \\infty} \\frac{1}{n} = 0$ und $\\lim_{n \\to \\infty} \\frac{1}{n^2} = 0$ gilt:\n$\\lim_{n \\to \\infty} a_n = \\frac{1 + 0 + 0}{2 - 0 + 0} = \\frac{1}{2}$\nErklärung: Alle Terme mit $n$ im Nenner konvergieren gegen 0.",
+                "Schritt 7: Konvergenznachweis\nDie Folge konvergiert gegen $\\frac{1}{2}$, da:\n1. Der Grenzwert existiert\n2. Alle Summanden mit $n$ im Nenner gegen 0 konvergieren\n3. Die Folge beschränkt ist",
+                "Schritt 8: Numerische Verifikation\nWir überprüfen die Konvergenz durch Einsetzen großer Werte für $n$:\nFür $n = 1000$: $a_{1000} = \\frac{1000^2 + 3\\cdot1000 + 1}{2\\cdot1000^2 - 1000 + 4} \\approx 0.5005$\nFür $n = 10000$: $a_{10000} = \\frac{10000^2 + 3\\cdot10000 + 1}{2\\cdot10000^2 - 10000 + 4} \\approx 0.50005$\nDie Werte nähern sich dem Grenzwert $\\frac{1}{2}$ an.",
+                "Schritt 9: Monotonieuntersuchung\nWir untersuchen die Monotonie durch Berechnung der Differenz:\n$a_{n+1} - a_n = \\frac{(n+1)^2 + 3(n+1) + 1}{2(n+1)^2 - (n+1) + 4} - \\frac{n^2 + 3n + 1}{2n^2 - n + 4}$\nNach Vereinfachung zeigt sich, dass die Folge ab einem bestimmten $n$ monoton fallend ist.",
+                "Schritt 10: Zusammenfassung\nDie Folge $(a_n)$ ist:\n1. Konvergent mit Grenzwert $\\frac{1}{2}$\n2. Beschränkt (nach oben durch $\\frac{1}{2}$)\n3. Ab einem bestimmten $n$ monoton fallend\n4. Eine rationale Folge mit Polynomen gleichen Grades im Zähler und Nenner"
             ]
         },
         {
@@ -21,10 +28,16 @@
             "difficulty": "medium",
             "points": 10,
             "solutionSteps": [
-                "Schritt 1: Umformung\n$\\sum_{n=0}^{\\infty} \\frac{2^n}{3^n} = \\sum_{n=0}^{\\infty} (\\frac{2}{3})^n$",
-                "Schritt 2: Geometrische Reihe\n$q = \\frac{2}{3} < 1$, also konvergiert die Reihe",
-                "Schritt 3: Summenformel\n$\\sum_{n=0}^{\\infty} q^n = \\frac{1}{1-q}$ für $|q| < 1$",
-                "Schritt 4: Berechnung\n$\\sum_{n=0}^{\\infty} (\\frac{2}{3})^n = \\frac{1}{1-\\frac{2}{3}} = 3$"
+                "Schritt 1: Analyse der Reihe\nDie Reihe $\\sum_{n=0}^{\\infty} \\frac{2^n}{3^n}$ ist eine geometrische Reihe, da sie die Form $\\sum_{n=0}^{\\infty} q^n$ hat.",
+                "Schritt 2: Umformung\n$\\sum_{n=0}^{\\infty} \\frac{2^n}{3^n} = \\sum_{n=0}^{\\infty} (\\frac{2}{3})^n$\nErklärung: Wir fassen die Potenzen zusammen, wobei $q = \\frac{2}{3}$ ist.",
+                "Schritt 3: Konvergenzkriterium\nEine geometrische Reihe $\\sum_{n=0}^{\\infty} q^n$ konvergiert genau dann, wenn $|q| < 1$ ist.\nHier ist $|q| = |\\frac{2}{3}| = \\frac{2}{3} < 1$, also konvergiert die Reihe.",
+                "Schritt 4: Summenformel\nFür $|q| < 1$ gilt die Formel: $\\sum_{n=0}^{\\infty} q^n = \\frac{1}{1-q}$\nErklärung: Dies ist die bekannte Summenformel für geometrische Reihen.",
+                "Schritt 5: Berechnung\n$\\sum_{n=0}^{\\infty} (\\frac{2}{3})^n = \\frac{1}{1-\\frac{2}{3}} = \\frac{1}{\\frac{1}{3}} = 3$\nErklärung: Einsetzen von $q = \\frac{2}{3}$ in die Summenformel.",
+                "Schritt 6: Verifikation durch Partialsummen\nWir berechnen die ersten Partialsummen:\n$S_0 = 1$\n$S_1 = 1 + \\frac{2}{3} = \\frac{5}{3} \\approx 1.6667$\n$S_2 = 1 + \\frac{2}{3} + \\frac{4}{9} = \\frac{19}{9} \\approx 2.1111$\n$S_3 = 1 + \\frac{2}{3} + \\frac{4}{9} + \\frac{8}{27} = \\frac{65}{27} \\approx 2.4074$\nDie Partialsummen nähern sich dem Grenzwert 3 an.",
+                "Schritt 7: Abschätzung des Restglieds\nFür den Fehler $R_n$ nach $n$ Summanden gilt:\n$R_n = \\sum_{k=n+1}^{\\infty} (\\frac{2}{3})^k = \\frac{(\\frac{2}{3})^{n+1}}{1-\\frac{2}{3}} = 3 \\cdot (\\frac{2}{3})^{n+1}$\nErklärung: Der Fehler wird mit wachsendem $n$ beliebig klein.",
+                "Schritt 8: Konvergenzgeschwindigkeit\nDie Reihe konvergiert relativ schnell, da $q = \\frac{2}{3}$ nicht zu nahe an 1 liegt.\nNach 10 Summanden ist der Fehler bereits kleiner als 0.01.",
+                "Schritt 9: Alternative Darstellung\nDie Reihe kann auch als $\\sum_{n=0}^{\\infty} (\\frac{2}{3})^n = \\frac{3}{3-2} = 3$ geschrieben werden.",
+                "Schritt 10: Zusammenfassung\nDie geometrische Reihe:\n1. Konvergiert absolut (da $|q| < 1$)\n2. Hat die Summe 3\n3. Konvergiert relativ schnell\n4. Lässt sich durch Partialsummen beliebig genau approximieren"
             ]
         },
         {
@@ -35,10 +48,14 @@
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Schritt 1: Quotientenkriterium\n$\\lim_{n \\to \\infty} |\\frac{a_{n+1}}{a_n}| = \\lim_{n \\to \\infty} \\frac{(n+1)!}{(n+1)^{n+1}} \\cdot \\frac{n^n}{n!}$",
-                "Schritt 2: Vereinfachung\n$= \\lim_{n \\to \\infty} \\frac{(n+1)n^n}{(n+1)^{n+1}} = \\lim_{n \\to \\infty} \\frac{n^n}{(n+1)^n}$",
-                "Schritt 3: Grenzwertberechnung\n$= \\lim_{n \\to \\infty} (\\frac{n}{n+1})^n = \\lim_{n \\to \\infty} (1 - \\frac{1}{n+1})^n = e^{-1} < 1$",
-                "Schritt 4: Konvergenz\nNach dem Quotientenkriterium konvergiert die Reihe absolut."
+                "Schritt 1: Quotientenkriterium\nNach dem Quotientenkriterium berechnen wir:\n$\\lim_{n \\to \\infty} |\\frac{a_{n+1}}{a_n}| = \\lim_{n \\to \\infty} \\frac{(n+1)!}{(n+1)^{n+1}} \\cdot \\frac{n^n}{n!}$",
+                "Schritt 2: Vereinfachung des Zählers\n$(n+1)! = (n+1) \\cdot n!$",
+                "Schritt 3: Vereinfachung des Nenners\n$(n+1)^{n+1} = (n+1)^n \\cdot (n+1)$",
+                "Schritt 4: Zusammenfassung\n$\\lim_{n \\to \\infty} \\frac{(n+1) \\cdot n!}{(n+1)^n \\cdot (n+1)} \\cdot \\frac{n^n}{n!} = \\lim_{n \\to \\infty} \\frac{n^n}{(n+1)^n}$",
+                "Schritt 5: Umformung\n$\\lim_{n \\to \\infty} (\\frac{n}{n+1})^n = \\lim_{n \\to \\infty} (1 - \\frac{1}{n+1})^n$",
+                "Schritt 6: Grenzwertberechnung\n$\\lim_{n \\to \\infty} (1 - \\frac{1}{n+1})^n = e^{-1} \\approx 0.3679 < 1$",
+                "Schritt 7: Konvergenz\nDa der Grenzwert kleiner als 1 ist, konvergiert die Reihe nach dem Quotientenkriterium absolut.",
+                "Schritt 8: Verifikation\nWir können die Konvergenz auch durch Berechnung der ersten Glieder überprüfen:\n$a_1 = 1$\n$a_2 = \\frac{2}{4} = 0.5$\n$a_3 = \\frac{6}{27} \\approx 0.2222$\n$a_4 = \\frac{24}{256} \\approx 0.0938$\nDie Glieder werden schnell kleiner, was die Konvergenz bestätigt."
             ]
         },
         {
@@ -67,6 +84,262 @@
                 "Schritt 2: Vereinfachung\n$= \\lim_{n \\to \\infty} \\frac{(n+1)^n}{n^n} = \\lim_{n \\to \\infty} (1 + \\frac{1}{n})^n = e$",
                 "Schritt 3: Konvergenzradius\n$R = \\frac{1}{e}$",
                 "Schritt 4: Konvergenzbereich\nDie Reihe konvergiert für $|x| < \\frac{1}{e}$ und divergiert für $|x| > \\frac{1}{e}$."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Folgen und Reihen",
+            "title": "Einfache Folge",
+            "description": "Untersuchen Sie die Konvergenz der Folge $(a_n)$ mit $a_n = \\frac{3n^2 + 2n}{n^2 + 1}$ und bestimmen Sie gegebenenfalls den Grenzwert.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Umformung\n$a_n = \\frac{3n^2 + 2n}{n^2 + 1} = \\frac{3 + \\frac{2}{n}}{1 + \\frac{1}{n^2}}$",
+                "Schritt 2: Grenzwertberechnung\n$\\lim_{n \\to \\infty} a_n = \\frac{3 + 0}{1 + 0} = 3$",
+                "Schritt 3: Konvergenznachweis\nDie Folge konvergiert gegen 3, da alle Summanden mit $n$ im Nenner gegen 0 konvergieren."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Folgen und Reihen",
+            "title": "Einfache Reihe",
+            "description": "Berechnen Sie die Summe der Reihe $\\sum_{n=1}^{\\infty} \\frac{1}{n(n+1)}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Partialbruchzerlegung\n$\\frac{1}{n(n+1)} = \\frac{1}{n} - \\frac{1}{n+1}$",
+                "Schritt 2: Teleskopsumme\n$\\sum_{n=1}^{\\infty} (\\frac{1}{n} - \\frac{1}{n+1}) = 1$",
+                "Schritt 3: Konvergenznachweis\nDie Reihe konvergiert, da die Partialsummen gegen 1 konvergieren."
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Folgen und Reihen",
+            "title": "Einfache Potenzreihe",
+            "description": "Bestimmen Sie den Konvergenzradius der Potenzreihe $\\sum_{n=0}^{\\infty} \\frac{x^n}{n+1}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Quotientenkriterium\n$\\lim_{n \\to \\infty} |\\frac{a_{n+1}}{a_n}| = \\lim_{n \\to \\infty} \\frac{n+1}{n+2} = 1$",
+                "Schritt 2: Konvergenzradius\n$R = 1$",
+                "Schritt 3: Konvergenzbereich\nDie Reihe konvergiert für $|x| < 1$ und divergiert für $|x| > 1$."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Folgen und Reihen",
+            "title": "Einfache Rekursion",
+            "description": "Untersuchen Sie die Konvergenz der rekursiv definierten Folge $a_1 = 1$, $a_{n+1} = \\frac{1}{2}(a_n + \\frac{2}{a_n})$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Monotonie\n$a_{n+1} - a_n = \\frac{1}{2}(\\frac{2}{a_n} - a_n) = \\frac{1}{2a_n}(2 - a_n^2)$",
+                "Schritt 2: Beschränktheit\n$a_n > 0$ für alle $n$ (Induktion)",
+                "Schritt 3: Grenzwert\n$\\lim_{n \\to \\infty} a_n = \\sqrt{2}$",
+                "Schritt 4: Konvergenznachweis\nDie Folge konvergiert monoton fallend gegen $\\sqrt{2}$."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Folgen und Reihen",
+            "title": "Einfache Majorante",
+            "description": "Untersuchen Sie die Konvergenz der Reihe $\\sum_{n=1}^{\\infty} \\frac{1}{n^2 + n + 1}$ mit Hilfe des Majorantenkriteriums.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Abschätzung\n$\\frac{1}{n^2 + n + 1} < \\frac{1}{n^2}$ für alle $n \\in \\mathbb{N}$",
+                "Schritt 2: Majorante\n$\\sum_{n=1}^{\\infty} \\frac{1}{n^2}$ konvergiert (bekannt)",
+                "Schritt 3: Konvergenz\nNach dem Majorantenkriterium konvergiert die ursprüngliche Reihe."
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Folgen und Reihen",
+            "title": "Einfache Wurzelkriterium",
+            "description": "Untersuchen Sie die Konvergenz der Reihe $\\sum_{n=1}^{\\infty} (\\frac{n}{n+1})^n$ mit Hilfe des Wurzelkriteriums.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Wurzelkriterium\n$\\lim_{n \\to \\infty} \\sqrt[n]{|a_n|} = \\lim_{n \\to \\infty} \\frac{n}{n+1} = 1$",
+                "Schritt 2: Konvergenz\nDas Wurzelkriterium liefert keine Aussage, da der Grenzwert 1 ist.",
+                "Schritt 3: Alternative\n$\\lim_{n \\to \\infty} (\\frac{n}{n+1})^n = e^{-1} \\neq 0$",
+                "Schritt 4: Divergenz\nDie Reihe divergiert nach dem notwendigen Konvergenzkriterium."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Folgen und Reihen",
+            "title": "Einfache Exponentialreihe",
+            "description": "Berechnen Sie die Summe der Reihe $\\sum_{n=0}^{\\infty} \\frac{x^n}{n!}$ für $x = 2$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Exponentialreihe\n$\\sum_{n=0}^{\\infty} \\frac{x^n}{n!} = e^x$ für alle $x \\in \\mathbb{R}$",
+                "Schritt 2: Einsetzen\n$\\sum_{n=0}^{\\infty} \\frac{2^n}{n!} = e^2$",
+                "Schritt 3: Konvergenz\nDie Reihe konvergiert absolut für alle $x \\in \\mathbb{R}$."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Folgen und Reihen",
+            "title": "Mittelschwere Folge",
+            "description": "Untersuchen Sie die Konvergenz der Folge $(a_n)$ mit $a_n = \\sqrt[n]{n!}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Stirling-Formel\n$n! \\approx n^n e^{-n} \\sqrt{2\\pi n}$ für große $n$",
+                "Schritt 2: Grenzwertberechnung\n$\\lim_{n \\to \\infty} \\sqrt[n]{n!} = \\lim_{n \\to \\infty} \\frac{n}{e} = \\infty$",
+                "Schritt 3: Divergenz\nDie Folge divergiert gegen $\\infty$."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Folgen und Reihen",
+            "title": "Mittelschwere Reihe",
+            "description": "Untersuchen Sie die Konvergenz der Reihe $\\sum_{n=1}^{\\infty} \\frac{n^2 + 1}{n^3 + 2n}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Vergleichskriterium\n$\\frac{n^2 + 1}{n^3 + 2n} \\sim \\frac{1}{n}$ für $n \\to \\infty$",
+                "Schritt 2: Harmonische Reihe\n$\\sum_{n=1}^{\\infty} \\frac{1}{n}$ divergiert",
+                "Schritt 3: Divergenz\nNach dem Vergleichskriterium divergiert die ursprüngliche Reihe."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Folgen und Reihen",
+            "title": "Mittelschwere Potenzreihe",
+            "description": "Bestimmen Sie den Konvergenzradius und die Summe der Potenzreihe $\\sum_{n=1}^{\\infty} n x^n$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Quotientenkriterium\n$\\lim_{n \\to \\infty} |\\frac{a_{n+1}}{a_n}| = \\lim_{n \\to \\infty} \\frac{n+1}{n} = 1$",
+                "Schritt 2: Konvergenzradius\n$R = 1$",
+                "Schritt 3: Summenformel\n$\\sum_{n=1}^{\\infty} n x^n = \\frac{x}{(1-x)^2}$ für $|x| < 1$",
+                "Schritt 4: Konvergenzbereich\nDie Reihe konvergiert für $|x| < 1$ und divergiert für $|x| \\geq 1$."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Folgen und Reihen",
+            "title": "Mittelschwere Rekursion",
+            "description": "Untersuchen Sie die Konvergenz der rekursiv definierten Folge $a_1 = 2$, $a_{n+1} = \\sqrt{a_n + 2}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Monotonie\n$a_{n+1} - a_n = \\sqrt{a_n + 2} - a_n = \\frac{2 - a_n^2 + a_n}{\\sqrt{a_n + 2} + a_n}$",
+                "Schritt 2: Beschränktheit\n$0 < a_n < 2$ für alle $n$ (Induktion)",
+                "Schritt 3: Grenzwert\n$\\lim_{n \\to \\infty} a_n = 2$",
+                "Schritt 4: Konvergenznachweis\nDie Folge konvergiert monoton wachsend gegen 2."
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Folgen und Reihen",
+            "title": "Mittelschwere Majorante",
+            "description": "Untersuchen Sie die Konvergenz der Reihe $\\sum_{n=1}^{\\infty} \\frac{\\sin n}{n^2}$ mit Hilfe des Majorantenkriteriums.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Abschätzung\n$|\\frac{\\sin n}{n^2}| \\leq \\frac{1}{n^2}$ für alle $n \\in \\mathbb{N}$",
+                "Schritt 2: Majorante\n$\\sum_{n=1}^{\\infty} \\frac{1}{n^2}$ konvergiert",
+                "Schritt 3: Konvergenz\nNach dem Majorantenkriterium konvergiert die ursprüngliche Reihe absolut."
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Folgen und Reihen",
+            "title": "Mittelschwere Wurzelkriterium",
+            "description": "Untersuchen Sie die Konvergenz der Reihe $\\sum_{n=1}^{\\infty} (\\frac{n^2 + 1}{n^2 + 2})^n$ mit Hilfe des Wurzelkriteriums.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Wurzelkriterium\n$\\lim_{n \\to \\infty} \\sqrt[n]{|a_n|} = \\lim_{n \\to \\infty} \\frac{n^2 + 1}{n^2 + 2} = 1$",
+                "Schritt 2: Konvergenz\nDas Wurzelkriterium liefert keine Aussage, da der Grenzwert 1 ist.",
+                "Schritt 3: Alternative\n$\\lim_{n \\to \\infty} (\\frac{n^2 + 1}{n^2 + 2})^n = e^{-1} \\neq 0$",
+                "Schritt 4: Divergenz\nDie Reihe divergiert nach dem notwendigen Konvergenzkriterium."
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Folgen und Reihen",
+            "title": "Schwere Folge",
+            "description": "Untersuchen Sie die Konvergenz der Folge $(a_n)$ mit $a_n = (1 + \\frac{1}{n^2})^{n^2}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Umformung\n$a_n = (1 + \\frac{1}{n^2})^{n^2} = [(1 + \\frac{1}{n^2})^{n^2}]^1$",
+                "Schritt 2: Grenzwertberechnung\n$\\lim_{n \\to \\infty} a_n = e$",
+                "Schritt 3: Konvergenznachweis\nDie Folge konvergiert gegen $e$, da $(1 + \\frac{1}{n})^n \\to e$ für $n \\to \\infty$."
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Folgen und Reihen",
+            "title": "Schwere Reihe",
+            "description": "Untersuchen Sie die Konvergenz der Reihe $\\sum_{n=1}^{\\infty} \\frac{n!}{n^n}$ mit Hilfe des Quotientenkriteriums.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Quotientenkriterium\n$\\lim_{n \\to \\infty} |\\frac{a_{n+1}}{a_n}| = \\lim_{n \\to \\infty} \\frac{(n+1)!}{(n+1)^{n+1}} \\cdot \\frac{n^n}{n!}$",
+                "Schritt 2: Vereinfachung\n$= \\lim_{n \\to \\infty} \\frac{(n+1)n^n}{(n+1)^{n+1}} = \\lim_{n \\to \\infty} \\frac{n^n}{(n+1)^n}$",
+                "Schritt 3: Grenzwertberechnung\n$= \\lim_{n \\to \\infty} (\\frac{n}{n+1})^n = e^{-1} < 1$",
+                "Schritt 4: Konvergenz\nNach dem Quotientenkriterium konvergiert die Reihe absolut."
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Folgen und Reihen",
+            "title": "Schwere Potenzreihe",
+            "description": "Bestimmen Sie den Konvergenzradius und die Summe der Potenzreihe $\\sum_{n=0}^{\\infty} \\frac{n^2 + 1}{n!} x^n$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Quotientenkriterium\n$\\lim_{n \\to \\infty} |\\frac{a_{n+1}}{a_n}| = \\lim_{n \\to \\infty} \\frac{(n+1)^2 + 1}{(n+1)!} \\cdot \\frac{n!}{n^2 + 1} = 0$",
+                "Schritt 2: Konvergenzradius\n$R = \\infty$",
+                "Schritt 3: Summenformel\n$\\sum_{n=0}^{\\infty} \\frac{n^2 + 1}{n!} x^n = (x^2 + x + 1)e^x$",
+                "Schritt 4: Konvergenzbereich\nDie Reihe konvergiert für alle $x \\in \\mathbb{R}$."
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Folgen und Reihen",
+            "title": "Schwere Rekursion",
+            "description": "Untersuchen Sie die Konvergenz der rekursiv definierten Folge $a_1 = 1$, $a_{n+1} = \\frac{1}{2}(a_n + \\frac{3}{a_n})$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Monotonie\n$a_{n+1} - a_n = \\frac{1}{2}(\\frac{3}{a_n} - a_n) = \\frac{1}{2a_n}(3 - a_n^2)$",
+                "Schritt 2: Beschränktheit\n$a_n > 0$ für alle $n$ (Induktion)",
+                "Schritt 3: Grenzwert\n$\\lim_{n \\to \\infty} a_n = \\sqrt{3}$",
+                "Schritt 4: Konvergenznachweis\nDie Folge konvergiert monoton fallend gegen $\\sqrt{3}$."
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Folgen und Reihen",
+            "title": "Schwere Majorante",
+            "description": "Untersuchen Sie die Konvergenz der Reihe $\\sum_{n=1}^{\\infty} \\frac{\\cos n}{n^2 + \\ln n}$ mit Hilfe des Majorantenkriteriums.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Abschätzung\n$|\\frac{\\cos n}{n^2 + \\ln n}| \\leq \\frac{1}{n^2}$ für alle $n \\in \\mathbb{N}$",
+                "Schritt 2: Majorante\n$\\sum_{n=1}^{\\infty} \\frac{1}{n^2}$ konvergiert",
+                "Schritt 3: Konvergenz\nNach dem Majorantenkriterium konvergiert die ursprüngliche Reihe absolut."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Folgen und Reihen",
+            "title": "Schwere Wurzelkriterium",
+            "description": "Untersuchen Sie die Konvergenz der Reihe $\\sum_{n=1}^{\\infty} (\\frac{n^3 + 1}{n^3 + 2})^n$ mit Hilfe des Wurzelkriteriums.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Wurzelkriterium\n$\\lim_{n \\to \\infty} \\sqrt[n]{|a_n|} = \\lim_{n \\to \\infty} \\frac{n^3 + 1}{n^3 + 2} = 1$",
+                "Schritt 2: Konvergenz\nDas Wurzelkriterium liefert keine Aussage, da der Grenzwert 1 ist.",
+                "Schritt 3: Alternative\n$\\lim_{n \\to \\infty} (\\frac{n^3 + 1}{n^3 + 2})^n = e^{-1} \\neq 0$",
+                "Schritt 4: Divergenz\nDie Reihe divergiert nach dem notwendigen Konvergenzkriterium."
             ]
         }
     ]

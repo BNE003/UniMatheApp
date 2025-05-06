@@ -3,6 +3,126 @@
         {
             "id": 1,
             "topic": "Mehrdimensionale Analysis",
+            "title": "Partielle Ableitungen einer Polynomfunktion",
+            "description": "Berechnen Sie die partiellen Ableitungen erster Ordnung der Funktion $f(x,y) = x^2y + 3xy^2 - 2x + y$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x,y)$ ist ein Polynom in zwei Variablen.",
+                "Schritt 2: Berechnung der partiellen Ableitung nach x\n$\\frac{\\partial f}{\\partial x} = 2xy + 3y^2 - 2$\nErklärung: Wir leiten nach x ab und behandeln y als Konstante.",
+                "Schritt 3: Berechnung der partiellen Ableitung nach y\n$\\frac{\\partial f}{\\partial y} = x^2 + 6xy + 1$\nErklärung: Wir leiten nach y ab und behandeln x als Konstante.",
+                "Schritt 4: Verifikation\nWir überprüfen die Ergebnisse durch Einsetzen von Testwerten:\nFür $(x,y) = (1,1)$:\n$\\frac{\\partial f}{\\partial x}(1,1) = 2\\cdot1\\cdot1 + 3\\cdot1^2 - 2 = 3$\n$\\frac{\\partial f}{\\partial y}(1,1) = 1^2 + 6\\cdot1\\cdot1 + 1 = 8$",
+                "Schritt 5: Zusammenfassung\nDie partiellen Ableitungen sind:\n$\\frac{\\partial f}{\\partial x} = 2xy + 3y^2 - 2$\n$\\frac{\\partial f}{\\partial y} = x^2 + 6xy + 1$"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Partielle Ableitungen einer Exponentialfunktion",
+            "description": "Berechnen Sie die partiellen Ableitungen erster Ordnung der Funktion $f(x,y) = e^{x^2 + y^2}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x,y)$ ist eine Exponentialfunktion mit quadratischem Argument.",
+                "Schritt 2: Berechnung der partiellen Ableitung nach x\n$\\frac{\\partial f}{\\partial x} = 2xe^{x^2 + y^2}$\nErklärung: Wir wenden die Kettenregel an und leiten nach x ab.",
+                "Schritt 3: Berechnung der partiellen Ableitung nach y\n$\\frac{\\partial f}{\\partial y} = 2ye^{x^2 + y^2}$\nErklärung: Wir wenden die Kettenregel an und leiten nach y ab.",
+                "Schritt 4: Verifikation\nWir überprüfen die Ergebnisse durch Einsetzen von Testwerten:\nFür $(x,y) = (0,0)$:\n$\\frac{\\partial f}{\\partial x}(0,0) = 0$\n$\\frac{\\partial f}{\\partial y}(0,0) = 0$",
+                "Schritt 5: Zusammenfassung\nDie partiellen Ableitungen sind:\n$\\frac{\\partial f}{\\partial x} = 2xe^{x^2 + y^2}$\n$\\frac{\\partial f}{\\partial y} = 2ye^{x^2 + y^2}$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Partielle Ableitungen einer trigonometrischen Funktion",
+            "description": "Berechnen Sie die partiellen Ableitungen erster Ordnung der Funktion $f(x,y) = \\sin(xy)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x,y)$ ist eine Sinusfunktion mit Produktargument.",
+                "Schritt 2: Berechnung der partiellen Ableitung nach x\n$\\frac{\\partial f}{\\partial x} = y\\cos(xy)$\nErklärung: Wir wenden die Kettenregel an und leiten nach x ab.",
+                "Schritt 3: Berechnung der partiellen Ableitung nach y\n$\\frac{\\partial f}{\\partial y} = x\\cos(xy)$\nErklärung: Wir wenden die Kettenregel an und leiten nach y ab.",
+                "Schritt 4: Verifikation\nWir überprüfen die Ergebnisse durch Einsetzen von Testwerten:\nFür $(x,y) = (\\frac{\\pi}{2},1)$:\n$\\frac{\\partial f}{\\partial x}(\\frac{\\pi}{2},1) = \\cos(\\frac{\\pi}{2}) = 0$\n$\\frac{\\partial f}{\\partial y}(\\frac{\\pi}{2},1) = \\frac{\\pi}{2}\\cos(\\frac{\\pi}{2}) = 0$",
+                "Schritt 5: Zusammenfassung\nDie partiellen Ableitungen sind:\n$\\frac{\\partial f}{\\partial x} = y\\cos(xy)$\n$\\frac{\\partial f}{\\partial y} = x\\cos(xy)$"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Partielle Ableitungen einer Wurzelfunktion",
+            "description": "Berechnen Sie die partiellen Ableitungen erster Ordnung der Funktion $f(x,y) = \\sqrt{x^2 + y^2}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x,y)$ ist eine Wurzelfunktion mit quadratischem Argument.",
+                "Schritt 2: Berechnung der partiellen Ableitung nach x\n$\\frac{\\partial f}{\\partial x} = \\frac{x}{\\sqrt{x^2 + y^2}}$\nErklärung: Wir wenden die Kettenregel an und leiten nach x ab.",
+                "Schritt 3: Berechnung der partiellen Ableitung nach y\n$\\frac{\\partial f}{\\partial y} = \\frac{y}{\\sqrt{x^2 + y^2}}$\nErklärung: Wir wenden die Kettenregel an und leiten nach y ab.",
+                "Schritt 4: Verifikation\nWir überprüfen die Ergebnisse durch Einsetzen von Testwerten:\nFür $(x,y) = (3,4)$:\n$\\frac{\\partial f}{\\partial x}(3,4) = \\frac{3}{5}$\n$\\frac{\\partial f}{\\partial y}(3,4) = \\frac{4}{5}$",
+                "Schritt 5: Zusammenfassung\nDie partiellen Ableitungen sind:\n$\\frac{\\partial f}{\\partial x} = \\frac{x}{\\sqrt{x^2 + y^2}}$\n$\\frac{\\partial f}{\\partial y} = \\frac{y}{\\sqrt{x^2 + y^2}}$"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Partielle Ableitungen einer Logarithmusfunktion",
+            "description": "Berechnen Sie die partiellen Ableitungen erster Ordnung der Funktion $f(x,y) = \\ln(x^2 + y^2)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x,y)$ ist eine Logarithmusfunktion mit quadratischem Argument.",
+                "Schritt 2: Berechnung der partiellen Ableitung nach x\n$\\frac{\\partial f}{\\partial x} = \\frac{2x}{x^2 + y^2}$\nErklärung: Wir wenden die Kettenregel an und leiten nach x ab.",
+                "Schritt 3: Berechnung der partiellen Ableitung nach y\n$\\frac{\\partial f}{\\partial y} = \\frac{2y}{x^2 + y^2}$\nErklärung: Wir wenden die Kettenregel an und leiten nach y ab.",
+                "Schritt 4: Verifikation\nWir überprüfen die Ergebnisse durch Einsetzen von Testwerten:\nFür $(x,y) = (1,1)$:\n$\\frac{\\partial f}{\\partial x}(1,1) = 1$\n$\\frac{\\partial f}{\\partial y}(1,1) = 1$",
+                "Schritt 5: Zusammenfassung\nDie partiellen Ableitungen sind:\n$\\frac{\\partial f}{\\partial x} = \\frac{2x}{x^2 + y^2}$\n$\\frac{\\partial f}{\\partial y} = \\frac{2y}{x^2 + y^2}$"
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Partielle Ableitungen einer Produktfunktion",
+            "description": "Berechnen Sie die partiellen Ableitungen erster Ordnung der Funktion $f(x,y) = x\\sin(y)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x,y)$ ist ein Produkt aus linearer und trigonometrischer Funktion.",
+                "Schritt 2: Berechnung der partiellen Ableitung nach x\n$\\frac{\\partial f}{\\partial x} = \\sin(y)$\nErklärung: Wir leiten nach x ab und behandeln y als Konstante.",
+                "Schritt 3: Berechnung der partiellen Ableitung nach y\n$\\frac{\\partial f}{\\partial y} = x\\cos(y)$\nErklärung: Wir leiten nach y ab und behandeln x als Konstante.",
+                "Schritt 4: Verifikation\nWir überprüfen die Ergebnisse durch Einsetzen von Testwerten:\nFür $(x,y) = (2,\\frac{\\pi}{2})$:\n$\\frac{\\partial f}{\\partial x}(2,\\frac{\\pi}{2}) = 1$\n$\\frac{\\partial f}{\\partial y}(2,\\frac{\\pi}{2}) = 0$",
+                "Schritt 5: Zusammenfassung\nDie partiellen Ableitungen sind:\n$\\frac{\\partial f}{\\partial x} = \\sin(y)$\n$\\frac{\\partial f}{\\partial y} = x\\cos(y)$"
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Partielle Ableitungen einer Quotientenfunktion",
+            "description": "Berechnen Sie die partiellen Ableitungen erster Ordnung der Funktion $f(x,y) = \\frac{x}{y}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x,y)$ ist ein Quotient aus zwei Variablen.",
+                "Schritt 2: Berechnung der partiellen Ableitung nach x\n$\\frac{\\partial f}{\\partial x} = \\frac{1}{y}$\nErklärung: Wir leiten nach x ab und behandeln y als Konstante.",
+                "Schritt 3: Berechnung der partiellen Ableitung nach y\n$\\frac{\\partial f}{\\partial y} = -\\frac{x}{y^2}$\nErklärung: Wir leiten nach y ab und behandeln x als Konstante.",
+                "Schritt 4: Verifikation\nWir überprüfen die Ergebnisse durch Einsetzen von Testwerten:\nFür $(x,y) = (2,3)$:\n$\\frac{\\partial f}{\\partial x}(2,3) = \\frac{1}{3}$\n$\\frac{\\partial f}{\\partial y}(2,3) = -\\frac{2}{9}$",
+                "Schritt 5: Zusammenfassung\nDie partiellen Ableitungen sind:\n$\\frac{\\partial f}{\\partial x} = \\frac{1}{y}$\n$\\frac{\\partial f}{\\partial y} = -\\frac{x}{y^2}$"
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Partielle Ableitungen einer zusammengesetzten Funktion",
+            "description": "Berechnen Sie die partiellen Ableitungen erster Ordnung der Funktion $f(x,y) = e^{xy}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x,y)$ ist eine Exponentialfunktion mit Produktargument.",
+                "Schritt 2: Berechnung der partiellen Ableitung nach x\n$\\frac{\\partial f}{\\partial x} = ye^{xy}$\nErklärung: Wir wenden die Kettenregel an und leiten nach x ab.",
+                "Schritt 3: Berechnung der partiellen Ableitung nach y\n$\\frac{\\partial f}{\\partial y} = xe^{xy}$\nErklärung: Wir wenden die Kettenregel an und leiten nach y ab.",
+                "Schritt 4: Verifikation\nWir überprüfen die Ergebnisse durch Einsetzen von Testwerten:\nFür $(x,y) = (1,1)$:\n$\\frac{\\partial f}{\\partial x}(1,1) = e$\n$\\frac{\\partial f}{\\partial y}(1,1) = e$",
+                "Schritt 5: Zusammenfassung\nDie partiellen Ableitungen sind:\n$\\frac{\\partial f}{\\partial x} = ye^{xy}$\n$\\frac{\\partial f}{\\partial y} = xe^{xy}$"
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Mehrdimensionale Analysis",
             "title": "Partielle Ableitungen",
             "description": "Berechnen Sie alle partiellen Ableitungen erster und zweiter Ordnung der Funktion $f(x,y) = x^2y + \\sin(xy)$.",
             "difficulty": "medium",
@@ -15,7 +135,7 @@
             ]
         },
         {
-            "id": 2,
+            "id": 10,
             "topic": "Mehrdimensionale Analysis",
             "title": "Gradient und Richtungsableitung",
             "description": "Berechnen Sie den Gradienten der Funktion $f(x,y,z) = x^2 + y^2 + z^2$ im Punkt $(1,2,3)$ und die Richtungsableitung in Richtung des Vektors $\\vec{v} = (1,1,1)$.",
@@ -29,7 +149,7 @@
             ]
         },
         {
-            "id": 3,
+            "id": 11,
             "topic": "Mehrdimensionale Analysis",
             "title": "Extremwertaufgaben",
             "description": "Finden Sie die lokalen Extrema der Funktion $f(x,y) = x^3 + y^3 - 3xy$ und bestimmen Sie deren Art.",
@@ -43,7 +163,7 @@
             ]
         },
         {
-            "id": 4,
+            "id": 12,
             "topic": "Mehrdimensionale Analysis",
             "title": "Mehrfachintegrale",
             "description": "Berechnen Sie das Doppelintegral $\\iint_D (x^2 + y^2) dxdy$ über den Bereich $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid 0 \\leq x \\leq 1, 0 \\leq y \\leq x\\}$.",
@@ -57,7 +177,7 @@
             ]
         },
         {
-            "id": 5,
+            "id": 13,
             "topic": "Mehrdimensionale Analysis",
             "title": "Koordinatentransformation",
             "description": "Berechnen Sie das Integral $\\iint_D \\frac{1}{\\sqrt{x^2 + y^2}} dxdy$ über den Bereich $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid 1 \\leq x^2 + y^2 \\leq 4\\}$ durch Transformation in Polarkoordinaten.",
@@ -68,6 +188,230 @@
                 "Schritt 2: Integrationsbereich\n$1 \\leq r \\leq 2, 0 \\leq \\phi \\leq 2\\pi$",
                 "Schritt 3: Transformation\n$\\int_0^{2\\pi} \\int_1^2 \\frac{1}{r} \\cdot r dr d\\phi = \\int_0^{2\\pi} \\int_1^2 1 dr d\\phi$",
                 "Schritt 4: Berechnung\n$= \\int_0^{2\\pi} (2-1) d\\phi = 2\\pi$"
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Höhere partielle Ableitungen",
+            "description": "Berechnen Sie alle partiellen Ableitungen zweiter Ordnung der Funktion $f(x,y) = e^{x^2y}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Partielle Ableitungen erster Ordnung\n$\\frac{\\partial f}{\\partial x} = 2xye^{x^2y}$\n$\\frac{\\partial f}{\\partial y} = x^2e^{x^2y}$",
+                "Schritt 2: Partielle Ableitungen zweiter Ordnung\n$\\frac{\\partial^2 f}{\\partial x^2} = (2y + 4x^2y^2)e^{x^2y}$\n$\\frac{\\partial^2 f}{\\partial y^2} = x^4e^{x^2y}$",
+                "Schritt 3: Gemischte Ableitungen\n$\\frac{\\partial^2 f}{\\partial x \\partial y} = (2x + 2x^3y)e^{x^2y}$\n$\\frac{\\partial^2 f}{\\partial y \\partial x} = (2x + 2x^3y)e^{x^2y}$",
+                "Schritt 4: Verifikation\nDie gemischten Ableitungen sind gleich (Satz von Schwarz)"
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Gradient und Richtungsableitung",
+            "description": "Berechnen Sie den Gradienten der Funktion $f(x,y) = \\ln(x^2 + y^2)$ im Punkt $(1,1)$ und die Richtungsableitung in Richtung des Vektors $\\vec{v} = (1,2)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Gradient\n$\\nabla f = (\\frac{2x}{x^2 + y^2}, \\frac{2y}{x^2 + y^2})$\n$\\nabla f(1,1) = (1,1)$",
+                "Schritt 2: Normalisierung des Richtungsvektors\n$\\vec{v}_0 = \\frac{1}{\\sqrt{5}}(1,2)$",
+                "Schritt 3: Richtungsableitung\n$D_{\\vec{v}}f = \\nabla f \\cdot \\vec{v}_0 = \\frac{1}{\\sqrt{5}}(1 + 2) = \\frac{3}{\\sqrt{5}}$",
+                "Schritt 4: Interpretation\nDie Richtungsableitung gibt die Änderungsrate von $f$ in Richtung $\\vec{v}$ an."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Totales Differential",
+            "description": "Berechnen Sie das totale Differential der Funktion $f(x,y) = \\sin(xy) + e^{x+y}$ im Punkt $(0,0)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Partielle Ableitungen\n$\\frac{\\partial f}{\\partial x} = y\\cos(xy) + e^{x+y}$\n$\\frac{\\partial f}{\\partial y} = x\\cos(xy) + e^{x+y}$",
+                "Schritt 2: Werte im Punkt (0,0)\n$\\frac{\\partial f}{\\partial x}(0,0) = 1$\n$\\frac{\\partial f}{\\partial y}(0,0) = 1$",
+                "Schritt 3: Totales Differential\n$df = \\frac{\\partial f}{\\partial x}dx + \\frac{\\partial f}{\\partial y}dy = dx + dy$",
+                "Schritt 4: Interpretation\nDas totale Differential beschreibt die lineare Approximation der Funktionsänderung."
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Kettenregel",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x,y) = e^{x^2 + y^2}$ entlang der Kurve $x(t) = \\cos(t), y(t) = \\sin(t)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Partielle Ableitungen\n$\\frac{\\partial f}{\\partial x} = 2xe^{x^2 + y^2}$\n$\\frac{\\partial f}{\\partial y} = 2ye^{x^2 + y^2}$",
+                "Schritt 2: Ableitungen der Kurve\n$\\frac{dx}{dt} = -\\sin(t)$\n$\\frac{dy}{dt} = \\cos(t)$",
+                "Schritt 3: Kettenregel\n$\\frac{df}{dt} = \\frac{\\partial f}{\\partial x}\\frac{dx}{dt} + \\frac{\\partial f}{\\partial y}\\frac{dy}{dt}$\n$= 2e(-\\sin(t)\\cos(t) + \\cos(t)\\sin(t)) = 0$",
+                "Schritt 4: Interpretation\nDie Funktion ist konstant entlang der Kurve."
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Implizite Differentiation",
+            "description": "Berechnen Sie $\\frac{dy}{dx}$ für die implizite Funktion $x^2 + y^2 = 1$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Implizite Differentiation\n$2x + 2y\\frac{dy}{dx} = 0$",
+                "Schritt 2: Auflösen nach $\\frac{dy}{dx}$\n$\\frac{dy}{dx} = -\\frac{x}{y}$",
+                "Schritt 3: Verifikation\nFür $(x,y) = (\\frac{1}{2}, \\frac{\\sqrt{3}}{2})$:\n$\\frac{dy}{dx} = -\\frac{1}{\\sqrt{3}}$",
+                "Schritt 4: Interpretation\nDie Ableitung gibt die Steigung der Tangente an den Einheitskreis an."
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Richtungsableitung und Gradient",
+            "description": "Berechnen Sie die Richtungsableitung der Funktion $f(x,y) = x^2y$ im Punkt $(1,2)$ in Richtung des Vektors $\\vec{v} = (3,4)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Gradient\n$\\nabla f = (2xy, x^2)$\n$\\nabla f(1,2) = (4,1)$",
+                "Schritt 2: Normalisierung des Richtungsvektors\n$\\vec{v}_0 = \\frac{1}{5}(3,4)$",
+                "Schritt 3: Richtungsableitung\n$D_{\\vec{v}}f = \\nabla f \\cdot \\vec{v}_0 = \\frac{1}{5}(12 + 4) = \\frac{16}{5}$",
+                "Schritt 4: Interpretation\nDie Richtungsableitung gibt die Änderungsrate von $f$ in Richtung $\\vec{v}$ an."
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Höhere Ableitungen und Taylor-Entwicklung",
+            "description": "Berechnen Sie die Taylor-Entwicklung zweiter Ordnung der Funktion $f(x,y) = e^{x+y}$ um den Punkt $(0,0)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Funktionswerte und Ableitungen\n$f(0,0) = 1$\n$\\frac{\\partial f}{\\partial x} = e^{x+y}, \\frac{\\partial f}{\\partial y} = e^{x+y}$\n$\\frac{\\partial^2 f}{\\partial x^2} = e^{x+y}, \\frac{\\partial^2 f}{\\partial y^2} = e^{x+y}$\n$\\frac{\\partial^2 f}{\\partial x \\partial y} = e^{x+y}$",
+                "Schritt 2: Werte im Entwicklungspunkt\n$f(0,0) = 1$\n$\\frac{\\partial f}{\\partial x}(0,0) = 1, \\frac{\\partial f}{\\partial y}(0,0) = 1$\n$\\frac{\\partial^2 f}{\\partial x^2}(0,0) = 1, \\frac{\\partial^2 f}{\\partial y^2}(0,0) = 1$\n$\\frac{\\partial^2 f}{\\partial x \\partial y}(0,0) = 1$",
+                "Schritt 3: Taylor-Entwicklung\n$T_2(x,y) = 1 + x + y + \\frac{1}{2}(x^2 + 2xy + y^2)$",
+                "Schritt 4: Interpretation\nDie Taylor-Entwicklung gibt eine quadratische Approximation der Funktion."
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Totales Differential und Fehlerfortpflanzung",
+            "description": "Berechnen Sie das totale Differential der Funktion $f(x,y) = \\sqrt{x^2 + y^2}$ und schätzen Sie den Fehler ab, wenn $x = 3 \\pm 0.1$ und $y = 4 \\pm 0.1$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Partielle Ableitungen\n$\\frac{\\partial f}{\\partial x} = \\frac{x}{\\sqrt{x^2 + y^2}}$\n$\\frac{\\partial f}{\\partial y} = \\frac{y}{\\sqrt{x^2 + y^2}}$",
+                "Schritt 2: Werte im Punkt (3,4)\n$\\frac{\\partial f}{\\partial x}(3,4) = \\frac{3}{5}$\n$\\frac{\\partial f}{\\partial y}(3,4) = \\frac{4}{5}$",
+                "Schritt 3: Fehlerabschätzung\n$\\Delta f \\approx |\\frac{\\partial f}{\\partial x}|\\Delta x + |\\frac{\\partial f}{\\partial y}|\\Delta y$\n$= \\frac{3}{5} \\cdot 0.1 + \\frac{4}{5} \\cdot 0.1 = 0.14$",
+                "Schritt 4: Interpretation\nDer maximale Fehler beträgt etwa 0.14 Einheiten."
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Komplexe Extremwertaufgabe mit Nebenbedingungen",
+            "description": "Finden Sie die Extrema der Funktion $f(x,y,z) = x^2 + y^2 + z^2$ unter der Nebenbedingung $x + y + z = 1$ und $x^2 + y^2 = 1$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Lagrange-Funktion\n$L(x,y,z,\\lambda,\\mu) = x^2 + y^2 + z^2 + \\lambda(1-x-y-z) + \\mu(1-x^2-y^2)$",
+                "Schritt 2: Partielle Ableitungen\n$\\frac{\\partial L}{\\partial x} = 2x - \\lambda - 2\\mu x = 0$\n$\\frac{\\partial L}{\\partial y} = 2y - \\lambda - 2\\mu y = 0$\n$\\frac{\\partial L}{\\partial z} = 2z - \\lambda = 0$",
+                "Schritt 3: Kritische Punkte\n$(x,y,z) = (\\frac{1}{2}, \\frac{1}{2}, 0)$ und $(x,y,z) = (-\\frac{1}{2}, -\\frac{1}{2}, 2)$",
+                "Schritt 4: Klassifikation\nMinimum bei $(\\frac{1}{2}, \\frac{1}{2}, 0)$\nMaximum bei $(-\\frac{1}{2}, -\\frac{1}{2}, 2)$"
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Mehrfachintegral mit Koordinatentransformation",
+            "description": "Berechnen Sie das Integral $\\iiint_V \\frac{1}{\\sqrt{x^2 + y^2 + z^2}} dxdydz$ über den Bereich $V = \\{(x,y,z) \\in \\mathbb{R}^3 \\mid 1 \\leq x^2 + y^2 + z^2 \\leq 4\\}$ durch Transformation in Kugelkoordinaten.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Kugelkoordinaten\n$x = r\\sin\\theta\\cos\\phi$\n$y = r\\sin\\theta\\sin\\phi$\n$z = r\\cos\\theta$\n$dxdydz = r^2\\sin\\theta drd\\theta d\\phi$",
+                "Schritt 2: Integrationsbereich\n$1 \\leq r \\leq 2$\n$0 \\leq \\theta \\leq \\pi$\n$0 \\leq \\phi \\leq 2\\pi$",
+                "Schritt 3: Transformation\n$\\int_0^{2\\pi} \\int_0^\\pi \\int_1^2 \\frac{1}{r} \\cdot r^2\\sin\\theta drd\\theta d\\phi$",
+                "Schritt 4: Berechnung\n$= 2\\pi \\cdot 2 \\cdot \\frac{3}{2} = 6\\pi$"
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Komplexe Kettenregel mit mehreren Variablen",
+            "description": "Berechnen Sie die Ableitung der Funktion $f(x,y,z) = e^{xyz}$ entlang der Kurve $x(t) = \\cos(t), y(t) = \\sin(t), z(t) = t$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Partielle Ableitungen\n$\\frac{\\partial f}{\\partial x} = yze^{xyz}$\n$\\frac{\\partial f}{\\partial y} = xze^{xyz}$\n$\\frac{\\partial f}{\\partial z} = xye^{xyz}$",
+                "Schritt 2: Ableitungen der Kurve\n$\\frac{dx}{dt} = -\\sin(t)$\n$\\frac{dy}{dt} = \\cos(t)$\n$\\frac{dz}{dt} = 1$",
+                "Schritt 3: Kettenregel\n$\\frac{df}{dt} = -\\sin(t)\\cos(t)te^{xyz} + \\cos(t)\\sin(t)te^{xyz} + \\cos(t)\\sin(t)e^{xyz}$",
+                "Schritt 4: Vereinfachung\n$\\frac{df}{dt} = \\cos(t)\\sin(t)e^{xyz}$"
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Implizite Funktionen und Jacobi-Matrix",
+            "description": "Berechnen Sie die Jacobi-Matrix der impliziten Funktion $F(x,y,z) = (x^2 + y^2 + z^2 - 1, x + y + z - 1)$ und bestimmen Sie $\\frac{\\partial z}{\\partial x}$ und $\\frac{\\partial z}{\\partial y}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Jacobi-Matrix\n$DF = \\begin{pmatrix} 2x & 2y & 2z \\\\ 1 & 1 & 1 \\end{pmatrix}$",
+                "Schritt 2: Implizite Differentiation\n$\\frac{\\partial z}{\\partial x} = -\\frac{2x}{2z} = -\\frac{x}{z}$\n$\\frac{\\partial z}{\\partial y} = -\\frac{2y}{2z} = -\\frac{y}{z}$",
+                "Schritt 3: Verifikation\nFür $(x,y,z) = (\\frac{1}{2}, \\frac{1}{2}, \\frac{1}{\\sqrt{2}})$:\n$\\frac{\\partial z}{\\partial x} = -\\frac{1}{\\sqrt{2}}$\n$\\frac{\\partial z}{\\partial y} = -\\frac{1}{\\sqrt{2}}$",
+                "Schritt 4: Interpretation\nDie Ableitungen geben die Steigung der Tangentialebene an."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Mehrfachintegral mit komplexem Integrationsbereich",
+            "description": "Berechnen Sie das Integral $\\iint_D \\frac{1}{\\sqrt{1-x^2-y^2}} dxdy$ über den Bereich $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid x^2 + y^2 \\leq \\frac{1}{2}\\}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Polarkoordinaten\n$x = r\\cos\\phi$\n$y = r\\sin\\phi$\n$dxdy = r drd\\phi$",
+                "Schritt 2: Integrationsbereich\n$0 \\leq r \\leq \\frac{1}{\\sqrt{2}}$\n$0 \\leq \\phi \\leq 2\\pi$",
+                "Schritt 3: Transformation\n$\\int_0^{2\\pi} \\int_0^{\\frac{1}{\\sqrt{2}}} \\frac{r}{\\sqrt{1-r^2}} drd\\phi$",
+                "Schritt 4: Berechnung\n$= 2\\pi(1-\\frac{1}{\\sqrt{2}})$"
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Taylor-Entwicklung höherer Ordnung",
+            "description": "Berechnen Sie die Taylor-Entwicklung dritter Ordnung der Funktion $f(x,y) = \\sin(xy)$ um den Punkt $(0,0)$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Partielle Ableitungen\n$\\frac{\\partial f}{\\partial x} = y\\cos(xy)$\n$\\frac{\\partial f}{\\partial y} = x\\cos(xy)$\n$\\frac{\\partial^2 f}{\\partial x^2} = -y^2\\sin(xy)$\n$\\frac{\\partial^2 f}{\\partial y^2} = -x^2\\sin(xy)$\n$\\frac{\\partial^2 f}{\\partial x \\partial y} = \\cos(xy) - xy\\sin(xy)$",
+                "Schritt 2: Werte im Entwicklungspunkt\n$f(0,0) = 0$\n$\\frac{\\partial f}{\\partial x}(0,0) = 0$\n$\\frac{\\partial f}{\\partial y}(0,0) = 0$\n$\\frac{\\partial^2 f}{\\partial x^2}(0,0) = 0$\n$\\frac{\\partial^2 f}{\\partial y^2}(0,0) = 0$\n$\\frac{\\partial^2 f}{\\partial x \\partial y}(0,0) = 1$",
+                "Schritt 3: Taylor-Entwicklung\n$T_3(x,y) = xy - \\frac{1}{6}x^3y - \\frac{1}{6}xy^3$",
+                "Schritt 4: Interpretation\nDie Taylor-Entwicklung gibt eine kubische Approximation der Funktion."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Komplexe Richtungsableitung und Gradient",
+            "description": "Berechnen Sie die Richtungsableitung der Funktion $f(x,y,z) = x^2y + y^2z + z^2x$ im Punkt $(1,1,1)$ in Richtung des Vektors $\\vec{v} = (1,2,3)$ und bestimmen Sie die Richtung der maximalen Änderungsrate.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Gradient\n$\\nabla f = (2xy + z^2, x^2 + 2yz, y^2 + 2zx)$\n$\\nabla f(1,1,1) = (3,3,3)$",
+                "Schritt 2: Normalisierung des Richtungsvektors\n$\\vec{v}_0 = \\frac{1}{\\sqrt{14}}(1,2,3)$",
+                "Schritt 3: Richtungsableitung\n$D_{\\vec{v}}f = \\nabla f \\cdot \\vec{v}_0 = \\frac{1}{\\sqrt{14}}(3 + 6 + 9) = \\frac{18}{\\sqrt{14}}$",
+                "Schritt 4: Maximale Änderungsrate\nDie maximale Änderungsrate erfolgt in Richtung des Gradienten: $\\frac{1}{\\sqrt{3}}(1,1,1)$"
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Mehrfachintegral mit komplexer Transformation",
+            "description": "Berechnen Sie das Integral $\\iiint_V \\frac{1}{(x^2 + y^2 + z^2)^{3/2}} dxdydz$ über den Bereich $V = \\{(x,y,z) \\in \\mathbb{R}^3 \\mid 1 \\leq x^2 + y^2 \\leq 4, 0 \\leq z \\leq 1\\}$ durch Transformation in Zylinderkoordinaten.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Zylinderkoordinaten\n$x = r\\cos\\phi$\n$y = r\\sin\\phi$\n$z = z$\n$dxdydz = r drd\\phi dz$",
+                "Schritt 2: Integrationsbereich\n$1 \\leq r \\leq 2$\n$0 \\leq \\phi \\leq 2\\pi$\n$0 \\leq z \\leq 1$",
+                "Schritt 3: Transformation\n$\\int_0^{2\\pi} \\int_1^2 \\int_0^1 \\frac{r}{(r^2 + z^2)^{3/2}} drd\\phi dz$",
+                "Schritt 4: Berechnung\n$= 2\\pi(\\ln(2 + \\sqrt{5}) - \\ln(1 + \\sqrt{2}))$"
             ]
         }
     ]
