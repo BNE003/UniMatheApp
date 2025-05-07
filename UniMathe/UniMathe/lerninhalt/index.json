@@ -1,38 +1,6 @@
 {
     "topics": [
         {
-            "id": "0",
-            "title": "Brückenkurs Mathematik",
-            "filename": "brueckenkurs_content.json",
-            "subTopics": [
-                {
-                    "id": "0.1",
-                    "title": "Grundlagen der Schulmathematik",
-                    "filename": "schulmathematik_grundlagen_content.json"
-                },
-                {
-                    "id": "0.2",
-                    "title": "Funktionen und Gleichungen",
-                    "filename": "funktionen_gleichungen_content.json"
-                },
-                {
-                    "id": "0.3",
-                    "title": "Differentialrechnung",
-                    "filename": "brueckenkurs_differentialrechnung_content.json"
-                },
-                {
-                    "id": "0.4",
-                    "title": "Integralrechnung",
-                    "filename": "brueckenkurs_integralrechnung_content.json"
-                },
-                {
-                    "id": "0.5",
-                    "title": "Vektoren und Matrizen",
-                    "filename": "brueckenkurs_vektoren_matrizen_content.json"
-                }
-            ]
-        },
-        {
             "id": "1",
             "title": "Grundlagen der Höheren Mathematik",
             "filename": "grundlagen_der_hoeheren_mathematik_content.json",

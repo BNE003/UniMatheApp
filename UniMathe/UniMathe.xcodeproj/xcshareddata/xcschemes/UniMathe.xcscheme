@@ -58,8 +58,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = "de"
-      region = "DE"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -76,10 +74,6 @@
             ReferencedContainer = "container:UniMathe.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <LocationScenarioReference
-         identifier = "Berlin, Germany"
-         referenceType = "1">
-      </LocationScenarioReference>
       <StoreKitConfigurationFileReference
          identifier = "../../UniMathe/UniMathe/Configuration.storekit">
       </StoreKitConfigurationFileReference>
