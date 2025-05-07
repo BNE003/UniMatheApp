@@ -1,38 +1,182 @@
 {
-    "id": "550e8400-e29b-41d4-a716-446655440000",
-    "title": "Einführung in Ringe",
-    "description": "Lass uns die grundlegenden Konzepte der Ringtheorie Schritt für Schritt erkunden.",
+    "id": "ff0e8400-e29b-41d4-a716-446655440061",
+    "title": "Ringe",
+    "description": "Willkommen zu unserer ausführlichen Einführung in die Welt der Ringe! Lass uns gemeinsam dieses fundamentale Konzept der Algebra erkunden, das uns hilft, mathematische Strukturen mit zwei Verknüpfungen zu verstehen.",
     "topic": "Ringe",
     "steps": [
         {
-            "id": "550e8400-e29b-41d4-a716-446655440001",
-            "text": "Ein Ring ist eine algebraische Struktur, die aus einer Menge R und zwei Verknüpfungen besteht: Addition (+) und Multiplikation (·).",
-            "formula": "R = (R, +, \\cdot)",
-            "explanation": "Die Addition und Multiplikation müssen bestimmte Eigenschaften erfüllen, damit wir von einem Ring sprechen können."
+            "id": "ff0e8400-e29b-41d4-a716-446655440062",
+            "text": "Ein Ring ist eine Menge mit zwei Verknüpfungen, die bestimmte Eigenschaften erfüllen.",
+            "formula": "(R, +, \\cdot) \\text{ ist ein Ring, wenn:} \\\\ 1. (R, +) \\text{ ist eine abelsche Gruppe} \\\\ 2. \\text{ Assoziativität der Multiplikation: } (a \\cdot b) \\cdot c = a \\cdot (b \\cdot c) \\\\ 3. \\text{ Distributivität: } a \\cdot (b + c) = a \\cdot b + a \\cdot c, (a + b) \\cdot c = a \\cdot c + b \\cdot c",
+            "explanation": "Ein Ring ist wie ein mathematisches System mit Addition und Multiplikation. Es ist wie das Zusammenspiel von zwei verschiedenen Operationen!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440002",
-            "text": "Die Addition muss eine abelsche Gruppe bilden. Das bedeutet, sie ist assoziativ, kommutativ, hat ein neutrales Element (0) und jedes Element hat ein additives Inverses.",
-            "formula": "a + (b + c) = (a + b) + c \\\\ a + b = b + a \\\\ a + 0 = 0 + a = a \\\\ a + (-a) = 0",
-            "explanation": "Diese Eigenschaften sind uns bereits von den ganzen Zahlen bekannt."
+            "id": "ff0e8400-e29b-41d4-a716-446655440063",
+            "text": "Ein kommutativer Ring erfüllt das Kommutativgesetz der Multiplikation.",
+            "formula": "a \\cdot b = b \\cdot a \\text{ für alle } a,b \\in R",
+            "explanation": "Ein kommutativer Ring ist wie ein besonders harmonisches System. Es ist wie das Zusammenspiel von Operationen, bei dem die Reihenfolge keine Rolle spielt!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440003",
-            "text": "Die Multiplikation muss assoziativ sein und das Distributivgesetz muss gelten.",
-            "formula": "a \\cdot (b \\cdot c) = (a \\cdot b) \\cdot c \\\\ a \\cdot (b + c) = a \\cdot b + a \\cdot c \\\\ (a + b) \\cdot c = a \\cdot c + b \\cdot c",
-            "explanation": "Die Multiplikation muss nicht kommutativ sein. Wenn sie es ist, sprechen wir von einem kommutativen Ring."
+            "id": "ff0e8400-e29b-41d4-a716-446655440064",
+            "text": "Ein Ring mit Eins hat ein neutrales Element der Multiplikation.",
+            "formula": "\\exists 1 \\in R: 1 \\cdot a = a \\cdot 1 = a \\text{ für alle } a \\in R",
+            "explanation": "Ein Ring mit Eins ist wie ein System mit einem besonderen Element. Es ist wie das Finden eines neutralen Elements für die Multiplikation!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440004",
-            "text": "Ein wichtiges Beispiel für einen Ring sind die ganzen Zahlen ℤ mit der üblichen Addition und Multiplikation.",
-            "formula": "\\mathbb{Z} = \\{..., -2, -1, 0, 1, 2, ...\\}",
-            "explanation": "Die ganzen Zahlen bilden einen kommutativen Ring, da die Multiplikation kommutativ ist."
+            "id": "ff0e8400-e29b-41d4-a716-446655440065",
+            "text": "Ein Integritätsbereich ist ein nullteilerfreier kommutativer Ring mit Eins.",
+            "formula": "a \\cdot b = 0 \\Rightarrow a = 0 \\text{ oder } b = 0",
+            "explanation": "Ein Integritätsbereich ist wie ein System ohne Nullteiler. Es ist wie das Finden einer Struktur ohne problematische Elemente!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440005",
-            "text": "Ein weiteres Beispiel ist der Ring der Polynome über einem Körper K.",
-            "formula": "K[x] = \\{a_nx^n + a_{n-1}x^{n-1} + ... + a_0 \\mid a_i \\in K\\}",
-            "explanation": "Die Addition und Multiplikation von Polynomen erfolgt nach den üblichen Regeln."
+            "id": "ff0e8400-e29b-41d4-a716-446655440066",
+            "text": "Ein Hauptidealring ist ein Integritätsbereich, in dem jedes Ideal ein Hauptideal ist.",
+            "formula": "I \\trianglelefteq R \\Rightarrow I = (a) = \\{r \\cdot a \\mid r \\in R\\}",
+            "explanation": "Ein Hauptidealring ist wie ein System mit besonders einfachen Idealen. Es ist wie das Finden einer Struktur mit einfachen Teilen!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440067",
+            "text": "Ein euklidischer Ring ist ein Hauptidealring mit einer euklidischen Funktion.",
+            "formula": "\\exists \\delta: R \\setminus \\{0\\} \\rightarrow \\mathbb{N}_0: \\text{ für } a,b \\in R, b \\neq 0, \\exists q,r \\in R: a = q \\cdot b + r \\text{ mit } r = 0 \\text{ oder } \\delta(r) < \\delta(b)",
+            "explanation": "Ein euklidischer Ring ist wie ein System mit einer speziellen Messfunktion. Es ist wie das Finden einer Struktur mit einer Art von Größenordnung!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440068",
+            "text": "Ein faktorieller Ring ist ein Integritätsbereich mit eindeutiger Primfaktorzerlegung.",
+            "formula": "a = p_1^{k_1} \\cdots p_n^{k_n} = q_1^{l_1} \\cdots q_m^{l_m} \\Rightarrow n = m \\text{ und } p_i \\sim q_i",
+            "explanation": "Ein faktorieller Ring ist wie ein System mit eindeutiger Zerlegung. Es ist wie das Finden einer Struktur mit eindeutigen Bausteinen!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440069",
+            "text": "Ein Polynomring ist ein Ring von Polynomen über einem Ring.",
+            "formula": "R[X] = \\{\\sum_{i=0}^n a_i X^i \\mid n \\in \\mathbb{N}_0, a_i \\in R\\}",
+            "explanation": "Ein Polynomring ist wie ein System von Polynomen. Es ist wie das Finden einer Struktur für formale Ausdrücke!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440070",
+            "text": "Ein Ringhomomorphismus ist eine strukturerhaltende Abbildung.",
+            "formula": "\\phi: R \\rightarrow S \\text{ mit } \\phi(a + b) = \\phi(a) + \\phi(b), \\phi(a \\cdot b) = \\phi(a) \\cdot \\phi(b)",
+            "explanation": "Ein Ringhomomorphismus ist wie ein Übersetzer zwischen Systemen. Es ist wie das Übertragen von Strukturen!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440071",
+            "text": "Der Kern eines Ringhomomorphismus ist die Menge der Elemente, die auf Null abgebildet werden.",
+            "formula": "\\ker(\\phi) = \\{a \\in R \\mid \\phi(a) = 0\\}",
+            "explanation": "Der Kern ist wie die Menge der Elemente, die keine Wirkung haben. Es ist wie das Finden der neutralen Elemente!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440072",
+            "text": "Ein Ideal ist eine Teilmenge, die unter Addition und Multiplikation mit Ringelementen abgeschlossen ist.",
+            "formula": "I \\subseteq R \\text{ ist Ideal, wenn:} \\\\ 1. a,b \\in I \\Rightarrow a + b \\in I \\\\ 2. a \\in I, r \\in R \\Rightarrow r \\cdot a \\in I",
+            "explanation": "Ein Ideal ist wie ein spezieller Teil des Systems. Es ist wie das Finden einer stabilen Teilmenge!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440073",
+            "text": "Ein Hauptideal ist ein Ideal, das von einem Element erzeugt wird.",
+            "formula": "(a) = \\{r \\cdot a \\mid r \\in R\\}",
+            "explanation": "Ein Hauptideal ist wie ein einfaches Teil des Systems. Es ist wie das Finden einer einfach erzeugten Teilmenge!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440074",
+            "text": "Ein Faktorring entsteht durch Quotientenbildung nach einem Ideal.",
+            "formula": "R/I = \\{a + I \\mid a \\in R\\}",
+            "explanation": "Ein Faktorring ist wie ein vereinfachtes System. Es ist wie das Zusammenfassen von ähnlichen Elementen!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440075",
+            "text": "Ein maximales Ideal ist ein Ideal, das in keinem anderen Ideal außer dem Ring selbst enthalten ist.",
+            "formula": "I \\text{ maximal } \\Leftrightarrow I \\subsetneq J \\trianglelefteq R \\Rightarrow J = R",
+            "explanation": "Ein maximales Ideal ist wie ein größtmögliches Teil des Systems. Es ist wie das Finden einer maximalen Teilmenge!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440076",
+            "text": "Ein Primideal ist ein Ideal mit einer speziellen Eigenschaft.",
+            "formula": "a \\cdot b \\in P \\Rightarrow a \\in P \\text{ oder } b \\in P",
+            "explanation": "Ein Primideal ist wie ein spezielles Teil des Systems. Es ist wie das Finden einer primen Teilmenge!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440077",
+            "text": "Ein lokaler Ring hat genau ein maximales Ideal.",
+            "formula": "R \\text{ hat genau ein maximales Ideal } M",
+            "explanation": "Ein lokaler Ring ist wie ein System mit einem besonderen Teil. Es ist wie das Finden einer Struktur mit einem einzigen maximalen Ideal!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440078",
+            "text": "Ein noetherscher Ring erfüllt die aufsteigende Kettenbedingung für Ideale.",
+            "formula": "I_1 \\subseteq I_2 \\subseteq \\cdots \\Rightarrow \\exists n: I_n = I_{n+1} = \\cdots",
+            "explanation": "Ein noetherscher Ring ist wie ein System mit endlichen Ketten. Es ist wie das Finden einer Struktur mit endlichen Aufstiegen!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440079",
+            "text": "Ein artinscher Ring erfüllt die absteigende Kettenbedingung für Ideale.",
+            "formula": "I_1 \\supseteq I_2 \\supseteq \\cdots \\Rightarrow \\exists n: I_n = I_{n+1} = \\cdots",
+            "explanation": "Ein artinscher Ring ist wie ein System mit endlichen Abstiegen. Es ist wie das Finden einer Struktur mit endlichen Ketten!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440080",
+            "text": "Ein reduzierter Ring hat keine nilpotenten Elemente.",
+            "formula": "a^n = 0 \\Rightarrow a = 0",
+            "explanation": "Ein reduzierter Ring ist wie ein System ohne nilpotente Elemente. Es ist wie das Finden einer Struktur ohne problematische Elemente!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440081",
+            "text": "Ein regulärer Ring hat endliche globale Dimension.",
+            "formula": "\\text{gl.dim}(R) < \\infty",
+            "explanation": "Ein regulärer Ring ist wie ein System mit endlicher Dimension. Es ist wie das Finden einer Struktur mit endlicher Komplexität!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440082",
+            "text": "Ein Cohen-Macaulay-Ring erfüllt eine spezielle Bedingung für die Tiefe.",
+            "formula": "\\text{depth}(R) = \\dim(R)",
+            "explanation": "Ein Cohen-Macaulay-Ring ist wie ein System mit spezieller Tiefe. Es ist wie das Finden einer Struktur mit besonderer Dimension!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440083",
+            "text": "Ein Gorenstein-Ring ist ein Cohen-Macaulay-Ring mit endlicher injektiver Dimension.",
+            "formula": "\\text{inj.dim}(R) < \\infty",
+            "explanation": "Ein Gorenstein-Ring ist wie ein System mit endlicher injektiver Dimension. Es ist wie das Finden einer Struktur mit besonderer Eigenschaft!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440084",
+            "text": "Ein normaler Ring ist ein Integritätsbereich, der in seinem Quotientenkörper ganzabgeschlossen ist.",
+            "formula": "R = \\{a \\in K \\mid a \\text{ ist ganz über } R\\}",
+            "explanation": "Ein normaler Ring ist wie ein System, das in seinem Quotientenkörper ganzabgeschlossen ist. Es ist wie das Finden einer Struktur mit besonderer Abgeschlossenheit!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440085",
+            "text": "Ein Dedekind-Ring ist ein noetherscher, normaler, eindimensionaler Integritätsbereich.",
+            "formula": "R \\text{ ist Dedekind-Ring } \\Leftrightarrow \\text{ jedes Ideal ist Produkt von Primidealen}",
+            "explanation": "Ein Dedekind-Ring ist wie ein System mit eindeutiger Idealzerlegung. Es ist wie das Finden einer Struktur mit besonderer Zerlegung!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440086",
+            "text": "Ein Prüfer-Ring ist ein Integritätsbereich, in dem jedes endlich erzeugte Ideal invertierbar ist.",
+            "formula": "I \\text{ endlich erzeugt } \\Rightarrow I \\cdot I^{-1} = R",
+            "explanation": "Ein Prüfer-Ring ist wie ein System mit invertierbaren Idealen. Es ist wie das Finden einer Struktur mit besonderen Idealen!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440087",
+            "text": "Ein Bézout-Ring ist ein Integritätsbereich, in dem jedes endlich erzeugte Ideal ein Hauptideal ist.",
+            "formula": "I \\text{ endlich erzeugt } \\Rightarrow I \\text{ ist Hauptideal}",
+            "explanation": "Ein Bézout-Ring ist wie ein System mit Hauptidealen. Es ist wie das Finden einer Struktur mit einfachen Idealen!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440088",
+            "text": "Ein valuation Ring ist ein lokaler, ganzabgeschlossener Integritätsbereich.",
+            "formula": "R \\text{ ist valuation Ring } \\Leftrightarrow \\text{ für alle } a,b \\in K: a/b \\in R \\text{ oder } b/a \\in R",
+            "explanation": "Ein valuation Ring ist wie ein System mit besonderer Bewertung. Es ist wie das Finden einer Struktur mit spezieller Ordnung!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440089",
+            "text": "Ein Krull-Ring ist ein Integritätsbereich mit endlich vielen Primidealen der Höhe 1.",
+            "formula": "R \\text{ ist Krull-Ring } \\Leftrightarrow R = \\bigcap_{P \\in X^1(R)} R_P",
+            "explanation": "Ein Krull-Ring ist wie ein System mit endlich vielen Primidealen. Es ist wie das Finden einer Struktur mit besonderer Zerlegung!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440090",
+            "text": "Zum Schluss schauen wir uns an, wie Ringe in der Mathematik verwendet werden.",
+            "formula": "\\text{Ringe sind fundamentale Strukturen in der Algebra}",
+            "explanation": "In der Mathematik helfen uns Ringe, Strukturen mit zwei Verknüpfungen zu verstehen. Es ist wie das Übersetzen mathematischer Konzepte in die Sprache der Systeme!"
         }
     ]
 } 

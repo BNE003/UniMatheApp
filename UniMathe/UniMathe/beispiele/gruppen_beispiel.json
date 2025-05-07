@@ -1,44 +1,182 @@
 {
-    "id": "550e8400-e29b-41d4-a716-446655440300",
+    "id": "ee0e8400-e29b-41d4-a716-446655440061",
     "title": "Gruppen",
-    "description": "Lass uns die grundlegenden Konzepte der Gruppentheorie verstehen.",
+    "description": "Willkommen zu unserer ausführlichen Einführung in die Welt der Gruppen! Lass uns gemeinsam dieses fundamentale Konzept der Algebra erkunden, das uns hilft, mathematische Strukturen zu verstehen und zu analysieren.",
     "topic": "Gruppen",
     "steps": [
         {
-            "id": "550e8400-e29b-41d4-a716-446655440301",
-            "text": "Eine Gruppe ist eine Menge G zusammen mit einer Verknüpfung, die bestimmte Eigenschaften erfüllt.",
-            "formula": "\\text{Eine Gruppe } (G, \\circ) \\text{ erfüllt:}\n\\begin{align*}\n&1. \\text{ Abgeschlossenheit: } a \\circ b \\in G \\\\\n&2. \\text{ Assoziativität: } (a \\circ b) \\circ c = a \\circ (b \\circ c) \\\\\n&3. \\text{ Neutrales Element: } \\exists e \\in G: e \\circ a = a \\circ e = a \\\\\n&4. \\text{ Inverses Element: } \\forall a \\in G \\exists a^{-1}: a \\circ a^{-1} = a^{-1} \\circ a = e\n\\end{align*}",
-            "explanation": "Diese vier Eigenschaften definieren eine Gruppe. Sie stellen sicher, dass wir in der Gruppe 'vernünftig' rechnen können."
+            "id": "ee0e8400-e29b-41d4-a716-446655440062",
+            "text": "Eine Gruppe ist eine Menge mit einer Verknüpfung, die bestimmte Eigenschaften erfüllt.",
+            "formula": "(G, \\circ) \\text{ ist eine Gruppe, wenn:} \\\\ 1. \\text{ Assoziativität: } (a \\circ b) \\circ c = a \\circ (b \\circ c) \\\\ 2. \\text{ Neutrales Element: } \\exists e \\in G: e \\circ a = a \\circ e = a \\\\ 3. \\text{ Inverse Elemente: } \\forall a \\in G \\exists a^{-1} \\in G: a \\circ a^{-1} = a^{-1} \\circ a = e",
+            "explanation": "Eine Gruppe ist wie ein mathematisches Team. Es ist wie das Zusammenspiel von Elementen mit bestimmten Regeln!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440302",
-            "text": "Ein einfaches Beispiel ist die additive Gruppe der ganzen Zahlen.",
-            "formula": "(\\mathbb{Z}, +)",
-            "explanation": "Die ganzen Zahlen mit der Addition bilden eine Gruppe. Das neutrale Element ist 0, und das inverse Element zu a ist -a."
+            "id": "ee0e8400-e29b-41d4-a716-446655440063",
+            "text": "Eine abelsche Gruppe erfüllt zusätzlich das Kommutativgesetz.",
+            "formula": "a \\circ b = b \\circ a \\text{ für alle } a,b \\in G",
+            "explanation": "Eine abelsche Gruppe ist wie ein besonders harmonisches Team. Es ist wie das Zusammenspiel von Elementen, bei dem die Reihenfolge keine Rolle spielt!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440303",
-            "text": "Die symmetrische Gruppe S₃ besteht aus allen Permutationen von drei Elementen.",
-            "formula": "S_3 = \\{(1), (12), (13), (23), (123), (132)\\}",
-            "explanation": "Jedes Element in S₃ ist eine Permutation, also eine Umordnung der Zahlen 1, 2 und 3. Die Verknüpfung ist die Hintereinanderausführung der Permutationen."
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440304",
+            "id": "ee0e8400-e29b-41d4-a716-446655440064",
             "text": "Die Ordnung einer Gruppe ist die Anzahl ihrer Elemente.",
             "formula": "|G| = \\text{Anzahl der Elemente in } G",
-            "explanation": "Die Ordnung gibt uns wichtige Informationen über die Struktur der Gruppe. Zum Beispiel hat S₃ die Ordnung 6, da es 6 verschiedene Permutationen gibt."
+            "explanation": "Die Ordnung ist wie die Größe des Teams. Es ist wie das Zählen der Mitglieder!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440305",
-            "text": "Eine Untergruppe ist eine Teilmenge einer Gruppe, die selbst eine Gruppe ist.",
-            "formula": "H \\subseteq G \\text{ ist Untergruppe } \\Leftrightarrow \\begin{cases}\n1. \\, e \\in H \\\\\n2. \\, a,b \\in H \\Rightarrow a \\circ b \\in H \\\\\n3. \\, a \\in H \\Rightarrow a^{-1} \\in H\n\\end{cases}",
-            "explanation": "Eine Untergruppe muss das neutrale Element enthalten, abgeschlossen unter der Verknüpfung sein und zu jedem Element auch dessen Inverses enthalten."
+            "id": "ee0e8400-e29b-41d4-a716-446655440065",
+            "text": "Die Ordnung eines Elements ist die kleinste positive Potenz, die das neutrale Element ergibt.",
+            "formula": "\\text{ord}(a) = \\min\\{n \\in \\mathbb{N} \\mid a^n = e\\}",
+            "explanation": "Die Elementordnung ist wie die Anzahl der Schritte bis zur Rückkehr zum Ausgangspunkt. Es ist wie das Messen von Zyklen!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440306",
-            "text": "Die zyklische Gruppe wird von einem Element erzeugt.",
-            "formula": "\\langle a \\rangle = \\{a^n \\mid n \\in \\mathbb{Z}\\}",
-            "explanation": "Eine zyklische Gruppe entsteht, wenn wir ein Element a immer wieder mit sich selbst verknüpfen. Sie ist die einfachste Art von Gruppe und spielt eine wichtige Rolle in der Gruppentheorie."
+            "id": "ee0e8400-e29b-41d4-a716-446655440066",
+            "text": "Eine Untergruppe ist eine Teilmenge, die selbst eine Gruppe ist.",
+            "formula": "H \\subseteq G \\text{ ist Untergruppe, wenn:} \\\\ 1. e \\in H \\\\ 2. a,b \\in H \\Rightarrow a \\circ b \\in H \\\\ 3. a \\in H \\Rightarrow a^{-1} \\in H",
+            "explanation": "Eine Untergruppe ist wie ein Team innerhalb des Teams. Es ist wie das Finden einer kleineren, aber vollständigen Struktur!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440067",
+            "text": "Eine zyklische Gruppe wird von einem Element erzeugt.",
+            "formula": "G = \\langle a \\rangle = \\{a^n \\mid n \\in \\mathbb{Z}\\}",
+            "explanation": "Eine zyklische Gruppe ist wie ein Team, das von einem Mitglied angeführt wird. Es ist wie das Erzeugen aller Elemente durch Wiederholung!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440068",
+            "text": "Eine symmetrische Gruppe besteht aus allen Permutationen einer Menge.",
+            "formula": "S_n = \\{\\sigma: \\{1,\\ldots,n\\} \\rightarrow \\{1,\\ldots,n\\} \\mid \\sigma \\text{ bijektiv}\\}",
+            "explanation": "Eine symmetrische Gruppe ist wie ein Team von Umordnern. Es ist wie das systematische Vertauschen von Elementen!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440069",
+            "text": "Eine Diedergruppe beschreibt die Symmetrien eines regelmäßigen n-Ecks.",
+            "formula": "D_n = \\langle r,s \\mid r^n = s^2 = e, srs = r^{-1}\\rangle",
+            "explanation": "Eine Diedergruppe ist wie ein Team von Spiegelungen und Drehungen. Es ist wie das Beschreiben von geometrischen Symmetrien!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440070",
+            "text": "Ein Gruppenhomomorphismus ist eine strukturerhaltende Abbildung.",
+            "formula": "\\phi: G \\rightarrow H \\text{ mit } \\phi(a \\circ b) = \\phi(a) \\circ \\phi(b)",
+            "explanation": "Ein Homomorphismus ist wie ein Übersetzer zwischen Teams. Es ist wie das Übertragen von Strukturen!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440071",
+            "text": "Der Kern eines Homomorphismus ist die Menge der Elemente, die auf das neutrale Element abgebildet werden.",
+            "formula": "\\ker(\\phi) = \\{a \\in G \\mid \\phi(a) = e_H\\}",
+            "explanation": "Der Kern ist wie die Menge der Elemente, die keine Wirkung haben. Es ist wie das Finden der neutralen Elemente!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440072",
+            "text": "Das Bild eines Homomorphismus ist die Menge der Bildpunkte.",
+            "formula": "\\text{im}(\\phi) = \\{\\phi(a) \\mid a \\in G\\}",
+            "explanation": "Das Bild ist wie die Menge der Ergebnisse. Es ist wie das Sammeln aller möglichen Ausgänge!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440073",
+            "text": "Eine normale Untergruppe ist invariant unter Konjugation.",
+            "formula": "N \\trianglelefteq G \\Leftrightarrow gNg^{-1} \\subseteq N \\text{ für alle } g \\in G",
+            "explanation": "Eine normale Untergruppe ist wie ein besonders stabiles Team. Es ist wie das Finden einer unveränderlichen Struktur!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440074",
+            "text": "Eine Faktorgruppe entsteht durch Quotientenbildung nach einer normalen Untergruppe.",
+            "formula": "G/N = \\{gN \\mid g \\in G\\}",
+            "explanation": "Eine Faktorgruppe ist wie ein vereinfachtes Team. Es ist wie das Zusammenfassen von ähnlichen Elementen!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440075",
+            "text": "Der Satz von Lagrange beschreibt die Ordnung von Untergruppen.",
+            "formula": "|H| \\text{ teilt } |G| \\text{ für jede Untergruppe } H \\leq G",
+            "explanation": "Der Satz von Lagrange ist wie eine mathematische Regel für Teamgrößen. Es ist wie das Finden von Teilbarkeitsbeziehungen!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440076",
+            "text": "Eine p-Gruppe ist eine Gruppe, deren Ordnung eine Potenz von p ist.",
+            "formula": "|G| = p^n \\text{ für eine Primzahl } p",
+            "explanation": "Eine p-Gruppe ist wie ein Team mit einer speziellen Größe. Es ist wie das Finden von Gruppen mit Primzahlpotenzordnung!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440077",
+            "text": "Eine Sylow-Untergruppe ist eine maximale p-Untergruppe.",
+            "formula": "P \\leq G \\text{ mit } |P| = p^n \\text{ und } p^n \\text{ teilt } |G|",
+            "explanation": "Eine Sylow-Untergruppe ist wie eine maximale p-Gruppe. Es ist wie das Finden der größten möglichen p-Untergruppe!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440078",
+            "text": "Der Satz von Sylow beschreibt die Existenz und Anzahl von Sylow-Untergruppen.",
+            "formula": "\\text{Anzahl der Sylow-p-Untergruppen } \\equiv 1 \\pmod{p}",
+            "explanation": "Der Satz von Sylow ist wie eine mathematische Regel für p-Gruppen. Es ist wie das Finden von Existenz- und Anzahlaussagen!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440079",
+            "text": "Eine einfache Gruppe hat keine nicht-trivialen normalen Untergruppen.",
+            "formula": "N \\trianglelefteq G \\Rightarrow N = \\{e\\} \\text{ oder } N = G",
+            "explanation": "Eine einfache Gruppe ist wie ein unteilbares Team. Es ist wie das Finden von Gruppen ohne innere Struktur!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440080",
+            "text": "Eine auflösbare Gruppe kann durch abelsche Faktorgruppen aufgebaut werden.",
+            "formula": "G = G_0 \\trianglerighteq G_1 \\trianglerighteq \\cdots \\trianglerighteq G_n = \\{e\\}",
+            "explanation": "Eine auflösbare Gruppe ist wie ein Team, das sich in einfachere Teile zerlegen lässt. Es ist wie das schrittweise Vereinfachen!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440081",
+            "text": "Eine nilpotente Gruppe ist eine spezielle Art von auflösbarer Gruppe.",
+            "formula": "G = G_0 \\trianglerighteq G_1 \\trianglerighteq \\cdots \\trianglerighteq G_n = \\{e\\}",
+            "explanation": "Eine nilpotente Gruppe ist wie ein besonders strukturiertes Team. Es ist wie das Finden einer speziellen Art von Auflösbarkeit!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440082",
+            "text": "Eine freie Gruppe wird von einer Menge von Erzeugern erzeugt.",
+            "formula": "F(X) = \\langle X \\mid \\emptyset \\rangle",
+            "explanation": "Eine freie Gruppe ist wie ein Team ohne Einschränkungen. Es ist wie das Erzeugen von Elementen ohne zusätzliche Regeln!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440083",
+            "text": "Eine endlich erzeugte Gruppe wird von endlich vielen Elementen erzeugt.",
+            "formula": "G = \\langle g_1,\\ldots,g_n \\rangle",
+            "explanation": "Eine endlich erzeugte Gruppe ist wie ein Team mit endlich vielen Anführern. Es ist wie das Erzeugen durch eine begrenzte Anzahl von Elementen!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440084",
+            "text": "Eine torsionsfreie Gruppe hat nur Elemente unendlicher Ordnung.",
+            "formula": "\\text{ord}(g) = \\infty \\text{ für alle } g \\in G \\setminus \\{e\\}",
+            "explanation": "Eine torsionsfreie Gruppe ist wie ein Team ohne endliche Zyklen. Es ist wie das Finden von Gruppen ohne endliche Ordnungen!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440085",
+            "text": "Eine torsionsfreie abelsche Gruppe ist isomorph zu einer direkten Summe von Kopien von Z.",
+            "formula": "G \\cong \\bigoplus_{i \\in I} \\mathbb{Z}",
+            "explanation": "Eine torsionsfreie abelsche Gruppe ist wie eine Kombination von unendlichen zyklischen Gruppen. Es ist wie das Zusammenfügen von unendlichen Zyklen!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440086",
+            "text": "Eine endliche abelsche Gruppe ist isomorph zu einer direkten Summe von zyklischen Gruppen.",
+            "formula": "G \\cong \\bigoplus_{i=1}^n \\mathbb{Z}/p_i^{k_i}\\mathbb{Z}",
+            "explanation": "Eine endliche abelsche Gruppe ist wie eine Kombination von endlichen zyklischen Gruppen. Es ist wie das Zusammenfügen von endlichen Zyklen!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440087",
+            "text": "Eine p-Gruppe hat ein nicht-triviales Zentrum.",
+            "formula": "Z(G) \\neq \\{e\\} \\text{ für } |G| = p^n",
+            "explanation": "Eine p-Gruppe hat immer ein nicht-triviales Zentrum. Es ist wie das Finden von zentralen Elementen!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440088",
+            "text": "Eine endliche p-Gruppe ist nilpotent.",
+            "formula": "G \\text{ ist nilpotent für } |G| = p^n",
+            "explanation": "Eine endliche p-Gruppe ist immer nilpotent. Es ist wie das Finden einer speziellen Struktur!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440089",
+            "text": "Eine endliche Gruppe der Ordnung p² ist abelsch.",
+            "formula": "|G| = p^2 \\Rightarrow G \\text{ ist abelsch}",
+            "explanation": "Eine Gruppe der Ordnung p² ist immer abelsch. Es ist wie das Finden einer kommutativen Struktur!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440090",
+            "text": "Zum Schluss schauen wir uns an, wie Gruppen in der Mathematik verwendet werden.",
+            "formula": "\\text{Gruppen sind fundamentale Strukturen in der Algebra}",
+            "explanation": "In der Mathematik helfen uns Gruppen, Symmetrien und Transformationen zu verstehen. Es ist wie das Übersetzen mathematischer Konzepte in die Sprache der Strukturen!"
         }
     ]
 } 

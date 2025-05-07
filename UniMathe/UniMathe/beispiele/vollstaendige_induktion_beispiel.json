@@ -1,44 +1,182 @@
 {
-    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "id": "cc0e8400-e29b-41d4-a716-446655440061",
     "title": "Vollständige Induktion",
-    "description": "Lass uns die Methode der vollständigen Induktion Schritt für Schritt verstehen.",
-    "topic": "vollstaendige induktion",
+    "description": "Willkommen zu unserer ausführlichen Einführung in die Welt der vollständigen Induktion! Lass uns gemeinsam dieses mächtige Beweisverfahren erkunden, das uns hilft, Aussagen für alle natürlichen Zahlen zu beweisen.",
+    "topic": "Vollständige Induktion",
     "steps": [
         {
-            "id": "550e8400-e29b-41d4-a716-446655440001",
-            "text": "Die vollständige Induktion ist eine wichtige Beweismethode in der Mathematik. Sie wird verwendet, um Aussagen für alle natürlichen Zahlen zu beweisen.",
-            "formula": null,
-            "explanation": "Stell dir vor, du möchtest beweisen, dass eine Aussage für alle natürlichen Zahlen gilt. Die vollständige Induktion hilft dir dabei, dies systematisch zu tun."
+            "id": "cc0e8400-e29b-41d4-a716-446655440062",
+            "text": "Die vollständige Induktion besteht aus zwei Schritten.",
+            "formula": "\\text{1. Induktionsanfang: } A(1) \\text{ ist wahr} \\\\ \\text{2. Induktionsschritt: } A(n) \\rightarrow A(n+1)",
+            "explanation": "Die vollständige Induktion ist wie das Besteigen einer Leiter. Es ist wie das Beweisen Schritt für Schritt!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440002",
-            "text": "Der Beweis besteht aus zwei Schritten: dem Induktionsanfang und dem Induktionsschritt.",
-            "formula": "\\text{1. Induktionsanfang: } P(1) \\text{ ist wahr}\n\\text{2. Induktionsschritt: } P(n) \\Rightarrow P(n+1)",
-            "explanation": "Im Induktionsanfang zeigst du, dass die Aussage für die kleinste Zahl (meist n=1) gilt. Im Induktionsschritt zeigst du, dass wenn die Aussage für n gilt, sie auch für n+1 gilt."
+            "id": "cc0e8400-e29b-41d4-a716-446655440063",
+            "text": "Der Induktionsanfang beweist die Aussage für n=1.",
+            "formula": "A(1): \\text{ Die Aussage für n=1}",
+            "explanation": "Der Induktionsanfang ist wie der erste Schritt auf der Leiter. Es ist wie das Finden des Ausgangspunkts!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440003",
-            "text": "Lass uns ein Beispiel betrachten: Die Summe der ersten n natürlichen Zahlen.",
-            "formula": "1 + 2 + 3 + ... + n = \\frac{n(n+1)}{2}",
-            "explanation": "Wir wollen beweisen, dass diese Formel für alle natürlichen Zahlen n gilt. Dafür verwenden wir die vollständige Induktion."
+            "id": "cc0e8400-e29b-41d4-a716-446655440064",
+            "text": "Der Induktionsschritt beweist die Implikation.",
+            "formula": "A(n) \\rightarrow A(n+1): \\text{ Wenn A(n) gilt, dann gilt auch A(n+1)}",
+            "explanation": "Der Induktionsschritt ist wie das Weitersteigen auf der Leiter. Es ist wie das Beweisen des nächsten Schritts!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440004",
-            "text": "Induktionsanfang: Wir zeigen, dass die Formel für n=1 gilt.",
-            "formula": "1 = \\frac{1(1+1)}{2} = \\frac{2}{2} = 1",
-            "explanation": "Für n=1 haben wir nur die Zahl 1. Die Formel liefert auch 1, also ist der Induktionsanfang erfüllt."
+            "id": "cc0e8400-e29b-41d4-a716-446655440065",
+            "text": "Die Induktionsvoraussetzung ist die Annahme A(n).",
+            "formula": "\\text{Induktionsvoraussetzung: } A(n) \\text{ ist wahr}",
+            "explanation": "Die Induktionsvoraussetzung ist wie das Vertrauen in den vorherigen Schritt. Es ist wie das Nutzen des bereits Bewiesenen!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440005",
-            "text": "Induktionsschritt: Wir nehmen an, die Formel gilt für n und zeigen, dass sie dann auch für n+1 gilt.",
-            "formula": "1 + 2 + ... + n + (n+1) = \\frac{n(n+1)}{2} + (n+1) = \\frac{(n+1)(n+2)}{2}",
-            "explanation": "Wir addieren (n+1) zu beiden Seiten und formen um. Das Ergebnis zeigt, dass die Formel auch für n+1 gilt."
+            "id": "cc0e8400-e29b-41d4-a716-446655440066",
+            "text": "Die Induktionsbehauptung ist die zu zeigende Aussage A(n+1).",
+            "formula": "\\text{Induktionsbehauptung: } A(n+1) \\text{ ist zu zeigen}",
+            "explanation": "Die Induktionsbehauptung ist wie das Ziel des nächsten Schritts. Es ist wie das Formulieren des nächsten Beweises!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440006",
-            "text": "Da wir den Induktionsanfang und den Induktionsschritt bewiesen haben, gilt die Formel für alle natürlichen Zahlen.",
-            "formula": "\\text{Für alle } n \\in \\mathbb{N}: 1 + 2 + ... + n = \\frac{n(n+1)}{2}",
-            "explanation": "Die vollständige Induktion erlaubt uns, von einem einzelnen Fall auf alle Fälle zu schließen. Das ist wie eine unendliche Kette von Dominosteinen: Wenn der erste fällt und jeder den nächsten umstößt, fallen alle."
+            "id": "cc0e8400-e29b-41d4-a716-446655440067",
+            "text": "Die Summe der ersten n natürlichen Zahlen.",
+            "formula": "\\sum_{k=1}^n k = \\frac{n(n+1)}{2}",
+            "explanation": "Die Summenformel ist wie ein mathematischer Zaubertrick. Es ist wie das Finden einer eleganten Lösung!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440068",
+            "text": "Der Induktionsanfang für die Summenformel.",
+            "formula": "n=1: \\sum_{k=1}^1 k = 1 = \\frac{1 \\cdot 2}{2}",
+            "explanation": "Der Induktionsanfang ist wie das Testen der Formel. Es ist wie das Überprüfen des ersten Falls!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440069",
+            "text": "Der Induktionsschritt für die Summenformel.",
+            "formula": "\\sum_{k=1}^{n+1} k = \\sum_{k=1}^n k + (n+1) = \\frac{n(n+1)}{2} + (n+1) = \\frac{(n+1)(n+2)}{2}",
+            "explanation": "Der Induktionsschritt ist wie das Verlängern der Formel. Es ist wie das Erweitern des Beweises!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440070",
+            "text": "Die Summe der ersten n Quadratzahlen.",
+            "formula": "\\sum_{k=1}^n k^2 = \\frac{n(n+1)(2n+1)}{6}",
+            "explanation": "Die Quadratsummenformel ist wie ein weiterer mathematischer Zaubertrick. Es ist wie das Finden einer komplexeren Lösung!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440071",
+            "text": "Der Induktionsanfang für die Quadratsummenformel.",
+            "formula": "n=1: \\sum_{k=1}^1 k^2 = 1 = \\frac{1 \\cdot 2 \\cdot 3}{6}",
+            "explanation": "Der Induktionsanfang ist wie das Testen der komplexeren Formel. Es ist wie das Überprüfen des ersten Falls!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440072",
+            "text": "Der Induktionsschritt für die Quadratsummenformel.",
+            "formula": "\\sum_{k=1}^{n+1} k^2 = \\sum_{k=1}^n k^2 + (n+1)^2 = \\frac{n(n+1)(2n+1)}{6} + (n+1)^2 = \\frac{(n+1)(n+2)(2n+3)}{6}",
+            "explanation": "Der Induktionsschritt ist wie das Verlängern der komplexeren Formel. Es ist wie das Erweitern des komplexeren Beweises!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440073",
+            "text": "Die Summe der ersten n Kubikzahlen.",
+            "formula": "\\sum_{k=1}^n k^3 = \\left(\\frac{n(n+1)}{2}\\right)^2",
+            "explanation": "Die Kubiksummenformel ist wie ein besonders eleganter mathematischer Zaubertrick. Es ist wie das Finden einer besonders schönen Lösung!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440074",
+            "text": "Der Induktionsanfang für die Kubiksummenformel.",
+            "formula": "n=1: \\sum_{k=1}^1 k^3 = 1 = \\left(\\frac{1 \\cdot 2}{2}\\right)^2",
+            "explanation": "Der Induktionsanfang ist wie das Testen der eleganten Formel. Es ist wie das Überprüfen des ersten Falls!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440075",
+            "text": "Der Induktionsschritt für die Kubiksummenformel.",
+            "formula": "\\sum_{k=1}^{n+1} k^3 = \\sum_{k=1}^n k^3 + (n+1)^3 = \\left(\\frac{n(n+1)}{2}\\right)^2 + (n+1)^3 = \\left(\\frac{(n+1)(n+2)}{2}\\right)^2",
+            "explanation": "Der Induktionsschritt ist wie das Verlängern der eleganten Formel. Es ist wie das Erweitern des eleganten Beweises!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440076",
+            "text": "Die geometrische Summe.",
+            "formula": "\\sum_{k=0}^n q^k = \\frac{1-q^{n+1}}{1-q} \\text{ für } q \\neq 1",
+            "explanation": "Die geometrische Summe ist wie ein mathematischer Zaubertrick für Potenzen. Es ist wie das Finden einer eleganten Lösung für Potenzsummen!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440077",
+            "text": "Der Induktionsanfang für die geometrische Summe.",
+            "formula": "n=0: \\sum_{k=0}^0 q^k = 1 = \\frac{1-q^1}{1-q}",
+            "explanation": "Der Induktionsanfang ist wie das Testen der Potenzsummenformel. Es ist wie das Überprüfen des ersten Falls!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440078",
+            "text": "Der Induktionsschritt für die geometrische Summe.",
+            "formula": "\\sum_{k=0}^{n+1} q^k = \\sum_{k=0}^n q^k + q^{n+1} = \\frac{1-q^{n+1}}{1-q} + q^{n+1} = \\frac{1-q^{n+2}}{1-q}",
+            "explanation": "Der Induktionsschritt ist wie das Verlängern der Potenzsummenformel. Es ist wie das Erweitern des Potenzsummenbeweises!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440079",
+            "text": "Die Binomialkoeffizienten.",
+            "formula": "\\sum_{k=0}^n \\binom{n}{k} = 2^n",
+            "explanation": "Die Summe der Binomialkoeffizienten ist wie ein mathematischer Zaubertrick für Kombinationen. Es ist wie das Finden einer eleganten Lösung für Kombinationssummen!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440080",
+            "text": "Der Induktionsanfang für die Binomialkoeffizienten.",
+            "formula": "n=0: \\sum_{k=0}^0 \\binom{0}{k} = 1 = 2^0",
+            "explanation": "Der Induktionsanfang ist wie das Testen der Kombinationssummenformel. Es ist wie das Überprüfen des ersten Falls!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440081",
+            "text": "Der Induktionsschritt für die Binomialkoeffizienten.",
+            "formula": "\\sum_{k=0}^{n+1} \\binom{n+1}{k} = \\sum_{k=0}^n \\binom{n}{k} + \\sum_{k=0}^n \\binom{n}{k-1} = 2^n + 2^n = 2^{n+1}",
+            "explanation": "Der Induktionsschritt ist wie das Verlängern der Kombinationssummenformel. Es ist wie das Erweitern des Kombinationssummenbeweises!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440082",
+            "text": "Die Fibonacci-Zahlen.",
+            "formula": "F_{n+2} = F_{n+1} + F_n \\text{ mit } F_0 = 0, F_1 = 1",
+            "explanation": "Die Fibonacci-Zahlen sind wie ein mathematischer Zaubertrick für Rekursionen. Es ist wie das Finden einer eleganten Lösung für rekursive Folgen!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440083",
+            "text": "Der Induktionsanfang für die Fibonacci-Zahlen.",
+            "formula": "n=0: F_2 = F_1 + F_0 = 1 + 0 = 1",
+            "explanation": "Der Induktionsanfang ist wie das Testen der rekursiven Formel. Es ist wie das Überprüfen des ersten Falls!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440084",
+            "text": "Der Induktionsschritt für die Fibonacci-Zahlen.",
+            "formula": "F_{n+3} = F_{n+2} + F_{n+1} = (F_{n+1} + F_n) + F_{n+1} = 2F_{n+1} + F_n",
+            "explanation": "Der Induktionsschritt ist wie das Verlängern der rekursiven Formel. Es ist wie das Erweitern des rekursiven Beweises!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440085",
+            "text": "Die Potenzmenge einer n-elementigen Menge.",
+            "formula": "|\\mathcal{P}(M)| = 2^n \\text{ für } |M| = n",
+            "explanation": "Die Potenzmengenformel ist wie ein mathematischer Zaubertrick für Mengen. Es ist wie das Finden einer eleganten Lösung für Mengenoperationen!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440086",
+            "text": "Der Induktionsanfang für die Potenzmengenformel.",
+            "formula": "n=0: |\\mathcal{P}(\\emptyset)| = 1 = 2^0",
+            "explanation": "Der Induktionsanfang ist wie das Testen der Mengenformel. Es ist wie das Überprüfen des ersten Falls!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440087",
+            "text": "Der Induktionsschritt für die Potenzmengenformel.",
+            "formula": "|\\mathcal{P}(M \\cup \\{x\\})| = 2|\\mathcal{P}(M)| = 2 \\cdot 2^n = 2^{n+1}",
+            "explanation": "Der Induktionsschritt ist wie das Verlängern der Mengenformel. Es ist wie das Erweitern des Mengenbeweises!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440088",
+            "text": "Die Anzahl der Teilmengen mit k Elementen.",
+            "formula": "\\sum_{k=0}^n \\binom{n}{k} = 2^n",
+            "explanation": "Die Teilmengenformel ist wie ein mathematischer Zaubertrick für Kombinationen. Es ist wie das Finden einer eleganten Lösung für Teilmengen!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440089",
+            "text": "Der Induktionsanfang für die Teilmengenformel.",
+            "formula": "n=0: \\sum_{k=0}^0 \\binom{0}{k} = 1 = 2^0",
+            "explanation": "Der Induktionsanfang ist wie das Testen der Teilmengenformel. Es ist wie das Überprüfen des ersten Falls!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440090",
+            "text": "Zum Schluss schauen wir uns an, wie vollständige Induktion in der Mathematik verwendet wird.",
+            "formula": "\\text{Vollständige Induktion ist ein mächtiges Werkzeug für Beweise über natürliche Zahlen}",
+            "explanation": "In der Mathematik hilft uns vollständige Induktion, Aussagen für alle natürlichen Zahlen zu beweisen. Es ist wie das Übersetzen mathematischer Konzepte in die Sprache der Beweise!"
         }
     ]
 } 

@@ -1,38 +1,182 @@
 {
-    "id": "660e8400-e29b-41d4-a716-446655440000",
-    "title": "Einführung in Körper",
-    "description": "Lass uns die grundlegenden Konzepte der Körpertheorie Schritt für Schritt erkunden.",
+    "id": "gg0e8400-e29b-41d4-a716-446655440061",
+    "title": "Körper",
+    "description": "Willkommen zu unserer ausführlichen Einführung in die Welt der Körper! Lass uns gemeinsam dieses fundamentale Konzept der Algebra erkunden, das uns hilft, die Struktur von Zahlen und algebraischen Objekten zu verstehen.",
     "topic": "Körper",
     "steps": [
         {
-            "id": "660e8400-e29b-41d4-a716-446655440001",
-            "text": "Ein Körper ist eine algebraische Struktur, die aus einer Menge K und zwei Verknüpfungen besteht: Addition (+) und Multiplikation (·).",
-            "formula": "K = (K, +, \\cdot)",
-            "explanation": "Ein Körper ist ein spezieller Ring, bei dem zusätzliche Eigenschaften gelten."
+            "id": "gg0e8400-e29b-41d4-a716-446655440062",
+            "text": "Ein Körper ist eine Menge mit zwei Operationen, die bestimmte Eigenschaften erfüllen.",
+            "formula": "(K,+,\\cdot) \\text{ ist ein Körper}",
+            "explanation": "Ein Körper ist wie ein System mit Addition und Multiplikation. Es ist wie das Finden einer grundlegenden Struktur!"
         },
         {
-            "id": "660e8400-e29b-41d4-a716-446655440002",
-            "text": "Die Addition bildet eine abelsche Gruppe mit neutralem Element 0.",
-            "formula": "a + (b + c) = (a + b) + c \\\\ a + b = b + a \\\\ a + 0 = 0 + a = a \\\\ a + (-a) = 0",
-            "explanation": "Diese Eigenschaften sind uns von den reellen Zahlen bekannt."
+            "id": "gg0e8400-e29b-41d4-a716-446655440063",
+            "text": "Die Addition in einem Körper ist kommutativ und assoziativ.",
+            "formula": "a + b = b + a, (a + b) + c = a + (b + c)",
+            "explanation": "Die Addition ist wie das Zusammenzählen von Elementen. Es ist wie das Finden einer natürlichen Operation!"
         },
         {
-            "id": "660e8400-e29b-41d4-a716-446655440003",
-            "text": "Die Multiplikation bildet auf K\\{0} eine abelsche Gruppe mit neutralem Element 1.",
-            "formula": "a \\cdot (b \\cdot c) = (a \\cdot b) \\cdot c \\\\ a \\cdot b = b \\cdot a \\\\ a \\cdot 1 = 1 \\cdot a = a \\\\ a \\cdot a^{-1} = 1",
-            "explanation": "Jedes Element außer 0 hat ein multiplikatives Inverses."
+            "id": "gg0e8400-e29b-41d4-a716-446655440064",
+            "text": "Die Multiplikation in einem Körper ist kommutativ und assoziativ.",
+            "formula": "a \\cdot b = b \\cdot a, (a \\cdot b) \\cdot c = a \\cdot (b \\cdot c)",
+            "explanation": "Die Multiplikation ist wie das Multiplizieren von Elementen. Es ist wie das Finden einer natürlichen Operation!"
         },
         {
-            "id": "660e8400-e29b-41d4-a716-446655440004",
-            "text": "Das Distributivgesetz verbindet Addition und Multiplikation.",
-            "formula": "a \\cdot (b + c) = a \\cdot b + a \\cdot c \\\\ (a + b) \\cdot c = a \\cdot c + b \\cdot c",
-            "explanation": "Dieses Gesetz ist uns aus der Schulmathematik bekannt."
+            "id": "gg0e8400-e29b-41d4-a716-446655440065",
+            "text": "Die Multiplikation ist distributiv über die Addition.",
+            "formula": "a \\cdot (b + c) = a \\cdot b + a \\cdot c",
+            "explanation": "Die Distributivität ist wie eine Verbindung zwischen Addition und Multiplikation. Es ist wie das Finden einer wichtigen Beziehung!"
         },
         {
-            "id": "660e8400-e29b-41d4-a716-446655440005",
-            "text": "Wichtige Beispiele für Körper sind die rationalen Zahlen ℚ, die reellen Zahlen ℝ und die komplexen Zahlen ℂ.",
-            "formula": "\\mathbb{Q} \\subset \\mathbb{R} \\subset \\mathbb{C}",
-            "explanation": "Diese Zahlbereiche erfüllen alle Körperaxiome und sind in dieser Reihenfolge ineinander enthalten."
+            "id": "gg0e8400-e29b-41d4-a716-446655440066",
+            "text": "Jedes Element hat ein additives Inverses.",
+            "formula": "a + (-a) = 0",
+            "explanation": "Das additive Inverse ist wie das Gegenelement bei der Addition. Es ist wie das Finden eines Ausgleichs!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440067",
+            "text": "Jedes Element außer 0 hat ein multiplikatives Inverses.",
+            "formula": "a \\cdot a^{-1} = 1, a \\neq 0",
+            "explanation": "Das multiplikative Inverse ist wie das Gegenelement bei der Multiplikation. Es ist wie das Finden eines Ausgleichs!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440068",
+            "text": "Die rationalen Zahlen bilden einen Körper.",
+            "formula": "\\mathbb{Q} = \\{\\frac{p}{q} \\mid p,q \\in \\mathbb{Z}, q \\neq 0\\}",
+            "explanation": "Die rationalen Zahlen sind wie ein Beispiel für einen Körper. Es ist wie das Finden einer konkreten Struktur!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440069",
+            "text": "Die reellen Zahlen bilden einen Körper.",
+            "formula": "\\mathbb{R} \\text{ ist ein Körper}",
+            "explanation": "Die reellen Zahlen sind wie ein weiteres Beispiel für einen Körper. Es ist wie das Finden einer größeren Struktur!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440070",
+            "text": "Die komplexen Zahlen bilden einen Körper.",
+            "formula": "\\mathbb{C} = \\{a + bi \\mid a,b \\in \\mathbb{R}\\}",
+            "explanation": "Die komplexen Zahlen sind wie ein noch größeres Beispiel für einen Körper. Es ist wie das Finden einer erweiterten Struktur!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440071",
+            "text": "Ein endlicher Körper hat eine Primzahlpotenz als Anzahl der Elemente.",
+            "formula": "|K| = p^n, p \\text{ prim}, n \\in \\mathbb{N}",
+            "explanation": "Ein endlicher Körper ist wie ein Körper mit endlich vielen Elementen. Es ist wie das Finden einer diskreten Struktur!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440072",
+            "text": "Der Körper mit p Elementen wird mit Fp bezeichnet.",
+            "formula": "\\mathbb{F}_p = \\{0,1,\\ldots,p-1\\}",
+            "explanation": "Fp ist wie ein einfacher endlicher Körper. Es ist wie das Finden einer grundlegenden Struktur!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440073",
+            "text": "Ein Körpererweiterung ist ein größerer Körper, der einen kleineren Körper enthält.",
+            "formula": "K \\subseteq L",
+            "explanation": "Eine Körpererweiterung ist wie das Hinzufügen neuer Elemente. Es ist wie das Finden einer größeren Struktur!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440074",
+            "text": "Der Grad einer Körpererweiterung ist die Dimension des größeren Körpers als Vektorraum über dem kleineren.",
+            "formula": "[L:K] = \\dim_K L",
+            "explanation": "Der Grad ist wie ein Maß für die Größe der Erweiterung. Es ist wie das Finden einer wichtigen Zahl!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440075",
+            "text": "Eine algebraische Erweiterung entsteht durch Adjunktion von Nullstellen von Polynomen.",
+            "formula": "K(\\alpha) = \\{f(\\alpha) \\mid f \\in K[x]\\}",
+            "explanation": "Eine algebraische Erweiterung ist wie das Hinzufügen von Lösungen. Es ist wie das Finden neuer Elemente!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440076",
+            "text": "Eine transzendente Erweiterung entsteht durch Adjunktion von transzendenten Elementen.",
+            "formula": "K(t) = \\{\\frac{f(t)}{g(t)} \\mid f,g \\in K[x], g \\neq 0\\}",
+            "explanation": "Eine transzendente Erweiterung ist wie das Hinzufügen von unabhängigen Elementen. Es ist wie das Finden neuer Variablen!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440077",
+            "text": "Ein Zerfällungskörper eines Polynoms enthält alle Nullstellen.",
+            "formula": "K(f) = K(\\alpha_1,\\ldots,\\alpha_n)",
+            "explanation": "Ein Zerfällungskörper ist wie ein Körper mit allen Lösungen. Es ist wie das Finden eines vollständigen Körpers!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440078",
+            "text": "Eine normale Erweiterung ist der Zerfällungskörper einer Familie von Polynomen.",
+            "formula": "L = K(f_1,\\ldots,f_n)",
+            "explanation": "Eine normale Erweiterung ist wie eine besonders schöne Erweiterung. Es ist wie das Finden einer symmetrischen Struktur!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440079",
+            "text": "Eine separable Erweiterung hat keine mehrfachen Nullstellen.",
+            "formula": "f'(\\alpha) \\neq 0 \\text{ für alle Nullstellen } \\alpha",
+            "explanation": "Eine separable Erweiterung ist wie eine Erweiterung ohne Wiederholungen. Es ist wie das Finden einer klaren Struktur!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440080",
+            "text": "Eine Galois-Erweiterung ist normal und separabel.",
+            "formula": "L/K \\text{ ist Galois}",
+            "explanation": "Eine Galois-Erweiterung ist wie eine besonders schöne Erweiterung. Es ist wie das Finden einer perfekten Struktur!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440081",
+            "text": "Die Galois-Gruppe einer Erweiterung besteht aus den Automorphismen.",
+            "formula": "\\text{Gal}(L/K) = \\{\\sigma: L \\to L \\mid \\sigma|_K = \\text{id}\\}",
+            "explanation": "Die Galois-Gruppe ist wie die Symmetriegruppe der Erweiterung. Es ist wie das Finden der Automorphismen!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440082",
+            "text": "Der Hauptsatz der Galois-Theorie verbindet Zwischenkörper und Untergruppen.",
+            "formula": "\\{\\text{Zwischenkörper}\\} \\leftrightarrow \\{\\text{Untergruppen}\\}",
+            "explanation": "Der Hauptsatz ist wie eine wichtige Beziehung. Es ist wie das Finden einer grundlegenden Verbindung!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440083",
+            "text": "Ein endlicher Körper ist stets eine Galois-Erweiterung seines Primkörpers.",
+            "formula": "\\mathbb{F}_{p^n}/\\mathbb{F}_p \\text{ ist Galois}",
+            "explanation": "Ein endlicher Körper ist wie eine besonders schöne Struktur. Es ist wie das Finden einer perfekten Erweiterung!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440084",
+            "text": "Die Galois-Gruppe eines endlichen Körpers ist zyklisch.",
+            "formula": "\\text{Gal}(\\mathbb{F}_{p^n}/\\mathbb{F}_p) \\cong \\mathbb{Z}/n\\mathbb{Z}",
+            "explanation": "Die Galois-Gruppe ist wie eine einfache Gruppe. Es ist wie das Finden einer grundlegenden Struktur!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440085",
+            "text": "Ein algebraisch abgeschlossener Körper enthält alle Nullstellen von Polynomen.",
+            "formula": "\\forall f \\in K[x]: \\exists \\alpha \\in K: f(\\alpha) = 0",
+            "explanation": "Ein algebraisch abgeschlossener Körper ist wie ein vollständiger Körper. Es ist wie das Finden einer perfekten Struktur!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440086",
+            "text": "Der algebraische Abschluss eines Körpers ist die kleinste algebraisch abgeschlossene Erweiterung.",
+            "formula": "\\overline{K} = \\bigcup_{L/K \\text{ algebraisch}} L",
+            "explanation": "Der algebraische Abschluss ist wie die vollständige Erweiterung. Es ist wie das Finden der perfekten Struktur!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440087",
+            "text": "Ein perfekter Körper hat keine inseparablen Erweiterungen.",
+            "formula": "\\text{char}(K) = 0 \\text{ oder } K^p = K",
+            "explanation": "Ein perfekter Körper ist wie ein besonders schöner Körper. Es ist wie das Finden einer idealen Struktur!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440088",
+            "text": "Ein formal reeller Körper lässt sich nicht als Summe von Quadraten schreiben.",
+            "formula": "-1 \\neq \\sum_{i=1}^n x_i^2",
+            "explanation": "Ein formal reeller Körper ist wie ein Körper mit einer besonderen Eigenschaft. Es ist wie das Finden einer speziellen Struktur!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440089",
+            "text": "Ein reell abgeschlossener Körper ist formal reell und hat keine echten algebraischen Erweiterungen.",
+            "formula": "K = K[i]",
+            "explanation": "Ein reell abgeschlossener Körper ist wie ein vollständiger formal reeller Körper. Es ist wie das Finden einer perfekten Struktur!"
+        },
+        {
+            "id": "gg0e8400-e29b-41d4-a716-446655440090",
+            "text": "Zum Schluss schauen wir uns an, wie Körper in der Mathematik verwendet werden.",
+            "formula": "\\text{Körper sind fundamentale Strukturen in der Algebra}",
+            "explanation": "In der Mathematik helfen uns Körper, die Struktur von Zahlen und algebraischen Objekten zu verstehen. Es ist wie das Übersetzen mathematischer Konzepte in eine neue Sprache!"
         }
     ]
 } 

@@ -1,68 +1,182 @@
 {
-    "id": "550e8400-e29b-41d4-a716-446655440000",
-    "title": "Logische Äquivalenzen",
-    "description": "Lass uns die grundlegenden Konzepte der Logik Schritt für Schritt erkunden.",
+    "id": "bb0e8400-e29b-41d4-a716-446655440061",
+    "title": "Logik",
+    "description": "Willkommen zu unserer ausführlichen Einführung in die Welt der Logik! Lass uns gemeinsam dieses fundamentale Gebiet der Mathematik erkunden, das uns hilft, Aussagen und Schlussfolgerungen präzise zu formulieren und zu analysieren.",
+    "topic": "Logik",
     "steps": [
         {
-            "id": "550e8400-e29b-41d4-a716-446655440001",
-            "text": "Willkommen in der Logik! Hier beschäftigen wir uns mit Aussagen, die entweder wahr oder falsch sein können. Lass uns mit den grundlegenden logischen Operatoren beginnen.",
-            "formula": null,
-            "explanation": "In der Logik arbeiten wir mit Aussagen, die wir mit logischen Operatoren verknüpfen können. Diese Verknüpfungen ergeben neue Aussagen, deren Wahrheitswert wir bestimmen können."
+            "id": "bb0e8400-e29b-41d4-a716-446655440062",
+            "text": "Aussagenlogik beschreibt die Verknüpfung von Aussagen.",
+            "formula": "A \\land B, A \\lor B, \\neg A, A \\rightarrow B, A \\leftrightarrow B",
+            "explanation": "Aussagenlogik ist wie das Zusammensetzen von Bausteinen. Es ist wie das Bauen mit logischen LEGO-Steinen!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440002",
-            "text": "Die Konjunktion (UND) verbindet zwei Aussagen. Sie ist nur dann wahr, wenn beide Aussagen wahr sind.",
-            "formula": "p \\land q",
-            "explanation": "Das Symbol ∧ bedeutet 'und'. Die Aussage 'p ∧ q' ist nur wahr, wenn sowohl p als auch q wahr sind. In allen anderen Fällen ist sie falsch."
+            "id": "bb0e8400-e29b-41d4-a716-446655440063",
+            "text": "Wahrheitstabellen zeigen alle möglichen Kombinationen.",
+            "formula": "\\begin{array}{|c|c|c|c|c|} A & B & A \\land B & A \\lor B & A \\rightarrow B \\\\ \\hline T & T & T & T & T \\\\ T & F & F & T & F \\\\ F & T & F & T & T \\\\ F & F & F & F & T \\end{array}",
+            "explanation": "Wahrheitstabellen sind wie ein Spickzettel für alle möglichen Fälle. Es ist wie eine vollständige Gebrauchsanleitung!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440003",
-            "text": "Die Disjunktion (ODER) ist wahr, wenn mindestens eine der Aussagen wahr ist.",
-            "formula": "p \\lor q",
-            "explanation": "Das Symbol ∨ bedeutet 'oder'. Die Aussage 'p ∨ q' ist wahr, wenn entweder p oder q oder beide wahr sind. Nur wenn beide falsch sind, ist die Gesamtaussage falsch."
+            "id": "bb0e8400-e29b-41d4-a716-446655440064",
+            "text": "Tautologien sind immer wahre Aussagen.",
+            "formula": "A \\lor \\neg A, (A \\rightarrow B) \\leftrightarrow (\\neg B \\rightarrow \\neg A)",
+            "explanation": "Tautologien sind wie mathematische Gesetze. Es ist wie das Finden von ewigen Wahrheiten!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440004",
-            "text": "Die Implikation (wenn-dann) ist nur dann falsch, wenn die erste Aussage wahr und die zweite falsch ist.",
-            "formula": "p \\rightarrow q",
-            "explanation": "Das Symbol → bedeutet 'wenn p, dann q'. Die Implikation ist nur falsch, wenn p wahr und q falsch ist. In allen anderen Fällen ist sie wahr."
+            "id": "bb0e8400-e29b-41d4-a716-446655440065",
+            "text": "Kontradiktionen sind immer falsche Aussagen.",
+            "formula": "A \\land \\neg A, \\neg(A \\lor \\neg A)",
+            "explanation": "Kontradiktionen sind wie mathematische Unmöglichkeiten. Es ist wie das Finden von ewigen Falschheiten!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440005",
-            "text": "Die Äquivalenz ist wahr, wenn beide Aussagen den gleichen Wahrheitswert haben.",
-            "formula": "p \\leftrightarrow q",
-            "explanation": "Das Symbol ↔ bedeutet 'genau dann, wenn'. Die Äquivalenz ist wahr, wenn p und q beide wahr oder beide falsch sind."
+            "id": "bb0e8400-e29b-41d4-a716-446655440066",
+            "text": "Prädikatenlogik erweitert die Aussagenlogik um Quantoren.",
+            "formula": "\\forall x \\in M: P(x), \\exists x \\in M: P(x)",
+            "explanation": "Prädikatenlogik ist wie die Aussagenlogik mit Superkräften. Es ist wie das Hinzufügen von Quantoren zu den Bausteinen!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440006",
-            "text": "Die Negation kehrt den Wahrheitswert einer Aussage um.",
-            "formula": "\\neg p",
-            "explanation": "Das Symbol ¬ bedeutet 'nicht'. Wenn p wahr ist, ist ¬p falsch und umgekehrt."
+            "id": "bb0e8400-e29b-41d4-a716-446655440067",
+            "text": "Die Negation von Quantoren folgt speziellen Regeln.",
+            "formula": "\\neg(\\forall x: P(x)) \\leftrightarrow \\exists x: \\neg P(x), \\neg(\\exists x: P(x)) \\leftrightarrow \\forall x: \\neg P(x)",
+            "explanation": "Die Negation von Quantoren ist wie das Umkehren von Aussagen. Es ist wie das Spiegeln von mathematischen Sätzen!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440007",
-            "text": "Lass uns ein konkretes Beispiel betrachten: 'Wenn es regnet, dann ist die Straße nass.'",
-            "formula": "Regen \\rightarrow nasseStraße",
-            "explanation": "Diese Implikation ist logisch korrekt, da Regen typischerweise zu einer nassen Straße führt. Sie wäre nur falsch, wenn es regnet, aber die Straße trocken bleibt."
+            "id": "bb0e8400-e29b-41d4-a716-446655440068",
+            "text": "Logische Äquivalenzen erlauben Umformungen.",
+            "formula": "A \\rightarrow B \\equiv \\neg A \\lor B, \\neg(A \\land B) \\equiv \\neg A \\lor \\neg B",
+            "explanation": "Logische Äquivalenzen sind wie mathematische Zaubertricks. Es ist wie das Umwandeln von Aussagen in andere Formen!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440008",
-            "text": "Jetzt schauen wir uns eine komplexere Verknüpfung an: 'Wenn es regnet und die Sonne scheint, dann gibt es einen Regenbogen.'",
-            "formula": "(Regen \\land Sonne) \\rightarrow Regenbogen",
-            "explanation": "Hier haben wir eine Konjunktion (Regen und Sonne) als Voraussetzung für eine Implikation. Die Aussage ist nur falsch, wenn es gleichzeitig regnet und die Sonne scheint, aber kein Regenbogen zu sehen ist."
+            "id": "bb0e8400-e29b-41d4-a716-446655440069",
+            "text": "Der Modus Ponens ist eine wichtige Schlussregel.",
+            "formula": "\\frac{A \\rightarrow B, A}{B}",
+            "explanation": "Der Modus Ponens ist wie ein mathematischer Dominostein. Es ist wie das Auslösen einer logischen Kette!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440009",
-            "text": "Eine noch komplexere Aussage: 'Ein Regenbogen ist genau dann zu sehen, wenn es regnet und die Sonne scheint.'",
-            "formula": "Regenbogen \\leftrightarrow (Regen \\land Sonne)",
-            "explanation": "Diese Äquivalenz besagt, dass ein Regenbogen nur unter genau diesen Bedingungen zu sehen ist. Die Aussage ist wahr, wenn entweder beides (Regenbogen und Regen+Sonne) wahr oder beides falsch ist."
+            "id": "bb0e8400-e29b-41d4-a716-446655440070",
+            "text": "Der Modus Tollens ist die Umkehrung des Modus Ponens.",
+            "formula": "\\frac{A \\rightarrow B, \\neg B}{\\neg A}",
+            "explanation": "Der Modus Tollens ist wie ein mathematischer Rückwärtsgang. Es ist wie das Zurückverfolgen von logischen Schlüssen!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440010",
-            "text": "Zum Abschluss eine Aussage mit Negation: 'Es gibt keinen Regenbogen, wenn es nicht regnet oder die Sonne nicht scheint.'",
-            "formula": "\\neg Regenbogen \\leftrightarrow (\\neg Regen \\lor \\neg Sonne)",
-            "explanation": "Diese komplexe Aussage verbindet Negation, Disjunktion und Äquivalenz. Sie ist wahr, wenn entweder kein Regenbogen zu sehen ist und mindestens eine Bedingung (Regen oder Sonne) nicht erfüllt ist, oder wenn ein Regenbogen zu sehen ist und beide Bedingungen erfüllt sind."
+            "id": "bb0e8400-e29b-41d4-a716-446655440071",
+            "text": "Die Kontraposition ist eine wichtige Äquivalenz.",
+            "formula": "A \\rightarrow B \\equiv \\neg B \\rightarrow \\neg A",
+            "explanation": "Die Kontraposition ist wie ein mathematischer Spiegel. Es ist wie das Umkehren von Implikationen!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440072",
+            "text": "Die De Morganschen Regeln beschreiben die Negation von Verknüpfungen.",
+            "formula": "\\neg(A \\land B) \\equiv \\neg A \\lor \\neg B, \\neg(A \\lor B) \\equiv \\neg A \\land \\neg B",
+            "explanation": "Die De Morganschen Regeln sind wie mathematische Transformationsregeln. Es ist wie das Umwandeln von UND in ODER und umgekehrt!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440073",
+            "text": "Die Distributivgesetze erlauben das Ausmultiplizieren.",
+            "formula": "A \\land (B \\lor C) \\equiv (A \\land B) \\lor (A \\land C), A \\lor (B \\land C) \\equiv (A \\lor B) \\land (A \\lor C)",
+            "explanation": "Die Distributivgesetze sind wie mathematische Ausmultiplizierregeln. Es ist wie das Verteilen von logischen Bausteinen!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440074",
+            "text": "Die Assoziativgesetze erlauben das Umklammern.",
+            "formula": "A \\land (B \\land C) \\equiv (A \\land B) \\land C, A \\lor (B \\lor C) \\equiv (A \\lor B) \\lor C",
+            "explanation": "Die Assoziativgesetze sind wie mathematische Umklammerungsregeln. Es ist wie das Neuordnen von logischen Bausteinen!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440075",
+            "text": "Die Kommutativgesetze erlauben das Vertauschen.",
+            "formula": "A \\land B \\equiv B \\land A, A \\lor B \\equiv B \\lor A",
+            "explanation": "Die Kommutativgesetze sind wie mathematische Vertauschungsregeln. Es ist wie das Neuordnen von logischen Bausteinen!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440076",
+            "text": "Die Idempotenzgesetze beschreiben die Verdopplung.",
+            "formula": "A \\land A \\equiv A, A \\lor A \\equiv A",
+            "explanation": "Die Idempotenzgesetze sind wie mathematische Verdopplungsregeln. Es ist wie das Zusammenfassen von gleichen Bausteinen!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440077",
+            "text": "Die Absorptionsgesetze beschreiben das Aufsaugen.",
+            "formula": "A \\land (A \\lor B) \\equiv A, A \\lor (A \\land B) \\equiv A",
+            "explanation": "Die Absorptionsgesetze sind wie mathematische Aufsaugregeln. Es ist wie das Vereinfachen von logischen Ausdrücken!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440078",
+            "text": "Die Neutralitätsgesetze beschreiben die Wirkung von T und F.",
+            "formula": "A \\land T \\equiv A, A \\lor F \\equiv A",
+            "explanation": "Die Neutralitätsgesetze sind wie mathematische Neutralitätsregeln. Es ist wie das Hinzufügen von neutralen Elementen!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440079",
+            "text": "Die Komplementgesetze beschreiben die Wirkung von Negationen.",
+            "formula": "A \\land \\neg A \\equiv F, A \\lor \\neg A \\equiv T",
+            "explanation": "Die Komplementgesetze sind wie mathematische Komplementregeln. Es ist wie das Zusammenführen von Gegensätzen!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440080",
+            "text": "Die Doppelnegation beschreibt die Wirkung von doppelten Negationen.",
+            "formula": "\\neg(\\neg A) \\equiv A",
+            "explanation": "Die Doppelnegation ist wie ein mathematischer Zaubertrick. Es ist wie das Aufheben von doppelten Verneinungen!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440081",
+            "text": "Die Implikation kann in andere Operatoren umgewandelt werden.",
+            "formula": "A \\rightarrow B \\equiv \\neg A \\lor B \\equiv \\neg(A \\land \\neg B)",
+            "explanation": "Die Implikation ist wie ein vielseitiger mathematischer Baustein. Es ist wie das Umwandeln in verschiedene Formen!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440082",
+            "text": "Die Äquivalenz kann in andere Operatoren umgewandelt werden.",
+            "formula": "A \\leftrightarrow B \\equiv (A \\rightarrow B) \\land (B \\rightarrow A) \\equiv (A \\land B) \\lor (\\neg A \\land \\neg B)",
+            "explanation": "Die Äquivalenz ist wie ein vielseitiger mathematischer Baustein. Es ist wie das Umwandeln in verschiedene Formen!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440083",
+            "text": "Die Resolution ist eine wichtige Beweismethode.",
+            "formula": "\\frac{A \\lor B, \\neg A \\lor C}{B \\lor C}",
+            "explanation": "Die Resolution ist wie ein mathematischer Filter. Es ist wie das Herausfiltern von logischen Schlüssen!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440084",
+            "text": "Die Konjunktive Normalform ist eine Standardform.",
+            "formula": "(A \\lor B) \\land (\\neg A \\lor C) \\land (B \\lor C)",
+            "explanation": "Die Konjunktive Normalform ist wie ein mathematischer Standard. Es ist wie das Bringen in eine einheitliche Form!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440085",
+            "text": "Die Disjunktive Normalform ist eine alternative Standardform.",
+            "formula": "(A \\land B) \\lor (\\neg A \\land C) \\lor (B \\land C)",
+            "explanation": "Die Disjunktive Normalform ist wie ein alternativer mathematischer Standard. Es ist wie das Bringen in eine andere einheitliche Form!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440086",
+            "text": "Die Horn-Form ist eine spezielle Form der Konjunktiven Normalform.",
+            "formula": "(\\neg A \\lor \\neg B \\lor C) \\land (\\neg D \\lor E) \\land F",
+            "explanation": "Die Horn-Form ist wie eine spezielle mathematische Form. Es ist wie das Bringen in eine besonders nützliche Form!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440087",
+            "text": "Die Resolution ist besonders effizient für Horn-Formeln.",
+            "formula": "\\text{Resolution ist linear in der Anzahl der Horn-Klauseln}",
+            "explanation": "Die Resolution für Horn-Formeln ist wie ein schneller mathematischer Algorithmus. Es ist wie das schnelle Lösen von speziellen Problemen!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440088",
+            "text": "Die Unerfüllbarkeit kann durch Resolution bewiesen werden.",
+            "formula": "\\text{Wenn die leere Klausel ableitbar ist, ist die Formel unerfüllbar}",
+            "explanation": "Die Unerfüllbarkeit ist wie ein mathematischer Widerspruch. Es ist wie das Finden von logischen Unmöglichkeiten!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440089",
+            "text": "Die Erfüllbarkeit ist ein grundlegendes Problem der Logik.",
+            "formula": "\\text{SAT ist NP-vollständig}",
+            "explanation": "Die Erfüllbarkeit ist wie ein mathematisches Rätsel. Es ist wie das Finden von logischen Lösungen!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440090",
+            "text": "Zum Schluss schauen wir uns an, wie Logik in der Informatik verwendet wird.",
+            "formula": "\\text{Logik ist die Grundlage der Programmierung und künstlichen Intelligenz}",
+            "explanation": "In der Informatik hilft uns Logik, Programme zu schreiben und KI-Systeme zu entwickeln. Es ist wie das Übersetzen mathematischer Konzepte in die Sprache der Computer!"
         }
-    ],
-    "topic": "Logik"
+    ]
 } 

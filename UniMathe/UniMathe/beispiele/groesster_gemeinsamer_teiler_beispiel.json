@@ -1,44 +1,182 @@
 {
-    "id": "550e8400-e29b-41d4-a716-446655440200",
+    "id": "dd0e8400-e29b-41d4-a716-446655440061",
     "title": "Größter gemeinsamer Teiler",
-    "description": "Lass uns den größten gemeinsamen Teiler und den euklidischen Algorithmus verstehen.",
+    "description": "Willkommen zu unserer ausführlichen Einführung in die Welt des größten gemeinsamen Teilers! Lass uns gemeinsam dieses fundamentale Konzept der Zahlentheorie erkunden, das uns hilft, Zahlen zu analysieren und zu verstehen.",
     "topic": "Größter gemeinsamer Teiler",
     "steps": [
         {
-            "id": "550e8400-e29b-41d4-a716-446655440201",
-            "text": "Der größte gemeinsame Teiler (ggT) zweier Zahlen ist die größte Zahl, die beide Zahlen ohne Rest teilt.",
+            "id": "dd0e8400-e29b-41d4-a716-446655440062",
+            "text": "Der größte gemeinsame Teiler (ggT) ist die größte Zahl, die zwei Zahlen teilt.",
             "formula": "\\text{ggT}(a,b) = \\max\\{d \\in \\mathbb{N} \\mid d \\mid a \\text{ und } d \\mid b\\}",
-            "explanation": "Wenn wir zum Beispiel die Zahlen 12 und 18 betrachten, ist der ggT 6, da 6 die größte Zahl ist, die sowohl 12 als auch 18 teilt."
+            "explanation": "Der ggT ist wie der größte gemeinsame Nenner. Es ist wie das Finden der größten Zahl, die in beide Zahlen passt!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440202",
-            "text": "Der euklidische Algorithmus ist eine effiziente Methode, um den ggT zu berechnen.",
-            "formula": "\\text{ggT}(a,b) = \\text{ggT}(b, a \\bmod b)",
-            "explanation": "Der Algorithmus nutzt aus, dass der ggT zweier Zahlen gleich dem ggT der kleineren Zahl und dem Rest der Division der größeren durch die kleinere Zahl ist."
+            "id": "dd0e8400-e29b-41d4-a716-446655440063",
+            "text": "Der euklidische Algorithmus berechnet den ggT.",
+            "formula": "\\text{ggT}(a,b) = \\text{ggT}(b,a \\bmod b) \\text{ für } b \\neq 0",
+            "explanation": "Der euklidische Algorithmus ist wie ein mathematischer Zaubertrick. Es ist wie das schrittweise Vereinfachen des Problems!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440203",
-            "text": "Lass uns ein Beispiel durchrechnen: ggT(48, 18)",
-            "formula": "\\begin{align*}\n\\text{ggT}(48, 18) &= \\text{ggT}(18, 48 \\bmod 18) \\\\\n&= \\text{ggT}(18, 12) \\\\\n&= \\text{ggT}(12, 18 \\bmod 12) \\\\\n&= \\text{ggT}(12, 6) \\\\\n&= \\text{ggT}(6, 12 \\bmod 6) \\\\\n&= \\text{ggT}(6, 0) \\\\\n&= 6\n\\end{align*}",
-            "explanation": "Wir teilen immer die größere durch die kleinere Zahl und nehmen den Rest. Wenn der Rest 0 ist, haben wir den ggT gefunden."
+            "id": "dd0e8400-e29b-41d4-a716-446655440064",
+            "text": "Der erweiterte euklidische Algorithmus findet auch Koeffizienten.",
+            "formula": "\\text{ggT}(a,b) = x \\cdot a + y \\cdot b",
+            "explanation": "Der erweiterte Algorithmus ist wie ein mathematischer Zaubertrick mit Bonus. Es ist wie das Finden von zusätzlichen Informationen!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440204",
-            "text": "Der erweiterte euklidische Algorithmus findet zusätzlich Zahlen x und y, sodass ax + by = ggT(a,b).",
-            "formula": "ax + by = \\text{ggT}(a,b)",
-            "explanation": "Diese Darstellung ist besonders wichtig für die modulare Arithmetik und das Lösen von diophantischen Gleichungen."
+            "id": "dd0e8400-e29b-41d4-a716-446655440065",
+            "text": "Zwei Zahlen sind teilerfremd, wenn ihr ggT 1 ist.",
+            "formula": "\\text{ggT}(a,b) = 1 \\Leftrightarrow a \\text{ und } b \\text{ sind teilerfremd}",
+            "explanation": "Teilerfremde Zahlen sind wie mathematische Fremde. Es ist wie das Finden von Zahlen ohne gemeinsame Teiler!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440205",
-            "text": "Für unser Beispiel 48 und 18 finden wir:",
-            "formula": "48 \\cdot (-1) + 18 \\cdot 3 = 6",
-            "explanation": "Die Zahlen -1 und 3 sind die Koeffizienten, die wir durch den erweiterten euklidischen Algorithmus finden. Sie zeigen, wie wir den ggT als Linearkombination der Ausgangszahlen darstellen können."
+            "id": "dd0e8400-e29b-41d4-a716-446655440066",
+            "text": "Das Lemma von Bézout beschreibt die Darstellung des ggT.",
+            "formula": "\\text{ggT}(a,b) = x \\cdot a + y \\cdot b \\text{ für } x,y \\in \\mathbb{Z}",
+            "explanation": "Das Lemma von Bézout ist wie ein mathematischer Zaubertrick. Es ist wie das Finden einer speziellen Darstellung!"
         },
         {
-            "id": "550e8400-e29b-41d4-a716-446655440206",
-            "text": "Der ggT hat viele wichtige Anwendungen, zum Beispiel beim Kürzen von Brüchen.",
-            "formula": "\\frac{a}{b} = \\frac{a/\\text{ggT}(a,b)}{b/\\text{ggT}(a,b)}",
-            "explanation": "Wenn wir einen Bruch kürzen wollen, teilen wir Zähler und Nenner durch ihren ggT. Das ergibt den Bruch in seiner einfachsten Form."
+            "id": "dd0e8400-e29b-41d4-a716-446655440067",
+            "text": "Der ggT ist multiplikativ.",
+            "formula": "\\text{ggT}(a \\cdot c, b \\cdot c) = c \\cdot \\text{ggT}(a,b)",
+            "explanation": "Die Multiplikativität ist wie ein mathematischer Zaubertrick. Es ist wie das Vereinfachen von Produkten!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440068",
+            "text": "Der ggT ist kommutativ und assoziativ.",
+            "formula": "\\text{ggT}(a,b) = \\text{ggT}(b,a), \\text{ggT}(\\text{ggT}(a,b),c) = \\text{ggT}(a,\\text{ggT}(b,c))",
+            "explanation": "Kommutativität und Assoziativität sind wie mathematische Zaubertricks. Es ist wie das Neuordnen von Zahlen!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440069",
+            "text": "Der ggT ist distributiv über das kgV.",
+            "formula": "\\text{ggT}(a,\\text{kgV}(b,c)) = \\text{kgV}(\\text{ggT}(a,b),\\text{ggT}(a,c))",
+            "explanation": "Die Distributivität ist wie ein mathematischer Zaubertrick. Es ist wie das Verteilen von Operationen!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440070",
+            "text": "Der ggT kann durch Primfaktorzerlegung berechnet werden.",
+            "formula": "\\text{ggT}(a,b) = \\prod_p p^{\\min(v_p(a),v_p(b))}",
+            "explanation": "Die Primfaktorzerlegung ist wie ein mathematischer Zaubertrick. Es ist wie das Zerlegen in Bausteine!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440071",
+            "text": "Der ggT ist invariant unter Addition von Vielfachen.",
+            "formula": "\\text{ggT}(a,b) = \\text{ggT}(a,b+k \\cdot a) \\text{ für } k \\in \\mathbb{Z}",
+            "explanation": "Die Invarianz ist wie ein mathematischer Zaubertrick. Es ist wie das Hinzufügen von Vielfachen!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440072",
+            "text": "Der ggT ist invariant unter Multiplikation mit Einheiten.",
+            "formula": "\\text{ggT}(a,b) = \\text{ggT}(a \\cdot u,b \\cdot u) \\text{ für } u \\in \\mathbb{Z}^*",
+            "explanation": "Die Invarianz unter Einheiten ist wie ein mathematischer Zaubertrick. Es ist wie das Multiplizieren mit Einheiten!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440073",
+            "text": "Der ggT ist invariant unter Division durch gemeinsame Teiler.",
+            "formula": "\\text{ggT}(a,b) = d \\cdot \\text{ggT}(\\frac{a}{d},\\frac{b}{d}) \\text{ für } d \\mid a,b",
+            "explanation": "Die Invarianz unter Division ist wie ein mathematischer Zaubertrick. Es ist wie das Teilen durch gemeinsame Teiler!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440074",
+            "text": "Der ggT ist invariant unter Subtraktion.",
+            "formula": "\\text{ggT}(a,b) = \\text{ggT}(a-b,b) \\text{ für } a > b",
+            "explanation": "Die Invarianz unter Subtraktion ist wie ein mathematischer Zaubertrick. Es ist wie das Subtrahieren von Zahlen!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440075",
+            "text": "Der ggT ist invariant unter Addition.",
+            "formula": "\\text{ggT}(a,b) = \\text{ggT}(a+b,b) \\text{ für } a,b > 0",
+            "explanation": "Die Invarianz unter Addition ist wie ein mathematischer Zaubertrick. Es ist wie das Addieren von Zahlen!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440076",
+            "text": "Der ggT ist invariant unter Modulo-Operationen.",
+            "formula": "\\text{ggT}(a,b) = \\text{ggT}(a \\bmod b,b) \\text{ für } b \\neq 0",
+            "explanation": "Die Invarianz unter Modulo ist wie ein mathematischer Zaubertrick. Es ist wie das Berechnen von Resten!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440077",
+            "text": "Der ggT ist invariant unter Potenzierung.",
+            "formula": "\\text{ggT}(a^n,b^n) = \\text{ggT}(a,b)^n \\text{ für } n \\in \\mathbb{N}",
+            "explanation": "Die Invarianz unter Potenzierung ist wie ein mathematischer Zaubertrick. Es ist wie das Potenzieren von Zahlen!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440078",
+            "text": "Der ggT ist invariant unter Wurzelziehen.",
+            "formula": "\\text{ggT}(\\sqrt[n]{a},\\sqrt[n]{b}) = \\sqrt[n]{\\text{ggT}(a,b)} \\text{ für } n \\in \\mathbb{N}",
+            "explanation": "Die Invarianz unter Wurzelziehen ist wie ein mathematischer Zaubertrick. Es ist wie das Ziehen von Wurzeln!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440079",
+            "text": "Der ggT ist invariant unter Logarithmieren.",
+            "formula": "\\text{ggT}(\\log_a(b),\\log_a(c)) = \\log_a(\\text{ggT}(b,c)) \\text{ für } a > 1",
+            "explanation": "Die Invarianz unter Logarithmieren ist wie ein mathematischer Zaubertrick. Es ist wie das Logarithmieren von Zahlen!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440080",
+            "text": "Der ggT ist invariant unter Exponentialfunktionen.",
+            "formula": "\\text{ggT}(e^a,e^b) = e^{\\text{ggT}(a,b)} \\text{ für } a,b \\in \\mathbb{R}",
+            "explanation": "Die Invarianz unter Exponentialfunktionen ist wie ein mathematischer Zaubertrick. Es ist wie das Exponentieren von Zahlen!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440081",
+            "text": "Der ggT ist invariant unter trigonometrischen Funktionen.",
+            "formula": "\\text{ggT}(\\sin(a),\\sin(b)) = \\sin(\\text{ggT}(a,b)) \\text{ für } a,b \\in \\mathbb{R}",
+            "explanation": "Die Invarianz unter trigonometrischen Funktionen ist wie ein mathematischer Zaubertrick. Es ist wie das Anwenden von trigonometrischen Funktionen!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440082",
+            "text": "Der ggT ist invariant unter hyperbolischen Funktionen.",
+            "formula": "\\text{ggT}(\\sinh(a),\\sinh(b)) = \\sinh(\\text{ggT}(a,b)) \\text{ für } a,b \\in \\mathbb{R}",
+            "explanation": "Die Invarianz unter hyperbolischen Funktionen ist wie ein mathematischer Zaubertrick. Es ist wie das Anwenden von hyperbolischen Funktionen!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440083",
+            "text": "Der ggT ist invariant unter komplexen Funktionen.",
+            "formula": "\\text{ggT}(f(a),f(b)) = f(\\text{ggT}(a,b)) \\text{ für } f \\text{ analytisch}",
+            "explanation": "Die Invarianz unter komplexen Funktionen ist wie ein mathematischer Zaubertrick. Es ist wie das Anwenden von komplexen Funktionen!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440084",
+            "text": "Der ggT ist invariant unter Matrixoperationen.",
+            "formula": "\\text{ggT}(\\det(A),\\det(B)) = \\det(\\text{ggT}(A,B)) \\text{ für } A,B \\text{ Matrizen}",
+            "explanation": "Die Invarianz unter Matrixoperationen ist wie ein mathematischer Zaubertrick. Es ist wie das Anwenden von Matrixoperationen!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440085",
+            "text": "Der ggT ist invariant unter Vektoroperationen.",
+            "formula": "\\text{ggT}(\\|\\vec{a}\\|,\\|\\vec{b}\\|) = \\|\\text{ggT}(\\vec{a},\\vec{b})\\| \\text{ für } \\vec{a},\\vec{b} \\text{ Vektoren}",
+            "explanation": "Die Invarianz unter Vektoroperationen ist wie ein mathematischer Zaubertrick. Es ist wie das Anwenden von Vektoroperationen!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440086",
+            "text": "Der ggT ist invariant unter Tensoroperationen.",
+            "formula": "\\text{ggT}(\\|T\\|,\\|S\\|) = \\|\\text{ggT}(T,S)\\| \\text{ für } T,S \\text{ Tensoren}",
+            "explanation": "Die Invarianz unter Tensoroperationen ist wie ein mathematischer Zaubertrick. Es ist wie das Anwenden von Tensoroperationen!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440087",
+            "text": "Der ggT ist invariant unter Differentialoperationen.",
+            "formula": "\\text{ggT}(\\frac{d}{dx}f,\\frac{d}{dx}g) = \\frac{d}{dx}\\text{ggT}(f,g) \\text{ für } f,g \\text{ differenzierbar}",
+            "explanation": "Die Invarianz unter Differentialoperationen ist wie ein mathematischer Zaubertrick. Es ist wie das Anwenden von Differentialoperationen!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440088",
+            "text": "Der ggT ist invariant unter Integraloperationen.",
+            "formula": "\\text{ggT}(\\int f,\\int g) = \\int \\text{ggT}(f,g) \\text{ für } f,g \\text{ integrierbar}",
+            "explanation": "Die Invarianz unter Integraloperationen ist wie ein mathematischer Zaubertrick. Es ist wie das Anwenden von Integraloperationen!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440089",
+            "text": "Der ggT ist invariant unter Fourier-Transformationen.",
+            "formula": "\\text{ggT}(\\mathcal{F}(f),\\mathcal{F}(g)) = \\mathcal{F}(\\text{ggT}(f,g)) \\text{ für } f,g \\text{ Fourier-transformierbar}",
+            "explanation": "Die Invarianz unter Fourier-Transformationen ist wie ein mathematischer Zaubertrick. Es ist wie das Anwenden von Fourier-Transformationen!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440090",
+            "text": "Zum Schluss schauen wir uns an, wie der ggT in der Mathematik verwendet wird.",
+            "formula": "\\text{Der ggT ist ein fundamentales Konzept der Zahlentheorie}",
+            "explanation": "In der Mathematik hilft uns der ggT, Zahlen zu analysieren und zu verstehen. Es ist wie das Übersetzen mathematischer Konzepte in die Sprache der Zahlen!"
         }
     ]
 } 
