@@ -1,98 +1,218 @@
 {
     "id": "dd0e8400-e29b-41d4-a716-446655440000",
     "title": "Matrizen",
-    "description": "Wir schauen uns jetzt Matrizen genauer an!.",
+    "description": "Willkommen zu unserer Einführung in die Welt der Matrizen! Lass uns gemeinsam dieses spannende Thema erkunden.",
     "topic": "Matrizen",
     "steps": [
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440001",
-            "text": "Eine Matrix ist ein rechteckiges Schema von Zahlen, das in Zeilen und Spalten angeordnet ist. Jede Zahl in der Matrix wird als Element oder Eintrag bezeichnet. Die Position eines Elements wird durch seine Zeilen- und Spaltennummer angegeben.",
+            "text": "Hallo! Heute beschäftigen wir uns mit Matrizen - einem der wichtigsten Konzepte in der linearen Algebra. Eine Matrix ist wie ein Zahlenraster, das in Zeilen und Spalten angeordnet ist. Stell dir vor, du hast ein Schachbrett, auf dem statt Schachfiguren Zahlen stehen!",
             "formula": "A = \\begin{pmatrix} a_{11} & a_{12} & \\cdots & a_{1n} \\\\ a_{21} & a_{22} & \\cdots & a_{2n} \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ a_{m1} & a_{m2} & \\cdots & a_{mn} \\end{pmatrix}",
-            "explanation": "Die Matrix A hat m Zeilen und n Spalten. Wir schreiben A ∈ ℝ^(m×n). Der Eintrag a_ij befindet sich in der i-ten Zeile und j-ten Spalte. Zum Beispiel ist a_23 das Element in der zweiten Zeile und dritten Spalte. Die Dimension der Matrix wird als m×n gelesen (m mal n)."
+            "explanation": "Schauen wir uns die Matrix A genauer an: Sie hat m Zeilen und n Spalten, wir schreiben dafür A ∈ ℝ^(m×n). Jede Zahl in der Matrix hat ihre eigene Adresse: a_ij bedeutet, dass die Zahl in der i-ten Zeile und j-ten Spalte steht. Zum Beispiel ist a_23 die Zahl in der zweiten Zeile und dritten Spalte. Die Dimension m×n liest man als 'm mal n'."
         },
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440002",
-            "text": "Lass uns ein konkretes Beispiel einer 2×3-Matrix anschauen. Diese Matrix hat 2 Zeilen und 3 Spalten. Wir können uns die Matrix als ein System von Gleichungen vorstellen.",
+            "text": "Lass uns ein konkretes Beispiel anschauen! Hier haben wir eine 2×3-Matrix. Das bedeutet, sie hat 2 Zeilen und 3 Spalten. Stell dir vor, diese Matrix beschreibt zum Beispiel die Preise von drei Produkten in zwei verschiedenen Läden.",
             "formula": "A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix}",
-            "explanation": "Hier sehen wir eine Matrix mit 6 Elementen. Das Element a_12 ist 2 (erste Zeile, zweite Spalte), a_21 ist 4 (zweite Zeile, erste Spalte), und so weiter. Jedes Element hat eine eindeutige Position in der Matrix. Diese Matrix könnte zum Beispiel ein lineares Gleichungssystem mit 2 Gleichungen und 3 Unbekannten darstellen."
+            "explanation": "Schauen wir uns die Zahlen genauer an: In der ersten Zeile haben wir die Zahlen 1, 2 und 3. In der zweiten Zeile stehen 4, 5 und 6. Wenn wir zum Beispiel a_12 suchen, gehen wir in die erste Zeile (i=1) und zweite Spalte (j=2) - dort finden wir die Zahl 2! Diese Matrix könnte zum Beispiel bedeuten: Laden 1 verkauft Produkt 1 für 1€, Produkt 2 für 2€ und Produkt 3 für 3€. Laden 2 ist etwas teurer: 4€, 5€ und 6€."
         },
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440003",
-            "text": "Die Addition von Matrizen erfolgt elementweise. Das bedeutet, wir addieren die entsprechenden Elemente der Matrizen. Wichtig: Nur Matrizen gleicher Dimension können addiert werden.",
+            "text": "Super! Jetzt lernen wir, wie man Matrizen addiert. Das ist eigentlich ganz einfach: Wir addieren einfach die Zahlen, die an der gleichen Position stehen. Aber Achtung: Wir können nur Matrizen addieren, die die gleiche Größe haben!",
             "formula": "\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} + \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix} = \\begin{pmatrix} 1+5 & 2+6 \\\\ 3+7 & 4+8 \\end{pmatrix} = \\begin{pmatrix} 6 & 8 \\\\ 10 & 12 \\end{pmatrix}",
-            "explanation": "Wir addieren einfach die entsprechenden Elemente der Matrizen. Die Addition ist kommutativ (A+B = B+A) und assoziativ ((A+B)+C = A+(B+C)). Das bedeutet, die Reihenfolge der Addition spielt keine Rolle. Die Addition von Matrizen entspricht der komponentenweisen Addition von Vektoren."
+            "explanation": "Schauen wir uns das Schritt für Schritt an: Die 1 in der ersten Zeile, ersten Spalte wird mit der 5 addiert, also 1+5=6. Die 2 wird mit der 6 addiert, also 2+6=8. Und so weiter! Das Tolle ist: Die Reihenfolge spielt keine Rolle (1+5 ist das Gleiche wie 5+1), und wenn wir drei Matrizen addieren, können wir auch die Klammern setzen, wo wir wollen. Das nennt man Kommutativität und Assoziativität."
         },
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440004",
-            "text": "Die Multiplikation einer Matrix mit einem Skalar (einer Zahl) erfolgt ebenfalls elementweise. Jedes Element der Matrix wird mit dem Skalar multipliziert.",
+            "text": "Jetzt lernen wir, wie man eine Matrix mit einer Zahl (einem Skalar) multipliziert. Das ist wie wenn du alle Preise in einem Laden verdoppeln würdest - jede Zahl wird mit dem gleichen Faktor multipliziert!",
             "formula": "2 \\cdot \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} = \\begin{pmatrix} 2 \\cdot 1 & 2 \\cdot 2 \\\\ 2 \\cdot 3 & 2 \\cdot 4 \\end{pmatrix} = \\begin{pmatrix} 2 & 4 \\\\ 6 & 8 \\end{pmatrix}",
-            "explanation": "Jedes Element der Matrix wird mit dem Skalar multipliziert. Diese Operation ist distributiv über der Matrixaddition: k(A+B) = kA + kB. Die Skalarmultiplikation entspricht einer Streckung oder Stauchung der Matrix in alle Richtungen."
+            "explanation": "Jede Zahl in der Matrix wird mit 2 multipliziert. Die 1 wird zu 2, die 2 wird zu 4, und so weiter. Das ist wie eine gleichmäßige Vergrößerung oder Verkleinerung der Matrix. Wenn wir zwei Matrizen addieren und dann mit einer Zahl multiplizieren, ist das das Gleiche, als wenn wir jede Matrix einzeln mit der Zahl multiplizieren und dann addieren. Das nennt man Distributivität."
         },
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440005",
-            "text": "Die Matrixmultiplikation ist etwas komplizierter. Das Produkt AB ist nur definiert, wenn die Anzahl der Spalten von A gleich der Anzahl der Zeilen von B ist. Das Ergebnis hat dann die Dimension (Anzahl Zeilen von A) × (Anzahl Spalten von B).",
+            "text": "Jetzt wird es spannend: Die Matrixmultiplikation! Das ist etwas komplizierter, aber keine Sorge - wir schaffen das zusammen. Wichtig: Wir können nur Matrizen multiplizieren, wenn die Anzahl der Spalten der ersten Matrix gleich der Anzahl der Zeilen der zweiten Matrix ist.",
             "formula": "\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} \\cdot \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix} = \\begin{pmatrix} 1 \\cdot 5 + 2 \\cdot 7 & 1 \\cdot 6 + 2 \\cdot 8 \\\\ 3 \\cdot 5 + 4 \\cdot 7 & 3 \\cdot 6 + 4 \\cdot 8 \\end{pmatrix} = \\begin{pmatrix} 19 & 22 \\\\ 43 & 50 \\end{pmatrix}",
-            "explanation": "Das Element (AB)_ij ist die Summe der Produkte der Elemente der i-ten Zeile von A mit den Elementen der j-ten Spalte von B. Die Matrixmultiplikation ist assoziativ ((AB)C = A(BC)), aber nicht kommutativ (AB ≠ BA im Allgemeinen). Die Matrixmultiplikation entspricht der Verkettung linearer Abbildungen."
+            "explanation": "Lass uns das Schritt für Schritt durchgehen: Für das erste Element (oben links) nehmen wir die erste Zeile der ersten Matrix und die erste Spalte der zweiten Matrix. Wir multiplizieren die entsprechenden Zahlen und addieren sie: 1·5 + 2·7 = 19. Für das zweite Element (oben rechts) nehmen wir die erste Zeile und zweite Spalte: 1·6 + 2·8 = 22. Und so weiter! Wichtig: Die Reihenfolge ist bei der Matrixmultiplikation wichtig - A·B ist nicht immer gleich B·A!"
         },
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440006",
-            "text": "Die Transponierte einer Matrix entsteht durch Spiegelung an der Hauptdiagonale. Zeilen werden zu Spalten und Spalten zu Zeilen. Die Transponierte einer m×n-Matrix ist eine n×m-Matrix.",
+            "text": "Kommen wir zur Transponierten einer Matrix. Das ist wie ein Spiegelbild der Matrix - wir tauschen Zeilen und Spalten!",
             "formula": "\\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix}^T = \\begin{pmatrix} 1 & 4 \\\\ 2 & 5 \\\\ 3 & 6 \\end{pmatrix}",
-            "explanation": "Die Transponierte einer Matrix A wird mit A^T bezeichnet. Die Transponierte der Transponierten ist die ursprüngliche Matrix: (A^T)^T = A. Die Transponierte eines Produkts ist das Produkt der Transponierten in umgekehrter Reihenfolge: (AB)^T = B^T A^T."
+            "explanation": "Schau mal: Die erste Zeile [1,2,3] wird zur ersten Spalte, die zweite Zeile [4,5,6] wird zur zweiten Spalte. Das T oben bedeutet 'transponiert'. Wenn wir eine Matrix zweimal transponieren, kommen wir wieder zur Ausgangsmatrix zurück. Und wenn wir zwei Matrizen multiplizieren und dann transponieren, ist das das Gleiche, als wenn wir zuerst transponieren und dann in umgekehrter Reihenfolge multiplizieren."
         },
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440007",
-            "text": "Eine quadratische Matrix hat gleich viele Zeilen wie Spalten. Die Hauptdiagonale einer quadratischen Matrix verläuft von oben links nach unten rechts. Die Elemente auf der Hauptdiagonale sind a_11, a_22, a_33, usw.",
+            "text": "Eine quadratische Matrix ist besonders wichtig - sie hat gleich viele Zeilen wie Spalten. Stell dir ein quadratisches Schachbrett vor!",
             "formula": "A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \\end{pmatrix}",
-            "explanation": "Quadratische Matrizen sind besonders wichtig, da sie lineare Transformationen im gleichen Vektorraum beschreiben. Die Hauptdiagonale spielt eine wichtige Rolle bei vielen Eigenschaften der Matrix, wie der Spur und der Determinante."
+            "explanation": "Diese Matrix ist 3×3 - sie hat 3 Zeilen und 3 Spalten. Die Zahlen auf der Hauptdiagonale (von oben links nach unten rechts) sind 1, 5 und 9. Quadratische Matrizen sind besonders wichtig, weil sie Transformationen im gleichen Raum beschreiben. Zum Beispiel könnte diese Matrix eine 3D-Rotation oder -Spiegelung beschreiben."
         },
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440008",
-            "text": "Die Einheitsmatrix I ist eine quadratische Matrix, bei der alle Elemente auf der Hauptdiagonale 1 sind und alle anderen Elemente 0 sind. Sie ist das neutrale Element der Matrixmultiplikation.",
+            "text": "Die Einheitsmatrix ist wie die Zahl 1 bei normalen Zahlen - wenn wir sie mit einer Matrix multiplizieren, bleibt die Matrix unverändert!",
             "formula": "I = \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}",
-            "explanation": "Die Einheitsmatrix ist das neutrale Element der Matrixmultiplikation: AI = IA = A für jede Matrix A passender Dimension. Sie entspricht der identischen Abbildung im Vektorraum. Die Einheitsmatrix ist die einzige Matrix, die sowohl links- als auch rechtsneutral ist."
+            "explanation": "Die Einheitsmatrix hat auf der Hauptdiagonale nur Einsen und sonst überall Nullen. Wenn wir eine Matrix mit der Einheitsmatrix multiplizieren, bleibt sie unverändert - genau wie wenn wir eine Zahl mit 1 multiplizieren. Die Einheitsmatrix ist wie ein 'neutrales Element' - sie verändert nichts."
         },
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440009",
-            "text": "Eine Matrix A ist invertierbar, wenn es eine Matrix A^(-1) gibt, sodass AA^(-1) = A^(-1)A = I gilt. Nicht jede Matrix ist invertierbar.",
+            "text": "Jetzt wird es richtig spannend: Die inverse Matrix! Das ist wie das 'Gegenteil' einer Matrix - wenn wir eine Matrix mit ihrer Inversen multiplizieren, bekommen wir die Einheitsmatrix.",
             "formula": "\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}^{-1} = \\frac{1}{-2} \\begin{pmatrix} 4 & -2 \\\\ -3 & 1 \\end{pmatrix}",
-            "explanation": "Eine Matrix ist genau dann invertierbar, wenn ihre Determinante nicht null ist. Die Inverse einer 2×2-Matrix kann mit einer einfachen Formel berechnet werden. Die Inverse macht die Wirkung der ursprünglichen Matrix rückgängig. Die Inverse eines Produkts ist das Produkt der Inversen in umgekehrter Reihenfolge: (AB)^(-1) = B^(-1) A^(-1)."
+            "explanation": "Die inverse Matrix macht die Wirkung der ursprünglichen Matrix rückgängig. Wenn wir eine Matrix mit ihrer Inversen multiplizieren, bekommen wir die Einheitsmatrix. Aber Achtung: Nicht jede Matrix hat eine Inverse! Eine Matrix hat genau dann eine Inverse, wenn ihre Determinante nicht null ist. Bei 2×2-Matrizen können wir die Inverse mit einer einfachen Formel berechnen."
         },
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440010",
-            "text": "Eine symmetrische Matrix ist gleich ihrer Transponierten: A = A^T. Die Elemente sind spiegelsymmetrisch zur Hauptdiagonale.",
+            "text": "Eine symmetrische Matrix ist wie ein Spiegelbild - wenn wir sie an der Hauptdiagonale spiegeln, bleibt sie gleich!",
             "formula": "\\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 5 \\\\ 3 & 5 & 6 \\end{pmatrix}",
-            "explanation": "Bei einer symmetrischen Matrix sind die Elemente spiegelsymmetrisch zur Hauptdiagonale. Symmetrische Matrizen haben viele wichtige Eigenschaften, besonders in der Theorie der quadratischen Formen. Sie treten häufig in Anwendungen auf, zum Beispiel bei der Beschreibung von physikalischen Systemen."
+            "explanation": "Bei einer symmetrischen Matrix sind die Elemente spiegelsymmetrisch zur Hauptdiagonale. Zum Beispiel: a_12 = a_21 = 2, a_13 = a_31 = 3, und a_23 = a_32 = 5. Symmetrische Matrizen sind in der Physik und Technik sehr wichtig, zum Beispiel bei der Beschreibung von Spannungen in Materialien oder bei der Analyse von Schwingungen."
         },
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440011",
-            "text": "Eine obere Dreiecksmatrix hat unterhalb der Hauptdiagonale nur Nullen. Eine untere Dreiecksmatrix hat oberhalb der Hauptdiagonale nur Nullen.",
+            "text": "Dreiecksmatrizen sind besonders praktisch! Bei einer oberen Dreiecksmatrix stehen unterhalb der Hauptdiagonale nur Nullen, bei einer unteren Dreiecksmatrix oberhalb.",
             "formula": "\\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 4 & 5 \\\\ 0 & 0 & 6 \\end{pmatrix}",
-            "explanation": "Dreiecksmatrizen sind besonders nützlich bei der Lösung von linearen Gleichungssystemen. Die Determinante einer Dreiecksmatrix ist das Produkt der Diagonalelemente. Dreiecksmatrizen treten häufig bei der LU-Zerlegung auf, einer wichtigen Methode zur Lösung von linearen Gleichungssystemen."
+            "explanation": "Diese Matrix ist eine obere Dreiecksmatrix - unterhalb der Hauptdiagonale stehen nur Nullen. Dreiecksmatrizen sind super praktisch, wenn wir Gleichungssysteme lösen wollen. Die Determinante einer Dreiecksmatrix ist einfach das Produkt der Zahlen auf der Hauptdiagonale. Das macht viele Rechnungen viel einfacher!"
         },
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440012",
-            "text": "Eine Diagonalmatrix hat nur auf der Hauptdiagonale von null verschiedene Elemente. Alle anderen Elemente sind null.",
+            "text": "Diagonalmatrizen sind noch einfacher - sie haben nur auf der Hauptdiagonale von null verschiedene Zahlen, sonst überall Nullen.",
             "formula": "\\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 2 & 0 \\\\ 0 & 0 & 3 \\end{pmatrix}",
-            "explanation": "Diagonalmatrizen sind besonders einfach zu multiplizieren: Man multipliziert einfach die entsprechenden Diagonalelemente. Die Potenz einer Diagonalmatrix ist einfach die Potenz der Diagonalelemente. Diagonalmatrizen treten häufig bei der Diagonalisierung von Matrizen auf."
+            "explanation": "Bei einer Diagonalmatrix stehen nur auf der Hauptdiagonale Zahlen, die nicht null sind. Das macht das Rechnen super einfach! Wenn wir zwei Diagonalmatrizen multiplizieren, multiplizieren wir einfach die entsprechenden Zahlen auf der Diagonale. Und wenn wir eine Diagonalmatrix potenzieren, potenzieren wir einfach die Zahlen auf der Diagonale."
         },
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440013",
-            "text": "Die Spur einer quadratischen Matrix ist die Summe ihrer Diagonalelemente. Sie ist eine wichtige Invariante der Matrix.",
+            "text": "Die Spur einer Matrix ist die Summe aller Zahlen auf der Hauptdiagonale. Das klingt einfach, ist aber eine sehr wichtige Eigenschaft!",
             "formula": "\\text{tr}\\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \\end{pmatrix} = 1 + 5 + 9 = 15",
-            "explanation": "Die Spur ist eine wichtige Invariante einer Matrix. Sie bleibt unter Ähnlichkeitstransformationen erhalten und ist die Summe der Eigenwerte. Die Spur ist linear: tr(A+B) = tr(A) + tr(B) und tr(kA) = k·tr(A). Die Spur des Produkts ist unabhängig von der Reihenfolge: tr(AB) = tr(BA)."
+            "explanation": "Die Spur ist die Summe der Zahlen auf der Hauptdiagonale: 1 + 5 + 9 = 15. Die Spur ist eine wichtige Invariante - sie ändert sich nicht, wenn wir die Matrix auf bestimmte Arten transformieren. Die Spur ist auch die Summe der Eigenwerte der Matrix. Das ist super nützlich in der Physik und Technik!"
         },
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440014",
-            "text": "Eine nilpotente Matrix A erfüllt A^n = 0 für ein n ∈ ℕ. Das bedeutet, dass eine Potenz der Matrix die Nullmatrix ergibt.",
+            "text": "Eine nilpotente Matrix ist eine Matrix, die nach mehrmaliger Multiplikation mit sich selbst zur Nullmatrix wird. Das ist wie eine Transformation, die sich irgendwann 'aufbraucht'!",
             "formula": "\\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}^2 = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}",
-            "explanation": "Nilpotente Matrizen sind wichtig in der Theorie der Jordan-Normalform. Sie haben nur den Eigenwert 0. Nilpotente Matrizen treten häufig bei der Beschreibung von linearen Abbildungen auf, die nach endlich vielen Anwendungen den Nullvektor erzeugen."
+            "explanation": "Wenn wir diese Matrix mit sich selbst multiplizieren, bekommen wir die Nullmatrix. Das bedeutet, dass die Transformation nach zweimaliger Anwendung alles auf null setzt. Nilpotente Matrizen sind wichtig in der Theorie der Jordan-Normalform und haben nur den Eigenwert 0."
         },
         {
             "id": "dd0e8400-e29b-41d4-a716-446655440015",
-            "text": "Eine idempotente Matrix erfüllt A^2 = A. Das bedeutet, dass die Matrix bei Multiplikation mit sich selbst unverändert bleibt.",
+            "text": "Eine idempotente Matrix bleibt bei Multiplikation mit sich selbst unverändert. Das ist wie eine Projektion, die einmal angewendet das Ergebnis nicht mehr verändert!",
             "formula": "\\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}^2 = \\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}",
-            "explanation": "Idempotente Matrizen beschreiben Projektionen. Sie haben nur die Eigenwerte 0 und 1. Idempotente Matrizen treten häufig bei der Zerlegung von Vektorräumen in direkte Summen auf. Sie sind wichtig in der Statistik und der Quantenmechanik."
+            "explanation": "Wenn wir diese Matrix mit sich selbst multiplizieren, bekommen wir die gleiche Matrix wieder. Das ist wie eine Projektion - wenn du einen Schatten wirfst und dann den Schatten nochmal projizierst, bleibt der Schatten gleich. Idempotente Matrizen sind wichtig in der Statistik und Quantenmechanik."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440016",
+            "text": "Lass uns ein praktisches Beispiel anschauen: Wie können wir mit Matrizen ein lineares Gleichungssystem lösen?",
+            "formula": "\\begin{pmatrix} 2 & 1 \\\\ 1 & 3 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} 5 \\\\ 7 \\end{pmatrix}",
+            "explanation": "Dieses Gleichungssystem können wir als Matrixgleichung schreiben. Die Lösung bekommen wir, indem wir die inverse Matrix der Koeffizientenmatrix mit dem Ergebnisvektor multiplizieren. Das ist viel eleganter als das Einsetzungsverfahren!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440017",
+            "text": "Matrizen können auch Rotationen im Raum beschreiben. Hier ist eine Rotationsmatrix für eine Drehung um die z-Achse!",
+            "formula": "R_z(\\theta) = \\begin{pmatrix} \\cos\\theta & -\\sin\\theta & 0 \\\\ \\sin\\theta & \\cos\\theta & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}",
+            "explanation": "Diese Matrix beschreibt eine Drehung um den Winkel θ um die z-Achse. Wenn wir einen Punkt mit dieser Matrix multiplizieren, wird er um die z-Achse gedreht. Das ist super nützlich in der Computergrafik und Robotik!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440018",
+            "text": "Die Determinante einer Matrix ist eine wichtige Zahl, die uns viel über die Matrix verrät. Für eine 2×2-Matrix ist sie einfach zu berechnen!",
+            "formula": "\\det\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = ad - bc",
+            "explanation": "Die Determinante ist ad - bc. Sie sagt uns zum Beispiel, ob die Matrix invertierbar ist (Determinante ≠ 0) und wie sich Flächen unter der Transformation ändern. Die Determinante ist auch das Produkt der Eigenwerte!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440019",
+            "text": "Eigenwerte und Eigenvektoren sind super wichtig! Ein Eigenvektor wird bei Multiplikation mit der Matrix nur gestreckt oder gestaucht.",
+            "formula": "\\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} = 3 \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}",
+            "explanation": "Der Vektor (1,1) ist ein Eigenvektor zum Eigenwert 3. Wenn wir ihn mit der Matrix multiplizieren, wird er einfach mit 3 multipliziert. Eigenwerte und -vektoren sind wichtig für Schwingungen, Stabilitätsanalysen und vieles mehr!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440020",
+            "text": "Zum Schluss: Die Jordan-Normalform ist eine besonders schöne Form einer Matrix, die uns viel über ihr Verhalten verrät.",
+            "formula": "J = \\begin{pmatrix} \\lambda & 1 & 0 \\\\ 0 & \\lambda & 1 \\\\ 0 & 0 & \\lambda \\end{pmatrix}",
+            "explanation": "Die Jordan-Normalform zeigt uns die Eigenwerte (λ) und ihre algebraische Vielfachheit. Sie ist super nützlich für die Analyse von dynamischen Systemen und Differentialgleichungen. Jede Matrix kann in Jordan-Normalform gebracht werden!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440021",
+            "text": "Bevor wir zur Jordan-Normalform kommen, schauen wir uns die Gauss-Jordan-Elimination an. Das ist ein Verfahren, um Matrizen in eine besonders einfache Form zu bringen.",
+            "formula": "\\begin{pmatrix} 2 & 1 & 3 \\\\ 1 & 2 & 1 \\\\ 3 & 1 & 2 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}",
+            "explanation": "Die Gauss-Jordan-Elimination verwandelt eine Matrix in die Einheitsmatrix. Dafür dürfen wir: 1) Zeilen vertauschen, 2) Zeilen mit einer Zahl multiplizieren, 3) Vielfache einer Zeile zu einer anderen addieren. Lass uns das Schritt für Schritt durchgehen!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440022",
+            "text": "Schritt 1 der Gauss-Jordan-Elimination: Wir bringen die erste Spalte in die richtige Form. Dafür teilen wir die erste Zeile durch 2.",
+            "formula": "\\begin{pmatrix} 2 & 1 & 3 \\\\ 1 & 2 & 1 \\\\ 3 & 1 & 2 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0.5 & 1.5 \\\\ 1 & 2 & 1 \\\\ 3 & 1 & 2 \\end{pmatrix}",
+            "explanation": "Wir teilen die erste Zeile durch 2, damit wir eine 1 in der ersten Position haben. Jetzt können wir diese 1 nutzen, um die anderen Einträge in der ersten Spalte zu eliminieren."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440023",
+            "text": "Schritt 2: Wir eliminieren die anderen Einträge in der ersten Spalte, indem wir Vielfache der ersten Zeile von den anderen Zeilen abziehen.",
+            "formula": "\\begin{pmatrix} 1 & 0.5 & 1.5 \\\\ 1 & 2 & 1 \\\\ 3 & 1 & 2 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0.5 & 1.5 \\\\ 0 & 1.5 & -0.5 \\\\ 0 & -0.5 & -2.5 \\end{pmatrix}",
+            "explanation": "Wir subtrahieren die erste Zeile von der zweiten und das Dreifache der ersten Zeile von der dritten. Jetzt haben wir in der ersten Spalte nur noch eine 1 und sonst Nullen."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440024",
+            "text": "Schritt 3: Jetzt machen wir das Gleiche für die zweite Spalte. Wir teilen die zweite Zeile durch 1.5.",
+            "formula": "\\begin{pmatrix} 1 & 0.5 & 1.5 \\\\ 0 & 1.5 & -0.5 \\\\ 0 & -0.5 & -2.5 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0.5 & 1.5 \\\\ 0 & 1 & -\\frac{1}{3} \\\\ 0 & -0.5 & -2.5 \\end{pmatrix}",
+            "explanation": "Wir teilen die zweite Zeile durch 1.5, um eine 1 in der zweiten Position zu bekommen. Jetzt können wir diese 1 nutzen, um die anderen Einträge in der zweiten Spalte zu eliminieren."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440025",
+            "text": "Schritt 4: Wir eliminieren die anderen Einträge in der zweiten Spalte.",
+            "formula": "\\begin{pmatrix} 1 & 0.5 & 1.5 \\\\ 0 & 1 & -\\frac{1}{3} \\\\ 0 & -0.5 & -2.5 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0 & \\frac{5}{3} \\\\ 0 & 1 & -\\frac{1}{3} \\\\ 0 & 0 & -\\frac{8}{3} \\end{pmatrix}",
+            "explanation": "Wir subtrahieren das 0.5-fache der zweiten Zeile von der ersten und addieren das 0.5-fache der zweiten Zeile zur dritten. Jetzt haben wir in der zweiten Spalte nur noch eine 1 und sonst Nullen."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440026",
+            "text": "Schritt 5: Zum Schluss machen wir das Gleiche für die dritte Spalte. Wir teilen die dritte Zeile durch -8/3.",
+            "formula": "\\begin{pmatrix} 1 & 0 & \\frac{5}{3} \\\\ 0 & 1 & -\\frac{1}{3} \\\\ 0 & 0 & -\\frac{8}{3} \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0 & \\frac{5}{3} \\\\ 0 & 1 & -\\frac{1}{3} \\\\ 0 & 0 & 1 \\end{pmatrix}",
+            "explanation": "Wir teilen die dritte Zeile durch -8/3, um eine 1 in der dritten Position zu bekommen. Jetzt können wir diese 1 nutzen, um die anderen Einträge in der dritten Spalte zu eliminieren."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440027",
+            "text": "Schritt 6: Wir eliminieren die anderen Einträge in der dritten Spalte.",
+            "formula": "\\begin{pmatrix} 1 & 0 & \\frac{5}{3} \\\\ 0 & 1 & -\\frac{1}{3} \\\\ 0 & 0 & 1 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}",
+            "explanation": "Wir subtrahieren das 5/3-fache der dritten Zeile von der ersten und addieren das 1/3-fache der dritten Zeile zur zweiten. Jetzt haben wir die Einheitsmatrix erreicht!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440028",
+            "text": "Jetzt schauen wir uns die Jordan-Normalform genauer an. Sie ist besonders nützlich, wenn eine Matrix nicht diagonalisierbar ist.",
+            "formula": "A = \\begin{pmatrix} 2 & 1 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}",
+            "explanation": "Diese Matrix hat den Eigenwert 2 mit algebraischer Vielfachheit 3, aber nur einen linear unabhängigen Eigenvektor. Deshalb können wir sie nicht diagonalisieren, aber in Jordan-Normalform bringen."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440029",
+            "text": "Lass uns die Jordan-Normalform dieser Matrix berechnen. Zuerst bestimmen wir die Eigenwerte.",
+            "formula": "\\det(A - \\lambda I) = \\det\\begin{pmatrix} 2-\\lambda & 1 & 0 \\\\ 0 & 2-\\lambda & 1 \\\\ 0 & 0 & 2-\\lambda \\end{pmatrix} = (2-\\lambda)^3 = 0",
+            "explanation": "Die Determinante von A-λI ist (2-λ)³, also ist λ=2 der einzige Eigenwert mit algebraischer Vielfachheit 3. Jetzt müssen wir die geometrische Vielfachheit bestimmen."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440030",
+            "text": "Wir berechnen den Kern von (A-2I), um die geometrische Vielfachheit zu bestimmen.",
+            "formula": "A-2I = \\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix}",
+            "explanation": "Der Kern von (A-2I) ist eindimensional, also ist die geometrische Vielfachheit 1. Das bedeutet, wir brauchen einen Jordan-Block der Größe 3."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440031",
+            "text": "Jetzt können wir die Jordan-Normalform direkt hinschreiben. Sie besteht aus einem Jordan-Block der Größe 3 zum Eigenwert 2.",
+            "formula": "J = \\begin{pmatrix} 2 & 1 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}",
+            "explanation": "Die Jordan-Normalform ist bereits die Matrix selbst! Das passiert, wenn die Matrix bereits in Jordan-Normalform ist. Die Einsen über der Diagonale zeigen die Kettenlänge der verallgemeinerten Eigenvektoren."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440032",
+            "text": "Lass uns ein komplizierteres Beispiel anschauen. Diese Matrix hat zwei verschiedene Eigenwerte.",
+            "formula": "A = \\begin{pmatrix} 3 & 1 & 0 \\\\ 0 & 3 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}",
+            "explanation": "Diese Matrix hat die Eigenwerte 3 (mit algebraischer Vielfachheit 2) und 2 (mit algebraischer Vielfachheit 1). Wir müssen die geometrische Vielfachheit von 3 bestimmen."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440033",
+            "text": "Wir berechnen den Kern von (A-3I) für den Eigenwert 3.",
+            "formula": "A-3I = \\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & -1 \\end{pmatrix}",
+            "explanation": "Der Kern von (A-3I) ist eindimensional, also ist die geometrische Vielfachheit von 3 gleich 1. Das bedeutet, wir brauchen einen Jordan-Block der Größe 2 zum Eigenwert 3."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440034",
+            "text": "Die Jordan-Normalform dieser Matrix besteht aus einem Jordan-Block der Größe 2 zum Eigenwert 3 und einem Block der Größe 1 zum Eigenwert 2.",
+            "formula": "J = \\begin{pmatrix} 3 & 1 & 0 \\\\ 0 & 3 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}",
+            "explanation": "Die Jordan-Normalform zeigt uns die Struktur der Matrix: Ein Jordan-Block der Größe 2 für den Eigenwert 3 (mit einer 1 über der Diagonale) und ein einzelner Block für den Eigenwert 2."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440035",
+            "text": "Zum Schluss schauen wir uns an, wie wir die Transformationsmatrix P finden, die A in Jordan-Normalform überführt.",
+            "formula": "P^{-1}AP = J",
+            "explanation": "Die Transformationsmatrix P besteht aus den verallgemeinerten Eigenvektoren. Für unseren ersten Block brauchen wir einen verallgemeinerten Eigenvektor der Länge 2 und einen normalen Eigenvektor für den zweiten Block."
         }
     ]
 } 

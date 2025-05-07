@@ -1,38 +1,182 @@
 {
-    "id": "ee0e8400-e29b-41d4-a716-446655440000",
+    "id": "aa0e8400-e29b-41d4-a716-446655440011",
     "title": "Integralrechnung",
-    "description": "Lass uns die grundlegenden Konzepte der Integralrechnung Schritt für Schritt erkunden.",
+    "description": "Willkommen zu unserer ausführlichen Einführung in die Welt der Integralrechnung! Lass uns gemeinsam dieses faszinierende Konzept der Analysis erkunden, das uns hilft, Flächen zu berechnen und Funktionen zu rekonstruieren.",
+    "topic": "Integralrechnung",
     "steps": [
         {
-            "id": "ee0e8400-e29b-41d4-a716-446655440001",
-            "text": "Das bestimmte Integral berechnet die Fläche unter einer Funktion zwischen zwei Grenzen.",
-            "formula": "\\int_a^b f(x) \\, dx = F(b) - F(a)",
-            "explanation": "Dabei ist F(x) eine Stammfunktion von f(x), also F'(x) = f(x)."
+            "id": "aa0e8400-e29b-41d4-a716-446655440012",
+            "text": "Das bestimmte Integral berechnet die Fläche unter einer Kurve.",
+            "formula": "\\int_a^b f(x) \\, dx = \\lim_{n \\to \\infty} \\sum_{i=1}^n f(x_i) \\Delta x",
+            "explanation": "Das Integral ist wie das Zusammensetzen vieler kleiner Rechtecke, um die Fläche unter einer Kurve zu approximieren. Je mehr Rechtecke, desto genauer wird die Näherung!"
         },
         {
-            "id": "ee0e8400-e29b-41d4-a716-446655440002",
-            "text": "Die wichtigsten Integrationsregeln sind die Summenregel und die Faktorregel.",
-            "formula": "\\begin{align*} \\int (f(x) + g(x)) \\, dx &= \\int f(x) \\, dx + \\int g(x) \\, dx \\\\ \\int c \\cdot f(x) \\, dx &= c \\cdot \\int f(x) \\, dx \\end{align*}",
-            "explanation": "Die Summenregel erlaubt das Aufteilen von Integralen, die Faktorregel das Herausziehen konstanter Faktoren."
+            "id": "aa0e8400-e29b-41d4-a716-446655440013",
+            "text": "Der Hauptsatz der Differential- und Integralrechnung verbindet Ableitung und Integral.",
+            "formula": "\\int_a^b f'(x) \\, dx = f(b) - f(a)",
+            "explanation": "Der Hauptsatz zeigt uns, dass Integration und Differentiation inverse Operationen sind. Es ist wie das Hin- und Zurückgehen auf einem Weg!"
         },
         {
-            "id": "ee0e8400-e29b-41d4-a716-446655440003",
-            "text": "Die partielle Integration ist eine wichtige Technik für Produkte von Funktionen.",
-            "formula": "\\int u(x) \\cdot v'(x) \\, dx = u(x) \\cdot v(x) - \\int u'(x) \\cdot v(x) \\, dx",
-            "explanation": "Diese Regel ist besonders nützlich bei Produkten von Polynomen mit Exponential- oder trigonometrischen Funktionen."
+            "id": "aa0e8400-e29b-41d4-a716-446655440014",
+            "text": "Die Integrationsregeln helfen uns, Integrale zu berechnen.",
+            "formula": "\\begin{align*} \\int (f + g) \\, dx &= \\int f \\, dx + \\int g \\, dx \\\\ \\int k \\cdot f \\, dx &= k \\cdot \\int f \\, dx \\end{align*}",
+            "explanation": "Die Integrationsregeln sind wie ein Werkzeugkasten, der uns hilft, komplexe Integrale in einfachere Teile zu zerlegen!"
         },
         {
-            "id": "ee0e8400-e29b-41d4-a716-446655440004",
-            "text": "Die Substitutionsregel erlaubt das Vereinfachen von Integralen durch Variablentransformation.",
+            "id": "aa0e8400-e29b-41d4-a716-446655440015",
+            "text": "Die Integration durch Substitution ist eine wichtige Technik.",
             "formula": "\\int f(g(x)) \\cdot g'(x) \\, dx = \\int f(u) \\, du",
-            "explanation": "Dabei wird u = g(x) substituiert und du = g'(x)dx. Diese Regel ist besonders nützlich bei verketteten Funktionen."
+            "explanation": "Die Substitution ist wie das Umformen eines schwierigen Puzzles in ein einfacheres, indem wir die Teile neu anordnen!"
         },
         {
-            "id": "ee0e8400-e29b-41d4-a716-446655440005",
-            "text": "Ein Beispiel für die Integration einer Polynomfunktion.",
-            "formula": "\\int (x^2 + 2x + 1) \\, dx = \\frac{x^3}{3} + x^2 + x + C",
-            "explanation": "Die Integration erfolgt termweise, wobei der Exponent um 1 erhöht und durch den neuen Exponenten geteilt wird."
+            "id": "aa0e8400-e29b-41d4-a716-446655440016",
+            "text": "Die partielle Integration für Produkte von Funktionen.",
+            "formula": "\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx",
+            "explanation": "Die partielle Integration ist wie das geschickte Aufteilen eines Produkts, um die Integration zu vereinfachen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440017",
+            "text": "Die Integration rationaler Funktionen durch Partialbruchzerlegung.",
+            "formula": "\\frac{P(x)}{Q(x)} = \\sum_{i=1}^n \\frac{A_i}{(x-a_i)^{k_i}}",
+            "explanation": "Die Partialbruchzerlegung ist wie das Zerlegen eines komplexen Bruchs in einfachere, besser integrierbare Teile!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440018",
+            "text": "Uneigentliche Integrale für unendliche Grenzen oder Unstetigkeiten.",
+            "formula": "\\int_a^\\infty f(x) \\, dx = \\lim_{b \\to \\infty} \\int_a^b f(x) \\, dx",
+            "explanation": "Uneigentliche Integrale erlauben uns, auch über unendliche Bereiche zu integrieren. Es ist wie das Messen einer unendlich langen Strecke!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440019",
+            "text": "Die Volumenberechnung durch Rotation um die x-Achse.",
+            "formula": "V = \\pi \\int_a^b f(x)^2 \\, dx",
+            "explanation": "Durch Rotation einer Kurve entstehen dreidimensionale Körper, deren Volumen wir mit dem Integral berechnen können!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440020",
+            "text": "Die Bogenlänge einer Kurve kann durch Integration berechnet werden.",
+            "formula": "L = \\int_a^b \\sqrt{1 + f'(x)^2} \\, dx",
+            "explanation": "Die Bogenlänge ist wie das Ausrollen einer gekrümmten Linie in eine gerade Strecke!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440021",
+            "text": "Die Integration von Potenzfunktionen.",
+            "formula": "\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C \\quad \\text{für } n \\neq -1",
+            "explanation": "Die Integration von Potenzfunktionen erhöht den Exponenten um 1 und teilt durch den neuen Exponenten. Es ist wie das Umkehren der Ableitung!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440022",
+            "text": "Die Integration von Exponentialfunktionen.",
+            "formula": "\\int e^x \\, dx = e^x + C, \\quad \\int a^x \\, dx = \\frac{a^x}{\\ln a} + C",
+            "explanation": "Die Exponentialfunktion ist ihre eigene Stammfunktion, mit einem zusätzlichen Faktor für andere Basen. Es ist wie ein mathematischer Zaubertrick!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440023",
+            "text": "Die Integration von trigonometrischen Funktionen.",
+            "formula": "\\begin{align*} \\int \\sin x \\, dx &= -\\cos x + C \\\\ \\int \\cos x \\, dx &= \\sin x + C \\\\ \\int \\tan x \\, dx &= -\\ln |\\cos x| + C \\end{align*}",
+            "explanation": "Die Integration trigonometrischer Funktionen führt zu anderen trigonometrischen Funktionen. Es ist wie ein Tanz der Funktionen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440024",
+            "text": "Die Integration von Hyperbelfunktionen.",
+            "formula": "\\begin{align*} \\int \\sinh x \\, dx &= \\cosh x + C \\\\ \\int \\cosh x \\, dx &= \\sinh x + C \\\\ \\int \\tanh x \\, dx &= \\ln |\\cosh x| + C \\end{align*}",
+            "explanation": "Die Hyperbelfunktionen haben ähnliche Integrationsregeln wie die trigonometrischen Funktionen. Es ist wie ein Spiegelbild der Trigonometrie!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440025",
+            "text": "Die Integration von Arkusfunktionen.",
+            "formula": "\\begin{align*} \\int \\arcsin x \\, dx &= x \\arcsin x + \\sqrt{1-x^2} + C \\\\ \\int \\arccos x \\, dx &= x \\arccos x - \\sqrt{1-x^2} + C \\end{align*}",
+            "explanation": "Die Integration der Arkusfunktionen führt zu interessanten Kombinationen. Es ist wie das Öffnen einer Tür in die Welt der Umkehrfunktionen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440026",
+            "text": "Die Integration von Areafunktionen.",
+            "formula": "\\begin{align*} \\int \\text{arsinh } x \\, dx &= x \\text{arsinh } x - \\sqrt{1+x^2} + C \\\\ \\int \\text{arcosh } x \\, dx &= x \\text{arcosh } x - \\sqrt{x^2-1} + C \\end{align*}",
+            "explanation": "Die Areafunktionen haben ähnliche Integrationsregeln wie die Arkusfunktionen. Es ist wie ein Spiegelbild der Arkusfunktionen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440027",
+            "text": "Die Integration von Logarithmusfunktionen.",
+            "formula": "\\int \\ln x \\, dx = x \\ln x - x + C",
+            "explanation": "Die Integration des Logarithmus führt zu einer interessanten Kombination aus x und ln(x). Es ist wie das Zusammensetzen eines Puzzles!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440028",
+            "text": "Die Integration von Wurzelfunktionen.",
+            "formula": "\\int \\sqrt{x} \\, dx = \\frac{2}{3} x^{3/2} + C",
+            "explanation": "Die Integration der Wurzel führt zu einer Potenzfunktion mit gebrochenem Exponenten. Es ist wie das Verallgemeinern der Potenzregel!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440029",
+            "text": "Die Integration von Produkten trigonometrischer Funktionen.",
+            "formula": "\\begin{align*} \\int \\sin x \\cos x \\, dx &= \\frac{1}{2} \\sin^2 x + C \\\\ \\int \\sin^2 x \\, dx &= \\frac{x}{2} - \\frac{\\sin 2x}{4} + C \\end{align*}",
+            "explanation": "Die Integration von Produkten trigonometrischer Funktionen erfordert oft trigonometrische Identitäten. Es ist wie das Zerlegen eines komplexen Ausdrucks!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440030",
+            "text": "Die Integration durch Partialbruchzerlegung bei mehrfachen Polstellen.",
+            "formula": "\\frac{P(x)}{(x-a)^n} = \\sum_{k=1}^n \\frac{A_k}{(x-a)^k}",
+            "explanation": "Bei mehrfachen Polstellen müssen wir mehrere Terme in der Partialbruchzerlegung berücksichtigen. Es ist wie das Zerlegen in immer kleinere Teile!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440031",
+            "text": "Die Integration von Funktionen mit Absolutbetrag.",
+            "formula": "\\int |f(x)| \\, dx = \\begin{cases} \\int f(x) \\, dx & \\text{für } f(x) \\geq 0 \\\\ -\\int f(x) \\, dx & \\text{für } f(x) < 0 \\end{cases}",
+            "explanation": "Die Integration des Absolutbetrags erfordert eine Fallunterscheidung. Es ist wie das Spiegeln an der x-Achse!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440032",
+            "text": "Die Integration von Funktionen mit Potenz und Basis.",
+            "formula": "\\int x^n \\ln x \\, dx = \\frac{x^{n+1}}{n+1} \\ln x - \\frac{x^{n+1}}{(n+1)^2} + C",
+            "explanation": "Die Integration von Produkten aus Potenz und Logarithmus führt zu interessanten Kombinationen. Es ist wie das Zusammensetzen eines komplexen Puzzles!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440033",
+            "text": "Die Integration von Funktionen mit Exponentialfunktion und Potenz.",
+            "formula": "\\int x^n e^x \\, dx = x^n e^x - n \\int x^{n-1} e^x \\, dx",
+            "explanation": "Die Integration von Produkten aus Potenz und Exponentialfunktion erfordert wiederholte partielle Integration. Es ist wie das schrittweise Vereinfachen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440034",
+            "text": "Die Integration von Funktionen mit trigonometrischer Funktion und Potenz.",
+            "formula": "\\int x^n \\sin x \\, dx = -x^n \\cos x + n \\int x^{n-1} \\cos x \\, dx",
+            "explanation": "Die Integration von Produkten aus Potenz und trigonometrischer Funktion erfordert wiederholte partielle Integration. Es ist wie ein Tanz zwischen Potenz und Trigonometrie!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440035",
+            "text": "Die Integration von Funktionen mit Hyperbelfunktion und Potenz.",
+            "formula": "\\int x^n \\sinh x \\, dx = x^n \\cosh x - n \\int x^{n-1} \\cosh x \\, dx",
+            "explanation": "Die Integration von Produkten aus Potenz und Hyperbelfunktion folgt ähnlichen Regeln wie bei trigonometrischen Funktionen. Es ist wie ein paralleles Universum der Integration!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440036",
+            "text": "Die Integration von Funktionen mit Arkusfunktion und Potenz.",
+            "formula": "\\int x^n \\arcsin x \\, dx = \\frac{x^{n+1}}{n+1} \\arcsin x - \\frac{1}{n+1} \\int \\frac{x^{n+1}}{\\sqrt{1-x^2}} \\, dx",
+            "explanation": "Die Integration von Produkten aus Potenz und Arkusfunktion führt zu interessanten Kombinationen. Es ist wie das Öffnen einer Tür in die Welt der Umkehrfunktionen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440037",
+            "text": "Die Integration von Funktionen mit Areafunktion und Potenz.",
+            "formula": "\\int x^n \\text{arsinh } x \\, dx = \\frac{x^{n+1}}{n+1} \\text{arsinh } x - \\frac{1}{n+1} \\int \\frac{x^{n+1}}{\\sqrt{1+x^2}} \\, dx",
+            "explanation": "Die Integration von Produkten aus Potenz und Areafunktion folgt ähnlichen Regeln wie bei Arkusfunktionen. Es ist wie ein Spiegelbild der Arkusfunktionen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440038",
+            "text": "Die Integration von Funktionen mit Wurzel und Potenz.",
+            "formula": "\\int x^n \\sqrt{x} \\, dx = \\frac{2}{2n+3} x^{n+3/2} + C",
+            "explanation": "Die Integration von Produkten aus Potenz und Wurzel führt zu Potenzfunktionen mit gebrochenen Exponenten. Es ist wie das Verallgemeinern der Potenzregel!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440039",
+            "text": "Die Integration von Funktionen mit Logarithmus und Potenz.",
+            "formula": "\\int x^n \\ln x \\, dx = \\frac{x^{n+1}}{n+1} \\ln x - \\frac{x^{n+1}}{(n+1)^2} + C",
+            "explanation": "Die Integration von Produkten aus Potenz und Logarithmus führt zu interessanten Kombinationen. Es ist wie das Zusammensetzen eines komplexen Puzzles!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440040",
+            "text": "Zum Schluss schauen wir uns an, wie die Integralrechnung in der Physik verwendet wird.",
+            "formula": "W = \\int_a^b F(x) \\, dx",
+            "explanation": "In der Physik berechnen wir mit Integralen Arbeit, Energie und viele andere wichtige Größen. Es ist wie das Zusammensetzen vieler kleiner Beiträge zu einem Gesamtergebnis!"
         }
-    ],
-    "topic": "Integralrechnung"
+    ]
 } 

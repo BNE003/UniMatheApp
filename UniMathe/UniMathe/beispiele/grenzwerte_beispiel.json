@@ -1,32 +1,182 @@
 {
-    "id": "aa0e8400-e29b-41d4-a716-446655440000",
-    "title": "Grenzwert einer Funktion",
-    "description": "Wir untersuchen den Grenzwert der Funktion f(x) = (x² - 1)/(x - 1) für x → 1",
+    "id": "aa0e8400-e29b-41d4-a716-446655440031",
+    "title": "Grenzwerte",
+    "description": "Willkommen zu unserer ausführlichen Einführung in die Welt der Grenzwerte! Lass uns gemeinsam dieses fundamentale Konzept der Analysis erkunden, das uns hilft, das Verhalten von Funktionen und Folgen zu verstehen.",
+    "topic": "Grenzwerte",
     "steps": [
         {
-            "id": "aa0e8400-e29b-41d4-a716-446655440001",
-            "text": "Zuerst setzen wir x = 1 direkt in die Funktion ein und erhalten 0/0. Dies ist ein unbestimmter Ausdruck.",
-            "formula": "f(1) = \\frac{1^2 - 1}{1 - 1} = \\frac{0}{0}",
-            "explanation": "Der direkte Einsetzen führt zu einem unbestimmten Ausdruck, was bedeutet, dass wir weitere Schritte benötigen."
+            "id": "aa0e8400-e29b-41d4-a716-446655440032",
+            "text": "Der Grenzwert einer Folge beschreibt ihr Verhalten für große n.",
+            "formula": "\\lim_{n \\to \\infty} a_n = a \\quad \\Leftrightarrow \\quad \\forall \\varepsilon > 0 \\, \\exists N \\in \\mathbb{N} \\, \\forall n \\geq N: |a_n - a| < \\varepsilon",
+            "explanation": "Der Grenzwert einer Folge ist wie ein Ziel, dem sich die Folge immer mehr annähert. Es ist wie ein Punkt, den man nie ganz erreicht, aber beliebig nahe kommen kann!"
         },
         {
-            "id": "aa0e8400-e29b-41d4-a716-446655440002",
-            "text": "Wir können den Zähler faktorisieren, da x² - 1 eine Differenz von Quadraten ist.",
-            "formula": "x^2 - 1 = (x + 1)(x - 1)",
-            "explanation": "Die Differenz von Quadraten kann immer als Produkt der Summe und Differenz der Basen geschrieben werden."
+            "id": "aa0e8400-e29b-41d4-a716-446655440033",
+            "text": "Der Grenzwert einer Funktion für x gegen einen Wert a.",
+            "formula": "\\lim_{x \\to a} f(x) = L \\quad \\Leftrightarrow \\quad \\forall \\varepsilon > 0 \\, \\exists \\delta > 0 \\, \\forall x: 0 < |x-a| < \\delta \\Rightarrow |f(x)-L| < \\varepsilon",
+            "explanation": "Der Grenzwert einer Funktion beschreibt ihr Verhalten in der Nähe eines Punktes. Es ist wie das Beobachten einer Funktion durch ein immer stärkeres Mikroskop!"
         },
         {
-            "id": "aa0e8400-e29b-41d4-a716-446655440003",
-            "text": "Nach der Faktorisierung können wir den Term (x - 1) kürzen.",
-            "formula": "\\frac{(x + 1)(x - 1)}{x - 1} = x + 1",
-            "explanation": "Da x ≠ 1 ist, können wir den Term (x - 1) kürzen."
+            "id": "aa0e8400-e29b-41d4-a716-446655440034",
+            "text": "Einseitige Grenzwerte untersuchen das Verhalten von links und rechts.",
+            "formula": "\\lim_{x \\to a^-} f(x) \\quad \\text{und} \\quad \\lim_{x \\to a^+} f(x)",
+            "explanation": "Einseitige Grenzwerte sind wie das Betrachten einer Funktion von zwei verschiedenen Seiten. Es ist wie das Annähern an eine Wand von links und rechts!"
         },
         {
-            "id": "aa0e8400-e29b-41d4-a716-446655440004",
-            "text": "Jetzt können wir den Grenzwert berechnen, indem wir x = 1 in den vereinfachten Ausdruck einsetzen.",
-            "formula": "\\lim_{x \\to 1} (x + 1) = 1 + 1 = 2",
-            "explanation": "Der Grenzwert existiert und ist gleich 2. Dies bedeutet, dass sich die Funktion dem Wert 2 annähert, wenn x sich 1 nähert."
+            "id": "aa0e8400-e29b-41d4-a716-446655440035",
+            "text": "Grenzwerte im Unendlichen beschreiben das Verhalten für große x.",
+            "formula": "\\lim_{x \\to \\infty} f(x) \\quad \\text{und} \\quad \\lim_{x \\to -\\infty} f(x)",
+            "explanation": "Grenzwerte im Unendlichen sind wie das Beobachten einer Funktion aus großer Entfernung. Es ist wie das Betrachten eines Weges, der in der Ferne verschwindet!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440036",
+            "text": "Die Grenzwertsätze für Summen und Produkte.",
+            "formula": "\\begin{align*} \\lim (f + g) &= \\lim f + \\lim g \\\\ \\lim (f \\cdot g) &= \\lim f \\cdot \\lim g \\end{align*}",
+            "explanation": "Die Grenzwertsätze erlauben uns, Grenzwerte zu berechnen. Es ist wie das Zerlegen eines komplexen Problems in einfachere Teile!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440037",
+            "text": "Der Sandwich-Satz (Einschnürungssatz) für Grenzwerte.",
+            "formula": "\\text{Wenn } f(x) \\leq g(x) \\leq h(x) \\text{ und } \\lim f(x) = \\lim h(x) = L, \\text{ dann } \\lim g(x) = L",
+            "explanation": "Der Sandwich-Satz ist wie das Einquetschen einer Funktion zwischen zwei anderen. Es ist wie das Festhalten einer Funktion zwischen zwei Grenzen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440038",
+            "text": "Unbestimmte Ausdrücke erfordern spezielle Behandlung.",
+            "formula": "\\frac{0}{0}, \\quad \\frac{\\infty}{\\infty}, \\quad 0 \\cdot \\infty, \\quad \\infty - \\infty, \\quad 0^0, \\quad \\infty^0, \\quad 1^\\infty",
+            "explanation": "Unbestimmte Ausdrücke sind wie mathematische Rätsel, die eine besondere Lösung erfordern. Es ist wie das Lösen eines kniffligen Puzzles!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440039",
+            "text": "Die Regel von L'Hôpital für unbestimmte Ausdrücke.",
+            "formula": "\\lim_{x \\to a} \\frac{f(x)}{g(x)} = \\lim_{x \\to a} \\frac{f'(x)}{g'(x)}",
+            "explanation": "Die Regel von L'Hôpital ist wie ein Zaubertrick für unbestimmte Ausdrücke. Es ist wie das Umwandeln eines schwierigen Problems in ein einfacheres!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440040",
+            "text": "Der Zusammenhang zwischen Grenzwerten von Folgen und Funktionen.",
+            "formula": "\\lim_{x \\to a} f(x) = L \\quad \\Leftrightarrow \\quad \\lim_{n \\to \\infty} f(x_n) = L \\text{ für alle Folgen } (x_n) \\text{ mit } \\lim_{n \\to \\infty} x_n = a",
+            "explanation": "Der Zusammenhang zeigt uns, dass Grenzwerte von Funktionen und Folgen eng verwandt sind. Es ist wie das Betrachten desselben Phänomens aus verschiedenen Perspektiven!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440041",
+            "text": "Grenzwerte von Potenzfunktionen.",
+            "formula": "\\lim_{x \\to \\infty} x^n = \\begin{cases} \\infty & \\text{für } n > 0 \\\\ 1 & \\text{für } n = 0 \\\\ 0 & \\text{für } n < 0 \\end{cases}",
+            "explanation": "Potenzfunktionen haben unterschiedliches Verhalten im Unendlichen. Es ist wie das Beobachten verschiedener Wachstumsraten!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440042",
+            "text": "Grenzwerte von Exponentialfunktionen.",
+            "formula": "\\lim_{x \\to \\infty} e^x = \\infty, \\quad \\lim_{x \\to -\\infty} e^x = 0",
+            "explanation": "Die Exponentialfunktion wächst schneller als jede Potenzfunktion. Es ist wie ein Rennen, bei dem die Exponentialfunktion immer gewinnt!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440043",
+            "text": "Grenzwerte von Logarithmusfunktionen.",
+            "formula": "\\lim_{x \\to \\infty} \\ln x = \\infty, \\quad \\lim_{x \\to 0^+} \\ln x = -\\infty",
+            "explanation": "Der Logarithmus wächst langsamer als jede Potenzfunktion. Es ist wie ein langsamer, aber stetiger Aufstieg!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440044",
+            "text": "Grenzwerte von trigonometrischen Funktionen.",
+            "formula": "\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1, \\quad \\lim_{x \\to 0} \\frac{1-\\cos x}{x} = 0",
+            "explanation": "Die trigonometrischen Funktionen haben interessante Grenzwerte bei 0. Es ist wie das Beobachten von Schwingungen in der Nähe des Ursprungs!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440045",
+            "text": "Grenzwerte von Hyperbelfunktionen.",
+            "formula": "\\lim_{x \\to \\infty} \\sinh x = \\infty, \\quad \\lim_{x \\to \\infty} \\cosh x = \\infty",
+            "explanation": "Die Hyperbelfunktionen wachsen exponentiell. Es ist wie das Beobachten von Funktionen, die immer schneller wachsen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440046",
+            "text": "Grenzwerte von Arkusfunktionen.",
+            "formula": "\\lim_{x \\to \\infty} \\arctan x = \\frac{\\pi}{2}, \\quad \\lim_{x \\to -\\infty} \\arctan x = -\\frac{\\pi}{2}",
+            "explanation": "Die Arkusfunktionen haben endliche Grenzwerte im Unendlichen. Es ist wie das Beobachten von Funktionen, die sich einem festen Wert nähern!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440047",
+            "text": "Grenzwerte von Areafunktionen.",
+            "formula": "\\lim_{x \\to \\infty} \\text{arsinh } x = \\infty, \\quad \\lim_{x \\to \\infty} \\text{arcosh } x = \\infty",
+            "explanation": "Die Areafunktionen wachsen logarithmisch. Es ist wie das Beobachten von Funktionen, die langsam aber stetig wachsen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440048",
+            "text": "Grenzwerte von Quotienten aus Polynomen.",
+            "formula": "\\lim_{x \\to \\infty} \\frac{a_n x^n + ... + a_0}{b_m x^m + ... + b_0} = \\begin{cases} \\frac{a_n}{b_m} & \\text{für } n = m \\\\ 0 & \\text{für } n < m \\\\ \\pm \\infty & \\text{für } n > m \\end{cases}",
+            "explanation": "Die Grenzwerte von Polynomquotienten hängen vom Verhältnis der höchsten Potenzen ab. Es ist wie das Vergleichen der Wachstumsraten!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440049",
+            "text": "Grenzwerte von Wurzelfunktionen.",
+            "formula": "\\lim_{x \\to \\infty} \\sqrt[n]{x} = \\infty, \\quad \\lim_{x \\to 0^+} \\sqrt[n]{x} = 0",
+            "explanation": "Wurzelfunktionen wachsen langsamer als lineare Funktionen. Es ist wie das Beobachten von Funktionen, die sich langsam dem Unendlichen nähern!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440050",
+            "text": "Grenzwerte von Potenzen mit veränderlicher Basis.",
+            "formula": "\\lim_{x \\to \\infty} (1 + \\frac{1}{x})^x = e",
+            "explanation": "Diese Grenzwertbeziehung führt zur Eulerschen Zahl. Es ist wie das Entdecken einer magischen Zahl in der Mathematik!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440051",
+            "text": "Grenzwerte von Produkten mit veränderlichen Faktoren.",
+            "formula": "\\lim_{x \\to 0} \\frac{\\sin x}{x} \\cdot \\frac{1-\\cos x}{x} = 0",
+            "explanation": "Die Grenzwerte von Produkten können durch die Grenzwerte der Faktoren bestimmt werden. Es ist wie das Zerlegen eines komplexen Problems!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440052",
+            "text": "Grenzwerte von Differenzen.",
+            "formula": "\\lim_{x \\to \\infty} (\\sqrt{x+1} - \\sqrt{x}) = 0",
+            "explanation": "Die Grenzwerte von Differenzen können durch Umformungen berechnet werden. Es ist wie das Vereinfachen eines komplizierten Ausdrucks!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440053",
+            "text": "Grenzwerte von Quotienten mit Wurzeln.",
+            "formula": "\\lim_{x \\to \\infty} \\frac{\\sqrt{x^2+1} - x}{x} = 0",
+            "explanation": "Die Grenzwerte von Quotienten mit Wurzeln erfordern oft geschickte Umformungen. Es ist wie das Lösen eines mathematischen Rätsels!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440054",
+            "text": "Grenzwerte von Funktionen mit Absolutbetrag.",
+            "formula": "\\lim_{x \\to 0} \\frac{|x|}{x} \\text{ existiert nicht}",
+            "explanation": "Funktionen mit Absolutbetrag können unterschiedliches Verhalten von links und rechts zeigen. Es ist wie das Beobachten einer Funktion an einer Ecke!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440055",
+            "text": "Grenzwerte von Funktionen mit Sprungstellen.",
+            "formula": "\\lim_{x \\to 0} \\text{sgn}(x) \\text{ existiert nicht}",
+            "explanation": "Funktionen mit Sprungstellen haben oft keinen Grenzwert an der Sprungstelle. Es ist wie das Beobachten einer Funktion an einer Kante!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440056",
+            "text": "Grenzwerte von Funktionen mit Polstellen.",
+            "formula": "\\lim_{x \\to 0} \\frac{1}{x} = \\infty",
+            "explanation": "Funktionen mit Polstellen haben oft unendliche Grenzwerte. Es ist wie das Beobachten einer Funktion, die über alle Grenzen wächst!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440057",
+            "text": "Grenzwerte von Funktionen mit hebbaren Unstetigkeiten.",
+            "formula": "\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1",
+            "explanation": "Hebbare Unstetigkeiten können durch Grenzwerte behoben werden. Es ist wie das Flicken eines Lochs in einer Funktion!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440058",
+            "text": "Grenzwerte von Funktionen mit oszillierendem Verhalten.",
+            "formula": "\\lim_{x \\to \\infty} \\sin x \\text{ existiert nicht}",
+            "explanation": "Funktionen mit oszillierendem Verhalten haben oft keinen Grenzwert. Es ist wie das Beobachten einer Funktion, die ständig hin und her schwingt!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440059",
+            "text": "Grenzwerte von Funktionen mit asymptotischem Verhalten.",
+            "formula": "\\lim_{x \\to \\infty} \\frac{x^2+1}{x} = \\infty",
+            "explanation": "Funktionen können sich asymptotisch einer Geraden nähern. Es ist wie das Beobachten einer Funktion, die sich einer Grenze nähert!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440060",
+            "text": "Zum Schluss schauen wir uns an, wie Grenzwerte in der Physik verwendet werden.",
+            "formula": "\\text{Grenzwerte werden verwendet, um momentane Änderungsraten zu beschreiben}",
+            "explanation": "In der Physik helfen uns Grenzwerte, Geschwindigkeiten und Beschleunigungen zu verstehen. Es ist wie das Übersetzen mathematischer Konzepte in die Sprache der Natur!"
         }
-    ],
-    "topic": "Grenzwerte"
+    ]
 } 

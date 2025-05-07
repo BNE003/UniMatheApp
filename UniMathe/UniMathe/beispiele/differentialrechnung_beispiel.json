@@ -1,44 +1,188 @@
 {
-    "id": "bb0e8400-e29b-41d4-a716-446655440000",
-    "title": "Ableitung einer Funktion",
-    "description": "Wir berechnen die Ableitung der Funktion f(x) = x³ + 2x² - 5x + 3",
+    "id": "aa0e8400-e29b-41d4-a716-446655440000",
+    "title": "Differentialrechnung",
+    "description": "Willkommen zu unserer ausführlichen Einführung in die Welt der Differentialrechnung! Lass uns gemeinsam dieses fundamentale Konzept der Analysis erkunden, das uns hilft, Änderungsraten und Tangenten zu verstehen.",
+    "topic": "Differentialrechnung",
     "steps": [
         {
-            "id": "bb0e8400-e29b-41d4-a716-446655440001",
-            "text": "Die Ableitung einer Funktion gibt die Steigung der Tangente an jedem Punkt an. Wir wenden die Potenzregel an.",
-            "formula": "f'(x) = \\frac{d}{dx}(x^3 + 2x^2 - 5x + 3)",
-            "explanation": "Die Potenzregel besagt, dass die Ableitung von x^n gleich n·x^(n-1) ist. Wir leiten jeden Term einzeln ab."
+            "id": "aa0e8400-e29b-41d4-a716-446655440001",
+            "text": "Die Ableitung einer Funktion beschreibt ihre momentane Änderungsrate.",
+            "formula": "f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}",
+            "explanation": "Die Ableitung gibt uns die Steigung der Tangente an der Stelle x. Es ist wie das Messen der momentanen Geschwindigkeit eines Objekts!"
         },
         {
-            "id": "bb0e8400-e29b-41d4-a716-446655440002",
-            "text": "Wir leiten den ersten Term x³ ab.",
-            "formula": "\\frac{d}{dx}(x^3) = 3x^2",
-            "explanation": "Nach der Potenzregel: Exponent als Faktor vorziehen und Exponent um 1 reduzieren."
+            "id": "aa0e8400-e29b-41d4-a716-446655440002",
+            "text": "Die Ableitungsregeln erlauben uns, Ableitungen zu berechnen.",
+            "formula": "\\begin{align*} (f + g)' &= f' + g' \\\\ (f \\cdot g)' &= f' \\cdot g + f \\cdot g' \\\\ \\left(\\frac{f}{g}\\right)' &= \\frac{f' \\cdot g - f \\cdot g'}{g^2} \\end{align*}",
+            "explanation": "Die Ableitungsregeln helfen uns, Ableitungen komplexer Funktionen zu berechnen. Es ist wie ein Baukasten mit verschiedenen Werkzeugen!"
         },
         {
-            "id": "bb0e8400-e29b-41d4-a716-446655440003",
-            "text": "Nun leiten wir den zweiten Term 2x² ab.",
-            "formula": "\\frac{d}{dx}(2x^2) = 4x",
-            "explanation": "Der konstante Faktor 2 bleibt erhalten, dann wenden wir die Potenzregel auf x² an."
+            "id": "aa0e8400-e29b-41d4-a716-446655440003",
+            "text": "Die Kettenregel für zusammengesetzte Funktionen.",
+            "formula": "(f \\circ g)'(x) = f'(g(x)) \\cdot g'(x)",
+            "explanation": "Die Kettenregel hilft uns, Ableitungen von verschachtelten Funktionen zu berechnen. Es ist wie das Zerlegen einer komplexen Maschine in ihre Einzelteile!"
         },
         {
-            "id": "bb0e8400-e29b-41d4-a716-446655440004",
-            "text": "Der dritte Term -5x wird abgeleitet.",
-            "formula": "\\frac{d}{dx}(-5x) = -5",
-            "explanation": "Die Ableitung von x ist 1, daher bleibt nur der konstante Faktor -5 übrig."
+            "id": "aa0e8400-e29b-41d4-a716-446655440004",
+            "text": "Die Ableitungen der elementaren Funktionen.",
+            "formula": "\\begin{align*} (x^n)' &= n \\cdot x^{n-1} \\\\ (\\sin x)' &= \\cos x \\\\ (\\cos x)' &= -\\sin x \\\\ (e^x)' &= e^x \\\\ (\\ln x)' &= \\frac{1}{x} \\end{align*}",
+            "explanation": "Die Ableitungen der elementaren Funktionen sind die Grundbausteine der Differentialrechnung. Es ist wie das Alphabet der Analysis!"
         },
         {
-            "id": "bb0e8400-e29b-41d4-a716-446655440005",
-            "text": "Die Konstante 3 fällt weg, da die Ableitung einer Konstanten 0 ist.",
-            "formula": "\\frac{d}{dx}(3) = 0",
-            "explanation": "Die Ableitung einer Konstanten ist immer 0, da sich die Funktion nicht ändert."
+            "id": "aa0e8400-e29b-41d4-a716-446655440005",
+            "text": "Die höheren Ableitungen beschreiben die Änderung der Änderung.",
+            "formula": "f''(x) = (f'(x))', \\quad f'''(x) = (f''(x))', \\quad ...",
+            "explanation": "Höhere Ableitungen geben uns Informationen über die Krümmung und weitere Eigenschaften der Funktion. Es ist wie das Betrachten einer Kurve mit immer stärkerer Lupe!"
         },
         {
-            "id": "bb0e8400-e29b-41d4-a716-446655440006",
-            "text": "Zusammenfassen aller abgeleiteten Terme ergibt die Ableitungsfunktion.",
-            "formula": "f'(x) = 3x^2 + 4x - 5",
-            "explanation": "Wir addieren alle abgeleiteten Terme und erhalten die vollständige Ableitungsfunktion."
+            "id": "aa0e8400-e29b-41d4-a716-446655440006",
+            "text": "Die Taylor-Reihe approximiert Funktionen durch Polynome.",
+            "formula": "f(x) = \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(a)}{n!} (x-a)^n",
+            "explanation": "Die Taylor-Reihe erlaubt uns, Funktionen durch Polynome zu approximieren. Es ist wie das Nachbauen einer komplexen Kurve durch einfache Bausteine!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440007",
+            "text": "Die Mittelwertsätze der Differentialrechnung.",
+            "formula": "\\frac{f(b) - f(a)}{b-a} = f'(\\xi) \\quad \\text{für ein } \\xi \\in (a,b)",
+            "explanation": "Der Mittelwertsatz verbindet die durchschnittliche Änderungsrate mit der momentanen Änderungsrate. Es ist wie ein Brückenschlag zwischen zwei wichtigen Konzepten!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440008",
+            "text": "Die Monotonie einer Funktion kann durch ihre Ableitung bestimmt werden.",
+            "formula": "\\begin{cases} f'(x) > 0 & \\Rightarrow f \\text{ streng monoton wachsend} \\\\ f'(x) < 0 & \\Rightarrow f \\text{ streng monoton fallend} \\end{cases}",
+            "explanation": "Die Ableitung gibt uns Auskunft über das Wachstumsverhalten der Funktion. Es ist wie ein Kompass, der uns die Richtung zeigt!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440009",
+            "text": "Extremstellen können durch die Ableitung gefunden werden.",
+            "formula": "f'(x_0) = 0 \\quad \\text{und} \\quad f''(x_0) \\neq 0",
+            "explanation": "Die Ableitung hilft uns, Maxima und Minima einer Funktion zu finden. Es ist wie das Suchen nach Gipfeln und Tälern in einer Landschaft!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440010",
+            "text": "Die Ableitung der Umkehrfunktion.",
+            "formula": "(f^{-1})'(y) = \\frac{1}{f'(f^{-1}(y))}",
+            "explanation": "Die Ableitung der Umkehrfunktion ist der Kehrwert der Ableitung der ursprünglichen Funktion. Es ist wie das Spiegeln einer Steigung!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440011",
+            "text": "Die Ableitung der Exponentialfunktion mit beliebiger Basis.",
+            "formula": "(a^x)' = a^x \\cdot \\ln a",
+            "explanation": "Die Ableitung der Exponentialfunktion enthält einen zusätzlichen Faktor ln(a). Es ist wie ein spezieller Multiplikator für jede Basis!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440012",
+            "text": "Die Ableitung der Logarithmusfunktion mit beliebiger Basis.",
+            "formula": "(\\log_a x)' = \\frac{1}{x \\cdot \\ln a}",
+            "explanation": "Die Ableitung des Logarithmus enthält einen Faktor 1/(x·ln(a)). Es ist wie ein spezieller Teiler für jede Basis!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440013",
+            "text": "Die Ableitung der trigonometrischen Funktionen.",
+            "formula": "\\begin{align*} (\\tan x)' &= \\frac{1}{\\cos^2 x} \\\\ (\\cot x)' &= -\\frac{1}{\\sin^2 x} \\\\ (\\sec x)' &= \\tan x \\cdot \\sec x \\\\ (\\csc x)' &= -\\cot x \\cdot \\csc x \\end{align*}",
+            "explanation": "Die Ableitungen der trigonometrischen Funktionen zeigen interessante Zusammenhänge zwischen den Funktionen. Es ist wie ein Tanz der Funktionen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440014",
+            "text": "Die Ableitung der Hyperbelfunktionen.",
+            "formula": "\\begin{align*} (\\sinh x)' &= \\cosh x \\\\ (\\cosh x)' &= \\sinh x \\\\ (\\tanh x)' &= \\frac{1}{\\cosh^2 x} \\end{align*}",
+            "explanation": "Die Hyperbelfunktionen haben ähnliche Ableitungsregeln wie die trigonometrischen Funktionen. Es ist wie ein Spiegelbild der Trigonometrie!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440015",
+            "text": "Die Ableitung der Arkusfunktionen.",
+            "formula": "\\begin{align*} (\\arcsin x)' &= \\frac{1}{\\sqrt{1-x^2}} \\\\ (\\arccos x)' &= -\\frac{1}{\\sqrt{1-x^2}} \\\\ (\\arctan x)' &= \\frac{1}{1+x^2} \\end{align*}",
+            "explanation": "Die Ableitungen der Arkusfunktionen haben interessante Wurzeln im Nenner. Es ist wie das Öffnen einer Tür in die Welt der Umkehrfunktionen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440016",
+            "text": "Die Ableitung der Areafunktionen.",
+            "formula": "\\begin{align*} (\\text{arsinh } x)' &= \\frac{1}{\\sqrt{1+x^2}} \\\\ (\\text{arcosh } x)' &= \\frac{1}{\\sqrt{x^2-1}} \\\\ (\\text{artanh } x)' &= \\frac{1}{1-x^2} \\end{align*}",
+            "explanation": "Die Areafunktionen sind die Umkehrfunktionen der Hyperbelfunktionen. Es ist wie das Zurückverfolgen eines Weges!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440017",
+            "text": "Die Ableitung einer Potenzfunktion mit beliebigem Exponenten.",
+            "formula": "(x^r)' = r \\cdot x^{r-1} \\quad \\text{für } r \\in \\mathbb{R}",
+            "explanation": "Die Potenzregel gilt auch für nicht-ganze Exponenten. Es ist wie das Verallgemeinern einer einfachen Regel!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440018",
+            "text": "Die Ableitung einer Funktion mit Absolutbetrag.",
+            "formula": "|f(x)|' = \\frac{f(x)}{|f(x)|} \\cdot f'(x) \\quad \\text{für } f(x) \\neq 0",
+            "explanation": "Die Ableitung des Absolutbetrags hängt vom Vorzeichen der Funktion ab. Es ist wie das Spiegeln an der x-Achse!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440019",
+            "text": "Die Ableitung einer Funktion mit Wurzel.",
+            "formula": "(\\sqrt{f(x)})' = \\frac{f'(x)}{2\\sqrt{f(x)}}",
+            "explanation": "Die Ableitung der Wurzel enthält einen Faktor 1/(2√f(x)). Es ist wie das Teilen durch die doppelte Wurzel!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440020",
+            "text": "Die Ableitung einer Funktion mit Potenz und Basis.",
+            "formula": "(f(x)^{g(x)})' = f(x)^{g(x)} \\cdot (g'(x) \\cdot \\ln f(x) + \\frac{g(x) \\cdot f'(x)}{f(x)})",
+            "explanation": "Die Ableitung einer Funktion mit veränderlicher Basis und Exponent ist komplex. Es ist wie das Kombinieren von Exponential- und Potenzregel!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440021",
+            "text": "Die Ableitung einer Funktion mit Logarithmus.",
+            "formula": "(\\ln |f(x)|)' = \\frac{f'(x)}{f(x)}",
+            "explanation": "Die Ableitung des Logarithmus ist der Quotient aus Ableitung und Funktion. Es ist wie das Teilen durch die ursprüngliche Funktion!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440022",
+            "text": "Die Ableitung einer Funktion mit Exponentialfunktion.",
+            "formula": "(e^{f(x)})' = e^{f(x)} \\cdot f'(x)",
+            "explanation": "Die Ableitung der Exponentialfunktion enthält die ursprüngliche Funktion als Faktor. Es ist wie das Beibehalten der Funktion mit einem zusätzlichen Faktor!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440023",
+            "text": "Die Ableitung einer Funktion mit trigonometrischer Funktion.",
+            "formula": "\\begin{align*} (\\sin f(x))' &= \\cos f(x) \\cdot f'(x) \\\\ (\\cos f(x))' &= -\\sin f(x) \\cdot f'(x) \\end{align*}",
+            "explanation": "Die Ableitung einer verschachtelten trigonometrischen Funktion folgt der Kettenregel. Es ist wie das Kombinieren von Trigonometrie und Kettenregel!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440024",
+            "text": "Die Ableitung einer Funktion mit Hyperbelfunktion.",
+            "formula": "\\begin{align*} (\\sinh f(x))' &= \\cosh f(x) \\cdot f'(x) \\\\ (\\cosh f(x))' &= \\sinh f(x) \\cdot f'(x) \\end{align*}",
+            "explanation": "Die Ableitung einer verschachtelten Hyperbelfunktion folgt ähnlichen Regeln wie die trigonometrischen Funktionen. Es ist wie ein paralleles Universum der Ableitungen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440025",
+            "text": "Die Ableitung einer Funktion mit Arkusfunktion.",
+            "formula": "\\begin{align*} (\\arcsin f(x))' &= \\frac{f'(x)}{\\sqrt{1-f(x)^2}} \\\\ (\\arccos f(x))' &= -\\frac{f'(x)}{\\sqrt{1-f(x)^2}} \\end{align*}",
+            "explanation": "Die Ableitung einer verschachtelten Arkusfunktion enthält die Wurzel im Nenner. Es ist wie das Öffnen einer Tür in die Welt der Umkehrfunktionen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440026",
+            "text": "Die Ableitung einer Funktion mit Areafunktion.",
+            "formula": "\\begin{align*} (\\text{arsinh } f(x))' &= \\frac{f'(x)}{\\sqrt{1+f(x)^2}} \\\\ (\\text{arcosh } f(x))' &= \\frac{f'(x)}{\\sqrt{f(x)^2-1}} \\end{align*}",
+            "explanation": "Die Ableitung einer verschachtelten Areafunktion folgt ähnlichen Regeln wie die Arkusfunktionen. Es ist wie ein Spiegelbild der Arkusfunktionen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440027",
+            "text": "Die Ableitung einer Funktion mit Potenz und Wurzel.",
+            "formula": "(\\sqrt[n]{f(x)})' = \\frac{f'(x)}{n \\cdot \\sqrt[n]{f(x)^{n-1}}}",
+            "explanation": "Die Ableitung der n-ten Wurzel enthält einen Faktor 1/n. Es ist wie das Teilen durch die Wurzelordnung!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440028",
+            "text": "Die Ableitung einer Funktion mit Logarithmus und Potenz.",
+            "formula": "(\\log_a f(x))' = \\frac{f'(x)}{f(x) \\cdot \\ln a}",
+            "explanation": "Die Ableitung des Logarithmus mit beliebiger Basis enthält einen Faktor 1/(ln a). Es ist wie das Anpassen an verschiedene Basen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440029",
+            "text": "Die Ableitung einer Funktion mit Exponentialfunktion und Potenz.",
+            "formula": "(a^{f(x)})' = a^{f(x)} \\cdot \\ln a \\cdot f'(x)",
+            "explanation": "Die Ableitung der Exponentialfunktion mit beliebiger Basis enthält einen Faktor ln(a). Es ist wie das Anpassen an verschiedene Basen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440030",
+            "text": "Zum Schluss schauen wir uns an, wie die Differentialrechnung in der Physik verwendet wird.",
+            "formula": "v(t) = s'(t), \\quad a(t) = v'(t) = s''(t)",
+            "explanation": "In der Physik beschreiben Ableitungen Geschwindigkeit und Beschleunigung. Es ist wie das Übersetzen mathematischer Konzepte in die Sprache der Natur!"
         }
-    ],
-    "topic": "Differentialrechnung"
+    ]
 } 

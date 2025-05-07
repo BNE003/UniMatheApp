@@ -1,38 +1,182 @@
 {
-    "id": "880e8400-e29b-41d4-a716-446655440000",
+    "id": "aa0e8400-e29b-41d4-a716-446655440001",
     "title": "Folgen und Reihen",
-    "description": "Lass uns die grundlegenden Konzepte von Folgen und Reihen Schritt für Schritt erkunden.",
+    "description": "Willkommen zu unserer ausführlichen Einführung in die Welt der Folgen und Reihen! Lass uns gemeinsam diese fundamentalen Konzepte der Analysis erkunden, die uns helfen, unendliche Prozesse zu verstehen und zu analysieren.",
     "topic": "Folgen und Reihen",
     "steps": [
         {
-            "id": "880e8400-e29b-41d4-a716-446655440001",
+            "id": "aa0e8400-e29b-41d4-a716-446655440002",
             "text": "Eine Folge ist eine Abbildung von den natürlichen Zahlen in eine Menge.",
             "formula": "(a_n)_{n \\in \\mathbb{N}} = (a_1, a_2, a_3, ...)",
-            "explanation": "Eine Folge ordnet jeder natürlichen Zahl n ein Element a_n zu."
+            "explanation": "Eine Folge ist wie eine unendliche Liste von Zahlen, die nach einer bestimmten Regel aufgebaut ist. Es ist wie das Zählen der Stufen einer unendlichen Treppe!"
         },
         {
-            "id": "880e8400-e29b-41d4-a716-446655440002",
-            "text": "Eine Folge konvergiert gegen einen Grenzwert a, wenn sich die Folgenglieder a_n beliebig nahe an a annähern.",
+            "id": "aa0e8400-e29b-41d4-a716-446655440003",
+            "text": "Eine Folge konvergiert gegen einen Grenzwert, wenn sie sich diesem immer mehr annähert.",
             "formula": "\\lim_{n \\to \\infty} a_n = a \\quad \\Leftrightarrow \\quad \\forall \\varepsilon > 0 \\, \\exists N \\in \\mathbb{N} \\, \\forall n \\geq N: |a_n - a| < \\varepsilon",
-            "explanation": "Die Folge konvergiert gegen a, wenn für jede noch so kleine positive Zahl ε ein Index N existiert, ab dem alle Folgenglieder weniger als ε von a entfernt sind."
+            "explanation": "Die Konvergenz bedeutet, dass die Folge sich einem bestimmten Wert immer mehr annähert. Es ist wie ein Ziel, das man nie ganz erreicht, aber beliebig nahe kommen kann!"
         },
         {
-            "id": "880e8400-e29b-41d4-a716-446655440003",
+            "id": "aa0e8400-e29b-41d4-a716-446655440004",
             "text": "Eine Reihe ist die Summe der Glieder einer Folge.",
             "formula": "\\sum_{n=1}^{\\infty} a_n = a_1 + a_2 + a_3 + ...",
-            "explanation": "Die Reihe ist die Summe aller Folgenglieder. Die Folge der Partialsummen s_n = a_1 + ... + a_n konvergiert gegen den Wert der Reihe."
+            "explanation": "Eine Reihe ist wie das Aufsummieren aller Glieder einer Folge. Es ist wie das Zusammenzählen aller Stufen einer unendlichen Treppe!"
         },
         {
-            "id": "880e8400-e29b-41d4-a716-446655440004",
-            "text": "Die geometrische Reihe ist ein wichtiges Beispiel für eine konvergente Reihe.",
-            "formula": "\\sum_{n=0}^{\\infty} q^n = \\frac{1}{1-q} \\quad \\text{für} \\quad |q| < 1",
-            "explanation": "Die geometrische Reihe konvergiert für |q| < 1 und divergiert für |q| ≥ 1. Sie ist ein wichtiges Beispiel für die Konvergenzuntersuchung von Reihen."
+            "id": "aa0e8400-e29b-41d4-a716-446655440005",
+            "text": "Die geometrische Reihe ist eine wichtige spezielle Reihe.",
+            "formula": "\\sum_{n=0}^{\\infty} q^n = \\frac{1}{1-q} \\quad \\text{für } |q| < 1",
+            "explanation": "Die geometrische Reihe konvergiert für |q| < 1 und divergiert sonst. Es ist wie das Aufsummieren von immer kleiner werdenden Zahlen!"
         },
         {
-            "id": "880e8400-e29b-41d4-a716-446655440005",
-            "text": "Das Quotientenkriterium ist ein wichtiges Konvergenzkriterium für Reihen.",
-            "formula": "\\lim_{n \\to \\infty} \\left| \\frac{a_{n+1}}{a_n} \\right| = q \\quad \\Rightarrow \\quad \\begin{cases} q < 1 & \\text{Reihe konvergiert} \\\\ q > 1 & \\text{Reihe divergiert} \\\\ q = 1 & \\text{keine Aussage möglich} \\end{cases}",
-            "explanation": "Das Quotientenkriterium vergleicht aufeinanderfolgende Glieder der Reihe. Es ist besonders nützlich bei Reihen mit Fakultäten oder Potenzen."
+            "id": "aa0e8400-e29b-41d4-a716-446655440006",
+            "text": "Der Quotiententest ist ein wichtiges Konvergenzkriterium.",
+            "formula": "\\lim_{n \\to \\infty} \\left|\\frac{a_{n+1}}{a_n}\\right| = q \\quad \\begin{cases} q < 1 & \\Rightarrow \\text{konvergent} \\\\ q > 1 & \\Rightarrow \\text{divergent} \\end{cases}",
+            "explanation": "Der Quotiententest vergleicht aufeinanderfolgende Glieder einer Reihe. Es ist wie das Messen, wie schnell die Reihe wächst oder schrumpft!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440007",
+            "text": "Das Wurzelkriterium ist ein weiteres Konvergenzkriterium.",
+            "formula": "\\lim_{n \\to \\infty} \\sqrt[n]{|a_n|} = q \\quad \\begin{cases} q < 1 & \\Rightarrow \\text{konvergent} \\\\ q > 1 & \\Rightarrow \\text{divergent} \\end{cases}",
+            "explanation": "Das Wurzelkriterium betrachtet die n-te Wurzel der Glieder. Es ist wie das Messen der durchschnittlichen Größe der Glieder!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440008",
+            "text": "Das Leibniz-Kriterium für alternierende Reihen.",
+            "formula": "\\text{Wenn } (a_n) \\text{ monoton fallend und } \\lim_{n \\to \\infty} a_n = 0, \\text{ dann konvergiert } \\sum_{n=1}^{\\infty} (-1)^n a_n",
+            "explanation": "Das Leibniz-Kriterium hilft uns bei Reihen mit alternierenden Vorzeichen. Es ist wie ein Pendel, das immer kleiner werdende Ausschläge macht!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440009",
+            "text": "Die harmonische Reihe ist ein wichtiges Beispiel.",
+            "formula": "\\sum_{n=1}^{\\infty} \\frac{1}{n} = 1 + \\frac{1}{2} + \\frac{1}{3} + ... = \\infty",
+            "explanation": "Die harmonische Reihe divergiert, obwohl ihre Glieder gegen 0 gehen. Es ist wie das Aufsummieren immer kleiner werdender Zahlen, die trotzdem unendlich groß werden!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440010",
+            "text": "Die Exponentialreihe konvergiert für alle reellen Zahlen.",
+            "formula": "e^x = \\sum_{n=0}^{\\infty} \\frac{x^n}{n!} = 1 + x + \\frac{x^2}{2!} + \\frac{x^3}{3!} + ...",
+            "explanation": "Die Exponentialreihe ist eine wichtige Darstellung der e-Funktion. Es ist wie das Zusammensetzen einer Funktion aus unendlich vielen Polynomen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440011",
+            "text": "Die Taylor-Reihe approximiert Funktionen durch Polynome.",
+            "formula": "f(x) = \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(a)}{n!} (x-a)^n",
+            "explanation": "Die Taylor-Reihe erlaubt uns, Funktionen durch Polynome zu approximieren. Es ist wie das Nachbauen einer komplexen Kurve durch einfache Bausteine!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440012",
+            "text": "Die Fourier-Reihe zerlegt periodische Funktionen in Sinus- und Kosinusfunktionen.",
+            "formula": "f(x) = \\frac{a_0}{2} + \\sum_{n=1}^{\\infty} (a_n \\cos(nx) + b_n \\sin(nx))",
+            "explanation": "Die Fourier-Reihe ist wie das Zerlegen eines komplexen Tons in seine Grundfrequenzen. Es ist wie das Analysieren einer Melodie!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440013",
+            "text": "Das Majorantenkriterium vergleicht Reihen mit bekannten Reihen.",
+            "formula": "\\text{Wenn } |a_n| \\leq b_n \\text{ und } \\sum b_n \\text{ konvergiert, dann konvergiert auch } \\sum a_n",
+            "explanation": "Das Majorantenkriterium ist wie das Vergleichen einer unbekannten Reihe mit einer bekannten. Es ist wie das Abschätzen einer unbekannten Größe!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440014",
+            "text": "Das Minorantenkriterium ist das Gegenstück zum Majorantenkriterium.",
+            "formula": "\\text{Wenn } a_n \\geq b_n \\geq 0 \\text{ und } \\sum b_n \\text{ divergiert, dann divergiert auch } \\sum a_n",
+            "explanation": "Das Minorantenkriterium ist wie das Finden einer unteren Schranke. Es ist wie das Sicherstellen, dass eine Reihe mindestens so groß wird wie eine bekannte divergente Reihe!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440015",
+            "text": "Die Potenzreihe ist eine Verallgemeinerung der Taylor-Reihe.",
+            "formula": "\\sum_{n=0}^{\\infty} a_n (x-a)^n",
+            "explanation": "Die Potenzreihe ist wie ein verallgemeinertes Polynom mit unendlich vielen Gliedern. Es ist wie das Erweitern des Polynombegriffs ins Unendliche!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440016",
+            "text": "Der Konvergenzradius einer Potenzreihe.",
+            "formula": "R = \\frac{1}{\\limsup_{n \\to \\infty} \\sqrt[n]{|a_n|}}",
+            "explanation": "Der Konvergenzradius gibt an, in welchem Bereich die Potenzreihe konvergiert. Es ist wie der Wirkungsbereich einer mathematischen Formel!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440017",
+            "text": "Die Binomialreihe verallgemeinert den binomischen Lehrsatz.",
+            "formula": "(1+x)^\\alpha = \\sum_{n=0}^{\\infty} \\binom{\\alpha}{n} x^n \\quad \\text{für } |x| < 1",
+            "explanation": "Die Binomialreihe erlaubt uns, Potenzen mit beliebigen Exponenten zu entwickeln. Es ist wie das Erweitern des binomischen Lehrsatzes ins Unendliche!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440018",
+            "text": "Die Logarithmusreihe entwickelt den natürlichen Logarithmus.",
+            "formula": "\\ln(1+x) = \\sum_{n=1}^{\\infty} \\frac{(-1)^{n+1}}{n} x^n \\quad \\text{für } |x| < 1",
+            "explanation": "Die Logarithmusreihe ist wie das Zusammensetzen des Logarithmus aus einfachen Potenzen. Es ist wie das Zerlegen einer komplexen Funktion in einfache Bausteine!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440019",
+            "text": "Die Arcustangensreihe entwickelt die Umkehrfunktion des Tangens.",
+            "formula": "\\arctan x = \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{2n+1} x^{2n+1} \\quad \\text{für } |x| \\leq 1",
+            "explanation": "Die Arcustangensreihe ist wie das Zusammensetzen der Umkehrfunktion des Tangens aus einfachen Potenzen. Es ist wie das Zurückverfolgen eines Weges!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440020",
+            "text": "Die Sinusreihe entwickelt die Sinusfunktion.",
+            "formula": "\\sin x = \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{(2n+1)!} x^{2n+1}",
+            "explanation": "Die Sinusreihe ist wie das Zusammensetzen der Sinusfunktion aus unendlich vielen Polynomen. Es ist wie das Nachbauen einer Schwingung!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440021",
+            "text": "Die Kosinusreihe entwickelt die Kosinusfunktion.",
+            "formula": "\\cos x = \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{(2n)!} x^{2n}",
+            "explanation": "Die Kosinusreihe ist wie das Zusammensetzen der Kosinusfunktion aus unendlich vielen Polynomen. Es ist wie das Nachbauen einer Schwingung!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440022",
+            "text": "Die Hyperbelsinusreihe entwickelt die Sinus Hyperbolicus Funktion.",
+            "formula": "\\sinh x = \\sum_{n=0}^{\\infty} \\frac{x^{2n+1}}{(2n+1)!}",
+            "explanation": "Die Hyperbelsinusreihe ist wie das Zusammensetzen der Sinus Hyperbolicus Funktion aus unendlich vielen Polynomen. Es ist wie ein Spiegelbild der Sinusreihe!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440023",
+            "text": "Die Hyperbelkosinusreihe entwickelt die Kosinus Hyperbolicus Funktion.",
+            "formula": "\\cosh x = \\sum_{n=0}^{\\infty} \\frac{x^{2n}}{(2n)!}",
+            "explanation": "Die Hyperbelkosinusreihe ist wie das Zusammensetzen der Kosinus Hyperbolicus Funktion aus unendlich vielen Polynomen. Es ist wie ein Spiegelbild der Kosinusreihe!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440024",
+            "text": "Die Arcussinusreihe entwickelt die Umkehrfunktion des Sinus.",
+            "formula": "\\arcsin x = \\sum_{n=0}^{\\infty} \\frac{(2n)!}{4^n (n!)^2 (2n+1)} x^{2n+1} \\quad \\text{für } |x| < 1",
+            "explanation": "Die Arcussinusreihe ist wie das Zusammensetzen der Umkehrfunktion des Sinus aus unendlich vielen Polynomen. Es ist wie das Zurückverfolgen einer Schwingung!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440025",
+            "text": "Die Arcuskosinusreihe entwickelt die Umkehrfunktion des Kosinus.",
+            "formula": "\\arccos x = \\frac{\\pi}{2} - \\arcsin x",
+            "explanation": "Die Arcuskosinusreihe ist wie das Zusammensetzen der Umkehrfunktion des Kosinus aus der Arcussinusreihe. Es ist wie das Spiegeln einer Funktion!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440026",
+            "text": "Die Areafunktionenreihen entwickeln die Umkehrfunktionen der Hyperbelfunktionen.",
+            "formula": "\\text{arsinh } x = \\sum_{n=0}^{\\infty} \\frac{(-1)^n (2n)!}{4^n (n!)^2 (2n+1)} x^{2n+1}",
+            "explanation": "Die Areafunktionenreihen sind wie das Zusammensetzen der Umkehrfunktionen der Hyperbelfunktionen aus unendlich vielen Polynomen. Es ist wie das Zurückverfolgen einer Hyperbel!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440027",
+            "text": "Die Produktreihe entwickelt das Produkt zweier Reihen.",
+            "formula": "(\\sum_{n=0}^{\\infty} a_n)(\\sum_{n=0}^{\\infty} b_n) = \\sum_{n=0}^{\\infty} \\sum_{k=0}^n a_k b_{n-k}",
+            "explanation": "Die Produktreihe ist wie das Multiplizieren zweier unendlicher Summen. Es ist wie das Kombinieren zweier unendlicher Prozesse!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440028",
+            "text": "Die Umordnung von Reihen ist unter bestimmten Bedingungen erlaubt.",
+            "formula": "\\text{Wenn } \\sum a_n \\text{ absolut konvergiert, dann konvergiert auch jede Umordnung gegen denselben Wert}",
+            "explanation": "Die Umordnung von Reihen ist wie das Neuanordnen von Gliedern einer unendlichen Summe. Es ist wie das Umsortieren einer unendlichen Liste!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440029",
+            "text": "Die Partialsummen einer Reihe konvergieren gegen den Reihenwert.",
+            "formula": "s_n = \\sum_{k=1}^n a_k \\quad \\Rightarrow \\quad \\lim_{n \\to \\infty} s_n = \\sum_{k=1}^{\\infty} a_k",
+            "explanation": "Die Partialsummen sind wie das schrittweise Aufsummieren der Glieder einer Reihe. Es ist wie das Annähern an einen Grenzwert!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440030",
+            "text": "Zum Schluss schauen wir uns an, wie Reihen in der Physik verwendet werden.",
+            "formula": "\\text{Reihen werden verwendet, um periodische Phänomene zu beschreiben und zu analysieren}",
+            "explanation": "In der Physik helfen uns Reihen, komplexe Schwingungen und Wellen zu verstehen. Es ist wie das Übersetzen mathematischer Konzepte in die Sprache der Natur!"
         }
     ]
 } 

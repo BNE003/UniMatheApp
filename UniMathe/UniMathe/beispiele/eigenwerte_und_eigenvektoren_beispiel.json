@@ -1,50 +1,158 @@
 {
     "id": "bb0e8400-e29b-41d4-a716-446655440000",
     "title": "Eigenwerte und Eigenvektoren",
-    "description": "Lass uns die Konzepte der Eigenwerte und Eigenvektoren Schritt für Schritt erkunden.",
+    "description": "Willkommen zu unserer spannenden Reise in die Welt der Eigenwerte und Eigenvektoren! Diese fundamentalen Konzepte der linearen Algebra helfen uns, die inneren Eigenschaften von Matrizen und linearen Abbildungen zu verstehen.",
     "topic": "Eigenwerte",
     "steps": [
         {
             "id": "bb0e8400-e29b-41d4-a716-446655440001",
             "text": "Ein Eigenvektor einer Matrix A ist ein Vektor v ≠ 0, der durch Multiplikation mit A nur gestreckt wird.",
             "formula": "A \\cdot v = \\lambda \\cdot v",
-            "explanation": "Der Streckungsfaktor λ heißt Eigenwert. Eigenvektoren zeigen die Richtungen, in denen die Matrix nur streckt oder staucht."
+            "explanation": "Der Streckungsfaktor λ heißt Eigenwert. Stell dir vor, du hast einen Gummiband - wenn du es in eine bestimmte Richtung ziehst, wird es nur länger oder kürzer, aber behält seine Richtung bei. Genau das passiert mit Eigenvektoren!"
         },
         {
             "id": "bb0e8400-e29b-41d4-a716-446655440002",
             "text": "Die Eigenwerte sind die Nullstellen des charakteristischen Polynoms.",
             "formula": "\\det(A - \\lambda \\cdot I) = 0",
-            "explanation": "I ist die Einheitsmatrix. Das charakteristische Polynom ist ein Polynom n-ten Grades, wenn A eine n×n-Matrix ist."
+            "explanation": "I ist die Einheitsmatrix. Das charakteristische Polynom ist wie ein Fingerabdruck der Matrix - es verrät uns, welche Streckungsfaktoren möglich sind. Es ist ein Polynom n-ten Grades, wenn A eine n×n-Matrix ist."
         },
         {
             "id": "bb0e8400-e29b-41d4-a716-446655440003",
             "text": "Für eine 2×2-Matrix A = (a b; c d) ist das charakteristische Polynom:",
             "formula": "\\det\\begin{pmatrix} a-\\lambda & b \\\\ c & d-\\lambda \\end{pmatrix} = (a-\\lambda)(d-\\lambda) - b \\cdot c = 0",
-            "explanation": "Dies führt zu einer quadratischen Gleichung in λ, deren Lösungen die Eigenwerte sind."
+            "explanation": "Dies führt zu einer quadratischen Gleichung in λ, deren Lösungen die Eigenwerte sind. Lass uns ein konkretes Beispiel anschauen: Für A = (2 1; 1 2) erhalten wir λ² - 4λ + 3 = 0, also λ₁ = 1 und λ₂ = 3."
         },
         {
             "id": "bb0e8400-e29b-41d4-a716-446655440004",
             "text": "Die Eigenvektoren zu einem Eigenwert λ erhält man durch Lösen des homogenen Systems:",
             "formula": "(A - \\lambda \\cdot I) \\cdot v = 0",
-            "explanation": "Die Lösungen bilden den Eigenraum zum Eigenwert λ. Die Dimension des Eigenraums heißt geometrische Vielfachheit."
+            "explanation": "Die Lösungen bilden den Eigenraum zum Eigenwert λ. Die Dimension des Eigenraums heißt geometrische Vielfachheit. Für unser Beispiel A = (2 1; 1 2) und λ₁ = 1 erhalten wir den Eigenvektor v₁ = (1, -1)ᵀ."
         },
         {
             "id": "bb0e8400-e29b-41d4-a716-446655440005",
             "text": "Eine Matrix ist diagonalisierbar, wenn sie n linear unabhängige Eigenvektoren hat.",
             "formula": "A = P \\cdot \\Lambda \\cdot P^{-1}",
-            "explanation": "P ist die Matrix der Eigenvektoren, Λ die Diagonalmatrix der Eigenwerte. Dies ermöglicht einfache Potenzierung: A^k = P·Λ^k·P^(-1)."
+            "explanation": "P ist die Matrix der Eigenvektoren, Λ die Diagonalmatrix der Eigenwerte. Dies ermöglicht einfache Potenzierung: A^k = P·Λ^k·P^(-1). Für unser Beispiel ist A = (2 1; 1 2) diagonalisierbar mit P = (1 1; -1 1) und Λ = (1 0; 0 3)."
         },
         {
             "id": "bb0e8400-e29b-41d4-a716-446655440006",
             "text": "Die Spur einer Matrix ist die Summe ihrer Eigenwerte.",
             "formula": "\\text{tr}(A) = \\sum_{i=1}^n \\lambda_i",
-            "explanation": "Die Spur ist die Summe der Diagonalelemente und invariant unter Ähnlichkeitstransformationen."
+            "explanation": "Die Spur ist die Summe der Diagonalelemente und invariant unter Ähnlichkeitstransformationen. Für unser Beispiel A = (2 1; 1 2) ist tr(A) = 2 + 2 = 4, was der Summe der Eigenwerte 1 + 3 = 4 entspricht!"
         },
         {
             "id": "bb0e8400-e29b-41d4-a716-446655440007",
             "text": "Die Determinante einer Matrix ist das Produkt ihrer Eigenwerte.",
             "formula": "\\det(A) = \\prod_{i=1}^n \\lambda_i",
-            "explanation": "Dies erklärt, warum eine Matrix genau dann invertierbar ist, wenn alle Eigenwerte ungleich Null sind."
+            "explanation": "Dies erklärt, warum eine Matrix genau dann invertierbar ist, wenn alle Eigenwerte ungleich Null sind. Für unser Beispiel A = (2 1; 1 2) ist det(A) = 3, was dem Produkt der Eigenwerte 1 · 3 = 3 entspricht!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440008",
+            "text": "Die algebraische Vielfachheit eines Eigenwerts ist seine Vielfachheit als Nullstelle des charakteristischen Polynoms.",
+            "formula": "p_A(\\lambda) = (\\lambda - \\lambda_0)^k \\cdot q(\\lambda)",
+            "explanation": "Die algebraische Vielfachheit k gibt an, wie oft ein Eigenwert als Nullstelle auftritt. Sie ist immer größer oder gleich der geometrischen Vielfachheit. Es ist wie die Anzahl der Male, die eine Note in einem Musikstück vorkommt!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440009",
+            "text": "Eine Matrix ist genau dann diagonalisierbar, wenn die geometrische Vielfachheit jedes Eigenwerts gleich seiner algebraischen Vielfachheit ist.",
+            "formula": "\\dim E_\\lambda = \\text{alg. Vielfachheit von } \\lambda",
+            "explanation": "Dies ist ein wichtiges Kriterium für Diagonalisierbarkeit. Wenn die Vielfachheiten nicht übereinstimmen, müssen wir auf die Jordan-Normalform zurückgreifen. Es ist wie ein Puzzle - alle Teile müssen perfekt zusammenpassen!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440010",
+            "text": "Die Jordan-Normalform ist eine verallgemeinerte Diagonalform für nicht diagonalisierbare Matrizen.",
+            "formula": "A = P \\cdot J \\cdot P^{-1}",
+            "explanation": "J ist eine Blockdiagonalmatrix aus Jordan-Blöcken. Jeder Block entspricht einem Eigenwert und hat die Form (λ 1; 0 λ). Es ist wie eine fast-diagonale Form, die noch ein bisschen mehr Struktur zeigt!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440011",
+            "text": "Die Potenz einer Matrix kann über die Jordan-Normalform berechnet werden.",
+            "formula": "A^k = P \\cdot J^k \\cdot P^{-1}",
+            "explanation": "Die Potenzierung der Jordan-Blöcke folgt einer einfachen Regel. Für einen 2×2-Block (λ 1; 0 λ) ist die k-te Potenz (λ^k k·λ^(k-1); 0 λ^k). Es ist wie das Potenzieren einer Zahl, nur mit einem zusätzlichen Term!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440012",
+            "text": "Die Exponentialfunktion einer Matrix kann über die Jordan-Normalform definiert werden.",
+            "formula": "e^A = P \\cdot e^J \\cdot P^{-1}",
+            "explanation": "Die Exponentialfunktion ist wichtig für die Lösung von Differentialgleichungen. Für einen Jordan-Block (λ 1; 0 λ) ist e^J = (e^λ e^λ; 0 e^λ). Es ist wie die normale Exponentialfunktion, nur für Matrizen!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440013",
+            "text": "Die Singulärwertzerlegung (SVD) verallgemeinert die Eigenwertzerlegung für nicht-quadratische Matrizen.",
+            "formula": "A = U \\cdot \\Sigma \\cdot V^T",
+            "explanation": "U und V sind orthogonale Matrizen, Σ ist eine Diagonalmatrix mit den Singulärwerten. Die Singulärwerte sind die Wurzeln der Eigenwerte von A^T·A. Es ist wie eine verallgemeinerte Diagonalisierung!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440014",
+            "text": "Die QR-Zerlegung ist ein wichtiges numerisches Verfahren zur Berechnung von Eigenwerten.",
+            "formula": "A = Q \\cdot R",
+            "explanation": "Q ist eine orthogonale Matrix, R ist eine obere Dreiecksmatrix. Die QR-Iteration konvergiert gegen eine obere Dreiecksmatrix, deren Diagonalelemente die Eigenwerte sind. Es ist wie ein iteratives Verfahren zur Diagonalisierung!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440015",
+            "text": "Die Schur-Zerlegung zeigt, dass jede Matrix unitär ähnlich zu einer oberen Dreiecksmatrix ist.",
+            "formula": "A = U \\cdot T \\cdot U^*",
+            "explanation": "U ist eine unitäre Matrix, T ist eine obere Dreiecksmatrix. Die Diagonalelemente von T sind die Eigenwerte. Es ist wie eine verallgemeinerte Diagonalisierung für komplexe Matrizen!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440016",
+            "text": "Die Spektralzerlegung einer symmetrischen Matrix ist besonders einfach.",
+            "formula": "A = Q \\cdot \\Lambda \\cdot Q^T",
+            "explanation": "Q ist eine orthogonale Matrix, Λ ist eine Diagonalmatrix. Die Eigenwerte sind reell und die Eigenvektoren sind orthogonal. Es ist wie eine besonders schöne Diagonalisierung!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440017",
+            "text": "Die Definitheit einer symmetrischen Matrix kann über ihre Eigenwerte charakterisiert werden.",
+            "formula": "\\begin{cases} A \\text{ positiv definit} &\\Leftrightarrow \\lambda_i > 0 \\\\ A \\text{ negativ definit} &\\Leftrightarrow \\lambda_i < 0 \\\\ A \\text{ positiv semidefinit} &\\Leftrightarrow \\lambda_i \\geq 0 \\end{cases}",
+            "explanation": "Die Definitheit ist wichtig für Optimierungsprobleme. Eine positiv definite Matrix hat nur positive Eigenwerte. Es ist wie ein Maß für die Krümmung einer quadratischen Form!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440018",
+            "text": "Die Konditionszahl einer Matrix misst ihre numerische Stabilität.",
+            "formula": "\\kappa(A) = \\|A\\| \\cdot \\|A^{-1}\\| = \\frac{|\\lambda_{\\max}|}{|\\lambda_{\\min}|}",
+            "explanation": "Die Konditionszahl ist das Verhältnis des größten zum kleinsten Eigenwert. Eine große Konditionszahl bedeutet schlechte numerische Stabilität. Es ist wie ein Maß für die Empfindlichkeit der Matrix!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440019",
+            "text": "Die Perron-Frobenius-Theorie beschreibt die Eigenwerte und Eigenvektoren nichtnegativer Matrizen.",
+            "formula": "\\begin{cases} \\lambda_1 > 0 \\\\ |\\lambda_i| \\leq \\lambda_1 \\\\ v_1 > 0 \\end{cases}",
+            "explanation": "Der größte Eigenwert ist reell und positiv, und der zugehörige Eigenvektor hat nur positive Einträge. Dies ist wichtig für Markov-Ketten und PageRank. Es ist wie ein spezielles Theorem für positive Matrizen!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440020",
+            "text": "Die Gerschgorin-Kreise geben eine einfache Abschätzung für die Eigenwerte.",
+            "formula": "|\\lambda - a_{ii}| \\leq \\sum_{j \\neq i} |a_{ij}|",
+            "explanation": "Jeder Eigenwert liegt in mindestens einem Gerschgorin-Kreis. Die Kreise sind um die Diagonalelemente zentriert. Es ist wie eine einfache geometrische Abschätzung für die Eigenwerte!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440021",
+            "text": "Die Rayleigh-Quotienten geben eine Abschätzung für den größten Eigenwert.",
+            "formula": "\\lambda_{\\max} \\geq \\frac{x^T A x}{x^T x}",
+            "explanation": "Der Rayleigh-Quotient ist immer größer oder gleich dem größten Eigenwert. Er wird minimal für den zugehörigen Eigenvektor. Es ist wie ein Maß für die maximale Streckung!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440022",
+            "text": "Die Power-Methode ist ein iteratives Verfahren zur Berechnung des größten Eigenwerts.",
+            "formula": "x_{k+1} = \\frac{A x_k}{\\|A x_k\\|}",
+            "explanation": "Die Power-Methode konvergiert gegen den Eigenvektor zum betragsgrößten Eigenwert. Sie ist einfach zu implementieren, aber kann langsam konvergieren. Es ist wie ein iteratives Verfahren zur Maximierung!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440023",
+            "text": "Die Inverse Power-Methode berechnet den kleinsten Eigenwert.",
+            "formula": "x_{k+1} = \\frac{A^{-1} x_k}{\\|A^{-1} x_k\\|}",
+            "explanation": "Die Inverse Power-Methode konvergiert gegen den Eigenvektor zum betragskleinsten Eigenwert. Sie ist besonders nützlich für große, dünnbesetzte Matrizen. Es ist wie die Power-Methode, nur in die andere Richtung!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440024",
+            "text": "Die Lanczos-Methode ist ein effizientes Verfahren für große, symmetrische Matrizen.",
+            "formula": "T_k = Q_k^T A Q_k",
+            "explanation": "Die Lanczos-Methode reduziert die Matrix auf eine Tridiagonalmatrix. Sie ist besonders effizient für große, dünnbesetzte Matrizen. Es ist wie eine intelligente Reduktion der Problemgröße!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440025",
+            "text": "Zum Schluss schauen wir uns an, wie Eigenwerte in der Quantenmechanik verwendet werden.",
+            "formula": "H \\psi = E \\psi",
+            "explanation": "In der Quantenmechanik sind die Eigenwerte die möglichen Energieniveaus eines Systems. Die Eigenvektoren beschreiben die zugehörigen Zustände. Es ist wie eine mathematische Beschreibung der Quantenwelt!"
         }
     ]
 } 

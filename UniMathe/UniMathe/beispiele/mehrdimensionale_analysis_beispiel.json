@@ -1,38 +1,182 @@
 {
-    "id": "ff0e8400-e29b-41d4-a716-446655440000",
+    "id": "aa0e8400-e29b-41d4-a716-446655440061",
     "title": "Mehrdimensionale Analysis",
-    "description": "Lass uns die grundlegenden Konzepte der mehrdimensionalen Analysis Schritt für Schritt erkunden.",
+    "description": "Willkommen zu unserer ausführlichen Einführung in die Welt der mehrdimensionalen Analysis! Lass uns gemeinsam dieses spannende Gebiet erkunden, das uns hilft, Funktionen mehrerer Variablen zu verstehen und zu analysieren.",
     "topic": "Mehrdimensionale Analysis",
     "steps": [
         {
-            "id": "ff0e8400-e29b-41d4-a716-446655440001",
-            "text": "Eine Funktion mehrerer Variablen ordnet jedem Punkt im Definitionsbereich einen Wert zu.",
-            "formula": "f: \\mathbb{R}^n \\to \\mathbb{R}, \\quad (x_1, ..., x_n) \\mapsto f(x_1, ..., x_n)",
-            "explanation": "Die Funktion hängt von mehreren unabhängigen Variablen ab und liefert einen reellen Wert."
+            "id": "aa0e8400-e29b-41d4-a716-446655440062",
+            "text": "Partielle Ableitungen beschreiben die Änderung einer Funktion in Richtung einer Variablen.",
+            "formula": "\\frac{\\partial f}{\\partial x_i} = \\lim_{h \\to 0} \\frac{f(x_1,...,x_i+h,...,x_n) - f(x_1,...,x_i,...,x_n)}{h}",
+            "explanation": "Partielle Ableitungen sind wie das Messen der Steigung einer Funktion in einer bestimmten Richtung. Es ist wie das Beobachten einer Landschaft aus einer bestimmten Perspektive!"
         },
         {
-            "id": "ff0e8400-e29b-41d4-a716-446655440002",
-            "text": "Die partielle Ableitung misst die Änderung der Funktion in Richtung einer Koordinate.",
-            "formula": "\\frac{\\partial f}{\\partial x_i} = \\lim_{h \\to 0} \\frac{f(x_1, ..., x_i + h, ..., x_n) - f(x_1, ..., x_n)}{h}",
-            "explanation": "Bei der partiellen Ableitung werden alle anderen Variablen als konstant betrachtet."
+            "id": "aa0e8400-e29b-41d4-a716-446655440063",
+            "text": "Der Gradient zeigt die Richtung des steilsten Anstiegs einer Funktion.",
+            "formula": "\\nabla f = \\left(\\frac{\\partial f}{\\partial x_1}, ..., \\frac{\\partial f}{\\partial x_n}\\right)",
+            "explanation": "Der Gradient ist wie ein Kompass, der uns die Richtung des steilsten Aufstiegs zeigt. Es ist wie das Finden des schnellsten Weges bergauf!"
         },
         {
-            "id": "ff0e8400-e29b-41d4-a716-446655440003",
-            "text": "Der Gradient ist ein Vektor aller partiellen Ableitungen und zeigt in Richtung des steilsten Anstiegs.",
-            "formula": "\\nabla f = \\begin{pmatrix} \\frac{\\partial f}{\\partial x_1} \\\\ \\vdots \\\\ \\frac{\\partial f}{\\partial x_n} \\end{pmatrix}",
-            "explanation": "Der Gradient gibt die Richtung des stärksten Anstiegs der Funktion an einem Punkt an."
+            "id": "aa0e8400-e29b-41d4-a716-446655440064",
+            "text": "Die Divergenz misst die Quellstärke eines Vektorfeldes.",
+            "formula": "\\text{div } \\vec{F} = \\nabla \\cdot \\vec{F} = \\sum_{i=1}^n \\frac{\\partial F_i}{\\partial x_i}",
+            "explanation": "Die Divergenz ist wie das Messen, wie viel Flüssigkeit aus einem Punkt heraus- oder hineinfließt. Es ist wie das Beobachten eines Wasserhahns!"
         },
         {
-            "id": "ff0e8400-e29b-41d4-a716-446655440004",
-            "text": "Das mehrdimensionale Integral berechnet das Volumen unter einer Funktion mehrerer Variablen.",
-            "formula": "\\int \\cdots \\int_D f(x_1, ..., x_n) \\, dx_1 \\cdots dx_n",
-            "explanation": "Das Integral wird über einen n-dimensionalen Bereich D berechnet und ergibt das Volumen zwischen dem Graphen und der xy-Ebene."
+            "id": "aa0e8400-e29b-41d4-a716-446655440065",
+            "text": "Die Rotation beschreibt die Wirbelstärke eines Vektorfeldes.",
+            "formula": "\\text{rot } \\vec{F} = \\nabla \\times \\vec{F} = \\begin{vmatrix} \\vec{e}_1 & \\vec{e}_2 & \\vec{e}_3 \\\\ \\frac{\\partial}{\\partial x} & \\frac{\\partial}{\\partial y} & \\frac{\\partial}{\\partial z} \\\\ F_1 & F_2 & F_3 \\end{vmatrix}",
+            "explanation": "Die Rotation ist wie das Messen der Wirbelstärke in einem Fluss. Es ist wie das Beobachten eines Strudels!"
         },
         {
-            "id": "ff0e8400-e29b-41d4-a716-446655440005",
-            "text": "Die Hesse-Matrix enthält alle zweiten partiellen Ableitungen und ist wichtig für die Analyse von Extrema.",
-            "formula": "H_f = \\begin{pmatrix} \\frac{\\partial^2 f}{\\partial x_1^2} & \\cdots & \\frac{\\partial^2 f}{\\partial x_1 \\partial x_n} \\\\ \\vdots & \\ddots & \\vdots \\\\ \\frac{\\partial^2 f}{\\partial x_n \\partial x_1} & \\cdots & \\frac{\\partial^2 f}{\\partial x_n^2} \\end{pmatrix}",
-            "explanation": "Die Hesse-Matrix wird verwendet, um lokale Maxima und Minima zu identifizieren und zu klassifizieren."
+            "id": "aa0e8400-e29b-41d4-a716-446655440066",
+            "text": "Mehrfachintegrale berechnen Volumina und andere Größen.",
+            "formula": "\\iiint_V f(x,y,z) \\, dx \\, dy \\, dz",
+            "explanation": "Mehrfachintegrale sind wie das Zusammensetzen eines dreidimensionalen Puzzles. Es ist wie das Berechnen des Volumens eines komplexen Körpers!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440067",
+            "text": "Die Kettenregel für Funktionen mehrerer Variablen.",
+            "formula": "\\frac{d}{dt} f(\\vec{x}(t)) = \\nabla f \\cdot \\frac{d\\vec{x}}{dt}",
+            "explanation": "Die Kettenregel ist wie das Verfolgen einer Spur durch ein Gebirge. Es ist wie das Berechnen der Steigung entlang eines Weges!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440068",
+            "text": "Die Taylor-Entwicklung für Funktionen mehrerer Variablen.",
+            "formula": "f(\\vec{x}) = f(\\vec{a}) + \\nabla f(\\vec{a}) \\cdot (\\vec{x}-\\vec{a}) + \\frac{1}{2} (\\vec{x}-\\vec{a})^T H_f(\\vec{a}) (\\vec{x}-\\vec{a}) + ...",
+            "explanation": "Die Taylor-Entwicklung ist wie das Annähern einer komplexen Landschaft durch eine einfachere. Es ist wie das Ersetzen einer Bergkette durch eine Parabel!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440069",
+            "text": "Die Hesse-Matrix charakterisiert Extrema.",
+            "formula": "H_f = \\begin{pmatrix} \\frac{\\partial^2 f}{\\partial x_1^2} & ... & \\frac{\\partial^2 f}{\\partial x_1 \\partial x_n} \\\\ ... & ... & ... \\\\ \\frac{\\partial^2 f}{\\partial x_n \\partial x_1} & ... & \\frac{\\partial^2 f}{\\partial x_n^2} \\end{pmatrix}",
+            "explanation": "Die Hesse-Matrix ist wie ein detaillierter Höhenplan einer Landschaft. Es ist wie das Analysieren der Krümmung eines Berges!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440070",
+            "text": "Lagrange-Multiplikatoren für Optimierung unter Nebenbedingungen.",
+            "formula": "\\nabla f = \\lambda \\nabla g",
+            "explanation": "Lagrange-Multiplikatoren sind wie das Finden des höchsten Punktes auf einem vorgegebenen Weg. Es ist wie das Optimieren unter Einschränkungen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440071",
+            "text": "Die Jacobi-Matrix beschreibt die Ableitung einer vektorwertigen Funktion.",
+            "formula": "J_f = \\begin{pmatrix} \\frac{\\partial f_1}{\\partial x_1} & ... & \\frac{\\partial f_1}{\\partial x_n} \\\\ ... & ... & ... \\\\ \\frac{\\partial f_m}{\\partial x_1} & ... & \\frac{\\partial f_m}{\\partial x_n} \\end{pmatrix}",
+            "explanation": "Die Jacobi-Matrix ist wie ein detaillierter Transformationsplan. Es ist wie das Beschreiben einer komplexen Verformung!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440072",
+            "text": "Die Funktionaldeterminante misst die Volumenänderung bei Transformationen.",
+            "formula": "\\det(J_f) = \\begin{vmatrix} \\frac{\\partial f_1}{\\partial x_1} & ... & \\frac{\\partial f_1}{\\partial x_n} \\\\ ... & ... & ... \\\\ \\frac{\\partial f_n}{\\partial x_1} & ... & \\frac{\\partial f_n}{\\partial x_n} \\end{vmatrix}",
+            "explanation": "Die Funktionaldeterminante ist wie ein Maß für die Dehnung oder Stauchung bei einer Transformation. Es ist wie das Messen der Volumenänderung!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440073",
+            "text": "Kurvenintegrale berechnen Arbeit entlang eines Weges.",
+            "formula": "\\int_C \\vec{F} \\cdot d\\vec{r} = \\int_a^b \\vec{F}(\\vec{r}(t)) \\cdot \\vec{r}'(t) \\, dt",
+            "explanation": "Kurvenintegrale sind wie das Berechnen der Arbeit, die man leisten muss, um einen Berg zu besteigen. Es ist wie das Messen des Energieaufwands!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440074",
+            "text": "Oberflächenintegrale berechnen Flüsse durch Flächen.",
+            "formula": "\\iint_S \\vec{F} \\cdot d\\vec{S} = \\iint_D \\vec{F}(\\vec{r}(u,v)) \\cdot (\\vec{r}_u \\times \\vec{r}_v) \\, du \\, dv",
+            "explanation": "Oberflächenintegrale sind wie das Messen des Flusses durch ein Netz. Es ist wie das Berechnen des Durchflusses!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440075",
+            "text": "Der Satz von Stokes verbindet Kurven- und Flächenintegrale.",
+            "formula": "\\int_C \\vec{F} \\cdot d\\vec{r} = \\iint_S (\\nabla \\times \\vec{F}) \\cdot d\\vec{S}",
+            "explanation": "Der Satz von Stokes ist wie ein mathematischer Zaubertrick. Es ist wie das Umwandeln eines Linienintegrals in ein Flächenintegral!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440076",
+            "text": "Der Satz von Gauß verbindet Volumen- und Oberflächenintegrale.",
+            "formula": "\\iiint_V (\\nabla \\cdot \\vec{F}) \\, dV = \\oiint_S \\vec{F} \\cdot d\\vec{S}",
+            "explanation": "Der Satz von Gauß ist wie ein mathematischer Wunderwaffe. Es ist wie das Umwandeln eines Volumenintegrals in ein Oberflächenintegral!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440077",
+            "text": "Die Laplace-Gleichung beschreibt stationäre Prozesse.",
+            "formula": "\\Delta f = \\sum_{i=1}^n \\frac{\\partial^2 f}{\\partial x_i^2} = 0",
+            "explanation": "Die Laplace-Gleichung ist wie die Beschreibung eines Gleichgewichtszustands. Es ist wie das Finden einer stabilen Temperaturverteilung!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440078",
+            "text": "Die Poisson-Gleichung beschreibt Quellen und Senken.",
+            "formula": "\\Delta f = \\rho",
+            "explanation": "Die Poisson-Gleichung ist wie die Beschreibung von Quellen und Senken in einem Feld. Es ist wie das Modellieren von Ladungsverteilungen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440079",
+            "text": "Die Wellengleichung beschreibt Schwingungen.",
+            "formula": "\\frac{\\partial^2 f}{\\partial t^2} = c^2 \\Delta f",
+            "explanation": "Die Wellengleichung ist wie die Beschreibung von Schwingungen in einem Medium. Es ist wie das Modellieren von Schallwellen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440080",
+            "text": "Die Wärmeleitungsgleichung beschreibt Temperaturänderungen.",
+            "formula": "\\frac{\\partial f}{\\partial t} = \\alpha \\Delta f",
+            "explanation": "Die Wärmeleitungsgleichung ist wie die Beschreibung der Temperaturverteilung in einem Körper. Es ist wie das Modellieren der Wärmeausbreitung!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440081",
+            "text": "Die Kontinuitätsgleichung beschreibt Erhaltungsgrößen.",
+            "formula": "\\frac{\\partial \\rho}{\\partial t} + \\nabla \\cdot (\\rho \\vec{v}) = 0",
+            "explanation": "Die Kontinuitätsgleichung ist wie die Beschreibung der Erhaltung von Masse. Es ist wie das Modellieren eines Flusses!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440082",
+            "text": "Die Navier-Stokes-Gleichungen beschreiben Strömungen.",
+            "formula": "\\frac{\\partial \\vec{v}}{\\partial t} + (\\vec{v} \\cdot \\nabla) \\vec{v} = -\\frac{1}{\\rho} \\nabla p + \\nu \\Delta \\vec{v}",
+            "explanation": "Die Navier-Stokes-Gleichungen sind wie die Beschreibung von Flüssigkeitsströmungen. Es ist wie das Modellieren von Wasserströmen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440083",
+            "text": "Die Maxwell-Gleichungen beschreiben elektromagnetische Felder.",
+            "formula": "\\begin{align*} \\nabla \\cdot \\vec{E} &= \\frac{\\rho}{\\varepsilon_0} \\\\ \\nabla \\times \\vec{E} &= -\\frac{\\partial \\vec{B}}{\\partial t} \\\\ \\nabla \\cdot \\vec{B} &= 0 \\\\ \\nabla \\times \\vec{B} &= \\mu_0 \\vec{J} + \\mu_0 \\varepsilon_0 \\frac{\\partial \\vec{E}}{\\partial t} \\end{align*}",
+            "explanation": "Die Maxwell-Gleichungen sind wie die Beschreibung von elektromagnetischen Feldern. Es ist wie das Modellieren von Licht und Magnetismus!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440084",
+            "text": "Die Schrödinger-Gleichung beschreibt Quantensysteme.",
+            "formula": "i\\hbar \\frac{\\partial \\Psi}{\\partial t} = -\\frac{\\hbar^2}{2m} \\Delta \\Psi + V \\Psi",
+            "explanation": "Die Schrödinger-Gleichung ist wie die Beschreibung von Quantensystemen. Es ist wie das Modellieren von Atomen und Molekülen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440085",
+            "text": "Die Einstein-Feldgleichungen beschreiben die Gravitation.",
+            "formula": "R_{\\mu\\nu} - \\frac{1}{2} R g_{\\mu\\nu} = \\frac{8\\pi G}{c^4} T_{\\mu\\nu}",
+            "explanation": "Die Einstein-Feldgleichungen sind wie die Beschreibung der Gravitation. Es ist wie das Modellieren der Krümmung der Raumzeit!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440086",
+            "text": "Die Hamilton-Jacobi-Gleichung beschreibt klassische Systeme.",
+            "formula": "\\frac{\\partial S}{\\partial t} + H(\\vec{q}, \\nabla S) = 0",
+            "explanation": "Die Hamilton-Jacobi-Gleichung ist wie die Beschreibung klassischer Systeme. Es ist wie das Modellieren von Planetenbahnen!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440087",
+            "text": "Die Fokker-Planck-Gleichung beschreibt stochastische Prozesse.",
+            "formula": "\\frac{\\partial P}{\\partial t} = -\\nabla \\cdot (\\vec{v} P) + D \\Delta P",
+            "explanation": "Die Fokker-Planck-Gleichung ist wie die Beschreibung zufälliger Bewegungen. Es ist wie das Modellieren von Brownscher Bewegung!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440088",
+            "text": "Die Korteweg-de Vries-Gleichung beschreibt Solitonen.",
+            "formula": "\\frac{\\partial u}{\\partial t} + 6u \\frac{\\partial u}{\\partial x} + \\frac{\\partial^3 u}{\\partial x^3} = 0",
+            "explanation": "Die Korteweg-de Vries-Gleichung ist wie die Beschreibung von Solitonen. Es ist wie das Modellieren von Tsunamis!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440089",
+            "text": "Die Burgers-Gleichung beschreibt Stoßwellen.",
+            "formula": "\\frac{\\partial u}{\\partial t} + u \\frac{\\partial u}{\\partial x} = \\nu \\frac{\\partial^2 u}{\\partial x^2}",
+            "explanation": "Die Burgers-Gleichung ist wie die Beschreibung von Stoßwellen. Es ist wie das Modellieren von Verkehrsstaus!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440090",
+            "text": "Zum Schluss schauen wir uns an, wie mehrdimensionale Analysis in der Physik verwendet wird.",
+            "formula": "\\text{Mehrdimensionale Analysis wird verwendet, um komplexe physikalische Systeme zu beschreiben}",
+            "explanation": "In der Physik hilft uns mehrdimensionale Analysis, komplexe Systeme zu verstehen. Es ist wie das Übersetzen mathematischer Konzepte in die Sprache der Natur!"
         }
     ]
 } 
