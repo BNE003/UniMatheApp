@@ -207,6 +207,345 @@
                 "Schritt 3: Beweis des zweiten Gesetzes\nBeweis des zweiten Gesetzes:\n$x \\in (A \\cap B)^c \\Leftrightarrow x \\notin A \\cap B$\n$\\Leftrightarrow x \\notin A$ oder $x \\notin B$\n$\\Leftrightarrow x \\in A^c$ oder $x \\in B^c$\n$\\Leftrightarrow x \\in A^c \\cup B^c$",
                 "Schritt 4: Zusammenfassung\nDie De Morganschen Gesetze zeigen den Zusammenhang zwischen Komplement, Vereinigung und Durchschnitt."
             ]
+        },
+        {
+            "id": 16,
+            "topic": "Mengen und Abbildungen",
+            "title": "Mengenoperationen mit Zahlenmengen",
+            "description": "Gegeben sind die Mengen $A = \\{x \\in \\mathbb{N} \\mid x \\leq 5\\}$ und $B = \\{x \\in \\mathbb{N} \\mid x \\text{ ist gerade und } x \\leq 8\\}$. Bestimmen Sie:\n1. $A \\cup B$\n2. $A \\cap B$\n3. $A \\setminus B$\n4. $B \\setminus A$",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Bestimmung der Mengen\n$A = \\{1, 2, 3, 4, 5\\}$\n$B = \\{2, 4, 6, 8\\}$",
+                "Schritt 2: Bestimmung der Vereinigung\n$A \\cup B = \\{1, 2, 3, 4, 5, 6, 8\\}$",
+                "Schritt 3: Bestimmung des Durchschnitts\n$A \\cap B = \\{2, 4\\}$",
+                "Schritt 4: Bestimmung der Differenzen\n$A \\setminus B = \\{1, 3, 5\\}$\n$B \\setminus A = \\{6, 8\\}$"
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Mengen und Abbildungen",
+            "title": "Teilmengen und Potenzmenge",
+            "description": "Gegeben ist die Menge $A = \\{a, b\\}$. Bestimmen Sie alle Teilmengen von $A$ und zeigen Sie, dass die Anzahl der Teilmengen $2^{|A|}$ beträgt.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Bestimmung der Teilmengen\nTeilmengen von $A = \\{a, b\\}$:\n$\\emptyset$\n$\\{a\\}$\n$\\{b\\}$\n$\\{a, b\\}$",
+                "Schritt 2: Überprüfung der Anzahl\n$|A| = 2$\nAnzahl der Teilmengen = $2^2 = 4$",
+                "Schritt 3: Verifikation\nDie Anzahl der Teilmengen stimmt mit der Formel $2^{|A|}$ überein."
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Mengen und Abbildungen",
+            "title": "Mengengleichheit und Teilmengen",
+            "description": "Zeigen Sie, dass für beliebige Mengen $A$ und $B$ gilt:\n$A = B$ genau dann, wenn $A \\subseteq B$ und $B \\subseteq A$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Hinrichtung\nWenn $A = B$, dann gilt offensichtlich $A \\subseteq B$ und $B \\subseteq A$.",
+                "Schritt 2: Rückrichtung\nWenn $A \\subseteq B$ und $B \\subseteq A$, dann:\nJedes Element von $A$ ist in $B$ enthalten\nJedes Element von $B$ ist in $A$ enthalten\nAlso $A = B$",
+                "Schritt 3: Zusammenfassung\nDie Äquivalenz ist bewiesen."
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Mengen und Abbildungen",
+            "title": "Kartesisches Produkt und Relationen",
+            "description": "Gegeben sind die Mengen $A = \\{1, 2\\}$ und $B = \\{a, b\\}$. Bestimmen Sie $A \\times B$ und geben Sie eine Relation $R \\subseteq A \\times B$ an, die eine Funktion darstellt.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Bestimmung des kartesischen Produkts\n$A \\times B = \\{(1,a), (1,b), (2,a), (2,b)\\}$",
+                "Schritt 2: Definition einer Funktion\nEine Funktion muss jedem Element aus $A$ genau ein Element aus $B$ zuordnen.",
+                "Schritt 3: Beispiel einer Funktion\n$R = \\{(1,a), (2,b)\\}$ ist eine Funktion, da:\n- Jedes Element aus $A$ genau einmal als erste Komponente vorkommt\n- Jedes Element aus $A$ genau ein Bild in $B$ hat"
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Mengen und Abbildungen",
+            "title": "Mengenoperationen mit Intervallen",
+            "description": "Gegeben sind die Intervalle $A = (-\\infty, 3]$ und $B = [1, \\infty)$. Bestimmen Sie $A \\cap B$ und $A \\cup B$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Visualisierung der Intervalle\n$A = (-\\infty, 3]$\n$B = [1, \\infty)$",
+                "Schritt 2: Bestimmung des Durchschnitts\n$A \\cap B = [1, 3]$",
+                "Schritt 3: Bestimmung der Vereinigung\n$A \\cup B = \\mathbb{R}$",
+                "Schritt 4: Verifikation\nDie Ergebnisse können durch Überprüfung der Endpunkte verifiziert werden."
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Mengen und Abbildungen",
+            "title": "Mengenoperationen mit Komplementen",
+            "description": "Gegeben ist die Grundmenge $U = \\{1, 2, 3, 4, 5\\}$ und die Menge $A = \\{1, 3, 5\\}$. Bestimmen Sie $A^c$ und zeigen Sie, dass $(A^c)^c = A$ gilt.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Bestimmung des Komplements\n$A^c = U \\setminus A = \\{2, 4\\}$",
+                "Schritt 2: Bestimmung des Komplements des Komplements\n$(A^c)^c = U \\setminus A^c = \\{1, 3, 5\\} = A$",
+                "Schritt 3: Verifikation\nDie Gleichheit $(A^c)^c = A$ ist verifiziert."
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Mengen und Abbildungen",
+            "title": "Mengenoperationen mit Zahlenmengen",
+            "description": "Gegeben sind die Mengen $A = \\{x \\in \\mathbb{Z} \\mid -2 \\leq x \\leq 2\\}$ und $B = \\{x \\in \\mathbb{Z} \\mid x \\text{ ist ungerade}\\}$. Bestimmen Sie $A \\cap B$ und $A \\setminus B$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Bestimmung der Mengen\n$A = \\{-2, -1, 0, 1, 2\\}$\n$B = \\{..., -3, -1, 1, 3, ...\\}$",
+                "Schritt 2: Bestimmung des Durchschnitts\n$A \\cap B = \\{-1, 1\\}$",
+                "Schritt 3: Bestimmung der Differenz\n$A \\setminus B = \\{-2, 0, 2\\}$",
+                "Schritt 4: Verifikation\nDie Ergebnisse können durch Überprüfung der Elemente verifiziert werden."
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Mengen und Abbildungen",
+            "title": "Mengenoperationen mit Teilmengen",
+            "description": "Zeigen Sie, dass für beliebige Mengen $A$, $B$ und $C$ gilt:\nWenn $A \\subseteq B$ und $B \\subseteq C$, dann $A \\subseteq C$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Voraussetzungen\n$A \\subseteq B$: Jedes Element von $A$ ist in $B$ enthalten\n$B \\subseteq C$: Jedes Element von $B$ ist in $C$ enthalten",
+                "Schritt 2: Beweis\nSei $x \\in A$ beliebig\nDann $x \\in B$ (wegen $A \\subseteq B$)\nDann $x \\in C$ (wegen $B \\subseteq C$)\nAlso $A \\subseteq C$",
+                "Schritt 3: Zusammenfassung\nDie Transitivität der Teilmengenrelation ist bewiesen."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Mengen und Abbildungen",
+            "title": "Abbildungseigenschaften",
+            "description": "Untersuchen Sie die Abbildung $f: \\mathbb{R} \\rightarrow \\mathbb{R}$, $f(x) = |x|$ auf Injektivität und Surjektivität. Begründen Sie Ihre Antwort.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Definition der Eigenschaften\nEine Abbildung ist injektiv, wenn verschiedene Elemente auf verschiedene Bilder abgebildet werden.\nEine Abbildung ist surjektiv, wenn jedes Element der Zielmenge als Bild vorkommt.",
+                "Schritt 2: Überprüfung der Injektivität\n$f(-1) = f(1) = 1$\nAlso ist $f$ nicht injektiv.",
+                "Schritt 3: Überprüfung der Surjektivität\nFür jedes $y \\geq 0$ gibt es ein $x$ mit $f(x) = y$\nFür $y < 0$ gibt es kein $x$ mit $f(x) = y$\nAlso ist $f$ nicht surjektiv auf $\\mathbb{R}$",
+                "Schritt 4: Zusammenfassung\nDie Abbildung $f(x) = |x|$ ist weder injektiv noch surjektiv auf $\\mathbb{R}$."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Mengen und Abbildungen",
+            "title": "Komposition von Abbildungen",
+            "description": "Gegeben sind die Abbildungen $f: \\mathbb{R} \\rightarrow \\mathbb{R}$, $f(x) = x^2$ und $g: \\mathbb{R} \\rightarrow \\mathbb{R}$, $g(x) = \\sqrt{x}$. Bestimmen Sie die maximale Definitionsmenge von $g\\circ f$ und $f\\circ g$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Bestimmung von $g\\circ f$\n$(g\\circ f)(x) = g(f(x)) = g(x^2) = \\sqrt{x^2} = |x|$\nDefinitionsmenge: $\\mathbb{R}$",
+                "Schritt 2: Bestimmung von $f\\circ g$\n$(f\\circ g)(x) = f(g(x)) = f(\\sqrt{x}) = (\\sqrt{x})^2 = x$\nDefinitionsmenge: $[0, \\infty)$",
+                "Schritt 3: Verifikation\nDie Definitionsmengen können durch Überprüfung der Zwischenschritte verifiziert werden.",
+                "Schritt 4: Zusammenfassung\nDie Komposition von Abbildungen kann die Definitionsmenge einschränken."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Mengen und Abbildungen",
+            "title": "Mengenidentitäten",
+            "description": "Beweisen Sie die Assoziativgesetze für Mengen:\n1. $(A \\cup B) \\cup C = A \\cup (B \\cup C)$\n2. $(A \\cap B) \\cap C = A \\cap (B \\cap C)$",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Formulierung der Assoziativgesetze\nZu beweisen sind die Assoziativgesetze:\n1. $(A \\cup B) \\cup C = A \\cup (B \\cup C)$\n2. $(A \\cap B) \\cap C = A \\cap (B \\cap C)$",
+                "Schritt 2: Beweis des ersten Gesetzes\n$x \\in (A \\cup B) \\cup C \\Leftrightarrow x \\in A \\cup B$ oder $x \\in C$\n$\\Leftrightarrow x \\in A$ oder $x \\in B$ oder $x \\in C$\n$\\Leftrightarrow x \\in A$ oder $x \\in B \\cup C$\n$\\Leftrightarrow x \\in A \\cup (B \\cup C)$",
+                "Schritt 3: Beweis des zweiten Gesetzes\n$x \\in (A \\cap B) \\cap C \\Leftrightarrow x \\in A \\cap B$ und $x \\in C$\n$\\Leftrightarrow x \\in A$ und $x \\in B$ und $x \\in C$\n$\\Leftrightarrow x \\in A$ und $x \\in B \\cap C$\n$\\Leftrightarrow x \\in A \\cap (B \\cap C)$",
+                "Schritt 4: Zusammenfassung\nDie Assoziativgesetze zeigen, dass die Reihenfolge der Operationen bei Vereinigung und Durchschnitt keine Rolle spielt."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Mengen und Abbildungen",
+            "title": "Bijektive Abbildungen",
+            "description": "Zeigen Sie, dass die Abbildung $f: \\mathbb{R} \\rightarrow \\mathbb{R}$, $f(x) = 2x + 1$ bijektiv ist. Bestimmen Sie die Umkehrabbildung $f^{-1}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Überprüfung der Injektivität\n$f(x_1) = f(x_2) \\Rightarrow 2x_1 + 1 = 2x_2 + 1 \\Rightarrow x_1 = x_2$\nAlso ist $f$ injektiv.",
+                "Schritt 2: Überprüfung der Surjektivität\nFür jedes $y \\in \\mathbb{R}$ gibt es ein $x = \\frac{y-1}{2}$ mit $f(x) = y$\nAlso ist $f$ surjektiv.",
+                "Schritt 3: Bestimmung der Umkehrabbildung\n$y = 2x + 1$\n$x = \\frac{y-1}{2}$\nAlso $f^{-1}(y) = \\frac{y-1}{2}$",
+                "Schritt 4: Verifikation\n$f(f^{-1}(y)) = f(\\frac{y-1}{2}) = 2(\\frac{y-1}{2}) + 1 = y$\n$f^{-1}(f(x)) = f^{-1}(2x + 1) = \\frac{(2x + 1)-1}{2} = x$"
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Mengen und Abbildungen",
+            "title": "Mächtigkeit von Mengen",
+            "description": "Zeigen Sie, dass die Menge der natürlichen Zahlen $\\mathbb{N}$ und die Menge der geraden natürlichen Zahlen $2\\mathbb{N}$ gleichmächtig sind.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Definition der Gleichmächtigkeit\nZwei Mengen sind gleichmächtig, wenn es eine Bijektion zwischen ihnen gibt.",
+                "Schritt 2: Konstruktion einer Bijektion\n$f: \\mathbb{N} \\rightarrow 2\\mathbb{N}$, $f(n) = 2n$",
+                "Schritt 3: Nachweis der Bijektivität\nInjektivität: $f(n_1) = f(n_2) \\Rightarrow 2n_1 = 2n_2 \\Rightarrow n_1 = n_2$\nSurjektivität: Für jedes $m \\in 2\\mathbb{N}$ gibt es ein $n = \\frac{m}{2} \\in \\mathbb{N}$ mit $f(n) = m$",
+                "Schritt 4: Zusammenfassung\nDie Mengen $\\mathbb{N}$ und $2\\mathbb{N}$ sind gleichmächtig, da es eine Bijektion zwischen ihnen gibt."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Mengen und Abbildungen",
+            "title": "Äquivalenzrelationen",
+            "description": "Sei $M$ die Menge aller Menschen. Zeigen Sie, dass die Relation $R = \\{(a,b) \\in M \\times M \\mid a \\text{ und } b \\text{ haben das gleiche Geburtsjahr}\\}$ eine Äquivalenzrelation ist.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Definition der Äquivalenzrelation\nEine Relation $R$ auf einer Menge $M$ heißt Äquivalenzrelation, wenn sie reflexiv, symmetrisch und transitiv ist.",
+                "Schritt 2: Überprüfung der Reflexivität\nFür jede Person $a \\in M$ gilt: $a$ hat das gleiche Geburtsjahr wie $a$\nAlso $(a,a) \\in R$",
+                "Schritt 3: Überprüfung der Symmetrie\nWenn $(a,b) \\in R$, dann haben $a$ und $b$ das gleiche Geburtsjahr\nAlso haben $b$ und $a$ das gleiche Geburtsjahr\nAlso $(b,a) \\in R$",
+                "Schritt 4: Überprüfung der Transitivität\nWenn $(a,b) \\in R$ und $(b,c) \\in R$, dann haben $a$ und $b$ das gleiche Geburtsjahr und $b$ und $c$ das gleiche Geburtsjahr\nAlso haben $a$ und $c$ das gleiche Geburtsjahr\nAlso $(a,c) \\in R$",
+                "Schritt 5: Zusammenfassung\nDie Relation $R$ ist eine Äquivalenzrelation, da sie reflexiv, symmetrisch und transitiv ist."
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Mengen und Abbildungen",
+            "title": "Potenzmenge und Kardinalität",
+            "description": "Zeigen Sie, dass für eine endliche Menge $A$ mit $|A| = n$ die Kardinalität der Potenzmenge $|P(A)| = 2^n$ beträgt.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Definition der Potenzmenge\nDie Potenzmenge $P(A)$ ist die Menge aller Teilmengen von $A$.",
+                "Schritt 2: Beweis durch vollständige Induktion\nInduktionsanfang: $n = 0$\n$A = \\emptyset$\n$P(A) = \\{\\emptyset\\}$\n$|P(A)| = 1 = 2^0$",
+                "Schritt 3: Induktionsschritt\nSei $|A| = n+1$ und $a \\in A$\nDann $P(A) = P(A \\setminus \\{a\\}) \\cup \\{B \\cup \\{a\\} \\mid B \\in P(A \\setminus \\{a\\})\\}$\nAlso $|P(A)| = 2|P(A \\setminus \\{a\\})| = 2 \\cdot 2^n = 2^{n+1}$",
+                "Schritt 4: Zusammenfassung\nDie Kardinalität der Potenzmenge einer $n$-elementigen Menge beträgt $2^n$."
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Mengen und Abbildungen",
+            "title": "Kardinalität von Mengen",
+            "description": "Zeigen Sie, dass die Menge der reellen Zahlen $\\mathbb{R}$ und die Menge der reellen Zahlen im Intervall $(0,1)$ gleichmächtig sind.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Definition der Gleichmächtigkeit\nZwei Mengen sind gleichmächtig, wenn es eine Bijektion zwischen ihnen gibt.",
+                "Schritt 2: Konstruktion einer Bijektion\n$f: (0,1) \\rightarrow \\mathbb{R}$, $f(x) = \\tan(\\pi x - \\frac{\\pi}{2})$",
+                "Schritt 3: Nachweis der Bijektivität\nInjektivität: Die Tangensfunktion ist auf $(-\\frac{\\pi}{2}, \\frac{\\pi}{2})$ streng monoton steigend\nSurjektivität: Die Tangensfunktion nimmt alle reellen Werte an",
+                "Schritt 4: Verifikation\nDie Abbildung ist wohldefiniert und bijektiv.",
+                "Schritt 5: Zusammenfassung\nDie Mengen $\\mathbb{R}$ und $(0,1)$ sind gleichmächtig, da es eine Bijektion zwischen ihnen gibt."
+            ]
+        },
+        {
+            "id": 32,
+            "topic": "Mengen und Abbildungen",
+            "title": "Komplexe Mengenoperationen",
+            "description": "Beweisen Sie die Distributivgesetze für Mengen:\n1. $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$\n2. $A \\cup (B \\cap C) = (A \\cup B) \\cap (A \\cup C)$",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Formulierung der Distributivgesetze\nZu beweisen sind die Distributivgesetze:\n1. $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$\n2. $A \\cup (B \\cap C) = (A \\cup B) \\cap (A \\cup C)$",
+                "Schritt 2: Beweis des ersten Gesetzes\n$x \\in A \\cap (B \\cup C) \\Leftrightarrow x \\in A$ und $x \\in B \\cup C$\n$\\Leftrightarrow x \\in A$ und ($x \\in B$ oder $x \\in C$)\n$\\Leftrightarrow (x \\in A$ und $x \\in B)$ oder $(x \\in A$ und $x \\in C)$\n$\\Leftrightarrow x \\in (A \\cap B) \\cup (A \\cap C)$",
+                "Schritt 3: Beweis des zweiten Gesetzes\n$x \\in A \\cup (B \\cap C) \\Leftrightarrow x \\in A$ oder $x \\in B \\cap C$\n$\\Leftrightarrow x \\in A$ oder ($x \\in B$ und $x \\in C$)\n$\\Leftrightarrow (x \\in A$ oder $x \\in B)$ und $(x \\in A$ oder $x \\in C)$\n$\\Leftrightarrow x \\in (A \\cup B) \\cap (A \\cup C)$",
+                "Schritt 4: Zusammenfassung\nDie Distributivgesetze zeigen den Zusammenhang zwischen Durchschnitt und Vereinigung."
+            ]
+        },
+        {
+            "id": 33,
+            "topic": "Mengen und Abbildungen",
+            "title": "Mächtigkeit von Mengen",
+            "description": "Zeigen Sie, dass die Menge der rationalen Zahlen $\\mathbb{Q}$ und die Menge der natürlichen Zahlen $\\mathbb{N}$ gleichmächtig sind.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Definition der Gleichmächtigkeit\nZwei Mengen sind gleichmächtig, wenn es eine Bijektion zwischen ihnen gibt.",
+                "Schritt 2: Konstruktion einer Bijektion\nAnordnung der rationalen Zahlen in einem unendlichen Gitter\nDiagonalabzählung nach Cantor",
+                "Schritt 3: Nachweis der Bijektivität\nJede rationale Zahl wird genau einmal getroffen\nJeder natürlichen Zahl wird genau eine rationale Zahl zugeordnet",
+                "Schritt 4: Verifikation\nDie Abbildung ist wohldefiniert und bijektiv.",
+                "Schritt 5: Zusammenfassung\nDie Mengen $\\mathbb{Q}$ und $\\mathbb{N}$ sind gleichmächtig, da es eine Bijektion zwischen ihnen gibt."
+            ]
+        },
+        {
+            "id": 34,
+            "topic": "Mengen und Abbildungen",
+            "title": "Äquivalenzrelationen",
+            "description": "Sei $M$ die Menge aller Geraden in der Ebene. Zeigen Sie, dass die Relation $R = \\{(g,h) \\in M \\times M \\mid g \\text{ und } h \\text{ sind parallel}\\}$ eine Äquivalenzrelation ist.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Definition der Äquivalenzrelation\nEine Relation $R$ auf einer Menge $M$ heißt Äquivalenzrelation, wenn sie reflexiv, symmetrisch und transitiv ist.",
+                "Schritt 2: Überprüfung der Reflexivität\nJede Gerade ist parallel zu sich selbst\nAlso $(g,g) \\in R$",
+                "Schritt 3: Überprüfung der Symmetrie\nWenn $g$ parallel zu $h$ ist, dann ist $h$ parallel zu $g$\nAlso $(g,h) \\in R \\Rightarrow (h,g) \\in R$",
+                "Schritt 4: Überprüfung der Transitivität\nWenn $g$ parallel zu $h$ und $h$ parallel zu $k$ ist, dann ist $g$ parallel zu $k$\nAlso $(g,h) \\in R$ und $(h,k) \\in R \\Rightarrow (g,k) \\in R$",
+                "Schritt 5: Zusammenfassung\nDie Relation $R$ ist eine Äquivalenzrelation, da sie reflexiv, symmetrisch und transitiv ist."
+            ]
+        },
+        {
+            "id": 35,
+            "topic": "Mengen und Abbildungen",
+            "title": "Potenzmenge und Kardinalität",
+            "description": "Zeigen Sie, dass die Potenzmenge einer unendlichen Menge überabzählbar ist.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Definition der Potenzmenge\nDie Potenzmenge $P(A)$ ist die Menge aller Teilmengen von $A$.",
+                "Schritt 2: Beweis durch Widerspruch\nAngenommen, $P(A)$ wäre abzählbar\nDann gäbe es eine Abzählung aller Teilmengen von $A$",
+                "Schritt 3: Konstruktion einer Teilmenge\nKonstruktion einer Teilmenge $B \\subseteq A$:\nFür jedes $a \\in A$:\n- Wenn $a \\in A_n$, dann $a \\notin B$\n- Wenn $a \\notin A_n$, dann $a \\in B$\nDie resultierende Menge $B$ kann nicht in der Abzählung vorkommen",
+                "Schritt 4: Widerspruch\nDie konstruierte Menge $B$ widerspricht der Annahme der Abzählbarkeit",
+                "Schritt 5: Zusammenfassung\nDie Potenzmenge einer unendlichen Menge ist überabzählbar."
+            ]
+        },
+        {
+            "id": 36,
+            "topic": "Mengen und Abbildungen",
+            "title": "Komplexe Mengenoperationen",
+            "description": "Beweisen Sie die De Morganschen Gesetze für Mengen:\n1. $(A \\cup B)^c = A^c \\cap B^c$\n2. $(A \\cap B)^c = A^c \\cup B^c$",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Formulierung der De Morganschen Gesetze\nDie De Morganschen Gesetze für Mengen:\n1. $(A \\cup B)^c = A^c \\cap B^c$\n2. $(A \\cap B)^c = A^c \\cup B^c$",
+                "Schritt 2: Beweis des ersten Gesetzes\n$x \\in (A \\cup B)^c \\Leftrightarrow x \\notin A \\cup B$\n$\\Leftrightarrow x \\notin A$ und $x \\notin B$\n$\\Leftrightarrow x \\in A^c$ und $x \\in B^c$\n$\\Leftrightarrow x \\in A^c \\cap B^c$",
+                "Schritt 3: Beweis des zweiten Gesetzes\n$x \\in (A \\cap B)^c \\Leftrightarrow x \\notin A \\cap B$\n$\\Leftrightarrow x \\notin A$ oder $x \\notin B$\n$\\Leftrightarrow x \\in A^c$ oder $x \\in B^c$\n$\\Leftrightarrow x \\in A^c \\cup B^c$",
+                "Schritt 4: Zusammenfassung\nDie De Morganschen Gesetze zeigen den Zusammenhang zwischen Komplement, Vereinigung und Durchschnitt."
+            ]
+        },
+        {
+            "id": 37,
+            "topic": "Mengen und Abbildungen",
+            "title": "Mächtigkeit von Mengen",
+            "description": "Zeigen Sie, dass die Menge der reellen Zahlen $\\mathbb{R}$ und die Menge der reellen Zahlen im Intervall $[0,1]$ gleichmächtig sind.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Definition der Gleichmächtigkeit\nZwei Mengen sind gleichmächtig, wenn es eine Bijektion zwischen ihnen gibt.",
+                "Schritt 2: Konstruktion einer Bijektion\n$f: [0,1] \\rightarrow \\mathbb{R}$, $f(x) = \\tan(\\pi x - \\frac{\\pi}{2})$",
+                "Schritt 3: Nachweis der Bijektivität\nInjektivität: Die Tangensfunktion ist auf $(-\\frac{\\pi}{2}, \\frac{\\pi}{2})$ streng monoton steigend\nSurjektivität: Die Tangensfunktion nimmt alle reellen Werte an",
+                "Schritt 4: Verifikation\nDie Abbildung ist wohldefiniert und bijektiv.",
+                "Schritt 5: Zusammenfassung\nDie Mengen $\\mathbb{R}$ und $[0,1]$ sind gleichmächtig, da es eine Bijektion zwischen ihnen gibt."
+            ]
+        },
+        {
+            "id": 38,
+            "topic": "Mengen und Abbildungen",
+            "title": "Äquivalenzrelationen",
+            "description": "Sei $M$ die Menge aller Polynome mit reellen Koeffizienten. Zeigen Sie, dass die Relation $R = \\{(p,q) \\in M \\times M \\mid p \\text{ und } q \\text{ haben den gleichen Grad}\\}$ eine Äquivalenzrelation ist.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Definition der Äquivalenzrelation\nEine Relation $R$ auf einer Menge $M$ heißt Äquivalenzrelation, wenn sie reflexiv, symmetrisch und transitiv ist.",
+                "Schritt 2: Überprüfung der Reflexivität\nJedes Polynom hat den gleichen Grad wie sich selbst\nAlso $(p,p) \\in R$",
+                "Schritt 3: Überprüfung der Symmetrie\nWenn $p$ und $q$ den gleichen Grad haben, dann haben $q$ und $p$ den gleichen Grad\nAlso $(p,q) \\in R \\Rightarrow (q,p) \\in R$",
+                "Schritt 4: Überprüfung der Transitivität\nWenn $p$ und $q$ den gleichen Grad haben und $q$ und $r$ den gleichen Grad haben, dann haben $p$ und $r$ den gleichen Grad\nAlso $(p,q) \\in R$ und $(q,r) \\in R \\Rightarrow (p,r) \\in R$",
+                "Schritt 5: Zusammenfassung\nDie Relation $R$ ist eine Äquivalenzrelation, da sie reflexiv, symmetrisch und transitiv ist."
+            ]
+        },
+        {
+            "id": 39,
+            "topic": "Mengen und Abbildungen",
+            "title": "Potenzmenge und Kardinalität",
+            "description": "Zeigen Sie, dass die Potenzmenge einer abzählbar unendlichen Menge überabzählbar ist.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Definition der Potenzmenge\nDie Potenzmenge $P(A)$ ist die Menge aller Teilmengen von $A$.",
+                "Schritt 2: Beweis durch Widerspruch\nAngenommen, $P(A)$ wäre abzählbar\nDann gäbe es eine Abzählung aller Teilmengen von $A$",
+                "Schritt 3: Konstruktion einer Teilmenge\nKonstruktion einer Teilmenge $B \\subseteq A$:\nFür jedes $a \\in A$:\n- Wenn $a \\in A_n$, dann $a \\notin B$\n- Wenn $a \\notin A_n$, dann $a \\in B$\nDie resultierende Menge $B$ kann nicht in der Abzählung vorkommen",
+                "Schritt 4: Widerspruch\nDie konstruierte Menge $B$ widerspricht der Annahme der Abzählbarkeit",
+                "Schritt 5: Zusammenfassung\nDie Potenzmenge einer abzählbar unendlichen Menge ist überabzählbar."
+            ]
         }
     ]
 } 

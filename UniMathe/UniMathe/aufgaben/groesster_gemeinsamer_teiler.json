@@ -137,6 +137,314 @@
                 "Schritt 3: Induktionsschritt\n$\\text{ggT}(F_{k+1}, F_{k+2}) = \\text{ggT}(F_{k+1}, F_{k+1} + F_k)$\n$= \\text{ggT}(F_{k+1}, F_k) = \\text{ggT}(F_k, F_{k+1}) = 1$",
                 "Schritt 4: Schlussfolgerung\nNach dem Prinzip der vollständigen Induktion gilt die Aussage für alle $n \\in \\mathbb{N}$"
             ]
+        },
+        {
+            "id": 11,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Einfache ggT-Berechnung",
+            "description": "Berechnen Sie den größten gemeinsamen Teiler von 24 und 36.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Primfaktorzerlegung\n$24 = 2^3 \\cdot 3$\n$36 = 2^2 \\cdot 3^2$",
+                "Schritt 2: ggT über Primfaktoren\n$\\text{ggT}(24,36) = 2^2 \\cdot 3 = 12$"
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Teilerfremde Zahlen",
+            "description": "Sind 15 und 28 teilerfremd? Begründen Sie Ihre Antwort.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Primfaktorzerlegung\n$15 = 3 \\cdot 5$\n$28 = 2^2 \\cdot 7$",
+                "Schritt 2: Analyse\nDie Zahlen haben keine gemeinsamen Primfaktoren",
+                "Schritt 3: Schlussfolgerung\n$\\text{ggT}(15,28) = 1$, also sind die Zahlen teilerfremd"
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT mit negativen Zahlen",
+            "description": "Berechnen Sie $\\text{ggT}(-18, 24)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Beträge betrachten\n$\\text{ggT}(-18, 24) = \\text{ggT}(18, 24)$",
+                "Schritt 2: Primfaktorzerlegung\n$18 = 2 \\cdot 3^2$\n$24 = 2^3 \\cdot 3$",
+                "Schritt 3: Ergebnis\n$\\text{ggT}(18,24) = 2 \\cdot 3 = 6$"
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT von drei Zahlen",
+            "description": "Berechnen Sie $\\text{ggT}(12, 18, 30)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Primfaktorzerlegung\n$12 = 2^2 \\cdot 3$\n$18 = 2 \\cdot 3^2$\n$30 = 2 \\cdot 3 \\cdot 5$",
+                "Schritt 2: ggT über Primfaktoren\n$\\text{ggT}(12,18,30) = 2 \\cdot 3 = 6$"
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Einfache Teilbarkeit",
+            "description": "Ist 6 ein Teiler von 42? Begründen Sie mit Hilfe des ggT.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Berechnung des ggT\n$\\text{ggT}(6,42) = 6$",
+                "Schritt 2: Analyse\nDa der ggT gleich 6 ist, ist 6 ein Teiler von 42"
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und kgV",
+            "description": "Berechnen Sie $\\text{ggT}(8,12)$ und $\\text{kgV}(8,12)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Primfaktorzerlegung\n$8 = 2^3$\n$12 = 2^2 \\cdot 3$",
+                "Schritt 2: ggT berechnen\n$\\text{ggT}(8,12) = 2^2 = 4$",
+                "Schritt 3: kgV berechnen\n$\\text{kgV}(8,12) = 2^3 \\cdot 3 = 24$"
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT mit Potenzen",
+            "description": "Berechnen Sie $\\text{ggT}(2^4 \\cdot 3^2, 2^3 \\cdot 3^3)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: ggT über Primfaktoren\n$\\text{ggT}(2^4 \\cdot 3^2, 2^3 \\cdot 3^3) = 2^3 \\cdot 3^2 = 8 \\cdot 9 = 72$"
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT mit Primzahlen",
+            "description": "Berechnen Sie $\\text{ggT}(2 \\cdot 3 \\cdot 5, 2 \\cdot 3 \\cdot 7)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: ggT über Primfaktoren\n$\\text{ggT}(2 \\cdot 3 \\cdot 5, 2 \\cdot 3 \\cdot 7) = 2 \\cdot 3 = 6$"
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Euklidischer Algorithmus mit größeren Zahlen",
+            "description": "Berechnen Sie $\\text{ggT}(234, 182)$ mit dem euklidischen Algorithmus.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Erste Division\n$234 = 182 \\cdot 1 + 52$",
+                "Schritt 2: Zweite Division\n$182 = 52 \\cdot 3 + 26$",
+                "Schritt 3: Dritte Division\n$52 = 26 \\cdot 2 + 0$",
+                "Schritt 4: Ergebnis\n$\\text{ggT}(234,182) = 26$"
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Erweiterter euklidischer Algorithmus",
+            "description": "Finden Sie ganze Zahlen $x$ und $y$ mit $234x + 182y = \\text{ggT}(234,182)$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Rückwärtsrechnung\n$26 = 182 - 52 \\cdot 3$\n$52 = 234 - 182$\n$26 = 182 - (234 - 182) \\cdot 3$\n$26 = 182 \\cdot 4 - 234 \\cdot 3$",
+                "Schritt 2: Ergebnis\n$x = -3$, $y = 4$\n$234 \\cdot (-3) + 182 \\cdot 4 = 26$"
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Polynome",
+            "description": "Berechnen Sie $\\text{ggT}(x^2 - 1, x^2 + 2x + 1)$ über $\\mathbb{Q}[x]$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Polynomdivision\n$x^2 + 2x + 1 = (x^2 - 1) \\cdot 1 + (2x + 2)$",
+                "Schritt 2: Weiter Division\n$x^2 - 1 = (2x + 2)(\\frac{1}{2}x - \\frac{1}{2}) + 0$",
+                "Schritt 3: Normalisierung\n$\\text{ggT} = x + 1$"
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Kongruenzen",
+            "description": "Lösen Sie die Kongruenz $234x \\equiv 26 \\mod 182$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Überprüfung\n$\\text{ggT}(234,182) = 26$ teilt 26, also lösbar",
+                "Schritt 2: Vereinfachung\n$9x \\equiv 1 \\mod 7$",
+                "Schritt 3: Lösung\n$x \\equiv 4 \\mod 7$\nAllgemeine Lösung: $x = 4 + 7k$ für $k \\in \\mathbb{Z}$"
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Matrizen",
+            "description": "Berechnen Sie $\\text{ggT}(\\det(A), \\det(B))$ für $A = \\begin{pmatrix} 3 & 4 \\\\ 5 & 6 \\end{pmatrix}$ und $B = \\begin{pmatrix} 2 & 3 \\\\ 4 & 5 \\end{pmatrix}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Determinanten\n$\\det(A) = -2$\n$\\det(B) = -2$",
+                "Schritt 2: ggT\n$\\text{ggT}(-2,-2) = 2$"
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Fibonacci",
+            "description": "Berechnen Sie $\\text{ggT}(F_6, F_8)$, wobei $F_n$ die $n$-te Fibonacci-Zahl ist.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Fibonacci-Zahlen\n$F_6 = 8$\n$F_8 = 21$",
+                "Schritt 2: Euklidischer Algorithmus\n$21 = 8 \\cdot 2 + 5$\n$8 = 5 \\cdot 1 + 3$\n$5 = 3 \\cdot 1 + 2$\n$3 = 2 \\cdot 1 + 1$\n$2 = 1 \\cdot 2 + 0$",
+                "Schritt 3: Ergebnis\n$\\text{ggT}(8,21) = 1$"
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Polynome über endlichen Körpern",
+            "description": "Berechnen Sie $\\text{ggT}(x^3 + x + 1, x^2 + 1)$ über $\\mathbb{F}_2[x]$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Polynomdivision\n$x^3 + x + 1 = (x^2 + 1) \\cdot x + 1$",
+                "Schritt 2: Weiter Division\n$x^2 + 1 = 1 \\cdot (x^2 + 1) + 0$",
+                "Schritt 3: Ergebnis\n$\\text{ggT} = 1$"
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und lineare diophantische Gleichungen",
+            "description": "Finden Sie alle ganzzahligen Lösungen von $234x + 182y = 52$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Überprüfung\n$\\text{ggT}(234,182) = 26$ teilt 52, also lösbar",
+                "Schritt 2: Vereinfachung\n$9x + 7y = 2$",
+                "Schritt 3: Partikuläre Lösung\n$x = 1$, $y = -1$ ist eine Lösung",
+                "Schritt 4: Allgemeine Lösung\n$x = 1 + 7k$\n$y = -1 - 9k$\nfür $k \\in \\mathbb{Z}$"
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Polynome mit Parametern",
+            "description": "Für welche Werte von $a \\in \\mathbb{Q}$ haben die Polynome $f(x) = x^2 + ax + 1$ und $g(x) = x^2 + x + a$ einen nicht-trivialen ggT über $\\mathbb{Q}[x]$?",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Polynomdivision\n$f(x) = g(x) \\cdot 1 + (a-1)x + (1-a)$",
+                "Schritt 2: Bedingung für nicht-trivialen ggT\n$(a-1)x + (1-a)$ muss ein Teiler von $g(x)$ sein",
+                "Schritt 3: Analyse\n$a = 1$ ist die einzige Lösung"
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Matrizen über Polynomringen",
+            "description": "Berechnen Sie $\\text{ggT}(\\det(A), \\det(B))$ für $A = \\begin{pmatrix} x & 1 \\\\ 1 & x \\end{pmatrix}$ und $B = \\begin{pmatrix} x+1 & 1 \\\\ 1 & x+1 \\end{pmatrix}$ über $\\mathbb{Q}[x]$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Determinanten\n$\\det(A) = x^2 - 1$\n$\\det(B) = (x+1)^2 - 1 = x^2 + 2x$",
+                "Schritt 2: Polynomdivision\n$x^2 + 2x = (x^2 - 1) \\cdot 1 + (2x + 1)$",
+                "Schritt 3: Ergebnis\n$\\text{ggT} = 1$"
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Kongruenzen mit Parametern",
+            "description": "Für welche Werte von $a \\in \\mathbb{Z}$ ist die Kongruenz $ax \\equiv 1 \\mod 15$ lösbar?",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Bedingung für Lösbarkeit\n$\\text{ggT}(a,15) = 1$",
+                "Schritt 2: Analyse\n$a$ muss teilerfremd zu 15 sein",
+                "Schritt 3: Ergebnis\n$a \\in \\{1,2,4,7,8,11,13,14\\} + 15\\mathbb{Z}$"
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Fibonacci-Zahlen mit Parametern",
+            "description": "Zeigen Sie: $\\text{ggT}(F_n, F_{n+k}) = F_{\\text{ggT}(n,k)}$ für alle $n,k \\in \\mathbb{N}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Induktionsanfang\nFür $k=1$: $\\text{ggT}(F_n, F_{n+1}) = 1 = F_1$",
+                "Schritt 2: Induktionsschritt\n$\\text{ggT}(F_n, F_m) = \\text{ggT}(F_n, F_{m-n} \\cdot F_{n+1} + F_{m-n-1} \\cdot F_n)$",
+                "Schritt 3: Vereinfachung\n$= \\text{ggT}(F_n, F_{m-n})$",
+                "Schritt 4: Schlussfolgerung\n$= F_{\\text{ggT}(n,m)}$"
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Polynome über endlichen Körpern mit Parametern",
+            "description": "Für welche $a \\in \\mathbb{F}_2$ haben die Polynome $f(x) = x^3 + ax + 1$ und $g(x) = x^2 + x + a$ einen nicht-trivialen ggT über $\\mathbb{F}_2[x]$?",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Polynomdivision\n$f(x) = g(x) \\cdot x + (a+1)x + 1$",
+                "Schritt 2: Bedingung für nicht-trivialen ggT\n$(a+1)x + 1$ muss ein Teiler von $g(x)$ sein",
+                "Schritt 3: Analyse\n$a = 1$ ist die einzige Lösung in $\\mathbb{F}_2$"
+            ]
+        },
+        {
+            "id": 32,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Matrizen über Polynomringen mit Parametern",
+            "description": "Für welche $a \\in \\mathbb{Q}$ haben die Matrizen $A = \\begin{pmatrix} x & a \\\\ a & x \\end{pmatrix}$ und $B = \\begin{pmatrix} x+1 & a \\\\ a & x+1 \\end{pmatrix}$ über $\\mathbb{Q}[x]$ einen nicht-trivialen ggT ihrer Determinanten?",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Determinanten\n$\\det(A) = x^2 - a^2$\n$\\det(B) = (x+1)^2 - a^2$",
+                "Schritt 2: Polynomdivision\n$(x+1)^2 - a^2 = (x^2 - a^2) \\cdot 1 + (2x + 1)$",
+                "Schritt 3: Bedingung für nicht-trivialen ggT\n$2x + 1$ muss ein Teiler von $x^2 - a^2$ sein",
+                "Schritt 4: Analyse\n$a = \\pm \\frac{1}{2}$ sind die einzigen Lösungen"
+            ]
+        },
+        {
+            "id": 33,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Kongruenzen mit mehreren Parametern",
+            "description": "Für welche $a,b \\in \\mathbb{Z}$ ist das System $ax \\equiv 1 \\mod 15$, $bx \\equiv 1 \\mod 15$ lösbar?",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Bedingungen für Lösbarkeit\n$\\text{ggT}(a,15) = 1$ und $\\text{ggT}(b,15) = 1$",
+                "Schritt 2: Analyse\n$a$ und $b$ müssen teilerfremd zu 15 sein",
+                "Schritt 3: Ergebnis\n$a,b \\in \\{1,2,4,7,8,11,13,14\\} + 15\\mathbb{Z}$"
+            ]
+        },
+        {
+            "id": 34,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Fibonacci-Zahlen mit mehreren Parametern",
+            "description": "Zeigen Sie: $\\text{ggT}(F_n, F_m) = F_{\\text{ggT}(n,m)}$ für alle $n,m \\in \\mathbb{N}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Induktionsanfang\nFür $m=1$: $\\text{ggT}(F_n, F_1) = 1 = F_1$",
+                "Schritt 2: Induktionsschritt\n$\\text{ggT}(F_n, F_m) = \\text{ggT}(F_n, F_{m-n} \\cdot F_{n+1} + F_{m-n-1} \\cdot F_n)$",
+                "Schritt 3: Vereinfachung\n$= \\text{ggT}(F_n, F_{m-n})$",
+                "Schritt 4: Schlussfolgerung\n$= F_{\\text{ggT}(n,m)}$"
+            ]
         }
     ]
 } 

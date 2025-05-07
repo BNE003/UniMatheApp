@@ -69,6 +69,355 @@
                 "Schritt 3: Injektivität\n$\\ker(\\varphi) = \\{0\\}$\nDa $K$ ein Körper ist",
                 "Schritt 4: Schlussfolgerung\n$\\varphi$ ist ein injektiver Körperhomomorphismus"
             ]
+        },
+        {
+            "id": 6,
+            "topic": "Körper",
+            "title": "Einfache Körperaxiome",
+            "description": "Zeigen Sie, dass $\\mathbb{Q}[\\sqrt{3}] = \\{a + b\\sqrt{3} \\mid a,b \\in \\mathbb{Q}\\}$ mit der üblichen Addition und Multiplikation einen Körper bildet.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Ringeigenschaften\n$\\mathbb{Q}[\\sqrt{3}]$ ist ein Ring",
+                "Schritt 2: Kommutativität der Multiplikation\n$(a + b\\sqrt{3}) \\cdot (c + d\\sqrt{3}) = (c + d\\sqrt{3}) \\cdot (a + b\\sqrt{3})$\nDie Multiplikation ist kommutativ.",
+                "Schritt 3: Existenz der Inversen\nFür $a + b\\sqrt{3} \\neq 0$:\n$(a + b\\sqrt{3})^{-1} = \\frac{a - b\\sqrt{3}}{a^2 - 3b^2} \\in \\mathbb{Q}[\\sqrt{3}]$\nDer Nenner ist nie 0, da $\\sqrt{3}$ irrational ist.",
+                "Schritt 4: Schlussfolgerung\n$\\mathbb{Q}[\\sqrt{3}]$ erfüllt alle Körperaxiome und ist somit ein Körper."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Körper",
+            "title": "Endliche Körper",
+            "description": "Konstruieren Sie einen Körper mit 9 Elementen und geben Sie seine Additions- und Multiplikationstabelle an.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Konstruktion\n$\\mathbb{F}_9 = \\mathbb{Z}_3[X]/(X^2 + 1)$\nElemente: $\\{0,1,2,X,X+1,X+2,2X,2X+1,2X+2\\}$",
+                "Schritt 2: Additionstabelle\n$\\begin{array}{c|ccccccccc}\n+ & 0 & 1 & 2 & X & X+1 & X+2 & 2X & 2X+1 & 2X+2 \\\\\\hline\n0 & 0 & 1 & 2 & X & X+1 & X+2 & 2X & 2X+1 & 2X+2 \\\\\n1 & 1 & 2 & 0 & X+1 & X+2 & X & 2X+1 & 2X+2 & 2X \\\\\n2 & 2 & 0 & 1 & X+2 & X & X+1 & 2X+2 & 2X & 2X+1 \\\\\nX & X & X+1 & X+2 & 2X & 2X+1 & 2X+2 & 0 & 1 & 2 \\\\\nX+1 & X+1 & X+2 & X & 2X+1 & 2X+2 & 2X & 1 & 2 & 0 \\\\\nX+2 & X+2 & X & X+1 & 2X+2 & 2X & 2X+1 & 2 & 0 & 1 \\\\\n2X & 2X & 2X+1 & 2X+2 & 0 & 1 & 2 & X & X+1 & X+2 \\\\\n2X+1 & 2X+1 & 2X+2 & 2X & 1 & 2 & 0 & X+1 & X+2 & X \\\\\n2X+2 & 2X+2 & 2X & 2X+1 & 2 & 0 & 1 & X+2 & X & X+1\n\\end{array}$",
+                "Schritt 3: Multiplikationstabelle\n$\\begin{array}{c|ccccccccc}\n\\cdot & 0 & 1 & 2 & X & X+1 & X+2 & 2X & 2X+1 & 2X+2 \\\\\\hline\n0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\\\n1 & 0 & 1 & 2 & X & X+1 & X+2 & 2X & 2X+1 & 2X+2 \\\\\n2 & 0 & 2 & 1 & 2X & 2X+2 & 2X+1 & X & X+2 & X+1 \\\\\nX & 0 & X & 2X & 2 & X+2 & 2X+2 & 1 & X+1 & 2X+1 \\\\\nX+1 & 0 & X+1 & 2X+2 & X+2 & 2X & 1 & 2X+1 & 2 & X \\\\\nX+2 & 0 & X+2 & 2X+1 & 2X+2 & 1 & X & X+1 & 2X & 2 \\\\\n2X & 0 & 2X & X & 1 & 2X+1 & X+1 & 2 & 2X+2 & X+2 \\\\\n2X+1 & 0 & 2X+1 & X+2 & X+1 & 2 & 2X & 2X+2 & X & 1 \\\\\n2X+2 & 0 & 2X+2 & X+1 & 2X+1 & X & 2 & X+2 & 1 & 2X\n\\end{array}$",
+                "Schritt 4: Verifikation\n- $X^2 = 2$ (wegen $X^2 + 1 = 0$)\n- Jedes Element $\\neq 0$ hat ein Inverses\n- Die Distributivgesetze gelten"
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Körper",
+            "title": "Körpererweiterungen",
+            "description": "Zeigen Sie, dass $\\mathbb{Q}(\\sqrt{2})$ eine Körpererweiterung vom Grad 2 über $\\mathbb{Q}$ ist.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Basis der Erweiterung\n$\\{1,\\sqrt{2}\\}$ ist eine $\\mathbb{Q}$-Basis",
+                "Schritt 2: Linear Unabhängigkeit\nAngenommen $a + b\\sqrt{2} = 0$\nDann $a = b = 0$ wegen der Irrationalität von $\\sqrt{2}$",
+                "Schritt 3: Erzeugendensystem\nJedes Element lässt sich als $\\mathbb{Q}$-Linearkombination darstellen",
+                "Schritt 4: Grad der Erweiterung\n$[\\mathbb{Q}(\\sqrt{2}):\\mathbb{Q}] = 2$"
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Körper",
+            "title": "Algebraische Erweiterungen",
+            "description": "Zeigen Sie, dass $\\mathbb{Q}(\\sqrt{5})$ eine algebraische Erweiterung von $\\mathbb{Q}$ ist und bestimmen Sie das Minimalpolynom von $\\sqrt{5}$ über $\\mathbb{Q}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Minimalpolynom\n$f(X) = X^2 - 5$ ist das Minimalpolynom von $\\sqrt{5}$",
+                "Schritt 2: Irreduzibilität\n$f$ ist irreduzibel über $\\mathbb{Q}$",
+                "Schritt 3: Grad der Erweiterung\n$[\\mathbb{Q}(\\sqrt{5}):\\mathbb{Q}] = 2$",
+                "Schritt 4: Basis\n$\\{1,\\sqrt{5}\\}$ ist eine $\\mathbb{Q}$-Basis"
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Körper",
+            "title": "Charakteristik",
+            "description": "Bestimmen Sie die Charakteristik des Körpers $\\mathbb{Z}_5$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Definition\nDie Charakteristik ist die kleinste positive Zahl $n$ mit $n \\cdot 1 = 0$",
+                "Schritt 2: Berechnung\n$1 \\cdot 1 = 1$\n$2 \\cdot 1 = 2$\n$3 \\cdot 1 = 3$\n$4 \\cdot 1 = 4$\n$5 \\cdot 1 = 0$",
+                "Schritt 3: Schlussfolgerung\nDie Charakteristik von $\\mathbb{Z}_5$ ist 5"
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Körper",
+            "title": "Körperhomomorphismen",
+            "description": "Zeigen Sie, dass die Abbildung $\\varphi: \\mathbb{Q}(\\sqrt{2}) \\rightarrow \\mathbb{Q}(\\sqrt{2})$ mit $\\varphi(a + b\\sqrt{2}) = a - b\\sqrt{2}$ ein Körperhomomorphismus ist.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Additivität\n$\\varphi((a + b\\sqrt{2}) + (c + d\\sqrt{2})) = \\varphi((a+c) + (b+d)\\sqrt{2}) = (a+c) - (b+d)\\sqrt{2} = (a - b\\sqrt{2}) + (c - d\\sqrt{2}) = \\varphi(a + b\\sqrt{2}) + \\varphi(c + d\\sqrt{2})$",
+                "Schritt 2: Multiplikativität\n$\\varphi((a + b\\sqrt{2}) \\cdot (c + d\\sqrt{2})) = \\varphi((ac + 2bd) + (ad + bc)\\sqrt{2}) = (ac + 2bd) - (ad + bc)\\sqrt{2} = (a - b\\sqrt{2}) \\cdot (c - d\\sqrt{2}) = \\varphi(a + b\\sqrt{2}) \\cdot \\varphi(c + d\\sqrt{2})$",
+                "Schritt 3: Bijektivität\n$\\varphi$ ist bijektiv mit $\\varphi^{-1} = \\varphi$",
+                "Schritt 4: Schlussfolgerung\n$\\varphi$ ist ein Körperautomorphismus"
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Körper",
+            "title": "Endliche Körpererweiterungen",
+            "description": "Zeigen Sie, dass $\\mathbb{F}_4$ eine Körpererweiterung vom Grad 2 über $\\mathbb{F}_2$ ist.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Konstruktion\n$\\mathbb{F}_4 = \\mathbb{F}_2[X]/(X^2 + X + 1)$",
+                "Schritt 2: Basis\n$\\{1,X\\}$ ist eine $\\mathbb{F}_2$-Basis",
+                "Schritt 3: Linear Unabhängigkeit\n$\\{1,X\\}$ ist linear unabhängig über $\\mathbb{F}_2$",
+                "Schritt 4: Grad der Erweiterung\n$[\\mathbb{F}_4:\\mathbb{F}_2] = 2$"
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Körper",
+            "title": "Algebraische Erweiterungen",
+            "description": "Zeigen Sie, dass $\\mathbb{Q}(\\sqrt[4]{2})$ eine algebraische Erweiterung von $\\mathbb{Q}$ ist und bestimmen Sie das Minimalpolynom von $\\sqrt[4]{2}$ über $\\mathbb{Q}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Minimalpolynom\n$f(X) = X^4 - 2$ ist das Minimalpolynom von $\\sqrt[4]{2}$",
+                "Schritt 2: Irreduzibilität\nNach Eisenstein-Kriterium mit $p=2$ ist $f$ irreduzibel",
+                "Schritt 3: Grad der Erweiterung\n$[\\mathbb{Q}(\\sqrt[4]{2}):\\mathbb{Q}] = 4$",
+                "Schritt 4: Basis\n$\\{1,\\sqrt[4]{2},\\sqrt{2},\\sqrt[4]{8}\\}$ ist eine $\\mathbb{Q}$-Basis"
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Körper",
+            "title": "Körpererweiterungen",
+            "description": "Zeigen Sie, dass $\\mathbb{Q}(\\sqrt{2},\\sqrt{3},\\sqrt{5})$ eine Körpererweiterung vom Grad 8 über $\\mathbb{Q}$ ist.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Basis der Erweiterung\n$\\{1,\\sqrt{2},\\sqrt{3},\\sqrt{5},\\sqrt{6},\\sqrt{10},\\sqrt{15},\\sqrt{30}\\}$ ist eine $\\mathbb{Q}$-Basis",
+                "Schritt 2: Linear Unabhängigkeit\nDie Elemente sind linear unabhängig über $\\mathbb{Q}$",
+                "Schritt 3: Erzeugendensystem\nJedes Element lässt sich als $\\mathbb{Q}$-Linearkombination darstellen",
+                "Schritt 4: Grad der Erweiterung\n$[\\mathbb{Q}(\\sqrt{2},\\sqrt{3},\\sqrt{5}):\\mathbb{Q}] = 8$"
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Körper",
+            "title": "Endliche Körper",
+            "description": "Konstruieren Sie einen Körper mit 16 Elementen und geben Sie seine Additions- und Multiplikationstabelle an.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Konstruktion\n$\\mathbb{F}_{16} = \\mathbb{Z}_2[X]/(X^4 + X + 1)$\nElemente: $\\{0,1,X,X+1,X^2,X^2+1,X^2+X,X^2+X+1,X^3,X^3+1,X^3+X,X^3+X+1,X^3+X^2,X^3+X^2+1,X^3+X^2+X,X^3+X^2+X+1\\}$",
+                "Schritt 2: Additionstabelle\nDie Addition erfolgt komponentenweise modulo 2",
+                "Schritt 3: Multiplikationstabelle\nDie Multiplikation erfolgt modulo $X^4 + X + 1$",
+                "Schritt 4: Verifikation\n- Jedes Element $\\neq 0$ hat ein Inverses\n- Die Distributivgesetze gelten"
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Körper",
+            "title": "Körperhomomorphismen",
+            "description": "Bestimmen Sie alle Körperhomomorphismen von $\\mathbb{Q}(\\sqrt{3})$ nach $\\mathbb{Q}(\\sqrt{3})$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Identität\n$\\varphi_1(a + b\\sqrt{3}) = a + b\\sqrt{3}$",
+                "Schritt 2: Konjugation\n$\\varphi_2(a + b\\sqrt{3}) = a - b\\sqrt{3}$",
+                "Schritt 3: Verifikation\nBeide Abbildungen sind Körperhomomorphismen",
+                "Schritt 4: Schlussfolgerung\n$\\text{Aut}(\\mathbb{Q}(\\sqrt{3})) = \\{\\varphi_1,\\varphi_2\\} \\cong \\mathbb{Z}_2$"
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Körper",
+            "title": "Charakteristik und Frobenius",
+            "description": "Sei $K$ ein Körper der Charakteristik $p > 0$. Zeigen Sie, dass der Frobenius-Homomorphismus $\\varphi: K \\rightarrow K$ mit $\\varphi(x) = x^p$ ein Körperhomomorphismus ist.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Additivität\n$(x+y)^p = x^p + y^p$ in Charakteristik $p$\nBeweis durch Binomialkoeffizienten",
+                "Schritt 2: Multiplikativität\n$(xy)^p = x^p y^p$\nFolgt aus der Kommutativität",
+                "Schritt 3: Injektivität\n$\\ker(\\varphi) = \\{0\\}$\nDa $K$ ein Körper ist",
+                "Schritt 4: Schlussfolgerung\n$\\varphi$ ist ein injektiver Körperhomomorphismus"
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Körper",
+            "title": "Körpererweiterungen und Minimalpolynome",
+            "description": "Bestimmen Sie das Minimalpolynom von $\\sqrt{2} + \\sqrt{3}$ über $\\mathbb{Q}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Berechnung\n$(\\sqrt{2} + \\sqrt{3})^2 = 5 + 2\\sqrt{6}$\n$(\\sqrt{2} + \\sqrt{3})^4 = 49 + 20\\sqrt{6}$",
+                "Schritt 2: Minimalpolynom\n$f(X) = X^4 - 10X^2 + 1$",
+                "Schritt 3: Irreduzibilität\n$f$ ist irreduzibel über $\\mathbb{Q}$",
+                "Schritt 4: Schlussfolgerung\n$f$ ist das Minimalpolynom von $\\sqrt{2} + \\sqrt{3}$ über $\\mathbb{Q}$"
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Körper",
+            "title": "Komplexe Körpererweiterungen",
+            "description": "Zeigen Sie, dass $\\mathbb{Q}(\\sqrt[3]{2},\\omega)$ eine Körpererweiterung vom Grad 6 über $\\mathbb{Q}$ ist, wobei $\\omega$ eine primitive dritte Einheitswurzel ist.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Minimalpolynome\n$\\sqrt[3]{2}$ hat Minimalpolynom $X^3 - 2$\n$\\omega$ hat Minimalpolynom $X^2 + X + 1$",
+                "Schritt 2: Grad der Erweiterung\n$[\\mathbb{Q}(\\sqrt[3]{2}):\\mathbb{Q}] = 3$\n$[\\mathbb{Q}(\\omega):\\mathbb{Q}] = 2$",
+                "Schritt 3: Basis\n$\\{1,\\sqrt[3]{2},\\sqrt[3]{4},\\omega,\\omega\\sqrt[3]{2},\\omega\\sqrt[3]{4}\\}$ ist eine $\\mathbb{Q}$-Basis",
+                "Schritt 4: Schlussfolgerung\n$[\\mathbb{Q}(\\sqrt[3]{2},\\omega):\\mathbb{Q}] = 6$"
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Körper",
+            "title": "Komplexe algebraische Erweiterungen",
+            "description": "Zeigen Sie, dass $\\mathbb{Q}(\\sqrt[5]{2})$ eine algebraische Erweiterung von $\\mathbb{Q}$ ist und bestimmen Sie das Minimalpolynom von $\\sqrt[5]{2}$ über $\\mathbb{Q}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Minimalpolynom\n$f(X) = X^5 - 2$ ist das Minimalpolynom von $\\sqrt[5]{2}$",
+                "Schritt 2: Irreduzibilität\nNach Eisenstein-Kriterium mit $p=2$ ist $f$ irreduzibel",
+                "Schritt 3: Grad der Erweiterung\n$[\\mathbb{Q}(\\sqrt[5]{2}):\\mathbb{Q}] = 5$",
+                "Schritt 4: Basis\n$\\{1,\\sqrt[5]{2},\\sqrt[5]{4},\\sqrt[5]{8},\\sqrt[5]{16}\\}$ ist eine $\\mathbb{Q}$-Basis"
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Körper",
+            "title": "Komplexe endliche Körper",
+            "description": "Konstruieren Sie einen Körper mit 27 Elementen und geben Sie seine Additions- und Multiplikationstabelle an.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Konstruktion\n$\\mathbb{F}_{27} = \\mathbb{Z}_3[X]/(X^3 + 2X + 1)$\nElemente: $\\{a + bX + cX^2 \\mid a,b,c \\in \\mathbb{Z}_3\\}$",
+                "Schritt 2: Additionstabelle\nDie Addition erfolgt komponentenweise modulo 3",
+                "Schritt 3: Multiplikationstabelle\nDie Multiplikation erfolgt modulo $X^3 + 2X + 1$",
+                "Schritt 4: Verifikation\n- Jedes Element $\\neq 0$ hat ein Inverses\n- Die Distributivgesetze gelten"
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Körper",
+            "title": "Komplexe Körperhomomorphismen",
+            "description": "Bestimmen Sie alle Körperhomomorphismen von $\\mathbb{Q}(\\sqrt[3]{2})$ nach $\\mathbb{C}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Minimalpolynom\n$X^3 - 2$ ist das Minimalpolynom von $\\sqrt[3]{2}$",
+                "Schritt 2: Nullstellen\nDie Nullstellen sind $\\sqrt[3]{2}, \\omega\\sqrt[3]{2}, \\omega^2\\sqrt[3]{2}$",
+                "Schritt 3: Homomorphismen\n$\\varphi_1(\\sqrt[3]{2}) = \\sqrt[3]{2}$\n$\\varphi_2(\\sqrt[3]{2}) = \\omega\\sqrt[3]{2}$\n$\\varphi_3(\\sqrt[3]{2}) = \\omega^2\\sqrt[3]{2}$",
+                "Schritt 4: Schlussfolgerung\nEs gibt genau drei Körperhomomorphismen"
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Körper",
+            "title": "Komplexe Charakteristik und Frobenius",
+            "description": "Sei $K$ ein Körper der Charakteristik $p > 0$. Zeigen Sie, dass der Frobenius-Homomorphismus $\\varphi: K \\rightarrow K$ mit $\\varphi(x) = x^p$ ein Körperautomorphismus ist, falls $K$ endlich ist.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Homomorphismus\n$\\varphi$ ist ein Körperhomomorphismus",
+                "Schritt 2: Injektivität\n$\\ker(\\varphi) = \\{0\\}$\nDa $K$ ein Körper ist",
+                "Schritt 3: Surjektivität\n$K$ ist endlich\n$\\varphi$ ist injektiv\nAlso ist $\\varphi$ surjektiv",
+                "Schritt 4: Schlussfolgerung\n$\\varphi$ ist ein Körperautomorphismus"
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Körper",
+            "title": "Komplexe Körpererweiterungen und Minimalpolynome",
+            "description": "Bestimmen Sie das Minimalpolynom von $\\sqrt[3]{2} + \\sqrt[3]{4}$ über $\\mathbb{Q}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Berechnung\n$(\\sqrt[3]{2} + \\sqrt[3]{4})^3 = 6 + 6(\\sqrt[3]{2} + \\sqrt[3]{4})$\n$(\\sqrt[3]{2} + \\sqrt[3]{4})^3 - 6(\\sqrt[3]{2} + \\sqrt[3]{4}) - 6 = 0$",
+                "Schritt 2: Minimalpolynom\n$f(X) = X^3 - 6X - 6$",
+                "Schritt 3: Irreduzibilität\n$f$ ist irreduzibel über $\\mathbb{Q}$",
+                "Schritt 4: Schlussfolgerung\n$f$ ist das Minimalpolynom von $\\sqrt[3]{2} + \\sqrt[3]{4}$ über $\\mathbb{Q}$"
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Körper",
+            "title": "Komplexe Körpererweiterungen und Galois-Gruppen",
+            "description": "Bestimmen Sie die Galois-Gruppe von $\\mathbb{Q}(\\sqrt{2},\\sqrt{3})$ über $\\mathbb{Q}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Automorphismen\n$\\sigma(\\sqrt{2}) = \\pm\\sqrt{2}$\n$\\sigma(\\sqrt{3}) = \\pm\\sqrt{3}$",
+                "Schritt 2: Galois-Gruppe\n$\\text{Gal}(\\mathbb{Q}(\\sqrt{2},\\sqrt{3})/\\mathbb{Q}) \\cong \\mathbb{Z}_2 \\times \\mathbb{Z}_2$",
+                "Schritt 3: Verifikation\nDie Automorphismen sind:\n$\\sigma_1: \\sqrt{2} \\mapsto \\sqrt{2}, \\sqrt{3} \\mapsto \\sqrt{3}$\n$\\sigma_2: \\sqrt{2} \\mapsto -\\sqrt{2}, \\sqrt{3} \\mapsto \\sqrt{3}$\n$\\sigma_3: \\sqrt{2} \\mapsto \\sqrt{2}, \\sqrt{3} \\mapsto -\\sqrt{3}$\n$\\sigma_4: \\sqrt{2} \\mapsto -\\sqrt{2}, \\sqrt{3} \\mapsto -\\sqrt{3}$",
+                "Schritt 4: Schlussfolgerung\nDie Galois-Gruppe ist isomorph zu $\\mathbb{Z}_2 \\times \\mathbb{Z}_2$"
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Körper",
+            "title": "Komplexe algebraische Erweiterungen und Minimalpolynome",
+            "description": "Bestimmen Sie das Minimalpolynom von $\\sqrt[4]{2} + \\sqrt[4]{8}$ über $\\mathbb{Q}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Berechnung\n$(\\sqrt[4]{2} + \\sqrt[4]{8})^2 = 2\\sqrt{2} + 2\\sqrt[4]{16}$\n$(\\sqrt[4]{2} + \\sqrt[4]{8})^4 = 16\\sqrt{2} + 16\\sqrt[4]{16}$",
+                "Schritt 2: Minimalpolynom\n$f(X) = X^4 - 4X^2 - 8$",
+                "Schritt 3: Irreduzibilität\n$f$ ist irreduzibel über $\\mathbb{Q}$",
+                "Schritt 4: Schlussfolgerung\n$f$ ist das Minimalpolynom von $\\sqrt[4]{2} + \\sqrt[4]{8}$ über $\\mathbb{Q}$"
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Körper",
+            "title": "Komplexe endliche Körper und Polynome",
+            "description": "Zeigen Sie, dass $X^4 + X + 1$ irreduzibel über $\\mathbb{Z}_2$ ist und konstruieren Sie einen Körper mit 16 Elementen.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Irreduzibilität\n$X^4 + X + 1$ hat keine Nullstellen in $\\mathbb{Z}_2$\n$X^4 + X + 1$ ist irreduzibel über $\\mathbb{Z}_2$",
+                "Schritt 2: Konstruktion\n$\\mathbb{F}_{16} = \\mathbb{Z}_2[X]/(X^4 + X + 1)$",
+                "Schritt 3: Elemente\n$\\{a + bX + cX^2 + dX^3 \\mid a,b,c,d \\in \\mathbb{Z}_2\\}$",
+                "Schritt 4: Verifikation\n$\\mathbb{F}_{16}$ ist ein Körper mit 16 Elementen"
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Körper",
+            "title": "Komplexe Körperhomomorphismen und Automorphismen",
+            "description": "Bestimmen Sie die Automorphismengruppe von $\\mathbb{F}_8$ über $\\mathbb{F}_2$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Konstruktion\n$\\mathbb{F}_8 = \\mathbb{F}_2[X]/(X^3 + X + 1)$",
+                "Schritt 2: Automorphismen\n$\\varphi: X \\mapsto X^2$\n$\\varphi^2: X \\mapsto X^4 = X$\n$\\varphi^3 = \\text{id}$",
+                "Schritt 3: Gruppenstruktur\n$\\text{Aut}(\\mathbb{F}_8/\\mathbb{F}_2) \\cong \\mathbb{Z}_3$",
+                "Schritt 4: Schlussfolgerung\nDie Automorphismengruppe ist zyklisch der Ordnung 3"
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Körper",
+            "title": "Komplexe Charakteristik und Frobenius",
+            "description": "Sei $K$ ein Körper der Charakteristik $p > 0$. Zeigen Sie, dass der Frobenius-Homomorphismus $\\varphi: K \\rightarrow K$ mit $\\varphi(x) = x^p$ ein Körperautomorphismus ist, falls $K$ algebraisch abgeschlossen ist.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Homomorphismus\n$\\varphi$ ist ein Körperhomomorphismus",
+                "Schritt 2: Injektivität\n$\\ker(\\varphi) = \\{0\\}$\nDa $K$ ein Körper ist",
+                "Schritt 3: Surjektivität\n$K$ ist algebraisch abgeschlossen\n$\\varphi$ ist injektiv\nAlso ist $\\varphi$ surjektiv",
+                "Schritt 4: Schlussfolgerung\n$\\varphi$ ist ein Körperautomorphismus"
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Körper",
+            "title": "Komplexe Körpererweiterungen und Galois-Gruppen",
+            "description": "Bestimmen Sie die Galois-Gruppe von $\\mathbb{Q}(\\sqrt[3]{2},\\omega)$ über $\\mathbb{Q}$, wobei $\\omega$ eine primitive dritte Einheitswurzel ist.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Automorphismen\n$\\sigma(\\sqrt[3]{2}) \\in \\{\\sqrt[3]{2},\\omega\\sqrt[3]{2},\\omega^2\\sqrt[3]{2}\\}$\n$\\sigma(\\omega) \\in \\{\\omega,\\omega^2\\}$",
+                "Schritt 2: Galois-Gruppe\n$\\text{Gal}(\\mathbb{Q}(\\sqrt[3]{2},\\omega)/\\mathbb{Q}) \\cong S_3$",
+                "Schritt 3: Verifikation\nDie Automorphismen sind:\n$\\sigma_1: \\sqrt[3]{2} \\mapsto \\sqrt[3]{2}, \\omega \\mapsto \\omega$\n$\\sigma_2: \\sqrt[3]{2} \\mapsto \\omega\\sqrt[3]{2}, \\omega \\mapsto \\omega$\n$\\sigma_3: \\sqrt[3]{2} \\mapsto \\omega^2\\sqrt[3]{2}, \\omega \\mapsto \\omega$\n$\\sigma_4: \\sqrt[3]{2} \\mapsto \\sqrt[3]{2}, \\omega \\mapsto \\omega^2$\n$\\sigma_5: \\sqrt[3]{2} \\mapsto \\omega\\sqrt[3]{2}, \\omega \\mapsto \\omega^2$\n$\\sigma_6: \\sqrt[3]{2} \\mapsto \\omega^2\\sqrt[3]{2}, \\omega \\mapsto \\omega^2$",
+                "Schritt 4: Schlussfolgerung\nDie Galois-Gruppe ist isomorph zu $S_3$"
+            ]
         }
     ]
 } 

@@ -3,15 +3,17 @@
         {
             "id": 1,
             "topic": "Ringe",
-            "title": "Ringaxiome überprüfen",
-            "description": "Überprüfen Sie, ob die Menge $\\mathbb{Z}[\\sqrt{2}] = \\{a + b\\sqrt{2} \\mid a,b \\in \\mathbb{Z}\\}$ mit der üblichen Addition und Multiplikation einen Ring bildet.",
+            "title": "Ringaxiome für algebraische Zahlen überprüfen",
+            "description": "Überprüfen Sie, ob die Menge $\\mathbb{Z}[\\sqrt{5}] = \\{a + b\\sqrt{5} \\mid a,b \\in \\mathbb{Z}\\}$ mit der üblichen Addition und Multiplikation einen Ring bildet. Zeigen Sie, dass es sich um einen kommutativen Ring mit Einselement handelt, und untersuchen Sie, ob jedes Element ein multiplikatives Inverses hat.",
             "difficulty": "easy",
             "points": 5,
             "solutionSteps": [
-                "Schritt 1: Überprüfung der Abgeschlossenheit\n$(a + b\\sqrt{2}) + (c + d\\sqrt{2}) = (a+c) + (b+d)\\sqrt{2} \\in \\mathbb{Z}[\\sqrt{2}]$\n$(a + b\\sqrt{2}) \\cdot (c + d\\sqrt{2}) = (ac + 2bd) + (ad + bc)\\sqrt{2} \\in \\mathbb{Z}[\\sqrt{2}]$\nDie Menge ist abgeschlossen unter Addition und Multiplikation.",
-                "Schritt 2: Überprüfung der Ringaxiome\n$(\\mathbb{Z}[\\sqrt{2}], +)$ ist eine abelsche Gruppe:\n- Assoziativität und Kommutativität folgen aus $\\mathbb{R}$\n- Neutrales Element ist $0 = 0 + 0\\sqrt{2}$\n- Inverses zu $a + b\\sqrt{2}$ ist $-a - b\\sqrt{2}$",
-                "Schritt 3: Distributivgesetze\n$(a + b\\sqrt{2}) \\cdot ((c + d\\sqrt{2}) + (e + f\\sqrt{2})) = (a + b\\sqrt{2}) \\cdot (c + d\\sqrt{2}) + (a + b\\sqrt{2}) \\cdot (e + f\\sqrt{2})$\nDie Distributivgesetze folgen aus $\\mathbb{R}$",
-                "Schritt 4: Schlussfolgerung\n$\\mathbb{Z}[\\sqrt{2}]$ erfüllt alle Ringaxiome und ist somit ein Ring."
+                "Schritt 1: Definition eines Rings\nEin Ring $(R, +, \\cdot)$ ist eine Menge $R$ mit zwei Verknüpfungen $+$ und $\\cdot$, bei der $(R, +)$ eine abelsche Gruppe ist, $(R, \\cdot)$ ein Monoid ist und die Distributivgesetze gelten. Wir prüfen diese Eigenschaften der Reihe nach für $\\mathbb{Z}[\\sqrt{5}]$.",
+                "Schritt 2: Überprüfung der abelschen Gruppe $(\\mathbb{Z}[\\sqrt{5}], +)$\n(a) Abgeschlossenheit: Für $a + b\\sqrt{5}, c + d\\sqrt{5} \\in \\mathbb{Z}[\\sqrt{5}]$ gilt:\n$(a + b\\sqrt{5}) + (c + d\\sqrt{5}) = (a+c) + (b+d)\\sqrt{5} \\in \\mathbb{Z}[\\sqrt{5}]$\nDa $a+c, b+d \\in \\mathbb{Z}$ sind, liegt die Summe wieder in $\\mathbb{Z}[\\sqrt{5}]$.\n\n(b) Assoziativität: Für beliebige $a + b\\sqrt{5}, c + d\\sqrt{5}, e + f\\sqrt{5} \\in \\mathbb{Z}[\\sqrt{5}]$ gilt:\n$((a + b\\sqrt{5}) + (c + d\\sqrt{5})) + (e + f\\sqrt{5}) = ((a+c) + (b+d)\\sqrt{5}) + (e + f\\sqrt{5}) = (a+c+e) + (b+d+f)\\sqrt{5}$\n$(a + b\\sqrt{5}) + ((c + d\\sqrt{5}) + (e + f\\sqrt{5})) = (a + b\\sqrt{5}) + ((c+e) + (d+f)\\sqrt{5}) = (a+c+e) + (b+d+f)\\sqrt{5}$\nDa die Addition in $\\mathbb{Z}$ assoziativ ist, gilt die Assoziativität auch in $\\mathbb{Z}[\\sqrt{5}]$.\n\n(c) Neutrales Element: $0 + 0\\sqrt{5} = 0$ ist das neutrale Element der Addition, denn für alle $a + b\\sqrt{5} \\in \\mathbb{Z}[\\sqrt{5}]$ gilt:\n$(a + b\\sqrt{5}) + 0 = (a + b\\sqrt{5}) + (0 + 0\\sqrt{5}) = (a+0) + (b+0)\\sqrt{5} = a + b\\sqrt{5}$\n\n(d) Inverse Elemente: Für jedes $a + b\\sqrt{5} \\in \\mathbb{Z}[\\sqrt{5}]$ ist $-a - b\\sqrt{5} \\in \\mathbb{Z}[\\sqrt{5}]$ das additive Inverse, denn:\n$(a + b\\sqrt{5}) + (-a - b\\sqrt{5}) = (a-a) + (b-b)\\sqrt{5} = 0 + 0\\sqrt{5} = 0$\n\n(e) Kommutativität: Für beliebige $a + b\\sqrt{5}, c + d\\sqrt{5} \\in \\mathbb{Z}[\\sqrt{5}]$ gilt:\n$(a + b\\sqrt{5}) + (c + d\\sqrt{5}) = (a+c) + (b+d)\\sqrt{5} = (c+a) + (d+b)\\sqrt{5} = (c + d\\sqrt{5}) + (a + b\\sqrt{5})$\nDa die Addition in $\\mathbb{Z}$ kommutativ ist, gilt die Kommutativität auch in $\\mathbb{Z}[\\sqrt{5}]$.",
+                "Schritt 3: Überprüfung der Multiplikation\n(a) Abgeschlossenheit: Für $a + b\\sqrt{5}, c + d\\sqrt{5} \\in \\mathbb{Z}[\\sqrt{5}]$ gilt:\n$(a + b\\sqrt{5}) \\cdot (c + d\\sqrt{5}) = ac + ad\\sqrt{5} + bc\\sqrt{5} + bd(\\sqrt{5})^2 = ac + ad\\sqrt{5} + bc\\sqrt{5} + 5bd = (ac + 5bd) + (ad + bc)\\sqrt{5} \\in \\mathbb{Z}[\\sqrt{5}]$\nDa $ac + 5bd, ad + bc \\in \\mathbb{Z}$ sind, liegt das Produkt wieder in $\\mathbb{Z}[\\sqrt{5}]$.\n\n(b) Assoziativität: Die Multiplikation in $\\mathbb{Z}[\\sqrt{5}]$ erbt die Assoziativität von der Multiplikation in $\\mathbb{R}$, da $\\mathbb{Z}[\\sqrt{5}] \\subset \\mathbb{R}$ ist.\n\n(c) Neutrales Element: $1 + 0\\sqrt{5} = 1$ ist das neutrale Element der Multiplikation, denn für alle $a + b\\sqrt{5} \\in \\mathbb{Z}[\\sqrt{5}]$ gilt:\n$(a + b\\sqrt{5}) \\cdot 1 = (a + b\\sqrt{5}) \\cdot (1 + 0\\sqrt{5}) = (a \\cdot 1 + a \\cdot 0\\sqrt{5} + b\\sqrt{5} \\cdot 1 + b\\sqrt{5} \\cdot 0\\sqrt{5}) = a + b\\sqrt{5}$\n\n(d) Kommutativität: Für beliebige $a + b\\sqrt{5}, c + d\\sqrt{5} \\in \\mathbb{Z}[\\sqrt{5}]$ gilt:\n$(a + b\\sqrt{5}) \\cdot (c + d\\sqrt{5}) = (ac + 5bd) + (ad + bc)\\sqrt{5} = (ca + 5db) + (cb + da)\\sqrt{5} = (c + d\\sqrt{5}) \\cdot (a + b\\sqrt{5})$\nDa die Multiplikation in $\\mathbb{Z}$ kommutativ ist, gilt die Kommutativität auch in $\\mathbb{Z}[\\sqrt{5}]$.",
+                "Schritt 4: Überprüfung der Distributivgesetze\nFür beliebige $a + b\\sqrt{5}, c + d\\sqrt{5}, e + f\\sqrt{5} \\in \\mathbb{Z}[\\sqrt{5}]$ gilt:\n(a) Linkes Distributivgesetz:\n$(a + b\\sqrt{5}) \\cdot ((c + d\\sqrt{5}) + (e + f\\sqrt{5})) = (a + b\\sqrt{5}) \\cdot ((c+e) + (d+f)\\sqrt{5}) = (a(c+e) + 5b(d+f)) + (a(d+f) + b(c+e))\\sqrt{5}$\n$(a + b\\sqrt{5}) \\cdot (c + d\\sqrt{5}) + (a + b\\sqrt{5}) \\cdot (e + f\\sqrt{5}) = ((ac + 5bd) + (ad + bc)\\sqrt{5}) + ((ae + 5bf) + (af + be)\\sqrt{5}) = (ac + 5bd + ae + 5bf) + (ad + bc + af + be)\\sqrt{5} = (a(c+e) + 5b(d+f)) + (a(d+f) + b(c+e))\\sqrt{5}$\n\n(b) Rechtes Distributivgesetz: Analog lässt sich auch das rechte Distributivgesetz zeigen.",
+                "Schritt 5: Existenz inverser Elemente\nWir untersuchen, ob jedes Element ein multiplikatives Inverses in $\\mathbb{Z}[\\sqrt{5}]$ hat.\nFür $a + b\\sqrt{5} \\neq 0$ benötigen wir ein Element $c + d\\sqrt{5} \\in \\mathbb{Z}[\\sqrt{5}]$ mit:\n$(a + b\\sqrt{5}) \\cdot (c + d\\sqrt{5}) = 1$\n$(ac + 5bd) + (ad + bc)\\sqrt{5} = 1 + 0\\sqrt{5}$\n\nDies ist äquivalent zu:\n$ac + 5bd = 1$\n$ad + bc = 0$\n\nAus der zweiten Gleichung folgt $d = -\\frac{bc}{a}$ für $a \\neq 0$. Einsetzen in die erste Gleichung ergibt:\n$ac + 5b(-\\frac{bc}{a}) = 1$\n$ac - 5\\frac{b^2c}{a} = 1$\n$\\frac{a^2c - 5b^2c}{a} = 1$\n$c = \\frac{a}{a^2 - 5b^2}$\n\nDaraus folgt $d = -\\frac{bc}{a} = -\\frac{b}{a^2 - 5b^2}$\n\nUm ein Inverses in $\\mathbb{Z}[\\sqrt{5}]$ zu haben, müssten $c,d \\in \\mathbb{Z}$ sein, also $a^2 - 5b^2 = \\pm 1$.\nBeispielsweise hat $2 + 1 \\cdot \\sqrt{5}$ kein Inverses in $\\mathbb{Z}[\\sqrt{5}]$, da $2^2 - 5 \\cdot 1^2 = 4 - 5 = -1$, aber $c = -\\frac{2}{-1} = 2$ und $d = -\\frac{1}{-1} = 1$, also $(2 + \\sqrt{5})^{-1} = 2 + \\sqrt{5}$, was nicht in $\\mathbb{Z}$ liegt.\n\nAllgemein müsste $a^2 - 5b^2 | a$ und $a^2 - 5b^2 | b$ gelten, was nur für bestimmte Werte von $a$ und $b$ erfüllt ist, oder wenn $a^2 - 5b^2 = \\pm 1$ (Einheiten).",
+                "Schritt 6: Schlussfolgerung\n$\\mathbb{Z}[\\sqrt{5}]$ ist ein kommutativer Ring mit Einselement, aber kein Körper, da nicht jedes Element ein multiplikatives Inverses besitzt. Es handelt sich um einen Integritätsring (keine Nullteiler)."
             ]
         },
         {
@@ -68,6 +70,349 @@
                 "Schritt 2: Konstruktion von $\\gamma$\n$\\frac{\\alpha}{\\beta} = x + yi$ mit $x,y \\in \\mathbb{Q}$\nWähle $m,n \\in \\mathbb{Z}$ mit $|x-m| \\leq \\frac{1}{2}$ und $|y-n| \\leq \\frac{1}{2}$\nSetze $\\gamma = m + ni$",
                 "Schritt 3: Abschätzung des Rests\n$\\rho = \\alpha - \\beta \\gamma$\n$N(\\rho) = N(\\beta) \\cdot N(\\frac{\\alpha}{\\beta} - \\gamma) < N(\\beta)$",
                 "Schritt 4: Schlussfolgerung\n$\\mathbb{Z}[i]$ ist ein euklidischer Ring"
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Ringe",
+            "title": "Einfache Ringaxiome",
+            "description": "Überprüfen Sie, ob die Menge $\\mathbb{Z}[\\sqrt{3}] = \\{a + b\\sqrt{3} \\mid a,b \\in \\mathbb{Z}\\}$ mit der üblichen Addition und Multiplikation einen Ring bildet.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überprüfung der Abgeschlossenheit\n$(a + b\\sqrt{3}) + (c + d\\sqrt{3}) = (a+c) + (b+d)\\sqrt{3} \\in \\mathbb{Z}[\\sqrt{3}]$\n$(a + b\\sqrt{3}) \\cdot (c + d\\sqrt{3}) = (ac + 3bd) + (ad + bc)\\sqrt{3} \\in \\mathbb{Z}[\\sqrt{3}]$\nDie Menge ist abgeschlossen unter Addition und Multiplikation.",
+                "Schritt 2: Überprüfung der Ringaxiome\n$(\\mathbb{Z}[\\sqrt{3}], +)$ ist eine abelsche Gruppe:\n- Assoziativität und Kommutativität folgen aus $\\mathbb{R}$\n- Neutrales Element ist $0 = 0 + 0\\sqrt{3}$\n- Inverses zu $a + b\\sqrt{3}$ ist $-a - b\\sqrt{3}$",
+                "Schritt 3: Distributivgesetze\n$(a + b\\sqrt{3}) \\cdot ((c + d\\sqrt{3}) + (e + f\\sqrt{3})) = (a + b\\sqrt{3}) \\cdot (c + d\\sqrt{3}) + (a + b\\sqrt{3}) \\cdot (e + f\\sqrt{3})$\nDie Distributivgesetze folgen aus $\\mathbb{R}$",
+                "Schritt 4: Schlussfolgerung\n$\\mathbb{Z}[\\sqrt{3}]$ erfüllt alle Ringaxiome und ist somit ein Ring."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Ringe",
+            "title": "Nullteiler und Einheiten",
+            "description": "Bestimmen Sie die Nullteiler und Einheiten im Ring $\\mathbb{Z}_8$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Elemente von $\\mathbb{Z}_8$\n$\\mathbb{Z}_8 = \\{0,1,2,3,4,5,6,7\\}$",
+                "Schritt 2: Bestimmung der Nullteiler\n$2 \\cdot 4 = 0$\n$4 \\cdot 2 = 0$\n$4 \\cdot 4 = 0$\n$4 \\cdot 6 = 0$\n$6 \\cdot 4 = 0$\nDie Nullteiler sind $2,4,6$",
+                "Schritt 3: Bestimmung der Einheiten\n$1 \\cdot 1 = 1$\n$3 \\cdot 3 = 1$\n$5 \\cdot 5 = 1$\n$7 \\cdot 7 = 1$\nDie Einheiten sind $1,3,5,7$"
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Ringe",
+            "title": "Ideale",
+            "description": "Bestimmen Sie alle Ideale im Ring $\\mathbb{Z}_6$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Elemente von $\\mathbb{Z}_6$\n$\\mathbb{Z}_6 = \\{0,1,2,3,4,5\\}$",
+                "Schritt 2: Hauptideale\n$(0) = \\{0\\}$\n$(1) = \\mathbb{Z}_6$\n$(2) = \\{0,2,4\\}$\n$(3) = \\{0,3\\}$\n$(4) = \\{0,2,4\\}$\n$(5) = \\mathbb{Z}_6$",
+                "Schritt 3: Zusammenfassung\nDie Ideale sind $\\{0\\}, \\{0,3\\}, \\{0,2,4\\}, \\mathbb{Z}_6$"
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Ringe",
+            "title": "Faktorringe",
+            "description": "Bestimmen Sie die Elemente des Faktorrings $\\mathbb{Z}_6/(3)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Ideal\n$(3) = \\{0,3\\}$",
+                "Schritt 2: Nebenklassen\n$0 + (3) = \\{0,3\\}$\n$1 + (3) = \\{1,4\\}$\n$2 + (3) = \\{2,5\\}$",
+                "Schritt 3: Struktur\n$\\mathbb{Z}_6/(3) \\cong \\mathbb{Z}_3$"
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Ringe",
+            "title": "Polynomringe",
+            "description": "Bestimmen Sie alle Polynome vom Grad 1 im Ring $\\mathbb{Z}_3[X]$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Polynome vom Grad 1\n$X$\n$X + 1$\n$X + 2$\n$2X$\n$2X + 1$\n$2X + 2$",
+                "Schritt 2: Verifikation\nAlle Polynome haben Grad 1\nKeine zwei Polynome sind gleich"
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Ringe",
+            "title": "Ringhomomorphismen",
+            "description": "Zeigen Sie, dass die Abbildung $\\varphi: \\mathbb{Z}_6 \\rightarrow \\mathbb{Z}_6$ mit $\\varphi(x) = 2x$ ein Ringhomomorphismus ist.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Additivität\n$\\varphi(x + y) = 2(x + y) = 2x + 2y = \\varphi(x) + \\varphi(y)$",
+                "Schritt 2: Multiplikativität\n$\\varphi(x \\cdot y) = 2(x \\cdot y) = (2x) \\cdot y = \\varphi(x) \\cdot y$",
+                "Schritt 3: Bild\n$\\text{im}(\\varphi) = \\{0,2,4\\}$",
+                "Schritt 4: Kern\n$\\ker(\\varphi) = \\{0,3\\}$"
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Ringe",
+            "title": "Integritätsbereiche",
+            "description": "Zeigen Sie, dass $\\mathbb{Z}_5$ ein Integritätsbereich ist.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Elemente von $\\mathbb{Z}_5$\n$\\mathbb{Z}_5 = \\{0,1,2,3,4\\}$",
+                "Schritt 2: Überprüfung der Nullteiler\n$1 \\cdot 1 = 1$\n$2 \\cdot 3 = 1$\n$4 \\cdot 4 = 1$\nEs gibt keine Nullteiler",
+                "Schritt 3: Schlussfolgerung\n$\\mathbb{Z}_5$ ist ein Integritätsbereich"
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Ringe",
+            "title": "Euklidische Ringe",
+            "description": "Zeigen Sie, dass $\\mathbb{Z}$ mit der euklidischen Norm $|\\cdot|$ ein euklidischer Ring ist.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Definition der Division mit Rest\nFür $a,b \\in \\mathbb{Z}$ mit $b \\neq 0$:\n$a = bq + r$ mit $|r| < |b|$",
+                "Schritt 2: Konstruktion von $q$\n$q = \\lfloor \\frac{a}{b} \\rfloor$",
+                "Schritt 3: Abschätzung des Rests\n$r = a - bq$\n$|r| = |a - bq| < |b|$",
+                "Schritt 4: Schlussfolgerung\n$\\mathbb{Z}$ ist ein euklidischer Ring"
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Ringe",
+            "title": "Hauptidealringe",
+            "description": "Zeigen Sie, dass $\\mathbb{Z}[i]$ ein Hauptidealring ist.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Euklidischer Ring\n$\\mathbb{Z}[i]$ ist ein euklidischer Ring mit der Norm $N(a+bi) = a^2 + b^2$",
+                "Schritt 2: Hauptidealring\nJeder euklidische Ring ist ein Hauptidealring",
+                "Schritt 3: Schlussfolgerung\n$\\mathbb{Z}[i]$ ist ein Hauptidealring"
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Ringe",
+            "title": "Faktorisierung",
+            "description": "Bestimmen Sie die Primfaktorzerlegung von $2$ in $\\mathbb{Z}[i]$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Norm\n$N(2) = 4$",
+                "Schritt 2: Faktoren\n$2 = (1+i)(1-i)$",
+                "Schritt 3: Irreduzibilität\n$N(1+i) = N(1-i) = 2$\n$1+i$ und $1-i$ sind irreduzibel",
+                "Schritt 4: Schlussfolgerung\n$2 = (1+i)(1-i)$ ist die Primfaktorzerlegung"
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Ringe",
+            "title": "Polynomfaktorisierung",
+            "description": "Faktorisieren Sie $X^4 + 1$ in $\\mathbb{Z}_2[X]$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Polynom\n$X^4 + 1 = (X^2 + 1)^2$",
+                "Schritt 2: Weitere Faktorisierung\n$X^2 + 1 = (X + 1)^2$",
+                "Schritt 3: Vollständige Faktorisierung\n$X^4 + 1 = (X + 1)^4$",
+                "Schritt 4: Verifikation\n$(X + 1)^4 = X^4 + 1$ in $\\mathbb{Z}_2[X]$"
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Ringe",
+            "title": "Ideale und Faktorringe",
+            "description": "Bestimmen Sie die Struktur des Faktorrings $\\mathbb{Z}[X]/(X^2 + 1)$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Ideal\n$(X^2 + 1)$ ist ein Hauptideal",
+                "Schritt 2: Faktorring\n$\\mathbb{Z}[X]/(X^2 + 1) \\cong \\mathbb{Z}[i]$",
+                "Schritt 3: Verifikation\nDie Abbildung $X \\mapsto i$ definiert einen Isomorphismus",
+                "Schritt 4: Schlussfolgerung\nDer Faktorring ist isomorph zu $\\mathbb{Z}[i]$"
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Ringe",
+            "title": "Ringhomomorphismen und Ideale",
+            "description": "Bestimmen Sie alle Ringhomomorphismen von $\\mathbb{Z}_6$ nach $\\mathbb{Z}_6$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Additive Homomorphismen\n$\\varphi(x) = kx$ mit $k \\in \\mathbb{Z}_6$",
+                "Schritt 2: Multiplikativität\n$\\varphi(xy) = kxy = (kx)(ky) = \\varphi(x)\\varphi(y)$\n$k^2 = k$",
+                "Schritt 3: Lösungen\n$k = 0,1,3,4$",
+                "Schritt 4: Homomorphismen\n$\\varphi_0(x) = 0$\n$\\varphi_1(x) = x$\n$\\varphi_3(x) = 3x$\n$\\varphi_4(x) = 4x$"
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Ringe",
+            "title": "Komplexe Ringhomomorphismen",
+            "description": "Bestimmen Sie alle Ringhomomorphismen von $\\mathbb{Z}[i]$ nach $\\mathbb{Z}_5$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Additive Homomorphismen\n$\\varphi(a+bi) = \\varphi(a) + \\varphi(b)\\varphi(i)$",
+                "Schritt 2: Multiplikativität\n$\\varphi(i)^2 = \\varphi(-1) = -1$ in $\\mathbb{Z}_5$\n$\\varphi(i)^2 = 4$",
+                "Schritt 3: Lösungen\n$\\varphi(i) = 2$ oder $\\varphi(i) = 3$",
+                "Schritt 4: Homomorphismen\n$\\varphi_1(a+bi) = a + 2b$\n$\\varphi_2(a+bi) = a + 3b$"
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Ringe",
+            "title": "Komplexe Ideale",
+            "description": "Zeigen Sie, dass das Ideal $(2,1+\\sqrt{-5})$ in $\\mathbb{Z}[\\sqrt{-5}]$ kein Hauptideal ist.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Annahme\nAngenommen $(2,1+\\sqrt{-5}) = (a+b\\sqrt{-5})$",
+                "Schritt 2: Norm\n$N(2) = 4$\n$N(1+\\sqrt{-5}) = 6$",
+                "Schritt 3: Widerspruch\n$a+b\\sqrt{-5}$ müsste sowohl 2 als auch $1+\\sqrt{-5}$ teilen\nDies ist unmöglich",
+                "Schritt 4: Schlussfolgerung\n$(2,1+\\sqrt{-5})$ ist kein Hauptideal"
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Ringe",
+            "title": "Komplexe Faktorisierung",
+            "description": "Zeigen Sie, dass $\\mathbb{Z}[\\sqrt{-5}]$ keine eindeutige Primfaktorzerlegung besitzt.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Faktorisierung\n$6 = 2 \\cdot 3 = (1+\\sqrt{-5})(1-\\sqrt{-5})$",
+                "Schritt 2: Irreduzibilität\n$2,3,1+\\sqrt{-5},1-\\sqrt{-5}$ sind irreduzibel",
+                "Schritt 3: Nicht-Assoziiertheit\nDie Faktoren sind nicht assoziiert",
+                "Schritt 4: Schlussfolgerung\n$\\mathbb{Z}[\\sqrt{-5}]$ hat keine eindeutige Primfaktorzerlegung"
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Ringe",
+            "title": "Komplexe Polynomringe",
+            "description": "Zeigen Sie, dass $\\mathbb{Z}_2[X]/(X^3 + X + 1)$ ein Körper ist.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Irreduzibilität\n$X^3 + X + 1$ ist irreduzibel in $\\mathbb{Z}_2[X]$",
+                "Schritt 2: Ideal\n$(X^3 + X + 1)$ ist ein maximales Ideal",
+                "Schritt 3: Faktorring\n$\\mathbb{Z}_2[X]/(X^3 + X + 1)$ ist ein Körper",
+                "Schritt 4: Ordnung\nDer Körper hat $2^3 = 8$ Elemente"
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Ringe",
+            "title": "Komplexe Ringhomomorphismen und Ideale",
+            "description": "Bestimmen Sie alle maximalen Ideale in $\\mathbb{Z}[X]$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Primideale\n$(p)$ mit $p$ Primzahl\n$(f)$ mit $f$ irreduzibel in $\\mathbb{Q}[X]$",
+                "Schritt 2: Maximale Ideale\n$(p)$ mit $p$ Primzahl\n$(f)$ mit $f$ irreduzibel in $\\mathbb{Q}[X]$ und primitiv",
+                "Schritt 3: Verifikation\n$(p)$ ist maximal in $\\mathbb{Z}[X]/(p) \\cong \\mathbb{Z}_p[X]$\n$(f)$ ist maximal in $\\mathbb{Z}[X]/(f) \\cong \\mathbb{Z}[\\alpha]$",
+                "Schritt 4: Schlussfolgerung\nDie maximalen Ideale sind $(p)$ und $(f)$ wie oben beschrieben"
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Ringe",
+            "title": "Komplexe Faktorringe",
+            "description": "Bestimmen Sie die Struktur des Faktorrings $\\mathbb{Z}[X]/(X^2 + 1, 2)$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Ideal\n$(X^2 + 1, 2)$ ist ein Ideal",
+                "Schritt 2: Faktorring\n$\\mathbb{Z}[X]/(X^2 + 1, 2) \\cong \\mathbb{Z}_2[X]/(X^2 + 1)$",
+                "Schritt 3: Weitere Faktorisierung\n$X^2 + 1 = (X + 1)^2$ in $\\mathbb{Z}_2[X]$",
+                "Schritt 4: Schlussfolgerung\n$\\mathbb{Z}[X]/(X^2 + 1, 2) \\cong \\mathbb{Z}_2[X]/(X + 1)^2$"
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Ringe",
+            "title": "Komplexe euklidische Ringe",
+            "description": "Zeigen Sie, dass $\\mathbb{Z}[\\sqrt{2}]$ ein euklidischer Ring ist.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Definition der Norm\n$N(a+b\\sqrt{2}) = |a^2 - 2b^2|$",
+                "Schritt 2: Division mit Rest\nFür $\\alpha, \\beta \\in \\mathbb{Z}[\\sqrt{2}]$ mit $\\beta \\neq 0$:\n$\\alpha = \\beta \\gamma + \\rho$ mit $N(\\rho) < N(\\beta)$",
+                "Schritt 3: Konstruktion von $\\gamma$\n$\\frac{\\alpha}{\\beta} = x + y\\sqrt{2}$ mit $x,y \\in \\mathbb{Q}$\nWähle $m,n \\in \\mathbb{Z}$ mit $|x-m| \\leq \\frac{1}{2}$ und $|y-n| \\leq \\frac{1}{2}$\nSetze $\\gamma = m + n\\sqrt{2}$",
+                "Schritt 4: Abschätzung des Rests\n$\\rho = \\alpha - \\beta \\gamma$\n$N(\\rho) = N(\\beta) \\cdot N(\\frac{\\alpha}{\\beta} - \\gamma) < N(\\beta)$"
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Ringe",
+            "title": "Komplexe Hauptidealringe",
+            "description": "Zeigen Sie, dass $\\mathbb{Z}[\\sqrt{2}]$ ein Hauptidealring ist.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Euklidischer Ring\n$\\mathbb{Z}[\\sqrt{2}]$ ist ein euklidischer Ring",
+                "Schritt 2: Hauptidealring\nJeder euklidische Ring ist ein Hauptidealring",
+                "Schritt 3: Schlussfolgerung\n$\\mathbb{Z}[\\sqrt{2}]$ ist ein Hauptidealring",
+                "Schritt 4: Anwendung\nJedes Ideal in $\\mathbb{Z}[\\sqrt{2}]$ ist ein Hauptideal"
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Ringe",
+            "title": "Komplexe Faktorisierung in Hauptidealringen",
+            "description": "Bestimmen Sie die Primfaktorzerlegung von $7$ in $\\mathbb{Z}[\\sqrt{2}]$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Norm\n$N(7) = 49$",
+                "Schritt 2: Faktoren\n$7 = (3 + \\sqrt{2})(3 - \\sqrt{2})$",
+                "Schritt 3: Irreduzibilität\n$N(3 + \\sqrt{2}) = N(3 - \\sqrt{2}) = 7$\n$3 + \\sqrt{2}$ und $3 - \\sqrt{2}$ sind irreduzibel",
+                "Schritt 4: Schlussfolgerung\n$7 = (3 + \\sqrt{2})(3 - \\sqrt{2})$ ist die Primfaktorzerlegung"
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Ringe",
+            "title": "Komplexe Polynomringe und Körper",
+            "description": "Zeigen Sie, dass $\\mathbb{Z}_3[X]/(X^2 + 1)$ ein Körper ist und bestimmen Sie seine Ordnung.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Irreduzibilität\n$X^2 + 1$ ist irreduzibel in $\\mathbb{Z}_3[X]$",
+                "Schritt 2: Ideal\n$(X^2 + 1)$ ist ein maximales Ideal",
+                "Schritt 3: Faktorring\n$\\mathbb{Z}_3[X]/(X^2 + 1)$ ist ein Körper",
+                "Schritt 4: Ordnung\nDer Körper hat $3^2 = 9$ Elemente"
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Ringe",
+            "title": "Komplexe Ringhomomorphismen und Automorphismen",
+            "description": "Bestimmen Sie die Automorphismengruppe von $\\mathbb{Z}[\\sqrt{2}]$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Automorphismen\n$\\varphi(a+b\\sqrt{2}) = a + b\\sqrt{2}$\n$\\psi(a+b\\sqrt{2}) = a - b\\sqrt{2}$",
+                "Schritt 2: Verifikation\n$\\varphi$ und $\\psi$ sind Ringautomorphismen",
+                "Schritt 3: Gruppenstruktur\n$\\text{Aut}(\\mathbb{Z}[\\sqrt{2}]) \\cong \\mathbb{Z}_2$",
+                "Schritt 4: Schlussfolgerung\nDie Automorphismengruppe ist zyklisch der Ordnung 2"
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Ringe",
+            "title": "Komplexe Ideale und Faktorringe",
+            "description": "Bestimmen Sie die Struktur des Faktorrings $\\mathbb{Z}[\\sqrt{2}]/(3)$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Ideal\n$(3)$ ist ein Hauptideal",
+                "Schritt 2: Faktorring\n$\\mathbb{Z}[\\sqrt{2}]/(3) \\cong \\mathbb{Z}_3[X]/(X^2 - 2)$",
+                "Schritt 3: Weitere Faktorisierung\n$X^2 - 2$ ist irreduzibel in $\\mathbb{Z}_3[X]$",
+                "Schritt 4: Schlussfolgerung\n$\\mathbb{Z}[\\sqrt{2}]/(3)$ ist ein Körper mit 9 Elementen"
             ]
         }
     ]

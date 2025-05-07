@@ -126,6 +126,337 @@
                 "Schritt 2: In beiden Fällen stimmt der Wahrheitswert mit $A$ überein.",
                 "Schritt 3: Das Idempotenzgesetz ist bewiesen."
             ]
+        },
+        {
+            "id": 26,
+            "topic": "Logik",
+            "title": "Logische Äquivalenz von Implikationen",
+            "description": "Zeigen Sie, dass die Aussagen $A \\rightarrow B$ und $\\neg B \\rightarrow \\neg A$ logisch äquivalent sind.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Wahrheitstafel für beide Aussagen erstellen:\n\\begin{array}{c|c|c|c|c}\nA & B & A \\rightarrow B & \\neg B & \\neg A & \\neg B \\rightarrow \\neg A \\\\\\hline\nw & w & w & f & f & w \\\\\nw & f & f & w & f & f \\\\\nf & w & w & f & w & w \\\\\nf & f & w & w & w & w \\\\\n\\end{array}",
+                "Schritt 2: Vergleich der Spalten\nDie Spalten für $A \\rightarrow B$ und $\\neg B \\rightarrow \\neg A$ sind identisch.",
+                "Schritt 3: Die Aussagen sind logisch äquivalent."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Logik",
+            "title": "Distributivgesetze der Logik",
+            "description": "Beweisen Sie die Distributivgesetze der Logik:\n1. $A \\lor (B \\land C) \\equiv (A \\lor B) \\land (A \\lor C)$\n2. $A \\land (B \\lor C) \\equiv (A \\land B) \\lor (A \\land C)$",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Wahrheitstafel für das erste Gesetz:\n\\begin{array}{c|c|c|c|c|c|c}\nA & B & C & B \\land C & A \\lor (B \\land C) & A \\lor B & A \\lor C & (A \\lor B) \\land (A \\lor C) \\\\\\hline\nw & w & w & w & w & w & w & w \\\\\nw & w & f & f & w & w & w & w \\\\\nw & f & w & f & w & w & w & w \\\\\nw & f & f & f & w & w & w & w \\\\\nf & w & w & w & w & w & w & w \\\\\nf & w & f & f & f & w & f & f \\\\\nf & f & w & f & f & f & w & f \\\\\nf & f & f & f & f & f & f & f \\\\\n\\end{array}",
+                "Schritt 2: Wahrheitstafel für das zweite Gesetz:\n\\begin{array}{c|c|c|c|c|c|c}\nA & B & C & B \\lor C & A \\land (B \\lor C) & A \\land B & A \\land C & (A \\land B) \\lor (A \\land C) \\\\\\hline\nw & w & w & w & w & w & w & w \\\\\nw & w & f & w & w & w & f & w \\\\\nw & f & w & w & w & f & w & w \\\\\nw & f & f & f & f & f & f & f \\\\\nf & w & w & w & f & f & f & f \\\\\nf & w & f & w & f & f & f & f \\\\\nf & f & w & w & f & f & f & f \\\\\nf & f & f & f & f & f & f & f \\\\\n\\end{array}",
+                "Schritt 3: Vergleich der Spalten\nIn beiden Fällen stimmen die entsprechenden Spalten überein.",
+                "Schritt 4: Die Distributivgesetze sind bewiesen."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Logik",
+            "title": "Assoziativgesetze der Logik",
+            "description": "Beweisen Sie die Assoziativgesetze der Logik:\n1. $(A \\lor B) \\lor C \\equiv A \\lor (B \\lor C)$\n2. $(A \\land B) \\land C \\equiv A \\land (B \\land C)$",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Wahrheitstafel für das erste Gesetz:\n\\begin{array}{c|c|c|c|c|c}\nA & B & C & (A \\lor B) \\lor C & A \\lor (B \\lor C) \\\\\\hline\nw & w & w & w & w \\\\\nw & w & f & w & w \\\\\nw & f & w & w & w \\\\\nw & f & f & w & w \\\\\nf & w & w & w & w \\\\\nf & w & f & w & w \\\\\nf & f & w & w & w \\\\\nf & f & f & f & f \\\\\n\\end{array}",
+                "Schritt 2: Wahrheitstafel für das zweite Gesetz:\n\\begin{array}{c|c|c|c|c|c}\nA & B & C & (A \\land B) \\land C & A \\land (B \\land C) \\\\\\hline\nw & w & w & w & w \\\\\nw & w & f & f & f \\\\\nw & f & w & f & f \\\\\nw & f & f & f & f \\\\\nf & w & w & f & f \\\\\nf & w & f & f & f \\\\\nf & f & w & f & f \\\\\nf & f & f & f & f \\\\\n\\end{array}",
+                "Schritt 3: Vergleich der Spalten\nIn beiden Fällen stimmen die entsprechenden Spalten überein.",
+                "Schritt 4: Die Assoziativgesetze sind bewiesen."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Logik",
+            "title": "Kommutativgesetze der Logik",
+            "description": "Beweisen Sie die Kommutativgesetze der Logik:\n1. $A \\lor B \\equiv B \\lor A$\n2. $A \\land B \\equiv B \\land A$",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Wahrheitstafel für das erste Gesetz:\n\\begin{array}{c|c|c|c}\nA & B & A \\lor B & B \\lor A \\\\\\hline\nw & w & w & w \\\\\nw & f & w & w \\\\\nf & w & w & w \\\\\nf & f & f & f \\\\\n\\end{array}",
+                "Schritt 2: Wahrheitstafel für das zweite Gesetz:\n\\begin{array}{c|c|c|c}\nA & B & A \\land B & B \\land A \\\\\\hline\nw & w & w & w \\\\\nw & f & f & f \\\\\nf & w & f & f \\\\\nf & f & f & f \\\\\n\\end{array}",
+                "Schritt 3: Vergleich der Spalten\nIn beiden Fällen stimmen die entsprechenden Spalten überein.",
+                "Schritt 4: Die Kommutativgesetze sind bewiesen."
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Logik",
+            "title": "Absorptionsgesetze der Logik",
+            "description": "Beweisen Sie die Absorptionsgesetze der Logik:\n1. $A \\lor (A \\land B) \\equiv A$\n2. $A \\land (A \\lor B) \\equiv A$",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Wahrheitstafel für das erste Gesetz:\n\\begin{array}{c|c|c|c|c}\nA & B & A \\land B & A \\lor (A \\land B) \\\\\\hline\nw & w & w & w \\\\\nw & f & f & w \\\\\nf & w & f & f \\\\\nf & f & f & f \\\\\n\\end{array}",
+                "Schritt 2: Wahrheitstafel für das zweite Gesetz:\n\\begin{array}{c|c|c|c|c}\nA & B & A \\lor B & A \\land (A \\lor B) \\\\\\hline\nw & w & w & w \\\\\nw & f & w & w \\\\\nf & w & w & f \\\\\nf & f & f & f \\\\\n\\end{array}",
+                "Schritt 3: Vergleich der Spalten\nIn beiden Fällen stimmt das Ergebnis mit $A$ überein.",
+                "Schritt 4: Die Absorptionsgesetze sind bewiesen."
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Logik",
+            "title": "Doppelte Negation",
+            "description": "Beweisen Sie das Gesetz der doppelten Negation: $\\neg (\\neg A) \\equiv A$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Wahrheitstafel erstellen:\n\\begin{array}{c|c|c}\nA & \\neg A & \\neg (\\neg A) \\\\\\hline\nw & f & w \\\\\nf & w & f \\\\\n\\end{array}",
+                "Schritt 2: Vergleich der Spalten\nDie Spalte für $\\neg (\\neg A)$ stimmt mit der Spalte für $A$ überein.",
+                "Schritt 3: Das Gesetz der doppelten Negation ist bewiesen."
+            ]
+        },
+        {
+            "id": 32,
+            "topic": "Logik",
+            "title": "Kontravalenz",
+            "description": "Zeigen Sie, dass die Kontravalenz $A \\oplus B$ (entweder-oder) äquivalent ist zu $(A \\lor B) \\land \\neg (A \\land B)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Wahrheitstafel erstellen:\n\\begin{array}{c|c|c|c|c|c}\nA & B & A \\oplus B & A \\lor B & A \\land B & \\neg (A \\land B) & (A \\lor B) \\land \\neg (A \\land B) \\\\\\hline\nw & w & f & w & w & f & f \\\\\nw & f & w & w & f & w & w \\\\\nf & w & w & w & f & w & w \\\\\nf & f & f & f & f & w & f \\\\\n\\end{array}",
+                "Schritt 2: Vergleich der Spalten\nDie Spalten für $A \\oplus B$ und $(A \\lor B) \\land \\neg (A \\land B)$ sind identisch.",
+                "Schritt 3: Die Äquivalenz ist bewiesen."
+            ]
+        },
+        {
+            "id": 33,
+            "topic": "Logik",
+            "title": "Bikonditional",
+            "description": "Zeigen Sie, dass das Bikonditional $A \\leftrightarrow B$ äquivalent ist zu $(A \\rightarrow B) \\land (B \\rightarrow A)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Wahrheitstafel erstellen:\n\\begin{array}{c|c|c|c|c|c}\nA & B & A \\leftrightarrow B & A \\rightarrow B & B \\rightarrow A & (A \\rightarrow B) \\land (B \\rightarrow A) \\\\\\hline\nw & w & w & w & w & w \\\\\nw & f & f & f & w & f \\\\\nf & w & f & w & f & f \\\\\nf & f & w & w & w & w \\\\\n\\end{array}",
+                "Schritt 2: Vergleich der Spalten\nDie Spalten für $A \\leftrightarrow B$ und $(A \\rightarrow B) \\land (B \\rightarrow A)$ sind identisch.",
+                "Schritt 3: Die Äquivalenz ist bewiesen."
+            ]
+        },
+        {
+            "id": 34,
+            "topic": "Logik",
+            "title": "Logische Folgerung",
+            "description": "Zeigen Sie, dass aus den Prämissen $A \\rightarrow B$ und $B \\rightarrow C$ die Konklusion $A \\rightarrow C$ logisch folgt.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Wahrheitstafel erstellen:\n\\begin{array}{c|c|c|c|c|c}\nA & B & C & A \\rightarrow B & B \\rightarrow C & A \\rightarrow C \\\\\\hline\nw & w & w & w & w & w \\\\\nw & w & f & w & f & f \\\\\nw & f & w & f & w & w \\\\\nw & f & f & f & w & f \\\\\nf & w & w & w & w & w \\\\\nf & w & f & w & f & w \\\\\nf & f & w & w & w & w \\\\\nf & f & f & w & w & w \\\\\n\\end{array}",
+                "Schritt 2: Analyse der Wahrheitstafel\nWenn beide Prämissen wahr sind, ist auch die Konklusion wahr.",
+                "Schritt 3: Die logische Folgerung ist bewiesen."
+            ]
+        },
+        {
+            "id": 35,
+            "topic": "Logik",
+            "title": "Logische Äquivalenz komplexer Ausdrücke",
+            "description": "Vereinfachen Sie den Ausdruck $(A \\rightarrow B) \\land (\\neg A \\rightarrow C)$ zu einer möglichst einfachen Form.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Umformung der Implikationen\n$(A \\rightarrow B) \\land (\\neg A \\rightarrow C) \\equiv (\\neg A \\lor B) \\land (A \\lor C)$",
+                "Schritt 2: Anwendung des Distributivgesetzes\n$(\\neg A \\lor B) \\land (A \\lor C) \\equiv (\\neg A \\land A) \\lor (\\neg A \\land C) \\lor (B \\land A) \\lor (B \\land C)$",
+                "Schritt 3: Vereinfachung\n$(\\neg A \\land A)$ ist immer falsch\nAlso: $(\\neg A \\land C) \\lor (B \\land A) \\lor (B \\land C)$",
+                "Schritt 4: Weitere Vereinfachung\n$(\\neg A \\land C) \\lor (B \\land A) \\lor (B \\land C) \\equiv (\\neg A \\land C) \\lor (B \\land (A \\lor C))$"
+            ]
+        },
+        {
+            "id": 36,
+            "topic": "Logik",
+            "title": "Quantoren und ihre Negation",
+            "description": "Formulieren Sie die Negation der Aussage: $\\forall x \\in \\mathbb{R}: \\exists y \\in \\mathbb{R}: x^2 + y^2 = 1$ und vereinfachen Sie diese.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Ursprüngliche Aussage\n\"Für alle reellen Zahlen x gibt es eine reelle Zahl y mit $x^2 + y^2 = 1$\"",
+                "Schritt 2: Negation der Aussage\n$\\neg (\\forall x \\exists y: x^2 + y^2 = 1) \\equiv \\exists x \\forall y: x^2 + y^2 \\neq 1$",
+                "Schritt 3: Interpretation\n\"Es gibt eine reelle Zahl x, für die alle reellen Zahlen y die Gleichung $x^2 + y^2 = 1$ nicht erfüllen\"",
+                "Schritt 4: Verifikation\nDie Negation ist korrekt, da sie die Existenz eines x behauptet, für das keine Lösung y existiert."
+            ]
+        },
+        {
+            "id": 37,
+            "topic": "Logik",
+            "title": "Logische Folgerung mit Quantoren",
+            "description": "Zeigen Sie, dass aus $\\forall x: P(x) \\rightarrow Q(x)$ und $\\exists x: P(x)$ die Konklusion $\\exists x: Q(x)$ logisch folgt.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Prämissen\n1. $\\forall x: P(x) \\rightarrow Q(x)$ bedeutet: Für alle x gilt: Wenn P(x), dann Q(x)\n2. $\\exists x: P(x)$ bedeutet: Es gibt ein x mit P(x)",
+                "Schritt 2: Logische Folgerung\nAus der Existenz eines x mit P(x) und der Implikation folgt die Existenz eines x mit Q(x)",
+                "Schritt 3: Formaler Beweis\nSei a ein Element mit P(a) (existiert nach Prämisse 2)\nDann gilt P(a) → Q(a) (nach Prämisse 1)\nAlso gilt Q(a)\nDaher existiert ein x mit Q(x)",
+                "Schritt 4: Die logische Folgerung ist bewiesen."
+            ]
+        },
+        {
+            "id": 38,
+            "topic": "Logik",
+            "title": "Logische Äquivalenz mit Quantoren",
+            "description": "Zeigen Sie, dass $\\forall x: (P(x) \\land Q(x))$ und $(\\forall x: P(x)) \\land (\\forall x: Q(x))$ logisch äquivalent sind.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Analyse der ersten Aussage\n$\\forall x: (P(x) \\land Q(x))$ bedeutet: Für alle x gilt P(x) und Q(x)",
+                "Schritt 2: Analyse der zweiten Aussage\n$(\\forall x: P(x)) \\land (\\forall x: Q(x))$ bedeutet: Für alle x gilt P(x) und für alle x gilt Q(x)",
+                "Schritt 3: Beweis der Äquivalenz\nWenn für alle x gilt P(x) und Q(x), dann gilt für alle x P(x) und für alle x Q(x)\nUmgekehrt: Wenn für alle x P(x) und für alle x Q(x), dann gilt für alle x P(x) und Q(x)",
+                "Schritt 4: Die Äquivalenz ist bewiesen."
+            ]
+        },
+        {
+            "id": 39,
+            "topic": "Logik",
+            "title": "Logische Folgerung mit mehreren Quantoren",
+            "description": "Zeigen Sie, dass aus $\\forall x \\forall y: P(x,y)$ die Aussage $\\forall y \\forall x: P(x,y)$ logisch folgt.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Prämisse\n$\\forall x \\forall y: P(x,y)$ bedeutet: Für alle x und y gilt P(x,y)",
+                "Schritt 2: Analyse der Konklusion\n$\\forall y \\forall x: P(x,y)$ bedeutet: Für alle y und x gilt P(x,y)",
+                "Schritt 3: Beweis der Folgerung\nDie Reihenfolge der Quantoren spielt bei der Allquantifikation keine Rolle\nBeide Aussagen behaupten dasselbe: P(x,y) gilt für alle Paare (x,y)",
+                "Schritt 4: Die logische Folgerung ist bewiesen."
+            ]
+        },
+        {
+            "id": 40,
+            "topic": "Logik",
+            "title": "Logische Äquivalenz mit Existenzquantor",
+            "description": "Zeigen Sie, dass $\\exists x: (P(x) \\lor Q(x))$ und $(\\exists x: P(x)) \\lor (\\exists x: Q(x))$ logisch äquivalent sind.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Analyse der ersten Aussage\n$\\exists x: (P(x) \\lor Q(x))$ bedeutet: Es gibt ein x mit P(x) oder Q(x)",
+                "Schritt 2: Analyse der zweiten Aussage\n$(\\exists x: P(x)) \\lor (\\exists x: Q(x))$ bedeutet: Es gibt ein x mit P(x) oder es gibt ein x mit Q(x)",
+                "Schritt 3: Beweis der Äquivalenz\nWenn es ein x gibt mit P(x) oder Q(x), dann gibt es ein x mit P(x) oder ein x mit Q(x)\nUmgekehrt: Wenn es ein x mit P(x) oder ein x mit Q(x) gibt, dann gibt es ein x mit P(x) oder Q(x)",
+                "Schritt 4: Die Äquivalenz ist bewiesen."
+            ]
+        },
+        {
+            "id": 41,
+            "topic": "Logik",
+            "title": "Logische Folgerung mit komplexen Quantoren",
+            "description": "Zeigen Sie, dass aus $\\forall x: (P(x) \\rightarrow Q(x))$ und $\\exists x: (Q(x) \\rightarrow R(x))$ die Konklusion $\\exists x: (P(x) \\rightarrow R(x))$ logisch folgt.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Prämissen\n1. $\\forall x: (P(x) \\rightarrow Q(x))$ bedeutet: Für alle x gilt: Wenn P(x), dann Q(x)\n2. $\\exists x: (Q(x) \\rightarrow R(x))$ bedeutet: Es gibt ein x mit: Wenn Q(x), dann R(x)",
+                "Schritt 2: Logische Folgerung\nAus der Existenz eines x mit Q(x) → R(x) und der Allquantifikation P(x) → Q(x) folgt die Existenz eines x mit P(x) → R(x)",
+                "Schritt 3: Formaler Beweis\nSei a ein Element mit Q(a) → R(a) (existiert nach Prämisse 2)\nDann gilt P(a) → Q(a) (nach Prämisse 1)\nAlso gilt P(a) → R(a) (Transitivität der Implikation)\nDaher existiert ein x mit P(x) → R(x)",
+                "Schritt 4: Die logische Folgerung ist bewiesen."
+            ]
+        },
+        {
+            "id": 42,
+            "topic": "Logik",
+            "title": "Logische Äquivalenz mit verschachtelten Quantoren",
+            "description": "Zeigen Sie, dass $\\forall x \\exists y: P(x,y)$ und $\\neg \\exists x \\forall y: \\neg P(x,y)$ logisch äquivalent sind.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Analyse der ersten Aussage\n$\\forall x \\exists y: P(x,y)$ bedeutet: Für alle x gibt es ein y mit P(x,y)",
+                "Schritt 2: Analyse der zweiten Aussage\n$\\neg \\exists x \\forall y: \\neg P(x,y)$ bedeutet: Es gibt kein x, für das für alle y nicht P(x,y) gilt",
+                "Schritt 3: Beweis der Äquivalenz\nWenn für alle x ein y mit P(x,y) existiert, dann gibt es kein x, für das für alle y nicht P(x,y) gilt\nUmgekehrt: Wenn es kein x gibt, für das für alle y nicht P(x,y) gilt, dann existiert für alle x ein y mit P(x,y)",
+                "Schritt 4: Die Äquivalenz ist bewiesen."
+            ]
+        },
+        {
+            "id": 43,
+            "topic": "Logik",
+            "title": "Logische Folgerung mit mehreren verschachtelten Quantoren",
+            "description": "Zeigen Sie, dass aus $\\forall x \\forall y: (P(x,y) \\rightarrow Q(x,y))$ und $\\exists x \\exists y: P(x,y)$ die Konklusion $\\exists x \\exists y: Q(x,y)$ logisch folgt.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Prämissen\n1. $\\forall x \\forall y: (P(x,y) \\rightarrow Q(x,y))$ bedeutet: Für alle x,y gilt: Wenn P(x,y), dann Q(x,y)\n2. $\\exists x \\exists y: P(x,y)$ bedeutet: Es gibt x,y mit P(x,y)",
+                "Schritt 2: Logische Folgerung\nAus der Existenz von x,y mit P(x,y) und der Allquantifikation P(x,y) → Q(x,y) folgt die Existenz von x,y mit Q(x,y)",
+                "Schritt 3: Formaler Beweis\nSeien a,b Elemente mit P(a,b) (existieren nach Prämisse 2)\nDann gilt P(a,b) → Q(a,b) (nach Prämisse 1)\nAlso gilt Q(a,b)\nDaher existieren x,y mit Q(x,y)",
+                "Schritt 4: Die logische Folgerung ist bewiesen."
+            ]
+        },
+        {
+            "id": 44,
+            "topic": "Logik",
+            "title": "Logische Äquivalenz mit komplexen Quantorenkombinationen",
+            "description": "Zeigen Sie, dass $\\forall x: (P(x) \\rightarrow \\exists y: Q(x,y))$ und $\\forall x \\exists y: (P(x) \\rightarrow Q(x,y))$ logisch äquivalent sind.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Analyse der ersten Aussage\n$\\forall x: (P(x) \\rightarrow \\exists y: Q(x,y))$ bedeutet: Für alle x gilt: Wenn P(x), dann gibt es ein y mit Q(x,y)",
+                "Schritt 2: Analyse der zweiten Aussage\n$\\forall x \\exists y: (P(x) \\rightarrow Q(x,y))$ bedeutet: Für alle x gibt es ein y mit: Wenn P(x), dann Q(x,y)",
+                "Schritt 3: Beweis der Äquivalenz\nWenn für alle x gilt: Wenn P(x), dann gibt es ein y mit Q(x,y), dann gibt es für alle x ein y mit: Wenn P(x), dann Q(x,y)\nUmgekehrt: Wenn für alle x ein y existiert mit: Wenn P(x), dann Q(x,y), dann gilt für alle x: Wenn P(x), dann gibt es ein y mit Q(x,y)",
+                "Schritt 4: Die Äquivalenz ist bewiesen."
+            ]
+        },
+        {
+            "id": 45,
+            "topic": "Logik",
+            "title": "Logische Folgerung mit verschachtelten Implikationen",
+            "description": "Zeigen Sie, dass aus $\\forall x: (P(x) \\rightarrow (Q(x) \\rightarrow R(x)))$ und $\\exists x: (P(x) \\land Q(x))$ die Konklusion $\\exists x: R(x)$ logisch folgt.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Prämissen\n1. $\\forall x: (P(x) \\rightarrow (Q(x) \\rightarrow R(x)))$ bedeutet: Für alle x gilt: Wenn P(x), dann (wenn Q(x), dann R(x))\n2. $\\exists x: (P(x) \\land Q(x))$ bedeutet: Es gibt ein x mit P(x) und Q(x)",
+                "Schritt 2: Logische Folgerung\nAus der Existenz eines x mit P(x) und Q(x) und der Allquantifikation P(x) → (Q(x) → R(x)) folgt die Existenz eines x mit R(x)",
+                "Schritt 3: Formaler Beweis\nSei a ein Element mit P(a) und Q(a) (existiert nach Prämisse 2)\nDann gilt P(a) → (Q(a) → R(a)) (nach Prämisse 1)\nAlso gilt Q(a) → R(a)\nDa Q(a) gilt, folgt R(a)\nDaher existiert ein x mit R(x)",
+                "Schritt 4: Die logische Folgerung ist bewiesen."
+            ]
+        },
+        {
+            "id": 46,
+            "topic": "Logik",
+            "title": "Logische Äquivalenz mit komplexen Quantoren und Negationen",
+            "description": "Zeigen Sie, dass $\\neg \\forall x: (P(x) \\rightarrow Q(x))$ und $\\exists x: (P(x) \\land \\neg Q(x))$ logisch äquivalent sind.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Analyse der ersten Aussage\n$\\neg \\forall x: (P(x) \\rightarrow Q(x))$ bedeutet: Es gilt nicht für alle x: Wenn P(x), dann Q(x)",
+                "Schritt 2: Analyse der zweiten Aussage\n$\\exists x: (P(x) \\land \\neg Q(x))$ bedeutet: Es gibt ein x mit P(x) und nicht Q(x)",
+                "Schritt 3: Beweis der Äquivalenz\nWenn es nicht für alle x gilt: Wenn P(x), dann Q(x), dann gibt es ein x mit P(x) und nicht Q(x)\nUmgekehrt: Wenn es ein x gibt mit P(x) und nicht Q(x), dann gilt nicht für alle x: Wenn P(x), dann Q(x)",
+                "Schritt 4: Die Äquivalenz ist bewiesen."
+            ]
+        },
+        {
+            "id": 47,
+            "topic": "Logik",
+            "title": "Logische Folgerung mit komplexen Quantorenkombinationen",
+            "description": "Zeigen Sie, dass aus $\\forall x: (P(x) \\rightarrow \\forall y: Q(x,y))$ und $\\exists x: P(x)$ die Konklusion $\\forall y \\exists x: Q(x,y)$ logisch folgt.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Prämissen\n1. $\\forall x: (P(x) \\rightarrow \\forall y: Q(x,y))$ bedeutet: Für alle x gilt: Wenn P(x), dann für alle y gilt Q(x,y)\n2. $\\exists x: P(x)$ bedeutet: Es gibt ein x mit P(x)",
+                "Schritt 2: Logische Folgerung\nAus der Existenz eines x mit P(x) und der Allquantifikation P(x) → ∀y: Q(x,y) folgt die Allquantifikation ∀y ∃x: Q(x,y)",
+                "Schritt 3: Formaler Beweis\nSei a ein Element mit P(a) (existiert nach Prämisse 2)\nDann gilt P(a) → ∀y: Q(a,y) (nach Prämisse 1)\nAlso gilt ∀y: Q(a,y)\nDaher gilt ∀y ∃x: Q(x,y)",
+                "Schritt 4: Die logische Folgerung ist bewiesen."
+            ]
+        },
+        {
+            "id": 48,
+            "topic": "Logik",
+            "title": "Logische Äquivalenz mit verschachtelten Quantoren und Implikationen",
+            "description": "Zeigen Sie, dass $\\forall x: (P(x) \\rightarrow \\forall y: (Q(y) \\rightarrow R(x,y)))$ und $\\forall x \\forall y: ((P(x) \\land Q(y)) \\rightarrow R(x,y))$ logisch äquivalent sind.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Analyse der ersten Aussage\n$\\forall x: (P(x) \\rightarrow \\forall y: (Q(y) \\rightarrow R(x,y)))$ bedeutet: Für alle x gilt: Wenn P(x), dann für alle y gilt: Wenn Q(y), dann R(x,y)",
+                "Schritt 2: Analyse der zweiten Aussage\n$\\forall x \\forall y: ((P(x) \\land Q(y)) \\rightarrow R(x,y))$ bedeutet: Für alle x,y gilt: Wenn P(x) und Q(y), dann R(x,y)",
+                "Schritt 3: Beweis der Äquivalenz\nWenn für alle x gilt: Wenn P(x), dann für alle y gilt: Wenn Q(y), dann R(x,y), dann gilt für alle x,y: Wenn P(x) und Q(y), dann R(x,y)\nUmgekehrt: Wenn für alle x,y gilt: Wenn P(x) und Q(y), dann R(x,y), dann gilt für alle x: Wenn P(x), dann für alle y gilt: Wenn Q(y), dann R(x,y)",
+                "Schritt 4: Die Äquivalenz ist bewiesen."
+            ]
+        },
+        {
+            "id": 49,
+            "topic": "Logik",
+            "title": "Logische Folgerung mit komplexen Quantoren und Negationen",
+            "description": "Zeigen Sie, dass aus $\\forall x: (\\neg P(x) \\rightarrow Q(x))$ und $\\exists x: \\neg Q(x)$ die Konklusion $\\exists x: P(x)$ logisch folgt.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Analyse der Prämissen\n1. $\\forall x: (\\neg P(x) \\rightarrow Q(x))$ bedeutet: Für alle x gilt: Wenn nicht P(x), dann Q(x)\n2. $\\exists x: \\neg Q(x)$ bedeutet: Es gibt ein x mit nicht Q(x)",
+                "Schritt 2: Logische Folgerung\nAus der Existenz eines x mit nicht Q(x) und der Allquantifikation ¬P(x) → Q(x) folgt die Existenz eines x mit P(x)",
+                "Schritt 3: Formaler Beweis\nSei a ein Element mit ¬Q(a) (existiert nach Prämisse 2)\nDann gilt ¬P(a) → Q(a) (nach Prämisse 1)\nDa Q(a) nicht gilt, kann ¬P(a) nicht gelten\nAlso gilt P(a)\nDaher existiert ein x mit P(x)",
+                "Schritt 4: Die logische Folgerung ist bewiesen."
+            ]
         }
     ]
 } 

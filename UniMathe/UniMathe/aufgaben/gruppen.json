@@ -145,6 +145,327 @@
                 "Schritt 4: Erweiterung\nDie kurze exakte Sequenz\n$1 \\rightarrow \\mathbb{Z}_2 \\rightarrow Q_8 \\rightarrow \\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\rightarrow 1$\nist eine zentrale Erweiterung",
                 "Schritt 5: Verifikation\nDie Erweiterung ist nicht trivial, da $Q_8$ nicht isomorph zu $\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_2$ ist"
             ]
+        },
+        {
+            "id": 11,
+            "topic": "Gruppen",
+            "title": "Einfache Gruppenaxiome",
+            "description": "Überprüfen Sie, ob die Menge $\\{1, -1\\}$ mit der gewöhnlichen Multiplikation eine Gruppe bildet.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überprüfung der Abgeschlossenheit\n$1 \\cdot 1 = 1 \\in \\{1, -1\\}$\n$1 \\cdot (-1) = -1 \\in \\{1, -1\\}$\n$-1 \\cdot 1 = -1 \\in \\{1, -1\\}$\n$-1 \\cdot (-1) = 1 \\in \\{1, -1\\}$\nDie Operation ist abgeschlossen.",
+                "Schritt 2: Assoziativität\nDie Multiplikation ist assoziativ.",
+                "Schritt 3: Neutrales Element\n$1$ ist das neutrale Element.",
+                "Schritt 4: Inverse\n$1^{-1} = 1$\n$(-1)^{-1} = -1$\nJedes Element hat ein Inverses.",
+                "Schritt 5: Schlussfolgerung\n$(\\{1, -1\\}, \\cdot)$ ist eine Gruppe."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Gruppen",
+            "title": "Untergruppen",
+            "description": "Bestimmen Sie alle Untergruppen von $\\mathbb{Z}_6$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Elemente von $\\mathbb{Z}_6$\n$\\mathbb{Z}_6 = \\{0,1,2,3,4,5\\}$",
+                "Schritt 2: Triviale Untergruppen\n$\\{0\\}$ und $\\mathbb{Z}_6$ sind Untergruppen",
+                "Schritt 3: Zyklische Untergruppen\n$\\langle 1 \\rangle = \\mathbb{Z}_6$\n$\\langle 2 \\rangle = \\{0,2,4\\}$\n$\\langle 3 \\rangle = \\{0,3\\}$\n$\\langle 4 \\rangle = \\{0,2,4\\}$\n$\\langle 5 \\rangle = \\mathbb{Z}_6$",
+                "Schritt 4: Zusammenfassung\nUntergruppen: $\\{0\\}, \\{0,3\\}, \\{0,2,4\\}, \\mathbb{Z}_6$"
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Gruppen",
+            "title": "Ordnung von Elementen",
+            "description": "Bestimmen Sie die Ordnung jedes Elements in $\\mathbb{Z}_8$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Elemente von $\\mathbb{Z}_8$\n$\\mathbb{Z}_8 = \\{0,1,2,3,4,5,6,7\\}$",
+                "Schritt 2: Berechnung der Ordnungen\n$|0| = 1$\n$|1| = 8$\n$|2| = 4$\n$|3| = 8$\n$|4| = 2$\n$|5| = 8$\n$|6| = 4$\n$|7| = 8$"
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Gruppen",
+            "title": "Zyklische Gruppen",
+            "description": "Zeigen Sie, dass $\\mathbb{Z}_4$ eine zyklische Gruppe ist und bestimmen Sie alle Generatoren.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Elemente von $\\mathbb{Z}_4$\n$\\mathbb{Z}_4 = \\{0,1,2,3\\}$",
+                "Schritt 2: Generatoren\n$\\langle 1 \\rangle = \\{0,1,2,3\\} = \\mathbb{Z}_4$\n$\\langle 3 \\rangle = \\{0,3,2,1\\} = \\mathbb{Z}_4$",
+                "Schritt 3: Schlussfolgerung\n$\\mathbb{Z}_4$ ist zyklisch mit Generatoren 1 und 3"
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Gruppen",
+            "title": "Direkte Produkte",
+            "description": "Bestimmen Sie die Ordnung jedes Elements in $\\mathbb{Z}_2 \\times \\mathbb{Z}_3$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Elemente von $\\mathbb{Z}_2 \\times \\mathbb{Z}_3$\n$(0,0), (0,1), (0,2), (1,0), (1,1), (1,2)$",
+                "Schritt 2: Berechnung der Ordnungen\n$|(0,0)| = 1$\n$|(0,1)| = 3$\n$|(0,2)| = 3$\n$|(1,0)| = 2$\n$|(1,1)| = 6$\n$|(1,2)| = 6$"
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Gruppen",
+            "title": "Homomorphismen",
+            "description": "Zeigen Sie, dass die Abbildung $\\varphi: \\mathbb{Z}_6 \\rightarrow \\mathbb{Z}_6$ mit $\\varphi(x) = 2x$ ein Gruppenhomomorphismus ist.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Homomorphismus-Eigenschaft\n$\\varphi(x + y) = 2(x + y) = 2x + 2y = \\varphi(x) + \\varphi(y)$",
+                "Schritt 2: Bild\n$\\text{im}(\\varphi) = \\{0,2,4\\}$",
+                "Schritt 3: Kern\n$\\ker(\\varphi) = \\{0,3\\}$"
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Gruppen",
+            "title": "Normalteiler",
+            "description": "Zeigen Sie, dass $\\{0,3\\}$ ein Normalteiler in $\\mathbb{Z}_6$ ist.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Untergruppe\n$\\{0,3\\}$ ist eine Untergruppe von $\\mathbb{Z}_6$",
+                "Schritt 2: Normalteiler\nFür alle $g \\in \\mathbb{Z}_6$ und $h \\in \\{0,3\\}$ gilt:\n$g + h - g = h \\in \\{0,3\\}$\nAlso ist $\\{0,3\\}$ ein Normalteiler"
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Gruppen",
+            "title": "Faktorgruppen",
+            "description": "Bestimmen Sie die Faktorgruppe $\\mathbb{Z}_6/\\{0,3\\}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Nebenklassen\n$\\{0,3\\}, \\{1,4\\}, \\{2,5\\}$",
+                "Schritt 2: Gruppenstruktur\n$\\mathbb{Z}_6/\\{0,3\\} \\cong \\mathbb{Z}_3$"
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Gruppen",
+            "title": "Gruppenoperationen",
+            "description": "Sei $G = \\mathbb{Z}_4$ und $X = \\{1,2,3,4\\}$. Definiere die Operation $g \\cdot x = x + g \\mod 4$. Bestimmen Sie die Bahnen und Stabilisatoren.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Bahnen\n$G \\cdot 1 = \\{1,2,3,4\\}$\nEs gibt nur eine Bahn, da die Operation transitiv ist",
+                "Schritt 2: Stabilisatoren\n$G_1 = \\{0\\}$\n$G_2 = \\{0\\}$\n$G_3 = \\{0\\}$\n$G_4 = \\{0\\}$",
+                "Schritt 3: Bahnformel\n$|G| = |G_x| \\cdot |Gx|$\n$4 = 1 \\cdot 4$"
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Gruppen",
+            "title": "Sylow-Untergruppen",
+            "description": "Bestimmen Sie die Anzahl der 2-Sylow-Untergruppen in $\\mathbb{Z}_{12}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Ordnung\n$|\\mathbb{Z}_{12}| = 12 = 2^2 \\cdot 3$",
+                "Schritt 2: 2-Sylow-Untergruppen\nNach dem 3. Sylow-Satz:\n$n_2 \\equiv 1 \\mod 2$ und $n_2$ teilt 3\nAlso $n_2 = 1$",
+                "Schritt 3: Verifikation\nDie einzige 2-Sylow-Untergruppe ist $\\{0,3,6,9\\}$"
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Gruppen",
+            "title": "Automorphismen",
+            "description": "Bestimmen Sie die Automorphismengruppe $\\text{Aut}(\\mathbb{Z}_5)$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Generatoren\n$\\mathbb{Z}_5 = \\langle 1 \\rangle$\nDie Generatoren sind $\\{1,2,3,4\\}$",
+                "Schritt 2: Automorphismen\nJeder Automorphismus $\\varphi$ ist durch das Bild von 1 eindeutig bestimmt\n$\\varphi$ muss einen Generator auf einen Generator abbilden",
+                "Schritt 3: Bestimmung aller Automorphismen\n$\\varphi_1: 1 \\mapsto 1$\n$\\varphi_2: 1 \\mapsto 2$\n$\\varphi_3: 1 \\mapsto 3$\n$\\varphi_4: 1 \\mapsto 4$",
+                "Schritt 4: Gruppenstruktur\n$\\text{Aut}(\\mathbb{Z}_5) \\cong \\mathbb{Z}_5^\\times = \\{1,2,3,4\\}$\nDie Gruppe ist zyklisch der Ordnung 4"
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Gruppen",
+            "title": "Gruppenerweiterungen",
+            "description": "Zeigen Sie, dass $\\mathbb{Z}_4$ eine zentrale Erweiterung von $\\mathbb{Z}_2$ durch $\\mathbb{Z}_2$ ist.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Zentrum\n$Z(\\mathbb{Z}_4) = \\{0,2\\} \\cong \\mathbb{Z}_2$",
+                "Schritt 2: Faktorgruppe\n$\\mathbb{Z}_4/Z(\\mathbb{Z}_4) \\cong \\mathbb{Z}_2$",
+                "Schritt 3: Erweiterung\nDie kurze exakte Sequenz\n$1 \\rightarrow \\mathbb{Z}_2 \\rightarrow \\mathbb{Z}_4 \\rightarrow \\mathbb{Z}_2 \\rightarrow 1$\nist eine zentrale Erweiterung"
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Gruppen",
+            "title": "Endliche abelsche Gruppen",
+            "description": "Bestimmen Sie alle abelschen Gruppen der Ordnung 8 bis auf Isomorphie.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Primfaktorzerlegung\n$8 = 2^3$",
+                "Schritt 2: Mögliche Zerlegungen\n$\\mathbb{Z}_8$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_4$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_2$",
+                "Schritt 3: Verifikation\nAlle Gruppen haben Ordnung 8\nKeine zwei der Gruppen sind isomorph"
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Gruppen",
+            "title": "Gruppenoperationen auf Mengen",
+            "description": "Sei $G = \\mathbb{Z}_4$ und $X = \\{1,2,3,4\\}$. Definiere die Operation $g \\cdot x = x + g \\mod 4$. Bestimmen Sie die Anzahl der Fixpunkte jedes Elements von $G$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Elemente von $G$\n$G = \\{0,1,2,3\\}$",
+                "Schritt 2: Fixpunkte\n$0$ hat 4 Fixpunkte\n$1$ hat 0 Fixpunkte\n$2$ hat 0 Fixpunkte\n$3$ hat 0 Fixpunkte",
+                "Schritt 3: Bahnformel\n$|X| = \\frac{1}{|G|} \\sum_{g \\in G} |\\text{Fix}(g)|$\n$4 = \\frac{1}{4}(4 + 0 + 0 + 0)$"
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Gruppen",
+            "title": "Komplexe Gruppenoperationen",
+            "description": "Sei $G = S_4$ die symmetrische Gruppe auf 4 Elementen. Bestimmen Sie die Anzahl der Bahnen der Operation von $G$ auf der Menge der 2-elementigen Teilmengen von $\\{1,2,3,4\\}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Menge der 2-elementigen Teilmengen\n$X = \\{\\{1,2\\}, \\{1,3\\}, \\{1,4\\}, \\{2,3\\}, \\{2,4\\}, \\{3,4\\}\\}$",
+                "Schritt 2: Bahnen\nEs gibt nur eine Bahn, da jede 2-elementige Teilmenge auf jede andere abgebildet werden kann",
+                "Schritt 3: Stabilisator\n$G_{\\{1,2\\}} = \\{id, (12), (34), (12)(34)\\}$\n$|G_{\\{1,2\\}}| = 4$",
+                "Schritt 4: Bahnformel\n$|G| = |G_x| \\cdot |Gx|$\n$24 = 4 \\cdot 6$"
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Gruppen",
+            "title": "Sylow-Sätze und Normalteiler",
+            "description": "Zeigen Sie, dass jede Gruppe der Ordnung 15 einen Normalteiler der Ordnung 3 und einen Normalteiler der Ordnung 5 besitzt.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Sylow-Untergruppen\n$|G| = 15 = 3 \\cdot 5$\n$n_3 \\equiv 1 \\mod 3$ und $n_3$ teilt 5\n$n_5 \\equiv 1 \\mod 5$ und $n_5$ teilt 3$",
+                "Schritt 2: Anzahl der Sylow-Untergruppen\n$n_3 = 1$\n$n_5 = 1$",
+                "Schritt 3: Normalteiler\nDie einzige 3-Sylow-Untergruppe ist ein Normalteiler\nDie einzige 5-Sylow-Untergruppe ist ein Normalteiler",
+                "Schritt 4: Schlussfolgerung\n$G$ hat Normalteiler der Ordnungen 3 und 5"
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Gruppen",
+            "title": "Komplexe Automorphismen",
+            "description": "Bestimmen Sie die Automorphismengruppe $\\text{Aut}(\\mathbb{Z}_2 \\times \\mathbb{Z}_4)$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Generatoren\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_4 = \\langle (1,0), (0,1) \\rangle$",
+                "Schritt 2: Automorphismen\nJeder Automorphismus $\\varphi$ ist durch die Bilder von $(1,0)$ und $(0,1)$ bestimmt\n$\\varphi(1,0)$ muss Ordnung 2 haben\n$\\varphi(0,1)$ muss Ordnung 4 haben",
+                "Schritt 3: Bestimmung aller Automorphismen\n$\\varphi(1,0) \\in \\{(1,0), (1,2)\\}$\n$\\varphi(0,1) \\in \\{(0,1), (0,3)\\}$",
+                "Schritt 4: Gruppenstruktur\n$\\text{Aut}(\\mathbb{Z}_2 \\times \\mathbb{Z}_4) \\cong D_4$"
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Gruppen",
+            "title": "Komplexe Gruppenerweiterungen",
+            "description": "Zeigen Sie, dass die Diedergruppe $D_4$ eine nicht-triviale Erweiterung von $\\mathbb{Z}_2$ durch $\\mathbb{Z}_2 \\times \\mathbb{Z}_2$ ist.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Zentrum\n$Z(D_4) = \\{1, r^2\\} \\cong \\mathbb{Z}_2$",
+                "Schritt 2: Faktorgruppe\n$D_4/Z(D_4) \\cong \\mathbb{Z}_2 \\times \\mathbb{Z}_2$",
+                "Schritt 3: Erweiterung\nDie kurze exakte Sequenz\n$1 \\rightarrow \\mathbb{Z}_2 \\rightarrow D_4 \\rightarrow \\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\rightarrow 1$\nist eine nicht-triviale Erweiterung",
+                "Schritt 4: Verifikation\nDie Erweiterung ist nicht trivial, da $D_4$ nicht abelsch ist"
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Gruppen",
+            "title": "Komplexe endliche abelsche Gruppen",
+            "description": "Bestimmen Sie alle abelschen Gruppen der Ordnung 72 bis auf Isomorphie.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Primfaktorzerlegung\n$72 = 2^3 \\cdot 3^2$",
+                "Schritt 2: Mögliche Zerlegungen\n$\\mathbb{Z}_8 \\times \\mathbb{Z}_9$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_4 \\times \\mathbb{Z}_9$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_9$\n$\\mathbb{Z}_8 \\times \\mathbb{Z}_3 \\times \\mathbb{Z}_3$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_4 \\times \\mathbb{Z}_3 \\times \\mathbb{Z}_3$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_3 \\times \\mathbb{Z}_3$",
+                "Schritt 3: Verifikation\nAlle Gruppen haben Ordnung 72\nKeine zwei der Gruppen sind isomorph"
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Gruppen",
+            "title": "Komplexe Gruppenoperationen auf Polynomen",
+            "description": "Sei $G = S_3$ die symmetrische Gruppe auf 3 Elementen. Bestimmen Sie die Anzahl der Bahnen der Operation von $G$ auf der Menge der Polynome vom Grad 2 über $\\mathbb{F}_2$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Polynome\n$X = \\{x^2, x^2 + 1, x^2 + x, x^2 + x + 1\\}$",
+                "Schritt 2: Bahnen\n$G \\cdot x^2 = \\{x^2\\}$\n$G \\cdot (x^2 + 1) = \\{x^2 + 1\\}$\n$G \\cdot (x^2 + x) = \\{x^2 + x, x^2 + x + 1\\}$",
+                "Schritt 3: Stabilisatoren\n$G_{x^2} = S_3$\n$G_{x^2 + 1} = S_3$\n$G_{x^2 + x} = \\{id, (12)\\}$",
+                "Schritt 4: Bahnformel\n$|G| = |G_x| \\cdot |Gx|$\n$6 = 6 \\cdot 1$ für $x^2$ und $x^2 + 1$\n$6 = 2 \\cdot 3$ für $x^2 + x$"
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Gruppen",
+            "title": "Komplexe Sylow-Sätze",
+            "description": "Zeigen Sie, dass jede Gruppe der Ordnung 30 einen Normalteiler der Ordnung 15 besitzt.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Sylow-Untergruppen\n$|G| = 30 = 2 \\cdot 3 \\cdot 5$\n$n_3 \\equiv 1 \\mod 3$ und $n_3$ teilt 10\n$n_5 \\equiv 1 \\mod 5$ und $n_5$ teilt 6$",
+                "Schritt 2: Anzahl der Sylow-Untergruppen\n$n_3 = 1$ oder $n_3 = 10$\n$n_5 = 1$ oder $n_5 = 6$",
+                "Schritt 3: Analyse\nWenn $n_3 = 10$ und $n_5 = 6$, dann hat $G$ mindestens 20 Elemente der Ordnung 3 und 24 Elemente der Ordnung 5, was unmöglich ist",
+                "Schritt 4: Schlussfolgerung\n$n_3 = 1$ oder $n_5 = 1$\nDie entsprechende Sylow-Untergruppe ist ein Normalteiler\nDas Produkt der Normalteiler ist ein Normalteiler der Ordnung 15"
+            ]
+        },
+        {
+            "id": 32,
+            "topic": "Gruppen",
+            "title": "Komplexe Automorphismen und Endomorphismen",
+            "description": "Bestimmen Sie die Automorphismengruppe $\\text{Aut}(\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_2)$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Vektorraumstruktur\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_2$ ist ein 3-dimensionaler Vektorraum über $\\mathbb{Z}_2$",
+                "Schritt 2: Automorphismen\nDie Automorphismen entsprechen den invertierbaren 3x3-Matrizen über $\\mathbb{Z}_2$",
+                "Schritt 3: Anzahl der Automorphismen\n$|\\text{Aut}(\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_2)| = |GL_3(\\mathbb{Z}_2)| = 168$",
+                "Schritt 4: Gruppenstruktur\n$\\text{Aut}(\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_2) \\cong GL_3(\\mathbb{Z}_2)$"
+            ]
+        },
+        {
+            "id": 33,
+            "topic": "Gruppen",
+            "title": "Komplexe Gruppenerweiterungen und Kohomologie",
+            "description": "Zeigen Sie, dass die Quaternionengruppe $Q_8$ eine nicht-triviale Erweiterung von $\\mathbb{Z}_2$ durch $\\mathbb{Z}_2 \\times \\mathbb{Z}_2$ ist und bestimmen Sie das zugehörige Element in $H^2(\\mathbb{Z}_2 \\times \\mathbb{Z}_2, \\mathbb{Z}_2)$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Zentrum\n$Z(Q_8) = \\{\\pm 1\\} \\cong \\mathbb{Z}_2$",
+                "Schritt 2: Faktorgruppe\n$Q_8/Z(Q_8) \\cong \\mathbb{Z}_2 \\times \\mathbb{Z}_2$",
+                "Schritt 3: Erweiterung\nDie kurze exakte Sequenz\n$1 \\rightarrow \\mathbb{Z}_2 \\rightarrow Q_8 \\rightarrow \\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\rightarrow 1$\nist eine nicht-triviale Erweiterung",
+                "Schritt 4: Kohomologie\nDas zugehörige Element in $H^2(\\mathbb{Z}_2 \\times \\mathbb{Z}_2, \\mathbb{Z}_2)$ ist nicht-trivial"
+            ]
+        },
+        {
+            "id": 34,
+            "topic": "Gruppen",
+            "title": "Komplexe Gruppenoperationen auf Vektorräumen",
+            "description": "Sei $G = GL_2(\\mathbb{F}_2)$ die allgemeine lineare Gruppe über $\\mathbb{F}_2$. Bestimmen Sie die Anzahl der Bahnen der Operation von $G$ auf der Menge der 1-dimensionalen Unterräume von $\\mathbb{F}_2^2$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: 1-dimensionale Unterräume\n$X = \\{\\langle (1,0) \\rangle, \\langle (0,1) \\rangle, \\langle (1,1) \\rangle\\}$",
+                "Schritt 2: Bahnen\nEs gibt nur eine Bahn, da $G$ transitiv auf $X$ operiert",
+                "Schritt 3: Stabilisator\n$G_{\\langle (1,0) \\rangle} = \\{\\begin{pmatrix} 1 & a \\\\ 0 & b \\end{pmatrix} \\mid a \\in \\mathbb{F}_2, b \\in \\mathbb{F}_2^\\times\\}$\n$|G_{\\langle (1,0) \\rangle}| = 2$",
+                "Schritt 4: Bahnformel\n$|G| = |G_x| \\cdot |Gx|$\n$6 = 2 \\cdot 3$"
+            ]
         }
     ]
 } 
