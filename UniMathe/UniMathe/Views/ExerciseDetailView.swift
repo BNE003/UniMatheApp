@@ -7,7 +7,6 @@ struct ExerciseDetailView: View {
     @State private var descriptionHeight: CGFloat = 100
     @State private var solutionHeights: [CGFloat] = []
     @State private var titleHeight: CGFloat = 32
-    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         ZStack {
@@ -35,7 +34,7 @@ struct ExerciseDetailView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(
                         RoundedRectangle(cornerRadius: 16)
-                            .fill(colorScheme == .dark ? Color(.systemGray6) : .white)
+                            .fill(.white)
                             .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
                     )
                     .padding(.horizontal)
@@ -97,7 +96,6 @@ struct SolutionStepView: View {
     let step: Int
     let exercise: Exercise
     @Binding var height: CGFloat
-    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -112,7 +110,7 @@ struct SolutionStepView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(colorScheme == .dark ? Color(.systemGray5) : Color(.systemGray6))
+                .fill(Color(.systemGray6))
         )
         .padding(.horizontal)
     }
