@@ -148,6 +148,15 @@ struct ContentView: View {
                     }
                 } else {
                     VStack {
+                        // Moderner App-Titel
+                        VStack(spacing: 0) {
+                            Text("Höhere Mathematik")
+                                .font(.system(size: 36, weight: .heavy, design: .rounded))
+                                .foregroundColor(.blue)
+                                .shadow(color: Color.blue.opacity(0.15), radius: 4, x: 0, y: 2)
+                                .padding(.top, 24)
+                                .padding(.bottom, 8)
+                        }
                         // Get Pro Button - only show if not purchased
                         if storeManager.purchasedProductIDs.isEmpty {
                             NavigationLink(destination: ProFeaturesView()) {
@@ -190,8 +199,6 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationTitle("Higher Math")
-            .navigationBarTitleDisplayMode(.large)
         }
         .onAppear {
             loadTopics()

@@ -14,7 +14,7 @@ struct ProFeaturesView: View {
                         .font(.system(size: 60))
                         .foregroundColor(.blue)
                     
-                    Text("HigherMath Pro")
+                    Text("Höhere Mathematik Pro")
                         .font(.title)
                         .fontWeight(.bold)
                     

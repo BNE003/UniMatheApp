@@ -21,13 +21,12 @@
       "localizations" : [
         {
           "description" : "Erhatle Zugriff auf alle Funktionen, ein leben lang.",
-          "displayName" : "HigherMath Pro Lifetime",
+          "displayName" : "Höhere Mathemaik Pro Lifetime",
           "locale" : "de"
         }
       ],
-      "price" : 4.9900000000000002,
       "productID" : "unimathe.pro.lifetime",
-      "referenceName" : "HigherMath Pro lifetime",
+      "referenceName" : "Höhere Mathematik Pro lifetime",
       "type" : "NonConsumable"
     }
   ],
