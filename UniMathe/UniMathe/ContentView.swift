@@ -13,8 +13,6 @@ import StoreKit
 // MARK: - Model Definitions
 struct InteractiveExample: Codable, Identifiable {
     let id: UUID
-    let title: String
-    let description: String
     let steps: [InteractiveExampleStep]
     let topic: String
     
@@ -22,10 +20,8 @@ struct InteractiveExample: Codable, Identifiable {
         case id, title, description, steps, topic
     }
     
-    init(id: UUID = UUID(), title: String, description: String, steps: [InteractiveExampleStep], topic: String) {
+    init(id: UUID = UUID(), steps: [InteractiveExampleStep], topic: String) {
         self.id = id
-        self.title = title
-        self.description = description
         self.steps = steps
         self.topic = topic
     }
@@ -33,8 +29,9 @@ struct InteractiveExample: Codable, Identifiable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decodeIfPresent(UUID.self, forKey: .id) ?? UUID()
-        title = try container.decode(String.self, forKey: .title)
-        description = try container.decode(String.self, forKey: .description)
+        // title und description werden ignoriert
+        _ = try? container.decodeIfPresent(String.self, forKey: .title)
+        _ = try? container.decodeIfPresent(String.self, forKey: .description)
         steps = try container.decode([InteractiveExampleStep].self, forKey: .steps)
         topic = try container.decode(String.self, forKey: .topic)
     }
@@ -42,8 +39,6 @@ struct InteractiveExample: Codable, Identifiable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
-        try container.encode(title, forKey: .title)
-        try container.encode(description, forKey: .description)
         try container.encode(steps, forKey: .steps)
         try container.encode(topic, forKey: .topic)
     }
@@ -637,30 +632,6 @@ struct ProgressHeader: View {
     }
 }
 
-struct ContentHeader: View {
-    let title: String
-    let description: String
-    let opacity: Double
-    let slideOffset: CGFloat
-    
-    var body: some View {
-        VStack(spacing: 8) {
-            Text(title)
-                .font(.title2)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.center)
-            
-            Text(description)
-                .font(.subheadline)
-                .foregroundColor(.gray)
-                .multilineTextAlignment(.center)
-        }
-        .padding(.top)
-        .opacity(opacity)
-        .offset(y: slideOffset)
-    }
-}
-
 struct ExplanationContent: View {
     let step: InteractiveExampleStep
     let showCurrentStep: Bool
@@ -784,8 +755,6 @@ struct InteractiveLearningView: View {
     @State private var error: Error?
     @State private var showCurrentStep = false
     @State private var showProgress = false
-    @State private var slideOffset: CGFloat = 50
-    @State private var opacity: Double = 0
     @State private var showProSheet = false
     @ObservedObject private var storeManager = StoreKitManager.shared
     
@@ -826,13 +795,6 @@ struct InteractiveLearningView: View {
                     
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack(spacing: 24) {
-                            ContentHeader(
-                                title: example.title,
-                                description: example.description,
-                                opacity: opacity,
-                                slideOffset: slideOffset
-                            )
-                            
                             HStack(alignment: .top, spacing: 16) {
                                 BotAvatar(showCurrentStep: showCurrentStep)
                                 
@@ -847,6 +809,7 @@ struct InteractiveLearningView: View {
                             .frame(maxWidth: .infinity)
                         }
                         .padding(.bottom, 100) // Extra padding for the button
+                        .padding(.top, 16) // Zusätzliches Padding oben, nachdem ContentHeader entfernt wurde
                     }
                     
                     // Fixed button at bottom
@@ -915,8 +878,6 @@ struct InteractiveLearningView: View {
                 
                 withAnimation(.spring(response: 0.6, dampingFraction: 0.7).delay(0.6)) {
                     showCurrentStep = true
-                    opacity = 1
-                    slideOffset = 0
                 }
             } catch {
                 print("Fehler beim Laden/Dekodieren: \(error)")
@@ -938,8 +899,6 @@ struct InteractiveLearningView: View {
                 
                 withAnimation(.spring(response: 0.6, dampingFraction: 0.7).delay(0.6)) {
                     showCurrentStep = true
-                    opacity = 1
-                    slideOffset = 0
                 }
             } catch {
                 print("Fehler beim Laden/Dekodieren: \(error)")

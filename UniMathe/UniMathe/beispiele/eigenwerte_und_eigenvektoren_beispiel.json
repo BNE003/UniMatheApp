@@ -1,7 +1,4 @@
-{
-    "id": "bb0e8400-e29b-41d4-a716-446655440000",
-    "title": "Eigenwerte und Eigenvektoren",
-    "description": "Willkommen zu unserer spannenden Reise in die Welt der Eigenwerte und Eigenvektoren! Diese fundamentalen Konzepte der linearen Algebra helfen uns, die inneren Eigenschaften von Matrizen und linearen Abbildungen zu verstehen.",
+{    "id": "bb0e8400-e29b-41d4-a716-446655440000",
     "topic": "Eigenwerte",
     "steps": [
         {
