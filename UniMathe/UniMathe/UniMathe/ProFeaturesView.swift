@@ -10,29 +10,14 @@ struct ProFeaturesView: View {
             VStack(spacing: 36) {
                 // Moderner Header mit verbesserten Abständen
                 VStack(alignment: .center, spacing: 16) {
-                    // Icon mit sanftem Blau-Gradient
-                    ZStack {
-                        Circle()
-                            .fill(LinearGradient(
-                                gradient: Gradient(colors: [
-                                    Color(red: 0.1, green: 0.4, blue: 0.9),
-                                    Color(red: 0.3, green: 0.5, blue: 1.0)
-                                ]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            ))
-                            .frame(width: 90, height: 90)
-                            .shadow(color: Color.blue.opacity(0.2), radius: 10, x: 0, y: 4)
-                        
-                        // App Logo mit verbesserter Größe
-                        Image("logo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 50, height: 50)
-                            .foregroundColor(.white)
-                    }
-                    .padding(.bottom, 10)
-                    .padding(.top, 20)
+                    // Logo direkt ohne umgebenden Kreis
+                    Image("logo")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 115, height: 115)
+                        .shadow(color: Color.blue.opacity(0.2), radius: 8, x: 0, y: 4)
+                        .padding(.top, 20)
+                        .padding(.bottom, 10)
                     
                     // Titel mit modernem Blau
                     Text("Höhere Mathematik Pro")
@@ -115,11 +100,11 @@ struct ProFeaturesView: View {
                         .padding(.horizontal, 20)
                     
                     HStack(spacing: 20) {
-                        Link("AGB", destination: URL(string: "https://unimathe.app/agb")!)
+                        Link("AGB", destination: URL(string: "https://sites.google.com/view/hoehere-mathematik-agb/startseite")!)
                             .font(.footnote.weight(.medium))
                             .foregroundColor(Color(red: 0.0, green: 0.4, blue: 0.9))
                         
-                        Link("Datenschutz", destination: URL(string: "https://unimathe.app/datenschutz")!)
+                        Link("Datenschutz", destination: URL(string: "https://sites.google.com/view/hoehere-mathematik/startseite")!)
                             .font(.footnote.weight(.medium))
                             .foregroundColor(Color(red: 0.0, green: 0.4, blue: 0.9))
                     }
@@ -199,22 +184,13 @@ struct PurchaseButton: View {
                     ProgressView()
                         .tint(.white)
                 } else {
-                    ZStack {
-                        // Hintergrund für das Icon
-                        Circle()
-                            .fill(Color.white.opacity(0.15))
-                            .frame(width: 28, height: 28)
-                        
-                        // App Logo für Premium
-                        Image("logo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 18, height: 18)
-                            .foregroundColor(.white)
-                            .scaleEffect(animate ? 1.08 : 1.0)
-                            .animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: animate)
-                    }
-                    .padding(.trailing, 4)
+                    // Stern-Icon statt Logo
+                    Image(systemName: "star.fill")
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(.white)
+                        .scaleEffect(animate ? 1.08 : 1.0)
+                        .animation(.easeInOut(duration: 1.5).repeatForever(autoreverses: true), value: animate)
+                        .padding(.trailing, 4)
                     
                     Text(product.displayName)
                         .font(.system(size: 16, weight: .bold))

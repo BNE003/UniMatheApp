@@ -250,21 +250,167 @@ struct TopicCard: View {
     
     var body: some View {
         HStack(spacing: 16) {
-            Image(systemName: topic.icon)
-                .font(.system(size: 32))
-                .foregroundColor(.white)
-                .frame(width: 60, height: 60)
-                .background(
-                    Circle()
-                        .fill(
-                            LinearGradient(
-                                gradient: Gradient(colors: [.blue, .blue.opacity(0.8)]),
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
+            if topic.title == "Integralrechnung" {
+                Image("integral")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(.white)
+                    .frame(width: 45, height: 45)
+                    .padding(7.5)
+                    .background(
+                        Circle()
+                            .fill(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [.blue, .blue.opacity(0.8)]),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
                             )
-                        )
-                )
-                .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
+                    )
+                    .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
+            } else if topic.title == "Mehrdimensionale Analysis" {
+                Image("mehrdimensionale_analysis")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(.white)
+                    .frame(width: 45, height: 45)
+                    .padding(7.5)
+                    .background(
+                        Circle()
+                            .fill(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [.blue, .blue.opacity(0.8)]),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                    )
+                    .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
+            } else if topic.title == "Differentialrechnung" {
+                Image("differentialrechnung")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(.white)
+                    .frame(width: 45, height: 45)
+                    .padding(7.5)
+                    .background(
+                        Circle()
+                            .fill(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [.blue, .blue.opacity(0.8)]),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                    )
+                    .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
+            } else if topic.title == "Matrizen" {
+                Image("matrizen")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(.white)
+                    .frame(width: 45, height: 45)
+                    .padding(7.5)
+                    .background(
+                        Circle()
+                            .fill(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [.blue, .blue.opacity(0.8)]),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                    )
+                    .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
+            } else if topic.title == "Vektorräume" {
+                Image("vektor")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(.white)
+                    .frame(width: 45, height: 45)
+                    .padding(7.5)
+                    .background(
+                        Circle()
+                            .fill(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [.blue, .blue.opacity(0.8)]),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                    )
+                    .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
+            } else if topic.title == "Lineare Abbildungen" {
+                Image("abbildung")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(.white)
+                    .frame(width: 45, height: 45)
+                    .padding(7.5)
+                    .background(
+                        Circle()
+                            .fill(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [.blue, .blue.opacity(0.8)]),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                    )
+                    .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
+            } else if topic.title == "Determinanten" {
+                Image("determinante")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(.white)
+                    .frame(width: 45, height: 45)
+                    .padding(7.5)
+                    .background(
+                        Circle()
+                            .fill(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [.blue, .blue.opacity(0.8)]),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                    )
+                    .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
+            } else if topic.title == "Eigenwerte und Eigenvektoren" {
+                Image("eigenwerte")
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(.white)
+                    .frame(width: 45, height: 45)
+                    .padding(7.5)
+                    .background(
+                        Circle()
+                            .fill(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [.blue, .blue.opacity(0.8)]),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                    )
+                    .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
+            } else {
+                Image(systemName: topic.icon)
+                    .font(.system(size: 32))
+                    .foregroundColor(.white)
+                    .frame(width: 60, height: 60)
+                    .background(
+                        Circle()
+                            .fill(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [.blue, .blue.opacity(0.8)]),
+                                    startPoint: .topLeading,
+                                    endPoint: .bottomTrailing
+                                )
+                            )
+                    )
+                    .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
+            }
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(topic.title)
