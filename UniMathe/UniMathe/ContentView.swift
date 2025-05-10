@@ -151,7 +151,7 @@ struct ContentView: View {
                         // Moderner App-Titel
                         VStack(spacing: 0) {
                             Text("Höhere Mathematik")
-                                .font(.system(size: 36, weight: .heavy, design: .rounded))
+                                .font(.custom("HelveticaNeue-Bold", size: 36))
                                 .foregroundColor(.blue)
                                 .shadow(color: Color.blue.opacity(0.15), radius: 4, x: 0, y: 2)
                                 .padding(.top, 24)
