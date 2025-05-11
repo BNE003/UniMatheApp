@@ -1,179 +1,104 @@
-{    "id": "hh0e8400-e29b-41d4-a716-446655440061",
+{
+    "id": "770e8400-e29b-41d4-a716-446655440000",
+    "title": "Einführung in komplexe Zahlen",
+    "description": "Lass uns die grundlegenden Konzepte der komplexen Zahlen Schritt für Schritt erkunden.",
     "topic": "Komplexe Zahlen",
     "steps": [
         {
-            "id": "hh0e8400-e29b-41d4-a716-446655440062",
-            "text": "Eine komplexe Zahl ist eine Zahl der Form a + bi, wobei a und b reelle Zahlen sind und i die imaginäre Einheit ist.",
-            "formula": "z = a + bi \\text{ mit } a,b \\in \\mathbb{R}, i^2 = -1",
-            "explanation": "Eine komplexe Zahl ist wie ein Paar von reellen Zahlen. Es ist wie das Zusammenspiel von Real- und Imaginärteil!"
+            "id": "770e8400-e29b-41d4-a716-446655440001",
+            "text": "Eine komplexe Zahl z besteht aus einem Realteil a und einem Imaginärteil b, wobei i die imaginäre Einheit ist.",
+            "formula": "z = a + bi \\quad \\text{mit} \\quad a,b \\in \\mathbb{R} \\quad \\text{und} \\quad i^2 = -1",
+            "explanation": "Die imaginäre Einheit i ist definiert als die Lösung der Gleichung x² = -1."
         },
         {
-            "id": "hh0e8400-e29b-41d4-a716-446655440063",
-            "text": "Der Realteil einer komplexen Zahl ist der reelle Anteil.",
-            "formula": "\\text{Re}(z) = a",
-            "explanation": "Der Realteil ist wie der reelle Anteil der Zahl. Es ist wie das Finden des vertrauten Teils!"
-        },
-        {
-            "id": "hh0e8400-e29b-41d4-a716-446655440064",
-            "text": "Der Imaginärteil einer komplexen Zahl ist der Koeffizient von i.",
-            "formula": "\\text{Im}(z) = b",
-            "explanation": "Der Imaginärteil ist wie der imaginäre Anteil der Zahl. Es ist wie das Finden des neuen Teils!"
-        },
-        {
-            "id": "hh0e8400-e29b-41d4-a716-446655440065",
-            "text": "Die Addition komplexer Zahlen erfolgt komponentenweise.",
+            "id": "770e8400-e29b-41d4-a716-446655440002",
+            "text": "Die Addition zweier komplexer Zahlen erfolgt komponentenweise.",
             "formula": "(a + bi) + (c + di) = (a + c) + (b + d)i",
-            "explanation": "Die Addition ist wie das Zusammenzählen der Real- und Imaginärteile. Es ist wie das Verbinden von Paaren!"
+            "explanation": "Realteil und Imaginärteil werden jeweils separat addiert."
         },
         {
-            "id": "hh0e8400-e29b-41d4-a716-446655440066",
-            "text": "Die Multiplikation komplexer Zahlen erfolgt nach der Regel i² = -1.",
+            "id": "770e8400-e29b-41d4-a716-446655440003",
+            "text": "Die Multiplikation zweier komplexer Zahlen erfolgt durch Ausmultiplizieren und Nutzen von i² = -1.",
             "formula": "(a + bi) \\cdot (c + di) = (ac - bd) + (ad + bc)i",
-            "explanation": "Die Multiplikation ist wie das Ausmultiplizieren mit der Regel i² = -1. Es ist wie das Finden eines neuen Produkts!"
+            "explanation": "Die Formel ergibt sich durch Ausmultiplizieren und Zusammenfassen der Terme."
         },
         {
-            "id": "hh0e8400-e29b-41d4-a716-446655440067",
-            "text": "Die komplexe Konjugation kehrt das Vorzeichen des Imaginärteils um.",
-            "formula": "\\overline{z} = a - bi",
-            "explanation": "Die Konjugation ist wie das Spiegeln am Imaginärteil. Es ist wie das Finden des Spiegelbilds!"
+            "id": "770e8400-e29b-41d4-a716-446655440004",
+            "text": "Jede komplexe Zahl z = a + bi hat eine konjugiert komplexe Zahl z* = a - bi.",
+            "formula": "z = a + bi \\quad \\Rightarrow \\quad z^* = a - bi",
+            "explanation": "Die konjugiert komplexe Zahl entsteht durch Vorzeichenwechsel des Imaginärteils."
         },
         {
-            "id": "hh0e8400-e29b-41d4-a716-446655440068",
-            "text": "Der Betrag einer komplexen Zahl ist der Abstand vom Ursprung.",
-            "formula": "|z| = \\sqrt{a^2 + b^2}",
-            "explanation": "Der Betrag ist wie der Abstand vom Ursprung. Es ist wie das Messen der Entfernung!"
+            "id": "770e8400-e29b-41d4-a716-446655440005",
+            "text": "Der Betrag einer komplexen Zahl z = a + bi ist definiert als |z| = √(a² + b²).",
+            "formula": "|z| = \\sqrt{a^2 + b^2} = \\sqrt{z \\cdot z^*}",
+            "explanation": "Der Betrag gibt den Abstand der Zahl vom Ursprung in der komplexen Ebene an."
         },
         {
-            "id": "hh0e8400-e29b-41d4-a716-446655440069",
+            "id": "770e8400-e29b-41d4-a716-446655440006",
+            "text": "Komplexe Zahlen können in der Gaußschen Zahlenebene dargestellt werden.",
+            "formula": "z = a + bi \\quad \\Leftrightarrow \\quad (a,b) \\in \\mathbb{R}^2",
+            "explanation": "Die x-Achse repräsentiert den Realteil, die y-Achse den Imaginärteil."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440007",
             "text": "Das Argument einer komplexen Zahl ist der Winkel zur positiven reellen Achse.",
-            "formula": "\\arg(z) = \\arctan(\\frac{b}{a})",
-            "explanation": "Das Argument ist wie der Winkel zur reellen Achse. Es ist wie das Finden der Richtung!"
+            "formula": "\\arg(z) = \\arctan\\left(\\frac{b}{a}\\right)",
+            "explanation": "Das Argument bestimmt die Richtung der komplexen Zahl in der Gaußschen Zahlenebene."
         },
         {
-            "id": "hh0e8400-e29b-41d4-a716-446655440070",
-            "text": "Die Polardarstellung einer komplexen Zahl verwendet Betrag und Argument.",
-            "formula": "z = |z| \\cdot (\\cos(\\arg(z)) + i\\sin(\\arg(z)))",
-            "explanation": "Die Polardarstellung ist wie die Beschreibung durch Abstand und Winkel. Es ist wie das Finden der Position!"
+            "id": "770e8400-e29b-41d4-a716-446655440008",
+            "text": "Die Polardarstellung einer komplexen Zahl verwendet den Betrag und das Argument.",
+            "formula": "z = |z| (\\cos(\\varphi) + i \\sin(\\varphi))",
+            "explanation": "Die Polardarstellung ist besonders nützlich bei Multiplikation und Division komplexer Zahlen."
         },
         {
-            "id": "hh0e8400-e29b-41d4-a716-446655440071",
-            "text": "Die Eulersche Formel verbindet Exponentialfunktion und trigonometrische Funktionen.",
-            "formula": "e^{i\\varphi} = \\cos(\\varphi) + i\\sin(\\varphi)",
-            "explanation": "Die Eulersche Formel ist wie eine magische Verbindung. Es ist wie das Finden einer überraschenden Beziehung!"
+            "id": "770e8400-e29b-41d4-a716-446655440009",
+            "text": "Die Eulersche Formel verbindet die trigonometrische und exponentielle Darstellung komplexer Zahlen.",
+            "formula": "e^{i\\varphi} = \\cos(\\varphi) + i \\sin(\\varphi)",
+            "explanation": "Dies führt zur Exponentialdarstellung: z = |z| \\cdot e^{i\\varphi}."
         },
         {
-            "id": "hh0e8400-e29b-41d4-a716-446655440072",
-            "text": "Die Exponentialdarstellung einer komplexen Zahl verwendet die Eulersche Formel.",
-            "formula": "z = |z| \\cdot e^{i\\arg(z)}",
-            "explanation": "Die Exponentialdarstellung ist wie eine elegante Schreibweise. Es ist wie das Finden einer kompakten Form!"
+            "id": "770e8400-e29b-41d4-a716-446655440010",
+            "text": "Die Multiplikation komplexer Zahlen in Polarform ist einfacher.",
+            "formula": "z_1 \\cdot z_2 = |z_1| \\cdot |z_2| \\cdot e^{i(\\varphi_1 + \\varphi_2)}",
+            "explanation": "Beträge werden multipliziert, Winkel werden addiert."
         },
         {
-            "id": "hh0e8400-e29b-41d4-a716-446655440073",
-            "text": "Die Multiplikation in Polardarstellung ist besonders einfach.",
-            "formula": "z_1 \\cdot z_2 = |z_1| \\cdot |z_2| \\cdot e^{i(\\arg(z_1) + \\arg(z_2))}",
-            "explanation": "Die Multiplikation in Polardarstellung ist wie das Multiplizieren der Beträge und Addieren der Winkel. Es ist wie das Finden einer einfachen Regel!"
+            "id": "770e8400-e29b-41d4-a716-446655440011",
+            "text": "Die Division komplexer Zahlen in Polarform erfolgt ebenfalls durch Betragsteilung und Winkelabzug.",
+            "formula": "\\frac{z_1}{z_2} = \\frac{|z_1|}{|z_2|} \\cdot e^{i(\\varphi_1 - \\varphi_2)}",
+            "explanation": "Beträge werden dividiert, Winkel werden subtrahiert."
         },
         {
-            "id": "hh0e8400-e29b-41d4-a716-446655440074",
-            "text": "Die Division in Polardarstellung ist ebenfalls einfach.",
-            "formula": "\\frac{z_1}{z_2} = \\frac{|z_1|}{|z_2|} \\cdot e^{i(\\arg(z_1) - \\arg(z_2))}",
-            "explanation": "Die Division in Polardarstellung ist wie das Dividieren der Beträge und Subtrahieren der Winkel. Es ist wie das Finden einer einfachen Regel!"
+            "id": "770e8400-e29b-41d4-a716-446655440012",
+            "text": "Die n-te Wurzel einer komplexen Zahl ergibt n verschiedene Lösungen.",
+            "formula": "z_k = \\sqrt[n]{|z|} \\cdot e^{i(\\frac{\\varphi + 2k\\pi}{n})} \\quad \\text{für} \\quad k=0,1,...,n-1",
+            "explanation": "Die Lösungen sind gleichmäßig auf einem Kreis in der Gaußschen Zahlenebene verteilt."
         },
         {
-            "id": "hh0e8400-e29b-41d4-a716-446655440075",
-            "text": "Die n-te Potenz einer komplexen Zahl in Polardarstellung.",
-            "formula": "z^n = |z|^n \\cdot e^{in\\arg(z)}",
-            "explanation": "Die Potenzierung ist wie das Potenzieren des Betrags und Multiplizieren des Arguments. Es ist wie das Finden einer einfachen Regel!"
+            "id": "770e8400-e29b-41d4-a716-446655440013",
+            "text": "Die komplexe Konjugation einer Zahl z spiegelt die Zahl an der reellen Achse.",
+            "formula": "\\overline{z} = a - bi",
+            "explanation": "Die konjugiert komplexe Zahl hat den gleichen Realteil, aber den negativen Imaginärteil."
         },
         {
-            "id": "hh0e8400-e29b-41d4-a716-446655440076",
-            "text": "Die n-te Wurzel einer komplexen Zahl hat n verschiedene Werte.",
-            "formula": "\\sqrt[n]{z} = \\sqrt[n]{|z|} \\cdot e^{i\\frac{\\arg(z) + 2k\\pi}{n}}, k = 0,\\ldots,n-1",
-            "explanation": "Die Wurzel ist wie das Finden mehrerer Lösungen. Es ist wie das Entdecken von verschiedenen Möglichkeiten!"
+            "id": "770e8400-e29b-41d4-a716-446655440014",
+            "text": "Das Produkt einer Zahl mit ihrer konjugierten Zahl ergibt das Quadrat des Betrags.",
+            "formula": "z \\cdot \\overline{z} = |z|^2",
+            "explanation": "Dies resultiert aus der Definition des Betrags und der Konjugation."
         },
         {
-            "id": "hh0e8400-e29b-41d4-a716-446655440077",
-            "text": "Die komplexe Exponentialfunktion ist periodisch mit Periode 2πi.",
-            "formula": "e^{z + 2\\pi i} = e^z",
-            "explanation": "Die Periodizität ist wie eine regelmäßige Wiederholung. Es ist wie das Finden eines Zyklus!"
+            "id": "770e8400-e29b-41d4-a716-446655440015",
+            "text": "Komplexe Exponentialfunktionen haben eine Periodizität von 2π.",
+            "formula": "e^{i(\\varphi + 2\\pi)} = e^{i\\varphi}",
+            "explanation": "Dies bedeutet, dass sich die komplexe Ebene bei einem Umlauf um 2π wiederholt."
         },
         {
-            "id": "hh0e8400-e29b-41d4-a716-446655440078",
-            "text": "Die komplexe Logarithmusfunktion ist mehrdeutig.",
-            "formula": "\\log(z) = \\ln|z| + i(\\arg(z) + 2k\\pi), k \\in \\mathbb{Z}",
-            "explanation": "Der Logarithmus ist wie das Finden mehrerer Werte. Es ist wie das Entdecken von verschiedenen Möglichkeiten!"
-        },
-        {
-            "id": "hh0e8400-e29b-41d4-a716-446655440079",
-            "text": "Die komplexen trigonometrischen Funktionen sind über die Eulersche Formel definiert.",
-            "formula": "\\sin(z) = \\frac{e^{iz} - e^{-iz}}{2i}, \\cos(z) = \\frac{e^{iz} + e^{-iz}}{2}",
-            "explanation": "Die trigonometrischen Funktionen sind wie Erweiterungen der reellen Funktionen. Es ist wie das Finden von neuen Definitionen!"
-        },
-        {
-            "id": "hh0e8400-e29b-41d4-a716-446655440080",
-            "text": "Die komplexen Hyperbelfunktionen sind ebenfalls über die Exponentialfunktion definiert.",
-            "formula": "\\sinh(z) = \\frac{e^z - e^{-z}}{2}, \\cosh(z) = \\frac{e^z + e^{-z}}{2}",
-            "explanation": "Die Hyperbelfunktionen sind wie Verwandte der trigonometrischen Funktionen. Es ist wie das Finden von ähnlichen Strukturen!"
-        },
-        {
-            "id": "hh0e8400-e29b-41d4-a716-446655440081",
-            "text": "Die komplexe Ableitung erfüllt die Cauchy-Riemannschen Differentialgleichungen.",
-            "formula": "\\frac{\\partial u}{\\partial x} = \\frac{\\partial v}{\\partial y}, \\frac{\\partial u}{\\partial y} = -\\frac{\\partial v}{\\partial x}",
-            "explanation": "Die Differentialgleichungen sind wie Bedingungen für die Differenzierbarkeit. Es ist wie das Finden von notwendigen Eigenschaften!"
-        },
-        {
-            "id": "hh0e8400-e29b-41d4-a716-446655440082",
-            "text": "Eine holomorphe Funktion ist komplex differenzierbar.",
-            "formula": "f'(z) = \\lim_{h \\to 0} \\frac{f(z + h) - f(z)}{h}",
-            "explanation": "Eine holomorphe Funktion ist wie eine besonders schöne Funktion. Es ist wie das Finden einer gutartigen Funktion!"
-        },
-        {
-            "id": "hh0e8400-e29b-41d4-a716-446655440083",
-            "text": "Der Cauchysche Integralsatz besagt, dass das Integral einer holomorphen Funktion über einen geschlossenen Weg verschwindet.",
-            "formula": "\\oint_\\gamma f(z) \\, dz = 0",
-            "explanation": "Der Integralsatz ist wie eine wichtige Eigenschaft holomorpher Funktionen. Es ist wie das Finden einer grundlegenden Regel!"
-        },
-        {
-            "id": "hh0e8400-e29b-41d4-a716-446655440084",
-            "text": "Die Cauchysche Integralformel gibt den Wert einer holomorphen Funktion im Inneren eines Gebiets durch ihre Werte auf dem Rand an.",
-            "formula": "f(z) = \\frac{1}{2\\pi i} \\oint_\\gamma \\frac{f(\\zeta)}{\\zeta - z} \\, d\\zeta",
-            "explanation": "Die Integralformel ist wie eine magische Formel. Es ist wie das Finden einer überraschenden Beziehung!"
-        },
-        {
-            "id": "hh0e8400-e29b-41d4-a716-446655440085",
-            "text": "Eine meromorphe Funktion ist holomorph bis auf isolierte Singularitäten.",
-            "formula": "f(z) = \\sum_{n=-\\infty}^\\infty a_n(z - z_0)^n",
-            "explanation": "Eine meromorphe Funktion ist wie eine Funktion mit Ausnahmen. Es ist wie das Finden einer Funktion mit besonderen Punkten!"
-        },
-        {
-            "id": "hh0e8400-e29b-41d4-a716-446655440086",
-            "text": "Der Residuensatz gibt das Integral einer meromorphen Funktion über einen geschlossenen Weg durch die Residuen an.",
-            "formula": "\\oint_\\gamma f(z) \\, dz = 2\\pi i \\sum_{k=1}^n \\text{Res}(f,z_k)",
-            "explanation": "Der Residuensatz ist wie eine praktische Formel. Es ist wie das Finden einer nützlichen Regel!"
-        },
-        {
-            "id": "hh0e8400-e29b-41d4-a716-446655440087",
-            "text": "Eine konforme Abbildung erhält Winkel.",
-            "formula": "\\text{arg}(f'(z)) = \\text{arg}(\\frac{df}{dz})",
-            "explanation": "Eine konforme Abbildung ist wie eine winkeltreue Abbildung. Es ist wie das Finden einer strukturerhaltenden Funktion!"
-        },
-        {
-            "id": "hh0e8400-e29b-41d4-a716-446655440088",
-            "text": "Die Möbiustransformation ist eine spezielle konforme Abbildung.",
-            "formula": "f(z) = \\frac{az + b}{cz + d}, ad - bc \\neq 0",
-            "explanation": "Die Möbiustransformation ist wie eine besonders schöne Abbildung. Es ist wie das Finden einer eleganten Funktion!"
-        },
-        {
-            "id": "hh0e8400-e29b-41d4-a716-446655440089",
-            "text": "Die Riemannsche Vermutung ist eines der wichtigsten ungelösten Probleme der Mathematik.",
-            "formula": "\\zeta(\\frac{1}{2} + it) = 0 \\Rightarrow t \\in \\mathbb{R}",
-            "explanation": "Die Riemannsche Vermutung ist wie ein großes Rätsel. Es ist wie das Finden einer tiefen Wahrheit!"
-        },
-        {
-            "id": "hh0e8400-e29b-41d4-a716-446655440090",
-            "text": "Zum Schluss schauen wir uns an, wie komplexe Zahlen in der Mathematik verwendet werden.",
-            "formula": "\\text{Komplexe Zahlen sind fundamentale Strukturen in der Mathematik}",
-            "explanation": "In der Mathematik helfen uns komplexe Zahlen, die reellen Zahlen zu erweitern. Es ist wie das Übersetzen mathematischer Konzepte in eine neue Sprache!"
+            "id": "770e8400-e29b-41d4-a716-446655440016",
+            "text": "Die komplexe Zahl z = 0 hat keine definierte Phase.",
+            "formula": "\\arg(0) \\text{ ist undefiniert}",
+            "explanation": "Da der Betrag 0 ist, kann kein Winkel definiert werden."
         }
     ]
 } 

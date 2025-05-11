@@ -1,179 +1,236 @@
-{    "id": "gg0e8400-e29b-41d4-a716-446655440061",
+{
+    "id": "660e8400-e29b-41d4-a716-446655440000",
+    "title": "Einführung in Körper",
+    "description": "Lass uns die grundlegenden Konzepte der Körpertheorie Schritt für Schritt erkunden.",
     "topic": "Körper",
     "steps": [
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440062",
-            "text": "Ein Körper ist eine Menge mit zwei Operationen, die bestimmte Eigenschaften erfüllen.",
-            "formula": "(K,+,\\cdot) \\text{ ist ein Körper}",
-            "explanation": "Ein Körper ist wie ein System mit Addition und Multiplikation. Es ist wie das Finden einer grundlegenden Struktur!"
+            "id": "660e8400-e29b-41d4-a716-446655440001",
+            "text": "Ein Körper ist eine algebraische Struktur, die aus einer Menge K und zwei Verknüpfungen besteht: Addition (+) und Multiplikation (·).",
+            "formula": "K = (K, +, \\cdot)",
+            "explanation": "Ein Körper ist wie eine erweiterte Zahlmenge, bei der wir sicherstellen, dass wir sowohl addieren als auch multiplizieren können, ohne die Struktur zu verlassen. Die wichtigsten Eigenschaften sind, dass wir Elemente addieren, multiplizieren und auch umkehren können (außer bei der Multiplikation mit Null). Stellen Sie sich das vor wie die rationalen oder reellen Zahlen: Egal welche zwei Zahlen wir nehmen, ihre Summe oder ihr Produkt bleibt in dieser Menge."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440063",
-            "text": "Die Addition in einem Körper ist kommutativ und assoziativ.",
-            "formula": "a + b = b + a, (a + b) + c = a + (b + c)",
-            "explanation": "Die Addition ist wie das Zusammenzählen von Elementen. Es ist wie das Finden einer natürlichen Operation!"
+            "id": "660e8400-e29b-41d4-a716-446655440002",
+            "text": "Die Addition im Körper erfüllt vier grundlegende Eigenschaften: Assoziativität, Kommutativität, Existenz eines neutralen Elements und Existenz eines inversen Elements.",
+            "formula": "a + (b + c) = (a + b) + c \\\\ a + b = b + a \\\\ a + 0 = a \\\\ a + (-a) = 0",
+            "explanation": "Diese Eigenschaften garantieren uns, dass wir beim Addieren in einem Körper immer zu einem eindeutigen Ergebnis kommen. Zum Beispiel bedeutet die Assoziativität, dass die Klammerung bei einer Addition keine Rolle spielt. Wenn wir 1 + (2 + 3) rechnen oder (1 + 2) + 3, erhalten wir immer 6. Die Kommutativität sagt uns, dass die Reihenfolge egal ist: 2 + 3 ist dasselbe wie 3 + 2. Das neutrale Element ist die Null, weil jede Zahl plus Null die Zahl selbst ist. Schließlich sorgt das inverse Element dafür, dass wir immer die Möglichkeit haben, eine Zahl wieder auszugleichen: 5 + (-5) ergibt Null."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440064",
-            "text": "Die Multiplikation in einem Körper ist kommutativ und assoziativ.",
-            "formula": "a \\cdot b = b \\cdot a, (a \\cdot b) \\cdot c = a \\cdot (b \\cdot c)",
-            "explanation": "Die Multiplikation ist wie das Multiplizieren von Elementen. Es ist wie das Finden einer natürlichen Operation!"
+            "id": "660e8400-e29b-41d4-a716-446655440003",
+            "text": "Die Multiplikation im Körper (außer Null) bildet ebenfalls eine abelsche Gruppe mit vier Eigenschaften: Assoziativität, Kommutativität, Existenz eines neutralen Elements und Existenz eines inversen Elements.",
+            "formula": "a \\cdot (b \\cdot c) = (a \\cdot b) \\cdot c \\\\ a \\cdot b = b \\cdot a \\\\ a \\cdot 1 = a \\\\ a \\cdot a^{-1} = 1",
+            "explanation": "Auch bei der Multiplikation wollen wir sicherstellen, dass die Struktur stabil bleibt. Das neutrale Element ist hier die Eins, da jede Zahl mal Eins die Zahl selbst ergibt. Der Unterschied zur Addition ist, dass wir bei der Multiplikation die Null ausklammern, da Null kein Inverses besitzt. Ein einfaches Beispiel: Wenn wir die Zahl 2 multiplizieren, bleibt die Reihenfolge egal (2 × 3 ist dasselbe wie 3 × 2), und durch die Assoziativität können wir die Klammerung beliebig setzen: 2 × (3 × 4) ist dasselbe wie (2 × 3) × 4."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440065",
-            "text": "Die Multiplikation ist distributiv über die Addition.",
+            "id": "660e8400-e29b-41d4-a716-446655440004",
+            "text": "Das Distributivgesetz verknüpft Addition und Multiplikation miteinander.",
             "formula": "a \\cdot (b + c) = a \\cdot b + a \\cdot c",
-            "explanation": "Die Distributivität ist wie eine Verbindung zwischen Addition und Multiplikation. Es ist wie das Finden einer wichtigen Beziehung!"
+            "explanation": "Dieses Gesetz sagt aus, dass Multiplikation sich über Addition verteilt. Denken Sie an die Regel aus der Schule: Wenn Sie 3 mal (2 + 4) rechnen, ist das dasselbe wie 3 × 2 plus 3 × 4. Das Ergebnis ist in beiden Fällen 18. Dieses Gesetz ist besonders nützlich beim Ausmultiplizieren von Klammern und macht viele Berechnungen einfacher und klarer."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440066",
-            "text": "Jedes Element hat ein additives Inverses.",
-            "formula": "a + (-a) = 0",
-            "explanation": "Das additive Inverse ist wie das Gegenelement bei der Addition. Es ist wie das Finden eines Ausgleichs!"
+            "id": "660e8400-e29b-41d4-a716-446655440005",
+            "text": "Der Körper der rationalen Zahlen (ℚ) besteht aus allen Brüchen von ganzen Zahlen mit einem von Null verschiedenen Nenner.",
+            "formula": "\\mathbb{Q} = \\left\\{ \\frac{a}{b} \\mid a, b \\in \\mathbb{Z}, b \\neq 0 \\right\\}",
+            "explanation": "Die rationalen Zahlen bilden einen Körper, weil die Addition und Multiplikation mit den genannten Eigenschaften abgeschlossen ist."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440067",
-            "text": "Jedes Element außer 0 hat ein multiplikatives Inverses.",
-            "formula": "a \\cdot a^{-1} = 1, a \\neq 0",
-            "explanation": "Das multiplikative Inverse ist wie das Gegenelement bei der Multiplikation. Es ist wie das Finden eines Ausgleichs!"
+            "id": "660e8400-e29b-41d4-a716-446655440006",
+            "text": "Ein weiteres Beispiel für einen Körper sind die reellen Zahlen (ℝ), die alle Dezimalzahlen umfassen.",
+            "formula": "\\mathbb{R}",
+            "explanation": "Die reellen Zahlen sind ein Körper, da sie alle Körperaxiome erfüllen und in der Analysis eine zentrale Rolle spielen."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440068",
-            "text": "Die rationalen Zahlen bilden einen Körper.",
-            "formula": "\\mathbb{Q} = \\{\\frac{p}{q} \\mid p,q \\in \\mathbb{Z}, q \\neq 0\\}",
-            "explanation": "Die rationalen Zahlen sind wie ein Beispiel für einen Körper. Es ist wie das Finden einer konkreten Struktur!"
+            "id": "660e8400-e29b-41d4-a716-446655440007",
+            "text": "Auch die komplexen Zahlen (ℂ) bilden einen Körper.",
+            "formula": "\\mathbb{C} = \\{ a + bi \\mid a, b \\in \\mathbb{R} \\}",
+            "explanation": "Komplexe Zahlen erweitern die reellen Zahlen und sind für viele mathematische Gebiete unverzichtbar."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440069",
-            "text": "Die reellen Zahlen bilden einen Körper.",
-            "formula": "\\mathbb{R} \\text{ ist ein Körper}",
-            "explanation": "Die reellen Zahlen sind wie ein weiteres Beispiel für einen Körper. Es ist wie das Finden einer größeren Struktur!"
+            "id": "660e8400-e29b-41d4-a716-446655440008",
+            "text": "Körper können endlich oder unendlich viele Elemente enthalten.",
+            "formula": "|K| < \\infty \\quad \\text{oder} \\quad |K| = \\infty",
+            "explanation": "Endliche Körper werden auch als Galoiskörper bezeichnet und spielen in der Informatik und Kryptographie eine wichtige Rolle."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440070",
-            "text": "Die komplexen Zahlen bilden einen Körper.",
-            "formula": "\\mathbb{C} = \\{a + bi \\mid a,b \\in \\mathbb{R}\\}",
-            "explanation": "Die komplexen Zahlen sind wie ein noch größeres Beispiel für einen Körper. Es ist wie das Finden einer erweiterten Struktur!"
+            "id": "660e8400-e29b-41d4-a716-446655440009",
+            "text": "Ein endlicher Körper mit p Elementen, wobei p eine Primzahl ist, wird als Primkörper bezeichnet.",
+            "formula": "\\mathbb{F}_p = \\mathbb{Z}/p\\mathbb{Z}",
+            "explanation": "Die Addition und Multiplikation wird hier modulo p durchgeführt. Solche Körper existieren nur, wenn die Anzahl der Elemente eine Potenz einer Primzahl ist."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440071",
-            "text": "Ein endlicher Körper hat eine Primzahlpotenz als Anzahl der Elemente.",
-            "formula": "|K| = p^n, p \\text{ prim}, n \\in \\mathbb{N}",
-            "explanation": "Ein endlicher Körper ist wie ein Körper mit endlich vielen Elementen. Es ist wie das Finden einer diskreten Struktur!"
+            "id": "660e8400-e29b-41d4-a716-44665544000a",
+            "text": "Endliche Körper mit p^n Elementen werden als Galoiskörper bezeichnet.",
+            "formula": "\\mathbb{F}_{p^n}",
+            "explanation": "Für jede Primzahl p und jedes n ∈ \\mathbb{N} gibt es bis auf Isomorphie genau einen Körper mit p^n Elementen."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440072",
-            "text": "Der Körper mit p Elementen wird mit Fp bezeichnet.",
-            "formula": "\\mathbb{F}_p = \\{0,1,\\ldots,p-1\\}",
-            "explanation": "Fp ist wie ein einfacher endlicher Körper. Es ist wie das Finden einer grundlegenden Struktur!"
+            "id": "660e8400-e29b-41d4-a716-44665544000b",
+            "text": "Im Körper \\mathbb{F}_2 bestehen die Elemente aus 0 und 1.",
+            "formula": "\\mathbb{F}_2 = \\{0, 1\\}",
+            "explanation": "Addition und Multiplikation werden modulo 2 durchgeführt. \\(1 + 1 = 0\\) in diesem Körper."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440073",
-            "text": "Ein Körpererweiterung ist ein größerer Körper, der einen kleineren Körper enthält.",
-            "formula": "K \\subseteq L",
-            "explanation": "Eine Körpererweiterung ist wie das Hinzufügen neuer Elemente. Es ist wie das Finden einer größeren Struktur!"
+            "id": "660e8400-e29b-41d4-a716-44665544000c",
+            "text": "Körpererweiterungen entstehen, wenn man einen Körper um neue Elemente erweitert.",
+            "formula": "L/K",
+            "explanation": "Dabei ist L ein Körper, der K als Teilkörper enthält. Körpererweiterungen sind zentral in der Algebra."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440074",
-            "text": "Der Grad einer Körpererweiterung ist die Dimension des größeren Körpers als Vektorraum über dem kleineren.",
-            "formula": "[L:K] = \\dim_K L",
-            "explanation": "Der Grad ist wie ein Maß für die Größe der Erweiterung. Es ist wie das Finden einer wichtigen Zahl!"
+            "id": "660e8400-e29b-41d4-a716-44665544000d",
+            "text": "Ein Beispiel für eine Körpererweiterung ist \\(\\mathbb{Q}(\\sqrt{2})\\).",
+            "formula": "\\mathbb{Q}(\\sqrt{2}) = \\{ a + b\\sqrt{2} \\mid a, b \\in \\mathbb{Q} \\}",
+            "explanation": "Dies ist der kleinste Körper, der \\(\\mathbb{Q}\\) und \\(\\sqrt{2}\\) enthält."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440075",
-            "text": "Eine algebraische Erweiterung entsteht durch Adjunktion von Nullstellen von Polynomen.",
-            "formula": "K(\\alpha) = \\{f(\\alpha) \\mid f \\in K[x]\\}",
-            "explanation": "Eine algebraische Erweiterung ist wie das Hinzufügen von Lösungen. Es ist wie das Finden neuer Elemente!"
+            "id": "660e8400-e29b-41d4-a716-44665544000e",
+            "text": "Der Grad einer Körpererweiterung ist die Dimension als Vektorraum über dem Grundkörper.",
+            "formula": "[L:K] = n",
+            "explanation": "Zum Beispiel ist der Grad von \\(\\mathbb{Q}(\\sqrt{2})/\\mathbb{Q}\\) gleich 2."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440076",
-            "text": "Eine transzendente Erweiterung entsteht durch Adjunktion von transzendenten Elementen.",
-            "formula": "K(t) = \\{\\frac{f(t)}{g(t)} \\mid f,g \\in K[x], g \\neq 0\\}",
-            "explanation": "Eine transzendente Erweiterung ist wie das Hinzufügen von unabhängigen Elementen. Es ist wie das Finden neuer Variablen!"
+            "id": "660e8400-e29b-41d4-a716-44665544000f",
+            "text": "Algebraische Körpererweiterungen entstehen, wenn neue Elemente Nullstellen von Polynomen sind.",
+            "formula": "f(x) \\in K[x], f(\\alpha) = 0",
+            "explanation": "Wenn \\(\\alpha\\) eine Nullstelle eines Polynoms über K ist, kann man K um \\(\\alpha\\) erweitern."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440077",
-            "text": "Ein Zerfällungskörper eines Polynoms enthält alle Nullstellen.",
-            "formula": "K(f) = K(\\alpha_1,\\ldots,\\alpha_n)",
-            "explanation": "Ein Zerfällungskörper ist wie ein Körper mit allen Lösungen. Es ist wie das Finden eines vollständigen Körpers!"
+            "id": "660e8400-e29b-41d4-a716-446655440010",
+            "text": "Ein Körper ist algebraisch abgeschlossen, wenn jedes nicht-konstante Polynom eine Nullstelle besitzt.",
+            "formula": "\\forall f(x) \\in K[x], \\deg f > 0 \\Rightarrow \\exists a \\in K: f(a) = 0",
+            "explanation": "Die komplexen Zahlen sind ein Beispiel für einen algebraisch abgeschlossenen Körper."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440078",
-            "text": "Eine normale Erweiterung ist der Zerfällungskörper einer Familie von Polynomen.",
-            "formula": "L = K(f_1,\\ldots,f_n)",
-            "explanation": "Eine normale Erweiterung ist wie eine besonders schöne Erweiterung. Es ist wie das Finden einer symmetrischen Struktur!"
+            "id": "660e8400-e29b-41d4-a716-446655440011",
+            "text": "Der Körper der rationalen Funktionen ist eine wichtige Körpererweiterung.",
+            "formula": "K(x)",
+            "explanation": "Er besteht aus allen Brüchen von Polynomen über einem Körper K."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440079",
-            "text": "Eine separable Erweiterung hat keine mehrfachen Nullstellen.",
-            "formula": "f'(\\alpha) \\neq 0 \\text{ für alle Nullstellen } \\alpha",
-            "explanation": "Eine separable Erweiterung ist wie eine Erweiterung ohne Wiederholungen. Es ist wie das Finden einer klaren Struktur!"
+            "id": "660e8400-e29b-41d4-a716-446655440012",
+            "text": "Körper werden in der Kryptographie genutzt, z.B. bei elliptischen Kurven.",
+            "formula": "E: y^2 = x^3 + ax + b, \\quad x, y \\in \\mathbb{F}_p",
+            "explanation": "Die Struktur endlicher Körper ermöglicht sichere kryptographische Verfahren."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440080",
-            "text": "Eine Galois-Erweiterung ist normal und separabel.",
-            "formula": "L/K \\text{ ist Galois}",
-            "explanation": "Eine Galois-Erweiterung ist wie eine besonders schöne Erweiterung. Es ist wie das Finden einer perfekten Struktur!"
+            "id": "660e8400-e29b-41d4-a716-446655440013",
+            "text": "Auch in der Codierungstheorie sind endliche Körper zentral.",
+            "formula": "",
+            "explanation": "Fehlerkorrigierende Codes wie Reed-Solomon-Codes basieren auf der Arithmetik endlicher Körper."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440081",
-            "text": "Die Galois-Gruppe einer Erweiterung besteht aus den Automorphismen.",
-            "formula": "\\text{Gal}(L/K) = \\{\\sigma: L \\to L \\mid \\sigma|_K = \\text{id}\\}",
-            "explanation": "Die Galois-Gruppe ist wie die Symmetriegruppe der Erweiterung. Es ist wie das Finden der Automorphismen!"
+            "id": "660e8400-e29b-41d4-a716-446655440014",
+            "text": "Der Körperabschluss ist die kleinste algebraisch abgeschlossene Körpererweiterung.",
+            "formula": "\\overline{K}",
+            "explanation": "Jeder Körper besitzt einen algebraischen Abschluss, der bis auf Isomorphie eindeutig ist."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440082",
-            "text": "Der Hauptsatz der Galois-Theorie verbindet Zwischenkörper und Untergruppen.",
-            "formula": "\\{\\text{Zwischenkörper}\\} \\leftrightarrow \\{\\text{Untergruppen}\\}",
-            "explanation": "Der Hauptsatz ist wie eine wichtige Beziehung. Es ist wie das Finden einer grundlegenden Verbindung!"
+            "id": "660e8400-e29b-41d4-a716-446655440015",
+            "text": "Jeder Körper besitzt eine Charakteristik, die entweder 0 oder eine Primzahl ist.",
+            "formula": "\\operatorname{char}(K) = 0 \\quad \\text{oder} \\quad \\operatorname{char}(K) = p",
+            "explanation": "Die Charakteristik ist die kleinste Anzahl von Summanden 1, die 0 ergibt, oder 0, falls dies nie der Fall ist."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440083",
-            "text": "Ein endlicher Körper ist stets eine Galois-Erweiterung seines Primkörpers.",
-            "formula": "\\mathbb{F}_{p^n}/\\mathbb{F}_p \\text{ ist Galois}",
-            "explanation": "Ein endlicher Körper ist wie eine besonders schöne Struktur. Es ist wie das Finden einer perfekten Erweiterung!"
+            "id": "660e8400-e29b-41d4-a716-446655440016",
+            "text": "Im Körper \\(\\mathbb{F}_p\\) ist die Charakteristik p.",
+            "formula": "1 + 1 + \\dots + 1 = 0 \\quad (p\\text{-mal})",
+            "explanation": "Dies bedeutet, dass die Addition von p Einsern das neutrale Element ergibt."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440084",
-            "text": "Die Galois-Gruppe eines endlichen Körpers ist zyklisch.",
-            "formula": "\\text{Gal}(\\mathbb{F}_{p^n}/\\mathbb{F}_p) \\cong \\mathbb{Z}/n\\mathbb{Z}",
-            "explanation": "Die Galois-Gruppe ist wie eine einfache Gruppe. Es ist wie das Finden einer grundlegenden Struktur!"
+            "id": "660e8400-e29b-41d4-a716-446655440017",
+            "text": "Ein Körperhomomorphismus ist eine Abbildung, die die Körperstruktur erhält.",
+            "formula": "\\varphi(a + b) = \\varphi(a) + \\varphi(b),\\ \\varphi(a \\cdot b) = \\varphi(a) \\cdot \\varphi(b)",
+            "explanation": "Körperhomomorphismen sind stets injektiv, da Kerne nur das Nullelement enthalten."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440085",
-            "text": "Ein algebraisch abgeschlossener Körper enthält alle Nullstellen von Polynomen.",
-            "formula": "\\forall f \\in K[x]: \\exists \\alpha \\in K: f(\\alpha) = 0",
-            "explanation": "Ein algebraisch abgeschlossener Körper ist wie ein vollständiger Körper. Es ist wie das Finden einer perfekten Struktur!"
+            "id": "660e8400-e29b-41d4-a716-446655440018",
+            "text": "Ein Körperautomorphismus ist ein bijektiver Körperhomomorphismus von K auf sich selbst.",
+            "formula": "\\operatorname{Aut}(K)",
+            "explanation": "Die Menge aller Automorphismen eines Körpers K bildet eine Gruppe."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440086",
-            "text": "Der algebraische Abschluss eines Körpers ist die kleinste algebraisch abgeschlossene Erweiterung.",
-            "formula": "\\overline{K} = \\bigcup_{L/K \\text{ algebraisch}} L",
-            "explanation": "Der algebraische Abschluss ist wie die vollständige Erweiterung. Es ist wie das Finden der perfekten Struktur!"
+            "id": "660e8400-e29b-41d4-a716-446655440019",
+            "text": "Die Galoisgruppe einer Körpererweiterung beschreibt die Automorphismen, die den Grundkörper festlassen.",
+            "formula": "\\operatorname{Gal}(L/K)",
+            "explanation": "Die Galoistheorie verbindet Körpererweiterungen mit Gruppentheorie und löst klassische Gleichungsprobleme."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440087",
-            "text": "Ein perfekter Körper hat keine inseparablen Erweiterungen.",
-            "formula": "\\text{char}(K) = 0 \\text{ oder } K^p = K",
-            "explanation": "Ein perfekter Körper ist wie ein besonders schöner Körper. Es ist wie das Finden einer idealen Struktur!"
+            "id": "660e8400-e29b-41d4-a716-44665544001a",
+            "text": "Die Lösung von Gleichungen wie \\(x^n = a\\) hängt davon ab, ob im Körper entsprechende n-te Wurzeln existieren.",
+            "formula": "x^n = a",
+            "explanation": "Im Körper \\(\\mathbb{C}\\) existieren für jedes a und jedes n stets Lösungen."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440088",
-            "text": "Ein formal reeller Körper lässt sich nicht als Summe von Quadraten schreiben.",
-            "formula": "-1 \\neq \\sum_{i=1}^n x_i^2",
-            "explanation": "Ein formal reeller Körper ist wie ein Körper mit einer besonderen Eigenschaft. Es ist wie das Finden einer speziellen Struktur!"
+            "id": "660e8400-e29b-41d4-a716-44665544001b",
+            "text": "Im Körper \\(\\mathbb{F}_p\\) ist nicht jedes Element eine n-te Potenz.",
+            "formula": "x^n = a \\text{ hat nicht immer eine Lösung in } \\mathbb{F}_p",
+            "explanation": "Die Struktur der multiplikativen Gruppe bestimmt, welche Gleichungen lösbar sind."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440089",
-            "text": "Ein reell abgeschlossener Körper ist formal reell und hat keine echten algebraischen Erweiterungen.",
-            "formula": "K = K[i]",
-            "explanation": "Ein reell abgeschlossener Körper ist wie ein vollständiger formal reeller Körper. Es ist wie das Finden einer perfekten Struktur!"
+            "id": "660e8400-e29b-41d4-a716-44665544001c",
+            "text": "Körper sind wichtige Beispiele für Vektorräume.",
+            "formula": "",
+            "explanation": "Jeder Körper ist ein Vektorraum über seinen Primkörper."
         },
         {
-            "id": "gg0e8400-e29b-41d4-a716-446655440090",
-            "text": "Zum Schluss schauen wir uns an, wie Körper in der Mathematik verwendet werden.",
-            "formula": "\\text{Körper sind fundamentale Strukturen in der Algebra}",
-            "explanation": "In der Mathematik helfen uns Körper, die Struktur von Zahlen und algebraischen Objekten zu verstehen. Es ist wie das Übersetzen mathematischer Konzepte in eine neue Sprache!"
+            "id": "660e8400-e29b-41d4-a716-44665544001d",
+            "text": "Die Struktur von Körpern wird in der Algebra intensiv untersucht.",
+            "formula": "",
+            "explanation": "Körper bilden die Grundlage für viele weitere mathematische Konzepte, wie Polynome, Galoistheorie und algebraische Geometrie."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-44665544001e",
+            "text": "Die Körperaxiome stellen sicher, dass die vier Grundrechenarten sinnvoll definiert sind.",
+            "formula": "",
+            "explanation": "Ohne die Existenz von Inversen und Neutralen könnten viele Gleichungen nicht gelöst werden."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-44665544001f",
+            "text": "Der Begriff des Körpers verallgemeinert die Zahlbereiche, mit denen wir aus der Schule vertraut sind.",
+            "formula": "",
+            "explanation": "Viele Eigenschaften der reellen oder komplexen Zahlen gelten in jedem Körper."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440020",
+            "text": "Zusammengefasst: Ein Körper ist eine Menge mit zwei Verknüpfungen, die bestimmte Regeln erfüllen.",
+            "formula": "",
+            "explanation": "Körper sind ein zentrales Konzept der modernen Mathematik und eröffnen zahlreiche Anwendungen."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440021",
+            "text": "Teste dein Wissen: Ist die Menge der ganzen Zahlen ein Körper?",
+            "formula": "\\mathbb{Z}",
+            "explanation": "Nein, da nicht jedes Element außer 0 ein multiplikatives Inverses besitzt."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440022",
+            "text": "Teste dein Wissen: Ist \\(\\mathbb{Q}\\) ein endlicher Körper?",
+            "formula": "\\mathbb{Q}",
+            "explanation": "Nein, \\(\\mathbb{Q}\\) ist unendlich – es gibt unendlich viele rationale Zahlen."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440023",
+            "text": "Teste dein Wissen: Gibt es einen Körper mit genau sechs Elementen?",
+            "formula": "|K| = 6",
+            "explanation": "Nein, die Anzahl der Elemente eines endlichen Körpers ist immer eine Potenz einer Primzahl."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440024",
+            "text": "Praktische Anwendung: In der digitalen Signalverarbeitung werden endliche Körper zur Fehlerkorrektur verwendet.",
+            "formula": "",
+            "explanation": "Moderne Kommunikationssysteme wie CDs oder Mobilfunk nutzen die Arithmetik endlicher Körper."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440025",
+            "text": "Praktische Anwendung: In der Geometrie ermöglichen Körper die Definition von Koordinatensystemen.",
+            "formula": "",
+            "explanation": "Vektorräume und affine Geometrie bauen auf der Struktur von Körpern auf."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440026",
+            "text": "Zusammenfassung: Mit Körpern lassen sich algebraische Strukturen und viele Anwendungen systematisch beschreiben.",
+            "formula": "",
+            "explanation": "Das Verständnis von Körpern ist ein wichtiger Schritt in der modernen Mathematik."
         }
     ]
 } 

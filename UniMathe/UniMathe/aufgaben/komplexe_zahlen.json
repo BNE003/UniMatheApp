@@ -64,6 +64,239 @@
                 "Schritt 3: Alle Logarithmen\n$\\log(z) = \\ln(\\sqrt{2}) + i(\\frac{3\\pi}{4} + 2k\\pi)$\nfür $k \\in \\mathbb{Z}$",
                 "Schritt 4: Vereinfachung\n$\\log(z) = \\frac{1}{2}\\ln(2) + i(\\frac{3\\pi}{4} + 2k\\pi)$"
             ]
+        },
+        {
+            "id": 6,
+            "topic": "Komplexe Zahlen",
+            "title": "Addition und Subtraktion komplexer Zahlen",
+            "description": "Berechnen Sie $(3+2i) + (1-4i)$ und $(5+7i) - (2+3i)$.",
+            "difficulty": "easy",
+            "points": 4,
+            "solutionSteps": [
+                "Addition: $(3+2i) + (1-4i) = 4 - 2i$",
+                "Subtraktion: $(5+7i) - (2+3i) = 3 + 4i$"
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Komplexe Zahlen",
+            "title": "Betrag und Argument",
+            "description": "Berechnen Sie den Betrag und das Argument von $z = 3+4i$.",
+            "difficulty": "easy",
+            "points": 4,
+            "solutionSteps": [
+                "Betrag: $|z| = \\sqrt{3^2 + 4^2} = 5$",
+                "Argument: $\\arg(z) = \\arctan(\\frac{4}{3})$"
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Komplexe Zahlen",
+            "title": "Multiplikation einfacher komplexer Zahlen",
+            "description": "Berechnen Sie $(1+i)(2-i)$.",
+            "difficulty": "easy",
+            "points": 4,
+            "solutionSteps": [
+                "$(1+i)(2-i) = 2 - i + 2i - i^2 = 3 + i$"
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Komplexe Zahlen",
+            "title": "Konjugation",
+            "description": "Finden Sie die konjugierte Zahl von $z = 2 - 5i$.",
+            "difficulty": "easy",
+            "points": 4,
+            "solutionSteps": [
+                "$\\overline{z} = 2 + 5i$"
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Komplexe Zahlen",
+            "title": "Normierung",
+            "description": "Bestimmen Sie die normierte Form von $z = 6 + 8i$.",
+            "difficulty": "easy",
+            "points": 4,
+            "solutionSteps": [
+                "$|z| = 10$, normiert: $\\frac{6+8i}{10} = 0.6 + 0.8i$"
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Komplexe Zahlen",
+            "title": "Real- und Imaginärteil",
+            "description": "Bestimmen Sie den Real- und Imaginärteil von $z = -3 + 7i$.",
+            "difficulty": "easy",
+            "points": 4,
+            "solutionSteps": [
+                "Realteil: $-3$, Imaginärteil: $7$"
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Komplexe Zahlen",
+            "title": "Potenz komplexer Zahlen",
+            "description": "Berechnen Sie $(1+i)^2$.",
+            "difficulty": "easy",
+            "points": 4,
+            "solutionSteps": [
+                "$(1+i)^2 = 1 + 2i + i^2 = 2i$"
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Komplexe Zahlen",
+            "title": "Inverse einer komplexen Zahl",
+            "description": "Bestimmen Sie das Inverse von $z = 1+2i$.",
+            "difficulty": "easy",
+            "points": 4,
+            "solutionSteps": [
+                "$z^{-1} = \\frac{1-2i}{5}$"
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Komplexe Zahlen",
+            "title": "Multiplikation und Division",
+            "description": "Berechnen Sie $\\frac{(3+4i)(1-2i)}{5+6i}$.",
+            "difficulty": "medium",
+            "points": 7,
+            "solutionSteps": [
+                "$\\frac{(3+4i)(1-2i)}{5+6i} = \\frac{3 - 6i + 4i - 8i^2}{5+6i} = \\frac{11 - 2i}{5+6i}$"
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Komplexe Zahlen",
+            "title": "Polardarstellung",
+            "description": "Finden Sie die Polardarstellung von $z = -1 + i$.",
+            "difficulty": "medium",
+            "points": 7,
+            "solutionSteps": [
+                "$|z| = \\sqrt{2}$, $\\arg(z) = \\frac{3\\pi}{4}$"
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Komplexe Zahlen",
+            "title": "Division komplexer Zahlen",
+            "description": "Berechnen Sie $\\frac{3+2i}{1-i}$.",
+            "difficulty": "medium",
+            "points": 7,
+            "solutionSteps": [
+                "$\\frac{3+2i}{1-i} = \\frac{(3+2i)(1+i)}{2} = \\frac{5+5i}{2}$"
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Komplexe Zahlen",
+            "title": "Multiplikation in Polardarstellung",
+            "description": "Multiplizieren Sie $z_1 = 2e^{i\\frac{\\pi}{3}}$ und $z_2 = 3e^{i\\frac{\\pi}{4}}$.",
+            "difficulty": "medium",
+            "points": 7,
+            "solutionSteps": [
+                "$z_1 \\cdot z_2 = 6e^{i(\\frac{\\pi}{3} + \\frac{\\pi}{4})}$"
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Komplexe Zahlen",
+            "title": "Komplexe Gleichungen",
+            "description": "Lösen Sie $z^2 = -4 + 4i$.",
+            "difficulty": "medium",
+            "points": 7,
+            "solutionSteps": [
+                "$z = \\pm (1+2i)$"
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Komplexe Zahlen",
+            "title": "Eulersche Formel",
+            "description": "Zeigen Sie, dass $e^{i\\pi} + 1 = 0$.",
+            "difficulty": "hard",
+            "points": 10,
+            "solutionSteps": [
+                "$e^{i\\pi} = -1$"
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Komplexe Zahlen",
+            "title": "Logarithmen komplexer Zahlen",
+            "description": "Finden Sie alle komplexen Logarithmen von $z = i$.",
+            "difficulty": "hard",
+            "points": 10,
+            "solutionSteps": [
+                "$\\log(i) = i(\\frac{\\pi}{2} + 2k\\pi), k \\in \\mathbb{Z}$"
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Komplexe Zahlen",
+            "title": "Komplexe Wurzeln",
+            "description": "Bestimmen Sie alle vierten Wurzeln von $16i$.",
+            "difficulty": "hard",
+            "points": 10,
+            "solutionSteps": [
+                "$z_k = 2e^{i(\\frac{\\pi}{8} + \\frac{k\\pi}{2})}$"
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Komplexe Zahlen",
+            "title": "Komplexe Potenzierung",
+            "description": "Berechnen Sie $(1+i)^5$.",
+            "difficulty": "hard",
+            "points": 10,
+            "solutionSteps": [
+                "$z = (1+i)^5 = 4i$"
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Komplexe Zahlen",
+            "title": "Holomorphie",
+            "description": "Prüfen Sie, ob die Funktion $f(z) = z^2$ holomorph ist.",
+            "difficulty": "hard",
+            "points": 10,
+            "solutionSteps": [
+                "Ja, da die Cauchy-Riemann-Gleichungen erfüllt sind."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Komplexe Zahlen",
+            "title": "Konforme Abbildungen",
+            "description": "Bestimmen Sie die Bildmenge der Abbildung $f(z) = \\frac{1}{z}$.",
+            "difficulty": "hard",
+            "points": 10,
+            "solutionSteps": [
+                "$f(z)$ ist konform auf $\\mathbb{C} \\setminus \\{0\\}$."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Komplexe Zahlen",
+            "title": "Integration komplexer Funktionen",
+            "description": "Berechnen Sie $\\oint_C \\frac{1}{z} \\, dz$ für den Einheitskreis.",
+            "difficulty": "hard",
+            "points": 10,
+            "solutionSteps": [
+                "$2\\pi i$"
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Komplexe Zahlen",
+            "title": "Residuenbestimmung",
+            "description": "Bestimmen Sie das Residuum von $f(z) = \\frac{1}{z^2+1}$ bei $z = i$.",
+            "difficulty": "hard",
+            "points": 10,
+            "solutionSteps": [
+                "$\\text{Res}(f, i) = \\frac{1}{2i}$"
+            ]
         }
     ]
-} 
+}
