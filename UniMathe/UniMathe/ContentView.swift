@@ -144,14 +144,39 @@ struct ContentView: View {
                 } else {
                     VStack {
                         // Moderner App-Titel
-                        VStack(spacing: 0) {
-                            Text("Höhere Mathematik")
-                                .font(.custom("HelveticaNeue-Bold", size: 36))
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text("Höhere")
+                                .font(.custom("SF Pro Display", size: 42))
+                                .fontWeight(.black)
                                 .foregroundColor(.blue)
+                                .overlay(
+                                    Text("Höhere")
+                                        .font(.custom("SF Pro Display", size: 42))
+                                        .fontWeight(.black)
+                                        .foregroundColor(.blue)
+                                        .opacity(0.3)
+                                        .offset(x: 0.5, y: 0.5)
+                                )
                                 .shadow(color: Color.blue.opacity(0.15), radius: 4, x: 0, y: 2)
                                 .padding(.top, 24)
+                            
+                            Text("Mathematik")
+                                .font(.custom("SF Pro Display", size: 42))
+                                .fontWeight(.black)
+                                .foregroundColor(.blue)
+                                .overlay(
+                                    Text("Mathematik")
+                                        .font(.custom("SF Pro Display", size: 42))
+                                        .fontWeight(.black)
+                                        .foregroundColor(.blue)
+                                        .opacity(0.3)
+                                        .offset(x: 0.5, y: 0.5)
+                                )
+                                .shadow(color: Color.blue.opacity(0.15), radius: 4, x: 0, y: 2)
                                 .padding(.bottom, 8)
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 24)
                         // Get Pro Button - only show if not purchased
                         if storeManager.purchasedProductIDs.isEmpty {
                             NavigationLink(destination: ProFeaturesView()) {
@@ -165,13 +190,17 @@ struct ContentView: View {
                                 .padding()
                                 .background(
                                     LinearGradient(
-                                        gradient: Gradient(colors: [.blue, .blue.opacity(0.8)]),
-                                        startPoint: .leading,
-                                        endPoint: .trailing
+                                        gradient: Gradient(colors: [
+                                            Color(red: 0.2, green: 0.5, blue: 0.9),
+                                            Color(red: 0.3, green: 0.3, blue: 0.8),
+                                            Color(red: 0.4, green: 0.2, blue: 0.7)
+                                        ]),
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
                                     )
                                 )
                                 .cornerRadius(12)
-                                .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
+                                .shadow(color: Color(red: 0.3, green: 0.3, blue: 0.8).opacity(0.4), radius: 6, x: 0, y: 3)
                             }
                             .padding(.horizontal)
                             .padding(.top)
@@ -1116,7 +1145,7 @@ struct TopicDetailView: View {
                     NavigationLink(destination: InteractiveLearningView(topic: topic)) {
                         HStack {
                             Image(systemName: "brain.head.profile")
-                            Text("MathAssistance")
+                            Text("Schritt für Schritt Erklärung")
                         }
                         .font(.headline)
                         .foregroundColor(.white)
