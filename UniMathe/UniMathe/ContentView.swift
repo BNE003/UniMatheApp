@@ -94,6 +94,7 @@ func normalizedFileName(from title: String) -> String {
 // MARK: - ContentView
 struct ContentView: View {
     @ObservedObject private var storeManager = StoreKitManager.shared
+    @ObservedObject private var settings = SettingsModel.shared
     @State private var topics: [MathTopic] = []
     @State private var isLoading = true
     @State private var error: Error?
@@ -223,10 +224,18 @@ struct ContentView: View {
                     }
                 }
             }
+            .navigationBarItems(trailing: 
+                NavigationLink(destination: SettingsView()) {
+                    Image(systemName: "gear")
+                        .font(.system(size: 22))
+                        .foregroundColor(settings.accentColor)
+                }
+            )
         }
         .onAppear {
             loadTopics()
         }
+        .preferredColorScheme(settings.isDarkModeEnabled ? .dark : .light)
     }
     
     private func loadTopics() {

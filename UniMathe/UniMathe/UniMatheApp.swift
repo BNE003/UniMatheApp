@@ -9,10 +9,12 @@ import SwiftUI
 
 @main
 struct UniMatheApp: App {
+    @ObservedObject private var settings = SettingsModel.shared
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .preferredColorScheme(.light) // Force light mode throughout the app
+                .preferredColorScheme(settings.isDarkModeEnabled ? .dark : .light)
         }
     }
 }
