@@ -481,13 +481,13 @@ struct ExercisesView: View {
     private var freeExercises: [Exercise] {
         guard let difficulty = selectedDifficulty else { return [] }
         let exercisesForDifficulty = exercises.filter { $0.difficulty == difficulty }
-        return Array(exercisesForDifficulty.prefix(1))
+        return Array(exercisesForDifficulty.prefix(2))
     }
     
     private var proExercises: [Exercise] {
         guard let difficulty = selectedDifficulty else { return [] }
         let exercisesForDifficulty = exercises.filter { $0.difficulty == difficulty }
-        return Array(exercisesForDifficulty.dropFirst())
+        return Array(exercisesForDifficulty.dropFirst(2))
     }
     
     var body: some View {
@@ -1010,13 +1010,13 @@ struct InteractiveLearningView: View {
             loadExample()
         }
         .onChange(of: currentStep) { newStep in
-            if newStep >= 2 && storeManager.purchasedProductIDs.isEmpty {
+            if newStep >= 4 && storeManager.purchasedProductIDs.isEmpty {
                 showProSheet = true
             }
         }
         .sheet(isPresented: $showProSheet, onDismiss: {
-            if currentStep >= 2 && storeManager.purchasedProductIDs.isEmpty {
-                currentStep = 1
+            if currentStep >= 4 && storeManager.purchasedProductIDs.isEmpty {
+                currentStep = 3
             }
         }) {
             ProFeaturesView()
