@@ -60,6 +60,37 @@ struct SettingsView: View {
                     
                     // Action Buttons
                     SettingsSection {
+                        // Get Pro Button - only show if not purchased
+                        if StoreKitManager.shared.purchasedProductIDs.isEmpty {
+                            NavigationLink(destination: ProFeaturesView()) {
+                                HStack {
+                                    Image(systemName: "star.fill")
+                                        .foregroundColor(.white)
+                                    Text("Get Pro")
+                                        .font(.headline)
+                                        .foregroundColor(.white)
+                                }
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [
+                                            Color(red: 0.2, green: 0.5, blue: 0.9),
+                                            Color(red: 0.3, green: 0.3, blue: 0.8),
+                                            Color(red: 0.4, green: 0.2, blue: 0.7)
+                                        ]),
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
+                                )
+                                .cornerRadius(12)
+                                .shadow(color: Color(red: 0.3, green: 0.3, blue: 0.8).opacity(0.4), radius: 6, x: 0, y: 3)
+                            }
+                            .padding(.bottom, 10)
+                        }
+                        
                         // Support
                         Button(action: {
                             if MFMailComposeViewController.canSendMail() {

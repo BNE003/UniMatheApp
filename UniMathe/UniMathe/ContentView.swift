@@ -179,34 +179,6 @@ struct ContentView: View {
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, 24)
-                        // Get Pro Button - only show if not purchased
-                        if storeManager.purchasedProductIDs.isEmpty {
-                            NavigationLink(destination: ProFeaturesView()) {
-                                HStack {
-                                    Image(systemName: "star.fill")
-                                    Text("Get Pro")
-                                }
-                                .font(.headline)
-                                .foregroundColor(.white)
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .background(
-                                    LinearGradient(
-                                        gradient: Gradient(colors: [
-                                            Color(red: 0.2, green: 0.5, blue: 0.9),
-                                            Color(red: 0.3, green: 0.3, blue: 0.8),
-                                            Color(red: 0.4, green: 0.2, blue: 0.7)
-                                        ]),
-                                        startPoint: .topLeading,
-                                        endPoint: .bottomTrailing
-                                    )
-                                )
-                                .cornerRadius(12)
-                                .shadow(color: Color(red: 0.3, green: 0.3, blue: 0.8).opacity(0.4), radius: 6, x: 0, y: 3)
-                            }
-                            .padding(.horizontal)
-                            .padding(.top)
-                        }
                         
                         ScrollView {
                             LazyVGrid(columns: [
