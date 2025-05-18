@@ -542,7 +542,7 @@ struct ExercisesView: View {
                                 ExerciseCard(exercise: exercise)
                             }
                         } else {
-                            // FREE: 1 frei, Rest geblurrt
+                            // FREE: 2 frei, Rest geblurrt
                             ForEach(freeExercises) { exercise in
                                 ExerciseCard(exercise: exercise)
                             }
@@ -585,7 +585,14 @@ struct ExercisesView: View {
         .navigationTitle("Übungen: \(topic.title)")
         .navigationBarTitleDisplayMode(.large)
         .sheet(isPresented: $showProSheet) {
-            ProFeaturesView()
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                iPadProFeaturesView()
+                    .presentationDetents([.height(900), .large])
+                    .presentationContentInteraction(.scrolls)
+                    .presentationCornerRadius(16)
+            } else {
+                ProFeaturesView()
+            }
         }
         .onAppear {
             loadExercises()
@@ -1019,7 +1026,14 @@ struct InteractiveLearningView: View {
                 currentStep = 3
             }
         }) {
-            ProFeaturesView()
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                iPadProFeaturesView()
+                    .presentationDetents([.height(900), .large])
+                    .presentationContentInteraction(.scrolls)
+                    .presentationCornerRadius(16)
+            } else {
+                ProFeaturesView()
+            }
         }
     }
     
@@ -1173,5 +1187,118 @@ struct ScrollOffsetPreferenceKey: PreferenceKey {
 
 #Preview {
     ContentView()
+}
+
+// MARK: - iPadProFeaturesView - Optimiert für Sheet-Darstellung
+struct iPadProFeaturesView: View {
+    @StateObject private var storeManager = StoreKitManager.shared
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    
+    var body: some View {
+        VStack(spacing: 10) {
+            HStack {
+                Spacer()
+                Button(action: { dismiss() }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .font(.title2)
+                        .foregroundColor(.gray)
+                        .padding(.trailing)
+                }
+            }
+            
+            ScrollView {
+                VStack(spacing: 15) {
+                    // Header mit reduziertem Abstand
+                    HStack(spacing: 20) {
+                        // Logo
+                        Image("logo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 80, height: 80)
+                            .shadow(color: Color.blue.opacity(0.2), radius: 6, x: 0, y: 3)
+                        
+                        VStack(alignment: .leading, spacing: 8) {
+                            // Titel
+                            Text("Höhere Mathematik Pro")
+                                .font(.system(size: 26, weight: .bold, design: .rounded))
+                                .foregroundColor(Color(red: 0.0, green: 0.4, blue: 0.9))
+                            
+                            // Untertitel
+                            Text("Schalte alle Inhalte frei")
+                                .font(.system(size: 16, weight: .medium))
+                                .foregroundColor(Color.gray.opacity(0.8))
+                        }
+                        Spacer()
+                    }
+                    .padding(.horizontal, 20)
+                    
+                    // Features in Grid-Layout für bessere Platznutzung
+                    LazyVGrid(columns: [
+                        GridItem(.adaptive(minimum: 300, maximum: 400), spacing: 16)
+                    ], spacing: 16) {
+                        FeatureRow(icon: "checkmark.circle.fill", text: "Alle interaktiven Lektionen freischalten")
+                        FeatureRow(icon: "books.vertical.fill", text: "Vollen Zugriff auf über 300 Aufgaben")
+                        FeatureRow(icon: "list.bullet.rectangle.fill", text: "Detaillierte Lösungschritte")
+                        FeatureRow(icon: "star.fill", text: "Unterstütze die Weiterentwicklung")
+                    }
+                    .padding(.horizontal, 20)
+                    
+                    // Kaufoptionen
+                    if storeManager.purchasedProductIDs.contains("unimathe.pro.lifetime") {
+                        VStack(spacing: 8) {
+                            Image(systemName: "checkmark.circle.fill")
+                                .font(.system(size: 30))
+                                .foregroundColor(Color(red: 0.0, green: 0.6, blue: 0.3))
+                            
+                            Text("Du genießt bereits alle Pro-Features!")
+                                .font(.headline)
+                                .foregroundColor(Color(red: 0.0, green: 0.6, blue: 0.3))
+                        }
+                        .padding(.vertical, 20)
+                        .frame(maxWidth: .infinity)
+                        .background(
+                            RoundedRectangle(cornerRadius: 16)
+                                .fill(Color(red: 0.9, green: 1.0, blue: 0.95))
+                                .shadow(color: Color.black.opacity(0.05), radius: 6, x: 0, y: 3)
+                        )
+                        .padding(.horizontal, 20)
+                    } else {
+                        VStack(spacing: 16) {
+                            ForEach(storeManager.products.filter { $0.id == "unimathe.pro.lifetime" }) { product in
+                                PurchaseButton(product: product)
+                            }
+                        }
+                        .padding(.horizontal, 20)
+                    }
+                    
+                    // Restore Purchases
+                    Button(action: {
+                        Task {
+                            await storeManager.updatePurchasedProducts()
+                        }
+                    }) {
+                        HStack(spacing: 8) {
+                            Image(systemName: "arrow.clockwise")
+                                .font(.system(size: 14))
+                            Text("Käufe wiederherstellen")
+                                .fontWeight(.medium)
+                        }
+                        .font(.subheadline)
+                        .foregroundColor(Color(red: 0.0, green: 0.4, blue: 0.9))
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 20)
+                        .background(Color.blue.opacity(0.06))
+                        .cornerRadius(14)
+                    }
+                }
+                .padding(.bottom, 15)
+            }
+        }
+        .background(Color.white)
+        .cornerRadius(16)
+        .frame(maxWidth: horizontalSizeClass == .regular ? 900 : .infinity)
+        .frame(height: horizontalSizeClass == .regular ? 900 : nil)
+    }
 }
 
