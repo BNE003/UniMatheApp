@@ -927,6 +927,7 @@ struct InteractiveLearningView: View {
     @State private var showCurrentStep = false
     @State private var showProgress = false
     @State private var showProSheet = false
+    @State private var blurBackground = false
     @ObservedObject private var storeManager = StoreKitManager.shared
     
     var body: some View {
@@ -1009,6 +1010,7 @@ struct InteractiveLearningView: View {
                             .shadow(color: Color.black.opacity(0.05), radius: 5, y: -2)
                     )
                 }
+                .blur(radius: blurBackground ? 5 : 0)
             }
         }
         .navigationTitle(topic.title)
@@ -1018,12 +1020,22 @@ struct InteractiveLearningView: View {
         }
         .onChange(of: currentStep) { newStep in
             if newStep >= 4 && storeManager.purchasedProductIDs.isEmpty {
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    withAnimation {
+                        blurBackground = true
+                    }
+                }
                 showProSheet = true
             }
         }
         .sheet(isPresented: $showProSheet, onDismiss: {
             if currentStep >= 4 && storeManager.purchasedProductIDs.isEmpty {
                 currentStep = 3
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    withAnimation {
+                        blurBackground = false
+                    }
+                }
             }
         }) {
             if UIDevice.current.userInterfaceIdiom == .pad {
