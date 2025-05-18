@@ -11,6 +11,11 @@ import SwiftUI
 struct UniMatheApp: App {
     @ObservedObject private var settings = SettingsModel.shared
     
+    init() {
+        // Track app launch for rating prompt
+        settings.trackAppLaunch()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

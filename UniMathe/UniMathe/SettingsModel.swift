@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 import Combine
+import StoreKit
 
 class SettingsModel: ObservableObject {
     static let shared = SettingsModel()
@@ -31,6 +32,12 @@ class SettingsModel: ObservableObject {
         }
     }
     
+    // App Rating Properties
+    private var appLaunchCount: Int = 0
+    private var appUsageTime: TimeInterval = 0
+    private var appStartTime: Date?
+    private var hasAskedForReview: Bool = false
+    
     private init() {
         // Load saved settings or use defaults
         self.isDarkModeEnabled = UserDefaults.standard.bool(forKey: "isDarkModeEnabled")
@@ -43,6 +50,78 @@ class SettingsModel: ObservableObject {
             self.accentColor = Color(color)
         } else {
             self.accentColor = .blue
+        }
+        
+        // Load app rating data
+        self.appLaunchCount = UserDefaults.standard.integer(forKey: "appLaunchCount")
+        self.appUsageTime = UserDefaults.standard.double(forKey: "appUsageTime")
+        self.hasAskedForReview = UserDefaults.standard.bool(forKey: "hasAskedForReview")
+        
+        // Register for app lifecycle notifications
+        setupAppLifecycleObservers()
+    }
+    
+    // MARK: - App Rating Methods
+    
+    func trackAppLaunch() {
+        if !hasAskedForReview {
+            appLaunchCount += 1
+            UserDefaults.standard.set(appLaunchCount, forKey: "appLaunchCount")
+            appStartTime = Date()
+            
+            // Check if we should ask for review based on launch count
+            if appLaunchCount >= 2 {
+                requestAppReview()
+            }
+        }
+    }
+    
+    func trackAppDidEnterBackground() {
+        if let startTime = appStartTime {
+            let sessionTime = Date().timeIntervalSince(startTime)
+            appUsageTime += sessionTime
+            UserDefaults.standard.set(appUsageTime, forKey: "appUsageTime")
+            
+            // Check if we should ask for review based on usage time
+            if appUsageTime >= 5 * 60 && !hasAskedForReview { // 5 minutes in seconds
+                requestAppReview()
+            }
+            
+            appStartTime = nil
+        }
+    }
+    
+    func trackAppWillEnterForeground() {
+        appStartTime = Date()
+    }
+    
+    private func requestAppReview() {
+        guard !hasAskedForReview else { return }
+        
+        DispatchQueue.main.async {
+            if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+                SKStoreReviewController.requestReview(in: scene)
+                self.hasAskedForReview = true
+                UserDefaults.standard.set(true, forKey: "hasAskedForReview")
+            }
+        }
+    }
+    
+    private func setupAppLifecycleObservers() {
+        NotificationCenter.default.addObserver(
+            forName: UIApplication.didEnterBackgroundNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            self?.trackAppDidEnterBackground()
+        }
+        
+        NotificationCenter.default.addObserver(
+            forName: UIApplication.willEnterForegroundNotification,
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            self?.trackAppWillEnterForeground()
         }
     }
 } 
