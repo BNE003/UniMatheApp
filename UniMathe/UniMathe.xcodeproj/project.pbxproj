@@ -13,6 +13,7 @@
 		A76069612DC42C48000E1DB6 /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = A76069602DC42C48000E1DB6 /* Realtime */; };
 		A76069632DC42C48000E1DB6 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = A76069622DC42C48000E1DB6 /* Storage */; };
 		A76069652DC42C62000E1DB6 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = A76069642DC42C62000E1DB6 /* Supabase */; };
+		A785ED1E2DD3F81D00BD9EE6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A785ED1D2DD3F81D00BD9EE6 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		A747ED832DBA6838007744BD /* UniMathe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniMathe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A747ED902DBA683A007744BD /* UniMatheTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniMatheTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A747ED9A2DBA683A007744BD /* UniMatheUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniMatheUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A785ED1D2DD3F81D00BD9EE6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -62,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A760695F2DC42C48000E1DB6 /* PostgREST in Frameworks */,
+				A785ED1E2DD3F81D00BD9EE6 /* StoreKit.framework in Frameworks */,
 				A760695D2DC42C48000E1DB6 /* Functions in Frameworks */,
 				A76069652DC42C62000E1DB6 /* Supabase in Frameworks */,
 				A760695B2DC42C48000E1DB6 /* Auth in Frameworks */,
@@ -111,6 +114,7 @@
 		A76068982DC42B81000E1DB6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A785ED1D2DD3F81D00BD9EE6 /* StoreKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -482,6 +486,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V582AWS3L8;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				MARKETING_VERSION = 1.0;
@@ -500,6 +505,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V582AWS3L8;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
 				MARKETING_VERSION = 1.0;

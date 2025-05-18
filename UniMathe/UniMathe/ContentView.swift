@@ -98,9 +98,10 @@ struct ContentView: View {
     @State private var topics: [MathTopic] = []
     @State private var isLoading = true
     @State private var error: Error?
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             ZStack {
                 // Subtle gradient background
                 LinearGradient(
@@ -147,12 +148,12 @@ struct ContentView: View {
                         // Moderner App-Titel
                         VStack(alignment: .leading, spacing: 0) {
                             Text("Höhere")
-                                .font(.custom("SF Pro Display", size: 42))
+                                .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 54 : 42))
                                 .fontWeight(.black)
                                 .foregroundColor(.blue)
                                 .overlay(
                                     Text("Höhere")
-                                        .font(.custom("SF Pro Display", size: 42))
+                                        .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 54 : 42))
                                         .fontWeight(.black)
                                         .foregroundColor(.blue)
                                         .opacity(0.3)
@@ -162,12 +163,12 @@ struct ContentView: View {
                                 .padding(.top, 24)
                             
                             Text("Mathematik")
-                                .font(.custom("SF Pro Display", size: 42))
+                                .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 54 : 42))
                                 .fontWeight(.black)
                                 .foregroundColor(.blue)
                                 .overlay(
                                     Text("Mathematik")
-                                        .font(.custom("SF Pro Display", size: 42))
+                                        .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 54 : 42))
                                         .fontWeight(.black)
                                         .foregroundColor(.blue)
                                         .opacity(0.3)
@@ -220,18 +221,22 @@ struct ContentView: View {
                                 }
                             }
                             .padding(16)
+                            .frame(maxWidth: horizontalSizeClass == .regular ? .infinity : nil, alignment: .leading)
                         }
                     }
                 }
             }
-            .navigationBarItems(trailing: 
-                NavigationLink(destination: SettingsView()) {
-                    Image(systemName: "gear")
-                        .font(.system(size: 22))
-                        .foregroundColor(settings.accentColor)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: SettingsView()) {
+                        Image(systemName: "gear")
+                            .font(.system(size: 22))
+                            .foregroundColor(settings.accentColor)
+                    }
                 }
-            )
+            }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             loadTopics()
         }
@@ -285,6 +290,7 @@ struct ContentView: View {
 
 struct TopicCard: View {
     let topic: MathTopic
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     var body: some View {
         HStack(spacing: 16) {
@@ -293,8 +299,8 @@ struct TopicCard: View {
                     .resizable()
                     .scaledToFit()
                     .foregroundColor(.white)
-                    .frame(width: 45, height: 45)
-                    .padding(7.5)
+                    .frame(width: horizontalSizeClass == .regular ? 60 : 45, height: horizontalSizeClass == .regular ? 60 : 45)
+                    .padding(horizontalSizeClass == .regular ? 10 : 7.5)
                     .background(
                         Circle()
                             .fill(
@@ -311,8 +317,8 @@ struct TopicCard: View {
                     .resizable()
                     .scaledToFit()
                     .foregroundColor(.white)
-                    .frame(width: 45, height: 45)
-                    .padding(7.5)
+                    .frame(width: horizontalSizeClass == .regular ? 60 : 45, height: horizontalSizeClass == .regular ? 60 : 45)
+                    .padding(horizontalSizeClass == .regular ? 10 : 7.5)
                     .background(
                         Circle()
                             .fill(
@@ -329,8 +335,8 @@ struct TopicCard: View {
                     .resizable()
                     .scaledToFit()
                     .foregroundColor(.white)
-                    .frame(width: 45, height: 45)
-                    .padding(7.5)
+                    .frame(width: horizontalSizeClass == .regular ? 60 : 45, height: horizontalSizeClass == .regular ? 60 : 45)
+                    .padding(horizontalSizeClass == .regular ? 10 : 7.5)
                     .background(
                         Circle()
                             .fill(
@@ -347,8 +353,8 @@ struct TopicCard: View {
                     .resizable()
                     .scaledToFit()
                     .foregroundColor(.white)
-                    .frame(width: 45, height: 45)
-                    .padding(7.5)
+                    .frame(width: horizontalSizeClass == .regular ? 60 : 45, height: horizontalSizeClass == .regular ? 60 : 45)
+                    .padding(horizontalSizeClass == .regular ? 10 : 7.5)
                     .background(
                         Circle()
                             .fill(
@@ -365,8 +371,8 @@ struct TopicCard: View {
                     .resizable()
                     .scaledToFit()
                     .foregroundColor(.white)
-                    .frame(width: 45, height: 45)
-                    .padding(7.5)
+                    .frame(width: horizontalSizeClass == .regular ? 60 : 45, height: horizontalSizeClass == .regular ? 60 : 45)
+                    .padding(horizontalSizeClass == .regular ? 10 : 7.5)
                     .background(
                         Circle()
                             .fill(
@@ -383,8 +389,8 @@ struct TopicCard: View {
                     .resizable()
                     .scaledToFit()
                     .foregroundColor(.white)
-                    .frame(width: 45, height: 45)
-                    .padding(7.5)
+                    .frame(width: horizontalSizeClass == .regular ? 60 : 45, height: horizontalSizeClass == .regular ? 60 : 45)
+                    .padding(horizontalSizeClass == .regular ? 10 : 7.5)
                     .background(
                         Circle()
                             .fill(
@@ -401,8 +407,8 @@ struct TopicCard: View {
                     .resizable()
                     .scaledToFit()
                     .foregroundColor(.white)
-                    .frame(width: 45, height: 45)
-                    .padding(7.5)
+                    .frame(width: horizontalSizeClass == .regular ? 60 : 45, height: horizontalSizeClass == .regular ? 60 : 45)
+                    .padding(horizontalSizeClass == .regular ? 10 : 7.5)
                     .background(
                         Circle()
                             .fill(
@@ -419,8 +425,8 @@ struct TopicCard: View {
                     .resizable()
                     .scaledToFit()
                     .foregroundColor(.white)
-                    .frame(width: 45, height: 45)
-                    .padding(7.5)
+                    .frame(width: horizontalSizeClass == .regular ? 60 : 45, height: horizontalSizeClass == .regular ? 60 : 45)
+                    .padding(horizontalSizeClass == .regular ? 10 : 7.5)
                     .background(
                         Circle()
                             .fill(
@@ -434,9 +440,9 @@ struct TopicCard: View {
                     .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
             } else {
                 Image(systemName: topic.icon)
-                    .font(.system(size: 32))
+                    .font(.system(size: horizontalSizeClass == .regular ? 40 : 32))
                     .foregroundColor(.white)
-                    .frame(width: 60, height: 60)
+                    .frame(width: horizontalSizeClass == .regular ? 80 : 60, height: horizontalSizeClass == .regular ? 80 : 60)
                     .background(
                         Circle()
                             .fill(
@@ -452,22 +458,22 @@ struct TopicCard: View {
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(topic.title)
-                    .font(.headline)
+                    .font(horizontalSizeClass == .regular ? .title2 : .headline)
                     .foregroundColor(.primary)
                 
                 Text(topic.description)
-                    .font(.subheadline)
+                    .font(horizontalSizeClass == .regular ? .body : .subheadline)
                     .foregroundColor(.secondary)
-                    .lineLimit(2)
+                    .lineLimit(horizontalSizeClass == .regular ? 3 : 2)
             }
             
             Spacer()
             
             Image(systemName: "chevron.right")
-                .font(.system(size: 14, weight: .semibold))
+                .font(.system(size: horizontalSizeClass == .regular ? 18 : 14, weight: .semibold))
                 .foregroundColor(.secondary)
         }
-        .padding(16)
+        .padding(horizontalSizeClass == .regular ? 28 : 16)
         .background(
             RoundedRectangle(cornerRadius: 16)
                 .fill(Color.white)
@@ -477,6 +483,8 @@ struct TopicCard: View {
             RoundedRectangle(cornerRadius: 16)
                 .stroke(Color.blue.opacity(0.1), lineWidth: 1)
         )
+        .frame(maxWidth: .infinity)
+        .padding(.horizontal, horizontalSizeClass == .regular ? 32 : 0)
     }
 }
 
