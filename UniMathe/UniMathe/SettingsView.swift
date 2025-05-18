@@ -5,6 +5,7 @@ import StoreKit
 struct SettingsView: View {
     @ObservedObject private var settings = SettingsModel.shared
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     @State private var showContributeSheet = false
     @State private var showLegalActionSheet = false
@@ -49,14 +50,14 @@ struct SettingsView: View {
             }
             
             ScrollView {
-                VStack(spacing: 20) {
+                VStack(spacing: horizontalSizeClass == .regular ? 30 : 20) {
                     // Header
-                    Text("Settings")
-                        .font(.system(size: 40, weight: .bold, design: .rounded))
+                    Text("Einstellungen")
+                        .font(.system(size: horizontalSizeClass == .regular ? 48 : 40, weight: .bold, design: .rounded))
                         .foregroundColor(settings.accentColor)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal)
-                        .padding(.top, 20)
+                        .padding(.horizontal, horizontalSizeClass == .regular ? 40 : 20)
+                        .padding(.top, horizontalSizeClass == .regular ? 30 : 20)
                     
                     // Action Buttons
                     SettingsSection {
@@ -73,7 +74,7 @@ struct SettingsView: View {
                                 .font(.headline)
                                 .foregroundColor(.white)
                                 .frame(maxWidth: .infinity)
-                                .padding()
+                                .padding(horizontalSizeClass == .regular ? 16 : 12)
                                 .background(
                                     LinearGradient(
                                         gradient: Gradient(colors: [
@@ -85,7 +86,7 @@ struct SettingsView: View {
                                         endPoint: .bottomTrailing
                                     )
                                 )
-                                .cornerRadius(12)
+                                .cornerRadius(14)
                                 .shadow(color: Color(red: 0.3, green: 0.3, blue: 0.8).opacity(0.4), radius: 6, x: 0, y: 3)
                             }
                             .padding(.bottom, 10)
@@ -102,7 +103,7 @@ struct SettingsView: View {
                                 }
                             }
                         }) {
-                            SettingsButton(icon: "envelope.fill", title: "Support", iconColor: .blue)
+                            SettingsButton(icon: "envelope.fill", title: "Support", iconColor: .blue, isIpad: horizontalSizeClass == .regular)
                         }
                         .sheet(isPresented: $showMailView) {
                             MailView(isShowing: $showMailView, recipient: "bene-held@web.de", subject: "UniMathe App Support")
@@ -112,7 +113,7 @@ struct SettingsView: View {
                         Button(action: {
                             showContributeSheet = true
                         }) {
-                            SettingsButton(icon: "hammer.fill", title: "Mitwirken", iconColor: .orange)
+                            SettingsButton(icon: "hammer.fill", title: "Mitwirken", iconColor: .orange, isIpad: horizontalSizeClass == .regular)
                         }
                         .sheet(isPresented: $showContributeSheet) {
                             ContributeView()
@@ -125,14 +126,14 @@ struct SettingsView: View {
                                 SKStoreReviewController.requestReview(in: scene)
                             }
                         }) {
-                            SettingsButton(icon: "star.fill", title: "Bewerten", iconColor: .yellow)
+                            SettingsButton(icon: "star.fill", title: "Bewerten", iconColor: .yellow, isIpad: horizontalSizeClass == .regular)
                         }
                         
                         // Legal
                         Button(action: {
                             showLegalActionSheet = true
                         }) {
-                            SettingsButton(icon: "doc.text.fill", title: "Rechtliches", iconColor: .purple)
+                            SettingsButton(icon: "doc.text.fill", title: "Rechtliches", iconColor: .purple, isIpad: horizontalSizeClass == .regular)
                         }
                         .actionSheet(isPresented: $showLegalActionSheet) {
                             ActionSheet(
@@ -172,7 +173,7 @@ struct SettingsView: View {
                 presentationMode.wrappedValue.dismiss()
             }) {
                 Image(systemName: "xmark.circle.fill")
-                    .font(.system(size: 22))
+                    .font(.system(size: horizontalSizeClass == .regular ? 28 : 22))
                     .foregroundColor(settings.accentColor)
             }
         )
@@ -183,21 +184,22 @@ struct SettingsView: View {
 // MARK: - Support Views
 struct SettingsSection<Content: View>: View {
     let content: Content
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
     init(@ViewBuilder content: () -> Content) {
         self.content = content()
     }
     
     var body: some View {
-        VStack(spacing: 2) {
+        VStack(spacing: horizontalSizeClass == .regular ? 4 : 2) {
             content
         }
         .background(
-            RoundedRectangle(cornerRadius: 16)
+            RoundedRectangle(cornerRadius: 18)
                 .fill(Color.white.opacity(0.8))
-                .shadow(color: Color.black.opacity(0.05), radius: 10)
+                .shadow(color: Color.black.opacity(0.05), radius: 12)
         )
-        .padding(.horizontal, 20)
+        .padding(.horizontal, horizontalSizeClass == .regular ? 32 : 20)
     }
 }
 
@@ -205,33 +207,34 @@ struct SettingsButton: View {
     let icon: String
     let title: String
     let iconColor: Color
+    var isIpad: Bool = false
     
     var body: some View {
         HStack {
             Image(systemName: icon)
-                .font(.system(size: 18, weight: .semibold))
+                .font(.system(size: isIpad ? 24 : 18, weight: .semibold))
                 .foregroundColor(.white)
-                .frame(width: 36, height: 36)
+                .frame(width: isIpad ? 48 : 36, height: isIpad ? 48 : 36)
                 .background(
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: isIpad ? 12 : 10)
                         .fill(iconColor)
                 )
-                .padding(.vertical, 8)
-                .padding(.leading, 16)
+                .padding(.vertical, isIpad ? 12 : 8)
+                .padding(.leading, isIpad ? 24 : 16)
             
             Text(title)
-                .font(.system(size: 17, weight: .medium))
+                .font(.system(size: isIpad ? 20 : 17, weight: .medium))
                 .foregroundColor(.primary)
-                .padding(.leading, 8)
+                .padding(.leading, isIpad ? 12 : 8)
             
             Spacer()
             
             Image(systemName: "chevron.right")
-                .font(.system(size: 14, weight: .semibold))
+                .font(.system(size: isIpad ? 18 : 14, weight: .semibold))
                 .foregroundColor(.gray)
-                .padding(.trailing, 16)
+                .padding(.trailing, isIpad ? 24 : 16)
         }
-        .padding(.vertical, 10)
+        .padding(.vertical, isIpad ? 14 : 10)
         .background(Color.clear)
     }
 }

@@ -1215,7 +1215,8 @@ struct iPadProFeaturesView: View {
                     Image(systemName: "xmark.circle.fill")
                         .font(.title2)
                         .foregroundColor(.gray)
-                        .padding(.trailing)
+                        .padding(.trailing, 20)
+                        .padding(.top, 16)
                 }
             }
             
