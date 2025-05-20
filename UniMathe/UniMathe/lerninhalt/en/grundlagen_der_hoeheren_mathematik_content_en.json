@@ -1,0 +1,63 @@
+{
+  "id": "1",
+  "title": "Foundations of Higher Mathematics",
+  "icon": "book.fill",
+  "description": "Fundamental concepts and methods of higher mathematics.",
+  "subTopics": [
+    {
+      "id": "1.1",
+      "title": "Sets and Mappings",
+      "icon": "circle.grid.2x2.fill",
+      "description": "Fundamental concepts of set theory and mappings between sets."
+    },
+    {
+      "id": "1.2",
+      "title": "Logic",
+      "icon": "arrow.triangle.branch",
+      "description": "Foundations of mathematical logic."
+    },
+    {
+      "id": "1.3",
+      "title": "Mathematical Induction",
+      "icon": "arrow.up.forward",
+      "description": "The method of mathematical induction as a proof technique."
+    },
+    {
+      "id": "1.4",
+      "title": "Binomial Formulas",
+      "icon": "x.squareroot",
+      "description": "The binomial formulas and their applications."
+    },
+    {
+      "id": "1.5",
+      "title": "Greatest Common Divisor",
+      "icon": "divide",
+      "description": "The greatest common divisor and its properties."
+    },
+    {
+      "id": "1.6",
+      "title": "Groups",
+      "icon": "person.3.fill",
+      "description": "Foundations of group theory."
+    },
+    {
+      "id": "1.7",
+      "title": "Rings",
+      "icon": "circle.circle.fill",
+      "description": "Introduction to ring theory."
+    },
+    {
+      "id": "1.8",
+      "title": "Fields",
+      "icon": "square.grid.3x3.fill",
+      "description": "In-depth introduction to fields, their structures, extensions, and applications with visual support."
+    },
+    {
+      "id": "1.9",
+      "title": "Complex Numbers",
+      "icon": "i.circle.fill",
+      "description": "The complex numbers and their geometric interpretation."
+    }
+  ],
+  "markdownContent": "<div class=\"content-container\">\n    <h1>📘 Foundations of Higher Mathematics</h1>\n    \n    <div class=\"section\">\n        <h2>1. Introduction</h2>\n        <blockquote>\n            Higher mathematics forms the foundation for many scientific disciplines and technical applications.\n        </blockquote>\n        \n        <h3>Important Areas:</h3>\n        <ul>\n            <li>Set Theory and Logic</li>\n            <li>Algebraic Structures</li>\n            <li>Analysis</li>\n            <li>Linear Algebra</li>\n        </ul>\n    </div>\n</div>"
+}

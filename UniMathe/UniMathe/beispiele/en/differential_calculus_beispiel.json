@@ -1,0 +1,186 @@
+{
+    "id": "aa0e8400-e29b-41d4-a716-446655440000",
+    "topic": "Differential Calculus",
+    "steps": [
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440001",
+            "text": "The derivative of a function describes its instantaneous rate of change.",
+            "formula": "f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}",
+            "explanation": "The derivative gives us the slope of the tangent at the point x. It's like measuring the instantaneous speed of an object!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440002",
+            "text": "Derivative rules allow us to compute derivatives.",
+            "formula": "\\begin{align*} (f + g)' &= f' + g' \\\\ (f \\cdot g)' &= f' \\cdot g + f \\cdot g' \\\\ \\left(\\frac{f}{g}\\right)' &= \\frac{f' \\cdot g - f \\cdot g'}{g^2} \\end{align*}",
+            "explanation": "Derivative rules help us compute derivatives of complex functions. It's like a toolkit with various tools!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440003",
+            "text": "The chain rule for composite functions.",
+            "formula": "(f \\circ g)'(x) = f'(g(x)) \\cdot g'(x)",
+            "explanation": "The chain rule helps us compute derivatives of nested functions. It's like breaking down a complex machine into its components!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440004",
+            "text": "The derivatives of elementary functions.",
+            "formula": "\\begin{align*} (x^n)' &= n \\cdot x^{n-1} \\\\ (\\sin x)' &= \\cos x \\\\ (\\cos x)' &= -\\sin x \\\\ (e^x)' &= e^x \\\\ (\\ln x)' &= \\frac{1}{x} \\end{align*}",
+            "explanation": "The derivatives of elementary functions are the building blocks of differential calculus. It's like the alphabet of analysis!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440005",
+            "text": "Higher derivatives describe the change of the change.",
+            "formula": "f''(x) = (f'(x))', \\quad f'''(x) = (f''(x))', \\quad ...",
+            "explanation": "Higher derivatives provide information about the curvature and further properties of the function. It's like examining a curve with an increasingly powerful magnifying glass!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440006",
+            "text": "The Taylor series approximates functions using polynomials.",
+            "formula": "f(x) = \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(a)}{n!} (x-a)^n",
+            "explanation": "The Taylor series allows us to approximate functions with polynomials. It's like reconstructing a complex curve with simple building blocks!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440007",
+            "text": "The mean value theorems of differential calculus.",
+            "formula": "\\frac{f(b) - f(a)}{b-a} = f'(\\xi) \\quad \\text{for some } \\xi \\in (a,b)",
+            "explanation": "The mean value theorem connects the average rate of change with the instantaneous rate of change. It's like building a bridge between two important concepts!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440008",
+            "text": "The monotonicity of a function can be determined by its derivative.",
+            "formula": "\\begin{cases} f'(x) > 0 & \\Rightarrow f \\text{ strictly increasing} \\\\ f'(x) < 0 & \\Rightarrow f \\text{ strictly decreasing} \\end{cases}",
+            "explanation": "The derivative tells us about the growth behavior of the function. It's like a compass showing us the direction!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440009",
+            "text": "Critical points can be found using the derivative.",
+            "formula": "f'(x_0) = 0 \\quad \\text{and} \\quad f''(x_0) \\neq 0",
+            "explanation": "The derivative helps us find maxima and minima of a function. It's like searching for peaks and valleys in a landscape!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440010",
+            "text": "The derivative of the inverse function.",
+            "formula": "(f^{-1})'(y) = \\frac{1}{f'(f^{-1}(y))}",
+            "explanation": "The derivative of the inverse function is the reciprocal of the derivative of the original function. It's like mirroring a slope!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440011",
+            "text": "The derivative of the exponential function with an arbitrary base.",
+            "formula": "(a^x)' = a^x \\cdot \\ln a",
+            "explanation": "The derivative of the exponential function includes an additional factor ln(a). It's like a special multiplier for each base!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440012",
+            "text": "The derivative of the logarithm function with an arbitrary base.",
+            "formula": "(\\log_a x)' = \\frac{1}{x \\cdot \\ln a}",
+            "explanation": "The derivative of the logarithm includes a factor 1/(x·ln(a)). It's like a special divisor for each base!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440013",
+            "text": "The derivatives of trigonometric functions.",
+            "formula": "\\begin{align*} (\\tan x)' &= \\frac{1}{\\cos^2 x} \\\\ (\\cot x)' &= -\\frac{1}{\\sin^2 x} \\\\ (\\sec x)' &= \\tan x \\cdot \\sec x \\\\ (\\csc x)' &= -\\cot x \\cdot \\csc x \\end{align*}",
+            "explanation": "The derivatives of trigonometric functions reveal interesting relationships between the functions. It's like a dance of functions!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440014",
+            "text": "The derivatives of hyperbolic functions.",
+            "formula": "\\begin{align*} (\\sinh x)' &= \\cosh x \\\\ (\\cosh x)' &= \\sinh x \\\\ (\\tanh x)' &= \\frac{1}{\\cosh^2 x} \\end{align*}",
+            "explanation": "Hyperbolic functions have derivative rules similar to trigonometric functions. It's like a mirror image of trigonometry!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440015",
+            "text": "The derivatives of inverse trigonometric functions.",
+            "formula": "\\begin{align*} (\\arcsin x)' &= \\frac{1}{\\sqrt{1-x^2}} \\\\ (\\arccos x)' &= -\\frac{1}{\\sqrt{1-x^2}} \\\\ (\\arctan x)' &= \\frac{1}{1+x^2} \\end{align*}",
+            "explanation": "The derivatives of inverse trigonometric functions have interesting roots in the denominator. It's like opening a door to the world of inverse functions!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440016",
+            "text": "The derivatives of inverse hyperbolic functions.",
+            "formula": "\\begin{align*} (\\text{arsinh } x)' &= \\frac{1}{\\sqrt{1+x^2}} \\\\ (\\text{arcosh } x)' &= \\frac{1}{\\sqrt{x^2-1}} \\\\ (\\text{artanh } x)' &= \\frac{1}{1-x^2} \\end{align*}",
+            "explanation": "Inverse hyperbolic functions are the inverses of hyperbolic functions. It's like retracing a path!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440017",
+            "text": "The derivative of a power function with an arbitrary exponent.",
+            "formula": "(x^r)' = r \\cdot x^{r-1} \\quad \\text{for } r \\in \\mathbb{R}",
+            "explanation": "The power rule also applies to non-integer exponents. It's like generalizing a simple rule!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440018",
+            "text": "The derivative of a function with an absolute value.",
+            "formula": "|f(x)|' = \\frac{f(x)}{|f(x)|} \\cdot f'(x) \\quad \\text{for } f(x) \\neq 0",
+            "explanation": "The derivative of the absolute value depends on the sign of the function. It's like reflecting across the x-axis!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440019",
+            "text": "The derivative of a function with a square root.",
+            "formula": "(\\sqrt{f(x)})' = \\frac{f'(x)}{2\\sqrt{f(x)}}",
+            "explanation": "The derivative of the square root includes a factor 1/(2√f(x)). It's like dividing by twice the square root!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440020",
+            "text": "The derivative of a function with a variable base and exponent.",
+            "formula": "(f(x)^{g(x)})' = f(x)^{g(x)} \\cdot (g'(x) \\cdot \\ln f(x) + \\frac{g(x) \\cdot f'(x)}{f(x)})",
+            "explanation": "The derivative of a function with a variable base and exponent is complex. It's like combining the exponential and power rules!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440021",
+            "text": "The derivative of a function with a logarithm.",
+            "formula": "(\\ln |f(x)|)' = \\frac{f'(x)}{f(x)}",
+            "explanation": "The derivative of the logarithm is the quotient of the derivative and the function. It's like dividing by the original function!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440022",
+            "text": "The derivative of a function with an exponential function.",
+            "formula": "(e^{f(x)})' = e^{f(x)} \\cdot f'(x)",
+            "explanation": "The derivative of the exponential function includes the original function as a factor. It's like keeping the function with an additional factor!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440023",
+            "text": "The derivative of a function with a trigonometric function.",
+            "formula": "\\begin{align*} (\\sin f(x))' &= \\cos f(x) \\cdot f'(x) \\\\ (\\cos f(x))' &= -\\sin f(x) \\cdot f'(x) \\end{align*}",
+            "explanation": "The derivative of a nested trigonometric function follows the chain rule. It's like combining trigonometry and the chain rule!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440024",
+            "text": "The derivative of a function with a hyperbolic function.",
+            "formula": "\\begin{align*} (\\sinh f(x))' &= \\cosh f(x) \\cdot f'(x) \\\\ (\\cosh f(x))' &= \\sinh f(x) \\cdot f'(x) \\end{align*}",
+            "explanation": "The derivative of a nested hyperbolic function follows rules similar to trigonometric functions. It's like a parallel universe of derivatives!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440025",
+            "text": "The derivative of a function with an inverse trigonometric function.",
+            "formula": "\\begin{align*} (\\arcsin f(x))' &= \\frac{f'(x)}{\\sqrt{1-f(x)^2}} \\\\ (\\arccos f(x))' &= -\\frac{f'(x)}{\\sqrt{1-f(x)^2}} \\end{align*}",
+            "explanation": "The derivative of a nested inverse trigonometric function includes a square root in the denominator. It's like opening a door to the world of inverse functions!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440026",
+            "text": "The derivative of a function with an inverse hyperbolic function.",
+            "formula": "\\begin{align*} (\\text{arsinh } f(x))' &= \\frac{f'(x)}{\\sqrt{1+f(x)^2}} \\\\ (\\text{arcosh } f(x))' &= \\frac{f'(x)}{\\sqrt{f(x)^2-1}} \\end{align*}",
+            "explanation": "The derivative of a nested inverse hyperbolic function follows rules similar to inverse trigonometric functions. It's like a mirror image of inverse trigonometric functions!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440027",
+            "text": "The derivative of a function with a power and root.",
+            "formula": "(\\sqrt[n]{f(x)})' = \\frac{f'(x)}{n \\cdot \\sqrt[n]{f(x)^{n-1}}}",
+            "explanation": "The derivative of the n-th root includes a factor 1/n. It's like dividing by the root order!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440028",
+            "text": "The derivative of a function with a logarithm and power.",
+            "formula": "(\\log_a f(x))' = \\frac{f'(x)}{f(x) \\cdot \\ln a}",
+            "explanation": "The derivative of the logarithm with an arbitrary base includes a factor 1/(ln a). It's like adjusting to different bases!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440029",
+            "text": "The derivative of a function with an exponential function and power.",
+            "formula": "(a^{f(x)})' = a^{f(x)} \\cdot \\ln a \\cdot f'(x)",
+            "explanation": "The derivative of the exponential function with an arbitrary base includes a factor ln(a). It's like adjusting to different bases!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440030",
+            "text": "Finally, let's look at how differential calculus is used in physics.",
+            "formula": "v(t) = s'(t), \\quad a(t) = v'(t) = s''(t)",
+            "explanation": "In physics, derivatives describe velocity and acceleration. It's like translating mathematical concepts into the language of nature!"
+        }
+    ]
+}

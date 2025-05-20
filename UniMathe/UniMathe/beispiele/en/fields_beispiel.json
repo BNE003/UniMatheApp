@@ -1,0 +1,236 @@
+{
+    "id": "660e8400-e29b-41d4-a716-446655440000",
+    "title": "Introduction to Fields",
+    "description": "Let's explore the fundamental concepts of field theory step by step.",
+    "topic": "Fields",
+    "steps": [
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440001",
+            "text": "A field is an algebraic structure consisting of a set K and two operations: addition (+) and multiplication (·).",
+            "formula": "K = (K, +, \\cdot)",
+            "explanation": "A field is like an extended set of numbers where we ensure that we can both add and multiply without leaving the structure. The key properties are that we can add, multiply, and also find inverses (except for multiplication by zero). Think of it like the rational or real numbers: no matter which two numbers we take, their sum or product stays within the set."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440002",
+            "text": "Addition in a field satisfies four basic properties: associativity, commutativity, existence of an identity element, and existence of an inverse element.",
+            "formula": "a + (b + c) = (a + b) + c \\\\ a + b = b + a \\\\ a + 0 = a \\\\ a + (-a) = 0",
+            "explanation": "These properties ensure that addition in a field always leads to a unique result. For example, associativity means that the grouping in addition doesn’t matter. Whether we compute 1 + (2 + 3) or (1 + 2) + 3, we always get 6. Commutativity tells us that the order doesn’t matter: 2 + 3 is the same as 3 + 2. The identity element is zero, because any number plus zero is the number itself. Finally, the inverse element ensures we can always cancel a number out: 5 + (-5) gives zero."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440003",
+            "text": "Multiplication in a field (excluding zero) also forms an abelian group with four properties: associativity, commutativity, existence of an identity element, and existence of an inverse element.",
+            "formula": "a \\cdot (b \\cdot c) = (a \\cdot b) \\cdot c \\\\ a \\cdot b = b \\cdot a \\\\ a \\cdot 1 = a \\\\ a \\cdot a^{-1} = 1",
+            "explanation": "For multiplication, we also want to ensure the structure remains stable. The identity element here is one, since any number times one gives the number itself. Unlike addition, we exclude zero in multiplication because zero has no inverse. A simple example: when multiplying the number 2, the order doesn’t matter (2 × 3 is the same as 3 × 2), and associativity allows us to group as we like: 2 × (3 × 4) is the same as (2 × 3) × 4."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440004",
+            "text": "The distributive law connects addition and multiplication.",
+            "formula": "a \\cdot (b + c) = a \\cdot b + a \\cdot c",
+            "explanation": "This law states that multiplication distributes over addition. Think of the rule from school: if you compute 3 times (2 + 4), it’s the same as 3 × 2 plus 3 × 4. The result is 18 in both cases. This law is particularly useful for expanding brackets and makes many calculations simpler and clearer."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440005",
+            "text": "The field of rational numbers (ℚ) consists of all fractions of integers with a non-zero denominator.",
+            "formula": "\\mathbb{Q} = \\left\\{ \\frac{a}{b} \\mid a, b \\in \\mathbb{Z}, b \\neq 0 \\right\\}",
+            "explanation": "The rational numbers form a field because addition and multiplication with the mentioned properties are closed."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440006",
+            "text": "Another example of a field is the real numbers (ℝ), which include all decimal numbers.",
+            "formula": "\\mathbb{R}",
+            "explanation": "The real numbers are a field since they satisfy all field axioms and play a central role in analysis."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440007",
+            "text": "The complex numbers (ℂ) also form a field.",
+            "formula": "\\mathbb{C} = \\{ a + bi \\mid a, b \\in \\mathbb{R} \\}",
+            "explanation": "Complex numbers extend the real numbers and are indispensable in many areas of mathematics."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440008",
+            "text": "Fields can have finitely or infinitely many elements.",
+            "formula": "|K| < \\infty \\quad \\text{or} \\quad |K| = \\infty",
+            "explanation": "Finite fields, also called Galois fields, play a significant role in computer science and cryptography."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440009",
+            "text": "A finite field with p elements, where p is a prime, is called a prime field.",
+            "formula": "\\mathbb{F}_p = \\mathbb{Z}/p\\mathbb{Z}",
+            "explanation": "Addition and multiplication are performed modulo p. Such fields exist only when the number of elements is a power of a prime."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-44665544000a",
+            "text": "Finite fields with p^n elements are called Galois fields.",
+            "formula": "\\mathbb{F}_{p^n}",
+            "explanation": "For every prime p and every n ∈ \\mathbb{N}, there is exactly one field with p^n elements, up to isomorphism."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-44665544000b",
+            "text": "In the field \\mathbb{F}_2, the elements are 0 and 1.",
+            "formula": "\\mathbb{F}_2 = \\{0, 1\\}",
+            "explanation": "Addition and multiplication are performed modulo 2. \\(1 + 1 = 0\\) in this field."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-44665544000c",
+            "text": "Field extensions arise when a field is extended with new elements.",
+            "formula": "L/K",
+            "explanation": "Here, L is a field that contains K as a subfield. Field extensions are central to algebra."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-44665544000d",
+            "text": "An example of a field extension is \\(\\mathbb{Q}(\\sqrt{2})\\).",
+            "formula": "\\mathbb{Q}(\\sqrt{2}) = \\{ a + b\\sqrt{2} \\mid a, b \\in \\mathbb{Q} \\}",
+            "explanation": "This is the smallest field containing \\(\\mathbb{Q}\\) and \\(\\sqrt{2}\\)."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-44665544000e",
+            "text": "The degree of a field extension is the dimension as a vector space over the base field.",
+            "formula": "[L:K] = n",
+            "explanation": "For example, the degree of \\(\\mathbb{Q}(\\sqrt{2})/\\mathbb{Q}\\) is 2."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-44665544000f",
+            "text": "Algebraic field extensions arise when new elements are roots of polynomials.",
+            "formula": "f(x) \\in K[x], f(\\alpha) = 0",
+            "explanation": "If \\(\\alpha\\) is a root of a polynomial over K, one can extend K by \\(\\alpha\\)."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440010",
+            "text": "A field is algebraically closed if every non-constant polynomial has a root.",
+            "formula": "\\forall f(x) \\in K[x], \\deg f > 0 \\Rightarrow \\exists a \\in K: f(a) = 0",
+            "explanation": "The complex numbers are an example of an algebraically closed field."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440011",
+            "text": "The field of rational functions is an important field extension.",
+            "formula": "K(x)",
+            "explanation": "It consists of all fractions of polynomials over a field K."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440012",
+            "text": "Fields are used in cryptography, e.g., with elliptic curves.",
+            "formula": "E: y^2 = x^3 + ax + b, \\quad x, y \\in \\mathbb{F}_p",
+            "explanation": "The structure of finite fields enables secure cryptographic methods."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440013",
+            "text": "Finite fields are also central to coding theory.",
+            "formula": "",
+            "explanation": "Error-correcting codes like Reed-Solomon codes rely on the arithmetic of finite fields."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440014",
+            "text": "The algebraic closure is the smallest algebraically closed field extension.",
+            "formula": "\\overline{K}",
+            "explanation": "Every field has an algebraic closure, which is unique up to isomorphism."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440015",
+            "text": "Every field has a characteristic, which is either 0 or a prime number.",
+            "formula": "\\operatorname{char}(K) = 0 \\quad \\text{or} \\quad \\operatorname{char}(K) = p",
+            "explanation": "The characteristic is the smallest number of 1’s summed to get 0, or 0 if this never happens."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440016",
+            "text": "In the field \\(\\mathbb{F}_p\\), the characteristic is p.",
+            "formula": "1 + 1 + \\dots + 1 = 0 \\quad (p\\text{-times})",
+            "explanation": "This means that adding p ones yields the identity element."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440017",
+            "text": "A field homomorphism is a map that preserves the field structure.",
+            "formula": "\\varphi(a + b) = \\varphi(a) + \\varphi(b),\\ \\varphi(a \\cdot b) = \\varphi(a) \\cdot \\varphi(b)",
+            "explanation": "Field homomorphisms are always injective, as their kernels contain only the zero element."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440018",
+            "text": "A field automorphism is a bijective field homomorphism from K to itself.",
+            "formula": "\\operatorname{Aut}(K)",
+            "explanation": "The set of all automorphisms of a field K forms a group."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440019",
+            "text": "The Galois group of a field extension describes the automorphisms that fix the base field.",
+            "formula": "\\operatorname{Gal}(L/K)",
+            "explanation": "Galois theory connects field extensions with group theory and solves classical equation problems."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-44665544001a",
+            "text": "Solving equations like \\(x^n = a\\) depends on whether the field contains corresponding n-th roots.",
+            "formula": "x^n = a",
+            "explanation": "In the field \\(\\mathbb{C}\\), solutions always exist for any a and any n."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-44665544001b",
+            "text": "In the field \\(\\mathbb{F}_p\\), not every element is an n-th power.",
+            "formula": "x^n = a \\text{ does not always have a solution in } \\mathbb{F}_p",
+            "explanation": "The structure of the multiplicative group determines which equations are solvable."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-44665544001c",
+            "text": "Fields are important examples of vector spaces.",
+            "formula": "",
+            "explanation": "Every field is a vector space over its prime field."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-44665544001d",
+            "text": "The structure of fields is extensively studied in algebra.",
+            "formula": "",
+            "explanation": "Fields form the foundation for many other mathematical concepts, such as polynomials, Galois theory, and algebraic geometry."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-44665544001e",
+            "text": "The field axioms ensure that the four basic arithmetic operations are meaningfully defined.",
+            "formula": "",
+            "explanation": "Without the existence of inverses and identity elements, many equations could not be solved."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-44665544001f",
+            "text": "The concept of a field generalizes the number systems we are familiar with from school.",
+            "formula": "",
+            "explanation": "Many properties of real or complex numbers hold in any field."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440020",
+            "text": "In summary: A field is a set with two operations that satisfy specific rules.",
+            "formula": "",
+            "explanation": "Fields are a central concept in modern mathematics and open up numerous applications."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440021",
+            "text": "Test your knowledge: Is the set of integers a field?",
+            "formula": "\\mathbb{Z}",
+            "explanation": "No, because not every element except 0 has a multiplicative inverse."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440022",
+            "text": "Test your knowledge: Is \\(\\mathbb{Q}\\) a finite field?",
+            "formula": "\\mathbb{Q}",
+            "explanation": "No, \\(\\mathbb{Q}\\) is infinite – there are infinitely many rational numbers."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440023",
+            "text": "Test your knowledge: Is there a field with exactly six elements?",
+            "formula": "|K| = 6",
+            "explanation": "No, the number of elements in a finite field is always a power of a prime."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440024",
+            "text": "Practical application: In digital signal processing, finite fields are used for error correction.",
+            "formula": "",
+            "explanation": "Modern communication systems like CDs or mobile networks use the arithmetic of finite fields."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440025",
+            "text": "Practical application: In geometry, fields enable the definition of coordinate systems.",
+            "formula": "",
+            "explanation": "Vector spaces and affine geometry build on the structure of fields."
+        },
+        {
+            "id": "660e8400-e29b-41d4-a716-446655440026",
+            "text": "Summary: Fields allow us to systematically describe algebraic structures and many applications.",
+            "formula": "",
+            "explanation": "Understanding fields is an important step in modern mathematics."
+        }
+    ]
+}

@@ -1,0 +1,343 @@
+{
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Sequences and Series",
+            "title": "Convergence of Sequences",
+            "description": "Investigate the convergence of the sequence $(a_n)$ with $a_n = \\frac{n^2 + 3n + 1}{2n^2 - n + 4}$ and determine, if applicable, its limit.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Analysis of the sequence\nThe sequence $(a_n)$ is a rational sequence, as it can be written as the quotient of two polynomials. To study convergence, we determine the limit as $n \\to \\infty$.",
+                "Step 2: Rewrite the numerator\n$n^2 + 3n + 1 = n^2\\bigl(1 + \\tfrac{3}{n} + \\tfrac{1}{n^2}\\bigr)$\nExplanation: Factor out $n^2$ to isolate the highest power.",
+                "Step 3: Rewrite the denominator\n$2n^2 - n + 4 = n^2\\bigl(2 - \\tfrac{1}{n} + \\tfrac{4}{n^2}\\bigr)$\nExplanation: Similarly factor out $n^2$.",
+                "Step 4: Simplification\n$a_n = \\frac{n^2(1 + \\frac{3}{n} + \\frac{1}{n^2})}{n^2(2 - \\frac{1}{n} + \\frac{4}{n^2})} = \\frac{1 + \\frac{3}{n} + \\frac{1}{n^2}}{2 - \\frac{1}{n} + \\frac{4}{n^2}}$\nExplanation: The $n^2$ terms cancel.",
+                "Step 5: Limit computation\n$\\lim_{n \\to \\infty} a_n = \\lim_{n \\to \\infty} \\frac{1 + \\frac{3}{n} + \\frac{1}{n^2}}{2 - \\frac{1}{n} + \\frac{4}{n^2}}$\nExplanation: Compute the limit of the fraction.",
+                "Step 6: Apply limit laws\nSince $\\lim_{n \\to \\infty} \\frac{1}{n} = 0$ and $\\lim_{n \\to \\infty} \\frac{1}{n^2} = 0$, we get\n$\\lim_{n \\to \\infty} a_n = \\frac{1+0+0}{2-0+0} = \\tfrac12$.\nExplanation: All terms with $n$ in the denominator vanish.",
+                "Step 7: Convergence conclusion\nThe sequence converges to $\\tfrac12$, because:\n1. The limit exists\n2. All denominator terms go to 0\n3. The sequence is bounded",
+                "Step 8: Numerical check\nFor $n=1000$: $a_{1000} \\approx 0.5005$; for $n=10000$: $a_{10000} \\approx 0.50005$. The values approach $\\tfrac12$.",
+                "Step 9: Monotonicity check\nCompute $a_{n+1}-a_n$ and show that for sufficiently large $n$ the sequence is decreasing.",
+                "Step 10: Summary\n$(a_n)$ is:\n1. Convergent with limit $\\tfrac12$\n2. Bounded (above by $\\tfrac12$)\n3. Eventually monotone decreasing\n4. A rational sequence with polynomials of equal degree"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Sequences and Series",
+            "title": "Geometric Series",
+            "description": "Compute the sum of the series $\\sum_{n=0}^{\\infty} \\frac{2^n}{3^n}$ and show convergence.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Series type\n$\\sum_{n=0}^{\\infty} \\frac{2^n}{3^n}$ is a geometric series of the form $\\sum q^n$.",
+                "Step 2: Rewrite as geometric series\n$\\sum_{n=0}^{\\infty} \\frac{2^n}{3^n} = \\sum_{n=0}^{\\infty} \\bigl(\\tfrac{2}{3}\\bigr)^n$, where $q=\\tfrac23$.",
+                "Step 3: Convergence criterion\nA geometric series converges iff $|q|<1$. Here $|\\tfrac23|<1$, so it converges.",
+                "Step 4: Sum formula\nFor $|q|<1$: $\\sum_{n=0}^{\\infty} q^n = \\frac{1}{1-q}$.",
+                "Step 5: Compute the sum\n$\\sum_{n=0}^{\\infty} (\\tfrac{2}{3})^n = \\frac{1}{1-\\tfrac{2}{3}} = 3$.",
+                "Step 6: Partial sums check\n$S_0=1$, $S_1=1+\\tfrac23\\approx1.6667$, $S_2\\approx2.1111$, $S_3\\approx2.4074$. They approach 3.",
+                "Step 7: Remainder estimate\n$R_n = \\sum_{k=n+1}^{\\infty}(\\tfrac23)^k = \\frac{(\\tfrac23)^{n+1}}{1-\\tfrac23} = 3\\bigl(\\tfrac23\\bigr)^{n+1}$, which →0.",
+                "Step 8: Rate of convergence\nSince $q=\\tfrac23$ is not too close to 1, convergence is relatively fast (error <0.01 after 10 terms).",
+                "Step 9: Alternative expression\nEquivalently $\\sum_{n=0}^{\\infty}(\\tfrac23)^n = \\tfrac{3}{3-2}=3$.",
+                "Step 10: Conclusion\nThe geometric series:\n1. Converges absolutely ($|q|<1$)\n2. Sum equals 3\n3. Converges quickly\n4. Can be approximated arbitrarily well by partial sums"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Sequences and Series",
+            "title": "Convergence Tests",
+            "description": "Investigate the convergence of the series $\\sum_{n=1}^\\infty \\frac{n!}{n^n}$ using the ratio test.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Ratio test\nCompute $L=\\lim_{n\\to\\infty}\\bigl|\\tfrac{a_{n+1}}{a_n}\\bigr|=\\lim_{n\\to\\infty}\\frac{(n+1)!}{(n+1)^{n+1}}\\cdot\\frac{n^n}{n!}$.",
+                "Step 2: Simplify numerator\n$(n+1)!=(n+1)\\cdot n!$.",
+                "Step 3: Simplify denominator\n$(n+1)^{n+1}=(n+1)^n\\cdot(n+1)$.",
+                "Step 4: Combine\n$L=\\lim\\frac{n^n}{(n+1)^n}=\\lim\\bigl(\\tfrac{n}{n+1}\\bigr)^n$.",
+                "Step 5: Limit\n$\\lim_{n\\to\\infty}(1-\\tfrac1{n+1})^n=e^{-1}\\approx0.3679<1$.",
+                "Step 6: Conclusion\nSince $L<1$, the series converges absolutely by the ratio test.",
+                "Step 7: Numerical check\nFirst terms: $a_1=1,a_2=0.5,a_3≈0.2222,a_4≈0.0938$, rapidly decreasing, confirming convergence."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Sequences and Series",
+            "title": "Alternating Series",
+            "description": "Investigate the convergence of the alternating series $\\sum_{n=1}^\\infty (-1)^n\\frac{\\ln n}{n}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Leibniz criterion\nCheck that $a_n=\\frac{\\ln n}{n}>0$, $a_n\\to0$, and $a_n$ is eventually monotone decreasing.",
+                "Step 2: Monotonicity\n$f(x)=\\frac{\\ln x}{x}$, $f'(x)=\\frac{1-\\ln x}{x^2}<0$ for $x>e$. Thus $a_n$ decreases for $n\\ge3$.",
+                "Step 3: Limit\n$\\lim_{n\\to\\infty}\\frac{\\ln n}{n}=0$ by L'Hôpital's rule.",
+                "Step 4: Conclusion\nBy Leibniz’s test, the series converges (conditionally)."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Sequences and Series",
+            "title": "Power Series",
+            "description": "Determine the radius of convergence of the power series $\\sum_{n=0}^\\infty \\frac{n^n}{n!}x^n$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Ratio test\nCompute $L=\\lim_{n\\to\\infty}\\bigl|\\tfrac{a_{n+1}}{a_n}\\bigr|=\\lim\\frac{(n+1)^{n+1}/(n+1)!}{n^n/n!}$.",
+                "Step 2: Simplify\n$L=\\lim\\frac{(n+1)^n}{n^n}=\\lim(1+\\tfrac1n)^n=e$.",
+                "Step 3: Radius\n$R=1/L=1/e$.",
+                "Step 4: Convergence domain\nThe series converges for $|x|<1/e$ and diverges for $|x|>1/e$."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Sequences and Series",
+            "title": "Simple Sequence",
+            "description": "Investigate the convergence of the sequence $(a_n)$ with $a_n=\\frac{3n^2+2n}{n^2+1}$ and determine its limit if it exists.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Rewrite\n$a_n=\\frac{3n^2+2n}{n^2+1}=\\frac{3+\\tfrac2n}{1+\\tfrac1{n^2}}$.",
+                "Step 2: Limit\n$\\lim_{n\\to\\infty}a_n=\\frac{3+0}{1+0}=3$.",
+                "Step 3: Conclusion\nThe sequence converges to 3 since all terms with $n$ in the denominator go to 0."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Sequences and Series",
+            "title": "Simple Series",
+            "description": "Compute the sum of the series $\\sum_{n=1}^\\infty \\frac{1}{n(n+1)}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Partial fraction\n$\\frac{1}{n(n+1)}=\\frac{1}{n}-\\frac{1}{n+1}$.",
+                "Step 2: Telescoping sum\n$\\sum_{n=1}^\\infty\\bigl(\\tfrac1n-\\tfrac1{n+1}\\bigr)=1$.",
+                "Step 3: Conclusion\nThe series converges to 1."
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Sequences and Series",
+            "title": "Simple Power Series",
+            "description": "Determine the radius of convergence of $\\sum_{n=0}^\\infty \\frac{x^n}{n+1}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Ratio test\n$L=\\lim_{n\\to\\infty}\\bigl|\\tfrac{a_{n+1}}{a_n}\\bigr|=\\lim\\tfrac{n+1}{n+2}=1$.",
+                "Step 2: Radius\n$R=1$.",
+                "Step 3: Domain\nConverges for $|x|<1$, diverges for $|x|>1$."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Sequences and Series",
+            "title": "Simple Recursion",
+            "description": "Investigate the convergence of the recursively defined sequence $a_1=1$, $a_{n+1}=\\frac12\\bigl(a_n+\\tfrac2{a_n}\\bigr)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Monotonicity\n$a_{n+1}-a_n=\\tfrac12\\bigl(\\tfrac2{a_n}-a_n\\bigr)=\\tfrac{2-a_n^2}{2a_n}$.",
+                "Step 2: Boundedness\nBy induction $a_n>0$ for all $n$.",
+                "Step 3: Limit\n$\\lim_{n\\to\\infty}a_n=\\sqrt2$.",
+                "Step 4: Conclusion\nThe sequence converges monotonically decreasing to $\\sqrt2$."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Sequences and Series",
+            "title": "Simple Comparison Test",
+            "description": "Investigate convergence of $\\sum_{n=1}^\\infty\\frac{1}{n^2+n+1}$ via the comparison test.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Estimate\n$\\frac1{n^2+n+1}<\\frac1{n^2}$ for all $n$.",
+                "Step 2: Majorant\n$\\sum1/n^2$ converges.",
+                "Step 3: Conclusion\nBy comparison, the original series converges."
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Sequences and Series",
+            "title": "Simple Root Test",
+            "description": "Investigate convergence of $\\sum_{n=1}^\\infty(\\tfrac{n}{n+1})^n$ via the root test.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Root test\n$L=\\lim_{n\\to\\infty}\\sqrt[n]{(n/(n+1))^n}=\\lim n/(n+1)=1$.",
+                "Step 2: Inconclusive\nSince $L=1$, the root test is inconclusive.",
+                "Step 3: Alternate limit\n$\\lim (n/(n+1))^n=e^{-1}\\neq0$.",
+                "Step 4: Divergence\nBy the necessary condition, the series diverges."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Sequences and Series",
+            "title": "Simple Exponential Series",
+            "description": "Compute the sum of $\\sum_{n=0}^\\infty\\frac{x^n}{n!}$ for $x=2$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Exponential series\n$\\sum_{n=0}^\\infty\\frac{x^n}{n!}=e^x$.",
+                "Step 2: Evaluate at $x=2$\n$\\sum_{n=0}^\\infty\\frac{2^n}{n!}=e^2$.",
+                "Step 3: Convergence\nThe series converges absolutely for all real $x$."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Sequences and Series",
+            "title": "Moderate Sequence",
+            "description": "Investigate convergence of $(a_n)$ with $a_n=\\sqrt[n]{n!}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Stirling's formula\n$n!\\approx n^n e^{-n}\\sqrt{2\\pi n}$ for large $n$.",
+                "Step 2: Limit\n$\\lim_{n\\to\\infty}\\sqrt[n]{n!}=\\lim n/e=\\infty$.",
+                "Step 3: Conclusion\nThe sequence diverges to infinity."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Sequences and Series",
+            "title": "Moderate Series I",
+            "description": "Investigate convergence of $\\sum_{n=1}^\\infty\\frac{n^2+1}{n^3+2n}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Comparison\n$\\frac{n^2+1}{n^3+2n}\\sim\\frac1n$ as $n\\to\\infty$.",
+                "Step 2: Harmonic series\n$\\sum1/n$ diverges.",
+                "Step 3: Conclusion\nBy comparison, the given series diverges."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Sequences and Series",
+            "title": "Moderate Series II (Power Series)",
+            "description": "Determine radius of convergence and sum of $\\sum_{n=1}^\\infty n x^n$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Ratio test\n$L=\\lim(n+1)n^n/(n(n+1)^n)=1$.",
+                "Step 2: Radius\n$R=1$.",
+                "Step 3: Sum formula\nFor $|x|<1$: $\\sum n x^n=\\tfrac{x}{(1-x)^2}$.",
+                "Step 4: Domain\nConverges if $|x|<1$, diverges otherwise."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Sequences and Series",
+            "title": "Moderate Recursion",
+            "description": "Investigate convergence of the recursively defined $a_1=2$, $a_{n+1}=\\sqrt{a_n+2}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Monotonicity\n$a_{n+1}-a_n=\\sqrt{a_n+2}-a_n=\\frac{2-a_n^2+a_n}{\\sqrt{a_n+2}+a_n}$.",
+                "Step 2: Boundedness\nBy induction $0<a_n<2$ for all $n$.",
+                "Step 3: Limit\n$\\lim a_n=2$.",
+                "Step 4: Conclusion\nThe sequence converges monotonically increasing to 2."
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Sequences and Series",
+            "title": "Moderate Series III",
+            "description": "Investigate convergence of $\\sum_{n=1}^\\infty\\frac{\\sin n}{n^2}$ via comparison.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Estimate\n$|\\sin n|/n^2\\le1/n^2$.",
+                "Step 2: Majorant\n$\\sum1/n^2$ converges.",
+                "Step 3: Conclusion\nThe series converges absolutely."
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Sequences and Series",
+            "title": "Moderate Series IV (Root Test)",
+            "description": "Investigate convergence of $\\sum_{n=1}^\\infty\\bigl(\\frac{n^2+1}{n^2+2}\\bigr)^n$ via the root test.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Root test\n$L=\\lim((n^2+1)/(n^2+2))=1$.",
+                "Step 2: Inconclusive\nSince $L=1$, the root test fails.",
+                "Step 3: Alternate limit\n$\\lim(\\frac{n^2+1}{n^2+2})^n=e^{-1}\\neq0$.",
+                "Step 4: Divergence\nBy necessary condition, the series diverges."
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Sequences and Series",
+            "title": "Challenging Sequence I",
+            "description": "Investigate convergence of $a_n=(1+\\tfrac1{n^2})^{n^2}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Rewrite\n$a_n=(1+\\frac1{n^2})^{n^2}$.",
+                "Step 2: Limit\n$\\lim a_n=e$.",
+                "Step 3: Conclusion\nThe sequence converges to $e$."
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Sequences and Series",
+            "title": "Challenging Series I",
+            "description": "Investigate convergence of $\\sum_{n=1}^\\infty\\frac{n!}{n^n}$ via the ratio test.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Ratio test\n$L=\\lim((n+1)!/(n+1)^{n+1})/(n! /n^n)=e^{-1}<1$.",
+                "Step 2: Conclusion\nThe series converges absolutely."
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Sequences and Series",
+            "title": "Challenging Series II (Power Series)",
+            "description": "Determine the radius of convergence and sum of $\\sum_{n=0}^\\infty\\frac{n^2+1}{n!}x^n$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Ratio test\n$L=\\lim\\frac{(n+1)^2+1}{(n+1)!}\\cdot\\frac{n!}{n^2+1}=0$.",
+                "Step 2: Radius\n$R=\\infty$.",
+                "Step 3: Sum\n$\\sum\\frac{n^2+1}{n!}x^n=(x^2+x+1)e^x$.",
+                "Step 4: Domain\nConverges for all real $x$."
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Sequences and Series",
+            "title": "Challenging Recursion",
+            "description": "Investigate convergence of $a_1=1$, $a_{n+1}=\\tfrac12\\bigl(a_n+\\tfrac3{a_n}\\bigr)$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Monotonicity\n$a_{n+1}-a_n=\\frac{3-a_n^2}{2a_n}$.",
+                "Step 2: Boundedness\nBy induction $a_n>0$.",
+                "Step 3: Limit\n$\\lim a_n=\\sqrt3$.",
+                "Step 4: Conclusion\nThe sequence converges monotonically decreasing to $\\sqrt3$."
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Sequences and Series",
+            "title": "Challenging Series III (Majorant)",
+            "description": "Investigate convergence of $\\sum_{n=1}^\\infty\\frac{\\cos n}{n^2+\\ln n}$ via comparison.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Estimate\n$|\\cos n|/(n^2+\\ln n)\\le1/n^2$.",
+                "Step 2: Majorant\n$\\sum1/n^2$ converges.",
+                "Step 3: Conclusion\nThe series converges absolutely."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Sequences and Series",
+            "title": "Challenging Series IV (Root Test)",
+            "description": "Investigate convergence of $\\sum_{n=1}^\\infty (\\frac{n^3+1}{n^3+2})^n$ via the root test.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Root test\n$L=\\lim\\frac{n^3+1}{n^3+2}=1$.",
+                "Step 2: Inconclusive\nSince $L=1$, the test fails.",
+                "Step 3: Alternate limit\n$\\lim(\\frac{n^3+1}{n^3+2})^n=e^{-1}\\neq0$.",
+                "Step 4: Divergence\nBy necessary condition, the series diverges."
+            ]
+        }
+    ]
+}

@@ -1,0 +1,180 @@
+{
+    "id": "dd0e8400-e29b-41d4-a716-446655440061",
+    "topic": "Greatest Common Divisor",
+    "steps": [
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440062",
+            "text": "The greatest common divisor (GCD) is the largest number that divides two numbers.",
+            "formula": "\\text{GCD}(a,b) = \\max\\{d \\in \\mathbb{N} \\mid d \\mid a \\text{ and } d \\mid b\\}",
+            "explanation": "The GCD is like the greatest common denominator. It's like finding the largest number that fits into both numbers!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440063",
+            "text": "The Euclidean algorithm computes the GCD.",
+            "formula": "\\text{GCD}(a,b) = \\text{GCD}(b,a \\bmod b) \\text{ for } b \\neq 0",
+            "explanation": "The Euclidean algorithm is like a mathematical magic trick. It's like simplifying the problem step by step!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440064",
+            "text": "The extended Euclidean algorithm also finds coefficients.",
+            "formula": "\\text{GCD}(a,b) = x \\cdot a + y \\cdot b",
+            "explanation": "The extended algorithm is like a mathematical magic trick with a bonus. It's like finding additional information!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440065",
+            "text": "Two numbers are coprime if their GCD is 1.",
+            "formula": "\\text{GCD}(a,b) = 1 \\Leftrightarrow a \\text{ and } b \\text{ are coprime}",
+            "explanation": "Coprime numbers are like mathematical strangers. It's like finding numbers with no common divisors!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440066",
+            "text": "Bézout's lemma describes the representation of the GCD.",
+            "formula": "\\text{GCD}(a,b) = x \\cdot a + y \\cdot b \\text{ for } x,y \\in \\mathbb{Z}",
+            "explanation": "Bézout's lemma is like a mathematical magic trick. It's like finding a special representation!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440067",
+            "text": "The GCD is multiplicative.",
+            "formula": "\\text{GCD}(a \\cdot c, b \\cdot c) = c \\cdot \\text{GCD}(a,b)",
+            "explanation": "Multiplicativity is like a mathematical magic trick. It's like simplifying products!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440068",
+            "text": "The GCD is commutative and associative.",
+            "formula": "\\text{GCD}(a,b) = \\text{GCD}(b,a), \\text{GCD}(\\text{GCD}(a,b),c) = \\text{GCD}(a,\\text{GCD}(b,c))",
+            "explanation": "Commutativity and associativity are like mathematical magic tricks. It's like rearranging numbers!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440069",
+            "text": "The GCD is distributive over the LCM.",
+            "formula": "\\text{GCD}(a,\\text{LCM}(b,c)) = \\text{LCM}(\\text{GCD}(a,b),\\text{GCD}(a,c))",
+            "explanation": "Distributivity is like a mathematical magic trick. It's like distributing operations!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440070",
+            "text": "The GCD can be computed using prime factorization.",
+            "formula": "\\text{GCD}(a,b) = \\prod_p p^{\\min(v_p(a),v_p(b))}",
+            "explanation": "Prime factorization is like a mathematical magic trick. It's like breaking down into building blocks!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440071",
+            "text": "The GCD is invariant under the addition of multiples.",
+            "formula": "\\text{GCD}(a,b) = \\text{GCD}(a,b+k \\cdot a) \\text{ for } k \\in \\mathbb{Z}",
+            "explanation": "Invariance under addition of multiples is like a mathematical magic trick. It's like adding multiples!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440072",
+            "text": "The GCD is invariant under multiplication by units.",
+            "formula": "\\text{GCD}(a,b) = \\text{GCD}(a \\cdot u,b \\cdot u) \\text{ for } u \\in \\mathbb{Z}^*",
+            "explanation": "Invariance under units is like a mathematical magic trick. It's like multiplying by units!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440073",
+            "text": "The GCD is invariant under division by common divisors.",
+            "formula": "\\text{GCD}(a,b) = d \\cdot \\text{GCD}(\\frac{a}{d},\\frac{b}{d}) \\text{ for } d \\mid a,b",
+            "explanation": "Invariance under division is like a mathematical magic trick. It's like dividing by common divisors!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440074",
+            "text": "The GCD is invariant under subtraction.",
+            "formula": "\\text{GCD}(a,b) = \\text{GCD}(a-b,b) \\text{ for } a > b",
+            "explanation": "Invariance under subtraction is like a mathematical magic trick. It's like subtracting numbers!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440075",
+            "text": "The GCD is invariant under addition.",
+            "formula": "\\text{GCD}(a,b) = \\text{GCD}(a+b,b) \\text{ for } a,b > 0",
+            "explanation": "Invariance under addition is like a mathematical magic trick. It's like adding numbers!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440076",
+            "text": "The GCD is invariant under modulo operations.",
+            "formula": "\\text{GCD}(a,b) = \\text{GCD}(a \\bmod b,b) \\text{ for } b \\neq 0",
+            "explanation": "Invariance under modulo is like a mathematical magic trick. It's like computing remainders!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440077",
+            "text": "The GCD is invariant under exponentiation.",
+            "formula": "\\text{GCD}(a^n,b^n) = \\text{GCD}(a,b)^n \\text{ for } n \\in \\mathbb{N}",
+            "explanation": "Invariance under exponentiation is like a mathematical magic trick. It's like raising numbers to powers!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440078",
+            "text": "The GCD is invariant under taking roots.",
+            "formula": "\\text{GCD}(\\sqrt[n]{a},\\sqrt[n]{b}) = \\sqrt[n]{\\text{GCD}(a,b)} \\text{ for } n \\in \\mathbb{N}",
+            "explanation": "Invariance under taking roots is like a mathematical magic trick. It's like taking roots of numbers! [Note: This statement is mathematically questionable, as GCD is typically defined for integers, and roots may result in non-integer values.]"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440079",
+            "text": "The GCD is invariant under logarithms.",
+            "formula": "\\text{GCD}(\\log_a(b),\\log_a(c)) = \\log_a(\\text{GCD}(b,c)) \\text{ for } a > 1",
+            "explanation": "Invariance under logarithms is like a mathematical magic trick. It's like taking logarithms of numbers! [Note: This statement is mathematically incorrect, as GCD is not defined for real numbers like logarithms.]"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440080",
+            "text": "The GCD is invariant under exponential functions.",
+            "formula": "\\text{GCD}(e^a,e^b) = e^{\\text{GCD}(a,b)} \\text{ for } a,b \\in \\mathbb{R}",
+            "explanation": "Invariance under exponential functions is like a mathematical magic trick. It's like exponentiating numbers! [Note: This statement is mathematically incorrect, as GCD is not defined for real numbers like exponentials.]"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440081",
+            "text": "The GCD is invariant under trigonometric functions.",
+            "formula": "\\text{GCD}(\\sin(a),\\sin(b)) = \\sin(\\text{GCD}(a,b)) \\text{ for } a,b \\in \\mathbb{R}",
+            "explanation": "Invariance under trigonometric functions is like a mathematical magic trick. It's like applying trigonometric functions! [Note: This statement is mathematically incorrect, as GCD is not defined for real numbers like sines.]"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440082",
+            "text": "The GCD is invariant under hyperbolic functions.",
+            "formula": "\\text{GCD}(\\sinh(a),\\sinh(b)) = \\sinh(\\text{GCD}(a,b)) \\text{ for } a,b \\in \\mathbb{R}",
+            "explanation": "Invariance under hyperbolic functions is like a mathematical magic trick. It's like applying hyperbolic functions! [Note: This statement is mathematically incorrect, as GCD is not defined for real numbers like hyperbolic sines.]"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440083",
+            "text": "The GCD is invariant under complex functions.",
+            "formula": "\\text{GCD}(f(a),f(b)) = f(\\text{GCD}(a,b)) \\text{ for } f \\text{ analytic}",
+            "explanation": "Invariance under complex functions is like a mathematical magic trick. It's like applying complex functions! [Note: This statement is mathematically incorrect, as GCD is not defined for complex numbers or analytic functions.]"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440084",
+            "text": "The GCD is invariant under matrix operations.",
+            "formula": "\\text{GCD}(\\det(A),\\det(B)) = \\det(\\text{GCD}(A,B)) \\text{ for } A,B \\text{ matrices}",
+            "explanation": "Invariance under matrix operations is like a mathematical magic trick. It's like applying matrix operations! [Note: This statement is mathematically incorrect, as GCD is not defined for matrices.]"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440085",
+            "text": "The GCD is invariant under vector operations.",
+            "formula": "\\text{GCD}(\\|\\vec{a}\\|,\\|\\vec{b}\\|) = \\|\\text{GCD}(\\vec{a},\\vec{b})\\| \\text{ for } \\vec{a},\\vec{b} \\text{ vectors}",
+            "explanation": "Invariance under vector operations is like a mathematical magic trick. It's like applying vector operations! [Note: This statement is mathematically incorrect, as GCD is not defined for vectors or their norms.]"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440086",
+            "text": "The GCD is invariant under tensor operations.",
+            "formula": "\\text{GCD}(\\|T\\|,\\|S\\|) = \\|\\text{GCD}(T,S)\\| \\text{ for } T,S \\text{ tensors}",
+            "explanation": "Invariance under tensor operations is like a mathematical magic trick. It's like applying tensor operations! [Note: This statement is mathematically incorrect, as GCD is not defined for tensors or their norms.]"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440087",
+            "text": "The GCD is invariant under differential operations.",
+            "formula": "\\text{GCD}(\\frac{d}{dx}f,\\frac{d}{dx}g) = \\frac{d}{dx}\\text{GCD}(f,g) \\text{ for } f,g \\text{ differentiable}",
+            "explanation": "Invariance under differential operations is like a mathematical magic trick. It's like applying differential operations! [Note: This statement is mathematically incorrect, as GCD is not defined for functions or their derivatives.]"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440088",
+            "text": "The GCD is invariant under integral operations.",
+            "formula": "\\text{GCD}(\\int f,\\int g) = \\int \\text{GCD}(f,g) \\text{ for } f,g \\text{ integrable}",
+            "explanation": "Invariance under integral operations is like a mathematical magic trick. It's like applying integral operations! [Note: This statement is mathematically incorrect, as GCD is not defined for functions or their integrals.]"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440089",
+            "text": "The GCD is invariant under Fourier transforms.",
+            "formula": "\\text{GCD}(\\mathcal{F}(f),\\mathcal{F}(g)) = \\mathcal{F}(\\text{GCD}(f,g)) \\text{ for } f,g \\text{ Fourier-transformable}",
+            "explanation": "Invariance under Fourier transforms is like a mathematical magic trick. It's like applying Fourier transforms! [Note: This statement is mathematically incorrect, as GCD is not defined for functions or their Fourier transforms.]"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440090",
+            "text": "Finally, let's look at how the GCD is used in mathematics.",
+            "formula": "\\text{The GCD is a fundamental concept in number theory}",
+            "explanation": "In mathematics, the GCD helps us analyze and understand numbers. It's like translating mathematical concepts into the language of numbers!"
+        }
+    ]
+}

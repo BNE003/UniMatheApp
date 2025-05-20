@@ -7,6 +7,7 @@ struct ExerciseDetailView: View {
     @State private var descriptionHeight: CGFloat = 100
     @State private var solutionHeights: [CGFloat] = []
     @State private var titleHeight: CGFloat = 32
+    @ObservedObject private var settings = SettingsModel.shared
     
     var body: some View {
         ZStack {
@@ -55,7 +56,7 @@ struct ExerciseDetailView: View {
                                         }
                                     }
                                 }) {
-                                    Text("Nächster Schritt")
+                                    Text(settings.language == .english ? "Next Step" : "Nächster Schritt")
                                         .font(.headline)
                                         .foregroundColor(.white)
                                         .padding()
@@ -73,7 +74,7 @@ struct ExerciseDetailView: View {
                                 solutionHeights = Array(repeating: 100, count: exercise.solutionSteps.count)
                             }
                         }) {
-                            Text("Lösung anzeigen")
+                            Text(settings.language == .english ? "Show Solution" : "Lösung anzeigen")
                                 .font(.headline)
                                 .foregroundColor(.white)
                                 .padding()
@@ -87,7 +88,7 @@ struct ExerciseDetailView: View {
                 .padding(.vertical)
             }
         }
-        .navigationTitle("Aufgabe")
+        .navigationTitle(settings.language == .english ? "Exercise" : "Aufgabe")
         .navigationBarTitleDisplayMode(.large)
     }
 }
@@ -96,10 +97,11 @@ struct SolutionStepView: View {
     let step: Int
     let exercise: Exercise
     @Binding var height: CGFloat
+    @ObservedObject private var settings = SettingsModel.shared
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Schritt \(step + 1)")
+            Text(settings.language == .english ? "Step \(step + 1)" : "Schritt \(step + 1)")
                 .font(.headline)
                 .foregroundColor(.primary)
             

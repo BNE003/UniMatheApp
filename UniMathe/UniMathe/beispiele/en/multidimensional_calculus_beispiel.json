@@ -1,0 +1,180 @@
+{
+    "id": "aa0e8400-e29b-41d4-a716-446655440061",
+    "topic": "Multivariable Calculus",
+    "steps": [
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440062",
+            "text": "Partial derivatives describe the rate of change of a function with respect to one variable.",
+            "formula": "\\frac{\\partial f}{\\partial x_i} = \\lim_{h \\to 0} \\frac{f(x_1,...,x_i+h,...,x_n) - f(x_1,...,x_i,...,x_n)}{h}",
+            "explanation": "Partial derivatives are like measuring the slope of a function in a specific direction. It’s like observing a landscape from a particular perspective!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440063",
+            "text": "The gradient indicates the direction of the steepest ascent of a function.",
+            "formula": "\\nabla f = \\left(\\frac{\\partial f}{\\partial x_1}, ..., \\frac{\\partial f}{\\partial x_n}\\right)",
+            "explanation": "The gradient is like a compass that points to the direction of the steepest climb. It’s like finding the fastest way uphill!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440064",
+            "text": "The divergence measures the source strength of a vector field.",
+            "formula": "\\text{div } \\vec{F} = \\nabla \\cdot \\vec{F} = \\sum_{i=1}^n \\frac{\\partial F_i}{\\partial x_i}",
+            "explanation": "The divergence is like measuring how much fluid flows out of or into a point. It’s like observing a faucet!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440065",
+            "text": "The curl describes the rotational strength of a vector field.",
+            "formula": "\\text{rot } \\vec{F} = \\nabla \\times \\vec{F} = \\begin{vmatrix} \\vec{e}_1 & \\vec{e}_2 & \\vec{e}_3 \\\\ \\frac{\\partial}{\\partial x} & \\frac{\\partial}{\\partial y} & \\frac{\\partial}{\\partial z} \\\\ F_1 & F_2 & F_3 \\end{vmatrix}",
+            "explanation": "The curl is like measuring the swirling strength in a river. It’s like observing a whirlpool!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440066",
+            "text": "Multiple integrals compute volumes and other quantities.",
+            "formula": "\\iiint_V f(x,y,z) \\, dx \\, dy \\, dz",
+            "explanation": "Multiple integrals are like assembling a three-dimensional puzzle. It’s like calculating the volume of a complex shape!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440067",
+            "text": "The chain rule for functions of multiple variables.",
+            "formula": "\\frac{d}{dt} f(\\vec{x}(t)) = \\nabla f \\cdot \\frac{d\\vec{x}}{dt}",
+            "explanation": "The chain rule is like following a path through a mountain range. It’s like calculating the slope along a trail!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440068",
+            "text": "The Taylor expansion for functions of multiple variables.",
+            "formula": "f(\\vec{x}) = f(\\vec{a}) + \\nabla f(\\vec{a}) \\cdot (\\vec{x}-\\vec{a}) + \\frac{1}{2} (\\vec{x}-\\vec{a})^T H_f(\\vec{a}) (\\vec{x}-\\vec{a}) + ...",
+            "explanation": "The Taylor expansion is like approximating a complex landscape with a simpler one. It’s like replacing a mountain range with a parabola!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440069",
+            "text": "The Hessian matrix characterizes extrema.",
+            "formula": "H_f = \\begin{pmatrix} \\frac{\\partial^2 f}{\\partial x_1^2} & ... & \\frac{\\partial^2 f}{\\partial x_1 \\partial x_n} \\\\ ... & ... & ... \\\\ \\frac{\\partial^2 f}{\\partial x_n \\partial x_1} & ... & \\frac{\\partial^2 f}{\\partial x_n^2} \\end{pmatrix}",
+            "explanation": "The Hessian matrix is like a detailed elevation map of a landscape. It’s like analyzing the curvature of a mountain!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440070",
+            "text": "Lagrange multipliers for optimization with constraints.",
+            "formula": "\\nabla f = \\lambda \\nabla g",
+            "explanation": "Lagrange multipliers are like finding the highest point on a predetermined path. It’s like optimizing under restrictions!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440071",
+            "text": "The Jacobian matrix describes the derivative of a vector-valued function.",
+            "formula": "J_f = \\begin{pmatrix} \\frac{\\partial f_1}{\\partial x_1} & ... & \\frac{\\partial f_1}{\\partial x_n} \\\\ ... & ... & ... \\\\ \\frac{\\partial f_m}{\\partial x_1} & ... & \\frac{\\partial f_m}{\\partial x_n} \\end{pmatrix}",
+            "explanation": "The Jacobian matrix is like a detailed transformation blueprint. It’s like describing a complex deformation!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440072",
+            "text": "The Jacobian determinant measures the volume change under transformations.",
+            "formula": "\\det(J_f) = \\begin{vmatrix} \\frac{\\partial f_1}{\\partial x_1} & ... & \\frac{\\partial f_1}{\\partial x_n} \\\\ ... & ... & ... \\\\ \\frac{\\partial f_n}{\\partial x_1} & ... & \\frac{\\partial f_n}{\\partial x_n} \\end{vmatrix}",
+            "explanation": "The Jacobian determinant is like a measure of stretching or compressing in a transformation. It’s like measuring the volume change!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440073",
+            "text": "Line integrals compute work along a path.",
+            "formula": "\\int_C \\vec{F} \\cdot d\\vec{r} = \\int_a^b \\vec{F}(\\vec{r}(t)) \\cdot \\vec{r}'(t) \\, dt",
+            "explanation": "Line integrals are like calculating the work required to climb a mountain. It’s like measuring the energy expenditure!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440074",
+            "text": "Surface integrals compute flux through surfaces.",
+            "formula": "\\iint_S \\vec{F} \\cdot d\\vec{S} = \\iint_D \\vec{F}(\\vec{r}(u,v)) \\cdot (\\vec{r}_u \\times \\vec{r}_v) \\, du \\, dv",
+            "explanation": "Surface integrals are like measuring the flow through a net. It’s like calculating the flux!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440075",
+            "text": "Stokes’ theorem connects line and surface integrals.",
+            "formula": "\\int_C \\vec{F} \\cdot d\\vec{r} = \\iint_S (\\nabla \\times \\vec{F}) \\cdot d\\vec{S}",
+            "explanation": "Stokes’ theorem is like a mathematical magic trick. It’s like transforming a line integral into a surface integral!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440076",
+            "text": "The divergence theorem connects volume and surface integrals.",
+            "formula": "\\iiint_V (\\nabla \\cdot \\vec{F}) \\, dV = \\oiint_S \\vec{F} \\cdot d\\vec{S}",
+            "explanation": "The divergence theorem is like a mathematical powerhouse. It’s like transforming a volume integral into a surface integral!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440077",
+            "text": "The Laplace equation describes stationary processes.",
+            "formula": "\\Delta f = \\sum_{i=1}^n \\frac{\\partial^2 f}{\\partial x_i^2} = 0",
+            "explanation": "The Laplace equation is like describing a state of equilibrium. It’s like finding a stable temperature distribution!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440078",
+            "text": "The Poisson equation describes sources and sinks.",
+            "formula": "\\Delta f = \\rho",
+            "explanation": "The Poisson equation is like describing sources and sinks in a field. It’s like modeling charge distributions!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440079",
+            "text": "The wave equation describes vibrations.",
+            "formula": "\\frac{\\partial^2 f}{\\partial t^2} = c^2 \\Delta f",
+            "explanation": "The wave equation is like describing vibrations in a medium. It’s like modeling sound waves!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440080",
+            "text": "The heat equation describes temperature changes.",
+            "formula": "\\frac{\\partial f}{\\partial t} = \\alpha \\Delta f",
+            "explanation": "The heat equation is like describing the temperature distribution in an object. It’s like modeling heat diffusion!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440081",
+            "text": "The continuity equation describes conservation quantities.",
+            "formula": "\\frac{\\partial \\rho}{\\partial t} + \\nabla \\cdot (\\rho \\vec{v}) = 0",
+            "explanation": "The continuity equation is like describing the conservation of mass. It’s like modeling a flow!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440082",
+            "text": "The Navier-Stokes equations describe fluid flows.",
+            "formula": "\\frac{\\partial \\vec{v}}{\\partial t} + (\\vec{v} \\cdot \\nabla) \\vec{v} = -\\frac{1}{\\rho} \\nabla p + \\nu \\Delta \\vec{v}",
+            "explanation": "The Navier-Stokes equations are like describing fluid flows. It’s like modeling water currents!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440083",
+            "text": "The Maxwell equations describe electromagnetic fields.",
+            "formula": "\\begin{align*} \\nabla \\cdot \\vec{E} &= \\frac{\\rho}{\\varepsilon_0} \\\\ \\nabla \\times \\vec{E} &= -\\frac{\\partial \\vec{B}}{\\partial t} \\\\ \\nabla \\cdot \\vec{B} &= 0 \\\\ \\nabla \\times \\vec{B} &= \\mu_0 \\vec{J} + \\mu_0 \\varepsilon_0 \\frac{\\partial \\vec{E}}{\\partial t} \\end{align*}",
+            "explanation": "The Maxwell equations are like describing electromagnetic fields. It’s like modeling light and magnetism!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440084",
+            "text": "The Schrödinger equation describes quantum systems.",
+            "formula": "i\\hbar \\frac{\\partial \\Psi}{\\partial t} = -\\frac{\\hbar^2}{2m} \\Delta \\Psi + V \\Psi",
+            "explanation": "The Schrödinger equation is like describing quantum systems. It’s like modeling atoms and molecules!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440085",
+            "text": "The Einstein field equations describe gravitation.",
+            "formula": "R_{\\mu\\nu} - \\frac{1}{2} R g_{\\mu\\nu} = \\frac{8\\pi G}{c^4} T_{\\mu\\nu}",
+            "explanation": "The Einstein field equations are like describing gravitation. It’s like modeling the curvature of spacetime!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440086",
+            "text": "The Hamilton-Jacobi equation describes classical systems.",
+            "formula": "\\frac{\\partial S}{\\partial t} + H(\\vec{q}, \\nabla S) = 0",
+            "explanation": "The Hamilton-Jacobi equation is like describing classical systems. It’s like modeling planetary orbits!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440087",
+            "text": "The Fokker-Planck equation describes stochastic processes.",
+            "formula": "\\frac{\\partial P}{\\partial t} = -\\nabla \\cdot (\\vec{v} P) + D \\Delta P",
+            "explanation": "The Fokker-Planck equation is like describing random motions. It’s like modeling Brownian motion!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440088",
+            "text": "The Korteweg-de Vries equation describes solitons.",
+            "formula": "\\frac{\\partial u}{\\partial t} + 6u \\frac{\\partial u}{\\partial x} + \\frac{\\partial^3 u}{\\partial x^3} = 0",
+            "explanation": "The Korteweg-de Vries equation is like describing solitons. It’s like modeling tsunamis!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440089",
+            "text": "The Burgers equation describes shock waves.",
+            "formula": "\\frac{\\partial u}{\\partial t} + u \\frac{\\partial u}{\\partial x} = \\nu \\frac{\\partial^2 u}{\\partial x^2}",
+            "explanation": "The Burgers equation is like describing shock waves. It’s like modeling traffic jams!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440090",
+            "text": "Finally, let’s look at how multivariable calculus is used in physics.",
+            "formula": "\\text{Multivariable calculus is used to describe complex physical systems}",
+            "explanation": "In physics, multivariable calculus helps us understand complex systems. It’s like translating mathematical concepts into the language of nature!"
+        }
+    ]
+}

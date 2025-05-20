@@ -2,44 +2,44 @@
     "exercises": [
         {
             "id": 45,
-            "topic": "Binomische Formeln",
-            "title": "Erste Binomische Formel",
-            "description": "Berechnen Sie $(a + b)^2$ und zeigen Sie, dass es gleich $a^2 + 2ab + b^2$ ist.",
+            "topic": "Binomial formulas",
+            "title": "First Binomial Formula",
+            "description": "Calculate $(a + b)^2$ and show that it equals $a^2 + 2ab + b^2$.",
             "difficulty": "easy",
             "points": 5,
             "solutionSteps": [
-                "Schritt 1: Definition des Quadrats\n$(a + b)^2$ bedeutet $(a + b)$ mit sich selbst multipliziert, also $(a + b)(a + b)$",
-                "Schritt 2: Ausmultiplizieren mit dem Distributivgesetz\nWir multiplizieren jeden Term der ersten Klammer mit jedem Term der zweiten Klammer:\n$a \\cdot a + a \\cdot b + b \\cdot a + b \\cdot b$",
-                "Schritt 3: Berechnung der Produkte\n$a \\cdot a = a^2$\n$a \\cdot b = ab$\n$b \\cdot a = ba = ab$ (Kommutativgesetz)\n$b \\cdot b = b^2$",
-                "Schritt 4: Zusammenfassen der Terme\n$a^2 + ab + ab + b^2 = a^2 + 2ab + b^2$"
+                "Step 1: Definition of the square\n$(a + b)^2$ means $(a + b)$ multiplied by itself, i.e., $(a + b)(a + b)$",
+                "Step 2: Multiplication using the distributive law\nMultiply each term of the first bracket with each term of the second bracket:\n$a \\cdot a + a \\cdot b + b \\cdot a + b \\cdot b$",
+                "Step 3: Calculating the products\n$a \\cdot a = a^2$\n$a \\cdot b = ab$\n$b \\cdot a = ba = ab$ (commutative law)\n$b \\cdot b = b^2$",
+                "Step 4: Combining terms\n$a^2 + ab + ab + b^2 = a^2 + 2ab + b^2$"
             ]
         },
         {
             "id": 46,
-            "topic": "Binomische Formeln",
-            "title": "Zweite Binomische Formel",
-            "description": "Berechnen Sie $(a - b)^2$ und zeigen Sie, dass es gleich $a^2 - 2ab + b^2$ ist.",
+            "topic": "Binomial formulas",
+            "title": "Second Binomial Formula",
+            "description": "Calculate $(a - b)^2$ and show that it equals $a^2 - 2ab + b^2$.",
             "difficulty": "easy",
             "points": 5,
             "solutionSteps": [
-                "Schritt 1: Definition des Quadrats\n$(a - b)^2$ bedeutet $(a - b)$ mit sich selbst multipliziert, also $(a - b)(a - b)$",
-                "Schritt 2: Ausmultiplizieren mit dem Distributivgesetz\nWir multiplizieren jeden Term der ersten Klammer mit jedem Term der zweiten Klammer:\n$a \\cdot a + a \\cdot (-b) + (-b) \\cdot a + (-b) \\cdot (-b)$",
-                "Schritt 3: Berechnung der Produkte\n$a \\cdot a = a^2$\n$a \\cdot (-b) = -ab$\n$(-b) \\cdot a = -ba = -ab$ (Kommutativgesetz)\n$(-b) \\cdot (-b) = b^2$ (Minus mal Minus ergibt Plus)",
-                "Schritt 4: Zusammenfassen der Terme\n$a^2 - ab - ab + b^2 = a^2 - 2ab + b^2$"
+                "Step 1: Definition of the square\n$(a - b)^2$ means $(a - b)$ multiplied by itself, i.e., $(a - b)(a - b)$",
+                "Step 2: Multiplication using the distributive law\nMultiply each term of the first bracket with each term of the second bracket:\n$a \\cdot a + a \\cdot (-b) + (-b) \\cdot a + (-b) \\cdot (-b)$",
+                "Step 3: Calculating the products\n$a \\cdot a = a^2$\n$a \\cdot (-b) = -ab$\n$(-b) \\cdot a = -ba = -ab$ (commutative law)\n$(-b) \\cdot (-b) = b^2$ (negative times negative is positive)",
+                "Step 4: Combining terms\n$a^2 - ab - ab + b^2 = a^2 - 2ab + b^2$"
             ]
         },
         {
             "id": 47,
-            "topic": "Binomische Formeln",
-            "title": "Dritte Binomische Formel",
-            "description": "Berechnen Sie $(a + b)(a - b)$ und zeigen Sie, dass es gleich $a^2 - b^2$ ist.",
+            "topic": "Binomial formulas",
+            "title": "Third Binomial Formula",
+            "description": "Calculate $(a + b)(a - b)$ and show that it equals $a^2 - b^2$.",
             "difficulty": "easy",
             "points": 5,
             "solutionSteps": [
-                "Schritt 1: Ausmultiplizieren mit dem Distributivgesetz\nWir multiplizieren jeden Term der ersten Klammer mit jedem Term der zweiten Klammer:\n$a \\cdot a + a \\cdot (-b) + b \\cdot a + b \\cdot (-b)$",
-                "Schritt 2: Berechnung der Produkte\n$a \\cdot a = a^2$\n$a \\cdot (-b) = -ab$\n$b \\cdot a = ba = ab$ (Kommutativgesetz)\n$b \\cdot (-b) = -b^2$",
-                "Schritt 3: Zusammenfassen der Terme\n$a^2 - ab + ab - b^2$",
-                "Schritt 4: Vereinfachen\n$-ab + ab$ hebt sich auf, also bleibt $a^2 - b^2$"
+                "Step 1: Multiplication using the distributive law\nMultiply each term of the first bracket with each term of the second bracket:\n$a \\cdot a + a \\cdot (-b) + b \\cdot a + b \\cdot (-b)$",
+                "Step 2: Calculating the products\n$a \\cdot a = a^2$\n$a \\cdot (-b) = -ab$\n$b \\cdot a = ba = ab$ (commutative law)\n$b \\cdot (-b) = -b^2$",
+                "Step 3: Combining terms\n$a^2 - ab + ab - b^2$",
+                "Step 4: Simplifying\n$-ab + ab$ cancels out, leaving $a^2 - b^2$"
             ]
         },
         {

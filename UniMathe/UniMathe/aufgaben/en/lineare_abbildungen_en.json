@@ -1,0 +1,323 @@
+{
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Linear Transformations",
+            "title": "Representation Matrix",
+            "description": "Given the linear transformation $f: \\mathbb{R}^3 \\to \\mathbb{R}^2$ with $f(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 3 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 4 \\\\ 2 \\end{pmatrix}$. Determine the representation matrix of $f$ with respect to the standard bases.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Identify Standard Bases\nFor $\\mathbb{R}^3$: $B_1 = \\{\\vec{e}_1, \\vec{e}_2, \\vec{e}_3\\}$ where $\\vec{e}_1 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}$, $\\vec{e}_2 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}$, $\\vec{e}_3 = \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$.\nFor $\\mathbb{R}^2$: $B_2 = \\{\\vec{e}_1, \\vec{e}_2\\}$ where $\\vec{e}_1 = \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$, $\\vec{e}_2 = \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}$.",
+                "Step 2: Images of Basis Vectors\nThe images are given:\n$f(\\\\vec{e}_1) = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$,\n$f(\\vec{e}_2) = \\begin{pmatrix} 1 \\\\ 3 \\end{pmatrix}$,\n$f(\\vec{e}_3) = \\begin{pmatrix} 4 \\\\ 2 \\end{pmatrix}$.",
+                "Step 3: Construct Representation Matrix\nThe matrix $[f]_{B_1,B_2}$ has columns as the images of $B_1$ basis vectors in $B_2$:\n$[f]_{B_1,B_2} = \\begin{pmatrix} 2 & 1 & 4 \\\\ 1 & 3 & 2 \\end{pmatrix}$.",
+                "Step 4: Verification\nFor any vector $\\vec{v} = \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}$:\n$f(\\vec{v}) = x f(\\vec{e}_1) + y f(\\vec{e}_2) + z f(\\vec{e}_3) = \\begin{pmatrix} 2x + y + 4z \\\\ x + 3y + 2z \\end{pmatrix}$.\nMatrix multiplication: $[f]_{B_1,B_2} \\vec{v} = \\begin{pmatrix} 2 & 1 & 4 \\\\ 1 & 3 & 2 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} 2x + y + 4z \\\\ x + 3y + 2z \\end{pmatrix}$, which matches."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Linear Transformations",
+            "title": "Kernel and Image",
+            "description": "Determine the kernel and image of the linear transformation $f: \\mathbb{R}^3 \\to \\mathbb{R}^3$ with representation matrix $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 3 & 6 & 9 \\end{pmatrix}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Kernel\nThe kernel is $\\ker(f) = \\{\\vec{x} \\in \\mathbb{R}^3 \\mid A \\vec{x} = \\vec{0}\\}$. Solve $A \\vec{x} = \\vec{0}$.",
+                "Step 2: Gauss Elimination\nRow reduce $A$:\n1. Subtract 2 times row 1 from row 2, and 3 times row 1 from row 3:\n$\\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}$.\nThe system reduces to $x_1 + 2x_2 + 3x_3 = 0$. Let $x_2 = t$, $x_3 = s$, then $x_1 = -2t - 3s$. Thus:\n$\\ker(f) = \\left\\{ \\begin{pmatrix} -2t - 3s \\\\ t \\\\ s \\end{pmatrix} \\mid t, s \\in \\mathbb{R} \\right\\} = \\text{span} \\left\\{ \\begin{pmatrix} -2 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} -3 \\\\ 0 \\\\ 1 \\end{pmatrix} \\right\\}$.",
+                "Step 3: Image\nThe image is the column space of $A$:\nColumns: $\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$, $\\begin{pmatrix} 2 \\\\ 4 \\\\ 6 \\end{pmatrix} = 2 \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$, $\\begin{pmatrix} 3 \\\\ 6 \\\\ 9 \\end{pmatrix} = 3 \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$.\nThus, $\\text{im}(f) = \\text{span} \\left\\{ \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix} \\right\\}$.",
+                "Step 4: Verification\n- Kernel dimension: $\\dim(\\ker(f)) = 2$.\n- Image dimension: $\\dim(\\text{im}(f)) = 1$.\n- Dimension theorem: $2 + 1 = 3 = \\dim(\\mathbb{R}^3)$.\n- Check kernel vectors: $A \\begin{pmatrix} -2 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\vec{0}$, $A \\begin{pmatrix} -3 \\\\ 0 \\\\ 1 \\end{pmatrix} = \\vec{0}$."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Linear Transformations",
+            "title": "Change of Basis",
+            "description": "Given the linear transformation $f: \\mathbb{R}^2 \\to \\mathbb{R}^2$ with representation matrix $[f]_B = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$ with respect to the basis $B = \\left\\{ \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix} \\right\\}$. Determine the representation matrix of $f$ with respect to the standard basis.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Basis Change Matrix\nThe basis change matrix $T$ from standard basis $E$ to $B$ has columns as the vectors of $B$:\n$T = \\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$.",
+                "Step 2: Inverse of Basis Change Matrix\nCompute $T^{-1}$:\n$\\det(T) = (1)(-1) - (1)(1) = -2$.\n$T^{-1} = \\frac{1}{-2} \\begin{pmatrix} -1 & -1 \\\\ -1 & 1 \\end{pmatrix} = \\begin{pmatrix} \\frac{1}{2} & \\frac{1}{2} \\\\ \\frac{1}{2} & -\\frac{1}{2} \\end{pmatrix}$.",
+                "Step 3: Compute Representation Matrix\nThe matrix with respect to the standard basis is $[f]_E = T [f]_B T^{-1}$.\nFirst, compute $[f]_B T^{-1}$:\n$\\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\begin{pmatrix} \\frac{1}{2} & \\frac{1}{2} \\\\ \\frac{1}{2} & -\\frac{1}{2} \\end{pmatrix} = \\begin{pmatrix} 2 \\cdot \\frac{1}{2} + 1 \\cdot \\frac{1}{2} & 2 \\cdot \\frac{1}{2} + 1 \\cdot (-\\frac{1}{2}) \\\\ 1 \\cdot \\frac{1}{2} + 2 \\cdot \\frac{1}{2} & 1 \\cdot \\frac{1}{2} + 2 \\cdot (-\\frac{1}{2}) \\end{pmatrix} = \\begin{pmatrix} \\frac{3}{2} & \\frac{1}{2} \\\\ \\frac{3}{2} & -\\frac{1}{2} \\end{pmatrix}$.\nThen, compute $T ([f]_B T^{-1})$:\n$\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix} \\begin{pmatrix} \\frac{3}{2} & \\frac{1}{2} \\\\ \\frac{3}{2} & -\\frac{1}{2} \\end{pmatrix} = \\begin{pmatrix} \\frac{3}{2} + \\frac{3}{2} & \\frac{1}{2} - \\frac{1}{2} \\\\ \\frac{3}{2} - \\frac{3}{2} & \\frac{1}{2} + \\frac{1}{2} \\end{pmatrix} = \\begin{pmatrix} 3 & 0 \\\\ 0 & 1 \\end{pmatrix}$.",
+                "Step 4: Verification\nApply $f$ to a vector in $B$-coordinates, convert to standard basis, and check:\nFor $\\vec{v}_B = \\begin{pmatrix} a \\\\ b \\end{pmatrix}$, $[f]_B \\vec{v}_B = \\begin{pmatrix} 2a + b \\\\ a + 2b \\end{pmatrix}$.\nIn standard basis: $T \\begin{pmatrix} 2a + b \\\\ a + 2b \\end{pmatrix} = \\begin{pmatrix} (2a + b) + (a + 2b) \\\\ (2a + b) - (a + 2b) \\end{pmatrix} = \\begin{pmatrix} 3a + 3b \\\\ a - b \\end{pmatrix}$.\nUsing $[f]_E$: $\\vec{v} = T \\vec{v}_B = \\begin{pmatrix} a + b \\\\ a - b \\end{pmatrix}$, then $[f]_E \\vec{v} = \\begin{pmatrix} 3 & 0 \\\\ 0 & 1 \\end{pmatrix} \\begin{pmatrix} a + b \\\\ a - b \\end{pmatrix} = \\begin{pmatrix} 3(a + b) \\\\ a - b \\end{pmatrix}$, which matches."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Linear Transformations",
+            "title": "Isomorphism",
+            "description": "Show that the transformation $f: \\mathbb{R}^3 \\to \\mathbb{R}^3$ with $f(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} x + y \\\\ y + z \\\\ z + x \\end{pmatrix}$ is an isomorphism and determine its inverse.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Verify Linearity\nFor vectors $\\vec{v}_1 = \\begin{pmatrix} x_1 \\\\ y_1 \\\\ z_1 \\end{pmatrix}$, $\\vec{v}_2 = \\begin{pmatrix} x_2 \\\\ y_2 \\\\ z_2 \\end{pmatrix}$, and scalar $c$:\n$f(\\vec{v}_1 + c \\vec{v}_2) = f(\\begin{pmatrix} x_1 + c x_2 \\\\ y_1 + c y_2 \\\\ z_1 + c z_2 \\end{pmatrix}) = \\begin{pmatrix} (x_1 + c x_2) + (y_1 + c y_2) \\\\ (y_1 + c y_2) + (z_1 + c z_2) \\\\ (z_1 + c z_2) + (x_1 + c x_2) \\end{pmatrix} = f(\\vec{v}_1) + c f(\\vec{v}_2)$, so $f$ is linear.",
+                "Step 2: Representation Matrix\nCompute images of standard basis vectors:\n$f(\\vec{e}_1) = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}$, $f(\\vec{e}_2) = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$, $f(\\vec{e}_3) = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}$.\nThus, $[f] = \\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\\\ 1 & 0 & 1 \\end{pmatrix}$.",
+                "Step 3: Check Bijection\nCompute determinant:\n$\\det([f]) = 1(1 \\cdot 1 - 1 \\cdot 0) - 1(0 \\cdot 1 - 1 \\cdot 1) + 0 = 1 + 1 = 2 \\neq 0$.\nSince $[f]$ is invertible, $f$ is bijective and thus an isomorphism.",
+                "Step 4: Inverse Matrix\nCompute $[f]^{-1}$ using adjugate method:\nCofactor matrix: $\\begin{pmatrix} 1 & -1 & 1 \\\\ 1 & 1 & -1 \\\\ -1 & 1 & 1 \\end{pmatrix}$.\nAdjugate: Transpose of cofactor matrix.\n$[f]^{-1} = \\frac{1}{2} \\begin{pmatrix} 1 & -1 & 1 \\\\ 1 & 1 & -1 \\\\ -1 & 1 & 1 \\end{pmatrix}$.\nVerify: $[f] [f]^{-1} = \\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\\\ 1 & 0 & 1 \\end{pmatrix} \\cdot \\frac{1}{2} \\begin{pmatrix} 1 & -1 & 1 \\\\ 1 & 1 & -1 \\\\ -1 & 1 & 1 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$.",
+                "Step 5: Inverse Transformation\nThe inverse is $f^{-1}(\\begin{pmatrix} a \\\\ b \\\\ c \\end{pmatrix}) = \\frac{1}{2} \\begin{pmatrix} a - b + c \\\\ a + b - c \\\\ -a + b + c \\end{pmatrix}$."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Linear Transformations",
+            "title": "Orthogonal Projection",
+            "description": "Determine the representation matrix of the orthogonal projection $P: \\mathbb{R}^3 \\to \\mathbb{R}^3$ onto the plane $E = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} \\in \\mathbb{R}^3 \\mid x + y + z = 0\\}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Normal Vector\nThe plane equation $x + y + z = 0$ has normal vector $\\vec{n} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$.",
+                "Step 2: Projection Formula\nThe orthogonal projection of $\\vec{v}$ onto the plane is:\n$P(\\vec{v}) = \\vec{v} - \\frac{\\vec{v} \\cdot \\vec{n}}{\\|\\vec{n}\\|^2} \\vec{n}$, where $\\|\\vec{n}\\|^2 = 1 + 1 + 1 = 3$.",
+                "Step 3: Representation Matrix\nRewrite: $P(\\vec{v}) = \\vec{v} - \\frac{1}{3} (\\vec{v} \\cdot \\vec{n}) \\vec{n}$.\nFor $\\vec{v} = \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}$, $\\vec{v} \\cdot \\vec{n} = x + y + z$, so:\n$P(\\vec{v}) = \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} - \\frac{1}{3} (x + y + z) \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} x - \\frac{x+y+z}{3} \\\\ y - \\frac{x+y+z}{3} \\\\ z - \\frac{x+y+z}{3} \\end{pmatrix}$.\nThis corresponds to matrix:\n$[P] = I_3 - \\frac{1}{3} \\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & 1 & 1 \\\\ 1 & 1 & 1 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix} - \\frac{1}{3} \\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & 1 & 1 \\\\ 1 & 1 & 1 \\end{pmatrix} = \\frac{1}{3} \\begin{pmatrix} 2 & -1 & -1 \\\\ -1 & 2 & -1 \\\\ -1 & -1 & 2 \\end{pmatrix}$.",
+                "Step 4: Verification\nFor $\\vec{v} = \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}$, compute $[P] \\vec{v}$:\n$\\frac{1}{3} \\begin{pmatrix} 2 & -1 & -1 \\\\ -1 & 2 & -1 \\\\ -1 & -1 & 2 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\frac{1}{3} \\begin{pmatrix} 2x - y - z \\\\ -x + 2y - z \\\\ -x - y + 2z \\end{pmatrix}$.\nCheck if the result lies in $E$: Sum components: $(2x - y - z) + (-x + 2y - z) + (-x - y + 2z) = 0$, which satisfies $x + y + z = 0$."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Linear Transformations",
+            "title": "Simple Representation Matrix",
+            "description": "Determine the representation matrix of the linear transformation $f: \\mathbb{R}^2 \\to \\mathbb{R}^2$ with $f(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} 2x + y \\\\ x + 2y \\end{pmatrix}$ with respect to the standard basis.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Images of Basis Vectors\n$f(\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}$.",
+                "Step 2: Representation Matrix\n$[f] = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$.",
+                "Step 3: Verification\n$[f] \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} 2x + y \\\\ x + 2y \\end{pmatrix}$."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Linear Transformations",
+            "title": "Simple Transformation",
+            "description": "Determine the representation matrix of the linear transformation $f: \\mathbb{R}^3 \\to \\mathbb{R}^2$ with $f(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} x + y \\\\ y + z \\end{pmatrix}$ with respect to the standard bases.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Images of Basis Vectors\n$f(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}$.",
+                "Step 2: Representation Matrix\n$[f] = \\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\end{pmatrix}$.",
+                "Step 3: Verification\n$[f] \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} x + y \\\\ y + z \\end{pmatrix}$."
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Linear Transformations",
+            "title": "Simple Projection",
+            "description": "Determine the representation matrix of the projection $P: \\mathbb{R}^2 \\to \\mathbb{R}^2$ onto the line $g = \\{\\begin{pmatrix} x \\\\ y \\end{pmatrix} \\in \\mathbb{R}^2 \\mid y = x\\}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Direction Vector\nThe line $y = x$ is spanned by $\\vec{v} = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$.",
+                "Step 2: Projection Formula\n$P(\\vec{w}) = \\frac{\\vec{w} \\cdot \\vec{v}}{\\|\\vec{v}\\|^2} \\vec{v}$, where $\\|\\vec{v}\\|^2 = 2$.",
+                "Step 3: Representation Matrix\nFor $\\vec{w} = \\begin{pmatrix} x \\\\ y \\end{pmatrix}$, $\\vec{w} \\cdot \\vec{v} = x + y$, so $P(\\vec{w}) = \\frac{x + y}{2} \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} \\frac{x + y}{2} \\\\ \\frac{x + y}{2} \\end{pmatrix}$.\nThus, $[P] = \\frac{1}{2} \\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix}$.",
+                "Step 4: Verification\n$[P] \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} \\frac{x + y}{2} \\\\ \\frac{x + y}{2} \\end{pmatrix}$, which lies on $y = x$."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Linear Transformations",
+            "title": "Simple Reflection",
+            "description": "Determine the representation matrix of the reflection $S: \\mathbb{R}^2 \\to \\mathbb{R}^2$ across the line $g = \\{\\begin{pmatrix} x \\\\ y \\end{pmatrix} \\in \\mathbb{R}^2 \\mid y = x\\}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Reflection Formula\n$S(\\vec{v}) = 2 P(\\vec{v}) - \\vec{v}$, where $P$ is the projection onto the line.",
+                "Step 2: Representation Matrix\nFrom exercise 8, $[P] = \\frac{1}{2} \\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix}$.\nThus, $[S] = 2 [P] - I_2 = \\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix} - \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$.",
+                "Step 3: Verification\n$S(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} y \\\\ x \\end{pmatrix}$, which reflects across $y = x$."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Linear Transformations",
+            "title": "Simple Rotation",
+            "description": "Determine the representation matrix of the rotation $R: \\mathbb{R}^2 \\to \\mathbb{R}^2$ by angle $\\frac{\\pi}{4}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Rotation Matrix\n$[R] = \\begin{pmatrix} \\cos \\frac{\\pi}{4} & -\\sin \\frac{\\pi}{4} \\\\ \\sin \\frac{\\pi}{4} & \\cos \\frac{\\pi}{4} \\end{pmatrix}$.",
+                "Step 2: Computation\n$\\cos \\frac{\\pi}{4} = \\sin \\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$, so $[R] = \\begin{pmatrix} \\frac{\\sqrt{2}}{2} & -\\frac{\\sqrt{2}}{2} \\\\ \\frac{\\sqrt{2}}{2} & \\frac{\\sqrt{2}}{2} \\end{pmatrix}$.",
+                "Step 3: Verification\n$R(\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} \\frac{\\sqrt{2}}{2} \\\\ \\frac{\\sqrt{2}}{2} \\end{pmatrix}$, which rotates by $45^\\circ$."
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Linear Transformations",
+            "title": "Simple Scaling",
+            "description": "Determine the representation matrix of the scaling $S: \\mathbb{R}^2 \\to \\mathbb{R}^2$ with scaling factors 2 in the x-direction and 3 in the y-direction.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Scaling Matrix\n$[S] = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}$.",
+                "Step 2: Verification\n$S(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} 2x \\\\ 3y \\end{pmatrix}$."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Linear Transformations",
+            "title": "Simple Shear",
+            "description": "Determine the representation matrix of the shear $S: \\mathbb{R}^2 \\to \\mathbb{R}^2$ with shear factor 2 in the x-direction.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Shear Matrix\n$[S] = \\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}$.",
+                "Step 2: Verification\n$S(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} x + 2y \\\\ y \\end{pmatrix}$."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Linear Transformations",
+            "title": "Medium Transformation",
+            "description": "Determine the representation matrix of the linear transformation $f: \\mathbb{R}^3 \\to \\mathbb{R}^3$ with $f(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} x + y + z \\\\ x - y + z \\\\ x + y - z \\end{pmatrix}$ with respect to the standard basis.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Images of Basis Vectors\n$f(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ -1 \\\\ 1 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\\\ -1 \\end{pmatrix}$.",
+                "Step 2: Representation Matrix\n$[f] = \\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & -1 & 1 \\\\ 1 & 1 & -1 \\end{pmatrix}$.",
+                "Step 3: Verification\n$[f] \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} x + y + z \\\\ x - y + z \\\\ x + y - z \\end{pmatrix}$."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Linear Transformations",
+            "title": "Medium Projection",
+            "description": "Determine the representation matrix of the projection $P: \\mathbb{R}^3 \\to \\mathbb{R}^3$ onto the plane $E = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} \\in \\mathbb{R}^3 \\mid x + y = 0\\}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Normal Vector\nThe plane $x + y = 0$ has normal vector $\\vec{n} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$.",
+                "Step 2: Projection Formula\n$P(\\vec{v}) = \\vec{v} - \\frac{\\vec{v} \\cdot \\vec{n}}{\\|\\vec{n}\\|^2} \\vec{n}$, where $\\|\\vec{n}\\|^2 = 2$.",
+                "Step 3: Representation Matrix\nFor $\\vec{v} = \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}$, $\\vec{v} \\cdot \\vec{n} = x + y$, so:\n$P(\\vec{v}) = \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} - \\frac{x + y}{2} \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} \\frac{x - y}{2} \\\\ \\frac{-x + y}{2} \\\\ z \\end{pmatrix}$.\nThus, $[P] = \\frac{1}{2} \\begin{pmatrix} 1 & -1 & 0 \\\\ -1 & 1 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}$.",
+                "Step 4: Verification\n$[P] \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} \\frac{x - y}{2} \\\\ \\frac{-x + y}{2} \\\\ z \\end{pmatrix}$, and $\\frac{x - y}{2} + \\frac{-x + y}{2} = 0$, which satisfies $x + y = 0$."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Linear Transformations",
+            "title": "Medium Reflection",
+            "description": "Determine the representation matrix of the reflection $S: \\mathbb{R}^3 \\to \\mathbb{R}^3$ across the plane $E = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} \\in \\mathbb{R}^3 \\mid x + y + z = 0\\}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Normal Vector\nThe plane has normal vector $\\vec{n} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$.",
+                "Step 2: Reflection Formula\n$S(\\vec{v}) = \\vec{v} - 2 \\frac{\\vec{v} \\cdot \\vec{n}}{\\|\\vec{n}\\|^2} \\vec{n}$, where $\\|\\vec{n}\\|^2 = 3$.",
+                "Step 3: Representation Matrix\n$S(\\vec{v}) = \\vec{v} - \\frac{2 (x + y + z)}{3} \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$.\nThus, $[S] = I_3 - \\frac{2}{3} \\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & 1 & 1 \\\\ 1 & 1 & 1 \\end{pmatrix} = \\frac{1}{3} \\begin{pmatrix} 1 & -2 & -2 \\\\ -2 & 1 & -2 \\\\ -2 & -2 & 1 \\end{pmatrix}$.",
+                "Step 4: Verification\n$[S] \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\frac{1}{3} \\begin{pmatrix} x - 2y - 2z \\\\ -2x + y - 2z \\\\ -2x - 2y + z \\end{pmatrix}$.\nCheck reflection property: The plane $E$ is fixed, and vectors orthogonal to $E$ are negated."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Linear Transformations",
+            "title": "Medium Rotation",
+            "description": "Determine the representation matrix of the rotation $R: \\mathbb{R}^3 \\to \\mathbb{R}^3$ around the z-axis by angle $\\frac{\\pi}{3}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Rotation Matrix\nRotation around the z-axis by $\\theta$:\n$[R] = \\begin{pmatrix} \\cos \\theta & -\\sin \\theta & 0 \\\\ \\sin \\theta & \\cos \\theta & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$.",
+                "Step 2: Computation\nFor $\\theta = \\frac{\\pi}{3}$, $\\cos \\frac{\\pi}{3} = \\frac{1}{2}$, $\\sin \\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$.\nThus, $[R] = \\begin{pmatrix} \\frac{1}{2} & -\\frac{\\sqrt{3}}{2} & 0 \\\\ \\frac{\\sqrt{3}}{2} & \\frac{1}{2} & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$.",
+                "Step 3: Verification\n$R(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} \\frac{1}{2} \\\\ \\frac{\\sqrt{3}}{2} \\\\ 0 \\end{pmatrix}$, which rotates by $60^\\circ$ in the xy-plane."
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Linear Transformations",
+            "title": "Medium Scaling",
+            "description": "Determine the representation matrix of the scaling $S: \\mathbb{R}^3 \\to \\mathbb{R}^3$ with scaling factors 2, 3, and 4 in the x-, y-, and z-directions.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Scaling Matrix\n$[S] = \\begin{pmatrix} 2 & 0 & 0 \\\\ 0 & 3 & 0 \\\\ 0 & 0 & 4 \\end{pmatrix}$.",
+                "Step 2: Verification\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} 2x \\\\ 3y \\\\ 4z \\end{pmatrix}$."
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Linear Transformations",
+            "title": "Medium Shear",
+            "description": "Determine the representation matrix of the shear $S: \\mathbb{R}^3 \\to \\mathbb{R}^3$ with shear factors 2 in the x-direction and 3 in the y-direction.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Shear Matrix\nA shear affecting the x-coordinate based on y and z, and y-coordinate based on z:\n$[S] = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$.",
+                "Step 2: Verification\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} x + 2y + 3z \\\\ y \\\\ z \\end{pmatrix}$.",
+                "Step 3: Clarification\nThe shear factors imply $x$-coordinate shifts by $2y + 3z$, while $y$ and $z$ remain unchanged."
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Linear Transformations",
+            "title": "Hard Transformation",
+            "description": "Determine the representation matrix of the linear transformation $f: \\mathbb{R}^4 \\to \\mathbb{R}^4$ with $f(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\begin{pmatrix} x + y + z + w \\\\ x - y + z - w \\\\ x + y - z - w \\\\ x - y - z + w \\end{pmatrix}$ with respect to the standard basis.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Images of Basis Vectors\n$f(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ -1 \\\\ 1 \\\\ -1 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\\\ -1 \\\\ -1 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ -1 \\\\ -1 \\\\ 1 \\end{pmatrix}$.",
+                "Step 2: Representation Matrix\n$[f] = \\begin{pmatrix} 1 & 1 & 1 & 1 \\\\ 1 & -1 & 1 & -1 \\\\ 1 & 1 & -1 & -1 \\\\ 1 & -1 & -1 & 1 \\end{pmatrix}$.",
+                "Step 3: Verification\n$[f] \\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix} = \\begin{pmatrix} x + y + z + w \\\\ x - y + z - w \\\\ x + y - z - w \\\\ x - y - z + w \\end{pmatrix}$."
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Linear Transformations",
+            "title": "Hard Projection",
+            "description": "Determine the representation matrix of the projection $P: \\mathbb{R}^4 \\to \\mathbb{R}^4$ onto the subspace $U = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix} \\in \\mathbb{R}^4 \\mid x + y + z + w = 0\\}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Normal Vector\nThe subspace $U$ has normal vector $\\vec{n} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$.",
+                "Step 2: Projection Formula\n$P(\\vec{v}) = \\vec{v} - \\frac{\\vec{v} \\cdot \\vec{n}}{\\|\\vec{n}\\|^2} \\vec{n}$, where $\\|\\vec{n}\\|^2 = 4$.",
+                "Step 3: Representation Matrix\nFor $\\vec{v} = \\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}$, $\\vec{v} \\cdot \\vec{n} = x + y + z + w$.\n$P(\\vec{v}) = \\begin{pmatrix} x - \\frac{x + y + z + w}{4} \\\\ y - \\frac{x + y + z + w}{4} \\\\ z - \\frac{x + y + z + w}{4} \\\\ w - \\frac{x + y + z + w}{4} \\end{pmatrix}$.\nThus, $[P] = I_4 - \\frac{1}{4} \\begin{pmatrix} 1 & 1 & 1 & 1 \\\\ 1 & 1 & 1 & 1 \\\\ 1 & 1 & 1 & 1 \\\\ 1 & 1 & 1 & 1 \\end{pmatrix} = \\frac{1}{4} \\begin{pmatrix} 3 & -1 & -1 & -1 \\\\ -1 & 3 & -1 & -1 \\\\ -1 & -1 & 3 & -1 \\\\ -1 & -1 & -1 & 3 \\end{pmatrix}$.",
+                "Step 4: Verification\n$[P] \\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}$ yields a vector whose components sum to zero, confirming it lies in $U$."
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Linear Transformations",
+            "title": "Hard Reflection",
+            "description": "Determine the representation matrix of the reflection $S: \\mathbb{R}^4 \\to \\mathbb{R}^4$ across the subspace $U = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix} \\in \\mathbb{R}^4 \\mid x + y = z + w = 0\\}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Normal Vectors\nThe subspace $U$ is defined by $x + y = 0$, $z + w = 0$. Normal vectors are $\\vec{n}_1 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\\\ 0 \\end{pmatrix}$, $\\vec{n}_2 = \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 1 \\end{pmatrix}$.",
+                "Step 2: Reflection Formula\nReflection across a subspace is $S(\\vec{v}) = \\vec{v} - 2 \\sum_{i=1}^2 \\frac{\\vec{v} \\cdot \\vec{n}_i}{\\|\\vec{n}_i\\|^2} \\vec{n}_i$, where $\\|\\vec{n}_1\\|^2 = \\|\\vec{n}_2\\|^2 = 2$.",
+                "Step 3: Representation Matrix\nFor $\\vec{v} = \\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}$, $\\vec{v} \\cdot \\vec{n}_1 = x + y$, $\\vec{v} \\cdot \\vec{n}_2 = z + w$.\n$S(\\vec{v}) = \\vec{v} - (x + y) \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\\\ 0 \\end{pmatrix} - (z + w) \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} -y \\\\ -x \\\\ -w \\\\ -z \\end{pmatrix}$.\nThus, $[S] = \\begin{pmatrix} 0 & -1 & 0 & 0 \\\\ -1 & 0 & 0 & 0 \\\\ 0 & 0 & 0 & -1 \\\\ 0 & 0 & -1 & 0 \\end{pmatrix}$.",
+                "Step 4: Verification\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\begin{pmatrix} -y \\\\ -x \\\\ -w \\\\ -z \\end{pmatrix}$. Vectors in $U$ (e.g., $\\begin{pmatrix} -y \\\\ y \\\\ -w \\\\ w \\end{pmatrix}$) are fixed, and orthogonal vectors are negated."
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Linear Transformations",
+            "title": "Hard Rotation",
+            "description": "Determine the representation matrix of the rotation $R: \\mathbb{R}^4 \\to \\mathbb{R}^4$ around the plane $E = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix} \\in \\mathbb{R}^4 \\mid x = y = 0\\}$ by angle $\\frac{\\pi}{4}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Plane of Rotation\nThe plane $E$ is spanned by $\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix}$, $\\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$. Rotation occurs in the zw-plane, leaving x and y fixed.",
+                "Step 2: Rotation Matrix\nRotation by $\\theta$ in the zw-plane:\n$[R] = \\begin{pmatrix} 1 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & \\cos \\theta & -\\sin \\theta \\\\ 0 & 0 & \\sin \\theta & \\cos \\theta \\end{pmatrix}$.",
+                "Step 3: Computation\nFor $\\theta = \\frac{\\pi}{4}$, $[R] = \\begin{pmatrix} 1 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & \\frac{\\sqrt{2}}{2} & -\\frac{\\sqrt{2}}{2} \\\\ 0 & 0 & \\frac{\\sqrt{2}}{2} & \\frac{\\sqrt{2}}{2} \\end{pmatrix}$.",
+                "Step 4: Verification\n$R(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 0 \\\\ 0 \\\\ \\frac{\\sqrt{2}}{2} \\\\ \\frac{\\sqrt{2}}{2} \\end{pmatrix}$, which rotates by $45^\\circ$ in the zw-plane."
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Linear Transformations",
+            "title": "Hard Scaling",
+            "description": "Determine the representation matrix of the scaling $S: \\mathbb{R}^4 \\to \\mathbb{R}^4$ with scaling factors 2, 3, 4, and 5 in the x-, y-, z-, and w-directions.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Scaling Matrix\n$[S] = \\begin{pmatrix} 2 & 0 & 0 & 0 \\\\ 0 & 3 & 0 & 0 \\\\ 0 & 0 & 4 & 0 \\\\ 0 & 0 & 0 & 5 \\end{pmatrix}$.",
+                "Step 2: Verification\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\begin{pmatrix} 2x \\\\ 3y \\\\ 4z \\\\ 5w \\end{pmatrix}$."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Linear Transformations",
+            "title": "Hard Shear",
+            "description": "Determine the representation matrix of the shear $S: \\mathbb{R}^4 \\to \\mathbb{R}^4$ with shear factors 2, 3, and 4 in the x-, y-, and z-directions.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Shear Matrix\nThe shear affects the x-coordinate: $x' = x + 2y + 3z + 4w$. Thus:\n$[S] = \\begin{pmatrix} 1 & 2 & 3 & 4 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & 1 & 0 \\\\ 0 & 0 & 0 & 1 \\end{pmatrix}$.",
+                "Step 2: Verification\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\begin{pmatrix} x + 2y + 3z + 4w \\\\ y \\\\ z \\\\ w \\end{pmatrix}$."
+            ]
+        }
+    ]
+}

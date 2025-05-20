@@ -1,0 +1,104 @@
+{
+    "id": "770e8400-e29b-41d4-a716-446655440000",
+    "title": "Introduction to Complex Numbers",
+    "description": "Let's explore the fundamental concepts of complex numbers step by step.",
+    "topic": "Complex Numbers",
+    "steps": [
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440001",
+            "text": "A complex number z consists of a real part a and an imaginary part b, where i is the imaginary unit.",
+            "formula": "z = a + bi \\quad \\text{with} \\quad a,b \\in \\mathbb{R} \\quad \\text{and} \\quad i^2 = -1",
+            "explanation": "The imaginary unit i is defined as the solution to the equation x² = -1."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440002",
+            "text": "The addition of two complex numbers is performed component-wise.",
+            "formula": "(a + bi) + (c + di) = (a + c) + (b + d)i",
+            "explanation": "The real part and the imaginary part are added separately."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440003",
+            "text": "The multiplication of two complex numbers is done by expanding and using i² = -1.",
+            "formula": "(a + bi) \\cdot (c + di) = (ac - bd) + (ad + bc)i",
+            "explanation": "The formula results from expanding and combining like terms."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440004",
+            "text": "Every complex number z = a + bi has a complex conjugate z* = a - bi.",
+            "formula": "z = a + bi \\quad \\Rightarrow \\quad z^* = a - bi",
+            "explanation": "The complex conjugate is obtained by changing the sign of the imaginary part."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440005",
+            "text": "The magnitude of a complex number z = a + bi is defined as |z| = √(a² + b²).",
+            "formula": "|z| = \\sqrt{a^2 + b^2} = \\sqrt{z \\cdot z^*}",
+            "explanation": "The magnitude represents the distance of the number from the origin in the complex plane."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440006",
+            "text": "Complex numbers can be represented in the Gaussian number plane.",
+            "formula": "z = a + bi \\quad \\Leftrightarrow \\quad (a,b) \\in \\mathbb{R}^2",
+            "explanation": "The x-axis represents the real part, and the y-axis represents the imaginary part."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440007",
+            "text": "The argument of a complex number is the angle to the positive real axis.",
+            "formula": "\\arg(z) = \\arctan\\left(\\frac{b}{a}\\right)",
+            "explanation": "The argument determines the direction of the complex number in the Gaussian number plane."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440008",
+            "text": "The polar representation of a complex number uses the magnitude and the argument.",
+            "formula": "z = |z| (\\cos(\\varphi) + i \\sin(\\varphi))",
+            "explanation": "The polar representation is particularly useful for multiplication and division of complex numbers."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440009",
+            "text": "Euler's formula connects the trigonometric and exponential representations of complex numbers.",
+            "formula": "e^{i\\varphi} = \\cos(\\varphi) + i \\sin(\\varphi)",
+            "explanation": "This leads to the exponential representation: z = |z| \\cdot e^{i\\varphi}."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440010",
+            "text": "Multiplication of complex numbers in polar form is simpler.",
+            "formula": "z_1 \\cdot z_2 = |z_1| \\cdot |z_2| \\cdot e^{i(\\varphi_1 + \\varphi_2)}",
+            "explanation": "Magnitudes are multiplied, and angles are added."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440011",
+            "text": "Division of complex numbers in polar form is also done by dividing magnitudes and subtracting angles.",
+            "formula": "\\frac{z_1}{z_2} = \\frac{|z_1|}{|z_2|} \\cdot e^{i(\\varphi_1 - \\varphi_2)}",
+            "explanation": "Magnitudes are divided, and angles are subtracted."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440012",
+            "text": "The n-th root of a complex number yields n distinct solutions.",
+            "formula": "z_k = \\sqrt[n]{|z|} \\cdot e^{i(\\frac{\\varphi + 2k\\pi}{n})} \\quad \\text{for} \\quad k=0,1,...,n-1",
+            "explanation": "The solutions are evenly distributed on a circle in the Gaussian number plane."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440013",
+            "text": "The complex conjugate of a number z reflects the number across the real axis.",
+            "formula": "\\overline{z} = a - bi",
+            "explanation": "The complex conjugate has the same real part but the negative imaginary part."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440014",
+            "text": "The product of a number and its conjugate yields the square of the magnitude.",
+            "formula": "z \\cdot \\overline{z} = |z|^2",
+            "explanation": "This follows from the definition of the magnitude and conjugation."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440015",
+            "text": "Complex exponential functions have a periodicity of 2π.",
+            "formula": "e^{i(\\varphi + 2\\pi)} = e^{i\\varphi}",
+            "explanation": "This means that the complex plane repeats after a rotation of 2π."
+        },
+        {
+            "id": "770e8400-e29b-41d4-a716-446655440016",
+            "text": "The complex number z = 0 has no defined phase.",
+            "formula": "\\arg(0) \\text{ is undefined}",
+            "explanation": "Since the magnitude is 0, no angle can be defined."
+        }
+    ]
+}

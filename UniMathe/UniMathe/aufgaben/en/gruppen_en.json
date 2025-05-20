@@ -1,0 +1,471 @@
+{
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Groups",
+            "title": "Verify Group Axioms",
+            "description": "Verify whether the set $\\mathbb{Z}$ with the operation $a \\ast b = a + b + 1$ forms a group.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Check Closure\nFor all $a,b \\in \\mathbb{Z}$, $a \\ast b = a + b + 1 \\in \\mathbb{Z}$\nThus, the operation is closed.",
+                "Step 2: Check Associativity\n$(a \\ast b) \\ast c = (a + b + 1) \\ast c = (a + b + 1) + c + 1 = a + b + c + 2$\n$a \\ast (b \\ast c) = a \\ast (b + c + 1) = a + (b + c + 1) + 1 = a + b + c + 2$\nThe operation is associative.",
+                "Step 3: Existence of Identity Element\nFind $e \\in \\mathbb{Z}$ such that $a \\ast e = a$ for all $a \\in \\mathbb{Z}$\n$a + e + 1 = a \\Rightarrow e = -1$\n$-1$ is the identity element.",
+                "Step 4: Existence of Inverses\nFor each $a \\in \\mathbb{Z}$, find $a^{-1}$ such that $a \\ast a^{-1} = -1$\n$a + a^{-1} + 1 = -1 \\Rightarrow a^{-1} = -a - 2$\nEvery element has an inverse.",
+                "Step 5: Conclusion\n$(\\mathbb{Z}, \\ast)$ satisfies all group axioms and is thus a group."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Groups",
+            "title": "Subgroups and Normal Subgroups",
+            "description": "Let $G = S_3$ be the symmetric group on 3 elements. Determine all subgroups of $G$ and check which of them are normal subgroups.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Elements of $S_3$\n$S_3 = \\{id, (12), (13), (23), (123), (132)\\}$\nOrder: $|S_3| = 6$",
+                "Step 2: Determine Subgroups\nTrivial subgroups: $\\{id\\}$ and $S_3$\nCyclic subgroups:\n$\\langle (12) \\rangle = \\{id, (12)\\}$\n$\\langle (13) \\rangle = \\{id, (13)\\}$\n$\\langle (23) \\rangle = \\{id, (23)\\}$\n$\\langle (123) \\rangle = \\{id, (123), (132)\\}$",
+                "Step 3: Check for Normal Subgroups\n$\\{id\\}$ and $S_3$ are always normal subgroups\n$\\langle (123) \\rangle$ is a normal subgroup, as it has index 2\nThe 2-element subgroups are not normal subgroups, as they are not invariant under conjugation",
+                "Step 4: Summary\nSubgroups: $\\{id\\}, S_3, \\langle (12) \\rangle, \\langle (13) \\rangle, \\langle (23) \\rangle, \\langle (123) \\rangle$\nNormal subgroups: $\\{id\\}, S_3, \\langle (123) \\rangle$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Groups",
+            "title": "Homomorphisms and Isomorphisms",
+            "description": "Let $G = (\\mathbb{R}^+, \\cdot)$ be the multiplicative group of positive real numbers and $H = (\\mathbb{R}, +)$ be the additive group of real numbers. Show that the map $\\varphi: G \\rightarrow H$ with $\\varphi(x) = \\ln(x)$ is a group isomorphism.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Check Homomorphism Property\n$\\varphi(xy) = \\ln(xy) = \\ln(x) + \\ln(y) = \\varphi(x) + \\varphi(y)$\nThus, $\\varphi$ is a homomorphism.",
+                "Step 2: Injectivity\nLet $\\varphi(x) = \\varphi(y)$\n$\\ln(x) = \\ln(y) \\Rightarrow x = y$\nThus, $\\varphi$ is injective.",
+                "Step 3: Surjectivity\nFor every $y \\in \\mathbb{R}$, there exists $x = e^y \\in \\mathbb{R}^+$ such that $\\varphi(x) = y$\nThus, $\\varphi$ is surjective.",
+                "Step 4: Conclusion\nSince $\\varphi$ is a bijective homomorphism, it is an isomorphism."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Groups",
+            "title": "Quotient Groups",
+            "description": "Let $G = \\mathbb{Z} \\times \\mathbb{Z}$ and $H = \\langle (2,0), (0,3) \\rangle$. Determine the quotient group $G/H$ and show that it is isomorphic to $\\mathbb{Z}_2 \\times \\mathbb{Z}_3$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Description of $H$\n$H = \\{(2k, 3l) \\mid k,l \\in \\mathbb{Z}\\}$",
+                "Step 2: Determine Cosets\n$G/H = \\{(0,0)+H, (0,1)+H, (0,2)+H, (1,0)+H, (1,1)+H, (1,2)+H\\}$",
+                "Step 3: Group Structure on $G/H$\n$(a,b)+H + (c,d)+H = (a+c,b+d)+H$\nThe operation is well-defined.",
+                "Step 4: Isomorphism to $\\mathbb{Z}_2 \\times \\mathbb{Z}_3$\nDefine $\\varphi: G/H \\rightarrow \\mathbb{Z}_2 \\times \\mathbb{Z}_3$ by\n$\\varphi((a,b)+H) = (a \\mod 2, b \\mod 3)$\n$\\varphi$ is an isomorphism."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Groups",
+            "title": "Sylow Theorems",
+            "description": "Determine the number of 2-Sylow subgroups and 3-Sylow subgroups in $S_4$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Order of $S_4$\n$|S_4| = 24 = 2^3 \\cdot 3$",
+                "Step 2: Number of 2-Sylow Subgroups\nBy the 3rd Sylow Theorem:\n$n_2 \\equiv 1 \\mod 2$ and $n_2$ divides 3\nPossible values: $n_2 = 1$ or $n_2 = 3$\nIn fact, there are 3 2-Sylow subgroups (dihedral groups of order 8)",
+                "Step 3: Number of 3-Sylow Subgroups\nBy the 3rd Sylow Theorem:\n$n_3 \\equiv 1 \\mod 3$ and $n_3$ divides 8\nPossible values: $n_3 = 1$ or $n_3 = 4$\nIn fact, there are 4 3-Sylow subgroups (cyclic groups of order 3)",
+                "Step 4: Verification\nThe dihedral groups are:\n$\\langle (1234), (13) \\rangle$\n$\\langle (1234), (12) \\rangle$\n$\\langle (1234), (14) \\rangle$\nThe 3-Sylow subgroups are:\n$\\langle (123) \\rangle$\n$\\langle (124) \\rangle$\n$\\langle (134) \\rangle$\n$\\langle (234) \\rangle$"
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Groups",
+            "title": "Direct Products",
+            "description": "Show that the group $\\mathbb{Z}_6$ is isomorphic to the direct product $\\mathbb{Z}_2 \\times \\mathbb{Z}_3$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Define the Isomorphism\nDefine $\\varphi: \\mathbb{Z}_6 \\rightarrow \\mathbb{Z}_2 \\times \\mathbb{Z}_3$ by\n$\\varphi([x]_6) = ([x]_2, [x]_3)$",
+                "Step 2: Well-Definedness\nIf $x \\equiv y \\mod 6$, then $x \\equiv y \\mod 2$ and $x \\equiv y \\mod 3$\nThus, $\\varphi$ is well-defined.",
+                "Step 3: Homomorphism\n$\\varphi([x]_6 + [y]_6) = \\varphi([x+y]_6) = ([x+y]_2, [x+y]_3) = ([x]_2 + [y]_2, [x]_3 + [y]_3) = \\varphi([x]_6) + \\varphi([y]_6)$",
+                "Step 4: Injectivity\n$\\varphi([x]_6) = \\varphi([y]_6) \\Rightarrow x \\equiv y \\mod 2$ and $x \\equiv y \\mod 3$\nSince 2 and 3 are coprime, it follows that $x \\equiv y \\mod 6$",
+                "Step 5: Surjectivity\n$|\\mathbb{Z}_6| = |\\mathbb{Z}_2 \\times \\mathbb{Z}_3| = 6$\nSince $\\varphi$ is injective, it is also surjective.",
+                "Step 6: Conclusion\n$\\varphi$ is an isomorphism."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Groups",
+            "title": "Automorphisms",
+            "description": "Determine the automorphism group $\\text{Aut}(\\mathbb{Z}_8)$ of the cyclic group $\\mathbb{Z}_8$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Generators of $\\mathbb{Z}_8$\n$\\mathbb{Z}_8 = \\langle 1 \\rangle$\nThe generators are $\\{1,3,5,7\\}$",
+                "Step 2: Automorphisms\nEvery automorphism $\\varphi$ is uniquely determined by the image of 1\n$\\varphi$ must map a generator to a generator",
+                "Step 3: Determine All Automorphisms\n$\\varphi_1: 1 \\mapsto 1$\n$\\varphi_3: 1 \\mapsto 3$\n$\\varphi_5: 1 \\mapsto 5$\n$\\varphi_7: 1 \\mapsto 7$",
+                "Step 4: Group Structure\n$\\text{Aut}(\\mathbb{Z}_8) \\cong \\mathbb{Z}_8^\\times = \\{1,3,5,7\\}$\nThe group is isomorphic to $\\mathbb{Z}_2 \\times \\mathbb{Z}_2$",
+                "Step 5: Verification\nMultiplication table:\n$\\begin{array}{c|cccc}\n\\cdot & 1 & 3 & 5 & 7 \\\\\\hline\n1 & 1 & 3 & 5 & 7 \\\\\n3 & 3 & 1 & 7 & 5 \\\\\n5 & 5 & 7 & 1 & 3 \\\\\n7 & 7 & 5 & 3 & 1\n\\end{array}$"
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Groups",
+            "title": "Group Actions",
+            "description": "Let $G = D_4$ be the dihedral group of order 8 (symmetry group of the square). Determine the orbits and stabilizers of the action of $G$ on the set of vertices of the square.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Elements of $D_4$\n$D_4 = \\{id, r, r^2, r^3, s, sr, sr^2, sr^3\\}$\nwhere $r$ is a 90° rotation and $s$ is a reflection",
+                "Step 2: Orbits\nThe set of vertices is $X = \\{1,2,3,4\\}$\nThere is only one orbit, as any vertex can be mapped to any other vertex",
+                "Step 3: Stabilizers\n$G_1 = \\{id, s\\}$\n$G_2 = \\{id, sr\\}$\n$G_3 = \\{id, sr^2\\}$\n$G_4 = \\{id, sr^3\\}$",
+                "Step 4: Orbit-Stabilizer Theorem\n$|G| = |G_x| \\cdot |Gx|$ for each $x \\in X$\n$8 = 2 \\cdot 4$",
+                "Step 5: Interpretation\nThe action is transitive (one orbit)\nThe stabilizers are the reflections that fix the respective vertex"
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Groups",
+            "title": "Finite Abelian Groups",
+            "description": "Determine all abelian groups of order 36 up to isomorphism.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Prime Factorization\n$36 = 2^2 \\cdot 3^2$",
+                "Step 2: Possible Decompositions\nBy the Fundamental Theorem of Finite Abelian Groups:\n$\\mathbb{Z}_4 \\times \\mathbb{Z}_9$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_9$\n$\\mathbb{Z}_4 \\times \\mathbb{Z}_3 \\times \\mathbb{Z}_3$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_3 \\times \\mathbb{Z}_3$",
+                "Step 3: Verify Orders\nAll groups have order 36\nNo two of the groups are isomorphic",
+                "Step 4: Elementary Divisors\n$\\mathbb{Z}_4 \\times \\mathbb{Z}_9$: $(4,9)$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_9$: $(2,2,9)$\n$\\mathbb{Z}_4 \\times \\mathbb{Z}_3 \\times \\mathbb{Z}_3$: $(4,3,3)$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_3 \\times \\mathbb{Z}_3$: $(2,2,3,3)$"
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Groups",
+            "title": "Group Extensions",
+            "description": "Show that the quaternion group $Q_8$ is a central extension of $\\mathbb{Z}_2$ by $\\mathbb{Z}_4$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Definition of $Q_8$\n$Q_8 = \\{\\pm 1, \\pm i, \\pm j, \\pm k\\}$\nwith $i^2 = j^2 = k^2 = -1$, $ij = k$, $jk = i$, $ki = j$",
+                "Step 2: Center\n$Z(Q_8) = \\{\\pm 1\\} \\cong \\mathbb{Z}_2$",
+                "Step 3: Quotient Group\n$Q_8/Z(Q_8) \\cong \\mathbb{Z}_2 \\times \\mathbb{Z}_2$",
+                "Step 4: Extension\nThe short exact sequence\n$1 \\rightarrow \\mathbb{Z}_2 \\rightarrow Q_8 \\rightarrow \\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\rightarrow 1$\nis a central extension",
+                "Step 5: Verification\nThe extension is non-trivial, as $Q_8$ is not isomorphic to $\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_2$"
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Groups",
+            "title": "Simple Group Axioms",
+            "description": "Verify whether the set $\\{1, -1\\}$ with ordinary multiplication forms a group.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Check Closure\n$1 \\cdot 1 = 1 \\in \\{1, -1\\}$\n$1 \\cdot (-1) = -1 \\in \\{1, -1\\}$\n$-1 \\cdot 1 = -1 \\in \\{1, -1\\}$\n$-1 \\cdot (-1) = 1 \\in \\{1, -1\\}$\nThe operation is closed.",
+                "Step 2: Associativity\nMultiplication is associative.",
+                "Step 3: Identity Element\n$1$ is the identity element.",
+                "Step 4: Inverses\n$1^{-1} = 1$\n$(-1)^{-1} = -1$\nEvery element has an inverse.",
+                "Step 5: Conclusion\n$(\\{1, -1\\}, \\cdot)$ is a group."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Groups",
+            "title": "Subgroups",
+            "description": "Determine all subgroups of $\\mathbb{Z}_6$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Elements of $\\mathbb{Z}_6$\n$\\mathbb{Z}_6 = \\{0,1,2,3,4,5\\}$",
+                "Step 2: Trivial Subgroups\n$\\{0\\}$ and $\\mathbb{Z}_6$ are subgroups",
+                "Step 3: Cyclic Subgroups\n$\\langle 1 \\rangle = \\mathbb{Z}_6$\n$\\langle 2 \\rangle = \\{0,2,4\\}$\n$\\langle 3 \\rangle = \\{0,3\\}$\n$\\langle 4 \\rangle = \\{0,2,4\\}$\n$\\langle 5 \\rangle = \\mathbb{Z}_6$",
+                "Step 4: Summary\nSubgroups: $\\{0\\}, \\{0,3\\}, \\{0,2,4\\}, \\mathbb{Z}_6$"
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Groups",
+            "title": "Order of Elements",
+            "description": "Determine the order of each element in $\\mathbb{Z}_8$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Elements of $\\mathbb{Z}_8$\n$\\mathbb{Z}_8 = \\{0,1,2,3,4,5,6,7\\}$",
+                "Step 2: Calculate Orders\n$|0| = 1$\n$|1| = 8$\n$|2| = 4$\n$|3| = 8$\n$|4| = 2$\n$|5| = 8$\n$|6| = 4$\n$|7| = 8$"
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Groups",
+            "title": "Cyclic Groups",
+            "description": "Show that $\\mathbb{Z}_4$ is a cyclic group and determine all generators.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Elements of $\\mathbb{Z}_4$\n$\\mathbb{Z}_4 = \\{0,1,2,3\\}$",
+                "Step 2: Generators\n$\\langle 1 \\rangle = \\{0,1,2,3\\} = \\mathbb{Z}_4$\n$\\langle 3 \\rangle = \\{0,3,2,1\\} = \\mathbb{Z}_4$",
+                "Step 3: Conclusion\n$\\mathbb{Z}_4$ is cyclic with generators 1 and 3"
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Groups",
+            "title": "Direct Products",
+            "description": "Determine the order of each element in $\\mathbb{Z}_2 \\times \\mathbb{Z}_3$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Elements of $\\mathbb{Z}_2 \\times \\mathbb{Z}_3$\n$(0,0), (0,1), (0,2), (1,0), (1,1), (1,2)$",
+                "Step 2: Calculate Orders\n$|(0,0)| = 1$\n$|(0,1)| = 3$\n$|(0,2)| = 3$\n$|(1,0)| = 2$\n$|(1,1)| = 6$\n$|(1,2)| = 6$"
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Groups",
+            "title": "Homomorphisms",
+            "description": "Show that the map $\\varphi: \\mathbb{Z}_6 \\rightarrow \\mathbb{Z}_6$ with $\\varphi(x) = 2x$ is a group homomorphism.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Homomorphism Property\n$\\varphi(x + y) = 2(x + y) = 2x + 2y = \\varphi(x) + \\varphi(y)$",
+                "Step 2: Image\n$\\text{im}(\\varphi) = \\{0,2,4\\}$",
+                "Step 3: Kernel\n$\\ker(\\varphi) = \\{0,3\\}$"
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Groups",
+            "title": "Normal Subgroups",
+            "description": "Show that $\\{0,3\\}$ is a normal subgroup in $\\mathbb{Z}_6$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Subgroup\n$\\{0,3\\}$ is a subgroup of $\\mathbb{Z}_6$",
+                "Step 2: Normal Subgroup\nFor all $g \\in \\mathbb{Z}_6$ and $h \\in \\{0,3\\}$:\n$g + h - g = h \\in \\{0,3\\}$\nThus, $\\{0,3\\}$ is a normal subgroup"
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Groups",
+            "title": "Quotient Groups",
+            "description": "Determine the quotient group $\\mathbb{Z}_6/\\{0,3\\}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Cosets\n$\\{0,3\\}, \\{1,4\\}, \\{2,5\\}$",
+                "Step 2: Group Structure\n$\\mathbb{Z}_6/\\{0,3\\} \\cong \\mathbb{Z}_3$"
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Groups",
+            "title": "Group Actions",
+            "description": "Let $G = \\mathbb{Z}_4$ and $X = \\{1,2,3,4\\}$. Define the action $g \\cdot x = x + g \\mod 4$. Determine the orbits and stabilizers.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Orbits\n$G \\cdot 1 = \\{1,2,3,4\\}$\nThere is only one orbit, as the action is transitive",
+                "Step 2: Stabilizers\n$G_1 = \\{0\\}$\n$G_2 = \\{0\\}$\n$G_3 = \\{0\\}$\n$G_4 = \\{0\\}$",
+                "Step 3: Orbit-Stabilizer Theorem\n$|G| = |G_x| \\cdot |Gx|$\n$4 = 1 \\cdot 4$"
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Groups",
+            "title": "Sylow Subgroups",
+            "description": "Determine the number of 2-Sylow subgroups in $\\mathbb{Z}_{12}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Order\n$|\\mathbb{Z}_{12}| = 12 = 2^2 \\cdot 3$",
+                "Step 2: 2-Sylow Subgroups\nBy the 3rd Sylow Theorem:\n$n_2 \\equiv 1 \\mod 2$ and $n_2$ divides 3\nThus, $n_2 = 1$",
+                "Step 3: Verification\nThe only 2-Sylow subgroup is $\\{0,3,6,9\\}$"
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Groups",
+            "title": "Automorphisms",
+            "description": "Determine the automorphism group $\\text{Aut}(\\mathbb{Z}_5)$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Generators\n$\\mathbb{Z}_5 = \\langle 1 \\rangle$\nThe generators are $\\{1,2,3,4\\}$",
+                "Step 2: Automorphisms\nEvery automorphism $\\varphi$ is uniquely determined by the image of 1\n$\\varphi$ must map a generator to a generator",
+                "Step 3: Determine All Automorphisms\n$\\varphi_1: 1 \\mapsto 1$\n$\\varphi_2: 1 \\mapsto 2$\n$\\varphi_3: 1 \\mapsto 3$\n$\\varphi_4: 1 \\mapsto 4$",
+                "Step 4: Group Structure\n$\\text{Aut}(\\mathbb{Z}_5) \\cong \\mathbb{Z}_5^\\times = \\{1,2,3,4\\}$\nThe group is cyclic of order 4"
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Groups",
+            "title": "Group Extensions",
+            "description": "Show that $\\mathbb{Z}_4$ is a central extension of $\\mathbb{Z}_2$ by $\\mathbb{Z}_2$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Center\n$Z(\\mathbb{Z}_4) = \\{0,2\\} \\cong \\mathbb{Z}_2$",
+                "Step 2: Quotient Group\n$\\mathbb{Z}_4/Z(\\mathbb{Z}_4) \\cong \\mathbb{Z}_2$",
+                "Step 3: Extension\nThe short exact sequence\n$1 \\rightarrow \\mathbb{Z}_2 \\rightarrow \\mathbb{Z}_4 \\rightarrow \\mathbb{Z}_2 \\rightarrow 1$\nis a central extension"
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Groups",
+            "title": "Finite Abelian Groups",
+            "description": "Determine all abelian groups of order 8 up to isomorphism.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Prime Factorization\n$8 = 2^3$",
+                "Step 2: Possible Decompositions\n$\\mathbb{Z}_8$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_4$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_2$",
+                "Step 3: Verification\nAll groups have order 8\nNo two of the groups are isomorphic"
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Groups",
+            "title": "Group Actions on Sets",
+            "description": "Let $G = \\mathbb{Z}_4$ and $X = \\{1,2,3,4\\}$. Define the action $g \\cdot x = x + g \\mod 4$. Determine the number of fixed points of each element of $G$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Elements of $G$\n$G = \\{0,1,2,3\\}$",
+                "Step 2: Fixed Points\n$0$ has 4 fixed points\n$1$ has 0 fixed points\n$2$ has 0 fixed points\n$3$ has 0 fixed points",
+                "Step 3: Orbit-Stabilizer Theorem\n$|X| = \\frac{1}{|G|} \\sum_{g \\in G} |\\text{Fix}(g)|$\n$4 = \\frac{1}{4}(4 + 0 + 0 + 0)$"
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Groups",
+            "title": "Complex Group Actions",
+            "description": "Let $G = S_4$ be the symmetric group on 4 elements. Determine the number of orbits of the action of $G$ on the set of 2-element subsets of $\\{1,2,3,4\\}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Set of 2-Element Subsets\n$X = \\{\\{1,2\\}, \\{1,3\\}, \\{1,4\\}, \\{2,3\\}, \\{2,4\\}, \\{3,4\\}\\}$",
+                "Step 2: Orbits\nThere is only one orbit, as any 2-element subset can be mapped to any other",
+                "Step 3: Stabilizer\n$G_{\\{1,2\\}} = \\{id, (12), (34), (12)(34)\\}$\n$|G_{\\{1,2\\}}| = 4$",
+                "Step 4: Orbit-Stabilizer Theorem\n$|G| = |G_x| \\cdot |Gx|$\n$24 = 4 \\cdot 6$"
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Groups",
+            "title": "Sylow Theorems and Normal Subgroups",
+            "description": "Show that every group of order 15 has a normal subgroup of order 3 and a normal subgroup of order 5.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Sylow Subgroups\n$|G| = 15 = 3 \\cdot 5$\n$n_3 \\equiv 1 \\mod 3$ and $n_3$ divides 5\n$n_5 \\equiv 1 \\mod 5$ and $n_5$ divides 3$",
+                "Step 2: Number of Sylow Subgroups\n$n_3 = 1$\n$n_5 = 1$",
+                "Step 3: Normal Subgroups\nThe unique 3-Sylow subgroup is a normal subgroup\nThe unique 5-Sylow subgroup is a normal subgroup",
+                "Step 4: Conclusion\n$G$ has normal subgroups of orders 3 and 5"
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Groups",
+            "title": "Complex Automorphisms",
+            "description": "Determine the automorphism group $\\text{Aut}(\\mathbb{Z}_2 \\times \\mathbb{Z}_4)$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Generators\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_4 = \\langle (1,0), (0,1) \\rangle$",
+                "Step 2: Automorphisms\nEvery automorphism $\\varphi$ is determined by the images of $(1,0)$ and $(0,1)$\n$\\varphi(1,0)$ must have order 2\n$\\varphi(0,1)$ must have order 4",
+                "Step 3: Determine All Automorphisms\n$\\varphi(1,0) \\in \\{(1,0), (1,2)\\}$\n$\\varphi(0,1) \\in \\{(0,1), (0,3)\\}$",
+                "Step 4: Group Structure\n$\\text{Aut}(\\mathbb{Z}_2 \\times \\mathbb{Z}_4) \\cong D_4$"
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Groups",
+            "title": "Complex Group Extensions",
+            "description": "Show that the dihedral group $D_4$ is a non-trivial extension of $\\mathbb{Z}_2$ by $\\mathbb{Z}_2 \\times \\mathbb{Z}_2$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Center\n$Z(D_4) = \\{1, r^2\\} \\cong \\mathbb{Z}_2$",
+                "Step 2: Quotient Group\n$D_4/Z(D_4) \\cong \\mathbb{Z}_2 \\times \\mathbb{Z}_2$",
+                "Step 3: Extension\nThe short exact sequence\n$1 \\rightarrow \\mathbb{Z}_2 \\rightarrow D_4 \\rightarrow \\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\rightarrow 1$\nis a non-trivial extension",
+                "Step 4: Verification\nThe extension is non-trivial, as $D_4$ is not abelian"
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Groups",
+            "title": "Complex Finite Abelian Groups",
+            "description": "Determine all abelian groups of order 72 up to isomorphism.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Prime Factorization\n$72 = 2^3 \\cdot 3^2$",
+                "Step 2: Possible Decompositions\n$\\mathbb{Z}_8 \\times \\mathbb{Z}_9$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_4 \\times \\mathbb{Z}_9$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_9$\n$\\mathbb{Z}_8 \\times \\mathbb{Z}_3 \\times \\mathbb{Z}_3$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_4 \\times \\mathbb{Z}_3 \\times \\mathbb{Z}_3$\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_3 \\times \\mathbb{Z}_3$",
+                "Step 3: Verification\nAll groups have order 72\nNo two of the groups are isomorphic"
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Groups",
+            "title": "Complex Group Actions on Polynomials",
+            "description": "Let $G = S_3$ be the symmetric group on 3 elements. Determine the number of orbits of the action of $G$ on the set of polynomials of degree 2 over $\\mathbb{F}_2$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Polynomials\n$X = \\{x^2, x^2 + 1, x^2 + x, x^2 + x + 1\\}$",
+                "Step 2: Orbits\n$G \\cdot x^2 = \\{x^2\\}$\n$G \\cdot (x^2 + 1) = \\{x^2 + 1\\}$\n$G \\cdot (x^2 + x) = \\{x^2 + x, x^2 + x + 1\\}$",
+                "Step 3: Stabilizers\n$G_{x^2} = S_3$\n$G_{x^2 + 1} = S_3$\n$G_{x^2 + x} = \\{id, (12)\\}$",
+                "Step 4: Orbit-Stabilizer Theorem\n$|G| = |G_x| \\cdot |Gx|$\n$6 = 6 \\cdot 1$ for $x^2$ and $x^2 + 1$\n$6 = 2 \\cdot 3$ for $x^2 + x$"
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Groups",
+            "title": "Complex Sylow Theorems",
+            "description": "Show that every group of order 30 has a normal subgroup of order 15.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Sylow Subgroups\n$|G| = 30 = 2 \\cdot 3 \\cdot 5$\n$n_3 \\equiv 1 \\mod 3$ and $n_3$ divides 10\n$n_5 \\equiv 1 \\mod 5$ and $n_5$ divides 6$",
+                "Step 2: Number of Sylow Subgroups\n$n_3 = 1$ or $n_3 = 10$\n$n_5 = 1$ or $n_5 = 6$",
+                "Step 3: Analysis\nIf $n_3 = 10$ and $n_5 = 6$, then $G$ has at least 20 elements of order 3 and 24 elements of order 5, which is impossible",
+                "Step 4: Conclusion\n$n_3 = 1$ or $n_5 = 1$\nThe corresponding Sylow subgroup is a normal subgroup\nThe product of the normal subgroups is a normal subgroup of order 15"
+            ]
+        },
+        {
+            "id": 32,
+            "topic": "Groups",
+            "title": "Complex Automorphisms and Endomorphisms",
+            "description": "Determine the automorphism group $\\text{Aut}(\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_2)$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Vector Space Structure\n$\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_2$ is a 3-dimensional vector space over $\\mathbb{Z}_2$",
+                "Step 2: Automorphisms\nThe automorphisms correspond to the invertible 3x3 matrices over $\\mathbb{Z}_2$",
+                "Step 3: Number of Automorphisms\n$|\\text{Aut}(\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_2)| = |GL_3(\\mathbb{Z}_2)| = 168$",
+                "Step 4: Group Structure\n$\\text{Aut}(\\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\times \\mathbb{Z}_2) \\cong GL_3(\\mathbb{Z}_2)$"
+            ]
+        },
+        {
+            "id": 33,
+            "topic": "Groups",
+            "title": "Complex Group Extensions and Cohomology",
+            "description": "Show that the quaternion group $Q_8$ is a non-trivial extension of $\\mathbb{Z}_2$ by $\\mathbb{Z}_2 \\times \\mathbb{Z}_2$ and determine the associated element in $H^2(\\mathbb{Z}_2 \\times \\mathbb{Z}_2, \\mathbb{Z}_2)$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Center\n$Z(Q_8) = \\{\\pm 1\\} \\cong \\mathbb{Z}_2$",
+                "Step 2: Quotient Group\n$Q_8/Z(Q_8) \\cong \\mathbb{Z}_2 \\times \\mathbb{Z}_2$",
+                "Step 3: Extension\nThe short exact sequence\n$1 \\rightarrow \\mathbb{Z}_2 \\rightarrow Q_8 \\rightarrow \\mathbb{Z}_2 \\times \\mathbb{Z}_2 \\rightarrow 1$\nis a non-trivial extension",
+                "Step 4: Cohomology\nThe associated element in $H^2(\\mathbb{Z}_2 \\times \\mathbb{Z}_2, \\mathbb{Z}_2)$ is non-trivial"
+            ]
+        },
+        {
+            "id": 34,
+            "topic": "Groups",
+            "title": "Complex Group Actions on Vector Spaces",
+            "description": "Let $G = GL_2(\\mathbb{F}_2)$ be the general linear group over $\\mathbb{F}_2$. Determine the number of orbits of the action of $G$ on the set of 1-dimensional subspaces of $\\mathbb{F}_2^2$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: 1-Dimensional Subspaces\n$X = \\{\\langle (1,0) \\rangle, \\langle (0,1) \\rangle, \\langle (1,1) \\rangle\\}$",
+                "Step 2: Orbits\nThere is only one orbit, as $G$ acts transitively on $X$",
+                "Step 3: Stabilizer\n$G_{\\langle (1,0) \\rangle} = \\{\\begin{pmatrix} 1 & a \\\\ 0 & b \\end{pmatrix} \\mid a \\in \\mathbb{F}_2, b \\in \\mathbb{F}_2^\\times\\}$\n$|G_{\\langle (1,0) \\rangle}| = 2$",
+                "Step 4: Orbit-Stabilizer Theorem\n$|G| = |G_x| \\cdot |Gx|$\n$6 = 2 \\cdot 3$"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,241 @@
+{
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Limits",
+            "title": "Simple Limit of a Rational Function",
+            "description": "Calculate the limit $\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2}$ is initially indeterminate (0/0), as both numerator and denominator equal zero for x = 2.",
+                "Step 2: Transformation of the numerator\n$x^2 - 4 = (x + 2)(x - 2)$\nExplanation: We use the third binomial formula.",
+                "Step 3: Cancellation\n$\\frac{x^2 - 4}{x - 2} = \\frac{(x + 2)(x - 2)}{x - 2} = x + 2$\nExplanation: The term (x - 2) can be canceled, as x ≠ 2.",
+                "Step 4: Limit calculation\n$\\lim_{x \\to 2} (x + 2) = 2 + 2 = 4$\nExplanation: After cancellation, we can directly substitute x = 2.",
+                "Step 5: Verification\nWe verify by substituting values close to 2:\nx = 1.9: $\\frac{1.9^2 - 4}{1.9 - 2} \\approx 3.9$\nx = 2.1: $\\frac{2.1^2 - 4}{2.1 - 2} \\approx 4.1$\nThe values approach the limit of 4.",
+                "Step 6: Summary\nThe limit exists and equals 4. The function has a removable discontinuity at x = 2."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Limits",
+            "title": "Limit with a Square Root",
+            "description": "Calculate the limit $\\lim_{x \\to 0} \\frac{\\sqrt{x + 4} - 2}{x}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 0} \\frac{\\sqrt{x + 4} - 2}{x}$ is initially indeterminate (0/0).",
+                "Step 2: Multiplication by the conjugate expression\n$\\frac{\\sqrt{x + 4} - 2}{x} \\cdot \\frac{\\sqrt{x + 4} + 2}{\\sqrt{x + 4} + 2}$\nExplanation: We multiply by the conjugate expression to eliminate the square root in the numerator.",
+                "Step 3: Application of the third binomial formula\n$\\frac{(x + 4) - 4}{x(\\sqrt{x + 4} + 2)} = \\frac{x}{x(\\sqrt{x + 4} + 2)}$\nExplanation: The square root terms simplify.",
+                "Step 4: Cancellation\n$\\frac{1}{\\sqrt{x + 4} + 2}$\nExplanation: We can cancel x, as x ≠ 0.",
+                "Step 5: Limit calculation\n$\\lim_{x \\to 0} \\frac{1}{\\sqrt{x + 4} + 2} = \\frac{1}{\\sqrt{4} + 2} = \\frac{1}{4}$\nExplanation: After cancellation, we can directly substitute x = 0.",
+                "Step 6: Verification\nWe verify by substituting values close to 0:\nx = -0.1: $\\frac{\\sqrt{-0.1 + 4} - 2}{-0.1} \\approx 0.251$\nx = 0.1: $\\frac{\\sqrt{0.1 + 4} - 2}{0.1} \\approx 0.249$\nThe values approach the limit of 0.25.",
+                "Step 7: Summary\nThe limit exists and equals $\\frac{1}{4}$. The function has a removable discontinuity at x = 0."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Limits",
+            "title": "Limit with an Exponential Function",
+            "description": "Calculate the limit $\\lim_{x \\to 0} \\frac{e^x - 1}{x}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 0} \\frac{e^x - 1}{x}$ is initially indeterminate (0/0).",
+                "Step 2: Taylor expansion\n$e^x = 1 + x + \\frac{x^2}{2!} + \\frac{x^3}{3!} + ...$\nExplanation: We expand the exponential function into a Taylor series.",
+                "Step 3: Substitution of the expansion\n$\\frac{e^x - 1}{x} = \\frac{1 + x + \\frac{x^2}{2!} + \\frac{x^3}{3!} + ... - 1}{x}$\nExplanation: We substitute the Taylor expansion.",
+                "Step 4: Simplification\n$\\frac{x + \\frac{x^2}{2!} + \\frac{x^3}{3!} + ...}{x} = 1 + \\frac{x}{2!} + \\frac{x^2}{3!} + ...$\nExplanation: We cancel x and rearrange the terms.",
+                "Step 5: Limit calculation\n$\\lim_{x \\to 0} (1 + \\frac{x}{2!} + \\frac{x^2}{3!} + ...) = 1$\nExplanation: All terms with x converge to 0.",
+                "Step 6: Verification\nWe verify by substituting values close to 0:\nx = -0.1: $\\frac{e^{-0.1} - 1}{-0.1} \\approx 0.951$\nx = 0.1: $\\frac{e^{0.1} - 1}{0.1} \\approx 1.051$\nThe values approach the limit of 1.",
+                "Step 7: Summary\nThe limit exists and equals 1. This is an important limit that appears in many applications."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Limits",
+            "title": "Limit with a Trigonometric Function",
+            "description": "Calculate the limit $\\lim_{x \\to 0} \\frac{\\sin x}{x}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 0} \\frac{\\sin x}{x}$ is initially indeterminate (0/0).",
+                "Step 2: Geometric interpretation\nWe consider a unit circle and an angle x in radians.\nExplanation: The limit can be interpreted geometrically.",
+                "Step 3: Estimation\n$\\sin x < x < \\tan x$ for $0 < x < \\frac{\\pi}{2}$\nExplanation: This inequality follows from geometric considerations.",
+                "Step 4: Transformation\n$1 < \\frac{x}{\\sin x} < \\frac{1}{\\cos x}$\nExplanation: We divide by sin x and rearrange.",
+                "Step 5: Limit calculation\n$\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$\nExplanation: By the squeeze theorem, the result follows.",
+                "Step 6: Verification\nWe verify by substituting values close to 0:\nx = -0.1: $\\frac{\\sin(-0.1)}{-0.1} \\approx 0.998$\nx = 0.1: $\\frac{\\sin(0.1)}{0.1} \\approx 0.998$\nThe values approach the limit of 1.",
+                "Step 7: Summary\nThe limit exists and equals 1. This is a fundamental limit in calculus."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Limits",
+            "title": "Limit with a Logarithm",
+            "description": "Calculate the limit $\\lim_{x \\to 1} \\frac{\\ln x}{x - 1}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 1} \\frac{\\ln x}{x - 1}$ is initially indeterminate (0/0).",
+                "Step 2: Substitution\nLet $h = x - 1$, then $x = 1 + h$ and $h \\to 0$ as $x \\to 1$.\nExplanation: We substitute to simplify the limit.",
+                "Step 3: Transformation\n$\\frac{\\ln(1 + h)}{h}$\nExplanation: After substitution, we get this form.",
+                "Step 4: Taylor expansion\n$\\ln(1 + h) = h - \\frac{h^2}{2} + \\frac{h^3}{3} - ...$\nExplanation: We expand the logarithm into a Taylor series.",
+                "Step 5: Substitution and simplification\n$\\frac{h - \\frac{h^2}{2} + \\frac{h^3}{3} - ...}{h} = 1 - \\frac{h}{2} + \\frac{h^2}{3} - ...$\nExplanation: We cancel h and rearrange the terms.",
+                "Step 6: Limit calculation\n$\\lim_{h \\to 0} (1 - \\frac{h}{2} + \\frac{h^2}{3} - ...) = 1$\nExplanation: All terms with h converge to 0.",
+                "Step 7: Verification\nWe verify by substituting values close to 1:\nx = 0.9: $\\frac{\\ln(0.9)}{0.9 - 1} \\approx 1.053$\nx = 1.1: $\\frac{\\ln(1.1)}{1.1 - 1} \\approx 0.953$\nThe values approach the limit of 1.",
+                "Step 8: Summary\nThe limit exists and equals 1. This is an important limit for the derivative of the logarithm."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Limits",
+            "title": "Limit of a Polynomial Function",
+            "description": "Calculate the limit $\\lim_{x \\to 3} \\frac{x^3 - 27}{x - 3}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 3} \\frac{x^3 - 27}{x - 3}$ is initially indeterminate (0/0).",
+                "Step 2: Polynomial division\n$x^3 - 27 = (x - 3)(x^2 + 3x + 9)$\nExplanation: We use polynomial division or the formula for the difference of cubes.",
+                "Step 3: Cancellation\n$\\frac{x^3 - 27}{x - 3} = \\frac{(x - 3)(x^2 + 3x + 9)}{x - 3} = x^2 + 3x + 9$\nExplanation: The term (x - 3) can be canceled, as x ≠ 3.",
+                "Step 4: Limit calculation\n$\\lim_{x \\to 3} (x^2 + 3x + 9) = 9 + 9 + 9 = 27$\nExplanation: After cancellation, we can directly substitute x = 3.",
+                "Step 5: Verification\nWe verify by substituting values close to 3:\nx = 2.9: $\\frac{2.9^3 - 27}{2.9 - 3} \\approx 26.91$\nx = 3.1: $\\frac{3.1^3 - 27}{3.1 - 3} \\approx 27.09$\nThe values approach the limit of 27.",
+                "Step 6: Summary\nThe limit exists and equals 27. The function has a removable discontinuity at x = 3."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Limits",
+            "title": "Limit of a Rational Function with Square",
+            "description": "Calculate the limit $\\lim_{x \\to 1} \\frac{x^2 - 2x + 1}{x - 1}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 1} \\frac{x^2 - 2x + 1}{x - 1}$ is initially indeterminate (0/0).",
+                "Step 2: Transformation of the numerator\n$x^2 - 2x + 1 = (x - 1)^2$\nExplanation: We recognize the second binomial formula.",
+                "Step 3: Cancellation\n$\\frac{(x - 1)^2}{x - 1} = x - 1$\nExplanation: One factor (x - 1) can be canceled, as x ≠ 1.",
+                "Step 4: Limit calculation\n$\\lim_{x \\to 1} (x - 1) = 0$\nExplanation: After cancellation, we can directly substitute x = 1.",
+                "Step 5: Verification\nWe verify by substituting values close to 1:\nx = 0.9: $\\frac{0.9^2 - 2 \\cdot 0.9 + 1}{0.9 - 1} \\approx -0.1$\nx = 1.1: $\\frac{1.1^2 - 2 \\cdot 1.1 + 1}{1.1 - 1} \\approx 0.1$\nThe values approach the limit of 0.",
+                "Step 6: Summary\nThe limit exists and equals 0. The function has a removable discontinuity at x = 1."
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Limits",
+            "title": "Limit of a Rational Function with Cubic",
+            "description": "Calculate the limit $\\lim_{x \\to 2} \\frac{x^3 - 8}{x^2 - 4}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 2} \\frac{x^3 - 8}{x^2 - 4}$ is initially indeterminate (0/0).",
+                "Step 2: Transformation of numerator and denominator\n$x^3 - 8 = (x - 2)(x^2 + 2x + 4)$\n$x^2 - 4 = (x - 2)(x + 2)$\nExplanation: We use the formulas for the difference of cubes and squares.",
+                "Step 3: Cancellation\n$\\frac{(x - 2)(x^2 + 2x + 4)}{(x - 2)(x + 2)} = \\frac{x^2 + 2x + 4}{x + 2}$\nExplanation: The term (x - 2) can be canceled, as x ≠ 2.",
+                "Step 4: Limit calculation\n$\\lim_{x \\to 2} \\frac{x^2 + 2x + 4}{x + 2} = \\frac{4 + 4 + 4}{4} = 3$\nExplanation: After cancellation, we can directly substitute x = 2.",
+                "Step 5: Verification\nWe verify by substituting values close to 2:\nx = 1.9: $\\frac{1.9^3 - 8}{1.9^2 - 4} \\approx 2.95$\nx = 2.1: $\\frac{2.1^3 - 8}{2.1^2 - 4} \\approx 3.05$\nThe values approach the limit of 3.",
+                "Step 6: Summary\nThe limit exists and equals 3. The function has a removable discontinuity at x = 2."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Limits",
+            "title": "Limit with Trigonometric Function and Square Root",
+            "description": "Calculate the limit $\\lim_{x \\to 0} \\frac{\\sin x}{\\sqrt{x + 1} - 1}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 0} \\frac{\\sin x}{\\sqrt{x + 1} - 1}$ is initially indeterminate (0/0).",
+                "Step 2: Multiplication by the conjugate expression\n$\\frac{\\sin x}{\\sqrt{x + 1} - 1} \\cdot \\frac{\\sqrt{x + 1} + 1}{\\sqrt{x + 1} + 1}$\nExplanation: We multiply by the conjugate expression of the denominator.",
+                "Step 3: Simplification\n$\\frac{\\sin x (\\sqrt{x + 1} + 1)}{x}$\nExplanation: The square root terms in the denominator simplify.",
+                "Step 4: Transformation\n$\\frac{\\sin x}{x} \\cdot (\\sqrt{x + 1} + 1)$\nExplanation: We split the expression into two factors.",
+                "Step 5: Limit calculation\n$\\lim_{x \\to 0} \\frac{\\sin x}{x} \\cdot \\lim_{x \\to 0} (\\sqrt{x + 1} + 1) = 1 \\cdot 2 = 2$\nExplanation: We use the known limit for sin(x)/x and calculate the second factor.",
+                "Step 6: Verification\nWe verify by substituting values close to 0:\nx = -0.1: $\\frac{\\sin(-0.1)}{\\sqrt{-0.1 + 1} - 1} \\approx 1.98$\nx = 0.1: $\\frac{\\sin(0.1)}{\\sqrt{0.1 + 1} - 1} \\approx 2.02$\nThe values approach the limit of 2.",
+                "Step 7: Summary\nThe limit exists and equals 2. The function has a removable discontinuity at x = 0."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Limits",
+            "title": "Limit with Exponential and Trigonometric Functions",
+            "description": "Calculate the limit $\\lim_{x \\to 0} \\frac{e^x - \\cos x}{x}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 0} \\frac{e^x - \\cos x}{x}$ is initially indeterminate (0/0).",
+                "Step 2: Taylor expansion\n$e^x = 1 + x + \\frac{x^2}{2!} + ...$\n$\\cos x = 1 - \\frac{x^2}{2!} + ...$\nExplanation: We expand both functions into Taylor series.",
+                "Step 3: Substitution of the expansions\n$\\frac{(1 + x + \\frac{x^2}{2!} + ...) - (1 - \\frac{x^2}{2!} + ...)}{x}$\nExplanation: We substitute the Taylor expansions.",
+                "Step 4: Simplification\n$\\frac{x + x^2 + ...}{x} = 1 + x + ...$\nExplanation: We cancel x and rearrange the terms.",
+                "Step 5: Limit calculation\n$\\lim_{x \\to 0} (1 + x + ...) = 1$\nExplanation: All terms with x converge to 0.",
+                "Step 6: Verification\nWe verify by substituting values close to 0:\nx = -0.1: $\\frac{e^{-0.1} - \\cos(-0.1)}{-0.1} \\approx 0.95$\nx = 0.1: $\\frac{e^{0.1} - \\cos(0.1)}{0.1} \\approx 1.05$\nThe values approach the limit of 1.",
+                "Step 7: Summary\nThe limit exists and equals 1. The function has a removable discontinuity at x = 0."
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Limits",
+            "title": "Limit with Logarithm and Square Root",
+            "description": "Calculate the limit $\\lim_{x \\to 1} \\frac{\\ln x}{\\sqrt{x} - 1}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 1} \\frac{\\ln x}{\\sqrt{x} - 1}$ is initially indeterminate (0/0).",
+                "Step 2: Substitution\nLet $h = x - 1$, then $x = 1 + h$ and $h \\to 0$ as $x \\to 1$.\nExplanation: We substitute to simplify the limit.",
+                "Step 3: Transformation\n$\\frac{\\ln(1 + h)}{\\sqrt{1 + h} - 1}$\nExplanation: After substitution, we get this form.",
+                "Step 4: Taylor expansion\n$\\ln(1 + h) = h - \\frac{h^2}{2} + ...$\n$\\sqrt{1 + h} = 1 + \\frac{h}{2} - \\frac{h^2}{8} + ...$\nExplanation: We expand both functions into Taylor series.",
+                "Step 5: Substitution and simplification\n$\\frac{h - \\frac{h^2}{2} + ...}{\\frac{h}{2} - \\frac{h^2}{8} + ...} \\approx \\frac{h}{\\frac{h}{2}} = 2$\nExplanation: We consider only the leading terms.",
+                "Step 6: Limit calculation\n$\\lim_{h \\to 0} 2 = 2$\nExplanation: The limit is constant.",
+                "Step 7: Verification\nWe verify by substituting values close to 1:\nx = 0.9: $\\frac{\\ln(0.9)}{\\sqrt{0.9} - 1} \\approx 1.95$\nx = 1.1: $\\frac{\\ln(1.1)}{\\sqrt{1.1} - 1} \\approx 2.05$\nThe values approach the limit of 2.",
+                "Step 8: Summary\nThe limit exists and equals 2. The function has a removable discontinuity at x = 1."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Limits",
+            "title": "Limit with Multiple Trigonometric Functions",
+            "description": "Calculate the limit $\\lim_{x \\to 0} \\frac{\\sin x - \\tan x}{x^3}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 0} \\frac{\\sin x - \\tan x}{x^3}$ is initially indeterminate (0/0).",
+                "Step 2: Transformation of tan x\n$\\tan x = \\frac{\\sin x}{\\cos x}$\nExplanation: We express tan x in terms of sin x and cos x.",
+                "Step 3: Common denominator\n$\\frac{\\sin x - \\frac{\\sin x}{\\cos x}}{x^3} = \\frac{\\sin x(\\cos x - 1)}{x^3 \\cos x}$\nExplanation: We bring the terms to a common denominator.",
+                "Step 4: Taylor expansion\n$\\sin x = x - \\frac{x^3}{6} + ...$\n$\\cos x = 1 - \\frac{x^2}{2} + ...$\nExplanation: We expand both functions into Taylor series.",
+                "Step 5: Substitution and simplification\n$\\frac{(x - \\frac{x^3}{6} + ...)(-\\frac{x^2}{2} + ...)}{x^3(1 - \\frac{x^2}{2} + ...)} \\approx -\\frac{1}{2}$\nExplanation: We consider the leading terms.",
+                "Step 6: Limit calculation\n$\\lim_{x \\to 0} -\\frac{1}{2} = -\\frac{1}{2}$\nExplanation: The limit is constant.",
+                "Step 7: Verification\nWe verify by substituting values close to 0:\nx = -0.1: $\\frac{\\sin(-0.1) - \\tan(-0.1)}{(-0.1)^3} \\approx -0.501$\nx = 0.1: $\\frac{\\sin(0.1) - \\tan(0.1)}{0.1^3} \\approx -0.499$\nThe values approach the limit of -0.5.",
+                "Step 8: Summary\nThe limit exists and equals -0.5. The function has a removable discontinuity at x = 0."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Limits",
+            "title": "Limit with Exponential Function and Logarithm",
+            "description": "Calculate the limit $\\lim_{x \\to 0} \\frac{e^x - 1 - x - \\frac{x^2}{2}}{x^3}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 0} \\frac{e^x - 1 - x - \\frac{x^2}{2}}{x^3}$ is initially indeterminate (0/0).",
+                "Step 2: Taylor expansion\n$e^x = 1 + x + \\frac{x^2}{2!} + \\frac{x^3}{3!} + ...$\nExplanation: We expand the exponential function into a Taylor series.",
+                "Step 3: Substitution of the expansion\n$\\frac{(1 + x + \\frac{x^2}{2} + \\frac{x^3}{6} + ...) - 1 - x - \\frac{x^2}{2}}{x^3}$\nExplanation: We substitute the Taylor expansion.",
+                "Step 4: Simplification\n$\\frac{\\frac{x^3}{6} + ...}{x^3} = \\frac{1}{6} + ...$\nExplanation: We cancel x^3 and consider the leading terms.",
+                "Step 5: Limit calculation\n$\\lim_{x \\to 0} (\\frac{1}{6} + ...) = \\frac{1}{6}$\nExplanation: All terms with x converge to 0.",
+                "Step 6: Verification\nWe verify by substituting values close to 0:\nx = -0.1: $\\frac{e^{-0.1} - 1 - (-0.1) - \\frac{(-0.1)^2}{2}}{(-0.1)^3} \\approx 0.167$\nx = 0.1: $\\frac{e^{0.1} - 1 - 0.1 - \\frac{0.1^2}{2}}{0.1^3} \\approx 0.167$\nThe values approach the limit of 1/6.",
+                "Step 7: Summary\nThe limit exists and equals 1/6. The function has a removable discontinuity at x = 0."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Limits",
+            "title": "Limit with Trigonometric and Hyperbolic Functions",
+            "description": "Calculate the limit $\\lim_{x \\to 0} \\frac{\\sin x - \\sinh x}{x^3}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 0} \\frac{\\sin x - \\sinh x}{x^3}$ is initially indeterminate (0/0).",
+                "Step 2: Taylor expansion\n$\\sin x = x - \\frac{x^3}{6} + ...$\n$\\sinh x = x + \\frac{x^3}{6} + ...$\nExplanation: We expand both functions into Taylor series.",
+                "Step 3: Substitution of the expansions\n$\\frac{(x - \\frac{x^3}{6} + ...) - (x + \\frac{x^3}{6} + ...)}{x^3}$\nExplanation: We substitute the Taylor expansions.",
+                "Step 4: Simplification\n$\\frac{-\\frac{x^3}{3} + ...}{x^3} = -\\frac{1}{3} + ...$\nExplanation: We cancel x^3 and consider the leading terms.",
+                "Step 5: Limit calculation\n$\\lim_{x \\to 0} (-\\frac{1}{3} + ...) = -\\frac{1}{3}$\nExplanation: All terms with x converge to 0.",
+                "Step 6: Verification\nWe verify by substituting values close to 0:\nx = -0.1: $\\frac{\\sin(-0.1) - \\sinh(-0.1)}{(-0.1)^3} \\approx -0.334$\nx = 0.1: $\\frac{\\sin(0.1) - \\sinh(0.1)}{0.1^3} \\approx -0.334$\nThe values approach the limit of -1/3.",
+                "Step 7: Summary\nThe limit exists and equals -1/3. The function has a removable discontinuity at x = 0."
+            ]
+        }
+    ]
+} 

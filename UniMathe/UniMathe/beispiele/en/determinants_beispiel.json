@@ -1,0 +1,156 @@
+{
+    "id": "ee0e8400-e29b-41d4-a716-446655440000",
+    "topic": "Determinants",
+    "steps": [
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440001",
+            "text": "First, let's look at the simplest form: the determinant of a 2×2 matrix. This is particularly important as it shows us the basic principle.",
+            "formula": "\\det\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = ad - bc",
+            "explanation": "The determinant of a 2×2 matrix is calculated as the product of the main diagonal elements minus the product of the off-diagonal elements. Imagine drawing an X through the matrix: the products of the numbers connected by the X are subtracted from each other."
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440002",
+            "text": "Let's work through a concrete example. We'll take a simple 2×2 matrix with integers.",
+            "formula": "\\det\\begin{pmatrix} 2 & 3 \\\\ 1 & 4 \\end{pmatrix} = 2 \\cdot 4 - 3 \\cdot 1 = 8 - 3 = 5",
+            "explanation": "Here, we first multiply 2 by 4 (main diagonal) and subtract the product of 3 and 1 (off-diagonal). The result is 5. This positive determinant means that the matrix preserves orientation."
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440003",
+            "text": "For 3×3 matrices, things get a bit more complicated. Here, we use the Rule of Sarrus, which offers an elegant method for calculation.",
+            "formula": "\\det\\begin{pmatrix} a & b & c \\\\ d & e & f \\\\ g & h & i \\end{pmatrix} = aei + bfg + cdh - ceg - bdi - afh",
+            "explanation": "The Rule of Sarrus is a special case for 3×3 matrices. We write the first two columns again on the right and then form the sum of the products of the main diagonals minus the sum of the products of the off-diagonals. It's like an extended X-principle!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440004",
+            "text": "Let's practice the Rule of Sarrus with a concrete example. We'll take a 3×3 matrix with simple numbers.",
+            "formula": "\\det\\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \\end{pmatrix} = 1 \\cdot 5 \\cdot 9 + 2 \\cdot 6 \\cdot 7 + 3 \\cdot 4 \\cdot 8 - 3 \\cdot 5 \\cdot 7 - 2 \\cdot 4 \\cdot 9 - 1 \\cdot 6 \\cdot 8 = 0",
+            "explanation": "Here, we see that the determinant is 0. This is an important clue: the matrix is not invertible because its determinant is 0. In this case, the rows are linearly dependent—the third row is the sum of the first two!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440005",
+            "text": "For larger matrices, the Rule of Sarrus becomes too complicated. Here, we use expansion along a row or column (Laplace expansion).",
+            "formula": "\\det(A) = \\sum_{j=1}^n (-1)^{i+j} a_{ij} \\det(A_{ij})",
+            "explanation": "We choose a row or column (preferably one with many zeros) and expand the determinant along it. For each element, we multiply it by the determinant of the matrix obtained by removing the corresponding row and column, and by a sign factor. The sign alternates like a checkerboard!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440006",
+            "text": "Let's practice expansion along a row with an example. We'll choose a row with a zero to simplify the calculation.",
+            "formula": "\\det\\begin{pmatrix} 1 & 0 & 2 \\\\ 3 & 4 & 0 \\\\ 5 & 6 & 7 \\end{pmatrix} = 1 \\cdot \\det\\begin{pmatrix} 4 & 0 \\\\ 6 & 7 \\end{pmatrix} - 0 \\cdot \\det\\begin{pmatrix} 3 & 0 \\\\ 5 & 7 \\end{pmatrix} + 2 \\cdot \\det\\begin{pmatrix} 3 & 4 \\\\ 5 & 6 \\end{pmatrix}",
+            "explanation": "We expand along the first row. The second term drops out because it is multiplied by 0. The remaining 2×2 determinants can be easily calculated. It's like a puzzle: we break the large matrix into smaller parts!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440007",
+            "text": "A particularly efficient method for larger matrices is the Gaussian elimination method. We bring the matrix into triangular form.",
+            "formula": "\\begin{pmatrix} 2 & 1 & 1 \\\\ 1 & 2 & 1 \\\\ 1 & 1 & 2 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 2 & 1 & 1 \\\\ 0 & 1.5 & 0.5 \\\\ 0 & 0 & 1.33 \\end{pmatrix}",
+            "explanation": "Through elementary row operations, we bring the matrix into triangular form. We must consider the effects of the operations on the determinant: row swaps change the sign, and multiplying a row by a factor multiplies the determinant by that factor. It's like a recipe: each step has its own rule!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440008",
+            "text": "For a triangular matrix, the determinant is particularly easy to calculate—it is the product of the diagonal elements.",
+            "formula": "\\det\\begin{pmatrix} 2 & 1 & 3 \\\\ 0 & 3 & 2 \\\\ 0 & 0 & 4 \\end{pmatrix} = 2 \\cdot 3 \\cdot 4 = 24",
+            "explanation": "This is one of the reasons why Gaussian elimination is so useful. After transforming into triangular form, we can simply read off the determinant. It's like a gift: the hard work was already done during the transformation!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440009",
+            "text": "The determinant of a block matrix can be simplified if one of the blocks is a zero matrix.",
+            "formula": "\\det\\begin{pmatrix} A & 0 \\\\ C & D \\end{pmatrix} = \\det(A) \\cdot \\det(D)",
+            "explanation": "This property is particularly useful for large matrices that can be decomposed into blocks. We can then calculate the determinant as the product of the determinants of the non-zero blocks. It's like a building kit: we can break large matrices into smaller parts!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440010",
+            "text": "The determinant of a matrix and its transpose are equal.",
+            "formula": "\\det(A) = \\det(A^T)",
+            "explanation": "This property is very useful, as we can sometimes expand more easily along columns than along rows. It's like a mirror: the matrix looks different, but its determinant remains the same!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440011",
+            "text": "The determinant of a product of matrices is the product of their determinants.",
+            "formula": "\\det(AB) = \\det(A) \\cdot \\det(B)",
+            "explanation": "This important property shows us that the determinant is multiplicative. It is particularly useful for calculating the determinant of matrix powers. When we perform two transformations in sequence, their determinants multiply!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440012",
+            "text": "The determinant of an invertible matrix is non-zero, and the determinant of its inverse is the reciprocal of the determinant.",
+            "formula": "\\det(A^{-1}) = \\frac{1}{\\det(A)}",
+            "explanation": "This property is fundamental for the theory of linear systems. A matrix is invertible if and only if its determinant is non-zero. The inverse transformation has the inverse determinant—this makes sense, as it undoes the original transformation!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440013",
+            "text": "The determinant of a matrix does not change if we add a multiple of one row to another row.",
+            "formula": "\\det\\begin{pmatrix} a & b \\\\ c+ka & d+kb \\end{pmatrix} = \\det\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}",
+            "explanation": "This property is the foundation of Gaussian elimination. It allows us to transform the matrix into a simpler form without changing the determinant. It's like a magic trick: we can alter the matrix without altering its determinant!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440014",
+            "text": "The determinant of a matrix with two identical rows or columns is zero.",
+            "formula": "\\det\\begin{pmatrix} a & b \\\\ a & b \\end{pmatrix} = 0",
+            "explanation": "This property is important for the theory of linear dependence. It shows us that the determinant is zero if the rows or columns are linearly dependent. If two rows are identical, we cannot uniquely invert the matrix!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440015",
+            "text": "The determinant of a matrix with a zero row or column is zero.",
+            "formula": "\\det\\begin{pmatrix} a & b \\\\ 0 & 0 \\end{pmatrix} = 0",
+            "explanation": "This property follows directly from the linearity of the determinant. It is useful for quickly recognizing whether a matrix is singular. A zero row means the matrix does not have full rank!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440016",
+            "text": "Let's look at a practical example: How can we calculate the determinant of a 4×4 matrix?",
+            "formula": "\\det\\begin{pmatrix} 1 & 2 & 0 & 3 \\\\ 0 & 1 & 2 & 0 \\\\ 2 & 0 & 1 & 0 \\\\ 0 & 3 & 0 & 1 \\end{pmatrix}",
+            "explanation": "We expand along the first row, as it contains a zero. This significantly reduces the computation. For each element, we multiply it by the determinant of the 3×3 matrix obtained by removing the corresponding row and column."
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440017",
+            "text": "Step 1: We expand along the first row and calculate the first 3×3 determinant.",
+            "formula": "1 \\cdot \\det\\begin{pmatrix} 1 & 2 & 0 \\\\ 0 & 1 & 0 \\\\ 3 & 0 & 1 \\end{pmatrix}",
+            "explanation": "We expand the 3×3 determinant along the second row, as it contains a zero. This makes the calculation particularly simple!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440018",
+            "text": "Step 2: We calculate the second 3×3 determinant.",
+            "formula": "2 \\cdot \\det\\begin{pmatrix} 0 & 2 & 0 \\\\ 2 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}",
+            "explanation": "We can expand this determinant along the third column, as it contains two zeros. This reduces the calculation to a 2×2 determinant!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440019",
+            "text": "Step 3: We calculate the third 3×3 determinant.",
+            "formula": "0 \\cdot \\det\\begin{pmatrix} 0 & 1 & 0 \\\\ 2 & 0 & 0 \\\\ 0 & 3 & 1 \\end{pmatrix}",
+            "explanation": "This term drops out because it is multiplied by 0. That's a stroke of luck—we don't even need to calculate this determinant!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440020",
+            "text": "Step 4: We calculate the fourth 3×3 determinant.",
+            "formula": "3 \\cdot \\det\\begin{pmatrix} 0 & 1 & 2 \\\\ 2 & 0 & 1 \\\\ 0 & 3 & 0 \\end{pmatrix}",
+            "explanation": "We expand this determinant along the first column, as it contains two zeros. This makes the calculation simpler again!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440021",
+            "text": "Step 5: We combine all partial results.",
+            "formula": "\\det(A) = 1 \\cdot 1 - 2 \\cdot 2 + 0 \\cdot 0 + 3 \\cdot (-6) = -17",
+            "explanation": "We add all partial results with the correct signs. The final result is -17. The negative determinant means that the matrix reverses orientation!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440022",
+            "text": "Let's look at another example: The determinant of a Vandermonde matrix.",
+            "formula": "V = \\begin{pmatrix} 1 & x_1 & x_1^2 \\\\ 1 & x_2 & x_2^2 \\\\ 1 & x_3 & x_3^2 \\end{pmatrix}",
+            "explanation": "A Vandermonde matrix has a particularly beautiful determinant: it is the product of all differences (x_i - x_j) for i > j. This is an important result in polynomial interpolation!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440023",
+            "text": "We calculate the determinant of a concrete Vandermonde matrix.",
+            "formula": "\\det\\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & 2 & 4 \\\\ 1 & 3 & 9 \\end{pmatrix} = (2-1)(3-1)(3-2) = 2",
+            "explanation": "The determinant is the product of all differences: (2-1) = 1, (3-1) = 2, and (3-2) = 1. The total product is 2. This formula is very useful in numerical analysis!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440024",
+            "text": "Finally, let's look at how the determinant relates to volume.",
+            "formula": "\\text{Volume} = |\\det(A)|",
+            "explanation": "The determinant of a matrix gives us the volume of the parallelepiped spanned by the column vectors. The sign of the determinant gives us the orientation. This is a beautiful geometric interpretation!"
+        },
+        {
+            "id": "ee0e8400-e29b-41d4-a716-446655440025",
+            "text": "Let's calculate the volume for a concrete example.",
+            "formula": "\\text{Volume} = \\left|\\det\\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 2 & 0 \\\\ 0 & 0 & 3 \\end{pmatrix}\\right| = |1 \\cdot 2 \\cdot 3| = 6",
+            "explanation": "This matrix describes a rectangular prism with side lengths 1, 2, and 3. The volume is 6, which we can also directly read from the determinant. The determinant thus gives us the volume of the transformed unit cube!"
+        }
+    ]
+}

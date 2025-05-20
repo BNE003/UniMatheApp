@@ -1,0 +1,216 @@
+{
+    "id": "dd0e8400-e29b-41d4-a716-446655440000",
+    "topic": "Matrices",
+    "steps": [
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440001",
+            "text": "Hello! Today, we’re diving into matrices—one of the most important concepts in linear algebra. A matrix is like a grid of numbers arranged in rows and columns. Imagine a chessboard where numbers replace the chess pieces!",
+            "formula": "A = \\begin{pmatrix} a_{11} & a_{12} & \\cdots & a_{1n} \\\\ a_{21} & a_{22} & \\cdots & a_{2n} \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ a_{m1} & a_{m2} & \\cdots & a_{mn} \\end{pmatrix}",
+            "explanation": "Let’s take a closer look at matrix A: It has m rows and n columns, denoted as A ∈ ℝ^(m×n). Each number in the matrix has its own address: a_ij means the number is in the i-th row and j-th column. For example, a_23 is the number in the second row and third column. The dimension m×n is read as 'm by n'."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440002",
+            "text": "Let’s look at a concrete example! Here’s a 2×3 matrix, meaning it has 2 rows and 3 columns. Imagine this matrix represents the prices of three products in two different stores.",
+            "formula": "A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix}",
+            "explanation": "Let’s examine the numbers: The first row has 1, 2, and 3. The second row has 4, 5, and 6. If we look for a_12, we go to the first row (i=1) and second column (j=2)—there we find the number 2! This matrix could mean: Store 1 sells Product 1 for €1, Product 2 for €2, and Product 3 for €3. Store 2 is pricier: €4, €5, and €6."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440003",
+            "text": "Great! Now let’s learn how to add matrices. It’s quite simple: We just add the numbers in the same positions. But beware: We can only add matrices of the same size!",
+            "formula": "\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} + \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix} = \\begin{pmatrix} 1+5 & 2+6 \\\\ 3+7 & 4+8 \\end{pmatrix} = \\begin{pmatrix} 6 & 8 \\\\ 10 & 12 \\end{pmatrix}",
+            "explanation": "Let’s go step by step: The 1 in the first row, first column is added to 5, so 1+5=6. The 2 is added to 6, so 2+6=8. And so on! The cool thing is: The order doesn’t matter (1+5 is the same as 5+1), and if we add three matrices, we can group them however we like. This is called commutativity and associativity."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440004",
+            "text": "Now let’s learn how to multiply a matrix by a number (a scalar). It’s like doubling all the prices in a store—every number is multiplied by the same factor!",
+            "formula": "2 \\cdot \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} = \\begin{pmatrix} 2 \\cdot 1 & 2 \\cdot 2 \\\\ 2 \\cdot 3 & 2 \\cdot 4 \\end{pmatrix} = \\begin{pmatrix} 2 & 4 \\\\ 6 & 8 \\end{pmatrix}",
+            "explanation": "Every number in the matrix is multiplied by 2. The 1 becomes 2, the 2 becomes 4, and so on. It’s like uniformly scaling the matrix up or down. If we add two matrices and then multiply by a number, it’s the same as multiplying each matrix by the number and then adding them. This is called distributivity."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440005",
+            "text": "Now things get exciting: Matrix multiplication! It’s a bit more complex, but don’t worry—we’ll tackle it together. Important: We can only multiply matrices if the number of columns in the first matrix equals the number of rows in the second matrix.",
+            "formula": "\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} \\cdot \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix} = \\begin{pmatrix} 1 \\cdot 5 + 2 \\cdot 7 & 1 \\cdot 6 + 2 \\cdot 8 \\\\ 3 \\cdot 5 + 4 \\cdot 7 & 3 \\cdot 6 + 4 \\cdot 8 \\end{pmatrix} = \\begin{pmatrix} 19 & 22 \\\\ 43 & 50 \\end{pmatrix}",
+            "explanation": "Let’s break it down: For the first element (top left), we take the first row of the first matrix and the first column of the second matrix. We multiply the corresponding numbers and add them: 1·5 + 2·7 = 19. For the second element (top right), we take the first row and second column: 1·6 + 2·8 = 22. And so on! Important: The order matters in matrix multiplication—A·B is not always equal to B·A!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440006",
+            "text": "Let’s move on to the transpose of a matrix. It’s like a mirror image of the matrix—we swap rows and columns!",
+            "formula": "\\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix}^T = \\begin{pmatrix} 1 & 4 \\\\ 2 & 5 \\\\ 3 & 6 \\end{pmatrix}",
+            "explanation": "Look: The first row [1,2,3] becomes the first column, and the second row [4,5,6] becomes the second column. The T superscript means 'transposed'. If we transpose a matrix twice, we get back to the original matrix. And if we multiply two matrices and then transpose, it’s the same as transposing first and multiplying in reverse order."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440007",
+            "text": "A square matrix is particularly important—it has the same number of rows and columns. Think of a square chessboard!",
+            "formula": "A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \\end{pmatrix}",
+            "explanation": "This matrix is 3×3—it has 3 rows and 3 columns. The numbers on the main diagonal (from top left to bottom right) are 1, 5, and 9. Square matrices are especially important because they describe transformations in the same space. For example, this matrix could describe a 3D rotation or reflection."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440008",
+            "text": "The identity matrix is like the number 1 for regular numbers—when we multiply it with a matrix, the matrix remains unchanged!",
+            "formula": "I = \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}",
+            "explanation": "The identity matrix has ones on the main diagonal and zeros everywhere else. When we multiply a matrix by the identity matrix, it stays unchanged—just like multiplying a number by 1. The identity matrix is like a 'neutral element'—it doesn’t change anything."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440009",
+            "text": "Now it gets really exciting: The inverse matrix! It’s like the 'opposite' of a matrix—when we multiply a matrix by its inverse, we get the identity matrix.",
+            "formula": "\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}^{-1} = \\frac{1}{-2} \\begin{pmatrix} 4 & -2 \\\\ -3 & 1 \\end{pmatrix}",
+            "explanation": "The inverse matrix undoes the effect of the original matrix. When we multiply a matrix by its inverse, we get the identity matrix. But beware: Not every matrix has an inverse! A matrix has an inverse only if its determinant is non-zero. For 2×2 matrices, we can compute the inverse using a simple formula."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440010",
+            "text": "A symmetric matrix is like a mirror image—if we reflect it across the main diagonal, it remains the same!",
+            "formula": "\\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 5 \\\\ 3 & 5 & 6 \\end{pmatrix}",
+            "explanation": "In a symmetric matrix, the elements are mirror-symmetric across the main diagonal. For example: a_12 = a_21 = 2, a_13 = a_31 = 3, and a_23 = a_32 = 5. Symmetric matrices are very important in physics and engineering, for example, in describing stresses in materials or analyzing vibrations."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440011",
+            "text": "Triangular matrices are particularly handy! In an upper triangular matrix, all entries below the main diagonal are zero; in a lower triangular matrix, all entries above are zero.",
+            "formula": "\\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 4 & 5 \\\\ 0 & 0 & 6 \\end{pmatrix}",
+            "explanation": "This matrix is an upper triangular matrix—all entries below the main diagonal are zero. Triangular matrices are super useful when solving systems of equations. The determinant of a triangular matrix is simply the product of the numbers on the main diagonal, which makes many calculations much easier!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440012",
+            "text": "Diagonal matrices are even simpler—they have non-zero numbers only on the main diagonal, with zeros everywhere else.",
+            "formula": "\\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 2 & 0 \\\\ 0 & 0 & 3 \\end{pmatrix}",
+            "explanation": "In a diagonal matrix, only the numbers on the main diagonal are non-zero. This makes calculations super easy! When we multiply two diagonal matrices, we simply multiply the corresponding numbers on the diagonal. And when we raise a diagonal matrix to a power, we just raise the numbers on the diagonal to that power."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440013",
+            "text": "The trace of a matrix is the sum of all numbers on the main diagonal. It sounds simple, but it’s a very important property!",
+            "formula": "\\text{tr}\\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \\end{pmatrix} = 1 + 5 + 9 = 15",
+            "explanation": "The trace is the sum of the numbers on the main diagonal: 1 + 5 + 9 = 15. The trace is an important invariant—it doesn’t change under certain transformations of the matrix. The trace is also the sum of the matrix’s eigenvalues, which is super useful in physics and engineering!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440014",
+            "text": "A nilpotent matrix is one that becomes the zero matrix after being multiplied by itself a certain number of times. It’s like a transformation that eventually 'burns out'!",
+            "formula": "\\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}^2 = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}",
+            "explanation": "When we multiply this matrix by itself, we get the zero matrix. This means the transformation sets everything to zero after two applications. Nilpotent matrices are important in the theory of Jordan normal form and have only the eigenvalue 0."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440015",
+            "text": "An idempotent matrix remains unchanged when multiplied by itself. It’s like a projection that doesn’t change the result when applied again!",
+            "formula": "\\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}^2 = \\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}",
+            "explanation": "When we multiply this matrix by itself, we get the same matrix back. It’s like a projection—if you cast a shadow and then project the shadow again, the shadow stays the same. Idempotent matrices are important in statistics and quantum mechanics."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440016",
+            "text": "Let’s look at a practical example: How can we use matrices to solve a system of linear equations?",
+            "formula": "\\begin{pmatrix} 2 & 1 \\\\ 1 & 3 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} 5 \\\\ 7 \\end{pmatrix}",
+            "explanation": "We can write this system of equations as a matrix equation. The solution is obtained by multiplying the inverse of the coefficient matrix by the result vector. This is much more elegant than the substitution method!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440017",
+            "text": "Matrices can also describe rotations in space. Here’s a rotation matrix for a rotation about the z-axis!",
+            "formula": "R_z(\\theta) = \\begin{pmatrix} \\cos\\theta & -\\sin\\theta & 0 \\\\ \\sin\\theta & \\cos\\theta & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}",
+            "explanation": "This matrix describes a rotation by angle θ around the z-axis. When we multiply a point by this matrix, it rotates around the z-axis. This is super useful in computer graphics and robotics!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440018",
+            "text": "The determinant of a matrix is an important number that tells us a lot about the matrix. For a 2×2 matrix, it’s easy to compute!",
+            "formula": "\\det\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = ad - bc",
+            "explanation": "The determinant is ad - bc. It tells us, for example, whether the matrix is invertible (determinant ≠ 0) and how areas change under the transformation. The determinant is also the product of the eigenvalues!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440019",
+            "text": "Eigenvalues and eigenvectors are super important! An eigenvector is only stretched or compressed when multiplied by the matrix.",
+            "formula": "\\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} = 3 \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}",
+            "explanation": "The vector (1,1) is an eigenvector with eigenvalue 3. When we multiply it by the matrix, it’s simply multiplied by 3. Eigenvalues and eigenvectors are crucial for vibrations, stability analysis, and much more!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440020",
+            "text": "Finally: The Jordan normal form is a particularly beautiful form of a matrix that tells us a lot about its behavior.",
+            "formula": "J = \\begin{pmatrix} \\lambda & 1 & 0 \\\\ 0 & \\lambda & 1 \\\\ 0 & 0 & \\lambda \\end{pmatrix}",
+            "explanation": "The Jordan normal form shows us the eigenvalues (λ) and their algebraic multiplicity. It’s super useful for analyzing dynamic systems and differential equations. Every matrix can be brought into Jordan normal form!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440021",
+            "text": "Before we get to the Jordan normal form, let’s look at the Gauss-Jordan elimination. This is a method to transform matrices into a particularly simple form.",
+            "formula": "\\begin{pmatrix} 2 & 1 & 3 \\\\ 1 & 2 & 1 \\\\ 3 & 1 & 2 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}",
+            "explanation": "Gauss-Jordan elimination transforms a matrix into the identity matrix. We can: 1) swap rows, 2) multiply rows by a number, 3) add multiples of one row to another. Let’s go through it step by step!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440022",
+            "text": "Step 1 of Gauss-Jordan elimination: We get the first column into the right form by dividing the first row by 2.",
+            "formula": "\\begin{pmatrix} 2 & 1 & 3 \\\\ 1 & 2 & 1 \\\\ 3 & 1 & 2 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0.5 & 1.5 \\\\ 1 & 2 & 1 \\\\ 3 & 1 & 2 \\end{pmatrix}",
+            "explanation": "We divide the first row by 2 to get a 1 in the first position. Now we can use this 1 to eliminate the other entries in the first column."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440023",
+            "text": "Step 2: We eliminate the other entries in the first column by subtracting multiples of the first row from the other rows.",
+            "formula": "\\begin{pmatrix} 1 & 0.5 & 1.5 \\\\ 1 & 2 & 1 \\\\ 3 & 1 & 2 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0.5 & 1.5 \\\\ 0 & 1.5 & -0.5 \\\\ 0 & -0.5 & -2.5 \\end{pmatrix}",
+            "explanation": "We subtract the first row from the second and three times the first row from the third. Now we have only a 1 and zeros in the first column."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440024",
+            "text": "Step 3: Now we do the same for the second column. We divide the second row by 1.5.",
+            "formula": "\\begin{pmatrix} 1 & 0.5 & 1.5 \\\\ 0 & 1.5 & -0.5 \\\\ 0 & -0.5 & -2.5 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0.5 & 1.5 \\\\ 0 & 1 & -\\frac{1}{3} \\\\ 0 & -0.5 & -2.5 \\end{pmatrix}",
+            "explanation": "We divide the second row by 1.5 to get a 1 in the second position. Now we can use this 1 to eliminate the other entries in the second column."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440025",
+            "text": "Step 4: We eliminate the other entries in the second column.",
+            "formula": "\\begin{pmatrix} 1 & 0.5 & 1.5 \\\\ 0 & 1 & -\\frac{1}{3} \\\\ 0 & -0.5 & -2.5 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0 & \\frac{5}{3} \\\\ 0 & 1 & -\\frac{1}{3} \\\\ 0 & 0 & -\\frac{8}{3} \\end{pmatrix}",
+            "explanation": "We subtract 0.5 times the second row from the first and add 0.5 times the second row to the third. Now we have only a 1 and zeros in the second column."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440026",
+            "text": "Step 5: Finally, we do the same for the third column. We divide the third row by -8/3.",
+            "formula": "\\begin{pmatrix} 1 & 0 & \\frac{5}{3} \\\\ 0 & 1 & -\\frac{1}{3} \\\\ 0 & 0 & -\\frac{8}{3} \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0 & \\frac{5}{3} \\\\ 0 & 1 & -\\frac{1}{3} \\\\ 0 & 0 & 1 \\end{pmatrix}",
+            "explanation": "We divide the third row by -8/3 to get a 1 in the third position. Now we can use this 1 to eliminate the other entries in the third column."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440027",
+            "text": "Step 6: We eliminate the other entries in the third column.",
+            "formula": "\\begin{pmatrix} 1 & 0 & \\frac{5}{3} \\\\ 0 & 1 & -\\frac{1}{3} \\\\ 0 & 0 & 1 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}",
+            "explanation": "We subtract 5/3 times the third row from the first and add 1/3 times the third row to the second. Now we’ve reached the identity matrix!"
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440028",
+            "text": "Now let’s take a closer look at the Jordan normal form. It’s particularly useful when a matrix is not diagonalizable.",
+            "formula": "A = \\begin{pmatrix} 2 & 1 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}",
+            "explanation": "This matrix has the eigenvalue 2 with algebraic multiplicity 3, but only one linearly independent eigenvector. Therefore, it cannot be diagonalized, but it can be put into Jordan normal form."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440029",
+            "text": "Let’s compute the Jordan normal form of this matrix. First, we determine the eigenvalues.",
+            "formula": "\\det(A - \\lambda I) = \\det\\begin{pmatrix} 2-\\lambda & 1 & 0 \\\\ 0 & 2-\\lambda & 1 \\\\ 0 & 0 & 2-\\lambda \\end{pmatrix} = (2-\\lambda)^3 = 0",
+            "explanation": "The determinant of A-λI is (2-λ)³, so λ=2 is the only eigenvalue with algebraic multiplicity 3. Now we need to determine the geometric multiplicity."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440030",
+            "text": "We compute the kernel of (A-2I) to determine the geometric multiplicity.",
+            "formula": "A-2I = \\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix}",
+            "explanation": "The kernel of (A-2I) is one-dimensional, so the geometric multiplicity is 1. This means we need a Jordan block of size 3."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440031",
+            "text": "Now we can write down the Jordan normal form directly. It consists of one Jordan block of size 3 for the eigenvalue 2.",
+            "formula": "J = \\begin{pmatrix} 2 & 1 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}",
+            "explanation": "The Jordan normal form is the matrix itself! This happens when the matrix is already in Jordan normal form. The ones above the diagonal indicate the chain length of the generalized eigenvectors."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440032",
+            "text": "Let’s look at a more complex example. This matrix has two different eigenvalues.",
+            "formula": "A = \\begin{pmatrix} 3 & 1 & 0 \\\\ 0 & 3 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}",
+            "explanation": "This matrix has eigenvalues 3 (with algebraic multiplicity 2) and 2 (with algebraic multiplicity 1). We need to determine the geometric multiplicity of 3."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440033",
+            "text": "We compute the kernel of (A-3I) for the eigenvalue 3.",
+            "formula": "A-3I = \\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & -1 \\end{pmatrix}",
+            "explanation": "The kernel of (A-3I) is one-dimensional, so the geometric multiplicity of 3 is 1. This means we need a Jordan block of size 2 for the eigenvalue 3."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440034",
+            "text": "The Jordan normal form of this matrix consists of a Jordan block of size 2 for the eigenvalue 3 and a block of size 1 for the eigenvalue 2.",
+            "formula": "J = \\begin{pmatrix} 3 & 1 & 0 \\\\ 0 & 3 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}",
+            "explanation": "The Jordan normal form shows us the structure of the matrix: A Jordan block of size 2 for the eigenvalue 3 (with a 1 above the diagonal) and a single block for the eigenvalue 2."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440035",
+            "text": "Finally, let’s look at how to find the transformation matrix P that converts A into Jordan normal form.",
+            "formula": "P^{-1}AP = J",
+            "explanation": "The transformation matrix P consists of the generalized eigenvectors. For our first block, we need a generalized eigenvector of chain length 2 and a regular eigenvector for the second block."
+        }
+    ]
+}

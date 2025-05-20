@@ -1,0 +1,468 @@
+{
+    "exercises": [
+        {
+            "id": 45,
+            "topic": "Binomial Formulas",
+            "title": "First Binomial Formula",
+            "description": "Calculate $(a + b)^2$ and show that it equals $a^2 + 2ab + b^2$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Definition of the square\n$(a + b)^2$ means $(a + b)$ multiplied by itself, so $(a + b)(a + b)$",
+                "Step 2: Expanding using the distributive law\nWe multiply each term of the first bracket with each term of the second bracket:\n$a \\cdot a + a \\cdot b + b \\cdot a + b \\cdot b$",
+                "Step 3: Calculating the products\n$a \\cdot a = a^2$\n$a \\cdot b = ab$\n$b \\cdot a = ba = ab$ (commutative law)\n$b \\cdot b = b^2$",
+                "Step 4: Combining the terms\n$a^2 + ab + ab + b^2 = a^2 + 2ab + b^2$"
+            ]
+        },
+        {
+            "id": 46,
+            "topic": "Binomial Formulas",
+            "title": "Second Binomial Formula",
+            "description": "Calculate $(a - b)^2$ and show that it equals $a^2 - 2ab + b^2$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Definition of the square\n$(a - b)^2$ means $(a - b)$ multiplied by itself, so $(a - b)(a - b)$",
+                "Step 2: Expanding using the distributive law\nWe multiply each term of the first bracket with each term of the second bracket:\n$a \\cdot a + a \\cdot (-b) + (-b) \\cdot a + (-b) \\cdot (-b)$",
+                "Step 3: Calculating the products\n$a \\cdot a = a^2$\n$a \\cdot (-b) = -ab$\n$(-b) \\cdot a = -ba = -ab$ (commutative law)\n$(-b) \\cdot (-b) = b^2$ (negative times negative equals positive)",
+                "Step 4: Combining the terms\n$a^2 - ab - ab + b^2 = a^2 - 2ab + b^2$"
+            ]
+        },
+        {
+            "id": 47,
+            "topic": "Binomial Formulas",
+            "title": "Third Binomial Formula",
+            "description": "Calculate $(a + b)(a - b)$ and show that it equals $a^2 - b^2$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Expanding using the distributive law\nWe multiply each term of the first bracket with each term of the second bracket:\n$a \\cdot a + a \\cdot (-b) + b \\cdot a + b \\cdot (-b)$",
+                "Step 2: Calculating the products\n$a \\cdot a = a^2$\n$a \\cdot (-b) = -ab$\n$b \\cdot a = ba = ab$ (commutative law)\n$b \\cdot (-b) = -b^2$",
+                "Step 3: Combining the terms\n$a^2 - ab + ab - b^2$",
+                "Step 4: Simplifying\n$-ab + ab$ cancels out, so we're left with $a^2 - b^2$"
+            ]
+        },
+        {
+            "id": 48,
+            "topic": "Binomial Formulas",
+            "title": "Application of the First Binomial Formula",
+            "description": "Calculate $(2x + 3y)^2$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Applying the first binomial formula\n$(2x + 3y)^2 = (2x)^2 + 2 \\cdot 2x \\cdot 3y + (3y)^2$",
+                "Step 2: Calculating the squares\n$(2x)^2 = 2^2 \\cdot x^2 = 4x^2$\n$(3y)^2 = 3^2 \\cdot y^2 = 9y^2$",
+                "Step 3: Calculating the mixed term\n$2 \\cdot 2x \\cdot 3y = 2 \\cdot 2 \\cdot 3 \\cdot x \\cdot y = 12xy$",
+                "Step 4: Combining all terms\n$4x^2 + 12xy + 9y^2$"
+            ]
+        },
+        {
+            "id": 49,
+            "topic": "Binomial Formulas",
+            "title": "Application of the Second Binomial Formula",
+            "description": "Calculate $(5a - 2b)^2$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Applying the second binomial formula\n$(5a - 2b)^2 = (5a)^2 - 2 \\cdot 5a \\cdot 2b + (2b)^2$",
+                "Step 2: Calculating the squares\n$(5a)^2 = 5^2 \\cdot a^2 = 25a^2$\n$(2b)^2 = 2^2 \\cdot b^2 = 4b^2$",
+                "Step 3: Calculating the mixed term\n$-2 \\cdot 5a \\cdot 2b = -2 \\cdot 5 \\cdot 2 \\cdot a \\cdot b = -20ab$",
+                "Step 4: Combining all terms\n$25a^2 - 20ab + 4b^2$"
+            ]
+        },
+        {
+            "id": 50,
+            "topic": "Binomial Formulas",
+            "title": "Application of the Third Binomial Formula",
+            "description": "Calculate $(3x + 4y)(3x - 4y)$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Applying the third binomial formula\n$(3x + 4y)(3x - 4y) = (3x)^2 - (4y)^2$",
+                "Step 2: Calculating the squares\n$(3x)^2 = 3^2 \\cdot x^2 = 9x^2$\n$(4y)^2 = 4^2 \\cdot y^2 = 16y^2$",
+                "Step 3: Subtracting the squares\n$9x^2 - 16y^2$"
+            ]
+        },
+        {
+            "id": 51,
+            "topic": "Binomial Formulas",
+            "title": "Factoring with the First Binomial Formula",
+            "description": "Factor the expression $x^2 + 6x + 9$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Analyzing the expression\nThe expression has the form $x^2 + 6x + 9$\nWe're looking for two numbers whose sum is 6 and whose product is 9",
+                "Step 2: Recognizing the first binomial formula\n$x^2 + 6x + 9 = x^2 + 2 \\cdot x \\cdot 3 + 3^2$",
+                "Step 3: Applying the formula\nThis corresponds to the form $(a + b)^2 = a^2 + 2ab + b^2$\nWith $a = x$ and $b = 3$",
+                "Step 4: Factorization\n$(x + 3)^2$"
+            ]
+        },
+        {
+            "id": 52,
+            "topic": "Binomial Formulas",
+            "title": "Factoring with the Second Binomial Formula",
+            "description": "Factor the expression $4x^2 - 12xy + 9y^2$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Analyzing the expression\nThe expression has the form $4x^2 - 12xy + 9y^2$\nWe're looking for two numbers whose sum is -12 and whose product is 36",
+                "Step 2: Recognizing the second binomial formula\n$4x^2 - 12xy + 9y^2 = (2x)^2 - 2 \\cdot 2x \\cdot 3y + (3y)^2$",
+                "Step 3: Applying the formula\nThis corresponds to the form $(a - b)^2 = a^2 - 2ab + b^2$\nWith $a = 2x$ and $b = 3y$",
+                "Step 4: Factorization\n$(2x - 3y)^2$"
+            ]
+        },
+        {
+            "id": 53,
+            "topic": "Binomial Formulas",
+            "title": "Factoring with the Third Binomial Formula",
+            "description": "Factor the expression $16a^2 - 25b^2$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Analyzing the expression\nThe expression has the form $16a^2 - 25b^2$\nThis is a difference of two squares",
+                "Step 2: Recognizing the third binomial formula\n$16a^2 - 25b^2 = (4a)^2 - (5b)^2$",
+                "Step 3: Applying the formula\nThis corresponds to the form $(a + b)(a - b) = a^2 - b^2$\nWith $a = 4a$ and $b = 5b$",
+                "Step 4: Factorization\n$(4a + 5b)(4a - 5b)$"
+            ]
+        },
+        {
+            "id": 54,
+            "topic": "Binomial Formulas",
+            "title": "Combined Application",
+            "description": "Simplify the expression $(x + y)^2 - (x - y)^2$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Applying the first binomial formula\n$(x + y)^2 = x^2 + 2xy + y^2$",
+                "Step 2: Applying the second binomial formula\n$(x - y)^2 = x^2 - 2xy + y^2$",
+                "Step 3: Subtracting the two expressions\n$(x^2 + 2xy + y^2) - (x^2 - 2xy + y^2)$",
+                "Step 4: Expanding the brackets\n$x^2 + 2xy + y^2 - x^2 + 2xy - y^2$",
+                "Step 5: Combining the terms\n$x^2 - x^2 + 2xy + 2xy + y^2 - y^2$\n$= 4xy$"
+            ]
+        },
+        {
+            "id": 55,
+            "topic": "Binomial Formulas",
+            "title": "First Binomial Formula with Numerical Values",
+            "description": "Calculate $(3 + 5)^2$ using the first binomial formula.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Substitute $a = 3$, $b = 5$ into the formula $(a + b)^2 = a^2 + 2ab + b^2$.",
+                "Step 2: Calculate the individual terms: $a^2 = 9$, $2ab = 2 \\cdot 3 \\cdot 5 = 30$, $b^2 = 25$.",
+                "Step 3: Add the terms: $9 + 30 + 25 = 64$.",
+                "Step 4: Verification: $(3 + 5)^2 = 8^2 = 64$."
+            ]
+        },
+        {
+            "id": 56,
+            "topic": "Binomial Formulas",
+            "title": "Second Binomial Formula with Numerical Values",
+            "description": "Calculate $(7 - 2)^2$ using the second binomial formula.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Substitute $a = 7$, $b = 2$ into the formula $(a - b)^2 = a^2 - 2ab + b^2$.",
+                "Step 2: Calculate the individual terms: $a^2 = 49$, $-2ab = -2 \\cdot 7 \\cdot 2 = -28$, $b^2 = 4$.",
+                "Step 3: Add the terms: $49 - 28 + 4 = 25$.",
+                "Step 4: Verification: $(7 - 2)^2 = 5^2 = 25$."
+            ]
+        },
+        {
+            "id": 57,
+            "topic": "Binomial Formulas",
+            "title": "Third Binomial Formula with Numerical Values",
+            "description": "Calculate $(6 + 4)(6 - 4)$ using the third binomial formula.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Substitute $a = 6$, $b = 4$ into the formula $(a + b)(a - b) = a^2 - b^2$.",
+                "Step 2: Calculate the squares: $a^2 = 36$, $b^2 = 16$.",
+                "Step 3: Subtract: $36 - 16 = 20$.",
+                "Step 4: Verification: $(6 + 4)(6 - 4) = 10 \\cdot 2 = 20$."
+            ]
+        },
+        {
+            "id": 58,
+            "topic": "Binomial Formulas",
+            "title": "First Binomial Formula with Variables",
+            "description": "Calculate $(x + 2y)^2$ using the first binomial formula.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Substitute $a = x$, $b = 2y$ into the formula $(a + b)^2 = a^2 + 2ab + b^2$.",
+                "Step 2: Calculate the individual terms: $a^2 = x^2$, $2ab = 2 \\cdot x \\cdot 2y = 4xy$, $b^2 = (2y)^2 = 4y^2$.",
+                "Step 3: Add the terms: $x^2 + 4xy + 4y^2$.",
+                "Step 4: This is the result."
+            ]
+        },
+        {
+            "id": 59,
+            "topic": "Binomial Formulas",
+            "title": "Second Binomial Formula with Variables",
+            "description": "Calculate $(a - 3b)^2$ using the second binomial formula.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Substitute $a = a$, $b = 3b$ into the formula $(a - b)^2 = a^2 - 2ab + b^2$.",
+                "Step 2: Calculate the individual terms: $a^2 = a^2$, $-2ab = -2 \\cdot a \\cdot 3b = -6ab$, $b^2 = (3b)^2 = 9b^2$.",
+                "Step 3: Add the terms: $a^2 - 6ab + 9b^2$.",
+                "Step 4: This is the result."
+            ]
+        },
+        {
+            "id": 60,
+            "topic": "Binomial Formulas",
+            "title": "Third Binomial Formula with Variables",
+            "description": "Calculate $(y + 5z)(y - 5z)$ using the third binomial formula.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Substitute $a = y$, $b = 5z$ into the formula $(a + b)(a - b) = a^2 - b^2$.",
+                "Step 2: Calculate the squares: $a^2 = y^2$, $b^2 = (5z)^2 = 25z^2$.",
+                "Step 3: Subtract: $y^2 - 25z^2$.",
+                "Step 4: This is the result."
+            ]
+        },
+        {
+            "id": 61,
+            "topic": "Binomial Formulas",
+            "title": "Factoring Simple Quadratic Expressions",
+            "description": "Factor $x^2 + 8x + 16$ using the first binomial formula.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Recognize the structure: $x^2 + 8x + 16 = x^2 + 2 \\cdot x \\cdot 4 + 4^2$.",
+                "Step 2: This corresponds to $(x + 4)^2$.",
+                "Step 3: This is the factorization."
+            ]
+        },
+        {
+            "id": 62,
+            "topic": "Binomial Formulas",
+            "title": "Factoring Simple Quadratic Expressions (Negative)",
+            "description": "Factor $y^2 - 10y + 25$ using the second binomial formula.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Recognize the structure: $y^2 - 10y + 25 = y^2 - 2 \\cdot y \\cdot 5 + 5^2$.",
+                "Step 2: This corresponds to $(y - 5)^2$.",
+                "Step 3: This is the factorization."
+            ]
+        },
+        {
+            "id": 63,
+            "topic": "Binomial Formulas",
+            "title": "Factoring a Difference of Squares",
+            "description": "Factor $49a^2 - 36b^2$ using the third binomial formula.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: $49a^2 - 36b^2 = (7a)^2 - (6b)^2$.",
+                "Step 2: This corresponds to $(7a + 6b)(7a - 6b)$.",
+                "Step 3: This is the factorization."
+            ]
+        },
+        {
+            "id": 64,
+            "topic": "Binomial Formulas",
+            "title": "Nested Application of the First Binomial Formula",
+            "description": "Calculate $((x + 2)^2 + (x - 2)^2)$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Apply the first binomial formula to both terms:\n$(x + 2)^2 = x^2 + 2 \\cdot x \\cdot 2 + 2^2 = x^2 + 4x + 4$\n$(x - 2)^2 = x^2 - 2 \\cdot x \\cdot 2 + 2^2 = x^2 - 4x + 4$",
+                "Step 2: Add the two results:\n$x^2 + 4x + 4 + x^2 - 4x + 4$",
+                "Step 3: Simplify:\n$2x^2 + 8$"
+            ]
+        },
+        {
+            "id": 65,
+            "topic": "Binomial Formulas",
+            "title": "Product of Two Binomial Expressions",
+            "description": "Calculate $(x + 3)(x - 3)$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Apply the third binomial formula:\n$(x + 3)(x - 3) = x^2 - 3^2$",
+                "Step 2: Calculate $3^2 = 9$.",
+                "Step 3: Result:\n$x^2 - 9$"
+            ]
+        },
+        {
+            "id": 66,
+            "topic": "Binomial Formulas",
+            "title": "Binomial Formula with Negative Numbers",
+            "description": "Calculate $(-a + b)^2$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Substitute $a = -a$, $b = b$ into the first binomial formula:\n$(-a + b)^2 = (-a)^2 + 2 \\cdot (-a) \\cdot b + b^2$",
+                "Step 2: Calculate the terms:\n$(-a)^2 = a^2$\n$2 \\cdot (-a) \\cdot b = -2ab$\n$b^2 = b^2$",
+                "Step 3: Result:\n$a^2 - 2ab + b^2$"
+            ]
+        },
+        {
+            "id": 67,
+            "topic": "Binomial Formulas",
+            "title": "Factoring a Quadratic Expression with Signs",
+            "description": "Factor $x^2 - 14x + 49$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Recognize the structure:\n$x^2 - 14x + 49 = x^2 - 2 \\cdot x \\cdot 7 + 7^2$",
+                "Step 2: This corresponds to $(x - 7)^2$.",
+                "Step 3: This is the factorization."
+            ]
+        },
+        {
+            "id": 68,
+            "topic": "Binomial Formulas",
+            "title": "Application of the Third Binomial Formula to Parameters",
+            "description": "Calculate $(2a + 5b)(2a - 5b)$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Apply the third binomial formula:\n$(2a + 5b)(2a - 5b) = (2a)^2 - (5b)^2$",
+                "Step 2: Calculate the squares:\n$(2a)^2 = 4a^2$\n$(5b)^2 = 25b^2$",
+                "Step 3: Result:\n$4a^2 - 25b^2$"
+            ]
+        },
+        {
+            "id": 69,
+            "topic": "Binomial Formulas",
+            "title": "Factoring a General Quadratic Expression",
+            "description": "Factor $x^2 + 2xy + y^2$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Recognize the structure:\n$x^2 + 2xy + y^2 = (x + y)^2$",
+                "Step 2: This is the factorization."
+            ]
+        },
+        {
+            "id": 70,
+            "topic": "Binomial Formulas",
+            "title": "Factoring a Difference of Squares with Variables",
+            "description": "Factor $a^2 - 16b^2$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: $a^2 - 16b^2 = a^2 - (4b)^2$.",
+                "Step 2: This corresponds to $(a + 4b)(a - 4b)$."
+            ]
+        },
+        {
+            "id": 71,
+            "topic": "Binomial Formulas",
+            "title": "Factoring a Quadratic Expression with Mixed Variables",
+            "description": "Factor $9x^2 + 12xy + 4y^2$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: $9x^2 + 12xy + 4y^2 = (3x)^2 + 2 \\cdot 3x \\cdot 2y + (2y)^2$.",
+                "Step 2: This corresponds to $(3x + 2y)^2$."
+            ]
+        },
+        {
+            "id": 72,
+            "topic": "Binomial Formulas",
+            "title": "Simplification of a Complex Expression",
+            "description": "Simplify $(x + 2y)^2 - (x - 2y)^2$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Apply the binomial formulas:\n$(x + 2y)^2 = x^2 + 4xy + 4y^2$\n$(x - 2y)^2 = x^2 - 4xy + 4y^2$",
+                "Step 2: Subtract:\n$(x^2 + 4xy + 4y^2) - (x^2 - 4xy + 4y^2) = 8xy$"
+            ]
+        },
+        {
+            "id": 73,
+            "topic": "Binomial Formulas",
+            "title": "Solving an Equation with Binomial Formula",
+            "description": "Solve the equation $(x + 5)^2 = 49$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Take the square root on both sides:\n$x + 5 = 7$ or $x + 5 = -7$",
+                "Step 2: Solve for $x$:\n$x = 2$ or $x = -12$"
+            ]
+        },
+        {
+            "id": 74,
+            "topic": "Binomial Formulas",
+            "title": "Application of the Binomial Formula to an Inequality",
+            "description": "Show: For all $x \\in \\mathbb{R}$, $(x + 1)^2 \\geq 0$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: $(x + 1)^2 = x^2 + 2x + 1$",
+                "Step 2: $x^2$ is non-negative for all $x$, and likewise $1$.\n$2x$ can be negative, but the sum is always $\\geq 0$.",
+                "Step 3: A square is always $\\geq 0$."
+            ]
+        },
+        {
+            "id": 75,
+            "topic": "Binomial Formulas",
+            "title": "Error Analysis in the Application of the Binomial Formula",
+            "description": "A student claims: $(a + b)^2 = a^2 + b^2$. Explain the error and provide the correct formula.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: The claim omits the mixed term $2ab$.",
+                "Step 2: The correct formula is: $(a + b)^2 = a^2 + 2ab + b^2$."
+            ]
+        },
+        {
+            "id": 76,
+            "topic": "Binomial Formulas",
+            "title": "Reverse Problem: Determine the Missing Number",
+            "description": "$x^2 + 12x + c$ is a perfect square. Determine $c$ and factor the expression.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: For a perfect square, the form is: $x^2 + 2ax + a^2$.",
+                "Step 2: $2a = 12 \\Rightarrow a = 6$.",
+                "Step 3: $c = a^2 = 36$.",
+                "Step 4: Factorization: $(x + 6)^2$."
+            ]
+        },
+        {
+            "id": 77,
+            "topic": "Binomial Formulas",
+            "title": "Word Problem: Area Calculation with Binomial Formula",
+            "description": "A square has side length $a + b$. Calculate the area.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: The area of a square is its side length squared: $(a + b)^2$.",
+                "Step 2: Apply the first binomial formula: $a^2 + 2ab + b^2$."
+            ]
+        },
+        {
+            "id": 78,
+            "topic": "Binomial Formulas",
+            "title": "Nested Binomial Expressions",
+            "description": "Simplify $((x + 1)^2 - (x - 1)^2)$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: $(x + 1)^2 = x^2 + 2x + 1$\n$(x - 1)^2 = x^2 - 2x + 1$",
+                "Step 2: Subtract:\n$(x^2 + 2x + 1) - (x^2 - 2x + 1) = 4x$"
+            ]
+        },
+        {
+            "id": 79,
+            "topic": "Binomial Formulas",
+            "title": "Application of the Binomial Formula to Rational Expressions",
+            "description": "Simplify $\\left(\\frac{a}{b} + \\frac{b}{a}\\right)^2$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Apply the first binomial formula:\n$\\left(\\frac{a}{b} + \\frac{b}{a}\\right)^2 = \\left(\\frac{a}{b}\\right)^2 + 2 \\cdot \\frac{a}{b} \\cdot \\frac{b}{a} + \\left(\\frac{b}{a}\\right)^2$",
+                "Step 2: Calculate the terms:\n$\\left(\\frac{a}{b}\\right)^2 = \\frac{a^2}{b^2}$\n$2 \\cdot \\frac{a}{b} \\cdot \\frac{b}{a} = 2$\n$\\left(\\frac{b}{a}\\right)^2 = \\frac{b^2}{a^2}$",
+                "Step 3: Result:\n$\\frac{a^2}{b^2} + 2 + \\frac{b^2}{a^2}$"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,144 @@
+{
+    "id": "550e8400-e29b-41d4-a716-446655440011",
+    "topic": "Sets and Functions",
+    "steps": [
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440012",
+            "text": "Welcome to set theory! Here, we explore sets, their properties, and relationships. Let’s start with a simple set.",
+            "formula": "A = \\{1, 2, 3, 4, 5\\}",
+            "explanation": "A set is a collection of distinct elements. Here, we have set A, which contains the numbers 1 through 5. The curly braces indicate it’s a set. Imagine a box with various items—that’s like a set!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440013",
+            "text": "The cardinality of a set indicates how many elements it contains.",
+            "formula": "|A| = 5",
+            "explanation": "The cardinality of set A is 5, as it contains exactly 5 elements. The vertical bars | | denote the cardinality of a set. It’s like counting the items in your box!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440014",
+            "text": "A subset contains only elements that are also in the original set.",
+            "formula": "B = \\{2, 4\\} \\subseteq A",
+            "explanation": "Set B is a subset of A because all elements of B (2 and 4) are also in A. The symbol ⊆ means ‘is a subset of.’ It’s like a smaller box that contains only some of the items from the larger box!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440015",
+            "text": "The union of two sets contains all elements that appear in at least one of the sets.",
+            "formula": "A \\cup B = \\{1, 2, 3, 4, 5\\}",
+            "explanation": "The union of A and B contains all elements in A or B. Since B is a subset of A, the union is simply A. It’s like combining two boxes—you keep all the items!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440016",
+            "text": "The power set of a set contains all possible subsets.",
+            "formula": "\\mathcal{P}(A) = \\{\\emptyset, \\{1\\}, \\{2\\}, \\{3\\}, \\{4\\}, \\{5\\}, \\{1,2\\}, \\{1,3\\}, \\{1,4\\}, \\{1,5\\}, \\{2,3\\}, \\{2,4\\}, \\{2,5\\}, \\{3,4\\}, \\{3,5\\}, \\{4,5\\}, \\{1,2,3\\}, \\{1,2,4\\}, \\{1,2,5\\}, \\{1,3,4\\}, \\{1,3,5\\}, \\{1,4,5\\}, \\{2,3,4\\}, \\{2,3,5\\}, \\{2,4,5\\}, \\{3,4,5\\}, \\{1,2,3,4\\}, \\{1,2,3,5\\}, \\{1,2,4,5\\}, \\{1,3,4,5\\}, \\{2,3,4,5\\}, \\{1,2,3,4,5\\}\\}",
+            "explanation": "The power set of A contains all possible subsets of A, including the empty set and A itself. The cardinality of the power set is 2^5 = 32, as each element can either be included or excluded from a subset. It’s like all possible combinations of items you can take from your box!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440017",
+            "text": "A function assigns exactly one element of the codomain to each element of the domain.",
+            "formula": "f: A \\rightarrow \\mathbb{N}, f(x) = x^2",
+            "explanation": "This function f assigns to each number in A its square. For example, 2 is mapped to 4, 3 to 9, and so on. The function is well-defined because each number has exactly one square. It’s like a machine that turns each number into its square!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440018",
+            "text": "The image of a function contains all elements that appear as function values.",
+            "formula": "f(A) = \\{1, 4, 9, 16, 25\\}",
+            "explanation": "The image of f contains all squares of the elements in A. This set shows the values the function actually produces. It’s like the collection of all outputs the machine can generate!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440019",
+            "text": "The domain of a function is the set of all elements for which the function is defined.",
+            "formula": "D_f = A = \\{1, 2, 3, 4, 5\\}",
+            "explanation": "The domain contains all elements we can input into the function. In this case, it’s the entire set A. It’s like the list of all items we can feed into our machine!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440020",
+            "text": "A function is injective if distinct elements are mapped to distinct images.",
+            "formula": "f(x_1) = f(x_2) \\Rightarrow x_1 = x_2",
+            "explanation": "In our function f(x) = x², f is injective because different numbers produce different squares. It’s like a machine that never maps two different inputs to the same output!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440021",
+            "text": "A function is surjective if every element of the codomain appears as an image.",
+            "formula": "\\forall y \\in \\mathbb{N} \\exists x \\in A: f(x) = y",
+            "explanation": "Our function f(x) = x² is not surjective onto ℕ, as not every natural number is a square. It’s like a machine that cannot produce every possible output!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440022",
+            "text": "A function is bijective if it is both injective and surjective.",
+            "formula": "f: A \\rightarrow f(A) \\text{ is bijective}",
+            "explanation": "If we restrict the codomain to the image, our function becomes bijective. It’s like a perfect machine that maps each input to a unique output and covers all possible outputs!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440023",
+            "text": "The composition of two functions is again a function.",
+            "formula": "(g \\circ f)(x) = g(f(x))",
+            "explanation": "When we apply two functions in sequence, we get a new function. It’s like chaining two machines—the output of the first becomes the input of the second!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440024",
+            "text": "The inverse function reverses the effect of a bijective function.",
+            "formula": "f^{-1}(f(x)) = x",
+            "explanation": "For our function f(x) = x², the inverse function is f^(-1)(x) = √x. It’s like a machine that runs the process backward!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440025",
+            "text": "The identity function maps each element to itself.",
+            "formula": "\\text{id}_A: A \\rightarrow A, \\text{id}_A(x) = x",
+            "explanation": "The identity function is the simplest function—it leaves everything unchanged. It’s like a machine that passes everything through without altering it!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440026",
+            "text": "The empty set is a special set with no elements.",
+            "formula": "\\emptyset = \\{\\}",
+            "explanation": "The empty set is the only set with cardinality 0. It is a subset of every set. It’s like an empty box—it contains nothing, but it exists!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440027",
+            "text": "The intersection of two sets contains only the common elements.",
+            "formula": "A \\cap B = \\{2, 4\\}",
+            "explanation": "The intersection of A and B contains only the elements present in both sets. It’s like the overlapping region of two intersecting circles!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440028",
+            "text": "The difference of two sets contains the elements only in the first set.",
+            "formula": "A \\setminus B = \\{1, 3, 5\\}",
+            "explanation": "The difference A \\ B contains the elements of A that are not in B. It’s like removing the common elements from the first set!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440029",
+            "text": "The Cartesian product of two sets contains all possible pairs.",
+            "formula": "A \\times B = \\{(1,2), (1,4), (2,2), (2,4), (3,2), (3,4), (4,2), (4,4), (5,2), (5,4)\\}",
+            "explanation": "The Cartesian product contains all possible combinations of elements from both sets. It’s like creating all possible pairs from the elements of both sets!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440030",
+            "text": "An equivalence relation partitions a set into equivalence classes.",
+            "formula": "x \\sim y \\Leftrightarrow x \\equiv y \\pmod{2}",
+            "explanation": "This equivalence relation divides set A into two classes: the even and odd numbers. It’s like sorting items based on specific criteria!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440031",
+            "text": "The quotient set contains all equivalence classes.",
+            "formula": "A/\\sim = \\{\\{1,3,5\\}, \\{2,4\\}\\}",
+            "explanation": "The quotient set contains the sets of even and odd numbers. It’s like grouping similar items into categories!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440032",
+            "text": "An order relation compares elements of a set.",
+            "formula": "x \\leq y \\Leftrightarrow x \\text{ is less than or equal to } y",
+            "explanation": "The usual less-than-or-equal-to relation is an order relation. It allows us to compare elements. It’s like sorting items by their size!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440033",
+            "text": "A well-ordering is a total order where every nonempty subset has a least element.",
+            "formula": "\\forall B \\subseteq A, B \\neq \\emptyset \\exists b \\in B: b \\leq x \\forall x \\in B",
+            "explanation": "The natural ordering on A is a well-ordering. Every nonempty subset has a least element. It’s like a perfect sorting where we can always find the smallest element!"
+        },
+        {
+            "id": "550e8400-e29b-41d4-a716-446655440034",
+            "text": "Finally, let’s look at how sets and functions are used in computer science.",
+            "formula": "f: \\{0,1\\}^n \\rightarrow \\{0,1\\}",
+            "explanation": "Boolean functions are mappings from bit sequences to single bits. They are fundamental to digital logic and computer architecture. It’s like the building blocks of the digital world!"
+        }
+    ]
+}

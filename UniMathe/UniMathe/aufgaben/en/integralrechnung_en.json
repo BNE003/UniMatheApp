@@ -1,0 +1,472 @@
+{
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Integral Calculus",
+            "title": "Definite Integral of a Polynomial Function",
+            "description": "Calculate the definite integral $\\int_{0}^{2} (x^3 - 2x^2 + 3x - 1) \\, dx$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function $f(x) = x^3 - 2x^2 + 3x - 1$ is a polynomial of degree 3.",
+                "Step 2: Apply the Power Rule\nFor each term $ax^n$, the integral is $\\int ax^n \\, dx = \\frac{a}{n+1}x^{n+1} + C$.",
+                "Step 3: Compute the Antiderivative\n$F(x) = \\frac{1}{4}x^4 - \\frac{2}{3}x^3 + \\frac{3}{2}x^2 - x + C$\nExplanation: Integrate each term separately.",
+                "Step 4: Evaluate at the Limits\n$\\int_{0}^{2} (x^3 - 2x^2 + 3x - 1) \\, dx = F(2) - F(0)$\n$= \\left(\\frac{1}{4} \\cdot 16 - \\frac{2}{3} \\cdot 8 + \\frac{3}{2} \\cdot 4 - 2\\right) - 0 = 4 - \\frac{16}{3} + 6 - 2$.",
+                "Step 5: Simplify\n$= \\frac{12}{3} - \\frac{16}{3} + \\frac{18}{3} - \\frac{6}{3} = \\frac{8}{3}$\nExplanation: Combine terms with a common denominator.",
+                "Step 6: Verification\nDifferentiate: $\\frac{d}{dx}\\left(\\frac{1}{4}x^4 - \\frac{2}{3}x^3 + \\frac{3}{2}x^2 - x\\right) = x^3 - 2x^2 + 3x - 1$.",
+                "Step 7: Summary\nThe definite integral is $\\frac{8}{3}$."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Integral Calculus",
+            "title": "Definite Integral of an Exponential Function",
+            "description": "Calculate the definite integral $\\int_{0}^{1} e^x \\, dx$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function $f(x) = e^x$ is the natural exponential function.",
+                "Step 2: Apply the Integration Rule\nFor $f(x) = e^x$, $\\int e^x \\, dx = e^x + C$.",
+                "Step 3: Compute the Antiderivative\n$F(x) = e^x + C$\nExplanation: The antiderivative of $e^x$ is itself.",
+                "Step 4: Evaluate at the Limits\n$\\int_{0}^{1} e^x \\, dx = F(1) - F(0) = e^1 - e^0 = e - 1$.",
+                "Step 5: Verification\nDifferentiate: $\\frac{d}{dx}(e^x) = e^x$.",
+                "Step 6: Summary\nThe definite integral is $e - 1$."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Integral Calculus",
+            "title": "Definite Integral of a Trigonometric Function",
+            "description": "Calculate the definite integral $\\int_{0}^{\\pi} \\sin x \\, dx$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function $f(x) = \\sin x$ is the sine function.",
+                "Step 2: Apply the Integration Rule\nFor $f(x) = \\sin x$, $\\int \\sin x \\, dx = -\\cos x + C$.",
+                "Step 3: Compute the Antiderivative\n$F(x) = -\\cos x + C$\nExplanation: The antiderivative of sine is negative cosine.",
+                "Step 4: Evaluate at the Limits\n$\\int_{0}^{\\pi} \\sin x \\, dx = F(\\pi) - F(0) = -\\cos(\\pi) - (-\\cos(0)) = -(-1) - (-1) = 2$.",
+                "Step 5: Verification\nDifferentiate: $\\frac{d}{dx}(-\\cos x) = \\sin x$.",
+                "Step 6: Summary\nThe definite integral is 2."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Integral Calculus",
+            "title": "Definite Integral of a Square Root Function",
+            "description": "Calculate the definite integral $\\int_{0}^{4} \\sqrt{x} \\, dx$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function $f(x) = \\sqrt{x}$ can be written as $f(x) = x^{\\frac{1}{2}}$.",
+                "Step 2: Apply the Power Rule\nFor $f(x) = x^n$, $\\int x^n \\, dx = \\frac{1}{n+1}x^{n+1} + C$.",
+                "Step 3: Compute the Antiderivative\n$F(x) = \\frac{2}{3}x^{\\frac{3}{2}} + C$\nExplanation: Apply the power rule with $n = \\frac{1}{2}$.",
+                "Step 4: Evaluate at the Limits\n$\\int_{0}^{4} \\sqrt{x} \\, dx = F(4) - F(0) = \\frac{2}{3} \\cdot 4^{\\frac{3}{2}} - 0 = \\frac{2}{3} \\cdot 8 = \\frac{16}{3}$.",
+                "Step 5: Verification\nDifferentiate: $\\frac{d}{dx}\\left(\\frac{2}{3}x^{\\frac{3}{2}}\\right) = \\sqrt{x}$.",
+                "Step 6: Summary\nThe definite integral is $\\frac{16}{3}$."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Integral Calculus",
+            "title": "Definite Integral of a Constant Function",
+            "description": "Calculate the definite integral $\\int_{1}^{5} 3 \\, dx$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function $f(x) = 3$ is a constant function.",
+                "Step 2: Apply the Integration Rule\nFor $f(x) = c$, $\\int c \\, dx = cx + C$.",
+                "Step 3: Compute the Antiderivative\n$F(x) = 3x + C$\nExplanation: The antiderivative of a constant is a linear function.",
+                "Step 4: Evaluate at the Limits\n$\\int_{1}^{5} 3 \\, dx = F(5) - F(1) = 3 \\cdot 5 - 3 \\cdot 1 = 15 - 3 = 12$.",
+                "Step 5: Verification\nDifferentiate: $\\frac{d}{dx}(3x) = 3$.",
+                "Step 6: Summary\nThe definite integral is 12."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Integral Calculus",
+            "title": "Definite Integral of a Linear Function",
+            "description": "Calculate the definite integral $\\int_{0}^{2} (2x + 1) \\, dx$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function $f(x) = 2x + 1$ is a linear function.",
+                "Step 2: Apply the Integration Rules\nFor each term $ax^n$, $\\int ax^n \\, dx = \\frac{a}{n+1}x^{n+1} + C$.",
+                "Step 3: Compute the Antiderivative\n$F(x) = x^2 + x + C$\nExplanation: Integrate each term separately.",
+                "Step 4: Evaluate at the Limits\n$\\int_{0}^{2} (2x + 1) \\, dx = F(2) - F(0) = (4 + 2) - (0 + 0) = 6$.",
+                "Step 5: Verification\nDifferentiate: $\\frac{d}{dx}(x^2 + x) = 2x + 1$.",
+                "Step 6: Summary\nThe definite integral is 6."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Integral Calculus",
+            "title": "Definite Integral of a Quadratic Function",
+            "description": "Calculate the definite integral $\\int_{-1}^{1} (x^2 + 2x + 1) \\, dx$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function $f(x) = x^2 + 2x + 1$ is a quadratic function, equal to $(x + 1)^2$.",
+                "Step 2: Apply the Integration Rules\nFor each term $ax^n$, $\\int ax^n \\, dx = \\frac{a}{n+1}x^{n+1} + C$.",
+                "Step 3: Compute the Antiderivative\n$F(x) = \\frac{1}{3}x^3 + x^2 + x + C$\nExplanation: Integrate each term separately.",
+                "Step 4: Evaluate at the Limits\n$\\int_{-1}^{1} (x^2 + 2x + 1) \\, dx = F(1) - F(-1)$\n$= \\left(\\frac{1}{3} + 1 + 1\\right) - \\left(-\\frac{1}{3} + 1 - 1\\right) = \\frac{7}{3} - \\left(-\\frac{1}{3}\\right) = \\frac{8}{3}$.",
+                "Step 5: Verification\nDifferentiate: $\\frac{d}{dx}\\left(\\frac{1}{3}x^3 + x^2 + x\\right) = x^2 + 2x + 1$.",
+                "Step 6: Summary\nThe definite integral is $\\frac{8}{3}$."
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Integral Calculus",
+            "title": "Definite Integral of a Logarithmic Function",
+            "description": "Calculate the definite integral $\\int_{1}^{e} \\frac{1}{x} \\, dx$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function $f(x) = \\frac{1}{x}$ is the derivative of the natural logarithm.",
+                "Step 2: Apply the Integration Rule\nFor $f(x) = \\frac{1}{x}$, $\\int \\frac{1}{x} \\, dx = \\ln|x| + C$.",
+                "Step 3: Compute the Antiderivative\n$F(x) = \\ln|x| + C$\nExplanation: The antiderivative of $1/x$ is the natural logarithm.",
+                "Step 4: Evaluate at the Limits\n$\\int_{1}^{e} \\frac{1}{x} \\, dx = F(e) - F(1) = \\ln(e) - \\ln(1) = 1 - 0 = 1$.",
+                "Step 5: Verification\nDifferentiate: $\\frac{d}{dx}(\\ln|x|) = \\frac{1}{x}$.",
+                "Step 6: Summary\nThe definite integral is 1."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Integral Calculus",
+            "title": "Integration by Parts",
+            "description": "Calculate the integral $\\int x^2 \\ln(x) \\, dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Choose $u$ and $v'$\n$u = \\ln(x) \\Rightarrow u' = \\frac{1}{x}$\n$v' = x^2 \\Rightarrow v = \\frac{x^3}{3}$.",
+                "Step 2: Apply Integration by Parts\n$\\int x^2 \\ln(x) \\, dx = \\frac{x^3}{3} \\ln(x) - \\int \\frac{x^3}{3} \\cdot \\frac{1}{x} \\, dx$.",
+                "Step 3: Simplify\n$= \\frac{x^3}{3} \\ln(x) - \\frac{1}{3} \\int x^2 \\, dx$.",
+                "Step 4: Solve\n$= \\frac{x^3}{3} \\ln(x) - \\frac{1}{3} \\cdot \\frac{x^3}{3} + C = \\frac{x^3}{3} \\ln(x) - \\frac{x^3}{9} + C$."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Integral Calculus",
+            "title": "Substitution Method",
+            "description": "Calculate the integral $\\int \\frac{\\sin(\\sqrt{x})}{\\sqrt{x}} \\, dx$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Substitution\n$u = \\sqrt{x} \\Rightarrow du = \\frac{1}{2\\sqrt{x}} \\, dx \\Rightarrow 2 \\, du = \\frac{1}{\\sqrt{x}} \\, dx$.",
+                "Step 2: Transform\n$\\int \\frac{\\sin(\\sqrt{x})}{\\sqrt{x}} \\, dx = \\int \\sin(u) \\cdot \\frac{1}{\\sqrt{x}} \\cdot 2\\sqrt{x} \\, dx = 2 \\int \\sin(u) \\, du$.",
+                "Step 3: Integrate\n$= 2 \\cdot (-\\cos(u)) + C = -2 \\cos(u) + C$.",
+                "Step 4: Back-Substitute\n$= -2 \\cos(\\sqrt{x}) + C$."
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Integral Calculus",
+            "title": "Improper Integrals",
+            "description": "Investigate the convergence of the improper integral $\\int_0^\\infty \\frac{x}{1 + x^4} \\, dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Substitution\n$u = x^2 \\Rightarrow du = 2x \\, dx \\Rightarrow \\frac{1}{2} \\, du = x \\, dx$.",
+                "Step 2: Transform\n$\\int_0^\\infty \\frac{x}{1 + x^4} \\, dx = \\frac{1}{2} \\int_0^\\infty \\frac{1}{1 + u^2} \\, du$.",
+                "Step 3: Integrate\n$= \\frac{1}{2} [\\arctan(u)]_0^\\infty$.",
+                "Step 4: Evaluate Limit\n$= \\frac{1}{2} \\left( \\lim_{u \\to \\infty} \\arctan(u) - \\arctan(0) \\right) = \\frac{1}{2} \\left( \\frac{\\pi}{2} - 0 \\right) = \\frac{\\pi}{4}$\nThe integral converges to $\\frac{\\pi}{4}$."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Integral Calculus",
+            "title": "Area Calculation",
+            "description": "Calculate the area between the curves $y = x^2$ and $y = 2x - x^2$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Find Intersection Points\n$x^2 = 2x - x^2 \\Rightarrow 2x^2 - 2x = 0 \\Rightarrow x(x - 1) = 0 \\Rightarrow x = 0, 1$.",
+                "Step 2: Determine the Integrand\n$y = 2x - x^2$ is above $y = x^2$, so $f(x) = (2x - x^2) - x^2 = 2x - 2x^2$.",
+                "Step 3: Integrate\n$\\int_0^1 (2x - 2x^2) \\, dx = \\left[ x^2 - \\frac{2}{3}x^3 \\right]_0^1$.",
+                "Step 4: Compute\n$= \\left( 1 - \\frac{2}{3} \\right) - 0 = \\frac{1}{3}$."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Integral Calculus",
+            "title": "Volume Calculation",
+            "description": "Calculate the volume of the solid of revolution formed by rotating the curve $y = \\sqrt{x}$ about the $x$-axis over the interval $[0, 4]$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Volume Formula\n$V = \\pi \\int_0^4 y^2 \\, dx = \\pi \\int_0^4 x \\, dx$.",
+                "Step 2: Integrate\n$= \\pi \\left[ \\frac{x^2}{2} \\right]_0^4$.",
+                "Step 3: Compute\n$= \\pi \\left( \\frac{16}{2} - 0 \\right) = 8\\pi$.",
+                "Step 4: Units\nThe volume is $8\\pi$ cubic units."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Integral Calculus",
+            "title": "Integration by Substitution with Trigonometric Function",
+            "description": "Calculate the integral $\\int \\frac{\\cos x}{\\sqrt{\\sin x + 1}} \\, dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function involves a trigonometric function in the numerator and its derivative in the denominator.",
+                "Step 2: Substitution\n$u = \\sin x + 1 \\Rightarrow du = \\cos x \\, dx$.",
+                "Step 3: Transform the Integral\n$\\int \\frac{\\cos x}{\\sqrt{\\sin x + 1}} \\, dx = \\int \\frac{1}{\\sqrt{u}} \\, du$.",
+                "Step 4: Integrate\n$= 2\\sqrt{u} + C$.",
+                "Step 5: Back-Substitute\n$= 2\\sqrt{\\sin x + 1} + C$.",
+                "Step 6: Verification\nDifferentiate: $\\frac{d}{dx}(2\\sqrt{\\sin x + 1}) = \\frac{\\cos x}{\\sqrt{\\sin x + 1}}$.",
+                "Step 7: Summary\nThe antiderivative is $2\\sqrt{\\sin x + 1} + C$."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Integral Calculus",
+            "title": "Integration by Parts with Exponential Function",
+            "description": "Calculate the integral $\\int x^2 e^x \\, dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function is a product of a polynomial and an exponential function.",
+                "Step 2: Integration by Parts\n$u = x^2 \\Rightarrow u' = 2x$\n$v' = e^x \\Rightarrow v = e^x$.",
+                "Step 3: Apply the Formula\n$\\int x^2 e^x \\, dx = x^2 e^x - \\int 2x e^x \\, dx$.",
+                "Step 4: Second Integration by Parts\nFor $\\int 2x e^x \\, dx$: let $u = 2x \\Rightarrow u' = 2$, $v' = e^x \\Rightarrow v = e^x$\n$= x^2 e^x - \\left( 2x e^x - \\int 2 e^x \\, dx \\right)$.",
+                "Step 5: Simplify\n$= x^2 e^x - 2x e^x + 2 e^x + C = e^x (x^2 - 2x + 2) + C$.",
+                "Step 6: Verification\nDifferentiate: $\\frac{d}{dx}(e^x (x^2 - 2x + 2)) = x^2 e^x$.",
+                "Step 7: Summary\nThe antiderivative is $e^x (x^2 - 2x + 2) + C$."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Integral Calculus",
+            "title": "Integration of a Rational Function",
+            "description": "Calculate the integral $\\int \\frac{x^2 + 2x + 1}{x^2 + 1} \\, dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function is an improper rational function.",
+                "Step 2: Polynomial Division\n$\\frac{x^2 + 2x + 1}{x^2 + 1} = 1 + \\frac{2x}{x^2 + 1}$.",
+                "Step 3: Split the Integral\n$\\int \\frac{x^2 + 2x + 1}{x^2 + 1} \\, dx = \\int 1 \\, dx + \\int \\frac{2x}{x^2 + 1} \\, dx$.",
+                "Step 4: Integrate\nFor the second integral, let $u = x^2 + 1 \\Rightarrow du = 2x \\, dx$\n$= x + \\ln(x^2 + 1) + C$.",
+                "Step 5: Verification\nDifferentiate: $\\frac{d}{dx}(x + \\ln(x^2 + 1)) = 1 + \\frac{2x}{x^2 + 1} = \\frac{x^2 + 2x + 1}{x^2 + 1}$.",
+                "Step 6: Summary\nThe antiderivative is $x + \\ln(x^2 + 1) + C$."
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Integral Calculus",
+            "title": "Integration with Trigonometric Substitution",
+            "description": "Calculate the integral $\\int \\frac{1}{\\sqrt{4 - x^2}} \\, dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function involves a square root with a quadratic term.",
+                "Step 2: Trigonometric Substitution\n$x = 2 \\sin t \\Rightarrow dx = 2 \\cos t \\, dt$.",
+                "Step 3: Transform\n$\\int \\frac{1}{\\sqrt{4 - x^2}} \\, dx = \\int \\frac{2 \\cos t}{\\sqrt{4 - 4 \\sin^2 t}} \\, dt = \\int \\frac{2 \\cos t}{2 \\cos t} \\, dt = \\int 1 \\, dt$.",
+                "Step 4: Integrate\n$= t + C$.",
+                "Step 5: Back-Substitute\n$t = \\arcsin\\left(\\frac{x}{2}\\right) \\Rightarrow \\int = \\arcsin\\left(\\frac{x}{2}\\right) + C$.",
+                "Step 6: Verification\nDifferentiate: $\\frac{d}{dx}\\left(\\arcsin\\left(\\frac{x}{2}\\right)\\right) = \\frac{1}{\\sqrt{4 - x^2}}$.",
+                "Step 7: Summary\nThe antiderivative is $\\arcsin\\left(\\frac{x}{2}\\right) + C$."
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Integral Calculus",
+            "title": "Integration of a Product Function",
+            "description": "Calculate the integral $\\int x \\sin(2x) \\, dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function is a product of a linear and a trigonometric function.",
+                "Step 2: Integration by Parts\n$u = x \\Rightarrow u' = 1$\n$v' = \\sin(2x) \\Rightarrow v = -\\frac{1}{2} \\cos(2x)$.",
+                "Step 3: Apply the Formula\n$\\int x \\sin(2x) \\, dx = x \\cdot \\left(-\\frac{1}{2} \\cos(2x)\\right) - \\int \\left(-\\frac{1}{2} \\cos(2x)\\right) \\cdot 1 \\, dx$.",
+                "Step 4: Simplify\n$= -\\frac{x}{2} \\cos(2x) + \\frac{1}{2} \\int \\cos(2x) \\, dx = -\\frac{x}{2} \\cos(2x) + \\frac{1}{2} \\cdot \\frac{1}{2} \\sin(2x) + C = -\\frac{x}{2} \\cos(2x) + \\frac{1}{4} \\sin(2x) + C$.",
+                "Step 5: Verification\nDifferentiate: $\\frac{d}{dx}\\left(-\\frac{x}{2} \\cos(2x) + \\frac{1}{4} \\sin(2x)\\right) = x \\sin(2x)$.",
+                "Step 6: Summary\nThe antiderivative is $-\\frac{x}{2} \\cos(2x) + \\frac{1}{4} \\sin(2x) + C$."
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Integral Calculus",
+            "title": "Integration of a Square Root Function with Substitution",
+            "description": "Calculate the integral $\\int \\frac{x}{\\sqrt{x^2 + 4}} \\, dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function has a square root in the denominator and its derivative in the numerator.",
+                "Step 2: Substitution\n$u = x^2 + 4 \\Rightarrow du = 2x \\, dx \\Rightarrow \\frac{1}{2} \\, du = x \\, dx$.",
+                "Step 3: Transform the Integral\n$\\int \\frac{x}{\\sqrt{x^2 + 4}} \\, dx = \\frac{1}{2} \\int \\frac{1}{\\sqrt{u}} \\, du$.",
+                "Step 4: Integrate\n$= \\frac{1}{2} \\cdot 2 \\sqrt{u} + C = \\sqrt{u} + C$.",
+                "Step 5: Back-Substitute\n$= \\sqrt{x^2 + 4} + C$.",
+                "Step 6: Verification\nDifferentiate: $\\frac{d}{dx}(\\sqrt{x^2 + 4}) = \\frac{x}{\\sqrt{x^2 + 4}}$.",
+                "Step 7: Summary\nThe antiderivative is $\\sqrt{x^2 + 4} + C$."
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Integral Calculus",
+            "title": "Integration of a Logarithmic Function",
+            "description": "Calculate the integral $\\int \\ln(x^2 + 1) \\, dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function is a logarithm with a quadratic argument.",
+                "Step 2: Integration by Parts\n$u = \\ln(x^2 + 1) \\Rightarrow u' = \\frac{2x}{x^2 + 1}$\n$v' = 1 \\Rightarrow v = x$.",
+                "Step 3: Apply the Formula\n$\\int \\ln(x^2 + 1) \\, dx = x \\ln(x^2 + 1) - \\int \\frac{2x^2}{x^2 + 1} \\, dx$.",
+                "Step 4: Simplify the Second Integral\n$\\frac{2x^2}{x^2 + 1} = 2 - \\frac{2}{x^2 + 1}$\n$\\int \\frac{2x^2}{x^2 + 1} \\, dx = \\int \\left(2 - \\frac{2}{x^2 + 1}\\right) \\, dx = 2x - 2 \\arctan(x) + C$\nSo, $\\int = x \\ln(x^2 + 1) - (2x - 2 \\arctan(x)) + C = x \\ln(x^2 + 1) - 2x + 2 \\arctan(x) + C$.",
+                "Step 5: Verification\nDifferentiate: $\\frac{d}{dx}(x \\ln(x^2 + 1) - 2x + 2 \\arctan(x)) = \\ln(x^2 + 1)$.",
+                "Step 6: Summary\nThe antiderivative is $x \\ln(x^2 + 1) - 2x + 2 \\arctan(x) + C$."
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Integral Calculus",
+            "title": "Integration of an Exponential Function with Trigonometric Argument",
+            "description": "Calculate the integral $\\int e^x \\sin x \\, dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function is a product of an exponential and a trigonometric function.",
+                "Step 2: Integration by Parts\n$u = \\sin x \\Rightarrow u' = \\cos x$\n$v' = e^x \\Rightarrow v = e^x$.",
+                "Step 3: Apply the Formula\n$\\int e^x \\sin x \\, dx = \\sin x e^x - \\int e^x \\cos x \\, dx$.",
+                "Step 4: Second Integration by Parts\nFor $\\int e^x \\cos x \\, dx$: let $u = \\cos x \\Rightarrow u' = -\\sin x$, $v' = e^x \\Rightarrow v = e^x$\n$= \\sin x e^x - \\left( \\cos x e^x - \\int (-\\sin x) e^x \\, dx \\right) = \\sin x e^x - \\cos x e^x - \\int e^x \\sin x \\, dx$.",
+                "Step 5: Solve for the Integral\nLet $I = \\int e^x \\sin x \\, dx$. Then $I = \\sin x e^x - \\cos x e^x - I$\n$2I = e^x (\\sin x - \\cos x) \\Rightarrow I = \\frac{e^x}{2} (\\sin x - \\cos x) + C$.",
+                "Step 6: Verification\nDifferentiate: $\\frac{d}{dx}\\left(\\frac{e^x}{2} (\\sin x - \\cos x)\\right) = e^x \\sin x$.",
+                "Step 7: Summary\nThe antiderivative is $\\frac{e^x}{2} (\\sin x - \\cos x) + C$."
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Integral Calculus",
+            "title": "Integration of a Complex Rational Function",
+            "description": "Calculate the integral $\\int \\frac{x^4 + 2x^3 + 3x^2 + 4x + 5}{(x^2 + 1)(x^2 + 2x + 2)} \\, dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function is a complex rational function with quadratic denominators.",
+                "Step 2: Partial Fraction Decomposition\nAssume $\\frac{x^4 + 2x^3 + 3x^2 + 4x + 5}{(x^2 + 1)(x^2 + 2x + 2)} = \\frac{Ax + B}{x^2 + 1} + \\frac{Cx + D}{x^2 + 2x + 2}$.",
+                "Step 3: Determine Coefficients\nMultiply through and equate coefficients: $A = 1$, $B = 2$, $C = 0$, $D = 1$.",
+                "Step 4: Split the Integral\n$\\int \\frac{x + 2}{x^2 + 1} \\, dx + \\int \\frac{1}{x^2 + 2x + 2} \\, dx$.",
+                "Step 5: Integrate Partial Fractions\nFirst integral: $\\int \\frac{x}{x^2 + 1} \\, dx + 2 \\int \\frac{1}{x^2 + 1} \\, dx = \\frac{1}{2} \\ln(x^2 + 1) + 2 \\arctan(x)$.\nSecond integral: Complete the square, $x^2 + 2x + 2 = (x + 1)^2 + 1$, so $\\int \\frac{1}{(x + 1)^2 + 1} \\, dx = \\arctan(x + 1)$.\nTotal: $\\frac{1}{2} \\ln(x^2 + 1) + 2 \\arctan(x) + \\arctan(x + 1) + C$.",
+                "Step 6: Verification\nDifferentiate to confirm the result matches the integrand.",
+                "Step 7: Summary\nThe antiderivative is $\\frac{1}{2} \\ln(x^2 + 1) + 2 \\arctan(x) + \\arctan(x + 1) + C$."
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Integral Calculus",
+            "title": "Integration of a Trigonometric Function with Multiple Substitutions",
+            "description": "Calculate the integral $\\int \\frac{\\sin^3 x}{\\cos^4 x} \\, dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function is a complex trigonometric function with powers.",
+                "Step 2: Transform\n$\\frac{\\sin^3 x}{\\cos^4 x} = \\frac{\\sin^2 x \\cdot \\sin x}{\\cos^4 x} = \\frac{(1 - \\cos^2 x) \\sin x}{\\cos^4 x}$.",
+                "Step 3: Substitution\n$u = \\cos x \\Rightarrow du = -\\sin x \\, dx$\n$\\int \\frac{(1 - u^2)(-du)}{u^4} = \\int \\frac{u^2 - 1}{u^4} \\, du = \\int \\left( \\frac{1}{u^2} - \\frac{1}{u^4} \\right) \\, du$.",
+                "Step 4: Integrate\n$= \\int \\frac{1}{u^2} \\, du - \\int \\frac{1}{u^4} \\, du = -\\frac{1}{u} + \\frac{1}{3u^3} + C$.",
+                "Step 5: Back-Substitute\n$= -\\frac{1}{\\cos x} + \\frac{1}{3 \\cos^3 x} + C = \\frac{1}{3} \\sec^3 x - \\sec x + C$.",
+                "Step 6: Verification\nDifferentiate: $\\frac{d}{dx}\\left(\\frac{1}{3} \\sec^3 x - \\sec x\\right) = \\frac{\\sin^3 x}{\\cos^4 x}$.",
+                "Step 7: Summary\nThe antiderivative is $\\frac{1}{3} \\sec^3 x - \\sec x + C$."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Integral Calculus",
+            "title": "Integration of an Exponential Function with Complex Argument",
+            "description": "Calculate the integral $\\int e^{\\sin x} \\cos x \\, dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function is an exponential with a trigonometric argument.",
+                "Step 2: Substitution\n$u = \\sin x \\Rightarrow du = \\cos x \\, dx$.",
+                "Step 3: Transform\n$\\int e^{\\sin x} \\cos x \\, dx = \\int e^u \\, du$.",
+                "Step 4: Integrate\n$= e^u + C$.",
+                "Step 5: Back-Substitute\n$= e^{\\sin x} + C$.",
+                "Step 6: Verification\nDifferentiate: $\\frac{d}{dx}(e^{\\sin x}) = e^{\\sin x} \\cos x$.",
+                "Step 7: Summary\nThe antiderivative is $e^{\\sin x} + C$."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Integral Calculus",
+            "title": "Integration of a Square Root Function with Trigonometric Substitution",
+            "description": "Calculate the integral $\\int \\sqrt{x^2 - 4} \\, dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function involves a square root with a quadratic term.",
+                "Step 2: Trigonometric Substitution\n$x = 2 \\sec t \\Rightarrow dx = 2 \\sec t \\tan t \\, dt$.",
+                "Step 3: Transform\n$\\int \\sqrt{x^2 - 4} \\, dx = \\int \\sqrt{4 \\sec^2 t - 4} \\cdot 2 \\sec t \\tan t \\, dt = 2 \\int \\tan t \\cdot \\sec t \\tan t \\, dt = 2 \\int \\sec t \\tan^2 t \\, dt$.",
+                "Step 4: Integrate\nUse $\\tan^2 t = \\sec^2 t - 1$: $2 \\int \\sec t (\\sec^2 t - 1) \\, dt = 2 \\int \\sec^3 t \\, dx - 2 \\int \\sec t \\, dx$.\nUse reduction formula for $\\sec^3 t$: $\\int \\sec^3 t \\, dx = \\frac{1}{2} \\sec t \\tan t + \\frac{1}{2} \\ln |\\sec t + \\tan t| + C$.\nSo, $2 \\left( \\frac{1}{2} \\sec t \\tan t + \\frac{1}{2} \\ln |\\sec t + \\tan t| \\right) - 2 \\ln |\\sec t + \\tan t| = \\sec t \\tan t - \\ln |\\sec t + \\tan t| + C$.",
+                "Step 5: Back-Substitute\n$\\sec t = \\frac{x}{2}$, $\\tan t = \\frac{\\sqrt{x^2 - 4}}{2}$, so $\\int = \\frac{x}{2} \\sqrt{x^2 - 4} - \\ln \\left| x + \\sqrt{x^2 - 4} \\right| + C$.",
+                "Step 6: Verification\nDifferentiate to confirm the result matches $\\sqrt{x^2 - 4}$.",
+                "Step 7: Summary\nThe antiderivative is $\\frac{x}{2} \\sqrt{x^2 - 4} - \\ln \\left| x + \\sqrt{x^2 - 4} \\right| + C$."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Integral Calculus",
+            "title": "Integration of a Logarithmic Function with Multiple Substitutions",
+            "description": "Calculate the integral $\\int \\frac{\\ln(\\ln x)}{x \\ln x} \\, dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function involves nested logarithms.",
+                "Step 2: First Substitution\n$u = \\ln x \\Rightarrow du = \\frac{1}{x} \\, dx$.",
+                "Step 3: Transform\n$\\int \\frac{\\ln(\\ln x)}{x \\ln x} \\, dx = \\int \\frac{\\ln u}{u} \\, du$.",
+                "Step 4: Second Substitution\n$v = \\ln u \\Rightarrow dv = \\frac{1}{u} \\, du$.",
+                "Step 5: Integrate\n$\\int v \\, dv = \\frac{v^2}{2} + C$.",
+                "Step 6: Back-Substitute\n$= \\frac{(\\ln u)^2}{2} + C = \\frac{(\\ln(\\ln x))^2}{2} + C$.",
+                "Step 7: Verification\nDifferentiate: $\\frac{d}{dx}\\left(\\frac{(\\ln(\\ln x))^2}{2}\\right) = \\frac{\\ln(\\ln x)}{x \\ln x}$.",
+                "Step 8: Summary\nThe antiderivative is $\\frac{(\\ln(\\ln x))^2}{2} + C$."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Integral Calculus",
+            "title": "Integration of a Complex Trigonometric Function",
+            "description": "Calculate the integral $\\int \\frac{\\sin^4 x}{\\cos^6 x} \\, dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function is a complex trigonometric function with high powers.",
+                "Step 2: Transform\n$\\frac{\\sin^4 x}{\\cos^6 x} = \\frac{(\\sin^2 x)^2}{\\cos^6 x} = \\frac{(1 - \\cos^2 x)^2}{\\cos^6 x} = \\frac{1 - 2 \\cos^2 x + \\cos^4 x}{\\cos^6 x} = \\sec^6 x - 2 \\sec^4 x + \\sec^2 x$.",
+                "Step 3: Split the Integral\n$\\int \\sec^6 x \\, dx - 2 \\int \\sec^4 x \\, dx + \\int \\sec^2 x \\, dx$.",
+                "Step 4: Integrate\n$\\int \\sec^2 x \\, dx = \\tan x$.\nFor $\\sec^4 x$, use reduction: $\\int \\sec^4 x \\, dx = \\frac{1}{3} \\sec^2 x \\tan x + \\frac{2}{3} \\int \\sec^2 x \\, dx = \\frac{1}{3} \\sec^2 x \\tan x + \\frac{2}{3} \\tan x$.\nFor $\\sec^6 x$, use reduction: $\\int \\sec^6 x \\, dx = \\frac{1}{5} \\sec^4 x \\tan x + \\frac{4}{5} \\int \\sec^4 x \\, dx$.\nCombine and simplify to get $\\frac{1}{5} \\tan^5 x + \\frac{1}{3} \\tan^3 x + \\tan x + C$.",
+                "Step 5: Verification\nDifferentiate to confirm the result matches the integrand.",
+                "Step 6: Summary\nThe antiderivative is $\\frac{1}{5} \\tan^5 x + \\frac{1}{3} \\tan^3 x + \\tan x + C$."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Integral Calculus",
+            "title": "Integration of a Complex Exponential Function",
+            "description": "Calculate the integral $\\int e^{x^2} x \\, dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function is an exponential with a quadratic argument.",
+                "Step 2: Substitution\n$u = x^2 \\Rightarrow du = 2x \\, dx \\Rightarrow \\frac{1}{2} \\, du = x \\, dx$.",
+                "Step 3: Transform\n$\\int e^{x^2} x \\, dx = \\frac{1}{2} \\int e^u \\, du$.",
+                "Step 4: Integrate\n$= \\frac{1}{2} e^u + C$.",
+                "Step 5: Back-Substitute\n$= \\frac{1}{2} e^{x^2} + C$.",
+                "Step 6: Verification\nDifferentiate: $\\frac{d}{dx}\\left(\\frac{1}{2} e^{x^2}\\right) = e^{x^2} x$.",
+                "Step 7: Summary\nThe antiderivative is $\\frac{1}{2} e^{x^2} + C$."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Integral Calculus",
+            "title": "Integration of a Complex Square Root Function",
+            "description": "Calculate the integral $\\int \\frac{\\sqrt{x^2 + 1}}{x} \\, dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Analyze the Integrand\nThe function has a square root in the numerator and a variable in the denominator.",
+                "Step 2: Hyperbolic Substitution\nLet $x = \\sinh u \\Rightarrow dx = \\cosh u \\, du$, $\\sqrt{x^2 + 1} = \\sqrt{\\sinh^2 u + 1} = \\cosh u$.",
+                "Step 3: Transform\n$\\int \\frac{\\sqrt{x^2 + 1}}{x} \\, dx = \\int \\frac{\\cosh u}{\\sinh u} \\cosh u \\, du = \\int \\frac{\\cosh^2 u}{\\sinh u} \\, du$.",
+                "Step 4: Simplify\nUse $\\cosh^2 u = \\frac{1 + \\cosh 2u}{2}$, but instead, rewrite: $\\frac{\\cosh^2 u}{\\sinh u} = \\frac{\\cosh^2 u - 1 + 1}{\\sinh u} = \\frac{\\sinh^2 u + 1}{\\sinh u} = \\sinh u + \\frac{1}{\\sinh u}$.\nSo, $\\int \\left( \\sinh u + \\frac{1}{\\sinh u} \\right) \\, du = -\\cosh u + \\ln |\\sinh u| + C$.",
+                "Step 5: Back-Substitute\n$x = \\sinh u \\Rightarrow u = \\text{arcsinh}(x)$, $\\cosh u = \\sqrt{x^2 + 1}$, $\\sinh u = x$.\nThus, $\\int = \\sqrt{x^2 + 1} + \\ln \\left( x + \\sqrt{x^2 + 1} \\right) + C$.",
+                "Step 6: Verification\nDifferentiate to confirm the result matches the integrand.",
+                "Step 7: Summary\nThe antiderivative is $\\sqrt{x^2 + 1} + \\ln \\left( x + \\sqrt{x^2 + 1} \\right) + C$."
+            ]
+        }
+    ]
+}

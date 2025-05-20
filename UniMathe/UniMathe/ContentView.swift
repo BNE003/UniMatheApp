@@ -17,7 +17,9 @@ struct InteractiveExample: Codable, Identifiable {
     let topic: String
     
     enum CodingKeys: String, CodingKey {
-        case id, title, description, steps, topic
+        case id
+        case steps
+        case topic
     }
     
     init(id: UUID = UUID(), steps: [InteractiveExampleStep], topic: String) {
@@ -29,9 +31,6 @@ struct InteractiveExample: Codable, Identifiable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decodeIfPresent(UUID.self, forKey: .id) ?? UUID()
-        // title und description werden ignoriert
-        _ = try? container.decodeIfPresent(String.self, forKey: .title)
-        _ = try? container.decodeIfPresent(String.self, forKey: .description)
         steps = try container.decode([InteractiveExampleStep].self, forKey: .steps)
         topic = try container.decode(String.self, forKey: .topic)
     }
@@ -130,8 +129,14 @@ struct ContentView: View {
                 }
                 
                 if isLoading {
-                    ProgressView()
-                        .scaleEffect(1.5)
+                    VStack {
+                        ProgressView()
+                            .scaleEffect(1.5)
+                        Text(SettingsModel.shared.language == .english ? "Loading..." : "Wird geladen...")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                            .padding(.top, 10)
+                    }
                 } else if let error = error {
                     VStack {
                         Text("Fehler beim Laden der Daten")
@@ -147,12 +152,12 @@ struct ContentView: View {
                     VStack {
                         // Moderner App-Titel
                         VStack(alignment: .leading, spacing: 0) {
-                            Text("Höhere")
+                            Text(SettingsModel.shared.language == .english ? "Advanced" : "Höhere")
                                 .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 54 : 42))
                                 .fontWeight(.black)
                                 .foregroundColor(.blue)
                                 .overlay(
-                                    Text("Höhere")
+                                    Text(SettingsModel.shared.language == .english ? "Advanced" : "Höhere")
                                         .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 54 : 42))
                                         .fontWeight(.black)
                                         .foregroundColor(.blue)
@@ -162,12 +167,12 @@ struct ContentView: View {
                                 .shadow(color: Color.blue.opacity(0.15), radius: 4, x: 0, y: 2)
                                 .padding(.top, 24)
                             
-                            Text("Mathematik")
+                            Text(SettingsModel.shared.language == .english ? "Mathematics" : "Mathematik")
                                 .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 54 : 42))
                                 .fontWeight(.black)
                                 .foregroundColor(.blue)
                                 .overlay(
-                                    Text("Mathematik")
+                                    Text(SettingsModel.shared.language == .english ? "Mathematics" : "Mathematik")
                                         .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 54 : 42))
                                         .fontWeight(.black)
                                         .foregroundColor(.blue)
@@ -200,10 +205,18 @@ struct ContentView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: SettingsView()) {
-                        Image(systemName: "gear")
-                            .font(.system(size: 22))
-                            .foregroundColor(settings.accentColor)
+                    HStack {
+                        NavigationLink(destination: LanguageTestView()) {
+                            Image(systemName: "globe")
+                                .font(.system(size: 22))
+                                .foregroundColor(settings.accentColor)
+                        }
+                        
+                        NavigationLink(destination: SettingsView()) {
+                            Image(systemName: "gear")
+                                .font(.system(size: 22))
+                                .foregroundColor(settings.accentColor)
+                        }
                     }
                 }
             }
@@ -212,48 +225,143 @@ struct ContentView: View {
         .onAppear {
             loadTopics()
         }
+        .onChange(of: settings.language) { _ in
+            // Reload content when language changes
+            loadTopics()
+        }
         .preferredColorScheme(settings.isDarkModeEnabled ? .dark : .light)
     }
     
     private func loadTopics() {
-        // Lade die Dateien aus dem App-Bundle ("lerninhalt"-Unterordner) anstatt über absolute Dateipfade
-        // Versuche zuerst im Unterordner "lerninhalt", fallback auf Bundle-Root falls die Dateien als Gruppe eingebunden wurden
-        guard let indexUrl = Bundle.main.url(forResource: "index", withExtension: "json", subdirectory: "lerninhalt") ??
-              Bundle.main.url(forResource: "index", withExtension: "json") else {
-            error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Index file not found in bundle"])
-            isLoading = false
-            return
+        // Get the index file based on the current language
+        let language = SettingsModel.shared.language
+        let languageSuffix = language == .english ? "_en" : ""
+        
+        // Try to find the localized index file
+        let indexName = "index" + languageSuffix
+        var indexUrl: URL?
+        
+        // Debug prints to diagnose bundle issues
+        print("🔍 BUNDLE DEBUG: Current language: \(language.rawValue)")
+        print("🔍 BUNDLE DEBUG: Bundle path: \(Bundle.main.bundlePath)")
+        print("🔍 BUNDLE DEBUG: Looking for index file: \(indexName).json")
+        
+        // First try with language suffix
+        if let url = Bundle.main.url(forResource: indexName, withExtension: "json") {
+            print("🔍 BUNDLE DEBUG: Found index with language suffix at root")
+            indexUrl = url
+        }
+        // Fallback to base name
+        else if let url = Bundle.main.url(forResource: "index", withExtension: "json") {
+            print("🔍 BUNDLE DEBUG: Found index at root level")
+            indexUrl = url
+        }
+        else {
+            // Try inside lerninhalt folder
+            if let url = Bundle.main.url(forResource: indexName, withExtension: "json", subdirectory: "lerninhalt") {
+                print("🔍 BUNDLE DEBUG: Found index with language suffix in lerninhalt/")
+                indexUrl = url
+            } 
+            else if let url = Bundle.main.url(forResource: "index", withExtension: "json", subdirectory: "lerninhalt") {
+                print("🔍 BUNDLE DEBUG: Found index in lerninhalt/")
+                indexUrl = url
+            }
+            // Try inside language folders
+            else if let url = Bundle.main.url(forResource: indexName, withExtension: "json", subdirectory: "lerninhalt/\(language.rawValue)") {
+                print("🔍 BUNDLE DEBUG: Found index with language suffix in lerninhalt/\(language.rawValue)/")
+                indexUrl = url
+            }
+            else if let url = Bundle.main.url(forResource: "index", withExtension: "json", subdirectory: "lerninhalt/\(language.rawValue)") {
+                print("🔍 BUNDLE DEBUG: Found index in lerninhalt/\(language.rawValue)/")
+                indexUrl = url
+            }
+            else {
+                print("🔍 BUNDLE DEBUG: Could not find any index file")
+                let errorMessage = language == .english ? 
+                    "Index file not found in bundle" : 
+                    "Index-Datei nicht im Bundle gefunden"
+                error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                isLoading = false
+                return
+            }
         }
         
+        // Try to load the file content
         do {
-            let indexData = try Data(contentsOf: indexUrl)
+            print("🔍 BUNDLE DEBUG: Loading from URL: \(indexUrl!)")
+            let indexData = try Data(contentsOf: indexUrl!)
             let indexResponse = try JSONDecoder().decode(IndexResponse.self, from: indexData)
+            print("🔍 BUNDLE DEBUG: Successfully loaded index with \(indexResponse.topics.count) main topics")
             
             // Create an array to store the loaded topics
             var loadedTopics: [MathTopic] = []
             
             // Load each topic from its individual file
             for topicIndex in indexResponse.topics {
-                // Verwende den Dateinamen direkt aus dem Index
-                let fullFilename = topicIndex.filename
+                print("🔍 BUNDLE DEBUG: Loading topic: \(topicIndex.title) with ID: \(topicIndex.id)")
                 
-                // Datei aus dem Bundle holen
-                guard let topicUrl = Bundle.main.url(forResource: fullFilename, withExtension: nil, subdirectory: "lerninhalt") ??
-                                    Bundle.main.url(forResource: fullFilename, withExtension: nil) else {
-                    print("Could not find file for topic: \(topicIndex.title) in bundle")
+                // Get the filename without extension
+                let filenameWithoutExtension = topicIndex.filename.replacingOccurrences(of: ".json", with: "")
+                
+                // Add language suffix for non-German languages
+                let localizedFilename = filenameWithoutExtension + languageSuffix
+                let topicUrl: URL?
+                
+                print("🔍 BUNDLE DEBUG: Looking for file: \(localizedFilename).json")
+                
+                // Try to find the content file - prioritize files in the root with language suffix
+                if let url = Bundle.main.url(forResource: localizedFilename, withExtension: "json") {
+                    print("🔍 BUNDLE DEBUG: Found topic \(localizedFilename) at root level")
+                    topicUrl = url
+                }
+                // Fallback to the original filename at root
+                else if let url = Bundle.main.url(forResource: filenameWithoutExtension, withExtension: "json") {
+                    print("🔍 BUNDLE DEBUG: Found topic \(filenameWithoutExtension) at root level")
+                    topicUrl = url
+                }
+                // Then try inside lerninhalt folder
+                else if let url = Bundle.main.url(forResource: localizedFilename, withExtension: "json", subdirectory: "lerninhalt") {
+                    print("🔍 BUNDLE DEBUG: Found topic \(localizedFilename) in lerninhalt/")
+                    topicUrl = url
+                }
+                else if let url = Bundle.main.url(forResource: filenameWithoutExtension, withExtension: "json", subdirectory: "lerninhalt") {
+                    print("🔍 BUNDLE DEBUG: Found topic \(filenameWithoutExtension) in lerninhalt/")
+                    topicUrl = url
+                }
+                // Finally try in language-specific folders
+                else if let url = Bundle.main.url(forResource: localizedFilename, withExtension: "json", subdirectory: "lerninhalt/\(language.rawValue)") {
+                    print("🔍 BUNDLE DEBUG: Found topic \(localizedFilename) in lerninhalt/\(language.rawValue)/")
+                    topicUrl = url
+                }
+                else if let url = Bundle.main.url(forResource: filenameWithoutExtension, withExtension: "json", subdirectory: "lerninhalt/\(language.rawValue)") {
+                    print("🔍 BUNDLE DEBUG: Found topic \(filenameWithoutExtension) in lerninhalt/\(language.rawValue)/")
+                    topicUrl = url
+                }
+                else {
+                    let errorMessage = language == .english ? 
+                        "Could not find file for topic" : 
+                        "Datei für Thema nicht gefunden"
+                    print("🔍 BUNDLE DEBUG: \(errorMessage): \(topicIndex.title), filename: \(topicIndex.filename)")
                     continue
                 }
                 
-                let topicData = try Data(contentsOf: topicUrl)
-                // Direkte Dekodierung des einzelnen MathTopic-Objekts (kein Array)
-                let topic = try JSONDecoder().decode(MathTopic.self, from: topicData)
-                loadedTopics.append(topic)
+                do {
+                    let topicData = try Data(contentsOf: topicUrl!)
+                    // Decode the single MathTopic object
+                    let topic = try JSONDecoder().decode(MathTopic.self, from: topicData)
+                    loadedTopics.append(topic)
+                    print("🔍 BUNDLE DEBUG: Successfully loaded topic: \(topic.title)")
+                } catch {
+                    print("🔍 BUNDLE DEBUG: Error loading topic \(topicIndex.title): \(error)")
+                    continue
+                }
             }
             
             topics = loadedTopics
             isLoading = false
+            print("🔍 BUNDLE DEBUG: Finished loading all topics, count: \(loadedTopics.count)")
         } catch {
-            print("Error loading topics: \(error)")
+            print("🔍 BUNDLE DEBUG: Error loading index: \(error)")
             self.error = error
             isLoading = false
         }
@@ -266,7 +374,7 @@ struct TopicCard: View {
     
     var body: some View {
         HStack(spacing: 16) {
-            if topic.title == "Integralrechnung" {
+            if topic.title == "Integralrechnung" || topic.title == "Integral Calculus" {
                 Image("integral")
                     .resizable()
                     .scaledToFit()
@@ -284,7 +392,7 @@ struct TopicCard: View {
                             )
                     )
                     .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
-            } else if topic.title == "Mehrdimensionale Analysis" {
+            } else if topic.title == "Mehrdimensionale Analysis" || topic.title == "Multidimensional Calculus" {
                 Image("mehrdimensionale_analysis")
                     .resizable()
                     .scaledToFit()
@@ -302,7 +410,7 @@ struct TopicCard: View {
                             )
                     )
                     .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
-            } else if topic.title == "Differentialrechnung" {
+            } else if topic.title == "Differentialrechnung" || topic.title == "Differential Calculus" {
                 Image("differentialrechnung")
                     .resizable()
                     .scaledToFit()
@@ -320,7 +428,7 @@ struct TopicCard: View {
                             )
                     )
                     .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
-            } else if topic.title == "Matrizen" {
+            } else if topic.title == "Matrizen" || topic.title == "Matrices" {
                 Image("matrizen")
                     .resizable()
                     .scaledToFit()
@@ -338,7 +446,7 @@ struct TopicCard: View {
                             )
                     )
                     .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
-            } else if topic.title == "Vektorräume" {
+            } else if topic.title == "Vektorräume" || topic.title == "Vector Spaces" {
                 Image("vektor")
                     .resizable()
                     .scaledToFit()
@@ -356,7 +464,7 @@ struct TopicCard: View {
                             )
                     )
                     .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
-            } else if topic.title == "Lineare Abbildungen" {
+            } else if topic.title == "Lineare Abbildungen" || topic.title == "Linear Mappings" {
                 Image("abbildung")
                     .resizable()
                     .scaledToFit()
@@ -374,7 +482,7 @@ struct TopicCard: View {
                             )
                     )
                     .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
-            } else if topic.title == "Determinanten" {
+            } else if topic.title == "Determinanten" || topic.title == "Determinants" {
                 Image("determinante")
                     .resizable()
                     .scaledToFit()
@@ -392,7 +500,7 @@ struct TopicCard: View {
                             )
                     )
                     .shadow(color: .blue.opacity(0.3), radius: 5, x: 0, y: 2)
-            } else if topic.title == "Eigenwerte und Eigenvektoren" {
+            } else if topic.title == "Eigenwerte und Eigenvektoren" || topic.title == "Eigenvalues and Eigenvectors" {
                 Image("eigenwerte")
                     .resizable()
                     .scaledToFit()
@@ -500,8 +608,11 @@ struct ExercisesView: View {
                             selectedDifficulty = difficulty
                         }
                     }) {
-                        Text(difficulty == "easy" ? "Leicht" : 
-                             difficulty == "medium" ? "Mittel" : "Schwer")
+                        Text(SettingsModel.shared.language == .english ? 
+                             (difficulty == "easy" ? "Easy" : 
+                              difficulty == "medium" ? "Medium" : "Hard") :
+                             (difficulty == "easy" ? "Leicht" : 
+                              difficulty == "medium" ? "Mittel" : "Schwer"))
                             .font(.headline)
                             .foregroundColor(.white)
                             .padding(.horizontal, 20)
@@ -524,7 +635,7 @@ struct ExercisesView: View {
                     .scaleEffect(1.5)
             } else if let error = error {
                 VStack {
-                    Text("Fehler beim Laden der Übungen")
+                    Text(SettingsModel.shared.language == .english ? "Error loading exercises" : "Fehler beim Laden der Übungen")
                         .font(.headline)
                         .foregroundColor(.red)
                     Text(error.localizedDescription)
@@ -556,7 +667,7 @@ struct ExercisesView: View {
                                                 Image(systemName: "lock.fill")
                                                     .font(.system(size: 30))
                                                     .foregroundColor(.blue)
-                                                Text("Pro freischalten")
+                                                Text(SettingsModel.shared.language == .english ? "Unlock Pro" : "Pro freischalten")
                                                     .font(.headline)
                                                     .foregroundColor(.blue)
                                             }
@@ -576,13 +687,17 @@ struct ExercisesView: View {
                 }
             } else {
                 Spacer()
-                Text("Bitte wählen Sie einen Schwierigkeitsgrad aus")
+                Text(SettingsModel.shared.language == .english ? 
+                     "Please select a difficulty level" : 
+                     "Bitte wählen Sie einen Schwierigkeitsgrad aus")
                     .foregroundColor(.gray)
                     .font(.headline)
                 Spacer()
             }
         }
-        .navigationTitle("Übungen: \(topic.title)")
+        .navigationTitle(SettingsModel.shared.language == .english ? 
+                         "Exercises: \(topic.title)" : 
+                         "Übungen: \(topic.title)")
         .navigationBarTitleDisplayMode(.large)
         .sheet(isPresented: $showProSheet) {
             if UIDevice.current.userInterfaceIdiom == .pad {
@@ -605,64 +720,128 @@ struct ExercisesView: View {
             let fileName: String
             
             switch topic.title {
-            case "Mengen und Abbildungen":
+            case "Mengen und Abbildungen", "Sets and Mappings":
                 fileName = "mengen_und_abbildungen"
-            case "Logik":
+            case "Logik", "Logic":
                 fileName = "logik"
-            case "Vollständige Induktion":
+            case "Vollständige Induktion", "Mathematical Induction":
                 fileName = "vollstaendige_induktion"
-            case "Binomische Formeln":
+            case "Binomische Formeln", "Binomial Formulas":
                 fileName = "binomische_formeln"
-            case "Größter gemeinsamer Teiler":
+            case "Größter gemeinsamer Teiler", "Greatest Common Divisor":
                 fileName = "groesster_gemeinsamer_teiler"
-            case "Gruppen":
+            case "Gruppen", "Groups":
                 fileName = "gruppen"
-            case "Ringe":
+            case "Ringe", "Rings":
                 fileName = "ringe"
-            case "Körper":
+            case "Körper", "Fields":
                 fileName = "koerper"
-            case "Komplexe Zahlen":
+            case "Komplexe Zahlen", "Complex Numbers":
                 fileName = "komplexe_zahlen"
-            case "Folgen und Reihen":
-                
-//Analysis
+            case "Folgen und Reihen", "Sequences and Series":
                 fileName = "folgen_und_reihen"
-            case "Grenzwerte":
+            case "Grenzwerte", "Limits":
                 fileName = "grenzwerte"
-            case "Differentialrechnung":
+            case "Differentialrechnung", "Differential Calculus":
                 fileName = "differentialrechnung"
-            case "Integralrechnung":
+            case "Integralrechnung", "Integral Calculus":
                 fileName = "integralrechnung"
-            case "Mehrdimensionale Analysis":
+            case "Mehrdimensionale Analysis", "Multidimensional Calculus":
                 fileName = "mehrdimensionale_analysis"
-            case "Matrizen":
-//Lineare algebra
+            case "Matrizen", "Matrices":
                 fileName = "matrizen"
-            case "Vektorräume":
+            case "Vektorräume", "Vector Spaces":
                 fileName = "vektorraeume"
-            case "Determinanten":
+            case "Determinanten", "Determinants":
                 fileName = "determinanten"
-            case "Lineare Abbildungen":
+            case "Lineare Abbildungen", "Linear Mappings":
                 fileName = "lineare_abbildungen"
-            case "Eigenwerte und Eigenvektoren":
+            case "Eigenwerte", "Eigenvalues", "Eigenwerte und Eigenvektoren", "Eigenvalues and Eigenvectors":
                 fileName = "eigenwerte"
             default:
-                error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Keine passende JSON-Datei für das Thema gefunden"])
+                let errorMessage = SettingsModel.shared.language == .english ? 
+                    "No matching JSON file found for this topic" : 
+                    "Keine passende JSON-Datei für das Thema gefunden"
+                error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: errorMessage])
                 isLoading = false
                 return
             }
             
-            if let fileURL = Bundle.main.url(forResource: fileName, withExtension: "json") {
-                let data = try Data(contentsOf: fileURL)
-                let response = try JSONDecoder().decode(ExercisesResponse.self, from: data)
-                allExercises = response.exercises
-                exercises = allExercises
-                isLoading = false
-            } else {
-                error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "JSON-Datei nicht gefunden"])
-                isLoading = false
+            // Determine language folder and file name
+            let language = SettingsModel.shared.language
+            let langFolder = language == .english ? "en" : "de"
+            
+            // For English, use the _en suffix; for German, use the base name
+            let localizedFileName = language == .english ? fileName + "_en" : fileName
+            
+            print("🔍 EXERCISE DEBUG: Current language: \(language.rawValue)")
+            print("🔍 EXERCISE DEBUG: Looking for file: \(localizedFileName).json in folder aufgaben/\(langFolder)")
+            
+            // We'll try loading files in this order:
+            // 1. First try specific language folder with correct filename convention
+            // 2. Then try specific language folder with any filename
+            // 3. Then try the root aufgaben folder
+            // 4. Finally, try the root bundle
+            
+            var fileURL: URL?
+            
+            // 1. Try with language-specific filename in language subfolder
+            if let url = Bundle.main.url(forResource: localizedFileName, withExtension: "json", subdirectory: "aufgaben/\(langFolder)") {
+                print("🔍 EXERCISE DEBUG: Found file with language suffix in language folder: \(url.path)")
+                fileURL = url
             }
+            // 2. Try with base filename in language subfolder (fallback for either language)
+            else if let url = Bundle.main.url(forResource: fileName, withExtension: "json", subdirectory: "aufgaben/\(langFolder)") {
+                print("🔍 EXERCISE DEBUG: Found base filename in language folder: \(url.path)")
+                fileURL = url
+            }
+            // 3. Try in the root aufgaben folder with language suffix
+            else if let url = Bundle.main.url(forResource: localizedFileName, withExtension: "json", subdirectory: "aufgaben") {
+                print("🔍 EXERCISE DEBUG: Found file with language suffix in root aufgaben folder: \(url.path)")
+                fileURL = url
+            }
+            // 4. Try in the root aufgaben folder with base filename
+            else if let url = Bundle.main.url(forResource: fileName, withExtension: "json", subdirectory: "aufgaben") {
+                print("🔍 EXERCISE DEBUG: Found base filename in root aufgaben folder: \(url.path)")
+                fileURL = url
+            }
+            // 5. Try in the root bundle
+            else if let url = Bundle.main.url(forResource: localizedFileName, withExtension: "json") {
+                print("🔍 EXERCISE DEBUG: Found file with language suffix in root bundle: \(url.path)")
+                fileURL = url
+            }
+            else if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
+                print("🔍 EXERCISE DEBUG: Found base filename in root bundle: \(url.path)")
+                fileURL = url
+            }
+            
+            // If no file was found, show an error
+            guard let foundURL = fileURL else {
+                let errorMessage = SettingsModel.shared.language == .english ? 
+                    "Exercise file not found" : 
+                    "Übungsdatei nicht gefunden"
+                print("🔍 EXERCISE DEBUG: No exercise file found for \(fileName) in any location")
+                error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                isLoading = false
+                return
+            }
+            
+            print("🔍 EXERCISE DEBUG: Loading exercise file from: \(foundURL.path)")
+            
+            let data = try Data(contentsOf: foundURL)
+            let response = try JSONDecoder().decode(ExercisesResponse.self, from: data)
+            allExercises = response.exercises
+            
+            print("🔍 EXERCISE DEBUG: Successfully loaded \(allExercises.count) exercises")
+            if let firstExercise = allExercises.first {
+                print("🔍 EXERCISE DEBUG: First exercise title: \(firstExercise.title)")
+            }
+            
+            exercises = allExercises
+            isLoading = false
+            
         } catch {
+            print("🔍 EXERCISE DEBUG: Error loading file: \(error)")
             self.error = error
             isLoading = false
         }
@@ -792,7 +971,9 @@ struct ProgressHeader: View {
                 .transition(.opacity.combined(with: .scale))
             }
             
-            Text("Schritt \(currentStep + 1) von \(totalSteps)")
+            Text(SettingsModel.shared.language == .english ? 
+                 "Step \(currentStep + 1) of \(totalSteps)" : 
+                 "Schritt \(currentStep + 1) von \(totalSteps)")
                 .font(.subheadline)
                 .foregroundColor(.gray)
                 .transition(.opacity.combined(with: .scale))
@@ -807,6 +988,8 @@ struct ExplanationContent: View {
     let step: InteractiveExampleStep
     let showCurrentStep: Bool
     @State private var formulaHeight: CGFloat = 50
+    @Environment(\.locale) private var locale
+    @ObservedObject private var settings = SettingsModel.shared
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -898,7 +1081,10 @@ struct ContinueButton: View {
             }
         }) {
             HStack {
-                Text(currentStep < totalSteps - 1 ? "Weiter" : "Zurück zur Übersicht")
+                let language = SettingsModel.shared.language
+                Text(currentStep < totalSteps - 1 ? 
+                    (language == .english ? "Continue" : "Weiter") : 
+                    (language == .english ? "Back to Overview" : "Zurück zur Übersicht"))
                 Image(systemName: currentStep < totalSteps - 1 ? "arrow.right" : "arrow.left")
             }
             .font(.headline)
@@ -1050,58 +1236,180 @@ struct InteractiveLearningView: View {
     }
     
     private func loadExample() {
-        let fileName = normalizedFileName(from: topic.title) + "_beispiel"
-        print("Versuche Datei zu laden: \(fileName).json")
+        let language = SettingsModel.shared.language
+        let langFolder = language == .english ? "en" : "de"
         
-        if let fileURL = Bundle.main.url(forResource: fileName, withExtension: "json", subdirectory: "beispiele") {
-            print("Datei gefunden in beispiele/\(fileName).json")
-            do {
-                let data = try Data(contentsOf: fileURL)
-                print("Daten erfolgreich geladen, Größe: \(data.count) bytes")
-                example = try JSONDecoder().decode(InteractiveExample.self, from: data)
-                print("JSON erfolgreich dekodiert")
-                isLoading = false
-                
-                withAnimation(.easeOut(duration: 0.5).delay(0.3)) {
-                    showProgress = true
-                }
-                
-                withAnimation(.spring(response: 0.6, dampingFraction: 0.7).delay(0.6)) {
-                    showCurrentStep = true
-                }
-            } catch {
-                print("Fehler beim Laden/Dekodieren: \(error)")
-                self.error = error
-                isLoading = false
-            }
-        } else if let fileURL = Bundle.main.url(forResource: fileName, withExtension: "json") {
-            print("Datei gefunden im Hauptverzeichnis: \(fileName).json")
-            do {
-                let data = try Data(contentsOf: fileURL)
-                print("Daten erfolgreich geladen, Größe: \(data.count) bytes")
-                example = try JSONDecoder().decode(InteractiveExample.self, from: data)
-                print("JSON erfolgreich dekodiert")
-                isLoading = false
-                
-                withAnimation(.easeOut(duration: 0.5).delay(0.3)) {
-                    showProgress = true
-                }
-                
-                withAnimation(.spring(response: 0.6, dampingFraction: 0.7).delay(0.6)) {
-                    showCurrentStep = true
-                }
-            } catch {
-                print("Fehler beim Laden/Dekodieren: \(error)")
-                self.error = error
-                isLoading = false
+        // For debugging
+        print("📘 DEBUG: Current topic title: '\(topic.title)'")
+        
+        // Convert the topic title to a filename based on language
+        var fileName: String
+        
+        // English topic names need special mapping
+        if language == .english {
+            // Map English topic titles to their correct filenames
+            switch topic.title {
+            case "Sets and Mappings":
+                fileName = "sets_and_mappings"
+            case "Logic":
+                fileName = "logic"
+            case "Mathematical Induction":
+                fileName = "mathematical_induction"
+            case "Binomial Formulas":
+                fileName = "binomial_formulas"
+            case "Greatest Common Divisor":
+                fileName = "greatest_common_divisor"
+            case "Groups":
+                fileName = "groups"
+            case "Rings":
+                fileName = "rings"
+            case "Fields":
+                fileName = "fields"
+            case "Complex Numbers":
+                fileName = "complex_numbers"
+            case "Sequences and Series":
+                fileName = "sequences_and_series"
+            case "Limits":
+                fileName = "limits"
+            case "Differential Calculus":
+                fileName = "differential_calculus"
+            case "Integral Calculus":
+                fileName = "integral_calculus"
+            case "Multidimensional Calculus":
+                fileName = "multidimensional_calculus"
+            case "Matrices":
+                fileName = "matrices"
+            case "Vector Spaces":
+                fileName = "vector_spaces"
+            case "Determinants":
+                fileName = "determinants"
+            case "Linear Mappings":
+                fileName = "linear_mappings"
+            case "Eigenvalues and Eigenvectors":
+                fileName = "eigenvalues_and_eigenvectors"
+            default:
+                // Fallback to normalized name if not in the map
+                fileName = normalizedFileName(from: topic.title)
             }
         } else {
-            print("Datei nicht gefunden: \(fileName).json")
-            error = NSError(domain: "", code: -1, userInfo: [
-                NSLocalizedDescriptionKey: "Beispieldatei nicht gefunden: \(fileName).json"
-            ])
+            // German topics - use the normalized title
+            if topic.title == "Determinanten" {
+                fileName = "determinanten" // Ensure correct German filename
+            } else {
+                fileName = normalizedFileName(from: topic.title)
+            }
+        }
+        
+        // Always append "_beispiel" to match the file naming convention
+        fileName = fileName + "_beispiel"
+        print("📘 DEBUG: Final filename: '\(fileName).json'")
+        
+        // Try several approaches to load the file
+        
+        // First try to load from language-specific folder
+        let path1 = "beispiele/\(langFolder)/\(fileName).json"
+        let path2 = "beispiele/\(fileName).json"
+        let path3 = "\(fileName).json"
+        
+        print("📘 DEBUG: Trying to load from: \(path1)")
+        
+        // Approach 1: Try language-specific folder
+        if let fileURL = Bundle.main.url(forResource: fileName, withExtension: "json", subdirectory: "beispiele/\(langFolder)") {
+            print("📘 DEBUG: Found file at path1: \(fileURL)")
+            loadExampleFromURL(fileURL)
+        }
+        // Approach 2: Try with _fixed suffix (temporary fix for encoding issues)
+        else if language == .english, let fileURL = Bundle.main.url(forResource: fileName + "_fixed", withExtension: "json", subdirectory: "beispiele/\(langFolder)") {
+            print("📘 DEBUG: Found file with _fixed suffix: \(fileURL)")
+            loadExampleFromURL(fileURL)
+        }
+        // Approach 3: Try root beispiele folder
+        else if let fileURL = Bundle.main.url(forResource: fileName, withExtension: "json", subdirectory: "beispiele") {
+            print("📘 DEBUG: Found file at path2: \(fileURL)")
+            loadExampleFromURL(fileURL)
+        }
+        // Approach 4: Try root bundle
+        else if let fileURL = Bundle.main.url(forResource: fileName, withExtension: "json") {
+            print("📘 DEBUG: Found file at path3: \(fileURL)")
+            loadExampleFromURL(fileURL)
+        }
+        // Approach 5: Direct file path (last resort)
+        else {
+            let bundlePath = Bundle.main.bundlePath
+            let filePath = bundlePath + "/beispiele/\(langFolder)/\(fileName).json"
+            
+            if FileManager.default.fileExists(atPath: filePath) {
+                print("📘 DEBUG: Found file using direct path: \(filePath)")
+                do {
+                    let data = try Data(contentsOf: URL(fileURLWithPath: filePath))
+                    do {
+                        example = try JSONDecoder().decode(InteractiveExample.self, from: data)
+                        print("📘 DEBUG: Successfully decoded example")
+                        isLoading = false
+                        
+                        withAnimation(.easeOut(duration: 0.5).delay(0.3)) {
+                            showProgress = true
+                        }
+                        
+                        withAnimation(.spring(response: 0.6, dampingFraction: 0.7).delay(0.6)) {
+                            showCurrentStep = true
+                        }
+                    } catch {
+                        print("📘 DEBUG: JSON decode error: \(error)")
+                        self.error = error
+                        isLoading = false
+                    }
+                } catch {
+                    handleExampleNotFound(fileName: fileName, language: language)
+                }
+            } else {
+                handleExampleNotFound(fileName: fileName, language: language)
+            }
+        }
+    }
+    
+    // Helper method to load and decode an example from a URL
+    private func loadExampleFromURL(_ fileURL: URL) {
+        do {
+            let data = try Data(contentsOf: fileURL)
+            print("Daten erfolgreich geladen, Größe: \(data.count) bytes")
+            
+            do {
+                example = try JSONDecoder().decode(InteractiveExample.self, from: data)
+                print("JSON erfolgreich dekodiert")
+                isLoading = false
+                
+                withAnimation(.easeOut(duration: 0.5).delay(0.3)) {
+                    showProgress = true
+                }
+                
+                withAnimation(.spring(response: 0.6, dampingFraction: 0.7).delay(0.6)) {
+                    showCurrentStep = true
+                }
+            } catch {
+                print("📘 DEBUG: JSON decode error: \(error)")
+                self.error = error
+                isLoading = false
+            }
+        } catch {
+            print("Fehler beim Laden/Dekodieren: \(error)")
+            self.error = error
             isLoading = false
         }
+    }
+    
+    // Helper method to handle file not found
+    private func handleExampleNotFound(fileName: String, language: AppLanguage) {
+        print("Datei nicht gefunden: \(fileName).json in keinem Verzeichnis")
+        print("📘 DEBUG: File not found in any location")
+        
+        let errorMessage = language == .english ? 
+            "Example file not found: \(fileName).json" : 
+            "Beispieldatei nicht gefunden: \(fileName).json"
+        error = NSError(domain: "", code: -1, userInfo: [
+            NSLocalizedDescriptionKey: errorMessage
+        ])
+        isLoading = false
     }
 }
 
@@ -1160,7 +1468,7 @@ struct TopicDetailView: View {
                     NavigationLink(destination: InteractiveLearningView(topic: topic)) {
                         HStack {
                             Image(systemName: "brain.head.profile")
-                            Text("Schritt für Schritt Erklärung")
+                            Text(SettingsModel.shared.language == .english ? "Step by Step Explanation" : "Schritt für Schritt Erklärung")
                         }
                         .font(.headline)
                         .foregroundColor(.white)

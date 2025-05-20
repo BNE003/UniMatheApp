@@ -1,0 +1,180 @@
+{
+    "id": "aa0e8400-e29b-41d4-a716-446655440031",
+    "topic": "Limits",
+    "steps": [
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440032",
+            "text": "The limit of a sequence describes its behavior for large n.",
+            "formula": "\\lim_{n \\to \\infty} a_n = a \\quad \\Leftrightarrow \\quad \\forall \\varepsilon > 0 \\, \\exists N \\in \\mathbb{N} \\, \\forall n \\geq N: |a_n - a| < \\varepsilon",
+            "explanation": "The limit of a sequence is like a target that the sequence gets closer and closer to. It’s like a point you never fully reach but can get arbitrarily close to!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440033",
+            "text": "The limit of a function as x approaches a value a.",
+            "formula": "\\lim_{x \\to a} f(x) = L \\quad \\Leftrightarrow \\quad \\forall \\varepsilon > 0 \\, \\exists \\delta > 0 \\, \\forall x: 0 < |x-a| < \\delta \\Rightarrow |f(x)-L| < \\varepsilon",
+            "explanation": "The limit of a function describes its behavior near a point. It’s like observing a function through an increasingly powerful microscope!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440034",
+            "text": "One-sided limits examine behavior from the left and right.",
+            "formula": "\\lim_{x \\to a^-} f(x) \\quad \\text{and} \\quad \\lim_{x \\to a^+} f(x)",
+            "explanation": "One-sided limits are like looking at a function from two different sides. It’s like approaching a wall from the left and right!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440035",
+            "text": "Limits at infinity describe behavior for large x.",
+            "formula": "\\lim_{x \\to \\infty} f(x) \\quad \\text{and} \\quad \\lim_{x \\to -\\infty} f(x)",
+            "explanation": "Limits at infinity are like observing a function from a great distance. It’s like watching a path disappear into the horizon!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440036",
+            "text": "Limit theorems for sums and products.",
+            "formula": "\\begin{align*} \\lim (f + g) &= \\lim f + \\lim g \\\\ \\lim (f \\cdot g) &= \\lim f \\cdot \\lim g \\end{align*}",
+            "explanation": "Limit theorems allow us to compute limits. It’s like breaking down a complex problem into simpler parts!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440037",
+            "text": "The Sandwich Theorem (Squeeze Theorem) for limits.",
+            "formula": "\\text{If } f(x) \\leq g(x) \\leq h(x) \\text{ and } \\lim f(x) = \\lim h(x) = L, \\text{ then } \\lim g(x) = L",
+            "explanation": "The Sandwich Theorem is like squeezing a function between two others. It’s like trapping a function between two boundaries!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440038",
+            "text": "Indeterminate forms require special treatment.",
+            "formula": "\\frac{0}{0}, \\quad \\frac{\\infty}{\\infty}, \\quad 0 \\cdot \\infty, \\quad \\infty - \\infty, \\quad 0^0, \\quad \\infty^0, \\quad 1^\\infty",
+            "explanation": "Indeterminate forms are like mathematical puzzles that need special solutions. It’s like solving a tricky riddle!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440039",
+            "text": "L'Hôpital's Rule for indeterminate forms.",
+            "formula": "\\lim_{x \\to a} \\frac{f(x)}{g(x)} = \\lim_{x \\to a} \\frac{f'(x)}{g'(x)}",
+            "explanation": "L'Hôpital’s Rule is like a magic trick for indeterminate forms. It’s like transforming a difficult problem into a simpler one!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440040",
+            "text": "The relationship between limits of sequences and functions.",
+            "formula": "\\lim_{x \\to a} f(x) = L \\quad \\Leftrightarrow \\quad \\lim_{n \\to \\infty} f(x_n) = L \\text{ for all sequences } (x_n) \\text{ with } \\lim_{n \\to \\infty} x_n = a",
+            "explanation": "This relationship shows that limits of functions and sequences are closely related. It’s like viewing the same phenomenon from different perspectives!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440041",
+            "text": "Limits of power functions.",
+            "formula": "\\lim_{x \\to \\infty} x^n = \\begin{cases} \\infty & \\text{for } n > 0 \\\\ 1 & \\text{for } n = 0 \\\\ 0 & \\text{for } n < 0 \\end{cases}",
+            "explanation": "Power functions behave differently at infinity. It’s like observing different growth rates!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440042",
+            "text": "Limits of exponential functions.",
+            "formula": "\\lim_{x \\to \\infty} e^x = \\infty, \\quad \\lim_{x \\to -\\infty} e^x = 0",
+            "explanation": "The exponential function grows faster than any power function. It’s like a race where the exponential function always wins!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440043",
+            "text": "Limits of logarithmic functions.",
+            "formula": "\\lim_{x \\to \\infty} \\ln x = \\infty, \\quad \\lim_{x \\to 0^+} \\ln x = -\\infty",
+            "explanation": "The logarithm grows slower than any power function. It’s like a slow but steady climb!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440044",
+            "text": "Limits of trigonometric functions.",
+            "formula": "\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1, \\quad \\lim_{x \\to 0} \\frac{1-\\cos x}{x} = 0",
+            "explanation": "Trigonometric functions have interesting limits at 0. It’s like observing oscillations near the origin!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440045",
+            "text": "Limits of hyperbolic functions.",
+            "formula": "\\lim_{x \\to \\infty} \\sinh x = \\infty, \\quad \\lim_{x \\to \\infty} \\cosh x = \\infty",
+            "explanation": "Hyperbolic functions grow exponentially. It’s like observing functions that grow faster and faster!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440046",
+            "text": "Limits of inverse trigonometric functions.",
+            "formula": "\\lim_{x \\to \\infty} \\arctan x = \\frac{\\pi}{2}, \\quad \\lim_{x \\to -\\infty} \\arctan x = -\\frac{\\pi}{2}",
+            "explanation": "Inverse trigonometric functions have finite limits at infinity. It’s like observing functions approaching a fixed value!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440047",
+            "text": "Limits of inverse hyperbolic functions.",
+            "formula": "\\lim_{x \\to \\infty} \\text{arsinh } x = \\infty, \\quad \\lim_{x \\to \\infty} \\text{arcosh } x = \\infty",
+            "explanation": "Inverse hyperbolic functions grow logarithmically. It’s like observing functions that grow slowly but steadily!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440048",
+            "text": "Limits of quotients of polynomials.",
+            "formula": "\\lim_{x \\to \\infty} \\frac{a_n x^n + ... + a_0}{b_m x^m + ... + b_0} = \\begin{cases} \\frac{a_n}{b_m} & \\text{for } n = m \\\\ 0 & \\text{for } n < m \\\\ \\pm \\infty & \\text{for } n > m \\end{cases}",
+            "explanation": "Limits of polynomial quotients depend on the ratio of the highest powers. It’s like comparing growth rates!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440049",
+            "text": "Limits of root functions.",
+            "formula": "\\lim_{x \\to \\infty} \\sqrt[n]{x} = \\infty, \\quad \\lim_{x \\to 0^+} \\sqrt[n]{x} = 0",
+            "explanation": "Root functions grow slower than linear functions. It’s like observing functions that slowly approach infinity!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440050",
+            "text": "Limits of powers with variable base.",
+            "formula": "\\lim_{x \\to \\infty} (1 + \\frac{1}{x})^x = e",
+            "explanation": "This limit relation leads to Euler’s number. It’s like discovering a magical number in mathematics!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440051",
+            "text": "Limits of products with variable factors.",
+            "formula": "\\lim_{x \\to 0} \\frac{\\sin x}{x} \\cdot \\frac{1-\\cos x}{x} = 0",
+            "explanation": "Limits of products can be determined by the limits of their factors. It’s like breaking down a complex problem!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440052",
+            "text": "Limits of differences.",
+            "formula": "\\lim_{x \\to \\infty} (\\sqrt{x+1} - \\sqrt{x}) = 0",
+            "explanation": "Limits of differences can be computed through transformations. It’s like simplifying a complicated expression!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440053",
+            "text": "Limits of quotients with roots.",
+            "formula": "\\lim_{x \\to \\infty} \\frac{\\sqrt{x^2+1} - x}{x} = 0",
+            "explanation": "Limits of quotients with roots often require clever transformations. It’s like solving a mathematical puzzle!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440054",
+            "text": "Limits of functions with absolute value.",
+            "formula": "\\lim_{x \\to 0} \\frac{|x|}{x} \\text{ does not exist}",
+            "explanation": "Functions with absolute value can behave differently from the left and right. It’s like observing a function at a corner!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440055",
+            "text": "Limits of functions with jump discontinuities.",
+            "formula": "\\lim_{x \\to 0} \\text{sgn}(x) \\text{ does not exist}",
+            "explanation": "Functions with jump discontinuities often have no limit at the jump. It’s like observing a function at an edge!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440056",
+            "text": "Limits of functions with poles.",
+            "formula": "\\lim_{x \\to 0} \\frac{1}{x} = \\infty",
+            "explanation": "Functions with poles often have infinite limits. It’s like observing a function that grows beyond all bounds!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440057",
+            "text": "Limits of functions with removable discontinuities.",
+            "formula": "\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1",
+            "explanation": "Removable discontinuities can be resolved through limits. It’s like patching a hole in a function!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440058",
+            "text": "Limits of functions with oscillatory behavior.",
+            "formula": "\\lim_{x \\to \\infty} \\sin x \\text{ does not exist}",
+            "explanation": "Functions with oscillatory behavior often have no limit. It’s like observing a function that constantly swings back and forth!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440059",
+            "text": "Limits of functions with asymptotic behavior.",
+            "formula": "\\lim_{x \\to \\infty} \\frac{x^2+1}{x} = \\infty",
+            "explanation": "Functions can approach a line asymptotically. It’s like observing a function nearing a boundary!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440060",
+            "text": "Finally, let’s look at how limits are used in physics.",
+            "formula": "\\text{Limits are used to describe instantaneous rates of change}",
+            "explanation": "In physics, limits help us understand velocities and accelerations. It’s like translating mathematical concepts into the language of nature!"
+        }
+    ]
+}

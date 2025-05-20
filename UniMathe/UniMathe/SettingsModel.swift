@@ -3,8 +3,26 @@ import SwiftUI
 import Combine
 import StoreKit
 
+enum AppLanguage: String, CaseIterable, Codable {
+    case german = "de"
+    case english = "en"
+    
+    var displayName: String {
+        switch self {
+        case .german: return "Deutsch"
+        case .english: return "English"
+        }
+    }
+}
+
 class SettingsModel: ObservableObject {
     static let shared = SettingsModel()
+    
+    @Published var language: AppLanguage {
+        didSet {
+            UserDefaults.standard.set(language.rawValue, forKey: "appLanguage")
+        }
+    }
     
     @Published var isDarkModeEnabled: Bool {
         didSet {
@@ -40,6 +58,13 @@ class SettingsModel: ObservableObject {
     
     private init() {
         // Load saved settings or use defaults
+        if let savedLanguage = UserDefaults.standard.string(forKey: "appLanguage"),
+           let language = AppLanguage(rawValue: savedLanguage) {
+            self.language = language
+        } else {
+            self.language = .german // Default language
+        }
+        
         self.isDarkModeEnabled = UserDefaults.standard.bool(forKey: "isDarkModeEnabled")
         self.useLargeText = UserDefaults.standard.bool(forKey: "useLargeText")
         self.notificationsEnabled = UserDefaults.standard.bool(forKey: "notificationsEnabled")

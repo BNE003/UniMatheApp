@@ -1,0 +1,120 @@
+{
+  "topics": [
+    {
+      "id": "1",
+      "title": "Foundations of Higher Mathematics",
+      "filename": "grundlagen_der_hoeheren_mathematik_content_en.json",
+      "subTopics": [
+        {
+          "id": "1.1",
+          "title": "Sets and Mappings",
+          "filename": "mengen_und_abbildungen_content_en.json"
+        },
+        {
+          "id": "1.2",
+          "title": "Logic",
+          "filename": "logik_content_en.json"
+        },
+        {
+          "id": "1.3",
+          "title": "Mathematical Induction",
+          "filename": "vollstaendige_induktion_content_en.json"
+        },
+        {
+          "id": "1.4",
+          "title": "Binomial Formulas",
+          "filename": "binomische_formeln_content_en.json"
+        },
+        {
+          "id": "1.5",
+          "title": "Greatest Common Divisor",
+          "filename": "groesster_gemeinsamer_teiler_content_en.json"
+        },
+        {
+          "id": "1.6",
+          "title": "Groups",
+          "filename": "gruppen_content_en.json"
+        },
+        {
+          "id": "1.7",
+          "title": "Rings",
+          "filename": "ringe_content_en.json"
+        },
+        {
+          "id": "1.8",
+          "title": "Fields",
+          "filename": "koerper_content_en.json"
+        },
+        {
+          "id": "1.9",
+          "title": "Complex Numbers",
+          "filename": "komplexe_zahlen_content_en.json"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Analysis",
+      "filename": "analysis_content_en.json",
+      "subTopics": [
+        {
+          "id": "2.1",
+          "title": "Sequences and Series",
+          "filename": "folgen_und_reihen_content_en.json"
+        },
+        {
+          "id": "2.2",
+          "title": "Limits",
+          "filename": "grenzwerte_content_en.json"
+        },
+        {
+          "id": "2.3",
+          "title": "Differential Calculus",
+          "filename": "differentialrechnung_content_en.json"
+        },
+        {
+          "id": "2.4",
+          "title": "Integral Calculus",
+          "filename": "integralrechnung_content_en.json"
+        },
+        {
+          "id": "2.5",
+          "title": "Multidimensional Analysis",
+          "filename": "mehrdimensionale_analysis_content_en.json"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Linear Algebra",
+      "filename": "lineare_algebra_content_en.json",
+      "subTopics": [
+        {
+          "id": "3.1",
+          "title": "Vector Spaces",
+          "filename": "vektorraeume_content_en.json"
+        },
+        {
+          "id": "3.2",
+          "title": "Matrices",
+          "filename": "matrizen_content_en.json"
+        },
+        {
+          "id": "3.3",
+          "title": "Linear Mappings",
+          "filename": "lineare_abbildungen_content_en.json"
+        },
+        {
+          "id": "3.4",
+          "title": "Determinants",
+          "filename": "determinanten_content_en.json"
+        },
+        {
+          "id": "3.5",
+          "title": "Eigenvalues and Eigenvectors",
+          "filename": "eigenwerte_und_eigenvektoren_content_en.json"
+        }
+      ]
+    }
+  ]
+}

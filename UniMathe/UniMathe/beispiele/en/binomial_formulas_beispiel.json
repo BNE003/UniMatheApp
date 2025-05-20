@@ -1,0 +1,12 @@
+{
+    "id": "dd0e8400-e29b-41d4-a716-446655440800",
+    "topic": "Binomial Formulas",
+    "steps": [
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440801",
+            "text": "Binomial formulas are algebraic expressions for the expansion of powers of binomials.",
+            "formula": "(a + b)^2 = a^2 + 2ab + b^2",
+            "explanation": "This is the first binomial formula, showing that the square of a sum equals the sum of squares plus twice the product of the terms."
+        }
+    ]
+} 

@@ -1,0 +1,36 @@
+{
+    "id": "dd0e8400-e29b-41d4-a716-446655440100",
+    "topic": "Sets and Mappings",
+    "steps": [
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440101",
+            "text": "Hello! Today we're exploring sets and mappings - fundamental concepts in mathematics. A set is a collection of distinct objects, and a mapping (or function) defines a relationship between sets.",
+            "formula": "f: X \\rightarrow Y",
+            "explanation": "This notation means 'f is a mapping from set X to set Y'. For each element x in X, the mapping f assigns exactly one element y in Y."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440102",
+            "text": "Let's look at a simple example of a set. A set can be defined by listing its elements inside curly braces.",
+            "formula": "A = \\{1, 2, 3, 4, 5\\}",
+            "explanation": "Set A contains the numbers 1 through 5. Sets have no specific order and don't contain duplicates. So {1,2,3} is the same set as {3,1,2}."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440103",
+            "text": "Now let's define a simple mapping. We'll create a function from set A to the set of even numbers.",
+            "formula": "f: A \\rightarrow \\mathbb{Z}, f(x) = 2x",
+            "explanation": "This function takes each number from set A and multiplies it by 2, resulting in the even numbers {2,4,6,8,10}."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440104",
+            "text": "An important property of mappings is whether they're injective (one-to-one). A mapping is injective if different inputs always produce different outputs.",
+            "formula": "f \\text{ is injective} \\iff f(x_1) = f(x_2) \\Rightarrow x_1 = x_2",
+            "explanation": "Our function f(x) = 2x is injective because if f(x₁) = f(x₂), then 2x₁ = 2x₂, which means x₁ = x₂."
+        },
+        {
+            "id": "dd0e8400-e29b-41d4-a716-446655440105",
+            "text": "Another important property is surjectivity (onto). A mapping is surjective if every element in the target set is reached by the mapping.",
+            "formula": "f \\text{ is surjective} \\iff \\forall y \\in Y, \\exists x \\in X: f(x) = y",
+            "explanation": "If we define our mapping as f: A → {2,4,6,8,10}, then f is surjective because every element in the target set is reached."
+        }
+    ]
+} 

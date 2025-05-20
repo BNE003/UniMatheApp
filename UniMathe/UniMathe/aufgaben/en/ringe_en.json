@@ -1,0 +1,420 @@
+{
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Rings",
+            "title": "Check Ring Axioms for Algebraic Numbers",
+            "description": "Check whether the set $\\mathbb{Z}[\\sqrt{2}] = \\{a + b\\sqrt{2} \\mid a,b \\in \\mathbb{Z}\\}$ with the usual addition and multiplication forms a ring. Show that it is a commutative ring with unity and investigate whether every element has a multiplicative inverse.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Check the ring axioms\nThe set $\\mathbb{Z}[\\sqrt{2}]$ is closed under addition and multiplication, since for $a + b\\sqrt{2}, c + d\\sqrt{2} \\in \\mathbb{Z}[\\sqrt{2}]$:\n$(a + b\\sqrt{2}) + (c + d\\sqrt{2}) = (a+c) + (b+d)\\sqrt{2} \\in \\mathbb{Z}[\\sqrt{2}]$\n$(a + b\\sqrt{2}) \\cdot (c + d\\sqrt{2}) = (ac + 2bd) + (ad + bc)\\sqrt{2} \\in \\mathbb{Z}[\\sqrt{2}]$",
+                "Step 2: Group structure of addition\n$(\\mathbb{Z}[\\sqrt{2}], +)$ is an abelian group: The neutral element is $0$, the inverse of $a + b\\sqrt{2}$ is $-a - b\\sqrt{2}$, associativity and commutativity follow from $\\mathbb{R}$.",
+                "Step 3: Multiplication\nThe neutral element is $1 = 1 + 0\\sqrt{2}$. Multiplication is associative and commutative, as it is inherited from $\\mathbb{R}$.",
+                "Step 4: Distributive laws\nThe distributive laws hold, as they are inherited from $\\mathbb{R}$.",
+                "Step 5: Multiplicative inverse\nFor $a + b\\sqrt{2} \\neq 0$, the inverse in $\\mathbb{Q}[\\sqrt{2}]$ is given by $\\frac{a - b\\sqrt{2}}{a^2 - 2b^2}$. This lies in $\\mathbb{Z}[\\sqrt{2}]$ only if $a^2 - 2b^2 = \\pm 1$ and $a, b$ are chosen accordingly. In general, not every element is invertible.",
+                "Step 6: Conclusion\n$\\mathbb{Z}[\\sqrt{2}]$ is a commutative ring with unity, but not a field, since not every element has a multiplicative inverse."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Rings",
+            "title": "Integral Domain Property",
+            "description": "Examine whether the set $\\mathbb{Z}_4$ with the usual addition and multiplication forms an integral domain.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Elements of $\\mathbb{Z}_4$\n$\\mathbb{Z}_4 = \\{0,1,2,3\\}$",
+                "Step 2: Check for zero divisors\n$2 \\cdot 2 = 0$ in $\\mathbb{Z}_4$, so $2$ is a zero divisor.",
+                "Step 3: Conclusion\nSince $\\mathbb{Z}_4$ has zero divisors, $\\mathbb{Z}_4$ is not an integral domain."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Rings",
+            "title": "Units and Field Structure",
+            "description": "Determine the units in the ring $\\mathbb{Z}_9$ and check whether $\\mathbb{Z}_9$ is a field.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Elements of $\\mathbb{Z}_9$\n$\\mathbb{Z}_9 = \\{0,1,2,3,4,5,6,7,8\\}$",
+                "Step 2: Determine the units\nAn element $a \\in \\mathbb{Z}_9$ is a unit if and only if $\\gcd(a,9) = 1$. These are $1,2,4,5,7,8$.",
+                "Step 3: Check for field structure\nSince not every non-zero element is a unit (e.g., $3$ and $6$ are not units), $\\mathbb{Z}_9$ is not a field."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Rings",
+            "title": "Irreducible Polynomials and Factor Rings",
+            "description": "Show that the polynomial ring $\\mathbb{Z}_3[X]$ contains irreducible polynomials of degree 2 and determine these.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: All normalized polynomials of degree 2 in $\\mathbb{Z}_3[X]$ are $X^2, X^2+1, X^2+2, X^2+X, X^2+2X, X^2+X+1, X^2+X+2, X^2+2X+1, X^2+2X+2$.",
+                "Step 2: Check for irreducibility\nA polynomial $f(X)$ of degree 2 is irreducible if and only if it has no root in $\\mathbb{Z}_3$.",
+                "Step 3: Determine the irreducible polynomials\n$X^2+1$ and $X^2+2$ have no root in $\\mathbb{Z}_3$ and are therefore irreducible.",
+                "Step 4: Summary\nThe irreducible polynomials of degree 2 in $\\mathbb{Z}_3[X]$ are $X^2+1$ and $X^2+2$."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Rings",
+            "title": "Factor Rings and Field Structure",
+            "description": "Determine the structure of the factor ring $\\mathbb{Z}[X]/(X^2 - 2)$ and show that this ring is not a field.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: The factor ring $\\mathbb{Z}[X]/(X^2 - 2)$ consists of residue classes $a + bX$ with $a,b \\in \\mathbb{Z}$.",
+                "Step 2: Multiplication is done according to the relation $X^2 = 2$, so $(a + bX)(c + dX) = (ac + 2bd) + (ad + bc)X$.",
+                "Step 3: The ring is isomorphic to $\\mathbb{Z}[\\sqrt{2}]$.",
+                "Step 4: Since $\\mathbb{Z}[\\sqrt{2}]$ does not have a multiplicative inverse for every non-zero residue class, $\\mathbb{Z}[X]/(X^2 - 2)$ is not a field."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Rings",
+            "title": "Ring Structure and Units",
+            "description": "Show that the set $\\mathbb{Z}[\\omega] = \\{a + b\\omega \\mid a,b \\in \\mathbb{Z}\\}$ with $\\omega = e^{2\\pi i / 3}$ forms a ring and investigate the group of units.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: $\\omega = e^{2\\pi i / 3}$ satisfies $\\omega^3 = 1$ and $1 + \\omega + \\omega^2 = 0$.",
+                "Step 2: $\\mathbb{Z}[\\omega]$ is closed under addition and multiplication, since for $a + b\\omega, c + d\\omega$:\n$(a + b\\omega) + (c + d\\omega) = (a+c) + (b+d)\\omega$, $(a + b\\omega)(c + d\\omega) = ac + ad\\omega + bc\\omega + bd\\omega^2 = (ac + bd\\omega^2) + (ad + bc)\\omega$.",
+                "Step 3: The ring axioms are satisfied, as they are inherited from $\\mathbb{C}$.",
+                "Step 4: The units are the elements $u \\in \\mathbb{Z}[\\omega]$ for which there exists $v \\in \\mathbb{Z}[\\omega]$ with $uv = 1$. It holds that $N(a + b\\omega) = a^2 - ab + b^2$. The units are exactly the elements with $N(u) = \\pm 1$. The group of units is finite and consists of $\\pm 1, \\pm \\omega, \\pm \\omega^2$."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Rings",
+            "title": "Non-Principal Ideal Domain Proof",
+            "description": "Prove that the ring $\\mathbb{Z}[\\sqrt{-3}]$ is not a principal ideal domain by constructing an ideal that is not a principal ideal.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Consider the ideal $I = (2, 1 + \\sqrt{-3})$ in $\\mathbb{Z}[\\sqrt{-3}]$.",
+                "Step 2: Assume $I$ is a principal ideal, so $I = (a + b\\sqrt{-3})$ for some $a, b \\in \\mathbb{Z}$.",
+                "Step 3: Then $a + b\\sqrt{-3}$ must divide both $2$ and $1 + \\sqrt{-3}$. This is not possible, as the norms do not match.",
+                "Step 4: Thus, $I$ is not a principal ideal. Therefore, $\\mathbb{Z}[\\sqrt{-3}]$ is not a principal ideal domain."
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Rings",
+            "title": "Factor Ring Structure",
+            "description": "Show that the factor ring $\\mathbb{Q}[X]/(X^3 - 2)$ is a field and determine the number of elements.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: $X^3 - 2$ is irreducible in $\\mathbb{Q}[X]$ (Eisenstein's criterion for $p=2$).",
+                "Step 2: The ideal $(X^3 - 2)$ is maximal, hence the factor ring $\\mathbb{Q}[X]/(X^3 - 2)$ is a field.",
+                "Step 3: The elements are of the form $a + bX + cX^2$ with $a,b,c \\in \\mathbb{Q}$.",
+                "Step 4: Since $\\mathbb{Q}$ has infinitely many elements, $\\mathbb{Q}[X]/(X^3 - 2)$ is an infinite field."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Rings",
+            "title": "Uniqueness of Prime Factorization",
+            "description": "Examine the unique prime factorization in the ring $\\mathbb{Z}[\\sqrt{-6}]$ and provide an example of a number with non-unique factorization.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: $\\mathbb{Z}[\\sqrt{-6}]$ is not a unique factorization domain.",
+                "Step 2: Example: $10 = 2 \\cdot 5 = (2 + \\sqrt{-6})(2 - \\sqrt{-6})$.",
+                "Step 3: $2, 5, 2 + \\sqrt{-6}, 2 - \\sqrt{-6}$ are irreducible.",
+                "Step 4: The number $10$ thus has two different factorizations into irreducible factors."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Rings",
+            "title": "Polynomial Rings",
+            "description": "Determine all polynomials of degree 1 in the ring $\\mathbb{Z}_3[X]$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Polynomials of degree 1\n$X$\n$X + 1$\n$X + 2$\n$2X$\n$2X + 1$\n$2X + 2$",
+                "Step 2: Verification\nAll polynomials have degree 1\nNo two polynomials are equal"
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Rings",
+            "title": "Ring Homomorphisms",
+            "description": "Show that the mapping $\\varphi: \\mathbb{Z}_6 \\rightarrow \\mathbb{Z}_6$ with $\\varphi(x) = 2x$ is a ring homomorphism.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Additivity\n$\\varphi(x + y) = 2(x + y) = 2x + 2y = \\varphi(x) + \\varphi(y)$",
+                "Step 2: Multiplicativity\n$\\varphi(x \\cdot y) = 2(x \\cdot y) = (2x) \\cdot y = \\varphi(x) \\cdot y$",
+                "Step 3: Image\n$\\text{im}(\\varphi) = \\{0,2,4\\}$",
+                "Step 4: Kernel\n$\\ker(\\varphi) = \\{0,3\\}$"
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Rings",
+            "title": "Integral Domains",
+            "description": "Show that $\\mathbb{Z}_5$ is an integral domain.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Elements of $\\mathbb{Z}_5$\n$\\mathbb{Z}_5 = \\{0,1,2,3,4\\}$",
+                "Step 2: Check for zero divisors\n$1 \\cdot 1 = 1$\n$2 \\cdot 3 = 1$\n$4 \\cdot 4 = 1$\nThere are no zero divisors",
+                "Step 3: Conclusion\n$\\mathbb{Z}_5$ is an integral domain"
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Rings",
+            "title": "Euclidean Rings",
+            "description": "Show that $\\mathbb{Z}$ with the Euclidean norm $|\\cdot|$ is a Euclidean ring.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Definition of division with remainder\nFor $a,b \\in \\mathbb{Z}$ with $b \\neq 0$:\n$a = bq + r$ with $|r| < |b|$",
+                "Step 2: Construction of $q$\n$q = \\lfloor \\frac{a}{b} \\rfloor$",
+                "Step 3: Estimation of the remainder\n$r = a - bq$\n$|r| = |a - bq| < |b|$",
+                "Step 4: Conclusion\n$\\mathbb{Z}$ is a Euclidean ring"
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Rings",
+            "title": "Principal Ideal Domains",
+            "description": "Show that $\\mathbb{Z}[i]$ is a principal ideal domain.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Euclidean ring\n$\\mathbb{Z}[i]$ is a Euclidean ring with the norm $N(a+bi) = a^2 + b^2$",
+                "Step 2: Principal ideal domain\nEvery Euclidean ring is a principal ideal domain",
+                "Step 3: Conclusion\n$\\mathbb{Z}[i]$ is a principal ideal domain"
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Rings",
+            "title": "Factorization",
+            "description": "Determine the prime factorization of $2$ in $\\mathbb{Z}[i]$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Norm\n$N(2) = 4$",
+                "Step 2: Factors\n$2 = (1+i)(1-i)$",
+                "Step 3: Irreducibility\n$N(1+i) = N(1-i) = 2$\n$1+i$ and $1-i$ are irreducible",
+                "Step 4: Conclusion\n$2 = (1+i)(1-i)$ is the prime factorization"
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Rings",
+            "title": "Polynomial Factorization",
+            "description": "Factorize $X^4 + 1$ in $\\mathbb{Z}_2[X]$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Polynomial\n$X^4 + 1 = (X^2 + 1)^2$",
+                "Step 2: Further factorization\n$X^2 + 1 = (X + 1)^2$",
+                "Step 3: Complete factorization\n$X^4 + 1 = (X + 1)^4$",
+                "Step 4: Verification\n$(X + 1)^4 = X^4 + 1$ in $\\mathbb{Z}_2[X]$"
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Rings",
+            "title": "Ideals and Factor Rings",
+            "description": "Determine the structure of the factor ring $\\mathbb{Z}[X]/(X^2 + 1)$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Ideal\n$(X^2 + 1)$ is a principal ideal",
+                "Step 2: Factor ring\n$\\mathbb{Z}[X]/(X^2 + 1) \\cong \\mathbb{Z}[i]$",
+                "Step 3: Verification\nThe mapping $X \\mapsto i$ defines an isomorphism",
+                "Step 4: Conclusion\nThe factor ring is isomorphic to $\\mathbb{Z}[i]$"
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Rings",
+            "title": "Ring Homomorphisms and Ideals",
+            "description": "Determine all ring homomorphisms from $\\mathbb{Z}_6$ to $\\mathbb{Z}_6$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Additive homomorphisms\n$\\varphi(x) = kx$ with $k \\in \\mathbb{Z}_6$",
+                "Step 2: Multiplicativity\n$\\varphi(xy) = kxy = (kx)(ky) = \\varphi(x)\\varphi(y)$\n$k^2 = k$",
+                "Step 3: Solutions\n$k = 0,1,3,4$",
+                "Step 4: Homomorphisms\n$\\varphi_0(x) = 0$\n$\\varphi_1(x) = x$\n$\\varphi_3(x) = 3x$\n$\\varphi_4(x) = 4x$"
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Rings",
+            "title": "Complex Ring Homomorphisms",
+            "description": "Determine all ring homomorphisms from $\\mathbb{Z}[i]$ to $\\mathbb{Z}_5$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Additive homomorphisms\n$\\varphi(a+bi) = \\varphi(a) + \\varphi(b)\\varphi(i)$",
+                "Step 2: Multiplicativity\n$\\varphi(i)^2 = \\varphi(-1) = -1$ in $\\mathbb{Z}_5$\n$\\varphi(i)^2 = 4$",
+                "Step 3: Solutions\n$\\varphi(i) = 2$ or $\\varphi(i) = 3$",
+                "Step 4: Homomorphisms\n$\\varphi_1(a+bi) = a + 2b$\n$\\varphi_2(a+bi) = a + 3b$"
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Rings",
+            "title": "Complex Ideals",
+            "description": "Show that the ideal $(2,1+\\sqrt{-5})$ in $\\mathbb{Z}[\\sqrt{-5}]$ is not a principal ideal.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Assumption\nAssume $(2,1+\\sqrt{-5}) = (a+b\\sqrt{-5})$",
+                "Step 2: Norm\n$N(2) = 4$\n$N(1+\\sqrt{-5}) = 6$",
+                "Step 3: Contradiction\n$a+b\\sqrt{-5}$ would have to divide both $2$ and $1+\\sqrt{-5}$. This is impossible",
+                "Step 4: Conclusion\n$(2,1+\\sqrt{-5})$ is not a principal ideal"
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Rings",
+            "title": "Complex Factorization",
+            "description": "Show that $\\mathbb{Z}[\\sqrt{-5}]$ does not have unique prime factorization.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Factorization\n$6 = 2 \\cdot 3 = (1+\\sqrt{-5})(1-\\sqrt{-5})$",
+                "Step 2: Irreducibility\n$2,3,1+\\sqrt{-5},1-\\sqrt{-5}$ are irreducible",
+                "Step 3: Non-associativity\nThe factors are not associated",
+                "Step 4: Conclusion\n$\\mathbb{Z}[\\sqrt{-5}]$ does not have unique prime factorization"
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Rings",
+            "title": "Complex Polynomial Rings",
+            "description": "Show that $\\mathbb{Z}_2[X]/(X^3 + X + 1)$ is a field.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Irreducibility\n$X^3 + X + 1$ is irreducible in $\\mathbb{Z}_2[X]$",
+                "Step 2: Ideal\n$(X^3 + X + 1)$ is a maximal ideal",
+                "Step 3: Factor ring\n$\\mathbb{Z}_2[X]/(X^3 + X + 1)$ is a field",
+                "Step 4: Order\nThe field has $2^3 = 8$ elements"
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Rings",
+            "title": "Complex Ring Homomorphisms and Ideals",
+            "description": "Determine all maximal ideals in $\\mathbb{Z}[X]$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Prime ideals\n$(p)$ with $p$ prime number\n$(f)$ with $f$ irreducible in $\\mathbb{Q}[X]$",
+                "Step 2: Maximal ideals\n$(p)$ with $p$ prime number\n$(f)$ with $f$ irreducible in $\\mathbb{Q}[X]$ and primitive",
+                "Step 3: Verification\n$(p)$ is maximal in $\\mathbb{Z}[X]/(p) \\cong \\mathbb{Z}_p[X]$\n$(f)$ is maximal in $\\mathbb{Z}[X]/(f) \\cong \\mathbb{Z}[\\alpha]$",
+                "Step 4: Conclusion\nThe maximal ideals are $(p)$ and $(f)$ as described above"
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Rings",
+            "title": "Complex Factor Rings",
+            "description": "Determine the structure of the factor ring $\\mathbb{Z}[X]/(X^2 + 1, 2)$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Ideal\n$(X^2 + 1, 2)$ is an ideal",
+                "Step 2: Factor ring\n$\\mathbb{Z}[X]/(X^2 + 1, 2) \\cong \\mathbb{Z}_2[X]/(X^2 + 1)$",
+                "Step 3: Further factorization\n$X^2 + 1 = (X + 1)^2$ in $\\mathbb{Z}_2[X]$",
+                "Step 4: Conclusion\n$\\mathbb{Z}[X]/(X^2 + 1, 2) \\cong \\mathbb{Z}_2[X]/(X + 1)^2$"
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Rings",
+            "title": "Complex Euclidean Rings",
+            "description": "Show that $\\mathbb{Z}[\\sqrt{2}]$ is a Euclidean ring.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Definition of the norm\n$N(a+b\\sqrt{2}) = |a^2 - 2b^2|$",
+                "Step 2: Division with remainder\nFor $\\alpha, \\beta \\in \\mathbb{Z}[\\sqrt{2}]$ with $\\beta \\neq 0$:\n$\\alpha = \\beta \\gamma + \\rho$ with $N(\\rho) < N(\\beta)$",
+                "Step 3: Construction of $\\gamma$\n$\\frac{\\alpha}{\\beta} = x + y\\sqrt{2}$ with $x,y \\in \\mathbb{Q}$\nChoose $m,n \\in \\mathbb{Z}$ with $|x-m| \\leq \\frac{1}{2}$ and $|y-n| \\leq \\frac{1}{2}$\nSet $\\gamma = m + n\\sqrt{2}$",
+                "Step 4: Estimation of the remainder\n$\\rho = \\alpha - \\beta \\gamma$\n$N(\\rho) = N(\\beta) \\cdot N(\\frac{\\alpha}{\\beta} - \\gamma) < N(\\beta)$"
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Rings",
+            "title": "Complex Principal Ideal Domains",
+            "description": "Show that $\\mathbb{Z}[\\sqrt{2}]$ is a principal ideal domain.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Euclidean ring\n$\\mathbb{Z}[\\sqrt{2}]$ is a Euclidean ring",
+                "Step 2: Principal ideal domain\nEvery Euclidean ring is a principal ideal domain",
+                "Step 3: Conclusion\n$\\mathbb{Z}[\\sqrt{2}]$ is a principal ideal domain",
+                "Step 4: Application\nEvery ideal in $\\mathbb{Z}[\\sqrt{2}]$ is a principal ideal"
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Rings",
+            "title": "Complex Factorization in Principal Ideal Domains",
+            "description": "Determine the prime factorization of $7$ in $\\mathbb{Z}[\\sqrt{2}]$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Norm\n$N(7) = 49$",
+                "Step 2: Factors\n$7 = (3 + \\sqrt{2})(3 - \\sqrt{2})$",
+                "Step 3: Irreducibility\n$N(3 + \\sqrt{2}) = N(3 - \\sqrt{2}) = 7$\n$3 + \\sqrt{2}$ and $3 - \\sqrt{2}$ are irreducible",
+                "Step 4: Conclusion\n$7 = (3 + \\sqrt{2})(3 - \\sqrt{2})$ is the prime factorization"
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Rings",
+            "title": "Complex Polynomial Rings and Fields",
+            "description": "Show that $\\mathbb{Z}_3[X]/(X^2 + 1)$ is a field and determine its order.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Irreducibility\n$X^2 + 1$ is irreducible in $\\mathbb{Z}_3[X]$",
+                "Step 2: Ideal\n$(X^2 + 1)$ is a maximal ideal",
+                "Step 3: Factor ring\n$\\mathbb{Z}_3[X]/(X^2 + 1)$ is a field",
+                "Step 4: Order\nThe field has $3^2 = 9$ elements"
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Rings",
+            "title": "Complex Ring Homomorphisms and Automorphisms",
+            "description": "Determine the automorphism group of $\\mathbb{Z}[\\sqrt{2}]$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Automorphisms\n$\\varphi(a+b\\sqrt{2}) = a + b\\sqrt{2}$\n$\\psi(a+b\\sqrt{2}) = a - b\\sqrt{2}$",
+                "Step 2: Verification\n$\\varphi$ and $\\psi$ are ring automorphisms",
+                "Step 3: Group structure\n$\\text{Aut}(\\mathbb{Z}[\\sqrt{2}]) \\cong \\mathbb{Z}_2$",
+                "Step 4: Conclusion\nThe automorphism group is cyclic of order 2"
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Rings",
+            "title": "Complex Ideals and Factor Rings",
+            "description": "Determine the structure of the factor ring $\\mathbb{Z}[\\sqrt{2}]/(3)$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Ideal\n$(3)$ is a principal ideal",
+                "Step 2: Factor ring\n$\\mathbb{Z}[\\sqrt{2}]/(3) \\cong \\mathbb{Z}_3[X]/(X^2 - 2)$",
+                "Step 3: Further factorization\n$X^2 - 2$ is irreducible in $\\mathbb{Z}_3[X]$",
+                "Step 4: Conclusion\n$\\mathbb{Z}[\\sqrt{2}]/(3)$ is a field with 9 elements"
+            ]
+        }
+    ]
+}

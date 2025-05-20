@@ -1,0 +1,180 @@
+{
+    "id": "aa0e8400-e29b-41d4-a716-446655440011",
+    "topic": "Integral Calculus",
+    "steps": [
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440012",
+            "text": "The definite integral calculates the area under a curve.",
+            "formula": "\\int_a^b f(x) \\, dx = \\lim_{n \\to \\infty} \\sum_{i=1}^n f(x_i) \\Delta x",
+            "explanation": "The integral is like assembling many small rectangles to approximate the area under a curve. The more rectangles, the more accurate the approximation!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440013",
+            "text": "The Fundamental Theorem of Calculus connects differentiation and integration.",
+            "formula": "\\int_a^b f'(x) \\, dx = f(b) - f(a)",
+            "explanation": "The Fundamental Theorem shows us that integration and differentiation are inverse operations. It’s like walking back and forth along a path!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440014",
+            "text": "Integration rules help us compute integrals.",
+            "formula": "\\begin{align*} \\int (f + g) \\, dx &= \\int f \\, dx + \\int g \\, dx \\\\ \\int k \\cdot f \\, dx &= k \\cdot \\int f \\, dx \\end{align*}",
+            "explanation": "Integration rules are like a toolbox that helps us break down complex integrals into simpler parts!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440015",
+            "text": "Integration by substitution is an important technique.",
+            "formula": "\\int f(g(x)) \\cdot g'(x) \\, dx = \\int f(u) \\, du",
+            "explanation": "Substitution is like reshaping a difficult puzzle into a simpler one by rearranging the pieces!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440016",
+            "text": "Integration by parts for products of functions.",
+            "formula": "\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx",
+            "explanation": "Integration by parts is like cleverly splitting a product to simplify the integration!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440017",
+            "text": "Integration of rational functions using partial fraction decomposition.",
+            "formula": "\\frac{P(x)}{Q(x)} = \\sum_{i=1}^n \\frac{A_i}{(x-a_i)^{k_i}}",
+            "explanation": "Partial fraction decomposition is like breaking down a complex fraction into simpler, more easily integrable parts!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440018",
+            "text": "Improper integrals for infinite limits or discontinuities.",
+            "formula": "\\int_a^\\infty f(x) \\, dx = \\lim_{b \\to \\infty} \\int_a^b f(x) \\, dx",
+            "explanation": "Improper integrals allow us to integrate over infinite domains. It’s like measuring an infinitely long distance!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440019",
+            "text": "Volume calculation by rotation around the x-axis.",
+            "formula": "V = \\pi \\int_a^b f(x)^2 \\, dx",
+            "explanation": "By rotating a curve, three-dimensional solids are created, whose volume we can calculate with the integral!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440020",
+            "text": "The arc length of a curve can be computed using integration.",
+            "formula": "L = \\int_a^b \\sqrt{1 + f'(x)^2} \\, dx",
+            "explanation": "The arc length is like unrolling a curved line into a straight one!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440021",
+            "text": "Integration of power functions.",
+            "formula": "\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C \\quad \\text{for } n \\neq -1",
+            "explanation": "Integrating power functions increases the exponent by 1 and divides by the new exponent. It’s like reversing differentiation!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440022",
+            "text": "Integration of exponential functions.",
+            "formula": "\\int e^x \\, dx = e^x + C, \\quad \\int a^x \\, dx = \\frac{a^x}{\\ln a} + C",
+            "explanation": "The exponential function is its own antiderivative, with an additional factor for other bases. It’s like a mathematical magic trick!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440023",
+            "text": "Integration of trigonometric functions.",
+            "formula": "\\begin{align*} \\int \\sin x \\, dx &= -\\cos x + C \\\\ \\int \\cos x \\, dx &= \\sin x + C \\\\ \\int \\tan x \\, dx &= -\\ln |\\cos x| + C \\end{align*}",
+            "explanation": "Integrating trigonometric functions leads to other trigonometric functions. It’s like a dance of functions!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440024",
+            "text": "Integration of hyperbolic functions.",
+            "formula": "\\begin{align*} \\int \\sinh x \\, dx &= \\cosh x + C \\\\ \\int \\cosh x \\, dx &= \\sinh x + C \\\\ \\int \\tanh x \\, dx &= \\ln |\\cosh x| + C \\end{align*}",
+            "explanation": "Hyperbolic functions have similar integration rules to trigonometric functions. It’s like a mirror image of trigonometry!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440025",
+            "text": "Integration of inverse trigonometric functions.",
+            "formula": "\\begin{align*} \\int \\arcsin x \\, dx &= x \\arcsin x + \\sqrt{1-x^2} + C \\\\ \\int \\arccos x \\, dx &= x \\arccos x - \\sqrt{1-x^2} + C \\end{align*}",
+            "explanation": "Integrating inverse trigonometric functions leads to interesting combinations. It’s like opening a door to the world of inverse functions!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440026",
+            "text": "Integration of inverse hyperbolic functions.",
+            "formula": "\\begin{align*} \\int \\text{arsinh } x \\, dx &= x \\text{arsinh } x - \\sqrt{1+x^2} + C \\\\ \\int \\text{arcosh } x \\, dx &= x \\text{arcosh } x - \\sqrt{x^2-1} + C \\end{align*}",
+            "explanation": "Inverse hyperbolic functions have integration rules similar to inverse trigonometric functions. It’s like a mirror image of inverse trigonometry!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440027",
+            "text": "Integration of logarithmic functions.",
+            "formula": "\\int \\ln x \\, dx = x \\ln x - x + C",
+            "explanation": "Integrating the logarithm leads to an interesting combination of x and ln(x). It’s like assembling a puzzle!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440028",
+            "text": "Integration of square root functions.",
+            "formula": "\\int \\sqrt{x} \\, dx = \\frac{2}{3} x^{3/2} + C",
+            "explanation": "Integrating the square root leads to a power function with a fractional exponent. It’s like generalizing the power rule!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440029",
+            "text": "Integration of products of trigonometric functions.",
+            "formula": "\\begin{align*} \\int \\sin x \\cos x \\, dx &= \\frac{1}{2} \\sin^2 x + C \\\\ \\int \\sin^2 x \\, dx &= \\frac{x}{2} - \\frac{\\sin 2x}{4} + C \\end{align*}",
+            "explanation": "Integrating products of trigonometric functions often requires trigonometric identities. It’s like breaking down a complex expression!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440030",
+            "text": "Integration using partial fraction decomposition with repeated poles.",
+            "formula": "\\frac{P(x)}{(x-a)^n} = \\sum_{k=1}^n \\frac{A_k}{(x-a)^k}",
+            "explanation": "For repeated poles, we must account for multiple terms in the partial fraction decomposition. It’s like breaking down into increasingly smaller parts!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440031",
+            "text": "Integration of functions with absolute value.",
+            "formula": "\\int |f(x)| \\, dx = \\begin{cases} \\int f(x) \\, dx & \\text{for } f(x) \\geq 0 \\\\ -\\int f(x) \\, dx & \\text{for } f(x) < 0 \\end{cases}",
+            "explanation": "Integrating the absolute value requires a case distinction. It’s like reflecting across the x-axis!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440032",
+            "text": "Integration of functions with power and logarithm.",
+            "formula": "\\int x^n \\ln x \\, dx = \\frac{x^{n+1}}{n+1} \\ln x - \\frac{x^{n+1}}{(n+1)^2} + C",
+            "explanation": "Integrating products of power and logarithm leads to interesting combinations. It’s like assembling a complex puzzle!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440033",
+            "text": "Integration of functions with exponential function and power.",
+            "formula": "\\int x^n e^x \\, dx = x^n e^x - n \\int x^{n-1} e^x \\, dx",
+            "explanation": "Integrating products of power and exponential function requires repeated integration by parts. It’s like simplifying step by step!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440034",
+            "text": "Integration of functions with trigonometric function and power.",
+            "formula": "\\int x^n \\sin x \\, dx = -x^n \\cos x + n \\int x^{n-1} \\cos x \\, dx",
+            "explanation": "Integrating products of power and trigonometric function requires repeated integration by parts. It’s like a dance between power and trigonometry!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440035",
+            "text": "Integration of functions with hyperbolic function and power.",
+            "formula": "\\int x^n \\sinh x \\, dx = x^n \\cosh x - n \\int x^{n-1} \\cosh x \\, dx",
+            "explanation": "Integrating products of power and hyperbolic function follows rules similar to those for trigonometric functions. It’s like a parallel universe of integration!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440036",
+            "text": "Integration of functions with inverse trigonometric function and power.",
+            "formula": "\\int x^n \\arcsin x \\, dx = \\frac{x^{n+1}}{n+1} \\arcsin x - \\frac{1}{n+1} \\int \\frac{x^{n+1}}{\\sqrt{1-x^2}} \\, dx",
+            "explanation": "Integrating products of power and inverse trigonometric function leads to interesting combinations. It’s like opening a door to the world of inverse functions!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440037",
+            "text": "Integration of functions with inverse hyperbolic function and power.",
+            "formula": "\\int x^n \\text{arsinh } x \\, dx = \\frac{x^{n+1}}{n+1} \\text{arsinh } x - \\frac{1}{n+1} \\int \\frac{x^{n+1}}{\\sqrt{1+x^2}} \\, dx",
+            "explanation": "Integrating products of power and inverse hyperbolic function follows rules similar to those for inverse trigonometric functions. It’s like a mirror image of inverse trigonometry!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440038",
+            "text": "Integration of functions with square root and power.",
+            "formula": "\\int x^n \\sqrt{x} \\, dx = \\frac{2}{2n+3} x^{n+3/2} + C",
+            "explanation": "Integrating products of power and square root leads to power functions with fractional exponents. It’s like generalizing the power rule!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440039",
+            "text": "Integration of functions with logarithm and power.",
+            "formula": "\\int x^n \\ln x \\, dx = \\frac{x^{n+1}}{n+1} \\ln x - \\frac{x^{n+1}}{(n+1)^2} + C",
+            "explanation": "Integrating products of power and logarithm leads to interesting combinations. It’s like assembling a complex puzzle!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440040",
+            "text": "Finally, let’s look at how integral calculus is used in physics.",
+            "formula": "W = \\int_a^b F(x) \\, dx",
+            "explanation": "In physics, we use integrals to calculate work, energy, and many other important quantities. It’s like assembling many small contributions into a total result!"
+        }
+    ]
+}

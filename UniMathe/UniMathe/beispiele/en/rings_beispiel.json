@@ -1,0 +1,180 @@
+{
+    "id": "ff0e8400-e29b-41d4-a716-446655440061",
+    "topic": "Rings",
+    "steps": [
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440062",
+            "text": "A ring is a set equipped with two operations that satisfy certain properties.",
+            "formula": "(R, +, \\cdot) \\text{ is a ring if:} \\\\ 1. (R, +) \\text{ is an abelian group} \\\\ 2. \\text{ Associativity of multiplication: } (a \\cdot b) \\cdot c = a \\cdot (b \\cdot c) \\\\ 3. \\text{ Distributivity: } a \\cdot (b + c) = a \\cdot b + a \\cdot c, (a + b) \\cdot c = a \\cdot c + b \\cdot c",
+            "explanation": "A ring is like a mathematical system with addition and multiplication. It’s like the interplay of two different operations!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440063",
+            "text": "A commutative ring satisfies the commutative law for multiplication.",
+            "formula": "a \\cdot b = b \\cdot a \\text{ for all } a,b \\in R",
+            "explanation": "A commutative ring is like a particularly harmonious system. It’s like the interplay of operations where the order doesn’t matter!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440064",
+            "text": "A ring with identity has a multiplicative identity element.",
+            "formula": "\\exists 1 \\in R: 1 \\cdot a = a \\cdot 1 = a \\text{ for all } a \\in R",
+            "explanation": "A ring with identity is like a system with a special element. It’s like finding a neutral element for multiplication!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440065",
+            "text": "An integral domain is a commutative ring with identity and no zero divisors.",
+            "formula": "a \\cdot b = 0 \\Rightarrow a = 0 \\text{ or } b = 0",
+            "explanation": "An integral domain is like a system without zero divisors. It’s like finding a structure without problematic elements!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440066",
+            "text": "A principal ideal domain is an integral domain in which every ideal is a principal ideal.",
+            "formula": "I \\trianglelefteq R \\Rightarrow I = (a) = \\{r \\cdot a \\mid r \\in R\\}",
+            "explanation": "A principal ideal domain is like a system with particularly simple ideals. It’s like finding a structure with straightforward components!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440067",
+            "text": "A Euclidean domain is a principal ideal domain with a Euclidean function.",
+            "formula": "\\exists \\delta: R \\setminus \\{0\\} \\rightarrow \\mathbb{N}_0: \\text{ for } a,b \\in R, b \\neq 0, \\exists q,r \\in R: a = q \\cdot b + r \\text{ with } r = 0 \\text{ or } \\delta(r) < \\delta(b)",
+            "explanation": "A Euclidean domain is like a system with a special measuring function. It’s like finding a structure with a notion of magnitude!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440068",
+            "text": "A unique factorization domain is an integral domain with unique prime factorization.",
+            "formula": "a = p_1^{k_1} \\cdots p_n^{k_n} = q_1^{l_1} \\cdots q_m^{l_m} \\Rightarrow n = m \\text{ and } p_i \\sim q_i",
+            "explanation": "A unique factorization domain is like a system with unique decomposition. It’s like finding a structure with distinct building blocks!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440069",
+            "text": "A polynomial ring is a ring of polynomials over a ring.",
+            "formula": "R[X] = \\{\\sum_{i=0}^n a_i X^i \\mid n \\in \\mathbb{N}_0, a_i \\in R\\}",
+            "explanation": "A polynomial ring is like a system of polynomials. It’s like finding a structure for formal expressions!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440070",
+            "text": "A ring homomorphism is a structure-preserving map.",
+            "formula": "\\phi: R \\rightarrow S \\text{ with } \\phi(a + b) = \\phi(a) + \\phi(b), \\phi(a \\cdot b) = \\phi(a) \\cdot \\phi(b)",
+            "explanation": "A ring homomorphism is like a translator between systems. It’s like transferring structures!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440071",
+            "text": "The kernel of a ring homomorphism is the set of elements mapped to zero.",
+            "formula": "\\ker(\\phi) = \\{a \\in R \\mid \\phi(a) = 0\\}",
+            "explanation": "The kernel is like the set of elements that have no effect. It’s like finding the neutral elements!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440072",
+            "text": "An ideal is a subset closed under addition and multiplication by ring elements.",
+            "formula": "I \\subseteq R \\text{ is an ideal if:} \\\\ 1. a,b \\in I \\Rightarrow a + b \\in I \\\\ 2. a \\in I, r \\in R \\Rightarrow r \\cdot a \\in I",
+            "explanation": "An ideal is like a special part of the system. It’s like finding a stable subset!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440073",
+            "text": "A principal ideal is an ideal generated by a single element.",
+            "formula": "(a) = \\{r \\cdot a \\mid r \\in R\\}",
+            "explanation": "A principal ideal is like a simple part of the system. It’s like finding a simply generated subset!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440074",
+            "text": "A quotient ring arises from quotienting by an ideal.",
+            "formula": "R/I = \\{a + I \\mid a \\in R\\}",
+            "explanation": "A quotient ring is like a simplified system. It’s like grouping similar elements together!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440075",
+            "text": "A maximal ideal is an ideal contained in no other ideal except the ring itself.",
+            "formula": "I \\text{ maximal } \\Leftrightarrow I \\subsetneq J \\trianglelefteq R \\Rightarrow J = R",
+            "explanation": "A maximal ideal is like the largest possible part of the system. It’s like finding a maximal subset!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440076",
+            "text": "A prime ideal is an ideal with a special property.",
+            "formula": "a \\cdot b \\in P \\Rightarrow a \\in P \\text{ or } b \\in P",
+            "explanation": "A prime ideal is like a special part of the system. It’s like finding a prime subset!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440077",
+            "text": "A local ring has exactly one maximal ideal.",
+            "formula": "R \\text{ has exactly one maximal ideal } M",
+            "explanation": "A local ring is like a system with a unique part. It’s like finding a structure with a single maximal ideal!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440078",
+            "text": "A Noetherian ring satisfies the ascending chain condition for ideals.",
+            "formula": "I_1 \\subseteq I_2 \\subseteq \\cdots \\Rightarrow \\exists n: I_n = I_{n+1} = \\cdots",
+            "explanation": "A Noetherian ring is like a system with finite chains. It’s like finding a structure with finite ascents!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440079",
+            "text": "An Artinian ring satisfies the descending chain condition for ideals.",
+            "formula": "I_1 \\supseteq I_2 \\supseteq \\cdots \\Rightarrow \\exists n: I_n = I_{n+1} = \\cdots",
+            "explanation": "An Artinian ring is like a system with finite descents. It’s like finding a structure with finite chains!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440080",
+            "text": "A reduced ring has no nilpotent elements.",
+            "formula": "a^n = 0 \\Rightarrow a = 0",
+            "explanation": "A reduced ring is like a system without nilpotent elements. It’s like finding a structure without problematic elements!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440081",
+            "text": "A regular ring has finite global dimension.",
+            "formula": "\\text{gl.dim}(R) < \\infty",
+            "explanation": "A regular ring is like a system with finite dimension. It’s like finding a structure with finite complexity!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440082",
+            "text": "A Cohen-Macaulay ring satisfies a special condition on depth.",
+            "formula": "\\text{depth}(R) = \\dim(R)",
+            "explanation": "A Cohen-Macaulay ring is like a system with special depth. It’s like finding a structure with particular dimension!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440083",
+            "text": "A Gorenstein ring is a Cohen-Macaulay ring with finite injective dimension.",
+            "formula": "\\text{inj.dim}(R) < \\infty",
+            "explanation": "A Gorenstein ring is like a system with finite injective dimension. It’s like finding a structure with a special property!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440084",
+            "text": "A normal ring is an integral domain integrally closed in its field of fractions.",
+            "formula": "R = \\{a \\in K \\mid a \\text{ is integral over } R\\}",
+            "explanation": "A normal ring is like a system integrally closed in its field of fractions. It’s like finding a structure with special closure!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440085",
+            "text": "A Dedekind domain is a Noetherian, normal, one-dimensional integral domain.",
+            "formula": "R \\text{ is a Dedekind domain } \\Leftrightarrow \\text{ every ideal is a product of prime ideals}",
+            "explanation": "A Dedekind domain is like a system with unique ideal factorization. It’s like finding a structure with special decomposition!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440086",
+            "text": "A Prüfer domain is an integral domain in which every finitely generated ideal is invertible.",
+            "formula": "I \\text{ finitely generated } \\Rightarrow I \\cdot I^{-1} = R",
+            "explanation": "A Prüfer domain is like a system with invertible ideals. It’s like finding a structure with special ideals!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440087",
+            "text": "A Bézout domain is an integral domain in which every finitely generated ideal is principal.",
+            "formula": "I \\text{ finitely generated } \\Rightarrow I \\text{ is principal}",
+            "explanation": "A Bézout domain is like a system with principal ideals. It’s like finding a structure with simple ideals!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440088",
+            "text": "A valuation ring is a local, integrally closed integral domain.",
+            "formula": "R \\text{ is a valuation ring } \\Leftrightarrow \\text{ for all } a,b \\in K: a/b \\in R \\text{ or } b/a \\in R",
+            "explanation": "A valuation ring is like a system with a special valuation. It’s like finding a structure with a specific order!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440089",
+            "text": "A Krull domain is an integral domain with finitely many prime ideals of height 1.",
+            "formula": "R \\text{ is a Krull domain } \\Leftrightarrow R = \\bigcap_{P \\in X^1(R)} R_P",
+            "explanation": "A Krull domain is like a system with finitely many prime ideals. It’s like finding a structure with special decomposition!"
+        },
+        {
+            "id": "ff0e8400-e29b-41d4-a716-446655440090",
+            "text": "Finally, let’s look at how rings are used in mathematics.",
+            "formula": "\\text{Rings are fundamental structures in algebra}",
+            "explanation": "In mathematics, rings help us understand structures with two operations. It’s like translating mathematical concepts into the language of systems!"
+        }
+    ]
+}

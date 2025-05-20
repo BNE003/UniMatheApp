@@ -1,0 +1,39 @@
+{
+  "id": "3",
+  "title": "Linear Algebra",
+  "icon": "square.grid.2x2.fill",
+  "description": "Fundamentals of linear algebra with detailed explanations and examples.",
+  "markdownContent": "<div class=\"content-container\">\n    <h1>📐 Linear Algebra</h1>\n    \n    <div class=\"chapter-intro\">\n        <p>Linear Algebra is a fundamental field of mathematics that deals with vector spaces, linear mappings, matrices, and their applications. It forms the basis for many areas of mathematics and its applications in natural sciences, engineering, and computer science.</p>\n    </div>\n    \n    <div class=\"section\">\n        <h2>Main Topics of Linear Algebra:</h2>\n        \n        <div class=\"topic-overview\">\n            <div class=\"topic\">\n                <h3>1. Vector Spaces</h3>\n                <p>Basic algebraic structures with vectors and their operations.</p>\n                <ul>\n                    <li>Vectors and their properties</li>\n                    <li>Linear combinations</li>\n                    <li>Basis and dimension</li>\n                </ul>\n            </div>\n            \n            <div class=\"topic\">\n                <h3>2. Matrices</h3>\n                <p>Rectangular arrangements of numbers and their operations.</p>\n                <ul>\n                    <li>Matrix operations</li>\n                    <li>Special matrices</li>\n                    <li>Matrix inversion</li>\n                </ul>\n            </div>\n            \n            <div class=\"topic\">\n                <h3>3. Linear Mappings</h3>\n                <p>Structure-preserving mappings between vector spaces.</p>\n                <ul>\n                    <li>Definition and properties</li>\n                    <li>Matrix representation</li>\n                    <li>Kernel and image</li>\n                </ul>\n            </div>\n            \n            <div class=\"topic\">\n                <h3>4. Determinants</h3>\n                <p>Important characteristics of square matrices.</p>\n                <ul>\n                    <li>Calculation</li>\n                    <li>Properties</li>\n                    <li>Applications</li>\n                </ul>\n            </div>\n            \n            <div class=\"topic\">\n                <h3>5. Eigenvalues and Eigenvectors</h3>\n                <p>Characteristic values of linear mappings.</p>\n                <ul>\n                    <li>Eigenvalue problem</li>\n                    <li>Diagonalization</li>\n                    <li>Applications</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n    \n    <div class=\"section\">\n        <h2>Applications</h2>\n        \n        <div class=\"applications\">\n            <div class=\"application\">\n                <h3>Natural Sciences</h3>\n                <ul>\n                    <li>Quantum mechanics</li>\n                    <li>Vibration systems</li>\n                    <li>Population dynamics</li>\n                </ul>\n            </div>\n            \n            <div class=\"application\">\n                <h3>Engineering</h3>\n                <ul>\n                    <li>Computer graphics</li>\n                    <li>Signal processing</li>\n                    <li>Control systems</li>\n                </ul>\n            </div>\n            \n            <div class=\"application\">\n                <h3>Computer Science</h3>\n                <ul>\n                    <li>Search engines</li>\n                    <li>Machine learning</li>\n                    <li>Cryptography</li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</div>",
+  "subTopics": [
+    {
+      "id": "3.1",
+      "title": "Vector Spaces",
+      "icon": "arrow.up.right.and.arrow.down.left",
+      "description": "Fundamentals of vector spaces and their properties."
+    },
+    {
+      "id": "3.2",
+      "title": "Matrices",
+      "icon": "square.grid.2x2.fill",
+      "description": "Fundamentals of matrix operations with detailed explanations and examples."
+    },
+    {
+      "id": "3.3",
+      "title": "Linear Mappings",
+      "icon": "arrow.left.and.right",
+      "description": "Theory and applications of linear mappings."
+    },
+    {
+      "id": "3.4",
+      "title": "Determinants",
+      "icon": "number.square.fill",
+      "description": "Calculation and properties of determinants."
+    },
+    {
+      "id": "3.5",
+      "title": "Eigenvalues and Eigenvectors",
+      "icon": "arrow.up.forward",
+      "description": "Eigenvalue problems and their applications."
+    }
+  ]
+}

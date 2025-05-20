@@ -1,0 +1,551 @@
+{
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Sets and Mappings",
+            "title": "Set Operations",
+            "description": "Given the sets $A = \\{1, 2, 3, 4\\}$ and $B = \\{3, 4, 5, 6\\}$. Determine:\n1. $A \\cup B$\n2. $A \\cap B$\n3. $A \\setminus B$\n4. $B \\setminus A$",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Determine the union $A \\cup B$\n$A \\cup B = \\{1, 2, 3, 4, 5, 6\\}$",
+                "Step 2: Determine the intersection $A \\cap B$\n$A \\cap B = \\{3, 4\\}$",
+                "Step 3: Determine the difference $A \\setminus B$\n$A \\setminus B = \\{1, 2\\}$",
+                "Step 4: Determine the difference $B \\setminus A$\n$B \\setminus A = \\{5, 6\\}$"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Sets and Mappings",
+            "title": "Subsets",
+            "description": "Which of the following statements are true?\n1. $\\{1, 2\\} \\subseteq \\{1, 2, 3\\}$\n2. $\\{1, 2, 3\\} \\subseteq \\{1, 2\\}$\n3. $\\emptyset \\subseteq \\{1, 2, 3\\}$\n4. $\\{1, 2, 3\\} \\subseteq \\emptyset$",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Check the definition of a subset\nA set $A$ is a subset of $B$ if every element of $A$ is also contained in $B$.",
+                "Step 2: Analyze each statement individually\n1. $\\{1, 2\\} \\subseteq \\{1, 2, 3\\}$ is true, since every element of $\\{1, 2\\}$ is also in $\\{1, 2, 3\\}$.\n2. $\\{1, 2, 3\\} \\subseteq \\{1, 2\\}$ is false, since $3$ is not contained in $\\{1, 2\\}$.\n3. $\\emptyset \\subseteq \\{1, 2, 3\\}$ is true, since the empty set is a subset of every set.\n4. $\\{1, 2, 3\\} \\subseteq \\emptyset$ is false, since the empty set contains no elements.",
+                "Step 3: Determine the true statements\nThe true statements are 1 and 3."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Sets and Mappings",
+            "title": "Cartesian Product",
+            "description": "Given the sets $A = \\{a, b\\}$ and $B = \\{1, 2\\}$. Determine $A \\times B$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Definition of the Cartesian product\nThe Cartesian product $A \\times B$ is the set of all ordered pairs $(a,b)$ with $a \\in A$ and $b \\in B$.",
+                "Step 2: Determine all possible pairs\nPossible pairs:\n$(a,1)$, $(a,2)$\n$(b,1)$, $(b,2)$",
+                "Step 3: Set up the Cartesian product\n$A \\times B = \\{(a,1), (a,2), (b,1), (b,2)\\}$"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Sets and Mappings",
+            "title": "Mapping Properties",
+            "description": "Examine the mapping $f: \\mathbb{R} \\rightarrow \\mathbb{R}$, $f(x) = x^2$ for injectivity and surjectivity. Justify your answer.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Definition of injectivity\nA mapping $f: A \\rightarrow B$ is called injective if different elements from $A$ are mapped to different elements in $B$.",
+                "Step 2: Check for injectivity\nFor $f(x) = x^2$:\n$f(-1) = f(1) = 1$\nThus, $f$ is not injective, as different elements are mapped to the same value.",
+                "Step 3: Definition of surjectivity\nA mapping $f: A \\rightarrow B$ is called surjective if every element from $B$ appears as an image.",
+                "Step 4: Check for surjectivity\nFor $f(x) = x^2$:\nNegative numbers do not appear as images\nThus, $f$ is not surjective on $\\mathbb{R}$",
+                "Step 5: Summary\nThe mapping $f(x) = x^2$ is neither injective nor surjective on $\\mathbb{R}$."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Sets and Mappings",
+            "title": "Composition of Mappings",
+            "description": "Given the mappings $f: \\mathbb{R} \\rightarrow \\mathbb{R}$, $f(x) = 2x + 1$ and $g: \\mathbb{R} \\rightarrow \\mathbb{R}$, $g(x) = x^2$. Determine $f\\circ g$ and $g\\circ f$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Definition of composition\nThe composition $f\\circ g$ is defined by $(f\\circ g)(x) = f(g(x))$.",
+                "Step 2: Calculate $f\\circ g$\n$(f\\circ g)(x) = f(g(x)) = f(x^2) = 2x^2 + 1$",
+                "Step 3: Calculate $g\\circ f$\n$(g\\circ f)(x) = g(f(x)) = g(2x + 1) = (2x + 1)^2 = 4x^2 + 4x + 1$",
+                "Step 4: Compare the results\nComparison:\n$f\\circ g \\neq g\\circ f$\nThe composition of mappings is generally not commutative."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Sets and Mappings",
+            "title": "Set Identities",
+            "description": "Prove the distributive laws for sets:\n1. $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$\n2. $A \\cup (B \\cap C) = (A \\cup B) \\cap (A \\cup C)$",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Formulate the distributive laws\nTo be proven are the distributive laws:\n1. $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$\n2. $A \\cup (B \\cap C) = (A \\cup B) \\cap (A \\cup C)$",
+                "Step 2: Proof of the first distributive law\nLet $x \\in A \\cap (B \\cup C)$. Then:\n$x \\in A$ and $x \\in B \\cup C$\nIf $x \\in B$, then $x \\in A \\cap B$\nIf $x \\in C$, then $x \\in A \\cap C$\nThus $x \\in (A \\cap B) \\cup (A \\cap C)$",
+                "Step 3: Proof of the second distributive law\nLet $x \\in A \\cup (B \\cap C)$. Then:\n$x \\in A$ or $x \\in B \\cap C$\nIf $x \\in A$, then $x \\in A \\cup B$ and $x \\in A \\cup C$\nIf $x \\in B \\cap C$, then $x \\in B$ and $x \\in C$\nThus $x \\in (A \\cup B) \\cap (A \\cup C)$",
+                "Step 4: Summary\nThe distributive laws show how intersection and union interact with each other."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Sets and Mappings",
+            "title": "Bijective Mappings",
+            "description": "Show that the mapping $f: \\mathbb{R} \\rightarrow \\mathbb{R}$, $f(x) = x^3 + 2x$ is bijective. Determine the inverse mapping $f^{-1}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Check for injectivity\nCheck the injectivity of $f(x) = x^3 + 2x$:\n$f'(x) = 3x^2 + 2 > 0$ for all $x \\in \\mathbb{R}$\nThus, $f$ is strictly monotonically increasing and therefore injective.",
+                "Step 2: Check for surjectivity\nCheck the surjectivity:\n$\\lim_{x \\rightarrow -\\infty} f(x) = -\\infty$\n$\\lim_{x \\rightarrow \\infty} f(x) = \\infty$\nBy the Intermediate Value Theorem, $f$ is surjective.",
+                "Step 3: Determine the inverse mapping\nDetermine the inverse mapping:\n$y = x^3 + 2x$\nSolving for $x$ gives the inverse mapping",
+                "Step 4: Verification\nVerification:\n$f(f^{-1}(y)) = y$\n$f^{-1}(f(x)) = x$"
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Sets and Mappings",
+            "title": "Cardinality of Sets",
+            "description": "Prove that the set of rational numbers $\\mathbb{Q}$ is countably infinite.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Definition of countability\nA set is called countably infinite if it can be bijectively mapped to $\\mathbb{N}$.",
+                "Step 2: Construct a bijection\nConstruct a bijection $\\mathbb{Q} \\rightarrow \\mathbb{N}$:\nArrange the rational numbers in an infinite grid\nDiagonal enumeration according to Cantor",
+                "Step 3: Prove the bijection\nProof of the bijection:\nEvery rational number is hit exactly once\nEach natural number is assigned exactly one rational number",
+                "Step 4: Summary\nThe set of rational numbers is countably infinite, as it can be bijectively mapped to $\\mathbb{N}$."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Sets and Mappings",
+            "title": "Equivalence Relations",
+            "description": "Let $M$ be a non-empty set. Show that the relation $R = \\{(A,B) \\in P(M) \\times P(M) \\mid |A| = |B|\\}$ is an equivalence relation on the power set $P(M)$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Definition of equivalence relation\nA relation $R$ on a set $M$ is called an equivalence relation if it is reflexive, symmetric, and transitive.",
+                "Step 2: Check for reflexivity\nFor every set $A \\in P(M)$, $|A| = |A|$\nThus $(A,A) \\in R$",
+                "Step 3: Check for symmetry\nIf $(A,B) \\in R$, then $|A| = |B|$\nThus $|B| = |A|$ and $(B,A) \\in R$",
+                "Step 4: Check for transitivity\nIf $(A,B) \\in R$ and $(B,C) \\in R$, then $|A| = |B|$ and $|B| = |C|$\nThus $|A| = |C|$ and $(A,C) \\in R$",
+                "Step 5: Summary\nThe relation $R$ is an equivalence relation, as it is reflexive, symmetric, and transitive."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Sets and Mappings",
+            "title": "Power Set",
+            "description": "Determine the power set $P(A)$ for $A = \\{1, 2, 3\\}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Definition of the power set\nThe power set $P(A)$ is the set of all subsets of $A$.",
+                "Step 2: Determine all subsets\nSubsets of $A = \\{1, 2, 3\\}$:\n$\\emptyset$\n$\\{1\\}$, $\\{2\\}$, $\\{3\\}$\n$\\{1,2\\}$, $\\{1,3\\}$, $\\{2,3\\}$\n$\\{1,2,3\\}$",
+                "Step 3: Set up the power set\n$P(A) = \\{\\emptyset, \\{1\\}, \\{2\\}, \\{3\\}, \\{1,2\\}, \\{1,3\\}, \\{2,3\\}, \\{1,2,3\\}\\}$"
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Sets and Mappings",
+            "title": "Set Equality",
+            "description": "Are the sets $A = \\{1, 2, 3\\}$ and $B = \\{3, 2, 1\\}$ equal? Justify your answer.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Definition of set equality\nTwo sets are equal if they contain the same elements, regardless of order.",
+                "Step 2: Check the elements\n$A$ and $B$ contain the same elements: $1$, $2$, and $3$.",
+                "Step 3: Justify the answer\nThe sets are equal because they contain the same elements. The order does not matter for sets."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Sets and Mappings",
+            "title": "Inverse Mappings",
+            "description": "Given the mapping $f: \\mathbb{R} \\rightarrow \\mathbb{R}$, $f(x) = 3x - 2$. Determine the inverse mapping $f^{-1}$ and show that $f^{-1}\\circ f = id$ and $f\\circ f^{-1} = id$ hold.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Determine the inverse mapping\nInverse mapping of $f(x) = 3x - 2$:\n$y = 3x - 2$\n$x = \\frac{y + 2}{3}$\nThus $f^{-1}(y) = \\frac{y + 2}{3}$",
+                "Step 2: Verify $f^{-1}\\circ f = id$\nVerification of $f^{-1}\\circ f = id$:\n$f^{-1}(f(x)) = f^{-1}(3x - 2) = \\frac{(3x - 2) + 2}{3} = x$",
+                "Step 3: Verify $f\\circ f^{-1} = id$\nVerification of $f\\circ f^{-1} = id$:\n$f(f^{-1}(y)) = f(\\frac{y + 2}{3}) = 3(\\frac{y + 2}{3}) - 2 = y$",
+                "Step 4: Summary\nThe inverse mapping is correct, as both compositions yield the identity."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Sets and Mappings",
+            "title": "Set Operations with Intervals",
+            "description": "Given the intervals $A = [0, 2]$ and $B = [1, 3]$. Determine $A \\cap B$, $A \\cup B$, and $A \\setminus B$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Determine the intersection\n$A \\cap B = [1, 2]$",
+                "Step 2: Determine the union\n$A \\cup B = [0, 3]$",
+                "Step 3: Determine the difference\n$A \\setminus B = [0, 1)$",
+                "Step 4: Summary\nThe intervals show how set operations apply to continuous sets."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Sets and Mappings",
+            "title": "Cardinality of Sets",
+            "description": "Show that the set of real numbers $\\mathbb{R}$ is uncountable using Cantor's diagonal argument.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Introduction to Cantor's diagonal argument\nIntroduction to Cantor's diagonal argument:\nAssume $\\mathbb{R}$ is countable\nThen there would be an enumeration of all real numbers",
+                "Step 2: Construct a real number\nConstruct a real number:\nTake the $n$-th decimal place of the $n$-th number\nChange this place\nThe resulting number cannot be in the enumeration",
+                "Step 3: Proof by contradiction\nProof by contradiction:\nThe constructed number contradicts the assumption of countability",
+                "Step 4: Summary\nThe set of real numbers is uncountable, as it cannot be bijectively mapped to $\\mathbb{N}$."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Sets and Mappings",
+            "title": "Complex Set Operations",
+            "description": "Prove De Morgan's laws for sets:\n1. $(A \\cup B)^c = A^c \\cap B^c$\n2. $(A \\cap B)^c = A^c \\cup B^c$",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Formulate De Morgan's laws\nDe Morgan's laws for sets:\n1. $(A \\cup B)^c = A^c \\cap B^c$\n2. $(A \\cap B)^c = A^c \\cup B^c$",
+                "Step 2: Proof of the first law\n$x \\in (A \\cup B)^c \\Leftrightarrow x \\notin A \\cup B$\n$\\Leftrightarrow x \\notin A$ and $x \\notin B$\n$\\Leftrightarrow x \\in A^c$ and $x \\in B^c$\n$\\Leftrightarrow x \\in A^c \\cap B^c$",
+                "Step 3: Proof of the second law\n$x \\in (A \\cap B)^c \\Leftrightarrow x \\notin A \\cap B$\n$\\Leftrightarrow x \\notin A$ or $x \\notin B$\n$\\Leftrightarrow x \\in A^c$ or $x \\in B^c$\n$\\Leftrightarrow x \\in A^c \\cup B^c$",
+                "Step 4: Summary\nDe Morgan's laws show the relationship between complement, union, and intersection."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Sets and Mappings",
+            "title": "Set Operations with Number Sets",
+            "description": "Given the sets $A = \\{x \\in \\mathbb{N} \\mid x \\leq 5\\}$ and $B = \\{x \\in \\mathbb{N} \\mid x \\text{ is even and } x \\leq 8\\}$. Determine:\n1. $A \\cup B$\n2. $A \\cap B$\n3. $A \\setminus B$\n4. $B \\setminus A$",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Determine the sets\n$A = \\{1, 2, 3, 4, 5\\}$\n$B = \\{2, 4, 6, 8\\}$",
+                "Step 2: Determine the union\n$A \\cup B = \\{1, 2, 3, 4, 5, 6, 8\\}$",
+                "Step 3: Determine the intersection\n$A \\cap B = \\{2, 4\\}$",
+                "Step 4: Determine the differences\n$A \\setminus B = \\{1, 3, 5\\}$\n$B \\setminus A = \\{6, 8\\}$"
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Sets and Mappings",
+            "title": "Subsets and Power Set",
+            "description": "Given the set $A = \\{a, b\\}$. Determine all subsets of $A$ and show that the number of subsets is $2^{|A|}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Determine the subsets\nSubsets of $A = \\{a, b\\}$:\n$\\emptyset$\n$\\{a\\}$\n$\\{b\\}$\n$\\{a, b\\}$",
+                "Step 2: Check the number\n$|A| = 2$\nNumber of subsets = $2^2 = 4$",
+                "Step 3: Verification\nThe number of subsets matches the formula $2^{|A|}$."
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Sets and Mappings",
+            "title": "Set Equality and Subsets",
+            "description": "Show that for arbitrary sets $A$ and $B$:\n$A = B$ if and only if $A \\subseteq B$ and $B \\subseteq A$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Forward direction\nIf $A = B$, then obviously $A \\subseteq B$ and $B \\subseteq A$.",
+                "Step 2: Reverse direction\nIf $A \\subseteq B$ and $B \\subseteq A$, then:\nEvery element of $A$ is contained in $B$\nEvery element of $B$ is contained in $A$\nThus $A = B$",
+                "Step 3: Summary\nThe equivalence is proven."
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Sets and Mappings",
+            "title": "Cartesian Product and Relations",
+            "description": "Given the sets $A = \\{1, 2\\}$ and $B = \\{a, b\\}$. Determine $A \\times B$ and give a relation $R \\subseteq A \\times B$ that represents a function.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Determine the Cartesian product\n$A \\times B = \\{(1,a), (1,b), (2,a), (2,b)\\}$",
+                "Step 2: Definition of a function\nA function must assign exactly one element from $B$ to each element from $A$.",
+                "Step 3: Example of a function\n$R = \\{(1,a), (2,b)\\}$ is a function, since:\n- Each element from $A$ appears exactly once as the first component\n- Each element from $A$ has exactly one image in $B$"
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Sets and Mappings",
+            "title": "Set Operations with Intervals",
+            "description": "Given the intervals $A = (-\\infty, 3]$ and $B = [1, \\infty)$. Determine $A \\cap B$ and $A \\cup B$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Visualize the intervals\n$A = (-\\infty, 3]$\n$B = [1, \\infty)$",
+                "Step 2: Determine the intersection\n$A \\cap B = [1, 3]$",
+                "Step 3: Determine the union\n$A \\cup B = \\mathbb{R}$",
+                "Step 4: Verification\nThe results can be verified by checking the endpoints."
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Sets and Mappings",
+            "title": "Set Operations with Complements",
+            "description": "Given the universal set $U = \\{1, 2, 3, 4, 5\\}$ and the set $A = \\{1, 3, 5\\}$. Determine $A^c$ and show that $(A^c)^c = A$ holds.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Determine the complement\n$A^c = U \\setminus A = \\{2, 4\\}$",
+                "Step 2: Determine the complement of the complement\n$(A^c)^c = U \\setminus A^c = \\{1, 3, 5\\} = A$",
+                "Step 3: Verification\nThe equality $(A^c)^c = A$ is verified."
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Sets and Mappings",
+            "title": "Set Operations with Number Sets",
+            "description": "Given the sets $A = \\{x \\in \\mathbb{Z} \\mid -2 \\leq x \\leq 2\\}$ and $B = \\{x \\in \\mathbb{Z} \\mid x \\text{ is odd}\\}$. Determine $A \\cap B$ and $A \\setminus B$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Determine the sets\n$A = \\{-2, -1, 0, 1, 2\\}$\n$B = \\{..., -3, -1, 1, 3, ...\\}$",
+                "Step 2: Determine the intersection\n$A \\cap B = \\{-1, 1\\}$",
+                "Step 3: Determine the difference\n$A \\setminus B = \\{-2, 0, 2\\}$",
+                "Step 4: Verification\nThe results can be verified by checking the elements."
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Sets and Mappings",
+            "title": "Set Operations with Subsets",
+            "description": "Show that for arbitrary sets $A$, $B$, and $C$:\nIf $A \\subseteq B$ and $B \\subseteq C$, then $A \\subseteq C$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Premises\n$A \\subseteq B$: Every element of $A$ is contained in $B$\n$B \\subseteq C$: Every element of $B$ is contained in $C$",
+                "Step 2: Proof\nLet $x \\in A$ be arbitrary\nThen $x \\in B$ (since $A \\subseteq B$)\nThen $x \\in C$ (since $B \\subseteq C$)\nThus $A \\subseteq C$",
+                "Step 3: Summary\nThe transitivity of the subset relation is proven."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Sets and Mappings",
+            "title": "Mapping Properties",
+            "description": "Examine the mapping $f: \\mathbb{R} \\rightarrow \\mathbb{R}$, $f(x) = |x|$ for injectivity and surjectivity. Justify your answer.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Definition of the properties\nA mapping is injective if different elements are mapped to different images.\nA mapping is surjective if every element of the target set appears as an image.",
+                "Step 2: Check for injectivity\n$f(-1) = f(1) = 1$\nThus, $f$ is not injective.",
+                "Step 3: Check for surjectivity\nFor every $y \\geq 0$, there exists an $x$ with $f(x) = y$\nFor $y < 0$, there is no $x$ with $f(x) = y$\nThus, $f$ is not surjective on $\\mathbb{R}$",
+                "Step 4: Summary\nThe mapping $f(x) = |x|$ is neither injective nor surjective on $\\mathbb{R}$."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Sets and Mappings",
+            "title": "Composition of Mappings",
+            "description": "Given the mappings $f: \\mathbb{R} \\rightarrow \\mathbb{R}$, $f(x) = x^2$ and $g: \\mathbb{R} \\rightarrow \\mathbb{R}$, $g(x) = \\sqrt{x}$. Determine the maximal domain of definition of $g\\circ f$ and $f\\circ g$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Determine $g\\circ f$\n$(g\\circ f)(x) = g(f(x)) = g(x^2) = \\sqrt{x^2} = |x|$\nDomain: $\\mathbb{R}$",
+                "Step 2: Determine $f\\circ g$\n$(f\\circ g)(x) = f(g(x)) = f(\\sqrt{x}) = (\\sqrt{x})^2 = x$\nDomain: $[0, \\infty)$",
+                "Step 3: Verification\nThe domains can be verified by checking the intermediate steps.",
+                "Step 4: Summary\nThe composition of mappings can restrict the domain."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Sets and Mappings",
+            "title": "Set Identities",
+            "description": "Prove the associative laws for sets:\n1. $(A \\cup B) \\cup C = A \\cup (B \\cup C)$\n2. $(A \\cap B) \\cap C = A \\cap (B \\cap C)$",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Formulate the associative laws\nTo be proven are the associative laws:\n1. $(A \\cup B) \\cup C = A \\cup (B \\cup C)$\n2. $(A \\cap B) \\cap C = A \\cap (B \\cap C)$",
+                "Step 2: Proof of the first law\n$x \\in (A \\cup B) \\cup C \\Leftrightarrow x \\in A \\cup B$ or $x \\in C$\n$\\Leftrightarrow x \\in A$ or $x \\in B$ or $x \\in C$\n$\\Leftrightarrow x \\in A$ or $x \\in B \\cup C$\n$\\Leftrightarrow x \\in A \\cup (B \\cup C)$",
+                "Step 3: Proof of the second law\n$x \\in (A \\cap B) \\cap C \\Leftrightarrow x \\in A \\cap B$ and $x \\in C$\n$\\Leftrightarrow x \\in A$ and $x \\in B$ and $x \\in C$\n$\\Leftrightarrow x \\in A$ and $x \\in B \\cap C$\n$\\Leftrightarrow x \\in A \\cap (B \\cap C)$",
+                "Step 4: Summary\nThe associative laws show that the order of operations does not matter for union and intersection."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Sets and Mappings",
+            "title": "Bijective Mappings",
+            "description": "Show that the mapping $f: \\mathbb{R} \\rightarrow \\mathbb{R}$, $f(x) = 2x + 1$ is bijective. Determine the inverse mapping $f^{-1}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Check for injectivity\n$f(x_1) = f(x_2) \\Rightarrow 2x_1 + 1 = 2x_2 + 1 \\Rightarrow x_1 = x_2$\nThus, $f$ is injective.",
+                "Step 2: Check for surjectivity\nFor every $y \\in \\mathbb{R}$, there exists an $x = \\frac{y-1}{2}$ with $f(x) = y$\nThus, $f$ is surjective.",
+                "Step 3: Determine the inverse mapping\n$y = 2x + 1$\n$x = \\frac{y-1}{2}$\nThus $f^{-1}(y) = \\frac{y-1}{2}$",
+                "Step 4: Verification\n$f(f^{-1}(y)) = f(\\frac{y-1}{2}) = 2(\\frac{y-1}{2}) + 1 = y$\n$f^{-1}(f(x)) = f^{-1}(2x + 1) = \\frac{(2x + 1)-1}{2} = x$"
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Sets and Mappings",
+            "title": "Cardinality of Sets",
+            "description": "Show that the set of natural numbers $\\mathbb{N}$ and the set of even natural numbers $2\\mathbb{N}$ are equinumerous.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Definition of equinumerosity\nTwo sets are equinumerous if there is a bijection between them.",
+                "Step 2: Construct a bijection\n$f: \\mathbb{N} \\rightarrow 2\\mathbb{N}$, $f(n) = 2n$",
+                "Step 3: Prove the bijection\nInjectivity: $f(n_1) = f(n_2) \\Rightarrow 2n_1 = 2n_2 \\Rightarrow n_1 = n_2$\nSurjectivity: For every $m \\in 2\\mathbb{N}$, there exists an $n = \\frac{m}{2} \\in \\mathbb{N}$ with $f(n) = m$",
+                "Step 4: Summary\nThe sets $\\mathbb{N}$ and $2\\mathbb{N}$ are equinumerous, as there is a bijection between them."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Sets and Mappings",
+            "title": "Equivalence Relations",
+            "description": "Let $M$ be the set of all humans. Show that the relation $R = \\{(a,b) \\in M \\times M \\mid a \\text{ and } b \\text{ have the same birth year}\\}$ is an equivalence relation.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Definition of equivalence relation\nA relation $R$ on a set $M$ is called an equivalence relation if it is reflexive, symmetric, and transitive.",
+                "Step 2: Check for reflexivity\nFor every person $a \\in M$: $a$ has the same birth year as $a$\nThus $(a,a) \\in R$",
+                "Step 3: Check for symmetry\nIf $(a,b) \\in R$, then $a$ and $b$ have the same birth year\nThus $b$ and $a$ have the same birth year\nThus $(b,a) \\in R$",
+                "Step 4: Check for transitivity\nIf $(a,b) \\in R$ and $(b,c) \\in R$, then $a$ and $b$ have the same birth year and $b$ and $c$ have the same birth year\nThus $a$ and $c$ have the same birth year\nThus $(a,c) \\in R$",
+                "Step 5: Summary\nThe relation $R$ is an equivalence relation, as it is reflexive, symmetric, and transitive."
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Sets and Mappings",
+            "title": "Power Set and Cardinality",
+            "description": "Show that for a finite set $A$ with $|A| = n$, the cardinality of the power set $|P(A)| = 2^n$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Definition of the power set\nThe power set $P(A)$ is the set of all subsets of $A$.",
+                "Step 2: Proof by complete induction\nBase case: $n = 0$\n$A = \\emptyset$\n$P(A) = \\{\\emptyset\\}$\n$|P(A)| = 1 = 2^0$",
+                "Step 3: Inductive step\nLet $|A| = n+1$ and $a \\in A$\nThen $P(A) = P(A \\setminus \\{a\\}) \\cup \\{B \\cup \\{a\\} \\mid B \\in P(A \\setminus \\{a\\})\\}$\nThus $|P(A)| = 2|P(A \\setminus \\{a\\})| = 2 \\cdot 2^n = 2^{n+1}$",
+                "Step 4: Summary\nThe cardinality of the power set of an $n$-element set is $2^n$."
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Sets and Mappings",
+            "title": "Cardinality of Sets",
+            "description": "Show that the set of real numbers $\\mathbb{R}$ and the set of real numbers in the interval $(0,1)$ are equinumerous.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Definition of equinumerosity\nTwo sets are equinumerous if there is a bijection between them.",
+                "Step 2: Construct a bijection\n$f: (0,1) \\rightarrow \\mathbb{R}$, $f(x) = \\tan(\\pi x - \\frac{\\pi}{2})$",
+                "Step 3: Prove the bijection\nInjectivity: The tangent function is strictly monotonically increasing on $(-\\frac{\\pi}{2}, \\frac{\\pi}{2})$\nSurjectivity: The tangent function takes all real values",
+                "Step 4: Verification\nThe mapping is well-defined and bijective.",
+                "Step 5: Summary\nThe sets $\\mathbb{R}$ and $(0,1)$ are equinumerous, as there is a bijection between them."
+            ]
+        },
+        {
+            "id": 32,
+            "topic": "Sets and Mappings",
+            "title": "Complex Set Operations",
+            "description": "Prove the distributive laws for sets:\n1. $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$\n2. $A \\cup (B \\cap C) = (A \\cup B) \\cap (A \\cup C)$",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Formulate the distributive laws\nTo be proven are the distributive laws:\n1. $A \\cap (B \\cup C) = (A \\cap B) \\cup (A \\cap C)$\n2. $A \\cup (B \\cap C) = (A \\cup B) \\cap (A \\cup C)$",
+                "Step 2: Proof of the first law\n$x \\in A \\cap (B \\cup C) \\Leftrightarrow x \\in A$ and $x \\in B \\cup C$\n$\\Leftrightarrow x \\in A$ and ($x \\in B$ or $x \\in C$)\n$\\Leftrightarrow (x \\in A$ and $x \\in B)$ or $(x \\in A$ and $x \\in C)$\n$\\Leftrightarrow x \\in (A \\cap B) \\cup (A \\cap C)$",
+                "Step 3: Proof of the second law\n$x \\in A \\cup (B \\cap C) \\Leftrightarrow x \\in A$ or $x \\in B \\cap C$\n$\\Leftrightarrow x \\in A$ or ($x \\in B$ and $x \\in C$)\n$\\Leftrightarrow (x \\in A$ or $x \\in B)$ and $(x \\in A$ or $x \\in C)$\n$\\Leftrightarrow x \\in (A \\cup B) \\cap (A \\cup C)$",
+                "Step 4: Summary\nThe distributive laws show the relationship between intersection and union."
+            ]
+        },
+        {
+            "id": 33,
+            "topic": "Sets and Mappings",
+            "title": "Cardinality of Sets",
+            "description": "Show that the set of rational numbers $\\mathbb{Q}$ and the set of natural numbers $\\mathbb{N}$ are equinumerous.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Definition of equinumerosity\nTwo sets are equinumerous if there is a bijection between them.",
+                "Step 2: Construct a bijection\nArrange the rational numbers in an infinite grid\nDiagonal enumeration according to Cantor",
+                "Step 3: Prove the bijection\nEvery rational number is hit exactly once\nEach natural number is assigned exactly one rational number",
+                "Step 4: Verification\nThe mapping is well-defined and bijective.",
+                "Step 5: Summary\nThe sets $\\mathbb{Q}$ and $\\mathbb{N}$ are equinumerous, as there is a bijection between them."
+            ]
+        },
+        {
+            "id": 34,
+            "topic": "Sets and Mappings",
+            "title": "Equivalence Relations",
+            "description": "Let $M$ be the set of all lines in the plane. Show that the relation $R = \\{(g,h) \\in M \\times M \\mid g \\text{ and } h \\text{ are parallel}\\}$ is an equivalence relation.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Definition of equivalence relation\nA relation $R$ on a set $M$ is called an equivalence relation if it is reflexive, symmetric, and transitive.",
+                "Step 2: Check for reflexivity\nEvery line is parallel to itself\nThus $(g,g) \\in R$",
+                "Step 3: Check for symmetry\nIf $g$ is parallel to $h$, then $h$ is parallel to $g$\nThus $(g,h) \\in R \\Rightarrow (h,g) \\in R$",
+                "Step 4: Check for transitivity\nIf $g$ is parallel to $h$ and $h$ is parallel to $k$, then $g$ is parallel to $k$\nThus $(g,h) \\in R$ and $(h,k) \\in R \\Rightarrow (g,k) \\in R$",
+                "Step 5: Summary\nThe relation $R$ is an equivalence relation, as it is reflexive, symmetric, and transitive."
+            ]
+        },
+        {
+            "id": 35,
+            "topic": "Sets and Mappings",
+            "title": "Power Set and Cardinality",
+            "description": "Show that the power set of an infinite set is uncountable.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Definition of the power set\nThe power set $P(A)$ is the set of all subsets of $A$.",
+                "Step 2: Proof by contradiction\nAssume $P(A)$ is countable\nThen there would be an enumeration of all subsets of $A$",
+                "Step 3: Construct a subset\nConstruct a subset $B \\subseteq A$:\nFor each $a \\in A$:\n- If $a \\in A_n$, then $a \\notin B$\n- If $a \\notin A_n$, then $a \\in B$\nThe resulting set $B$ cannot be in the enumeration",
+                "Step 4: Contradiction\nThe constructed set $B$ contradicts the assumption of countability",
+                "Step 5: Summary\nThe power set of an infinite set is uncountable."
+            ]
+        },
+        {
+            "id": 36,
+            "topic": "Sets and Mappings",
+            "title": "Complex Set Operations",
+            "description": "Prove De Morgan's laws for sets:\n1. $(A \\cup B)^c = A^c \\cap B^c$\n2. $(A \\cap B)^c = A^c \\cup B^c$",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Formulate De Morgan's laws\nDe Morgan's laws for sets:\n1. $(A \\cup B)^c = A^c \\cap B^c$\n2. $(A \\cap B)^c = A^c \\cup B^c$",
+                "Step 2: Proof of the first law\n$x \\in (A \\cup B)^c \\Leftrightarrow x \\notin A \\cup B$\n$\\Leftrightarrow x \\notin A$ and $x \\notin B$\n$\\Leftrightarrow x \\in A^c$ and $x \\in B^c$\n$\\Leftrightarrow x \\in A^c \\cap B^c$",
+                "Step 3: Proof of the second law\n$x \\in (A \\cap B)^c \\Leftrightarrow x \\notin A \\cap B$\n$\\Leftrightarrow x \\notin A$ or $x \\notin B$\n$\\Leftrightarrow x \\in A^c$ or $x \\in B^c$\n$\\Leftrightarrow x \\in A^c \\cup B^c$",
+                "Step 4: Summary\nDe Morgan's laws show the relationship between complement, union, and intersection."
+            ]
+        },
+        {
+            "id": 37,
+            "topic": "Sets and Mappings",
+            "title": "Cardinality of Sets",
+            "description": "Show that the set of real numbers $\\mathbb{R}$ and the set of real numbers in the interval $[0,1]$ are equinumerous.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Definition of equinumerosity\nTwo sets are equinumerous if there is a bijection between them.",
+                "Step 2: Construct a bijection\n$f: [0,1] \\rightarrow \\mathbb{R}$, $f(x) = \\tan(\\pi x - \\frac{\\pi}{2})$",
+                "Step 3: Prove the bijection\nInjectivity: The tangent function is strictly monotonically increasing on $(-\\frac{\\pi}{2}, \\frac{\\pi}{2})$\nSurjectivity: The tangent function takes all real values",
+                "Step 4: Verification\nThe mapping is well-defined and bijective.",
+                "Step 5: Summary\nThe sets $\\mathbb{R}$ and $[0,1]$ are equinumerous, as there is a bijection between them."
+            ]
+        },
+        {
+            "id": 38,
+            "topic": "Sets and Mappings",
+            "title": "Equivalence Relations",
+            "description": "Let $M$ be the set of all polynomials with real coefficients. Show that the relation $R = \\{(p,q) \\in M \\times M \\mid p \\text{ and } q \\text{ have the same degree}\\}$ is an equivalence relation.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Definition of equivalence relation\nA relation $R$ on a set $M$ is called an equivalence relation if it is reflexive, symmetric, and transitive.",
+                "Step 2: Check for reflexivity\nEvery polynomial has the same degree as itself\nThus $(p,p) \\in R$",
+                "Step 3: Check for symmetry\nIf $p$ and $q$ have the same degree, then $q$ and $p$ have the same degree\nThus $(p,q) \\in R \\Rightarrow (q,p) \\in R$",
+                "Step 4: Check for transitivity\nIf $p$ and $q$ have the same degree and $q$ and $r$ have the same degree, then $p$ and $r$ have the same degree\nThus $(p,q) \\in R$ and $(q,r) \\in R \\Rightarrow (p,r) \\in R$",
+                "Step 5: Summary\nThe relation $R$ is an equivalence relation, as it is reflexive, symmetric, and transitive."
+            ]
+        },
+        {
+            "id": 39,
+            "topic": "Sets and Mappings",
+            "title": "Power Set and Cardinality",
+            "description": "Show that the power set of a countably infinite set is uncountable.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Definition of the power set\nThe power set $P(A)$ is the set of all subsets of $A$.",
+                "Step 2: Proof by contradiction\nAssume $P(A)$ is countable\nThen there would be an enumeration of all subsets of $A$",
+                "Step 3: Construct a subset\nConstruct a subset $B \\subseteq A$:\nFor each $a \\in A$:\n- If $a \\in A_n$, then $a \\notin B$\n- If $a \\notin A_n$, then $a \\in B$\nThe resulting set $B$ cannot be in the enumeration",
+                "Step 4: Contradiction\nThe constructed set $B$ contradicts the assumption of countability",
+                "Step 5: Summary\nThe power set of a countably infinite set is uncountable."
+            ]
+        }
+    ]
+}

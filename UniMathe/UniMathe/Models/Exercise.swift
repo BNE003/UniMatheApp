@@ -38,10 +38,15 @@ enum Difficulty: String, Codable {
     }
     
     var text: String {
+        let language = SettingsModel.shared.language
+        
         switch self {
-        case .easy: return "Einfach"
-        case .medium: return "Mittel"
-        case .hard: return "Schwer"
+        case .easy:
+            return language == .english ? "Easy" : "Einfach"
+        case .medium:
+            return language == .english ? "Medium" : "Mittel"
+        case .hard:
+            return language == .english ? "Hard" : "Schwer"
         }
     }
 } 

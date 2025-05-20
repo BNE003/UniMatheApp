@@ -1,0 +1,156 @@
+{
+    "id": "cc0e8400-e29b-41d4-a716-446655440000",
+    "topic": "Vector Spaces",
+    "steps": [
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440001",
+            "text": "A vector space is a set V equipped with an addition and a scalar multiplication that satisfy certain properties.",
+            "formula": "\\begin{align*} \\vec{v} + \\vec{w} &\\in V \\\\ \\alpha \\cdot \\vec{v} &\\in V \\end{align*}",
+            "explanation": "The addition of two vectors and the multiplication of a vector by a scalar must again yield a vector in V. Imagine a box of arrows—when you combine two arrows or stretch an arrow, you still get an arrow from the box!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440002",
+            "text": "The addition must be commutative and associative, and there must exist a neutral element (zero vector).",
+            "formula": "\\begin{align*} \\vec{v} + \\vec{w} &= \\vec{w} + \\vec{v} \\\\ (\\vec{v} + \\vec{w}) + \\vec{u} &= \\vec{v} + (\\vec{w} + \\vec{u}) \\\\ \\vec{v} + \\vec{0} &= \\vec{v} \\end{align*}",
+            "explanation": "These properties ensure that vector addition behaves like ordinary addition. It’s like building with blocks: the order in which you combine them doesn’t matter, and adding nothing leaves everything unchanged!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440003",
+            "text": "Scalar multiplication must be distributive and compatible with addition.",
+            "formula": "\\begin{align*} \\alpha(\\vec{v} + \\vec{w}) &= \\alpha\\vec{v} + \\alpha\\vec{w} \\\\ (\\alpha + \\beta)\\vec{v} &= \\alpha\\vec{v} + \\beta\\vec{v} \\end{align*}",
+            "explanation": "These properties ensure that scalar multiplication interacts naturally with addition. It’s like stretching a rubber band: stretching two combined bands is the same as stretching them individually and then combining them!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440004",
+            "text": "An important example is ℝⁿ, the vector space of n-tuples of real numbers.",
+            "formula": "\\mathbb{R}^n = \\{(x_1, x_2, ..., x_n) \\mid x_i \\in \\mathbb{R}\\}",
+            "explanation": "ℝⁿ is the standard vector space where vectors are represented as n-tuples of real numbers. In ℝ², we can think of it as points in a plane; in ℝ³, as points in space. Each point has its own coordinates!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440005",
+            "text": "Another example is the vector space of polynomials of degree ≤ n.",
+            "formula": "P_n = \\{a_0 + a_1x + a_2x^2 + ... + a_nx^n \\mid a_i \\in \\mathbb{R}\\}",
+            "explanation": "Polynomials form a vector space because they can be added and multiplied by scalars. Imagine having different functions that you can treat like vectors—you can add them or stretch them!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440006",
+            "text": "A subspace is a subset of a vector space that is itself a vector space.",
+            "formula": "U \\subseteq V \\text{ is a subspace} \\Leftrightarrow \\begin{cases} \\vec{0} \\in U \\\\ \\vec{u} + \\vec{v} \\in U \\\\ \\alpha\\vec{u} \\in U \\end{cases}",
+            "explanation": "A subspace must contain the zero vector and be closed under addition and scalar multiplication. It’s like a smaller space within a larger one—everything you do inside stays inside!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440007",
+            "text": "The span of a set of vectors is the smallest subspace containing those vectors.",
+            "formula": "\\text{span}(\\{\\vec{v}_1, ..., \\vec{v}_n\\}) = \\{\\sum_{i=1}^n \\alpha_i\\vec{v}_i \\mid \\alpha_i \\in \\mathbb{R}\\}",
+            "explanation": "The span contains all possible linear combinations of the given vectors. It’s like a net spanned by the vectors—every point in the net can be reached by combining the base vectors!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440008",
+            "text": "A basis of a vector space is a linearly independent set of vectors that spans the entire space.",
+            "formula": "B = \\{\\vec{b}_1, ..., \\vec{b}_n\\} \\text{ is a basis} \\Leftrightarrow \\begin{cases} B \\text{ linearly independent} \\\\ \\text{span}(B) = V \\end{cases}",
+            "explanation": "A basis is like a coordinate system—every vector can be uniquely expressed as a linear combination of basis vectors. It’s like a construction kit from which you can build any vector!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440009",
+            "text": "The dimension of a vector space is the number of vectors in a basis.",
+            "formula": "\\dim V = |B|",
+            "explanation": "The dimension gives us the number of independent directions in the vector space. In ℝ², we have two dimensions (x and y); in ℝ³, three (x, y, and z). It’s like the number of axes in our coordinate system!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440010",
+            "text": "A scalar product is a function that assigns a real number to two vectors.",
+            "formula": "\\langle \\vec{v}, \\vec{w} \\rangle = \\sum_{i=1}^n v_i w_i",
+            "explanation": "The scalar product measures the similarity of two vectors. It’s like a measure of how aligned their directions are—when vectors are parallel, the scalar product is maximal!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440011",
+            "text": "The norm of a vector is its length, defined via the scalar product.",
+            "formula": "\\|\\vec{v}\\| = \\sqrt{\\langle \\vec{v}, \\vec{v} \\rangle}",
+            "explanation": "The norm gives us the length of a vector. In ℝ², it’s the distance from the origin to the point. It’s like a measuring tape for distances!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440012",
+            "text": "Two vectors are orthogonal if their scalar product is zero.",
+            "formula": "\\vec{v} \\perp \\vec{w} \\Leftrightarrow \\langle \\vec{v}, \\vec{w} \\rangle = 0",
+            "explanation": "Orthogonal vectors are perpendicular to each other. In ℝ², the x- and y-axes are orthogonal. It’s like two roads meeting at a right angle!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440013",
+            "text": "An orthonormal basis is a basis of pairwise orthogonal vectors of length 1.",
+            "formula": "\\langle \\vec{b}_i, \\vec{b}_j \\rangle = \\delta_{ij}",
+            "explanation": "An orthonormal basis is particularly convenient because the vectors are perpendicular and have length 1. It’s like a perfect coordinate system where all axes are equally long!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440014",
+            "text": "The vector space of continuous functions on an interval is an important example.",
+            "formula": "C[a,b] = \\{f: [a,b] \\rightarrow \\mathbb{R} \\mid f \\text{ continuous}\\}",
+            "explanation": "Continuous functions form a vector space because they can be added and multiplied by scalars. It’s like a space full of curves that you can combine freely!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440015",
+            "text": "The vector space of matrices is another important example.",
+            "formula": "M_{m,n} = \\{A \\mid A \\text{ is an } m \\times n \\text{ matrix}\\}",
+            "explanation": "Matrices form a vector space because they can be added and multiplied by scalars. It’s like a space full of tables that you can combine freely!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440016",
+            "text": "The direct sum of two vector spaces is a new vector space.",
+            "formula": "V \\oplus W = \\{(v,w) \\mid v \\in V, w \\in W\\}",
+            "explanation": "The direct sum combines two vector spaces into a larger one. It’s like placing two spaces side by side—each vector consists of one part from each space!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440017",
+            "text": "The quotient vector space arises by identifying vectors.",
+            "formula": "V/U = \\{[v] \\mid v \\in V\\}",
+            "explanation": "The quotient vector space arises when we consider vectors differing only by a vector in U as equivalent. It’s like a space where certain differences are ignored!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440018",
+            "text": "A vector space can also be defined over a finite field.",
+            "formula": "\\mathbb{F}_p^n = \\{(x_1, ..., x_n) \\mid x_i \\in \\mathbb{F}_p\\}",
+            "explanation": "Vector spaces over finite fields are important in coding theory. It’s like a space where we work with only a finite number of numbers!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440019",
+            "text": "The dimension of a subspace cannot exceed that of the ambient space.",
+            "formula": "U \\subseteq V \\Rightarrow \\dim U \\leq \\dim V",
+            "explanation": "A subspace cannot have more independent directions than the surrounding space. It’s like a room within a room—it cannot be larger than the outer space!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440020",
+            "text": "The sum of two subspaces is again a subspace.",
+            "formula": "U + W = \\{u + w \\mid u \\in U, w \\in W\\}",
+            "explanation": "The sum contains all possible sums of vectors from U and W. It’s like combining two spaces—every point can be expressed as a sum of points from both spaces!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440021",
+            "text": "The intersection of two subspaces is again a subspace.",
+            "formula": "U \\cap W = \\{v \\mid v \\in U \\text{ and } v \\in W\\}",
+            "explanation": "The intersection contains all vectors that lie in both subspaces. It’s like the common region of two overlapping spaces!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440022",
+            "text": "The dimension of the sum of two subspaces satisfies the dimension formula.",
+            "formula": "\\dim(U + W) = \\dim U + \\dim W - \\dim(U \\cap W)",
+            "explanation": "This formula relates the dimensions of the sum, intersection, and individual subspaces. It’s like a puzzle: the pieces must fit together!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440023",
+            "text": "A vector space can also be defined as a module over a ring.",
+            "formula": "M \\text{ is an } R\\text{-module} \\Leftrightarrow \\begin{cases} M \\text{ is an abelian group} \\\\ r \\cdot m \\in M \\end{cases}",
+            "explanation": "Modules generalize vector spaces by allowing scalars from a ring instead of a field. It’s like a vector space where we can work with more types of numbers!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440024",
+            "text": "Tensor products of vector spaces are important in multilinear algebra.",
+            "formula": "V \\otimes W = \\{\\sum v_i \\otimes w_i \\mid v_i \\in V, w_i \\in W\\}",
+            "explanation": "The tensor product combines vector spaces into a larger space. It’s like a product space where we can multiply vectors from different spaces!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440025",
+            "text": "Finally, let’s look at how vector spaces are used in quantum mechanics.",
+            "formula": "\\mathcal{H} = \\{\\sum c_i |\\psi_i\\rangle \\mid c_i \\in \\mathbb{C}\\}",
+            "explanation": "In quantum mechanics, states are represented as vectors in a complex vector space. It’s like a space full of possibilities, where each vector describes a possible state of the system!"
+        }
+    ]
+}

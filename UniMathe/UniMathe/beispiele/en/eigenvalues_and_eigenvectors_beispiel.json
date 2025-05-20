@@ -1,0 +1,156 @@
+{
+    "id": "bb0e8400-e29b-41d4-a716-446655440000",
+    "topic": "Eigenvalues",
+    "steps": [
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440001",
+            "text": "An eigenvector of a matrix A is a non-zero vector v that is only scaled when multiplied by A.",
+            "formula": "A \\cdot v = \\lambda \\cdot v",
+            "explanation": "The scaling factor λ is called the eigenvalue. Imagine a rubber band—if you stretch it in a certain direction, it only gets longer or shorter but keeps its direction. That's exactly what happens with eigenvectors!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440002",
+            "text": "The eigenvalues are the roots of the characteristic polynomial.",
+            "formula": "\\det(A - \\lambda \\cdot I) = 0",
+            "explanation": "I is the identity matrix. The characteristic polynomial is like a fingerprint of the matrix—it tells us which scaling factors are possible. It is a polynomial of degree n for an n×n matrix."
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440003",
+            "text": "For a 2×2 matrix A = (a b; c d), the characteristic polynomial is:",
+            "formula": "\\det\\begin{pmatrix} a-\\lambda & b \\\\ c & d-\\lambda \\end{pmatrix} = (a-\\lambda)(d-\\lambda) - b \\cdot c = 0",
+            "explanation": "This leads to a quadratic equation in λ, whose solutions are the eigenvalues. Let's look at a concrete example: For A = (2 1; 1 2), we get λ² - 4λ + 3 = 0, so λ₁ = 1 and λ₂ = 3."
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440004",
+            "text": "The eigenvectors corresponding to an eigenvalue λ are obtained by solving the homogeneous system:",
+            "formula": "(A - \\lambda \\cdot I) \\cdot v = 0",
+            "explanation": "The solutions form the eigenspace for the eigenvalue λ. The dimension of the eigenspace is called the geometric multiplicity. For our example A = (2 1; 1 2) and λ₁ = 1, we get the eigenvector v₁ = (1, -1)ᵀ."
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440005",
+            "text": "A matrix is diagonalizable if it has n linearly independent eigenvectors.",
+            "formula": "A = P \\cdot \\Lambda \\cdot P^{-1}",
+            "explanation": "P is the matrix of eigenvectors, Λ is the diagonal matrix of eigenvalues. This enables easy exponentiation: A^k = P·Λ^k·P^(-1). For our example, A = (2 1; 1 2) is diagonalizable with P = (1 1; -1 1) and Λ = (1 0; 0 3)."
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440006",
+            "text": "The trace of a matrix is the sum of its eigenvalues.",
+            "formula": "\\text{tr}(A) = \\sum_{i=1}^n \\lambda_i",
+            "explanation": "The trace is the sum of the diagonal elements and is invariant under similarity transformations. For our example A = (2 1; 1 2), tr(A) = 2 + 2 = 4, which matches the sum of the eigenvalues 1 + 3 = 4!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440007",
+            "text": "The determinant of a matrix is the product of its eigenvalues.",
+            "formula": "\\det(A) = \\prod_{i=1}^n \\lambda_i",
+            "explanation": "This explains why a matrix is invertible if and only if all its eigenvalues are non-zero. For our example A = (2 1; 1 2), det(A) = 3, which matches the product of the eigenvalues 1 · 3 = 3!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440008",
+            "text": "The algebraic multiplicity of an eigenvalue is its multiplicity as a root of the characteristic polynomial.",
+            "formula": "p_A(\\lambda) = (\\lambda - \\lambda_0)^k \\cdot q(\\lambda)",
+            "explanation": "The algebraic multiplicity k indicates how often an eigenvalue appears as a root. It is always greater than or equal to the geometric multiplicity. It's like the number of times a note appears in a piece of music!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440009",
+            "text": "A matrix is diagonalizable if and only if the geometric multiplicity of each eigenvalue equals its algebraic multiplicity.",
+            "formula": "\\dim E_\\lambda = \\text{alg. multiplicity of } \\lambda",
+            "explanation": "This is a key criterion for diagonalizability. If the multiplicities do not match, we must resort to the Jordan normal form. It's like a puzzle—all pieces must fit perfectly!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440010",
+            "text": "The Jordan normal form is a generalized diagonal form for non-diagonalizable matrices.",
+            "formula": "A = P \\cdot J \\cdot P^{-1}",
+            "explanation": "J is a block diagonal matrix of Jordan blocks. Each block corresponds to an eigenvalue and has the form (λ 1; 0 λ). It's like an almost-diagonal form that shows a bit more structure!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440011",
+            "text": "The power of a matrix can be computed using the Jordan normal form.",
+            "formula": "A^k = P \\cdot J^k \\cdot P^{-1}",
+            "explanation": "The exponentiation of Jordan blocks follows a simple rule. For a 2×2 block (λ 1; 0 λ), the k-th power is (λ^k k·λ^(k-1); 0 λ^k). It's like exponentiating a number, just with an additional term!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440012",
+            "text": "The exponential function of a matrix can be defined using the Jordan normal form.",
+            "formula": "e^A = P \\cdot e^J \\cdot P^{-1}",
+            "explanation": "The exponential function is important for solving differential equations. For a Jordan block (λ 1; 0 λ), e^J = (e^λ e^λ; 0 e^λ). It's like the regular exponential function, but for matrices!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440013",
+            "text": "The singular value decomposition (SVD) generalizes eigenvalue decomposition for non-square matrices.",
+            "formula": "A = U \\cdot \\Sigma \\cdot V^T",
+            "explanation": "U and V are orthogonal matrices, Σ is a diagonal matrix with the singular values. The singular values are the square roots of the eigenvalues of A^T·A. It's like a generalized diagonalization!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440014",
+            "text": "The QR decomposition is an important numerical method for computing eigenvalues.",
+            "formula": "A = Q \\cdot R",
+            "explanation": "Q is an orthogonal matrix, R is an upper triangular matrix. The QR iteration converges to an upper triangular matrix whose diagonal elements are the eigenvalues. It's like an iterative method for diagonalization!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440015",
+            "text": "The Schur decomposition shows that every matrix is unitarily similar to an upper triangular matrix.",
+            "formula": "A = U \\cdot T \\cdot U^*",
+            "explanation": "U is a unitary matrix, T is an upper triangular matrix. The diagonal elements of T are the eigenvalues. It's like a generalized diagonalization for complex matrices!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440016",
+            "text": "The spectral decomposition of a symmetric matrix is particularly simple.",
+            "formula": "A = Q \\cdot \\Lambda \\cdot Q^T",
+            "explanation": "Q is an orthogonal matrix, Λ is a diagonal matrix. The eigenvalues are real, and the eigenvectors are orthogonal. It's like a particularly elegant diagonalization!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440017",
+            "text": "The definiteness of a symmetric matrix can be characterized by its eigenvalues.",
+            "formula": "\\begin{cases} A \\text{ positive definite} &\\Leftrightarrow \\lambda_i > 0 \\\\ A \\text{ negative definite} &\\Leftrightarrow \\lambda_i < 0 \\\\ A \\text{ positive semidefinite} &\\Leftrightarrow \\lambda_i \\geq 0 \\end{cases}",
+            "explanation": "Definiteness is important for optimization problems. A positive definite matrix has only positive eigenvalues. It's like a measure of the curvature of a quadratic form!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440018",
+            "text": "The condition number of a matrix measures its numerical stability.",
+            "formula": "\\kappa(A) = \\|A\\| \\cdot \\|A^{-1}\\| = \\frac{|\\lambda_{\\max}|}{|\\lambda_{\\min}|}",
+            "explanation": "The condition number is the ratio of the largest to the smallest eigenvalue. A large condition number indicates poor numerical stability. It's like a measure of the matrix's sensitivity!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440019",
+            "text": "The Perron-Frobenius theory describes the eigenvalues and eigenvectors of nonnegative matrices.",
+            "formula": "\\begin{cases} \\lambda_1 > 0 \\\\ |\\lambda_i| \\leq \\lambda_1 \\\\ v_1 > 0 \\end{cases}",
+            "explanation": "The largest eigenvalue is real and positive, and the corresponding eigenvector has only positive entries. This is important for Markov chains and PageRank. It's like a special theorem for positive matrices!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440020",
+            "text": "Gershgorin circles provide a simple estimate for eigenvalues.",
+            "formula": "|\\lambda - a_{ii}| \\leq \\sum_{j \\neq i} |a_{ij}|",
+            "explanation": "Every eigenvalue lies within at least one Gershgorin circle. The circles are centered at the diagonal elements. It's like a simple geometric estimate for eigenvalues!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440021",
+            "text": "Rayleigh quotients provide an estimate for the largest eigenvalue.",
+            "formula": "\\lambda_{\\max} \\geq \\frac{x^T A x}{x^T x}",
+            "explanation": "The Rayleigh quotient is always greater than or equal to the largest eigenvalue. It is minimized for the corresponding eigenvector. It's like a measure of the maximum scaling!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440022",
+            "text": "The power method is an iterative procedure for computing the largest eigenvalue.",
+            "formula": "x_{k+1} = \\frac{A x_k}{\\|A x_k\\|}",
+            "explanation": "The power method converges to the eigenvector corresponding to the eigenvalue with the largest magnitude. It is simple to implement but may converge slowly. It's like an iterative method for maximization!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440023",
+            "text": "The inverse power method computes the smallest eigenvalue.",
+            "formula": "x_{k+1} = \\frac{A^{-1} x_k}{\\|A^{-1} x_k\\|}",
+            "explanation": "The inverse power method converges to the eigenvector corresponding to the eigenvalue with the smallest magnitude. It is particularly useful for large, sparse matrices. It's like the power method, but in the opposite direction!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440024",
+            "text": "The Lanczos method is an efficient procedure for large, symmetric matrices.",
+            "formula": "T_k = Q_k^T A Q_k",
+            "explanation": "The Lanczos method reduces the matrix to a tridiagonal matrix. It is particularly efficient for large, sparse matrices. It's like an intelligent reduction of the problem size!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440025",
+            "text": "Finally, let's look at how eigenvalues are used in quantum mechanics.",
+            "formula": "H \\psi = E \\psi",
+            "explanation": "In quantum mechanics, the eigenvalues represent the possible energy levels of a system. The eigenvectors describe the corresponding states. It's like a mathematical description of the quantum world!"
+        }
+    ]
+}

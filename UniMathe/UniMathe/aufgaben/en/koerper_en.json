@@ -1,0 +1,423 @@
+{
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Fields",
+            "title": "Verifying Field Axioms",
+            "description": "Show that $\\mathbb{Q}[\\sqrt{2}] = \\{a + b\\sqrt{2} \\mid a,b \\in \\mathbb{Q}\\}$ with the usual addition and multiplication forms a field.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Ring Properties\n$\\mathbb{Q}[\\sqrt{2}]$ is a ring (as shown in the ring exercise).",
+                "Step 2: Commutativity of Multiplication\n$(a + b\\sqrt{2}) \\cdot (c + d\\sqrt{2}) = (c + d\\sqrt{2}) \\cdot (a + b\\sqrt{2})$\nMultiplication is commutative.",
+                "Step 3: Existence of Inverses\nFor $a + b\\sqrt{2} \\neq 0$:\n$(a + b\\sqrt{2})^{-1} = \\frac{a - b\\sqrt{2}}{a^2 - 2b^2} \\in \\mathbb{Q}[\\sqrt{2}]$\nThe denominator is never 0, since $\\sqrt{2}$ is irrational.",
+                "Step 4: Conclusion\n$\\mathbb{Q}[\\sqrt{2}]$ satisfies all field axioms and is thus a field."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Fields",
+            "title": "Finite Fields",
+            "description": "Construct a field with 4 elements and provide its addition and multiplication tables.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Construction\n$\\mathbb{F}_4 = \\mathbb{Z}_2[X]/(X^2 + X + 1)$\nElements: $\\{0,1,X,X+1\\}$.",
+                "Step 2: Addition Table\n$\\begin{array}{c|cccc}\n+ & 0 & 1 & X & X+1 \\\\\\hline\n0 & 0 & 1 & X & X+1 \\\\\n1 & 1 & 0 & X+1 & X \\\\\nX & X & X+1 & 0 & 1 \\\\\nX+1 & X+1 & X & 1 & 0\n\\end{array}$",
+                "Step 3: Multiplication Table\n$\\begin{array}{c|cccc}\n\\cdot & 0 & 1 & X & X+1 \\\\\\hline\n0 & 0 & 0 & 0 & 0 \\\\\n1 & 0 & 1 & X & X+1 \\\\\nX & 0 & X & X+1 & 1 \\\\\nX+1 & 0 & X+1 & 1 & X\n\\end{array}$",
+                "Step 4: Verification\n- $X^2 = X+1$ (since $X^2 + X + 1 = 0$).\n- Every non-zero element has an inverse.\n- The distributive laws hold."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Fields",
+            "title": "Field Extensions",
+            "description": "Show that $\\mathbb{Q}(\\sqrt{2},\\sqrt{3})$ is a field extension of degree 4 over $\\mathbb{Q}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Basis of the Extension\n$\\{1,\\sqrt{2},\\sqrt{3},\\sqrt{6}\\}$ is a $\\mathbb{Q}$-basis.",
+                "Step 2: Linear Independence\nSuppose $a + b\\sqrt{2} + c\\sqrt{3} + d\\sqrt{6} = 0$.\nThen $a^2 + 2b^2 + 3c^2 + 6d^2 + 2\\sqrt{6}(ad + bc) = 0$.\nThis contradicts the irrationality of $\\sqrt{6}$.",
+                "Step 3: Generating System\nEvery element can be expressed as a $\\mathbb{Q}$-linear combination.",
+                "Step 4: Degree of the Extension\n$[\\mathbb{Q}(\\sqrt{2},\\sqrt{3}):\\mathbb{Q}] = 4$."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Fields",
+            "title": "Algebraic Extensions",
+            "description": "Show that $\\mathbb{Q}(\\sqrt[3]{2})$ is an algebraic extension of $\\mathbb{Q}$ and determine the minimal polynomial of $\\sqrt[3]{2}$ over $\\mathbb{Q}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Minimal Polynomial\n$f(X) = X^3 - 2$ is the minimal polynomial of $\\sqrt[3]{2}$.",
+                "Step 2: Irreducibility\nBy the Eisenstein criterion with $p=2$, $f$ is irreducible.",
+                "Step 3: Degree of the Extension\n$[\\mathbb{Q}(\\sqrt[3]{2}):\\mathbb{Q}] = 3$.",
+                "Step 4: Basis\n$\\{1,\\sqrt[3]{2},\\sqrt[3]{4}\\}$ is a $\\mathbb{Q}$-basis."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Fields",
+            "title": "Characteristic",
+            "description": "Let $K$ be a field of characteristic $p > 0$. Show that the map $\\varphi: K \\rightarrow K$ with $\\varphi(x) = x^p$ is a field homomorphism (Frobenius homomorphism).",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Additivity\n$(x+y)^p = x^p + y^p$ in characteristic $p$.\nProof via binomial coefficients.",
+                "Step 2: Multiplicativity\n$(xy)^p = x^p y^p$.\nFollows from commutativity.",
+                "Step 3: Injectivity\n$\\ker(\\varphi) = \\{0\\}$.\nSince $K$ is a field.",
+                "Step 4: Conclusion\n$\\varphi$ is an injective field homomorphism."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Fields",
+            "title": "Simple Field Axioms",
+            "description": "Show that $\\mathbb{Q}[\\sqrt{3}] = \\{a + b\\sqrt{3} \\mid a,b \\in \\mathbb{Q}\\}$ with the usual addition and multiplication forms a field.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Ring Properties\n$\\mathbb{Q}[\\sqrt{3}]$ is a ring.",
+                "Step 2: Commutativity of Multiplication\n$(a + b\\sqrt{3}) \\cdot (c + d\\sqrt{3}) = (c + d\\sqrt{3}) \\cdot (a + b\\sqrt{3})$.\nMultiplication is commutative.",
+                "Step 3: Existence of Inverses\nFor $a + b\\sqrt{3} \\neq 0$:\n$(a + b\\sqrt{3})^{-1} = \\frac{a - b\\sqrt{3}}{a^2 - 3b^2} \\in \\mathbb{Q}[\\sqrt{3}]$\nThe denominator is never 0, since $\\sqrt{3}$ is irrational.",
+                "Step 4: Conclusion\n$\\mathbb{Q}[\\sqrt{3}]$ satisfies all field axioms and is thus a field."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Fields",
+            "title": "Finite Fields",
+            "description": "Construct a field with 9 elements and provide its addition and multiplication tables.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Construction\n$\\mathbb{F}_9 = \\mathbb{Z}_3[X]/(X^2 + 1)$\nElements: $\\{0,1,2,X,X+1,X+2,2X,2X+1,2X+2\\}$.",
+                "Step 2: Addition Table\n$\\begin{array}{c|ccccccccc}\n+ & 0 & 1 & 2 & X & X+1 & X+2 & 2X & 2X+1 & 2X+2 \\\\\\hline\n0 & 0 & 1 & 2 & X & X+1 & X+2 & 2X & 2X+1 & 2X+2 \\\\\n1 & 1 & 2 & 0 & X+1 & X+2 & X & 2X+1 & 2X+2 & 2X \\\\\n2 & 2 & 0 & 1 & X+2 & X & X+1 & 2X+2 & 2X & 2X+1 \\\\\nX & X & X+1 & X+2 & 2X & 2X+1 & 2X+2 & 0 & 1 & 2 \\\\\nX+1 & X+1 & X+2 & X & 2X+-1 & 2X+1 & 2X+2 & 0 & 1 & 2 \\\\\nX+2 & X+2 & X & X+1 & 2X+2 & 2X & 2X+1 & 2 & 0 & 1 \\\\\n2X & 2X & 2X+1 & 2X+2 & 0 & 1 & 2 & X & X+1 & X+2 \\\\\n2X+1 & 2X+1 & 2X+2 & 2X & 1 & 2 & 0 & X+1 & X+2 & X \\\\\n2X+2 & 2X+2 & 2X & 2X+1 & 2 & 0 & 1 & X+2 & X & X+1\n\\end{array}$",
+                "Step 3: Multiplication Table\n$\\begin{array}{c|ccccccccc}\n\\cdot & 0 & 1 & 2 & X & X+1 & X+2 & 2X & 2X+1 & 2X+2 \\\\\\hline\n0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\\\n1 & 0 & 1 & 2 & X & X+1 & X+2 & 2X & 2X+1 & 2X+2 \\\\\n2 & 0 & 2 & 1 & 2X & 2X+2 & 2X+1 & X & X+2 & X+1 \\\\\nX & 0 & X & 2X & 2 & X+2 & 2X+2 & 1 & X+1 & 2X+1 \\\\\nX+1 & 0 & X+1 & 2X+2 & X+2 & 2X & 1 & 2X+1 & 2 & X \\\\\nX+2 & 0 & X+2 & 2X+1 & 2X+2 & 1 & X & X+1 & 2X & 2 \\\\\n2X & 0 & 2X & X & 1 & 2X+1 & X+1 & 2 & 2X+2 & X+2 \\\\\n2X+1 & 0 & 2X+1 & X+2 & X+1 & 2 & 2X & 2X+2 & X & 1 \\\\\n2X+2 & 0 & 2X+2 & X+1 & 2X+1 & X & 2 & X+2 & 1 & 2X\n\\end{array}$",
+                "Step 4: Verification\n- $X^2 = 2$ (since $X^2 + 1 = 0$).\n- Every non-zero element has an inverse.\n- The distributive laws hold."
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Fields",
+            "title": "Field Extensions",
+            "description": "Show that $\\mathbb{Q}(\\sqrt{2})$ is a field extension of degree 2 over $\\mathbb{Q}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Basis of the Extension\n$\\{1,\\sqrt{2}\\}$ is a $\\mathbb{Q}$-basis.",
+                "Step 2: Linear Independence\nSuppose $a + b\\sqrt{2} = 0$.\nThen $a = b = 0$ due to the irrationality of $\\sqrt{2}$.",
+                "Step 3: Generating System\nEvery element can be expressed as a $\\mathbb{Q}$-linear combination.",
+                "Step 4: Degree of the Extension\n$[\\mathbb{Q}(\\sqrt{2}):\\mathbb{Q}] = 2$."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Fields",
+            "title": "Algebraic Extensions",
+            "description": "Show that $\\mathbb{Q}(\\sqrt{5})$ is an algebraic extension of $\\mathbb{Q}$ and determine the minimal polynomial of $\\sqrt{5}$ over $\\mathbb{Q}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Minimal Polynomial\n$f(X) = X^2 - 5$ is the minimal polynomial of $\\sqrt{5}$.",
+                "Step 2: Irreducibility\n$f$ is irreducible over $\\mathbb{Q}$.",
+                "Step 3: Degree of the Extension\n$[\\mathbb{Q}(\\sqrt{5}):\\mathbb{Q}] = 2$.",
+                "Step 4: Basis\n$\\{1,\\sqrt{5}\\}$ is a $\\mathbb{Q}$-basis."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Fields",
+            "title": "Characteristic",
+            "description": "Determine the characteristic of the field $\\mathbb{Z}_5$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Definition\nThe characteristic is the smallest positive integer $n$ such that $n \\cdot 1 = 0$.",
+                "Step 2: Calculation\n$1 \\cdot 1 = 1$.\n$2 \\cdot 1 = 2$.\n$3 \\cdot 1 = 3$.\n$4 \\cdot 1 = 4$.\n$5 \\cdot 1 = 0$.",
+                "Step 3: Conclusion\nThe characteristic of $\\mathbb{Z}_5$ is 5."
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Fields",
+            "title": "Field Homomorphisms",
+            "description": "Show that the map $\\varphi: \\mathbb{Q}(\\sqrt{2}) \\rightarrow \\mathbb{Q}(\\sqrt{2})$ with $\\varphi(a + b\\sqrt{2}) = a - b\\sqrt{2}$ is a field homomorphism.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Additivity\n$\\varphi((a + b\\sqrt{2}) + (c + d\\sqrt{2})) = \\varphi((a+c) + (b+d)\\sqrt{2}) = (a+c) - (b+d)\\sqrt{2} = (a - b\\sqrt{2}) + (c - d\\sqrt{2}) = \\varphi(a + b\\sqrt{2}) + \\varphi(c + d\\sqrt{2})$.",
+                "Step 2: Multiplicativity\n$\\varphi((a + b\\sqrt{2}) \\cdot (c + d\\sqrt{2})) = \\varphi((ac + 2bd) + (ad + bc)\\sqrt{2}) = (ac + 2bd) - (ad + bc)\\sqrt{2} = (a - b\\sqrt{2}) \\cdot (c - d\\sqrt{2}) = \\varphi(a + b\\sqrt{2}) \\cdot \\varphi(c + d\\sqrt{2})$.",
+                "Step 3: Bijectivity\n$\\varphi$ is bijective with $\\varphi^{-1} = \\varphi$.",
+                "Step 4: Conclusion\n$\\varphi$ is a field automorphism."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Fields",
+            "title": "Finite Field Extensions",
+            "description": "Show that $\\mathbb{F}_4$ is a field extension of degree 2 over $\\mathbb{F}_2$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Construction\n$\\mathbb{F}_4 = \\mathbb{F}_2[X]/(X^2 + X + 1)$.",
+                "Step 2: Basis\n$\\{1,X\\}$ is an $\\mathbb{F}_2$-basis.",
+                "Step 3: Linear Independence\n$\\{1,X\\}$ is linearly independent over $\\mathbb{F}_2$.",
+                "Step 4: Degree of the Extension\n$[\\mathbb{F}_4:\\mathbb{F}_2] = 2$."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Fields",
+            "title": "Algebraic Extensions",
+            "description": "Show that $\\mathbb{Q}(\\sqrt[4]{2})$ is an algebraic extension of $\\mathbb{Q}$ and determine the minimal polynomial of $\\sqrt[4]{2}$ over $\\mathbb{Q}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Minimal Polynomial\n$f(X) = X^4 - 2$ is the minimal polynomial of $\\sqrt[4]{2}$.",
+                "Step 2: Irreducibility\nBy the Eisenstein criterion with $p=2$, $f$ is irreducible.",
+                "Step 3: Degree of the Extension\n$[\\mathbb{Q}(\\sqrt[4]{2}):\\mathbb{Q}] = 4$.",
+                "Step 4: Basis\n$\\{1,\\sqrt[4]{2},\\sqrt{2},\\sqrt[4]{8}\\}$ is a $\\mathbb{Q}$-basis."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Fields",
+            "title": "Field Extensions",
+            "description": "Show that $\\mathbb{Q}(\\sqrt{2},\\sqrt{3},\\sqrt{5})$ is a field extension of degree 8 over $\\mathbb{Q}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Basis of the Extension\n$\\{1,\\sqrt{2},\\sqrt{3},\\sqrt{5},\\sqrt{6},\\sqrt{10},\\sqrt{15},\\sqrt{30}\\}$ is a $\\mathbb{Q}$-basis.",
+                "Step 2: Linear Independence\nThe elements are linearly independent over $\\mathbb{Q}$.",
+                "Step 3: Generating System\nEvery element can be expressed as a $\\mathbb{Q}$-linear combination.",
+                "Step 4: Degree of the Extension\n$[\\mathbb{Q}(\\sqrt{2},\\sqrt{3},\\sqrt{5}):\\mathbb{Q}] = 8$."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Fields",
+            "title": "Finite Fields",
+            "description": "Construct a field with 16 elements and provide its addition and multiplication tables.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Construction\n$\\mathbb{F}_{16} = \\mathbb{Z}_2[X]/(X^4 + X + 1)$\nElements: $\\{0,1,X,X+1,X^2,X^2+1,X^2+X,X^2+X+1,X^3,X^3+1,X^3+X,X^3+X+1,X^3+X^2,X^3+X^2+1,X^3+X^2+X,X^3+X^2+X+1\\}$.",
+                "Step 2: Addition Table\nAddition is performed component-wise modulo 2.",
+                "Step 3: Multiplication Table\nMultiplication is performed modulo $X^4 + X + 1$.",
+                "Step 4: Verification\n- Every non-zero element has an inverse.\n- The distributive laws hold."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Fields",
+            "title": "Field Homomorphisms",
+            "description": "Determine all field homomorphisms from $\\mathbb{Q}(\\sqrt{3})$ to $\\mathbb{Q}(\\sqrt{3})$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Identity\n$\\varphi_1(a + b\\sqrt{3}) = a + b\\sqrt{3}$.",
+                "Step 2: Conjugation\n$\\varphi_2(a + b\\sqrt{3}) = a - b\\sqrt{3}$.",
+                "Step 3: Verification\nBoth maps are field homomorphisms.",
+                "Step 4: Conclusion\n$\\text{Aut}(\\mathbb{Q}(\\sqrt{3})) = \\{\\varphi_1,\\varphi_2\\} \\cong \\mathbb{Z}_2$."
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Fields",
+            "title": "Characteristic and Frobenius",
+            "description": "Let $K$ be a field of characteristic $p > 0$. Show that the Frobenius homomorphism $\\varphi: K \\rightarrow K$ with $\\varphi(x) = x^p$ is a field homomorphism.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Additivity\n$(x+y)^p = x^p + y^p$ in characteristic $p$.\nProof via binomial coefficients.",
+                "Step 2: Multiplicativity\n$(xy)^p = x^p y^p$.\nFollows from commutativity.",
+                "Step 3: Injectivity\n$\\ker(\\varphi) = \\{0\\}$.\nSince $K$ is a field.",
+                "Step 4: Conclusion\n$\\varphi$ is an injective field homomorphism."
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Fields",
+            "title": "Field Extensions and Minimal Polynomials",
+            "description": "Determine the minimal polynomial of $\\sqrt{2} + \\sqrt{3}$ over $\\mathbb{Q}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Calculation\n$(\\sqrt{2} + \\sqrt{3})^2 = 5 + 2\\sqrt{6}$.\n$(\\sqrt{2} + \\sqrt{3})^4 = 49 + 20\\sqrt{6}$.",
+                "Step 2: Minimal Polynomial\n$f(X) = X^4 - 10X^2 + 1$.",
+                "Step 3: Irreducibility\n$f$ is irreducible over $\\mathbb{Q}$.",
+                "Step 4: Conclusion\n$f$ is the minimal polynomial of $\\sqrt{2} + \\sqrt{3}$ over $\\mathbb{Q}$."
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Fields",
+            "title": "Complex Field Extensions",
+            "description": "Show that $\\mathbb{Q}(\\sqrt[3]{2},\\omega)$ is a field extension of degree 6 over $\\mathbb{Q}$, where $\\omega$ is a primitive third root of unity.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Minimal Polynomials\n$\\sqrt[3]{2}$ has minimal polynomial $X^3 - 2$.\n$\\omega$ has minimal polynomial $X^2 + X + 1$.",
+                "Step 2: Degree of the Extension\n$[\\mathbb{Q}(\\sqrt[3]{2}):\\mathbb{Q}] = 3$.\n$[\\mathbb{Q}(\\omega):\\mathbb{Q}] = 2$.",
+                "Step 3: Basis\n$\\{1,\\sqrt[3]{2},\\sqrt[3]{4},\\omega,\\omega\\sqrt[3]{2},\\omega\\sqrt[3]{4}\\}$ is a $\\mathbb{Q}$-basis.",
+                "Step 4: Conclusion\n$[\\mathbb{Q}(\\sqrt[3]{2},\\omega):\\mathbb{Q}] = 6$."
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Fields",
+            "title": "Complex Algebraic Extensions",
+            "description": "Show that $\\mathbb{Q}(\\sqrt[5]{2})$ is an algebraic extension of $\\mathbb{Q}$ and determine the minimal polynomial of $\\sqrt[5]{2}$ over $\\mathbb{Q}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Minimal Polynomial\n$f(X) = X^5 - 2$ is the minimal polynomial of $\\sqrt[5]{2}$.",
+                "Step 2: Irreducibility\nBy the Eisenstein criterion with $p=2$, $f$ is irreducible.",
+                "Step 3: Degree of the Extension\n$[\\mathbb{Q}(\\sqrt[5]{2}):\\mathbb{Q}] = 5$.",
+                "Step 4: Basis\n$\\{1,\\sqrt[5]{2},\\sqrt[5]{4},\\sqrt[5]{8},\\sqrt[5]{16}\\}$ is a $\\mathbb{Q}$-basis."
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Fields",
+            "title": "Complex Finite Fields",
+            "description": "Construct a field with 27 elements and provide its addition and multiplication tables.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Construction\n$\\mathbb{F}_{27} = \\mathbb{Z}_3[X]/(X^3 + 2X + 1)$\nElements: $\\{a + bX + cX^2 \\mid a,b,c \\in \\mathbb{Z}_3\\}$.",
+                "Step 2: Addition Table\nAddition is performed component-wise modulo 3.",
+                "Step 3: Multiplication Table\nMultiplication is performed modulo $X^3 + 2X + 1$.",
+                "Step 4: Verification\n- Every non-zero element has an inverse.\n- The distributive laws hold."
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Fields",
+            "title": "Complex Field Homomorphisms",
+            "description": "Determine all field homomorphisms from $\\mathbb{Q}(\\sqrt[3]{2})$ to $\\mathbb{C}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Minimal Polynomial\n$X^3 - 2$ is the minimal polynomial of $\\sqrt[3]{2}$.",
+                "Step 2: Roots\nThe roots are $\\sqrt[3]{2}, \\omega\\sqrt[3]{2}, \\omega^2\\sqrt[3]{2}$.",
+                "Step 3: Homomorphisms\n$\\varphi_1(\\sqrt[3]{2}) = \\sqrt[3]{2}$.\n$\\varphi_2(\\sqrt[3]{2}) = \\omega\\sqrt[3]{2}$.\n$\\varphi_3(\\sqrt[3]{2}) = \\omega^2\\sqrt[3]{2}$.",
+                "Step 4: Conclusion\nThere are exactly three field homomorphisms."
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Fields",
+            "title": "Complex Characteristic and Frobenius",
+            "description": "Let $K$ be a field of characteristic $p > 0$. Show that the Frobenius homomorphism $\\varphi: K \\rightarrow K$ with $\\varphi(x) = x^p$ is a field automorphism if $K$ is finite.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Homomorphism\n$\\varphi$ is a field homomorphism.",
+                "Step 2: Injectivity\n$\\ker(\\varphi) = \\{0\\}$.\nSince $K$ is a field.",
+                "Step 3: Surjectivity\n$K$ is finite.\n$\\varphi$ is injective.\nThus, $\\varphi$ is surjective.",
+                "Step 4: Conclusion\n$\\varphi$ is a field automorphism."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Fields",
+            "title": "Complex Field Extensions and Minimal Polynomials",
+            "description": "Determine the minimal polynomial of $\\sqrt[3]{2} + \\sqrt[3]{4}$ over $\\mathbb{Q}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Calculation\n$(\\sqrt[3]{2} + \\sqrt[3]{4})^3 = 6 + 6(\\sqrt[3]{2} + \\sqrt[3]{4})$.\n$(\\sqrt[3]{2} + \\sqrt[3]{4})^3 - 6(\\sqrt[3]{2} + \\sqrt[3]{4}) - 6 = 0$.",
+                "Step 2: Minimal Polynomial\n$f(X) = X^3 - 6X - 6$.",
+                "Step 3: Irreducibility\n$f$ is irreducible over $\\mathbb{Q}$.",
+                "Step 4: Conclusion\n$f$ is the minimal polynomial of $\\sqrt[3]{2} + \\sqrt[3]{4}$ over $\\mathbb{Q}$."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Fields",
+            "title": "Complex Field Extensions and Galois Groups",
+            "description": "Determine the Galois group of $\\mathbb{Q}(\\sqrt{2},\\sqrt{3})$ over $\\mathbb{Q}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Automorphisms\n$\\sigma(\\sqrt{2}) = \\pm\\sqrt{2}$.\n$\\sigma(\\sqrt{3}) = \\pm\\sqrt{3}$.",
+                "Step 2: Galois Group\n$\\text{Gal}(\\mathbb{Q}(\\sqrt{2},\\sqrt{3})/\\mathbb{Q}) \\cong \\mathbb{Z}_2 \\times \\mathbb{Z}_2$.",
+                "Step 3: Verification\nThe automorphisms are:\n$\\sigma_1: \\sqrt{2} \\mapsto \\sqrt{2}, \\sqrt{3} \\mapsto \\sqrt{3}$.\n$\\sigma_2: \\sqrt{2} \\mapsto -\\sqrt{2}, \\sqrt{3} \\mapsto \\sqrt{3}$.\n$\\sigma_3: \\sqrt{2} \\mapsto \\sqrt{2}, \\sqrt{3} \\mapsto -\\sqrt{3}$.\n$\\sigma_4: \\sqrt{2} \\mapsto -\\sqrt{2}, \\sqrt{3} \\mapsto -\\sqrt{3}$.",
+                "Step 4: Conclusion\nThe Galois group is isomorphic to $\\mathbb{Z}_2 \\times \\mathbb{Z}_2$."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Fields",
+            "title": "Complex Algebraic Extensions and Minimal Polynomials",
+            "description": "Determine the minimal polynomial of $\\sqrt[4]{2} + \\sqrt[4]{8}$ over $\\mathbb{Q}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Calculation\n$(\\sqrt[4]{2} + \\sqrt[4]{8})^2 = 2\\sqrt{2} + 2\\sqrt[4]{16}$.\n$(\\sqrt[4]{2} + \\sqrt[4]{8})^4 = 16\\sqrt{2} + 16\\sqrt[4]{16}$.",
+                "Step 2: Minimal Polynomial\n$f(X) = X^4 - 4X^2 - 8$.",
+                "Step 3: Irreducibility\n$f$ is irreducible over $\\mathbb{Q}$.",
+                "Step 4: Conclusion\n$f$ is the minimal polynomial of $\\sqrt[4]{2} + \\sqrt[4]{8}$ over $\\mathbb{Q}$."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Fields",
+            "title": "Complex Finite Fields and Polynomials",
+            "description": "Show that $X^4 + X + 1$ is irreducible over $\\mathbb{Z}_2$ and construct a field with 16 elements.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Irreducibility\n$X^4 + X + 1$ has no roots in $\\mathbb{Z}_2$.\n$X^4 + X + 1$ is irreducible over $\\mathbb{Z}_2$.",
+                "Step 2: Construction\n$\\mathbb{F}_{16} = \\mathbb{Z}_2[X]/(X^4 + X + 1)$.",
+                "Step 3: Elements\n$\\{a + bX + cX^2 + dX^3 \\mid a,b,c,d \\in \\mathbb{Z}_2\\}$.",
+                "Step 4: Verification\n$\\mathbb{F}_{16}$ is a field with 16 elements."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Fields",
+            "title": "Complex Field Homomorphisms and Automorphisms",
+            "description": "Determine the automorphism group of $\\mathbb{F}_8$ over $\\mathbb{F}_2$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Construction\n$\\mathbb{F}_8 = \\mathbb{F}_2[X]/(X^3 + X + 1)$.",
+                "Step 2: Automorphisms\n$\\varphi: X \\mapsto X^2$.\n$\\varphi^2: X \\mapsto X^4 = X$.\n$\\varphi^3 = \\text{id}$.",
+                "Step 3: Group Structure\n$\\text{Aut}(\\mathbb{F}_8/\\mathbb{F}_2) \\cong \\mathbb{Z}_3$.",
+                "Step 4: Conclusion\nThe automorphism group is cyclic of order 3."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Fields",
+            "title": "Complex Characteristic and Frobenius",
+            "description": "Let $K$ be a field of characteristic $p > 0$. Show that the Frobenius homomorphism $\\varphi: K \\rightarrow K$ with $\\varphi(x) = x^p$ is a field automorphism if $K$ is algebraically closed.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Homomorphism\n$\\varphi$ is a field homomorphism.",
+                "Step 2: Injectivity\n$\\ker(\\varphi) = \\{0\\}$.\nSince $K$ is a field.",
+                "Step 3: Surjectivity\n$K$ is algebraically closed.\n$\\varphi$ is injective.\nThus, $\\varphi$ is surjective.",
+                "Step 4: Conclusion\n$\\varphi$ is a field automorphism."
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Fields",
+            "title": "Complex Field Extensions and Galois Groups",
+            "description": "Determine the Galois group of $\\mathbb{Q}(\\sqrt[3]{2},\\omega)$ over $\\mathbb{Q}$, where $\\omega$ is a primitive third root of unity.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Automorphisms\n$\\sigma(\\sqrt[3]{2}) \\in \\{\\sqrt[3]{2},\\omega\\sqrt[3]{2},\\omega^2\\sqrt[3]{2}\\}$.\n$\\sigma(\\omega) \\in \\{\\omega,\\omega^2\\}$.",
+                "Step 2: Galois Group\n$\\text{Gal}(\\mathbb{Q}(\\sqrt[3]{2},\\omega)/\\mathbb{Q}) \\cong S_3$.",
+                "Step 3: Verification\nThe automorphisms are:\n$\\sigma_1: \\sqrt[3]{2} \\mapsto \\sqrt[3]{2}, \\omega \\mapsto \\omega$.\n$\\sigma_2: \\sqrt[3]{2} \\mapsto \\omega\\sqrt[3]{2}, \\omega \\mapsto \\omega$.\n$\\sigma_3: \\sqrt[3]{2} \\mapsto \\omega^2\\sqrt[3]{2}, \\omega \\mapsto \\omega$.\n$\\sigma_4: \\sqrt[3]{2} \\mapsto \\sqrt[3]{2}, \\omega \\mapsto \\omega^2$.\n$\\sigma_5: \\sqrt[3]{2} \\mapsto \\omega\\sqrt[3]{2}, \\omega \\mapsto \\omega^2$.\n$\\sigma_6: \\sqrt[3]{2} \\mapsto \\omega^2\\sqrt[3]{2}, \\omega \\mapsto \\omega^2$.",
+                "Step 4: Conclusion\nThe Galois group is isomorphic to $S_3$."
+            ]
+        }
+    ]
+}

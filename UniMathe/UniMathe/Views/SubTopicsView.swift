@@ -43,11 +43,17 @@ struct SubTopicsView: View {
             }
             
             if isLoading {
-                ProgressView()
-                    .scaleEffect(1.5)
+                VStack {
+                    ProgressView()
+                        .scaleEffect(1.5)
+                    Text(SettingsModel.shared.language == .english ? "Loading..." : "Wird geladen...")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .padding(.top, 10)
+                }
             } else if let error = error {
                 VStack {
-                    Text("Fehler beim Laden der Daten")
+                    Text(SettingsModel.shared.language == .english ? "Error loading data" : "Fehler beim Laden der Daten")
                         .font(.headline)
                         .foregroundColor(.red)
                     Text(error.localizedDescription)
@@ -91,38 +97,124 @@ struct SubTopicsView: View {
     }
     
     private func loadSubTopics() {
-        // Lade die Dateien aus dem App-Bundle ("lerninhalt"-Unterordner) statt über absolute Pfade
-        guard let indexUrl = Bundle.main.url(forResource: "index", withExtension: "json", subdirectory: "lerninhalt") ??
-              Bundle.main.url(forResource: "index", withExtension: "json") else {
-            error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Index file not found in bundle"])
-            isLoading = false
-            return
+        // Get localized index file
+        let language = SettingsModel.shared.language
+        let languageSuffix = language == .english ? "_en" : ""
+        let indexName = "index" + languageSuffix
+        var indexUrl: URL?
+        
+        // Debug prints to diagnose bundle issues
+        print("🔍 SUBTOPICS DEBUG: Current language: \(language.rawValue)")
+        print("🔍 SUBTOPICS DEBUG: Loading subtopics for topic ID: \(topic.id) with title: \(topic.title)")
+        
+        // First try with language suffix
+        if let url = Bundle.main.url(forResource: indexName, withExtension: "json") {
+            print("🔍 SUBTOPICS DEBUG: Found index with language suffix at root")
+            indexUrl = url
+        }
+        // Fallback to base name
+        else if let url = Bundle.main.url(forResource: "index", withExtension: "json") {
+            print("🔍 SUBTOPICS DEBUG: Found index at root level")
+            indexUrl = url
+        }
+        else {
+            // Try inside lerninhalt folder
+            if let url = Bundle.main.url(forResource: indexName, withExtension: "json", subdirectory: "lerninhalt") {
+                print("🔍 SUBTOPICS DEBUG: Found index with language suffix in lerninhalt/")
+                indexUrl = url
+            } 
+            else if let url = Bundle.main.url(forResource: "index", withExtension: "json", subdirectory: "lerninhalt") {
+                print("🔍 SUBTOPICS DEBUG: Found index in lerninhalt/")
+                indexUrl = url
+            }
+            // Try inside language folders
+            else if let url = Bundle.main.url(forResource: indexName, withExtension: "json", subdirectory: "lerninhalt/\(language.rawValue)") {
+                print("🔍 SUBTOPICS DEBUG: Found index with language suffix in lerninhalt/\(language.rawValue)/")
+                indexUrl = url
+            }
+            else if let url = Bundle.main.url(forResource: "index", withExtension: "json", subdirectory: "lerninhalt/\(language.rawValue)") {
+                print("🔍 SUBTOPICS DEBUG: Found index in lerninhalt/\(language.rawValue)/")
+                indexUrl = url
+            }
+            else {
+                print("🔍 SUBTOPICS DEBUG: Could not find any index file")
+                let errorMessage = language == .english ? 
+                    "Index file not found in bundle" : 
+                    "Index-Datei nicht im Bundle gefunden"
+                error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                isLoading = false
+                return
+            }
         }
         
         do {
-            let indexData = try Data(contentsOf: indexUrl)
+            print("🔍 SUBTOPICS DEBUG: Loading from URL: \(indexUrl!)")
+            let indexData = try Data(contentsOf: indexUrl!)
             let indexResponse = try JSONDecoder().decode(IndexResponse.self, from: indexData)
             
             // Find the current topic in the index
             if let topicIndex = indexResponse.topics.first(where: { $0.id == topic.id }),
                let subTopicIndices = topicIndex.subTopics {
                 
+                print("🔍 SUBTOPICS DEBUG: Found matching topic with ID: \(topicIndex.id)")
                 var loadedSubTopics: [MathTopic] = []
                 
                 // Load each subtopic from its individual file
                 for subTopicIndex in subTopicIndices {
-                    // Verwende den Dateinamen direkt aus dem Index
-                    let fullFilename = subTopicIndex.filename
+                    print("🔍 SUBTOPICS DEBUG: Loading subtopic: \(subTopicIndex.title) with ID: \(subTopicIndex.id)")
                     
-                    guard let subTopicUrl = Bundle.main.url(forResource: fullFilename, withExtension: nil, subdirectory: "lerninhalt") ??
-                          Bundle.main.url(forResource: fullFilename, withExtension: nil) else {
-                        print("Could not find file for subtopic: \(subTopicIndex.title) in bundle")
+                    // Get the filename without extension
+                    let filenameWithoutExtension = subTopicIndex.filename.replacingOccurrences(of: ".json", with: "")
+                    
+                    // Add language suffix for non-German languages
+                    let localizedFilename = filenameWithoutExtension + languageSuffix
+                    let subTopicUrl: URL?
+                    
+                    // Try to find the content file - prioritize files in the root with language suffix
+                    if let url = Bundle.main.url(forResource: localizedFilename, withExtension: "json") {
+                        print("🔍 SUBTOPICS DEBUG: Found subtopic \(localizedFilename) at root level")
+                        subTopicUrl = url
+                    }
+                    // Fallback to the original filename at root
+                    else if let url = Bundle.main.url(forResource: filenameWithoutExtension, withExtension: "json") {
+                        print("🔍 SUBTOPICS DEBUG: Found subtopic \(filenameWithoutExtension) at root level")
+                        subTopicUrl = url
+                    }
+                    // Then try inside lerninhalt folder
+                    else if let url = Bundle.main.url(forResource: localizedFilename, withExtension: "json", subdirectory: "lerninhalt") {
+                        print("🔍 SUBTOPICS DEBUG: Found subtopic \(localizedFilename) in lerninhalt/")
+                        subTopicUrl = url
+                    }
+                    else if let url = Bundle.main.url(forResource: filenameWithoutExtension, withExtension: "json", subdirectory: "lerninhalt") {
+                        print("🔍 SUBTOPICS DEBUG: Found subtopic \(filenameWithoutExtension) in lerninhalt/")
+                        subTopicUrl = url
+                    }
+                    // Finally try in language-specific folders
+                    else if let url = Bundle.main.url(forResource: localizedFilename, withExtension: "json", subdirectory: "lerninhalt/\(language.rawValue)") {
+                        print("🔍 SUBTOPICS DEBUG: Found subtopic \(localizedFilename) in lerninhalt/\(language.rawValue)/")
+                        subTopicUrl = url
+                    }
+                    else if let url = Bundle.main.url(forResource: filenameWithoutExtension, withExtension: "json", subdirectory: "lerninhalt/\(language.rawValue)") {
+                        print("🔍 SUBTOPICS DEBUG: Found subtopic \(filenameWithoutExtension) in lerninhalt/\(language.rawValue)/")
+                        subTopicUrl = url
+                    }
+                    else {
+                        let errorMessage = language == .english ? 
+                            "Could not find file for subtopic" : 
+                            "Datei für Unterthema nicht gefunden"
+                        print("\(errorMessage): \(subTopicIndex.title) with ID: \(subTopicIndex.id), filename: \(subTopicIndex.filename)")
                         continue
                     }
                     
-                    let subTopicData = try Data(contentsOf: subTopicUrl)
-                    let subTopic = try JSONDecoder().decode(MathTopic.self, from: subTopicData)
-                    loadedSubTopics.append(subTopic)
+                    do {
+                        let subTopicData = try Data(contentsOf: subTopicUrl!)
+                        let subTopic = try JSONDecoder().decode(MathTopic.self, from: subTopicData)
+                        loadedSubTopics.append(subTopic)
+                        print("🔍 SUBTOPICS DEBUG: Successfully loaded subtopic: \(subTopic.title)")
+                    } catch {
+                        print("Error loading subtopic \(subTopicIndex.title): \(error)")
+                        continue
+                    }
                 }
                 
                 subTopics = loadedSubTopics
@@ -130,11 +222,14 @@ struct SubTopicsView: View {
                 // If no subtopics are found in the index, use the ones from the topic object if available
                 if let existingSubTopics = topic.subTopics {
                     subTopics = existingSubTopics
+                    print("🔍 SUBTOPICS DEBUG: Using existing subtopics from topic object")
+                } else {
+                    print("🔍 SUBTOPICS DEBUG: No subtopics found for topic: \(topic.title)")
                 }
             }
             isLoading = false
         } catch {
-            print("Error loading subtopics: \(error)")
+            print("Error loading index: \(error)")
             self.error = error
             isLoading = false
         }
@@ -146,7 +241,7 @@ struct SubTopicCard: View {
     
     var body: some View {
         VStack {
-            if topic.title == "Integralrechnung" {
+            if topic.title == "Integralrechnung" || topic.title == "Integral Calculus" {
                 Image("integral")
                     .resizable()
                     .scaledToFit()
@@ -168,7 +263,7 @@ struct SubTopicCard: View {
                             .shadow(color: Color.blue.opacity(0.3), radius: 8, x: 0, y: 4)
                     )
                     .padding()
-            } else if topic.title == "Mehrdimensionale Analysis" {
+            } else if topic.title == "Mehrdimensionale Analysis" || topic.title == "Multidimensional Calculus" {
                 Image("mehrdimensionale_analysis")
                     .resizable()
                     .scaledToFit()
@@ -190,7 +285,7 @@ struct SubTopicCard: View {
                             .shadow(color: Color.blue.opacity(0.3), radius: 8, x: 0, y: 4)
                     )
                     .padding()
-            } else if topic.title == "Differentialrechnung" {
+            } else if topic.title == "Differentialrechnung" || topic.title == "Differential Calculus" {
                 Image("differentialrechnung")
                     .resizable()
                     .scaledToFit()
@@ -212,7 +307,7 @@ struct SubTopicCard: View {
                             .shadow(color: Color.blue.opacity(0.3), radius: 8, x: 0, y: 4)
                     )
                     .padding()
-            } else if topic.title == "Matrizen" {
+            } else if topic.title == "Matrizen" || topic.title == "Matrices" {
                 Image("matrizen")
                     .resizable()
                     .scaledToFit()
@@ -234,7 +329,7 @@ struct SubTopicCard: View {
                             .shadow(color: Color.blue.opacity(0.3), radius: 8, x: 0, y: 4)
                     )
                     .padding()
-            } else if topic.title == "Vektorräume" {
+            } else if topic.title == "Vektorräume" || topic.title == "Vector Spaces" {
                 Image("vektor")
                     .resizable()
                     .scaledToFit()
@@ -256,7 +351,7 @@ struct SubTopicCard: View {
                             .shadow(color: Color.blue.opacity(0.3), radius: 8, x: 0, y: 4)
                     )
                     .padding()
-            } else if topic.title == "Lineare Abbildungen" {
+            } else if topic.title == "Lineare Abbildungen" || topic.title == "Linear Mappings" {
                 Image("abbildung")
                     .resizable()
                     .scaledToFit()
@@ -278,7 +373,7 @@ struct SubTopicCard: View {
                             .shadow(color: Color.blue.opacity(0.3), radius: 8, x: 0, y: 4)
                     )
                     .padding()
-            } else if topic.title == "Determinanten" {
+            } else if topic.title == "Determinanten" || topic.title == "Determinants" {
                 Image("determinante")
                     .resizable()
                     .scaledToFit()
@@ -300,7 +395,7 @@ struct SubTopicCard: View {
                             .shadow(color: Color.blue.opacity(0.3), radius: 8, x: 0, y: 4)
                     )
                     .padding()
-            } else if topic.title == "Eigenwerte und Eigenvektoren" {
+            } else if topic.title == "Eigenwerte und Eigenvektoren" || topic.title == "Eigenvalues and Eigenvectors" {
                 Image("eigenwerte")
                     .resizable()
                     .scaledToFit()
@@ -399,11 +494,17 @@ struct ContentSelectionView: View {
             }
             
             if isLoading {
-                ProgressView()
-                    .scaleEffect(1.5)
+                VStack {
+                    ProgressView()
+                        .scaleEffect(1.5)
+                    Text(SettingsModel.shared.language == .english ? "Loading..." : "Wird geladen...")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                        .padding(.top, 10)
+                }
             } else if let error = error {
                 VStack {
-                    Text("Fehler beim Laden der Daten")
+                    Text(SettingsModel.shared.language == .english ? "Error loading data" : "Fehler beim Laden der Daten")
                         .font(.headline)
                         .foregroundColor(.red)
                     Text(error.localizedDescription)
@@ -414,7 +515,7 @@ struct ContentSelectionView: View {
                 }
             } else {
                 VStack(spacing: 20) {
-                    Text("Wählen Sie aus:")
+                    Text(SettingsModel.shared.language == .english ? "Choose:" : "Wählen Sie aus:")
                         .font(.title2)
                         .fontWeight(.bold)
                         .padding(.top, 40)
@@ -427,9 +528,11 @@ struct ContentSelectionView: View {
                         NavigationLink(destination: TopicDetailView(topic: loadedTopic ?? topic)) {
                             SubTopicCard(topic: MathTopic(
                                 id: "\(topic.id)_learn",
-                                title: "Lerninhalte",
+                                title: SettingsModel.shared.language == .english ? "Learning Content" : "Lerninhalte",
                                 icon: "book.fill",
-                                description: "Zugang zu den Lernmaterialien und Erklärungen."
+                                description: SettingsModel.shared.language == .english ? 
+                                    "Access to learning materials and explanations." : 
+                                    "Zugang zu den Lernmaterialien und Erklärungen."
                             ))
                         }
                         
@@ -437,9 +540,11 @@ struct ContentSelectionView: View {
                         NavigationLink(destination: ExercisesView(topic: loadedTopic ?? topic)) {
                             SubTopicCard(topic: MathTopic(
                                 id: "\(topic.id)_exercises",
-                                title: "Übungen",
+                                title: SettingsModel.shared.language == .english ? "Exercises" : "Übungen",
                                 icon: "pencil.and.list.clipboard",
-                                description: "Interaktive Übungen und Aufgaben zum Thema."
+                                description: SettingsModel.shared.language == .english ? 
+                                    "Interactive exercises and problems on the topic." : 
+                                    "Interaktive Übungen und Aufgaben zum Thema."
                             ))
                         }
                     }
@@ -457,48 +562,148 @@ struct ContentSelectionView: View {
     }
     
     private func loadTopicContent() {
-        // Load index.json first to get the correct filename
-        guard let indexUrl = Bundle.main.url(forResource: "index", withExtension: "json", subdirectory: "lerninhalt") ??
-              Bundle.main.url(forResource: "index", withExtension: "json") else {
-            error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Index file not found in bundle"])
-            isLoading = false
-            return
+        // Get localized index file
+        let language = SettingsModel.shared.language
+        let languageSuffix = language == .english ? "_en" : ""
+        let indexName = "index" + languageSuffix
+        var indexUrl: URL?
+        
+        // Debug prints to diagnose bundle issues
+        print("🔍 TOPIC DEBUG: Current language: \(language.rawValue)")
+        print("🔍 TOPIC DEBUG: Current topic: \(topic.title) with ID: \(topic.id)")
+        
+        // First try with language suffix
+        if let url = Bundle.main.url(forResource: indexName, withExtension: "json") {
+            print("🔍 TOPIC DEBUG: Found index with language suffix at root")
+            indexUrl = url
+        }
+        // Fallback to base name
+        else if let url = Bundle.main.url(forResource: "index", withExtension: "json") {
+            print("🔍 TOPIC DEBUG: Found index at root level")
+            indexUrl = url
+        }
+        else {
+            // Try inside lerninhalt folder
+            if let url = Bundle.main.url(forResource: indexName, withExtension: "json", subdirectory: "lerninhalt") {
+                print("🔍 TOPIC DEBUG: Found index with language suffix in lerninhalt/")
+                indexUrl = url
+            } 
+            else if let url = Bundle.main.url(forResource: "index", withExtension: "json", subdirectory: "lerninhalt") {
+                print("🔍 TOPIC DEBUG: Found index in lerninhalt/")
+                indexUrl = url
+            }
+            // Try inside language folders
+            else if let url = Bundle.main.url(forResource: indexName, withExtension: "json", subdirectory: "lerninhalt/\(language.rawValue)") {
+                print("🔍 TOPIC DEBUG: Found index with language suffix in lerninhalt/\(language.rawValue)/")
+                indexUrl = url
+            }
+            else if let url = Bundle.main.url(forResource: "index", withExtension: "json", subdirectory: "lerninhalt/\(language.rawValue)") {
+                print("🔍 TOPIC DEBUG: Found index in lerninhalt/\(language.rawValue)/")
+                indexUrl = url
+            }
+            else {
+                print("🔍 TOPIC DEBUG: Could not find any index file")
+                let errorMessage = language == .english ? 
+                    "Index file not found in bundle" : 
+                    "Index-Datei nicht im Bundle gefunden"
+                error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                isLoading = false
+                return
+            }
         }
         
         do {
-            let indexData = try Data(contentsOf: indexUrl)
+            print("🔍 TOPIC DEBUG: Loading from URL: \(indexUrl!)")
+            let indexData = try Data(contentsOf: indexUrl!)
             let indexResponse = try JSONDecoder().decode(IndexResponse.self, from: indexData)
             
-            // Find the current topic in the index
+            // Find the current topic in the index - use ID instead of title for comparison
             var filename: String?
+            let topicID = topic.id
+            
+            // First extract the ID without any potential suffix (like "_learn" or "_exercises")
+            let baseTopicID = topicID.split(separator: "_").first.map(String.init) ?? topicID
+            print("🔍 TOPIC DEBUG: Looking for topic with base ID: \(baseTopicID)")
+            
+            // Search for the topic in the index by ID, not by title
             for topicIndex in indexResponse.topics {
                 if let subTopics = topicIndex.subTopics {
-                    if let subTopic = subTopics.first(where: { $0.title == topic.title }) {
+                    if let subTopic = subTopics.first(where: { $0.id == baseTopicID }) {
                         filename = subTopic.filename
+                        print("🔍 TOPIC DEBUG: Found matching subtopic with ID \(subTopic.id), filename: \(subTopic.filename)")
                         break
                     }
                 }
             }
             
             guard let fullFilename = filename else {
-                error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Topic not found in index"])
+                let errorMessage = language == .english ? 
+                    "Topic not found in index" : 
+                    "Thema nicht im Index gefunden"
+                print("🔍 TOPIC DEBUG: Error - \(errorMessage) for ID: \(baseTopicID)")
+                error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: errorMessage])
                 isLoading = false
                 return
             }
             
-            guard let url = Bundle.main.url(forResource: fullFilename, withExtension: nil, subdirectory: "lerninhalt") ??
-                  Bundle.main.url(forResource: fullFilename, withExtension: nil) else {
-                error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Topic file not found in bundle"])
+            // Get the filename without extension
+            let filenameWithoutExtension = fullFilename.replacingOccurrences(of: ".json", with: "")
+            
+            // Add language suffix for non-German languages
+            let localizedFilename = filenameWithoutExtension + languageSuffix
+            var topicUrl: URL?
+            
+            // Try to find the content file - prioritize files in the root with language suffix
+            if let url = Bundle.main.url(forResource: localizedFilename, withExtension: "json") {
+                print("🔍 TOPIC DEBUG: Found topic \(localizedFilename) at root level")
+                topicUrl = url
+            }
+            // Fallback to the original filename at root
+            else if let url = Bundle.main.url(forResource: filenameWithoutExtension, withExtension: "json") {
+                print("🔍 TOPIC DEBUG: Found topic \(filenameWithoutExtension) at root level")
+                topicUrl = url
+            }
+            // Then try inside lerninhalt folder
+            else if let url = Bundle.main.url(forResource: localizedFilename, withExtension: "json", subdirectory: "lerninhalt") {
+                print("🔍 TOPIC DEBUG: Found topic \(localizedFilename) in lerninhalt/")
+                topicUrl = url
+            }
+            else if let url = Bundle.main.url(forResource: filenameWithoutExtension, withExtension: "json", subdirectory: "lerninhalt") {
+                print("🔍 TOPIC DEBUG: Found topic \(filenameWithoutExtension) in lerninhalt/")
+                topicUrl = url
+            }
+            // Finally try in language-specific folders
+            else if let url = Bundle.main.url(forResource: localizedFilename, withExtension: "json", subdirectory: "lerninhalt/\(language.rawValue)") {
+                print("🔍 TOPIC DEBUG: Found topic \(localizedFilename) in lerninhalt/\(language.rawValue)/")
+                topicUrl = url
+            }
+            else if let url = Bundle.main.url(forResource: filenameWithoutExtension, withExtension: "json", subdirectory: "lerninhalt/\(language.rawValue)") {
+                print("🔍 TOPIC DEBUG: Found topic \(filenameWithoutExtension) in lerninhalt/\(language.rawValue)/")
+                topicUrl = url
+            }
+            else {
+                let errorMessage = language == .english ? 
+                    "Topic file not found in bundle" : 
+                    "Themendatei nicht im Bundle gefunden"
+                print("🔍 TOPIC DEBUG: Error - \(errorMessage) for file: \(localizedFilename)")
+                error = NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: errorMessage])
                 isLoading = false
                 return
             }
             
-            let data = try Data(contentsOf: url)
-            let loadedTopic = try JSONDecoder().decode(MathTopic.self, from: data)
-            self.loadedTopic = loadedTopic
-            isLoading = false
+            do {
+                print("🔍 TOPIC DEBUG: Loading topic data from: \(topicUrl!)")
+                let data = try Data(contentsOf: topicUrl!)
+                let loadedTopic = try JSONDecoder().decode(MathTopic.self, from: data)
+                self.loadedTopic = loadedTopic
+                isLoading = false
+            } catch {
+                print("Error loading topic data: \(error)")
+                self.error = error
+                isLoading = false
+            }
         } catch {
-            print("Error loading topic content: \(error)")
+            print("Error loading index: \(error)")
             self.error = error
             isLoading = false
         }

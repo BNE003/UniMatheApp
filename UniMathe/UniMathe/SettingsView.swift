@@ -59,6 +59,60 @@ struct SettingsView: View {
                         .padding(.horizontal, horizontalSizeClass == .regular ? 40 : 20)
                         .padding(.top, horizontalSizeClass == .regular ? 30 : 20)
                     
+                    // Language Section
+                    SettingsSection {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("Sprache / Language")
+                                .font(.headline)
+                                .foregroundColor(.secondary)
+                                .padding(.horizontal, horizontalSizeClass == .regular ? 24 : 16)
+                                .padding(.top, 12)
+                            
+                            ForEach(AppLanguage.allCases, id: \.self) { language in
+                                Button(action: {
+                                    settings.language = language
+                                }) {
+                                    HStack {
+                                        Image(systemName: language == .german ? "flag" : "globe")
+                                            .font(.system(size: 18))
+                                            .foregroundColor(settings.language == language ? settings.accentColor : .gray)
+                                        
+                                        Text(language.displayName)
+                                            .font(.system(size: horizontalSizeClass == .regular ? 20 : 17))
+                                        
+                                        Spacer()
+                                        
+                                        if settings.language == language {
+                                            Image(systemName: "checkmark.circle.fill")
+                                                .font(.system(size: 22))
+                                                .foregroundColor(settings.accentColor)
+                                        } else {
+                                            Circle()
+                                                .strokeBorder(Color.gray.opacity(0.5), lineWidth: 1.5)
+                                                .frame(width: 22, height: 22)
+                                        }
+                                    }
+                                    .padding(.horizontal, horizontalSizeClass == .regular ? 24 : 16)
+                                    .padding(.vertical, 12)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .fill(settings.language == language ? settings.accentColor.opacity(0.1) : Color.clear)
+                                    )
+                                }
+                                .foregroundColor(.primary)
+                            }
+                            
+                            Text(settings.language == .english ? 
+                                "Exercise files with '_en' suffix will be loaded in English mode." : 
+                                "Deutsche Übungsdateien werden im deutschen Modus geladen.")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                                .padding(.horizontal, horizontalSizeClass == .regular ? 24 : 16)
+                                .padding(.bottom, 12)
+                        }
+                        .padding(.vertical, 6)
+                    }
+                    
                     // Action Buttons
                     SettingsSection {
                         // Get Pro Button - only show if not purchased

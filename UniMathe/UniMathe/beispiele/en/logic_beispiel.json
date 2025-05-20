@@ -1,0 +1,180 @@
+{
+    "id": "bb0e8400-e29b-41d4-a716-446655440061",
+    "topic": "Logic",
+    "steps": [
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440062",
+            "text": "Propositional logic describes the combination of statements.",
+            "formula": "A \\land B, A \\lor B, \\neg A, A \\rightarrow B, A \\leftrightarrow B",
+            "explanation": "Propositional logic is like assembling building blocks. It’s like constructing with logical LEGO bricks!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440063",
+            "text": "Truth tables show all possible combinations.",
+            "formula": "\\begin{array}{|c|c|c|c|c|} A & B & A \\land B & A \\lor B & A \\rightarrow B \\\\ \\hline T & T & T & T & T \\\\ T & F & F & T & F \\\\ F & T & F & T & T \\\\ F & F & F & F & T \\end{array}",
+            "explanation": "Truth tables are like a cheat sheet for all possible cases. It’s like a complete user manual!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440064",
+            "text": "Tautologies are always true statements.",
+            "formula": "A \\lor \\neg A, (A \\rightarrow B) \\leftrightarrow (\\neg B \\rightarrow \\neg A)",
+            "explanation": "Tautologies are like mathematical laws. It’s like discovering eternal truths!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440065",
+            "text": "Contradictions are always false statements.",
+            "formula": "A \\land \\neg A, \\neg(A \\lor \\neg A)",
+            "explanation": "Contradictions are like mathematical impossibilities. It’s like finding eternal falsehoods!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440066",
+            "text": "Predicate logic extends propositional logic with quantifiers.",
+            "formula": "\\forall x \\in M: P(x), \\exists x \\in M: P(x)",
+            "explanation": "Predicate logic is like propositional logic with superpowers. It’s like adding quantifiers to the building blocks!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440067",
+            "text": "The negation of quantifiers follows specific rules.",
+            "formula": "\\neg(\\forall x: P(x)) \\leftrightarrow \\exists x: \\neg P(x), \\neg(\\exists x: P(x)) \\leftrightarrow \\forall x: \\neg P(x)",
+            "explanation": "Negating quantifiers is like reversing statements. It’s like mirroring mathematical sentences!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440068",
+            "text": "Logical equivalences allow transformations.",
+            "formula": "A \\rightarrow B \\equiv \\neg A \\lor B, \\neg(A \\land B) \\equiv \\neg A \\lor \\neg B",
+            "explanation": "Logical equivalences are like mathematical magic tricks. It’s like transforming statements into different forms!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440069",
+            "text": "Modus Ponens is an important inference rule.",
+            "formula": "\\frac{A \\rightarrow B, A}{B}",
+            "explanation": "Modus Ponens is like a mathematical domino. It’s like triggering a logical chain!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440070",
+            "text": "Modus Tollens is the converse of Modus Ponens.",
+            "formula": "\\frac{A \\rightarrow B, \\neg B}{\\neg A}",
+            "explanation": "Modus Tollens is like a mathematical reverse gear. It’s like backtracking logical conclusions!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440071",
+            "text": "Contraposition is an important equivalence.",
+            "formula": "A \\rightarrow B \\equiv \\neg B \\rightarrow \\neg A",
+            "explanation": "Contraposition is like a mathematical mirror. It’s like reversing implications!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440072",
+            "text": "De Morgan’s Laws describe the negation of connectives.",
+            "formula": "\\neg(A \\land B) \\equiv \\neg A \\lor \\neg B, \\neg(A \\lor B) \\equiv \\neg A \\land \\neg B",
+            "explanation": "De Morgan’s Laws are like mathematical transformation rules. It’s like converting AND to OR and vice versa!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440073",
+            "text": "The distributive laws allow expansion.",
+            "formula": "A \\land (B \\lor C) \\equiv (A \\land B) \\lor (A \\land C), A \\lor (B \\land C) \\equiv (A \\lor B) \\land (A \\lor C)",
+            "explanation": "The distributive laws are like mathematical expansion rules. It’s like distributing logical building blocks!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440074",
+            "text": "The associative laws allow regrouping.",
+            "formula": "A \\land (B \\land C) \\equiv (A \\land B) \\land C, A \\lor (B \\lor C) \\equiv (A \\lor B) \\lor C",
+            "explanation": "The associative laws are like mathematical regrouping rules. It’s like rearranging logical building blocks!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440075",
+            "text": "The commutative laws allow swapping.",
+            "formula": "A \\land B \\equiv B \\land A, A \\lor B \\equiv B \\lor A",
+            "explanation": "The commutative laws are like mathematical swapping rules. It’s like reordering logical building blocks!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440076",
+            "text": "The idempotent laws describe duplication.",
+            "formula": "A \\land A \\equiv A, A \\lor A \\equiv A",
+            "explanation": "The idempotent laws are like mathematical duplication rules. It’s like combining identical building blocks!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440077",
+            "text": "The absorption laws describe absorption.",
+            "formula": "A \\land (A \\lor B) \\equiv A, A \\lor (A \\land B) \\equiv A",
+            "explanation": "The absorption laws are like mathematical absorption rules. It’s like simplifying logical expressions!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440078",
+            "text": "The neutrality laws describe the effect of T and F.",
+            "formula": "A \\land T \\equiv A, A \\lor F \\equiv A",
+            "explanation": "The neutrality laws are like mathematical neutrality rules. It’s like adding neutral elements!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440079",
+            "text": "The complement laws describe the effect of negations.",
+            "formula": "A \\land \\neg A \\equiv F, A \\lor \\neg A \\equiv T",
+            "explanation": "The complement laws are like mathematical complement rules. It’s like combining opposites!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440080",
+            "text": "Double negation describes the effect of double negations.",
+            "formula": "\\neg(\\neg A) \\equiv A",
+            "explanation": "Double negation is like a mathematical magic trick. It’s like canceling out double negations!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440081",
+            "text": "Implication can be transformed into other operators.",
+            "formula": "A \\rightarrow B \\equiv \\neg A \\lor B \\equiv \\neg(A \\land \\neg B)",
+            "explanation": "Implication is like a versatile mathematical building block. It’s like transforming into different forms!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440082",
+            "text": "Equivalence can be transformed into other operators.",
+            "formula": "A \\leftrightarrow B \\equiv (A \\rightarrow B) \\land (B \\rightarrow A) \\equiv (A \\land B) \\lor (\\neg A \\land \\neg B)",
+            "explanation": "Equivalence is like a versatile mathematical building block. It’s like transforming into different forms!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440083",
+            "text": "Resolution is an important proof method.",
+            "formula": "\\frac{A \\lor B, \\neg A \\lor C}{B \\lor C}",
+            "explanation": "Resolution is like a mathematical filter. It’s like extracting logical conclusions!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440084",
+            "text": "Conjunctive Normal Form is a standard form.",
+            "formula": "(A \\lor B) \\land (\\neg A \\lor C) \\land (B \\lor C)",
+            "explanation": "Conjunctive Normal Form is like a mathematical standard. It’s like putting into a uniform format!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440085",
+            "text": "Disjunctive Normal Form is an alternative standard form.",
+            "formula": "(A \\land B) \\lor (\\neg A \\land C) \\lor (B \\land C)",
+            "explanation": "Disjunctive Normal Form is like an alternative mathematical standard. It’s like putting into another uniform format!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440086",
+            "text": "Horn Form is a special form of Conjunctive Normal Form.",
+            "formula": "(\\neg A \\lor \\neg B \\lor C) \\land (\\neg D \\lor E) \\land F",
+            "explanation": "Horn Form is like a special mathematical form. It’s like putting into a particularly useful format!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440087",
+            "text": "Resolution is particularly efficient for Horn formulas.",
+            "formula": "\\text{Resolution is linear in the number of Horn clauses}",
+            "explanation": "Resolution for Horn formulas is like a fast mathematical algorithm. It’s like quickly solving special problems!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440088",
+            "text": "Unsatisfiability can be proven through resolution.",
+            "formula": "\\text{If the empty clause is derivable, the formula is unsatisfiable}",
+            "explanation": "Unsatisfiability is like a mathematical contradiction. It’s like finding logical impossibilities!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440089",
+            "text": "Satisfiability is a fundamental problem in logic.",
+            "formula": "\\text{SAT is NP-complete}",
+            "explanation": "Satisfiability is like a mathematical puzzle. It’s like finding logical solutions!"
+        },
+        {
+            "id": "bb0e8400-e29b-41d4-a716-446655440090",
+            "text": "Finally, let’s look at how logic is used in computer science.",
+            "formula": "\\text{Logic is the foundation of programming and artificial intelligence}",
+            "explanation": "In computer science, logic helps us write programs and develop AI systems. It’s like translating mathematical concepts into the language of computers!"
+        }
+    ]
+}

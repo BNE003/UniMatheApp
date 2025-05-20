@@ -1,0 +1,418 @@
+{
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Multivariable Calculus",
+            "title": "Partial Derivatives of a Polynomial Function",
+            "description": "Calculate the first-order partial derivatives of the function $f(x,y) = x^2y + 3xy^2 - 2x + y$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analysis of the Function\nThe function $f(x,y)$ is a polynomial in two variables.",
+                "Step 2: Calculation of the Partial Derivative with Respect to x\n$\\frac{\\partial f}{\\partial x} = 2xy + 3y^2 - 2$\nExplanation: We differentiate with respect to x, treating y as a constant.",
+                "Step 3: Calculation of the Partial Derivative with Respect to y\n$\\frac{\\partial f}{\\partial y} = x^2 + 6xy + 1$\nExplanation: We differentiate with respect to y, treating x as a constant.",
+                "Step 4: Verification\nWe verify the results by substituting test values:\nFor $(x,y) = (1,1)$:\n$\\frac{\\partial f}{\\partial x}(1,1) = 2\\cdot1\\cdot1 + 3\\cdot1^2 - 2 = 3$\n$\\frac{\\partial f}{\\partial y}(1,1) = 1^2 + 6\\cdot1\\cdot1 + 1 = 8$",
+                "Step 5: Summary\nThe partial derivatives are:\n$\\frac{\\partial f}{\\partial x} = 2xy + 3y^2 - 2$\n$\\frac{\\partial f}{\\partial y} = x^2 + 6xy + 1$"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Multivariable Calculus",
+            "title": "Partial Derivatives of an Exponential Function",
+            "description": "Calculate the first-order partial derivatives of the function $f(x,y) = e^{x^2 + y^2}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analysis of the Function\nThe function $f(x,y)$ is an exponential function with a quadratic argument.",
+                "Step 2: Calculation of the Partial Derivative with Respect to x\n$\\frac{\\partial f}{\\partial x} = 2xe^{x^2 + y^2}$\nExplanation: We apply the chain rule and differentiate with respect to x.",
+                "Step 3: Calculation of the Partial Derivative with Respect to y\n$\\frac{\\partial f}{\\partial y} = 2ye^{x^2 + y^2}$\nExplanation: We apply the chain rule and differentiate with respect to y.",
+                "Step 4: Verification\nWe verify the results by substituting test values:\nFor $(x,y) = (0,0)$:\n$\\frac{\\partial f}{\\partial x}(0,0) = 0$\n$\\frac{\\partial f}{\\partial y}(0,0) = 0$",
+                "Step 5: Summary\nThe partial derivatives are:\n$\\frac{\\partial f}{\\partial x} = 2xe^{x^2 + y^2}$\n$\\frac{\\partial f}{\\partial y} = 2ye^{x^2 + y^2}$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Multivariable Calculus",
+            "title": "Partial Derivatives of a Trigonometric Function",
+            "description": "Calculate the first-order partial derivatives of the function $f(x,y) = \\sin(xy)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analysis of the Function\nThe function $f(x,y)$ is a sine function with a product argument.",
+                "Step 2: Calculation of the Partial Derivative with Respect to x\n$\\frac{\\partial f}{\\partial x} = y\\cos(xy)$\nExplanation: We apply the chain rule and differentiate with respect to x.",
+                "Step 3: Calculation of the Partial Derivative with Respect to y\n$\\frac{\\partial f}{\\partial y} = x\\cos(xy)$\nExplanation: We apply the chain rule and differentiate with respect to y.",
+                "Step 4: Verification\nWe verify the results by substituting test values:\nFor $(x,y) = (\\frac{\\pi}{2},1)$:\n$\\frac{\\partial f}{\\partial x}(\\frac{\\pi}{2},1) = \\cos(\\frac{\\pi}{2}) = 0$\n$\\frac{\\partial f}{\\partial y}(\\frac{\\pi}{2},1) = \\frac{\\pi}{2}\\cos(\\frac{\\pi}{2}) = 0$",
+                "Step 5: Summary\nThe partial derivatives are:\n$\\frac{\\partial f}{\\partial x} = y\\cos(xy)$\n$\\frac{\\partial f}{\\partial y} = x\\cos(xy)$"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Multivariable Calculus",
+            "title": "Partial Derivatives of a Square Root Function",
+            "description": "Calculate the first-order partial derivatives of the function $f(x,y) = \\sqrt{x^2 + y^2}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analysis of the Function\nThe function $f(x,y)$ is a square root function with a quadratic argument.",
+                "Step 2: Calculation of the Partial Derivative with Respect to x\n$\\frac{\\partial f}{\\partial x} = \\frac{x}{\\sqrt{x^2 + y^2}}$\nExplanation: We apply the chain rule and differentiate with respect to x.",
+                "Step 3: Calculation of the Partial Derivative with Respect to y\n$\\frac{\\partial f}{\\partial y} = \\frac{y}{\\sqrt{x^2 + y^2}}$\nExplanation: We apply the chain rule and differentiate with respect to y.",
+                "Step 4: Verification\nWe verify the results by substituting test values:\nFor $(x,y) = (3,4)$:\n$\\frac{\\partial f}{\\partial x}(3,4) = \\frac{3}{5}$\n$\\frac{\\partial f}{\\partial y}(3,4) = \\frac{4}{5}$",
+                "Step 5: Summary\nThe partial derivatives are:\n$\\frac{\\partial f}{\\partial x} = \\frac{x}{\\sqrt{x^2 + y^2}}$\n$\\frac{\\partial f}{\\partial y} = \\frac{y}{\\sqrt{x^2 + y^2}}$"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Multivariable Calculus",
+            "title": "Partial Derivatives of a Logarithmic Function",
+            "description": "Calculate the first-order partial derivatives of the function $f(x,y) = \\ln(x^2 + y^2)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analysis of the Function\nThe function $f(x,y)$ is a logarithmic function with a quadratic argument.",
+                "Step 2: Calculation of the Partial Derivative with Respect to x\n$\\frac{\\partial f}{\\partial x} = \\frac{2x}{x^2 + y^2}$\nExplanation: We apply the chain rule and differentiate with respect to x.",
+                "Step 3: Calculation of the Partial Derivative with Respect to y\n$\\frac{\\partial f}{\\partial y} = \\frac{2y}{x^2 + y^2}$\nExplanation: We apply the chain rule and differentiate with respect to y.",
+                "Step 4: Verification\nWe verify the results by substituting test values:\nFor $(x,y) = (1,1)$:\n$\\frac{\\partial f}{\\partial x}(1,1) = 1$\n$\\frac{\\partial f}{\\partial y}(1,1) = 1$",
+                "Step 5: Summary\nThe partial derivatives are:\n$\\frac{\\partial f}{\\partial x} = \\frac{2x}{x^2 + y^2}$\n$\\frac{\\partial f}{\\partial y} = \\frac{2y}{x^2 + y^2}$"
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Multivariable Calculus",
+            "title": "Partial Derivatives of a Product Function",
+            "description": "Calculate the first-order partial derivatives of the function $f(x,y) = x\\sin(y)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analysis of the Function\nThe function $f(x,y)$ is a product of a linear and a trigonometric function.",
+                "Step 2: Calculation of the Partial Derivative with Respect to x\n$\\frac{\\partial f}{\\partial x} = \\sin(y)$\nExplanation: We differentiate with respect to x, treating y as a constant.",
+                "Step 3: Calculation of the Partial Derivative with Respect to y\n$\\frac{\\partial f}{\\partial y} = x\\cos(y)$\nExplanation: We differentiate with respect to y, treating x as a constant.",
+                "Step 4: Verification\nWe verify the results by substituting test values:\nFor $(x,y) = (2,\\frac{\\pi}{2})$:\n$\\frac{\\partial f}{\\partial x}(2,\\frac{\\pi}{2}) = 1$\n$\\frac{\\partial f}{\\partial y}(2,\\frac{\\pi}{2}) = 0$",
+                "Step 5: Summary\nThe partial derivatives are:\n$\\frac{\\partial f}{\\partial x} = \\sin(y)$\n$\\frac{\\partial f}{\\partial y} = x\\cos(y)$"
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Multivariable Calculus",
+            "title": "Partial Derivatives of a Quotient Function",
+            "description": "Calculate the first-order partial derivatives of the function $f(x,y) = \\frac{x}{y}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analysis of the Function\nThe function $f(x,y)$ is a quotient of two variables.",
+                "Step 2: Calculation of the Partial Derivative with Respect to x\n$\\frac{\\partial f}{\\partial x} = \\frac{1}{y}$\nExplanation: We differentiate with respect to x, treating y as a constant.",
+                "Step 3: Calculation of the Partial Derivative with Respect to y\n$\\frac{\\partial f}{\\partial y} = -\\frac{x}{y^2}$\nExplanation: We differentiate with respect to y, treating x as a constant.",
+                "Step 4: Verification\nWe verify the results by substituting test values:\nFor $(x,y) = (2,3)$:\n$\\frac{\\partial f}{\\partial x}(2,3) = \\frac{1}{3}$\n$\\frac{\\partial f}{\\partial y}(2,3) = -\\frac{2}{9}$",
+                "Step 5: Summary\nThe partial derivatives are:\n$\\frac{\\partial f}{\\partial x} = \\frac{1}{y}$\n$\\frac{\\partial f}{\\partial y} = -\\frac{x}{y^2}$"
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Multivariable Calculus",
+            "title": "Partial Derivatives of a Composite Function",
+            "description": "Calculate the first-order partial derivatives of the function $f(x,y) = e^{xy}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analysis of the Function\nThe function $f(x,y)$ is an exponential function with a product argument.",
+                "Step 2: Calculation of the Partial Derivative with Respect to x\n$\\frac{\\partial f}{\\partial x} = ye^{xy}$\nExplanation: We apply the chain rule and differentiate with respect to x.",
+                "Step 3: Calculation of the Partial Derivative with Respect to y\n$\\frac{\\partial f}{\\partial y} = xe^{xy}$\nExplanation: We apply the chain rule and differentiate with respect to y.",
+                "Step 4: Verification\nWe verify the results by substituting test values:\nFor $(x,y) = (1,1)$:\n$\\frac{\\partial f}{\\partial x}(1,1) = e$\n$\\frac{\\partial f}{\\partial y}(1,1) = e$",
+                "Step 5: Summary\nThe partial derivatives are:\n$\\frac{\\partial f}{\\partial x} = ye^{xy}$\n$\\frac{\\partial f}{\\partial y} = xe^{xy}$"
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Multivariable Calculus",
+            "title": "Partial Derivatives",
+            "description": "Calculate all first- and second-order partial derivatives of the function $f(x,y) = x^2y + \\sin(xy)$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: First-Order Partial Derivatives\n$\\frac{\\partial f}{\\partial x} = 2xy + y\\cos(xy)$\n$\\frac{\\partial f}{\\partial y} = x^2 + x\\cos(xy)$",
+                "Step 2: Second-Order Partial Derivatives\n$\\frac{\\partial^2 f}{\\partial x^2} = 2y - y^2\\sin(xy)$\n$\\frac{\\partial^2 f}{\\partial y^2} = -x^2\\sin(xy)$",
+                "Step 3: Mixed Derivatives\n$\\frac{\\partial^2 f}{\\partial x \\partial y} = 2x + \\cos(xy) - xy\\sin(xy)$\n$\\frac{\\partial^2 f}{\\partial y \\partial x} = 2x + \\cos(xy) - xy\\sin(xy)$",
+                "Step 4: Verification\nThe mixed derivatives are equal (Schwarz's theorem)"
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Multivariable Calculus",
+            "title": "Gradient and Directional Derivative",
+            "description": "Calculate the gradient of the function $f(x,y,z) = x^2 + y^2 + z^2$ at the point $(1,2,3)$ and the directional derivative in the direction of the vector $\\vec{v} = (1,1,1)$.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Gradient\n$\\nabla f = (2x, 2y, 2z)$\n$\\nabla f(1,2,3) = (2, 4, 6)$",
+                "Step 2: Normalization of the Direction Vector\n$\\vec{v}_0 = \\frac{1}{\\sqrt{3}}(1,1,1)$",
+                "Step 3: Directional Derivative\n$D_{\\vec{v}}f = \\nabla f \\cdot \\vec{v}_0 = \\frac{1}{\\sqrt{3}}(2 + 4 + 6) = \\frac{12}{\\sqrt{3}}$",
+                "Step 4: Interpretation\nThe directional derivative gives the rate of change of $f$ in the direction of $\\vec{v}$."
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Multivariable Calculus",
+            "title": "Extremum Problems",
+            "description": "Find the local extrema of the function $f(x,y) = x^3 + y^3 - 3xy$ and determine their nature.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Critical Points\n$\\frac{\\partial f}{\\partial x} = 3x^2 - 3y = 0$\n$\\frac{\\partial f}{\\partial y} = 3y^2 - 3x = 0$\nSolution: $(0,0)$ and $(1,1)$",
+                "Step 2: Hessian Matrix\n$H_f = \\begin{pmatrix} 6x & -3 \\\\ -3 & 6y \\end{pmatrix}$",
+                "Step 3: Determinant and Trace\n$\\det(H_f) = 36xy - 9$\n$\\text{tr}(H_f) = 6(x+y)$",
+                "Step 4: Classification\n$(0,0)$: $\\det(H_f) = -9 < 0$ (saddle point)\n$(1,1)$: $\\det(H_f) = 27 > 0$, $\\text{tr}(H_f) = 12 > 0$ (minimum)"
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Multivariable Calculus",
+            "title": "Multiple Integrals",
+            "description": "Calculate the double integral $\\iint_D (x^2 + y^2) dxdy$ over the region $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid 0 \\leq x \\leq 1, 0 \\leq y \\leq x\\}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Integration Limits\n$\\int_0^1 \\int_0^x (x^2 + y^2) dy dx$",
+                "Step 2: Inner Integration\n$\\int_0^x (x^2 + y^2) dy = x^2y + \\frac{y^3}{3}|_0^x = x^3 + \\frac{x^3}{3} = \\frac{4}{3}x^3$",
+                "Step 3: Outer Integration\n$\\int_0^1 \\frac{4}{3}x^3 dx = \\frac{4}{3} \\cdot \\frac{x^4}{4}|_0^1 = \\frac{1}{3}$",
+                "Step 4: Result\n$\\iint_D (x^2 + y^2) dxdy = \\frac{1}{3}$"
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Multivariable Calculus",
+            "title": "Coordinate Transformation",
+            "description": "Calculate the integral $\\iint_D \\frac{1}{\\sqrt{x^2 + y^2}} dxdy$ over the region $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid 1 \\leq x^2 + y^2 \\leq 4\\}$ by transforming to polar coordinates.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Polar Coordinates\n$x = r\\cos(\\phi), y = r\\sin(\\phi)$\n$dxdy = r dr d\\phi$",
+                "Step 2: Integration Region\n$1 \\leq r \\leq 2, 0 \\leq \\phi \\leq 2\\pi$",
+                "Step 3: Transformation\n$\\int_0^{2\\pi} \\int_1^2 \\frac{1}{r} \\cdot r dr d\\phi = \\int_0^{2\\pi} \\int_1^2 1 dr d\\phi$",
+                "Step 4: Calculation\n$= \\int_0^{2\\pi} (2-1) d\\phi = 2\\pi$"
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Multivariable Calculus",
+            "title": "Higher Partial Derivatives",
+            "description": "Calculate all second-order partial derivatives of the function $f(x,y) = e^{x^2y}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: First-Order Partial Derivatives\n$\\frac{\\partial f}{\\partial x} = 2xye^{x^2y}$\n$\\frac{\\partial f}{\\partial y} = x^2e^{x^2y}$",
+                "Step 2: Second-Order Partial Derivatives\n$\\frac{\\partial^2 f}{\\partial x^2} = (2y + 4x^2y^2)e^{x^2y}$\n$\\frac{\\partial^2 f}{\\partial y^2} = x^4e^{x^2y}$",
+                "Step 3: Mixed Derivatives\n$\\frac{\\partial^2 f}{\\partial x \\partial y} = (2x + 2x^3y)e^{x^2y}$\n$\\frac{\\partial^2 f}{\\partial y \\partial x} = (2x + 2x^3y)e^{x^2y}$",
+                "Step 4: Verification\nThe mixed derivatives are equal (Schwarz's theorem)"
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Multivariable Calculus",
+            "title": "Gradient and Directional Derivative",
+            "description": "Calculate the gradient of the function $f(x,y) = \\ln(x^2 + y^2)$ at the point $(1,1)$ and the directional derivative in the direction of the vector $\\vec{v} = (1,2)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Gradient\n$\\nabla f = (\\frac{2x}{x^2 + y^2}, \\frac{2y}{x^2 + y^2})$\n$\\nabla f(1,1) = (1,1)$",
+                "Step 2: Normalization of the Direction Vector\n$\\vec{v}_0 = \\frac{1}{\\sqrt{5}}(1,2)$",
+                "Step 3: Directional Derivative\n$D_{\\vec{v}}f = \\nabla f \\cdot \\vec{v}_0 = \\frac{1}{\\sqrt{5}}(1 + 2) = \\frac{3}{\\sqrt{5}}$",
+                "Step 4: Interpretation\nThe directional derivative gives the rate of change of $f$ in the direction of $\\vec{v}$."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Multivariable Calculus",
+            "title": "Total Differential",
+            "description": "Calculate the total differential of the function $f(x,y) = \\sin(xy) + e^{x+y}$ at the point $(0,0)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Partial Derivatives\n$\\frac{\\partial f}{\\partial x} = y\\cos(xy) + e^{x+y}$\n$\\frac{\\partial f}{\\partial y} = x\\cos(xy) + e^{x+y}$",
+                "Step 2: Values at the Point (0,0)\n$\\frac{\\partial f}{\\partial x}(0,0) = 1$\n$\\frac{\\partial f}{\\partial y}(0,0) = 1$",
+                "Step 3: Total Differential\n$df = \\frac{\\partial f}{\\partial x}dx + \\frac{\\partial f}{\\partial y}dy = dx + dy$",
+                "Step 4: Interpretation\nThe total differential describes the linear approximation of the function's change."
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Multivariable Calculus",
+            "title": "Chain Rule",
+            "description": "Calculate the derivative of the function $f(x,y) = e^{x^2 + y^2}$ along the curve $x(t) = \\cos(t), y(t) = \\sin(t)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Partial Derivatives\n$\\frac{\\partial f}{\\partial x} = 2xe^{x^2 + y^2}$\n$\\frac{\\partial f}{\\partial y} = 2ye^{x^2 + y^2}$",
+                "Step 2: Derivatives of the Curve\n$\\frac{dx}{dt} = -\\sin(t)$\n$\\frac{dy}{dt} = \\cos(t)$",
+                "Step 3: Chain Rule\n$\\frac{df}{dt} = \\frac{\\partial f}{\\partial x}\\frac{dx}{dt} + \\frac{\\partial f}{\\partial y}\\frac{dy}{dt}$\n$= 2e(-\\sin(t)\\cos(t) + \\cos(t)\\sin(t)) = 0$",
+                "Step 4: Interpretation\nThe function is constant along the curve."
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Multivariable Calculus",
+            "title": "Implicit Differentiation",
+            "description": "Calculate $\\frac{dy}{dx}$ for the implicit function $x^2 + y^2 = 1$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Implicit Differentiation\n$2x + 2y\\frac{dy}{dx} = 0$",
+                "Step 2: Solve for $\\frac{dy}{dx}$\n$\\frac{dy}{dx} = -\\frac{x}{y}$",
+                "Step 3: Verification\nFor $(x,y) = (\\frac{1}{2}, \\frac{\\sqrt{3}}{2})$:\n$\\frac{dy}{dx} = -\\frac{1}{\\sqrt{3}}$",
+                "Step 4: Interpretation\nThe derivative gives the slope of the tangent to the unit circle."
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Multivariable Calculus",
+            "title": "Directional Derivative and Gradient",
+            "description": "Calculate the directional derivative of the function $f(x,y) = x^2y$ at the point $(1,2)$ in the direction of the vector $\\vec{v} = (3,4)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Gradient\n$\\nabla f = (2xy, x^2)$\n$\\nabla f(1,2) = (4,1)$",
+                "Step 2: Normalization of the Direction Vector\n$\\vec{v}_0 = \\frac{1}{5}(3,4)$",
+                "Step 3: Directional Derivative\n$D_{\\vec{v}}f = \\nabla f \\cdot \\vec{v}_0 = \\frac{1}{5}(12 + 4) = \\frac{16}{5}$",
+                "Step 4: Interpretation\nThe directional derivative gives the rate of change of $f$ in the direction of $\\vec{v}$."
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Multivariable Calculus",
+            "title": "Higher Derivatives and Taylor Expansion",
+            "description": "Calculate the second-order Taylor expansion of the function $f(x,y) = e^{x+y}$ around the point $(0,0)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Function Values and Derivatives\n$f(0,0) = 1$\n$\\frac{\\partial f}{\\partial x} = e^{x+y}, \\frac{\\partial f}{\\partial y} = e^{x+y}$\n$\\frac{\\partial^2 f}{\\partial x^2} = e^{x+y}, \\frac{\\partial^2 f}{\\partial y^2} = e^{x+y}$\n$\\frac{\\partial^2 f}{\\partial x \\partial y} = e^{x+y}$",
+                "Step 2: Values at the Expansion Point\n$f(0,0) = 1$\n$\\frac{\\partial f}{\\partial x}(0,0) = 1, \\frac{\\partial f}{\\partial y}(0,0) = 1$\n$\\frac{\\partial^2 f}{\\partial x^2}(0,0) = 1, \\frac{\\partial^2 f}{\\partial y^2}(0,0) = 1$\n$\\frac{\\partial^2 f}{\\partial x \\partial y}(0,0) = 1$",
+                "Step 3: Taylor Expansion\n$T_2(x,y) = 1 + x + y + \\frac{1}{2}(x^2 + 2xy + y^2)$",
+                "Step 4: Interpretation\nThe Taylor expansion gives a quadratic approximation of the function."
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Multivariable Calculus",
+            "title": "Total Differential and Error Propagation",
+            "description": "Calculate the total differential of the function $f(x,y) = \\sqrt{x^2 + y^2}$ and estimate the error if $x = 3 \\pm 0.1$ and $y = 4 \\pm 0.1$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Partial Derivatives\n$\\frac{\\partial f}{\\partial x} = \\frac{x}{\\sqrt{x^2 + y^2}}$\n$\\frac{\\partial f}{\\partial y} = \\frac{y}{\\sqrt{x^2 + y^2}}$",
+                "Step 2: Values at the Point (3,4)\n$\\frac{\\partial f}{\\partial x}(3,4) = \\frac{3}{5}$\n$\\frac{\\partial f}{\\partial y}(3,4) = \\frac{4}{5}$",
+                "Step 3: Error Estimation\n$\\Delta f \\approx |\\frac{\\partial f}{\\partial x}|\\Delta x + |\\frac{\\partial f}{\\partial y}|\\Delta y$\n$= \\frac{3}{5} \\cdot 0.1 + \\frac{4}{5} \\cdot 0.1 = 0.14$",
+                "Step 4: Interpretation\nThe maximum error is approximately 0.14 units."
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Multivariable Calculus",
+            "title": "Complex Extremum Problem with Constraints",
+            "description": "Find the extrema of the function $f(x,y,z) = x^2 + y^2 + z^2$ subject to the constraints $x + y + z = 1$ and $x^2 + y^2 = 1$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Lagrange Function\n$L(x,y,z,\\lambda,\\mu) = x^2 + y^2 + z^2 + \\lambda(1-x-y-z) + \\mu(1-x^2-y^2)$",
+                "Step 2: Partial Derivatives\n$\\frac{\\partial L}{\\partial x} = 2x - \\lambda - 2\\mu x = 0$\n$\\frac{\\partial L}{\\partial y} = 2y - \\lambda - 2\\mu y = 0$\n$\\frac{\\partial L}{\\partial z} = 2z - \\lambda = 0$",
+                "Step 3: Critical Points\n$(x,y,z) = (\\frac{1}{2}, \\frac{1}{2}, 0)$ and $(x,y,z) = (-\\frac{1}{2}, -\\frac{1}{2}, 2)$",
+                "Step 4: Classification\nMinimum at $(\\frac{1}{2}, \\frac{1}{2}, 0)$\nMaximum at $(-\\frac{1}{2}, -\\frac{1}{2}, 2)$"
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Multivariable Calculus",
+            "title": "Multiple Integral with Coordinate Transformation",
+            "description": "Calculate the integral $\\iiint_V \\frac{1}{\\sqrt{x^2 + y^2 + z^2}} dxdydz$ over the region $V = \\{(x,y,z) \\in \\mathbb{R}^3 \\mid 1 \\leq x^2 + y^2 + z^2 \\leq 4\\}$ by transforming to spherical coordinates.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Spherical Coordinates\n$x = r\\sin\\theta\\cos\\phi$\n$y = r\\sin\\theta\\sin\\phi$\n$z = r\\cos\\theta$\n$dxdydz = r^2\\sin\\theta drd\\theta d\\phi$",
+                "Step 2: Integration Region\n$1 \\leq r \\leq 2$\n$0 \\leq \\theta \\leq \\pi$\n$0 \\leq \\phi \\leq 2\\pi$",
+                "Step 3: Transformation\n$\\int_0^{2\\pi} \\int_0^\\pi \\int_1^2 \\frac{1}{r} \\cdot r^2\\sin\\theta drd\\theta d\\phi$",
+                "Step 4: Calculation\n$= 2\\pi \\cdot 2 \\cdot \\frac{3}{2} = 6\\pi$"
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Multivariable Calculus",
+            "title": "Complex Chain Rule with Multiple Variables",
+            "description": "Calculate the derivative of the function $f(x,y,z) = e^{xyz}$ along the curve $x(t) = \\cos(t), y(t) = \\sin(t), z(t) = t$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Partial Derivatives\n$\\frac{\\partial f}{\\partial x} = yze^{xyz}$\n$\\frac{\\partial f}{\\partial y} = xze^{xyz}$\n$\\frac{\\partial f}{\\partial z} = xye^{xyz}$",
+                "Step 2: Derivatives of the Curve\n$\\frac{dx}{dt} = -\\sin(t)$\n$\\frac{dy}{dt} = \\cos(t)$\n$\\frac{dz}{dt} = 1$",
+                "Step 3: Chain Rule\n$\\frac{df}{dt} = -\\sin(t)\\cos(t)te^{xyz} + \\cos(t)\\sin(t)te^{xyz} + \\cos(t)\\sin(t)e^{xyz}$",
+                "Step 4: Simplification\n$\\frac{df}{dt} = \\cos(t)\\sin(t)e^{xyz}$"
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Multivariable Calculus",
+            "title": "Implicit Functions and Jacobian Matrix",
+            "description": "Calculate the Jacobian matrix of the implicit function $F(x,y,z) = (x^2 + y^2 + z^2 - 1, x + y + z - 1)$ and determine $\\frac{\\partial z}{\\partial x}$ and $\\frac{\\partial z}{\\partial y}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Jacobian Matrix\n$DF = \\begin{pmatrix} 2x & 2y & 2z \\\\ 1 & 1 & 1 \\end{pmatrix}$",
+                "Step 2: Implicit Differentiation\n$\\frac{\\partial z}{\\partial x} = -\\frac{2x}{2z} = -\\frac{x}{z}$\n$\\frac{\\partial z}{\\partial y} = -\\frac{2y}{2z} = -\\frac{y}{z}$",
+                "Step 3: Verification\nFor $(x,y,z) = (\\frac{1}{2}, \\frac{1}{2}, \\frac{1}{\\sqrt{2}})$:\n$\\frac{\\partial z}{\\partial x} = -\\frac{1}{\\sqrt{2}}$\n$\\frac{\\partial z}{\\partial y} = -\\frac{1}{\\sqrt{2}}$",
+                "Step 4: Interpretation\nThe derivatives give the slope of the tangent plane."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Multivariable Calculus",
+            "title": "Multiple Integral with Complex Integration Region",
+            "description": "Calculate the integral $\\iint_D \\frac{1}{\\sqrt{1-x^2-y^2}} dxdy$ over the region $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid x^2 + y^2 \\leq \\frac{1}{2}\\}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Polar Coordinates\n$x = r\\cos\\phi$\n$y = r\\sin\\phi$\n$dxdy = r drd\\phi$",
+                "Step 2: Integration Region\n$0 \\leq r \\leq \\frac{1}{\\sqrt{2}}$\n$0 \\leq \\phi \\leq 2\\pi$",
+                "Step 3: Transformation\n$\\int_0^{2\\pi} \\int_0^{\\frac{1}{\\sqrt{2}}} \\frac{r}{\\sqrt{1-r^2}} drd\\phi$",
+                "Step 4: Calculation\n$= 2\\pi(1-\\frac{1}{\\sqrt{2}})$"
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Multivariable Calculus",
+            "title": "Higher-Order Taylor Expansion",
+            "description": "Calculate the third-order Taylor expansion of the function $f(x,y) = \\sin(xy)$ around the point $(0,0)$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Partial Derivatives\n$\\frac{\\partial f}{\\partial x} = y\\cos(xy)$\n$\\frac{\\partial f}{\\partial y} = x\\cos(xy)$\n$\\frac{\\partial^2 f}{\\partial x^2} = -y^2\\sin(xy)$\n$\\frac{\\partial^2 f}{\\partial y^2} = -x^2\\sin(xy)$\n$\\frac{\\partial^2 f}{\\partial x \\partial y} = \\cos(xy) - xy\\sin(xy)$",
+                "Step 2: Values at the Expansion Point\n$f(0,0) = 0$\n$\\frac{\\partial f}{\\partial x}(0,0) = 0$\n$\\frac{\\partial f}{\\partial y}(0,0) = 0$\n$\\frac{\\partial^2 f}{\\partial x^2}(0,0) = 0$\n$\\frac{\\partial^2 f}{\\partial y^2}(0,0) = 0$\n$\\frac{\\partial^2 f}{\\partial x \\partial y}(0,0) = 1$",
+                "Step 3: Taylor Expansion\n$T_3(x,y) = xy - \\frac{1}{6}x^3y - \\frac{1}{6}xy^3$",
+                "Step 4: Interpretation\nThe Taylor expansion gives a cubic approximation of the function."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Multivariable Calculus",
+            "title": "Complex Directional Derivative and Gradient",
+            "description": "Calculate the directional derivative of the function $f(x,y,z) = x^2y + y^2z + z^2x$ at the point $(1,1,1)$ in the direction of the vector $\\vec{v} = (1,2,3)$ and determine the direction of the maximum rate of change.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Gradient\n$\\nabla f = (2xy + z^2, x^2 + 2yz, y^2 + 2zx)$\n$\\nabla f(1,1,1) = (3,3,3)$",
+                "Step 2: Normalization of the Direction Vector\n$\\vec{v}_0 = \\frac{1}{\\sqrt{14}}(1,2,3)$",
+                "Step 3: Directional Derivative\n$D_{\\vec{v}}f = \\nabla f \\cdot \\vec{v}_0 = \\frac{1}{\\sqrt{14}}(3 + 6 + 9) = \\frac{18}{\\sqrt{14}}$",
+                "Step 4: Maximum Rate of Change\nThe maximum rate of change occurs in the direction of the gradient: $\\frac{1}{\\sqrt{3}}(1,1,1)$"
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Multivariable Calculus",
+            "title": "Multiple Integral with Complex Transformation",
+            "description": "Calculate the integral $\\iiint_V \\frac{1}{(x^2 + y^2 + z^2)^{3/2}} dxdydz$ over the region $V = \\{(x,y,z) \\in \\mathbb{R}^3 \\mid 1 \\leq x^2 + y^2 \\leq 4, 0 \\leq z \\leq 1\\}$ by transforming to cylindrical coordinates.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Cylindrical Coordinates\n$x = r\\cos\\phi$\n$y = r\\sin\\phi$\n$z = z$\n$dxdydz = r drd\\phi dz$",
+                "Step 2: Integration Region\n$1 \\leq r \\leq 2$\n$0 \\leq \\phi \\leq 2\\pi$\n$0 \\leq z \\leq 1$",
+                "Step 3: Transformation\n$\\int_0^{2\\pi} \\int_1^2 \\int_0^1 \\frac{r}{(r^2 + z^2)^{3/2}} drd\\phi dz$",
+                "Step 4: Calculation\n$= 2\\pi(\\ln(2 + \\sqrt{5}) - \\ln(1 + \\sqrt{2}))$"
+            ]
+        }
+    ]
+}

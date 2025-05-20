@@ -1,0 +1,156 @@
+{
+    "id": "cc0e8400-e29b-41d4-a716-446655440000",
+    "topic": "Linear Transformations",
+    "steps": [
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440001",
+            "text": "A linear transformation f: V → W between vector spaces preserves the vector space structure. It is additive and homogeneous.",
+            "formula": "f(\\lambda v + \\mu w) = \\lambda f(v) + \\mu f(w)",
+            "explanation": "This property means that the transformation maps lines to lines and preserves the origin. Imagine drawing a line in space—under a linear transformation, it remains a line! It’s like a magic trick: the structure is preserved, only the position and size may change."
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440002",
+            "text": "Let’s look at a concrete example of a linear transformation in ℝ²: rotation about the origin.",
+            "formula": "f\\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} \\cos \\theta & -\\sin \\theta \\\\ \\sin \\theta & \\cos \\theta \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}",
+            "explanation": "This transformation rotates every vector by an angle θ counterclockwise. It is linear because it preserves the vector space structure and maps lines to lines. Imagine rotating a sheet of paper—all lines remain straight, only their direction changes!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440003",
+            "text": "Every linear transformation f: ℝⁿ → ℝᵐ can be represented by an m×n matrix A. The columns of the matrix are the images of the standard basis vectors.",
+            "formula": "f(x) = Ax = \\begin{pmatrix} a_{11} & \\cdots & a_{1n} \\\\ \\vdots & \\ddots & \\vdots \\\\ a_{m1} & \\cdots & a_{mn} \\end{pmatrix} \\begin{pmatrix} x_1 \\\\ \\vdots \\\\ x_n \\end{pmatrix}",
+            "explanation": "The matrix representation depends on the chosen basis. The columns of the matrix show where the basis vectors are mapped. It’s like a recipe: if we know where the fundamental directions go, we can transform any vector!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440004",
+            "text": "The kernel of a linear transformation is the set of all vectors mapped to the zero vector. It is a subspace.",
+            "formula": "\\ker(f) = \\{v \\in V \\mid f(v) = 0\\}",
+            "explanation": "The kernel provides important information about the transformation. Its dimension is called the defect of the transformation. A large kernel means many vectors are mapped to the zero vector. It’s like a black hole: everything that falls in disappears!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440005",
+            "text": "The image of a linear transformation is the set of all image vectors. It is also a subspace.",
+            "formula": "\\text{im}(f) = \\{f(v) \\mid v \\in V\\}",
+            "explanation": "The image shows which vectors can be reached. Its dimension is called the rank of the transformation. A large image means many vectors in the target space can be reached. It’s like a shadow: it shows where we can go!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440006",
+            "text": "The Rank-Nullity Theorem connects the kernel and image of a linear transformation. It is a fundamental relationship.",
+            "formula": "\\dim V = \\dim \\ker(f) + \\dim \\text{im}(f)",
+            "explanation": "This theorem tells us that the sum of the defect and rank equals the dimension of the domain. It is useful for determining the rank of a matrix. It’s like a puzzle: the pieces must fit together!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440007",
+            "text": "A linear transformation is injective if and only if its kernel contains only the zero vector.",
+            "formula": "f \\text{ injective} \\Leftrightarrow \\ker(f) = \\{0\\}",
+            "explanation": "Injective transformations are invertible on their image. They preserve the linear independence of vectors. This means distinct vectors are mapped to distinct images. It’s like a one-way street system: every path leads to a different destination!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440008",
+            "text": "A linear transformation is surjective if and only if its image is the entire target space.",
+            "formula": "f \\text{ surjective} \\Leftrightarrow \\text{im}(f) = W",
+            "explanation": "Surjective transformations reach every vector in the target space. This means that for every vector in the target space, there is at least one preimage. It’s like a net: it catches every point in the target space!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440009",
+            "text": "A linear transformation is bijective if and only if it is both injective and surjective.",
+            "formula": "f \\text{ bijective} \\Leftrightarrow f \\text{ injective} \\wedge f \\text{ surjective}",
+            "explanation": "Bijective transformations are invertible. They establish a one-to-one correspondence between the domain and target space. It’s like a dance: every partner has exactly one dance partner!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440010",
+            "text": "The composition of linear transformations is again linear. The matrix of the composition is the product of the individual matrices.",
+            "formula": "(g \\circ f)(v) = g(f(v))",
+            "explanation": "Composition corresponds to matrix multiplication. The order is important: g∘f means f is applied first, then g. It’s like a chain of magic tricks: the effect of the second trick acts on the result of the first!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440011",
+            "text": "A linear transformation can be fully described by its action on a basis.",
+            "formula": "f(v) = f(\\sum_{i=1}^n \\lambda_i b_i) = \\sum_{i=1}^n \\lambda_i f(b_i)",
+            "explanation": "If we know where the basis vectors are mapped, we can compute the transformation for any vector. This is the foundation of the matrix representation. It’s like a construction kit: if we know where the basic building blocks go, we can build anything!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440012",
+            "text": "The rank of a matrix is the dimension of the image of the associated linear transformation.",
+            "formula": "\\text{rank}(A) = \\dim \\text{im}(f_A)",
+            "explanation": "The rank gives us the maximum number of linearly independent columns (or rows) of the matrix. It is important for the solvability of linear systems. It’s like the number of independent directions we can move in!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440013",
+            "text": "A linear transformation is invertible if and only if it is bijective.",
+            "formula": "f^{-1}(f(v)) = v \\text{ and } f(f^{-1}(w)) = w",
+            "explanation": "The inverse transformation undoes the effect of the original transformation. Its matrix is the inverse of the original matrix. It’s like a reverse gear: we can undo every step!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440014",
+            "text": "The determinant of a linear transformation indicates the volume scaling factor.",
+            "formula": "\\det(f) = \\frac{\\text{Volume}(f(P))}{\\text{Volume}(P)}",
+            "explanation": "The determinant shows how volumes change under the transformation. A determinant of 0 means the transformation collapses the volume to 0. It’s like a measuring stick: it shows how much the transformation stretches or compresses!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440015",
+            "text": "Eigenvalues and eigenvectors of a linear transformation are particularly important.",
+            "formula": "f(v) = \\lambda v",
+            "explanation": "Eigenvectors are only stretched or compressed; their direction remains unchanged. The corresponding eigenvalues indicate the scaling factor. It’s like a magic wand: it only changes the size, not the direction!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440016",
+            "text": "Let’s look at a concrete example of a linear transformation in ℝ³: projection onto a plane.",
+            "formula": "f\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} x \\\\ y \\\\ 0 \\end{pmatrix}",
+            "explanation": "This transformation projects every vector onto the xy-plane. It is linear because it preserves the vector space structure. It’s like a shadow cast: every point is projected perpendicularly onto the plane!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440017",
+            "text": "Another important linear transformation is reflection across a line in ℝ².",
+            "formula": "f\\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} \\cos 2\\theta & \\sin 2\\theta \\\\ \\sin 2\\theta & -\\cos 2\\theta \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}",
+            "explanation": "This transformation reflects every vector across a line through the origin at angle θ. It is linear and has a determinant of -1. It’s like a mirror: every point is flipped to the other side!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440018",
+            "text": "The composition of reflections leads to interesting results.",
+            "formula": "f = f_2 \\circ f_1",
+            "explanation": "The composition of two reflections is a rotation. The angle of rotation is twice the angle between the reflection axes. It’s like a double mirror: two reflections result in a rotation!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440019",
+            "text": "A linear transformation can also be defined by its action on polynomials.",
+            "formula": "f(p(x)) = p'(x)",
+            "explanation": "Differentiation is a linear transformation on the vector space of polynomials. It preserves the vector space structure and is linear. It’s like a transformer: it turns polynomials into their derivatives!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440020",
+            "text": "The matrix of a linear transformation depends on the chosen basis.",
+            "formula": "A' = P^{-1}AP",
+            "explanation": "When we change the basis, the matrix of the transformation changes. The new matrix is similar to the old one. It’s like changing coordinate systems: the transformation remains the same, only its representation changes!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440021",
+            "text": "A linear transformation can also be defined by its action on functions.",
+            "formula": "f(g(x)) = \\int_0^x g(t) dt",
+            "explanation": "Integration is a linear transformation on the vector space of continuous functions. It preserves the vector space structure and is linear. It’s like an accumulator: it collects the values of the function!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440022",
+            "text": "The composition of integration and differentiation is particularly interesting.",
+            "formula": "f(g(x)) = \\frac{d}{dx}\\int_0^x g(t) dt = g(x)",
+            "explanation": "The composition of integration and differentiation yields the identity (up to a constant). It’s like a cycle: if we integrate and then differentiate, we return to the starting point!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440023",
+            "text": "A linear transformation can also be defined by its action on matrices.",
+            "formula": "f(A) = A^T",
+            "explanation": "Transposition is a linear transformation on the vector space of matrices. It preserves the vector space structure and is linear. It’s like a mirror: it reflects the matrix across the main diagonal!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440024",
+            "text": "The composition of transposition and matrix multiplication leads to interesting results.",
+            "formula": "(AB)^T = B^T A^T",
+            "explanation": "The transpose of a product is the product of the transposed matrices in reverse order. It’s like swapping gloves: the order of operations matters!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440025",
+            "text": "Finally, let’s look at how linear transformations are used in computer graphics.",
+            "formula": "f\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} a & b & c \\\\ d & e & f \\\\ g & h & i \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}",
+            "explanation": "Linear transformations are used to transform 3D objects. They enable rotations, scalings, and reflections. It’s like a magic box: with the right matrices, we can create any 3D effect!"
+        }
+    ]
+}

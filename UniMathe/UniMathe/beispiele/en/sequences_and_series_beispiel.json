@@ -1,0 +1,180 @@
+{
+    "id": "aa0e8400-e29b-41d4-a716-446655440001",
+    "topic": "Sequences and Series",
+    "steps": [
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440002",
+            "text": "A sequence is a function from the natural numbers to a set.",
+            "formula": "(a_n)_{n \\in \\mathbb{N}} = (a_1, a_2, a_3, ...)",
+            "explanation": "A sequence is like an infinite list of numbers constructed according to a specific rule. It’s like counting the steps of an infinite staircase!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440003",
+            "text": "A sequence converges to a limit if it gets arbitrarily close to it.",
+            "formula": "\\lim_{n \\to \\infty} a_n = a \\quad \\Leftrightarrow \\quad \\forall \\varepsilon > 0 \\, \\exists N \\in \\mathbb{N} \\, \\forall n \\geq N: |a_n - a| < \\varepsilon",
+            "explanation": "Convergence means the sequence gets closer and closer to a specific value. It’s like a goal you never fully reach but can get arbitrarily close to!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440004",
+            "text": "A series is the sum of the terms of a sequence.",
+            "formula": "\\sum_{n=1}^{\\infty} a_n = a_1 + a_2 + a_3 + ...",
+            "explanation": "A series is like adding up all the terms of a sequence. It’s like summing the heights of all steps in an infinite staircase!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440005",
+            "text": "The geometric series is an important special series.",
+            "formula": "\\sum_{n=0}^{\\infty} q^n = \\frac{1}{1-q} \\quad \\text{for } |q| < 1",
+            "explanation": "The geometric series converges for |q| < 1 and diverges otherwise. It’s like summing increasingly smaller numbers!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440006",
+            "text": "The ratio test is an important convergence criterion.",
+            "formula": "\\lim_{n \\to \\infty} \\left|\\frac{a_{n+1}}{a_n}\\right| = q \\quad \\begin{cases} q < 1 & \\Rightarrow \\text{convergent} \\\\ q > 1 & \\Rightarrow \\text{divergent} \\end{cases}",
+            "explanation": "The ratio test compares consecutive terms of a series. It’s like measuring how quickly the series grows or shrinks!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440007",
+            "text": "The root test is another convergence criterion.",
+            "formula": "\\lim_{n \\to \\infty} \\sqrt[n]{|a_n|} = q \\quad \\begin{cases} q < 1 & \\Rightarrow \\text{convergent} \\\\ q > 1 & \\Rightarrow \\text{divergent} \\end{cases}",
+            "explanation": "The root test considers the nth root of the terms. It’s like measuring the average size of the terms!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440008",
+            "text": "The Leibniz criterion for alternating series.",
+            "formula": "\\text{If } (a_n) \\text{ is monotonically decreasing and } \\lim_{n \\to \\infty} a_n = 0, \\text{ then } \\sum_{n=1}^{\\infty} (-1)^n a_n \\text{ converges}",
+            "explanation": "The Leibniz criterion helps with series with alternating signs. It’s like a pendulum with increasingly smaller swings!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440009",
+            "text": "The harmonic series is an important example.",
+            "formula": "\\sum_{n=1}^{\\infty} \\frac{1}{n} = 1 + \\frac{1}{2} + \\frac{1}{3} + ... = \\infty",
+            "explanation": "The harmonic series diverges, even though its terms approach 0. It’s like summing increasingly smaller numbers that still grow infinitely large!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440010",
+            "text": "The exponential series converges for all real numbers.",
+            "formula": "e^x = \\sum_{n=0}^{\\infty} \\frac{x^n}{n!} = 1 + x + \\frac{x^2}{2!} + \\frac{x^3}{3!} + ...",
+            "explanation": "The exponential series is a key representation of the exponential function. It’s like constructing a function from infinitely many polynomials!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440011",
+            "text": "The Taylor series approximates functions with polynomials.",
+            "formula": "f(x) = \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(a)}{n!} (x-a)^n",
+            "explanation": "The Taylor series allows us to approximate functions with polynomials. It’s like reconstructing a complex curve with simple building blocks!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440012",
+            "text": "The Fourier series decomposes periodic functions into sine and cosine functions.",
+            "formula": "f(x) = \\frac{a_0}{2} + \\sum_{n=1}^{\\infty} (a_n \\cos(nx) + b_n \\sin(nx))",
+            "explanation": "The Fourier series is like breaking down a complex sound into its fundamental frequencies. It’s like analyzing a melody!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440013",
+            "text": "The comparison test compares series with known series.",
+            "formula": "\\text{If } |a_n| \\leq b_n \\text{ and } \\sum b_n \\text{ converges, then } \\sum a_n \\text{ converges}",
+            "explanation": "The comparison test is like comparing an unknown series to a known one. It’s like estimating an unknown quantity!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440014",
+            "text": "The limit comparison test is the counterpart to the comparison test.",
+            "formula": "\\text{If } a_n \\geq b_n \\geq 0 \\text{ and } \\sum b_n \\text{ diverges, then } \\sum a_n \\text{ diverges}",
+            "explanation": "The limit comparison test is like finding a lower bound. It’s like ensuring a series grows at least as large as a known divergent series!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440015",
+            "text": "The power series is a generalization of the Taylor series.",
+            "formula": "\\sum_{n=0}^{\\infty} a_n (x-a)^n",
+            "explanation": "The power series is like a generalized polynomial with infinitely many terms. It’s like extending the concept of polynomials to infinity!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440016",
+            "text": "The radius of convergence of a power series.",
+            "formula": "R = \\frac{1}{\\limsup_{n \\to \\infty} \\sqrt[n]{|a_n|}}",
+            "explanation": "The radius of convergence indicates the region where the power series converges. It’s like the effective range of a mathematical formula!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440017",
+            "text": "The binomial series generalizes the binomial theorem.",
+            "formula": "(1+x)^\\alpha = \\sum_{n=0}^{\\infty} \\binom{\\alpha}{n} x^n \\quad \\text{for } |x| < 1",
+            "explanation": "The binomial series allows us to expand powers with arbitrary exponents. It’s like extending the binomial theorem to infinity!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440018",
+            "text": "The logarithm series expands the natural logarithm.",
+            "formula": "\\ln(1+x) = \\sum_{n=1}^{\\infty} \\frac{(-1)^{n+1}}{n} x^n \\quad \\text{for } |x| < 1",
+            "explanation": "The logarithm series is like constructing the logarithm from simple powers. It’s like breaking down a complex function into simple components!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440019",
+            "text": "The arctangent series expands the inverse tangent function.",
+            "formula": "\\arctan x = \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{2n+1} x^{2n+1} \\quad \\text{for } |x| \\leq 1",
+            "explanation": "The arctangent series is like constructing the inverse tangent function from simple powers. It’s like tracing back a path!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440020",
+            "text": "The sine series expands the sine function.",
+            "formula": "\\sin x = \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{(2n+1)!} x^{2n+1}",
+            "explanation": "The sine series is like constructing the sine function from infinitely many polynomials. It’s like recreating a vibration!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440021",
+            "text": "The cosine series expands the cosine function.",
+            "formula": "\\cos x = \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{(2n)!} x^{2n}",
+            "explanation": "The cosine series is like constructing the cosine function from infinitely many polynomials. It’s like recreating a vibration!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440022",
+            "text": "The hyperbolic sine series expands the hyperbolic sine function.",
+            "formula": "\\sinh x = \\sum_{n=0}^{\\infty} \\frac{x^{2n+1}}{(2n+1)!}",
+            "explanation": "The hyperbolic sine series is like constructing the hyperbolic sine function from infinitely many polynomials. It’s like a mirror image of the sine series!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440023",
+            "text": "The hyperbolic cosine series expands the hyperbolic cosine function.",
+            "formula": "\\cosh x = \\sum_{n=0}^{\\infty} \\frac{x^{2n}}{(2n)!}",
+            "explanation": "The hyperbolic cosine series is like constructing the hyperbolic cosine function from infinitely many polynomials. It’s like a mirror image of the cosine series!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440024",
+            "text": "The arcsine series expands the inverse sine function.",
+            "formula": "\\arcsin x = \\sum_{n=0}^{\\infty} \\frac{(2n)!}{4^n (n!)^2 (2n+1)} x^{2n+1} \\quad \\text{for } |x| < 1",
+            "explanation": "The arcsine series is like constructing the inverse sine function from infinitely many polynomials. It’s like tracing back a vibration!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440025",
+            "text": "The arccosine series expands the inverse cosine function.",
+            "formula": "\\arccos x = \\frac{\\pi}{2} - \\arcsin x",
+            "explanation": "The arccosine series is like constructing the inverse cosine function from the arcsine series. It’s like mirroring a function!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440026",
+            "text": "The inverse hyperbolic function series expand the inverse hyperbolic functions.",
+            "formula": "\\text{arsinh } x = \\sum_{n=0}^{\\infty} \\frac{(-1)^n (2n)!}{4^n (n!)^2 (2n+1)} x^{2n+1}",
+            "explanation": "The inverse hyperbolic function series are like constructing the inverse hyperbolic functions from infinitely many polynomials. It’s like tracing back a hyperbola!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440027",
+            "text": "The product series expands the product of two series.",
+            "formula": "(\\sum_{n=0}^{\\infty} a_n)(\\sum_{n=0}^{\\infty} b_n) = \\sum_{n=0}^{\\infty} \\sum_{k=0}^n a_k b_{n-k}",
+            "explanation": "The product series is like multiplying two infinite sums. It’s like combining two infinite processes!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440028",
+            "text": "The rearrangement of series is allowed under certain conditions.",
+            "formula": "\\text{If } \\sum a_n \\text{ converges absolutely, then any rearrangement converges to the same value}",
+            "explanation": "The rearrangement of series is like reordering the terms of an infinite sum. It’s like reshuffling an infinite list!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440029",
+            "text": "The partial sums of a series converge to the series’ value.",
+            "formula": "s_n = \\sum_{k=1}^n a_k \\quad \\Rightarrow \\quad \\lim_{n \\to \\infty} s_n = \\sum_{k=1}^{\\infty} a_k",
+            "explanation": "Partial sums are like incrementally adding the terms of a series. It’s like approaching a limit step by step!"
+        },
+        {
+            "id": "aa0e8400-e29b-41d4-a716-446655440030",
+            "text": "Finally, let’s look at how series are used in physics.",
+            "formula": "\\text{Series are used to describe and analyze periodic phenomena}",
+            "explanation": "In physics, series help us understand complex oscillations and waves. It’s like translating mathematical concepts into the language of nature!"
+        }
+    ]
+}

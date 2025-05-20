@@ -1,0 +1,453 @@
+{
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Greatest Common Divisor",
+            "title": "Euclidean Algorithm",
+            "description": "Calculate the greatest common divisor of 1071 and 462 using the Euclidean algorithm.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Apply the Euclidean Algorithm\nThe Euclidean algorithm is based on division with remainder:\n$a = b \\cdot q + r$, where $0 \\leq r < b$.",
+                "Step 2: First Division\n$1071 = 462 \\cdot 2 + 147$\nHere, $a = 1071$, $b = 462$, $q = 2$, $r = 147$.",
+                "Step 3: Second Division\n$462 = 147 \\cdot 3 + 21$\nNow, $a = 462$, $b = 147$, $q = 3$, $r = 21$.",
+                "Step 4: Third Division\n$147 = 21 \\cdot 7 + 0$\nSince the remainder is 0, the last non-zero remainder is the GCD.",
+                "Step 5: Result\n$\\gcd(1071, 462) = 21$"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Greatest Common Divisor",
+            "title": "Extended Euclidean Algorithm",
+            "description": "Using the extended Euclidean algorithm, find integers $x$ and $y$ such that $1071x + 462y = \\gcd(1071, 462)$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Backtrack from the Euclidean Algorithm\nFrom the previous exercise, we know:\n$21 = 462 - 147 \\cdot 3$.",
+                "Step 2: Substitute for 147\n$147 = 1071 - 462 \\cdot 2$\nThus: $21 = 462 - (1071 - 462 \\cdot 2) \\cdot 3$.",
+                "Step 3: Simplify\n$21 = 462 - 1071 \\cdot 3 + 462 \\cdot 6$\n$21 = 462 \\cdot 7 - 1071 \\cdot 3$.",
+                "Step 4: Result\n$x = -3$, $y = 7$\nVerify: $1071 \\cdot (-3) + 462 \\cdot 7 = -3213 + 3234 = 21$."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Greatest Common Divisor",
+            "title": "Linear Diophantine Equation",
+            "description": "Find all integer solutions to the equation $1071x + 462y = 42$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Check Solvability\nSince $\\gcd(1071, 462) = 21$ and 21 divides 42, the equation is solvable.",
+                "Step 2: Find a Particular Solution\nDivide both sides by 21:\n$51x + 22y = 2$\nFrom the previous exercise, $51 \\cdot (-3) + 22 \\cdot 7 = 1$. Multiply by 2:\n$51 \\cdot (-6) + 22 \\cdot 14 = 2$.",
+                "Step 3: General Solution\nThe general solution is:\n$x = -6 + \\frac{462}{21}k = -6 + 22k$\n$y = 14 - \\frac{1071}{21}k = 14 - 51k$\nfor $k \\in \\mathbb{Z}$.",
+                "Step 4: Verification\nSubstitute: $1071(-6 + 22k) + 462(14 - 51k) = 42$, which holds for all $k$."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Greatest Common Divisor",
+            "title": "Prime Factorization and GCD",
+            "description": "Calculate the greatest common divisor of $2^4 \\cdot 3^2 \\cdot 5^3 \\cdot 7$ and $2^3 \\cdot 3^4 \\cdot 5 \\cdot 11$ using prime factorization.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Define GCD via Prime Factors\nThe GCD is the product of the smallest exponents for each prime.",
+                "Step 2: Compare Exponents\nFor 2: $\\min(4, 3) = 3$\nFor 3: $\\min(2, 4) = 2$\nFor 5: $\\min(3, 1) = 1$\nFor 7: $\\min(1, 0) = 0$\nFor 11: $\\min(0, 1) = 0$.",
+                "Step 3: Calculate GCD\n$\\gcd = 2^3 \\cdot 3^2 \\cdot 5 = 8 \\cdot 9 \\cdot 5 = 360$."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Greatest Common Divisor",
+            "title": "Coprimality and GCD",
+            "description": "Prove: If $\\gcd(a, b) = 1$ and $\\gcd(a, c) = 1$, then $\\gcd(a, bc) = 1$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Define Coprimality\n$\\gcd(a, b) = 1$ means $a$ and $b$ are coprime.",
+                "Step 2: Apply Bézout's Lemma\nThere exist integers $x_1, y_1, x_2, y_2$ such that:\n$ax_1 + by_1 = 1$\n$ax_2 + cy_2 = 1$.",
+                "Step 3: Multiply the Equations\n$(ax_1 + by_1)(ax_2 + cy_2) = 1$\n$a(ax_1x_2 + bx_1y_2 + cx_2y_1) + bc(y_1y_2) = 1$.",
+                "Step 4: Conclusion\nSince 1 is a linear combination of $a$ and $bc$, $\\gcd(a, bc) = 1$."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and LCM",
+            "description": "Prove: For all natural numbers $a, b$, $\\gcd(a, b) \\cdot \\lcm(a, b) = a \\cdot b$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Prime Factorization\nLet $a = \\prod_{p \\text{ prime}} p^{\\alpha_p}$, $b = \\prod_{p \\text{ prime}} p^{\\beta_p}$.",
+                "Step 2: Define GCD and LCM\n$\\gcd(a, b) = \\prod_{p \\text{ prime}} p^{\\min(\\alpha_p, \\beta_p)}$\n$\\lcm(a, b) = \\prod_{p \\text{ prime}} p^{\\max(\\alpha_p, \\beta_p)}$.",
+                "Step 3: Multiply\n$\\gcd(a, b) \\cdot \\lcm(a, b) = \\prod_{p \\text{ prime}} p^{\\min(\\alpha_p, \\beta_p) + \\max(\\alpha_p, \\beta_p)}$.",
+                "Step 4: Simplify\n$\\min(\\alpha_p, \\beta_p) + \\max(\\alpha_p, \\beta_p) = \\alpha_p + \\beta_p$\nThus: $\\gcd(a, b) \\cdot \\lcm(a, b) = a \\cdot b$."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and Congruences",
+            "description": "Solve the congruence $1071x \\equiv 42 \\pmod{462}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Check Solvability\n$\\gcd(1071, 462) = 21$ divides 42, so the congruence is solvable.",
+                "Step 2: Simplify\nDivide by 21: $51x \\equiv 2 \\pmod{22}$.",
+                "Step 3: Find the Inverse\nSolve $51y \\equiv 1 \\pmod{22}$. Since $51 \\equiv 7 \\pmod{22}$, find $7y \\equiv 1 \\pmod{22}$.\nTest: $7 \\cdot 19 = 133 \\equiv 1 \\pmod{22}$, so $y = 19$.",
+                "Step 4: Solve\n$x \\equiv 2 \\cdot 19 = 38 \\equiv 16 \\pmod{22}$.\nGeneral solution: $x = 16 + 22k$, $k \\in \\mathbb{Z}$."
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and Polynomials",
+            "description": "Calculate the greatest common divisor of the polynomials $f(x) = x^3 - 2x^2 - x + 2$ and $g(x) = x^3 - 3x^2 + 4$ over $\\mathbb{Q}[x]$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Polynomial Division\nDivide $f(x)$ by $g(x)$:\n$f(x) = g(x) \\cdot 1 + (x^2 - x - 2)$.",
+                "Step 2: Continue Division\nDivide $g(x)$ by $x^2 - x - 2$:\n$g(x) = (x^2 - x - 2)(x - 2) + (2x)$.",
+                "Step 3: Last Division\nDivide $x^2 - x - 2$ by $2x$:\n$x^2 - x - 2 = (2x)(\\frac{1}{2}x - \\frac{1}{2}) + (-2)$.",
+                "Step 4: Normalize\nThe last non-zero remainder is $-2$, a constant, so $\\gcd(f, g) = 1$ (normalized over $\\mathbb{Q}$)."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and Matrices",
+            "description": "Calculate the greatest common divisor of the determinants of the matrices $A = \\begin{pmatrix} 2 & 3 \\\\ 4 & 5 \\end{pmatrix}$ and $B = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Calculate Determinants\n$\\det(A) = 2 \\cdot 5 - 3 \\cdot 4 = 10 - 12 = -2$\n$\\det(B) = 1 \\cdot 4 - 2 \\cdot 3 = 4 - 6 = -2$.",
+                "Step 2: Calculate GCD\n$\\gcd(-2, -2) = 2$."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and Fibonacci Numbers",
+            "description": "Prove: $\\gcd(F_n, F_{n+1}) = 1$ for all $n \\in \\mathbb{N}$, where $F_n$ is the $n$-th Fibonacci number.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Base Case\nFor $n=1$: $F_1 = 1$, $F_2 = 1$, so $\\gcd(1, 1) = 1$.",
+                "Step 2: Induction Hypothesis\nAssume $\\gcd(F_k, F_{k+1}) = 1$ for some $k \\in \\mathbb{N}$.",
+                "Step 3: Induction Step\n$\\gcd(F_{k+1}, F_{k+2}) = \\gcd(F_{k+1}, F_{k+1} + F_k) = \\gcd(F_{k+1}, F_k) = \\gcd(F_k, F_{k+1}) = 1$.",
+                "Step 4: Conclusion\nBy mathematical induction, the statement holds for all $n \\in \\mathbb{N}$."
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Greatest Common Divisor",
+            "title": "Simple GCD Calculation",
+            "description": "Calculate the greatest common divisor of 24 and 36.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Prime Factorization\n$24 = 2^3 \\cdot 3$\n$36 = 2^2 \\cdot 3^2$.",
+                "Step 2: GCD via Prime Factors\n$\\gcd(24, 36) = 2^2 \\cdot 3 = 12$."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Greatest Common Divisor",
+            "title": "Coprime Numbers",
+            "description": "Are 15 and 28 coprime? Justify your answer.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Prime Factorization\n$15 = 3 \\cdot 5$\n$28 = 2^2 \\cdot 7$.",
+                "Step 2: Analysis\nThe numbers have no common prime factors.",
+                "Step 3: Conclusion\n$\\gcd(15, 28) = 1$, so the numbers are coprime."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD with Negative Numbers",
+            "description": "Calculate $\\gcd(-18, 24)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Consider Absolute Values\n$\\gcd(-18, 24) = \\gcd(18, 24)$.",
+                "Step 2: Prime Factorization\n$18 = 2 \\cdot 3^2$\n$24 = 2^3 \\cdot 3$.",
+                "Step 3: Result\n$\\gcd(18, 24) = 2 \\cdot 3 = 6$."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD of Three Numbers",
+            "description": "Calculate $\\gcd(12, 18, 30)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Prime Factorization\n$12 = 2^2 \\cdot 3$\n$18 = 2 \\cdot 3^2$\n$30 = 2 \\cdot 3 \\cdot 5$.",
+                "Step 2: GCD via Prime Factors\n$\\gcd(12, 18, 30) = 2 \\cdot 3 = 6$."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Greatest Common Divisor",
+            "title": "Simple Divisibility",
+            "description": "Is 6 a divisor of 42? Justify using the GCD.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Calculate GCD\n$\\gcd(6, 42) = 6$.",
+                "Step 2: Analysis\nSince the GCD is 6, 6 is a divisor of 42."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and LCM",
+            "description": "Calculate $\\gcd(8, 12)$ and $\\lcm(8, 12)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Prime Factorization\n$8 = 2^3$\n$12 = 2^2 \\cdot 3$.",
+                "Step 2: Calculate GCD\n$\\gcd(8, 12) = 2^2 = 4$.",
+                "Step 3: Calculate LCM\n$\\lcm(8, 12) = 2^3 \\cdot 3 = 24$."
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD with Powers",
+            "description": "Calculate $\\gcd(2^4 \\cdot 3^2, 2^3 \\cdot 3^3)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: GCD via Prime Factors\n$\\gcd(2^4 \\cdot 3^2, 2^3 \\cdot 3^3) = 2^3 \\cdot 3^2 = 8 \\cdot 9 = 72$."
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD with Prime Numbers",
+            "description": "Calculate $\\gcd(2 \\cdot 3 \\cdot 5, 2 \\cdot 3 \\cdot 7)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: GCD via Prime Factors\n$\\gcd(2 \\cdot 3 \\cdot 5, 2 \\cdot 3 \\cdot 7) = 2 \\cdot 3 = 6$."
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Greatest Common Divisor",
+            "title": "Euclidean Algorithm with Larger Numbers",
+            "description": "Calculate $\\gcd(234, 182)$ using the Euclidean algorithm.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: First Division\n$234 = 182 \\cdot 1 + 52$.",
+                "Step 2: Second Division\n$182 = 52 \\cdot 3 + 26$.",
+                "Step 3: Third Division\n$52 = 26 \\cdot 2 + 0$.",
+                "Step 4: Result\n$\\gcd(234, 182) = 26$."
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Greatest Common Divisor",
+            "title": "Extended Euclidean Algorithm",
+            "description": "Find integers $x$ and $y$ such that $234x + 182y = \\gcd(234, 182)$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Backtrack\nFrom the previous exercise:\n$26 = 182 - 52 \\cdot 3$\n$52 = 234 - 182$\nSubstitute: $26 = 182 - (234 - 182) \\cdot 3 = 182 \\cdot 4 - 234 \\cdot 3$.",
+                "Step 2: Result\n$x = -3$, $y = 4$\nVerify: $234 \\cdot (-3) + 182 \\cdot 4 = -702 + 728 = 26$."
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and Polynomials",
+            "description": "Calculate $\\gcd(x^2 - 1, x^2 + 2x + 1)$ over $\\mathbb{Q}[x]$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Polynomial Division\n$x^2 + 2x + 1 = (x^2 - 1) \\cdot 1 + (2x + 2)$.",
+                "Step 2: Continue Division\n$x^2 - 1 = (2x + 2)(\\frac{1}{2}x - \\frac{1}{2}) + 0$.",
+                "Step 3: Normalize\n$\\gcd = x + 1$ (since $2x + 2 = 2(x + 1)$)."
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and Congruences",
+            "description": "Solve the congruence $234x \\equiv 26 \\pmod{182}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Check Solvability\n$\\gcd(234, 182) = 26$ divides 26, so the congruence is solvable.",
+                "Step 2: Simplify\nDivide by 26: $9x \\equiv 1 \\pmod{7}$.",
+                "Step 3: Solve\nFind inverse of 9 modulo 7: $9 \\equiv 2 \\pmod{7}$, $2 \\cdot 4 = 8 \\equiv 1 \\pmod{7}$, so inverse is 4.\n$x \\equiv 1 \\cdot 4 = 4 \\pmod{7}$.\nGeneral solution: $x = 4 + 7k$, $k \\in \\mathbb{Z}$."
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and Matrices",
+            "description": "Calculate $\\gcd(\\det(A), \\det(B))$ for $A = \\begin{pmatrix} 3 & 4 \\\\ 5 & 6 \\end{pmatrix}$ and $B = \\begin{pmatrix} 2 & 3 \\\\ 4 & 5 \\end{pmatrix}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Calculate Determinants\n$\\det(A) = 3 \\cdot 6 - 4 \\cdot 5 = 18 - 20 = -2$\n$\\det(B) = 2 \\cdot 5 - 3 \\cdot 4 = 10 - 12 = -2$.",
+                "Step 2: Calculate GCD\n$\\gcd(-2, -2) = 2$."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and Fibonacci",
+            "description": "Calculate $\\gcd(F_6, F_8)$, where $F_n$ is the $n$-th Fibonacci number.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Fibonacci Numbers\n$F_6 = 8$, $F_8 = 21$.",
+                "Step 2: Euclidean Algorithm\n$21 = 8 \\cdot 2 + 5$\n$8 = 5 \\cdot 1 + 3$\n$5 = 3 \\cdot 1 + 2$\n$3 = 2 \\cdot 1 + 1$\n$2 = 1 \\cdot 2 + 0$.",
+                "Step 3: Result\n$\\gcd(8, 21) = 1$."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and Polynomials over Finite Fields",
+            "description": "Calculate $\\gcd(x^3 + x + 1, x^2 + 1)$ over $\\mathbb{F}_2[x]$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Polynomial Division\nIn $\\mathbb{F}_2$: $x^3 + x + 1 = (x^2 + 1) \\cdot x + 1$.",
+                "Step 2: Continue Division\n$x^2 + 1 = 1 \\cdot (x^2 + 1) + 0$.",
+                "Step 3: Result\n$\\gcd = 1$."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and Linear Diophantine Equations",
+            "description": "Find all integer solutions to $234x + 182y = 52$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Check Solvability\n$\\gcd(234, 182) = 26$ divides 52, so the equation is solvable.",
+                "Step 2: Simplify\nDivide by 26: $9x + 7y = 2$.",
+                "Step 3: Particular Solution\nTest: $x = 1$, $y = -1$ gives $9 \\cdot 1 + 7 \\cdot (-1) = 9 - 7 = 2$.",
+                "Step 4: General Solution\n$x = 1 + \\frac{7}{\\gcd(9, 7)}k = 1 + 7k$\n$y = -1 - \\frac{9}{\\gcd(9, 7)}k = -1 - 9k$\nfor $k \\in \\mathbb{Z}$."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and Polynomials with Parameters",
+            "description": "For which values of $a \\in \\mathbb{Q}$ do the polynomials $f(x) = x^2 + ax + 1$ and $g(x) = x^2 + x + a$ have a non-trivial GCD over $\\mathbb{Q}[x]$?",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Polynomial Division\n$f(x) = g(x) \\cdot 1 + (a - 1)x + (1 - a)$.",
+                "Step 2: Condition for Non-Trivial GCD\nThe remainder $(a - 1)x + (1 - a)$ must be a divisor of $g(x)$. Since $1 - a = -(a - 1)$, the remainder is $(a - 1)(x - 1)$.",
+                "Step 3: Analyze\nFor $(a - 1)(x - 1)$ to divide $g(x)$, evaluate $g(1) = 1 + 1 + a = 2 + a = 0$, so $a = -2$.\nIf $a = 1$, the remainder is 0, so $\\gcd = g(x) = x^2 + x + 1$, which is non-trivial.",
+                "Step 4: Result\n$a = 1$ (since $a = -2$ yields a linear GCD, but we consider non-constant polynomials). Verify: For $a = 1$, $f(x) = x^2 + x + 1 = g(x)$, so $\\gcd = x^2 + x + 1$."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and Matrices over Polynomial Rings",
+            "description": "Calculate $\\gcd(\\det(A), \\det(B))$ for $A = \\begin{pmatrix} x & 1 \\\\ 1 & x \\end{pmatrix}$ and $B = \\begin{pmatrix} x+1 & 1 \\\\ 1 & x+1 \\end{pmatrix}$ over $\\mathbb{Q}[x]$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Calculate Determinants\n$\\det(A) = x \\cdot x - 1 \\cdot 1 = x^2 - 1$\n$\\det(B) = (x + 1)(x + 1) - 1 \\cdot 1 = (x + 1)^2 - 1 = x^2 + 2x$.",
+                "Step 2: Polynomial Division\n$x^2 + 2x = (x^2 - 1) \\cdot 1 + (2x + 1)$.",
+                "Step 3: Continue Division\n$x^2 - 1 = (2x + 1)(\\frac{1}{2}x - \\frac{1}{2}) + 0$.",
+                "Step 4: Result\n$\\gcd = 2x + 1$ (non-trivial divisor)."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and Congruences with Parameters",
+            "description": "For which values of $a \\in \\mathbb{Z}$ is the congruence $ax \\equiv 1 \\pmod{15}$ solvable?",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Condition for Solvability\nThe congruence is solvable if $\\gcd(a, 15) = 1$.",
+                "Step 2: Analyze\n$15 = 3 \\cdot 5$. Thus, $a$ must be coprime to 15, i.e., not divisible by 3 or 5.",
+                "Step 3: Result\n$a \\mod 15 \\in \\{1, 2, 4, 7, 8, 11, 13, 14\\}$.\nGeneral form: $a \\in \\{1, 2, 4, 7, 8, 11, 13, 14\\} + 15\\mathbb{Z}$."
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and Fibonacci Numbers with Parameters",
+            "description": "Prove: $\\gcd(F_n, F_{n+k}) = F_{\\gcd(n, k)}$ for all $n, k \\in \\mathbb{N}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Base Case\nFor $k = 1$: $\\gcd(F_n, F_{n+1}) = 1 = F_1$ (from exercise 10).",
+                "Step 2: Use Fibonacci Property\n$\\gcd(F_n, F_m) = \\gcd(F_n, F_{m-n} \\cdot F_{n+1} + F_{m-n-1} \\cdot F_n) = \\gcd(F_n, F_{m-n})$ (if $m > n$).",
+                "Step 3: Apply Euclidean Algorithm\nThis mirrors the Euclidean algorithm for $n$ and $m$, so $\\gcd(F_n, F_m) = F_{\\gcd(n, m)}$.",
+                "Step 4: Conclusion\nThe result holds by induction and the Fibonacci GCD property."
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and Polynomials over Finite Fields with Parameters",
+            "description": "For which $a \\in \\mathbb{F}_2$ do the polynomials $f(x) = x^3 + ax + 1$ and $g(x) = x^2 + x + a$ have a non-trivial GCD over $\\mathbb{F}_2[x]$?",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Polynomial Division\nIn $\\mathbb{F}_2$: $f(x) = g(x) \\cdot x + ((a + 1)x + 1)$ (since $a^2 = a$).",
+                "Step 2: Condition for Non-Trivial GCD\nThe remainder $(a + 1)x + 1$ must divide $g(x)$. Evaluate $g(x)$ at roots of $(a + 1)x + 1$.",
+                "Step 3: Analyze\nIf $a + 1 = 0$, then $a = 1$, and remainder is 1 (constant, trivial). If $a = 1$, $g(x) = x^2 + x + 1$, $f(x) = x^3 + x + 1$, and $\\gcd = x^2 + x + 1$ (non-trivial). If $a = 0$, remainder is $x + 1$, which does not divide $g(x) = x^2 + x$.",
+                "Step 4: Result\n$a = 1$."
+            ]
+        },
+        {
+            "id": 32,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and Matrices over Polynomial Rings with Parameters",
+            "description": "For which $a \\in \\mathbb{Q}$ do the matrices $A = \\begin{pmatrix} x & a \\\\ a & x \\end{pmatrix}$ and $B = \\begin{pmatrix} x+1 & a \\\\ a & x+1 \\end{pmatrix}$ over $\\mathbb{Q}[x]$ have a non-trivial GCD of their determinants?",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Calculate Determinants\n$\\det(A) = x^2 - a^2$\n$\\det(B) = (x + 1)^2 - a^2 = x^2 + 2x + 1 - a^2$.",
+                "Step 2: Polynomial Division\n$x^2 + 2x + 1 - a^2 = (x^2 - a^2) \\cdot 1 + (2x + 1)$.",
+                "Step 3: Condition for Non-Trivial GCD\n$2x + 1$ must divide $x^2 - a^2$. Roots of $2x + 1 = 0$ are $x = -\\frac{1}{2}$. Then $x^2 - a^2 = \\frac{1}{4} - a^2 = 0$, so $a^2 = \\frac{1}{4}$, $a = \\pm \\frac{1}{2}$.",
+                "Step 4: Result\n$a = \\pm \\frac{1}{2}$."
+            ]
+        },
+        {
+            "id": 33,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and Congruences with Multiple Parameters",
+            "description": "For which $a, b \\in \\mathbb{Z}$ is the system $ax \\equiv 1 \\pmod{15}$, $bx \\equiv 1 \\pmod{15}$ solvable?",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Conditions for Solvability\nEach congruence requires $\\gcd(a, 15) = 1$ and $\\gcd(b, 15) = 1$.",
+                "Step 2: Analyze\nThe system implies $x$ is the inverse of both $a$ and $b$ modulo 15. This is possible if $a \\equiv b \\pmod{15}$ (since the inverse is unique).",
+                "Step 3: Result\n$a \\equiv b \\pmod{15}$, and $a, b \\in \\{1, 2, 4, 7, 8, 11, 13, 14\\} + 15\\mathbb{Z}$."
+            ]
+        },
+        {
+            "id": 34,
+            "topic": "Greatest Common Divisor",
+            "title": "GCD and Fibonacci Numbers with Multiple Parameters",
+            "description": "Prove: $\\gcd(F_n, F_m) = F_{\\gcd(n, m)}$ for all $n, m \\in \\mathbb{N}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Base Case\nFor $m = 1$: $\\gcd(F_n, F_1) = \\gcd(F_n, 1) = 1 = F_1$.",
+                "Step 2: Induction Step\nAssume the statement holds for $m < k$. Then:\n$\\gcd(F_n, F_m) = \\gcd(F_n, F_{m-n} \\cdot F_{n+1} + F_{m-n-1} \\cdot F_n) = \\gcd(F_n, F_{m-n})$ (if $m > n$).",
+                "Step 3: Simplify\nBy induction, $\\gcd(F_n, F_{m-n}) = F_{\\gcd(n, m-n)}$. Continuing the Euclidean algorithm, this yields $F_{\\gcd(n, m)}$.",
+                "Step 4: Conclusion\nThe statement holds for all $n, m \\in \\mathbb{N}$."
+            ]
+        }
+    ]
+}
