@@ -52,7 +52,7 @@ struct SettingsView: View {
             ScrollView {
                 VStack(spacing: horizontalSizeClass == .regular ? 30 : 20) {
                     // Header
-                    Text("Einstellungen")
+                    Text(settings.language == .english ? "Settings" : "Einstellungen")
                         .font(.system(size: horizontalSizeClass == .regular ? 48 : 40, weight: .bold, design: .rounded))
                         .foregroundColor(settings.accentColor)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -101,14 +101,6 @@ struct SettingsView: View {
                                 }
                                 .foregroundColor(.primary)
                             }
-                            
-                            Text(settings.language == .english ? 
-                                "Exercise files with '_en' suffix will be loaded in English mode." : 
-                                "Deutsche Übungsdateien werden im deutschen Modus geladen.")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                                .padding(.horizontal, horizontalSizeClass == .regular ? 24 : 16)
-                                .padding(.bottom, 12)
                         }
                         .padding(.vertical, 6)
                     }
@@ -121,7 +113,7 @@ struct SettingsView: View {
                                 HStack {
                                     Image(systemName: "star.fill")
                                         .foregroundColor(.white)
-                                    Text("Get Pro")
+                                    Text(settings.language == .english ? "Get Pro" : "Pro Version")
                                         .font(.headline)
                                         .foregroundColor(.white)
                                 }
@@ -160,14 +152,14 @@ struct SettingsView: View {
                             SettingsButton(icon: "envelope.fill", title: "Support", iconColor: .blue, isIpad: horizontalSizeClass == .regular)
                         }
                         .sheet(isPresented: $showMailView) {
-                            MailView(isShowing: $showMailView, recipient: "bene-held@web.de", subject: "UniMathe App Support")
+                            MailView(isShowing: $showMailView, recipient: "bene-held@web.de", subject: settings.language == .english ? "UniMathe App Support" : "UniMathe App Support")
                         }
                         
                         // Contribute
                         Button(action: {
                             showContributeSheet = true
                         }) {
-                            SettingsButton(icon: "hammer.fill", title: "Mitwirken", iconColor: .orange, isIpad: horizontalSizeClass == .regular)
+                            SettingsButton(icon: "hammer.fill", title: settings.language == .english ? "Contribute" : "Mitwirken", iconColor: .orange, isIpad: horizontalSizeClass == .regular)
                         }
                         .sheet(isPresented: $showContributeSheet) {
                             ContributeView()
@@ -180,34 +172,34 @@ struct SettingsView: View {
                                 SKStoreReviewController.requestReview(in: scene)
                             }
                         }) {
-                            SettingsButton(icon: "star.fill", title: "Bewerten", iconColor: .yellow, isIpad: horizontalSizeClass == .regular)
+                            SettingsButton(icon: "star.fill", title: settings.language == .english ? "Rate" : "Bewerten", iconColor: .yellow, isIpad: horizontalSizeClass == .regular)
                         }
                         
                         // Legal
                         Button(action: {
                             showLegalActionSheet = true
                         }) {
-                            SettingsButton(icon: "doc.text.fill", title: "Rechtliches", iconColor: .purple, isIpad: horizontalSizeClass == .regular)
+                            SettingsButton(icon: "doc.text.fill", title: settings.language == .english ? "Legal" : "Rechtliches", iconColor: .purple, isIpad: horizontalSizeClass == .regular)
                         }
                         .actionSheet(isPresented: $showLegalActionSheet) {
                             ActionSheet(
-                                title: Text("Rechtliche Informationen"),
-                                message: Text("Wähle eine Option aus"),
+                                title: Text(settings.language == .english ? "Legal Information" : "Rechtliche Informationen"),
+                                message: Text(settings.language == .english ? "Choose an option" : "Wähle eine Option aus"),
                                 buttons: [
-                                    .default(Text("Impressum")) {
+                                    .default(Text(settings.language == .english ? "Imprint" : "Impressum")) {
                                         showImpressumSheet = true
                                     },
-                                    .default(Text("Datenschutz")) {
+                                    .default(Text(settings.language == .english ? "Privacy Policy" : "Datenschutz")) {
                                         if let url = URL(string: "https://sites.google.com/view/hoehere-mathematik/startseite") {
                                             UIApplication.shared.open(url)
                                         }
                                     },
-                                    .default(Text("AGB")) {
+                                    .default(Text(settings.language == .english ? "Terms of Service" : "AGB")) {
                                         if let url = URL(string: "https://sites.google.com/view/hoehere-mathematik-agb/startseite") {
                                             UIApplication.shared.open(url)
                                         }
                                     },
-                                    .cancel(Text("Abbrechen"))
+                                    .cancel(Text(settings.language == .english ? "Cancel" : "Abbrechen"))
                                 ]
                             )
                         }
@@ -304,7 +296,7 @@ struct ImpressumView: View {
                     .ignoresSafeArea()
                 
                 VStack(alignment: .leading, spacing: 24) {
-                    Text("Impressum")
+                    Text(SettingsModel.shared.language == .english ? "Imprint" : "Impressum")
                         .font(.title)
                         .fontWeight(.bold)
                         .padding(.top)
@@ -331,7 +323,7 @@ struct ImpressumView: View {
                 }
                 .padding(24)
             }
-            .navigationBarTitle("Impressum", displayMode: .inline)
+            .navigationBarTitle(SettingsModel.shared.language == .english ? "Imprint" : "Impressum", displayMode: .inline)
             .navigationBarItems(trailing: 
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()
@@ -391,11 +383,13 @@ struct ContributeView: View {
                 
                 VStack(alignment: .leading, spacing: 24) {
                     VStack(alignment: .leading, spacing: 12) {
-                        Text("An der App mitwirken")
+                        Text(SettingsModel.shared.language == .english ? "Contribute to the App" : "An der App mitwirken")
                             .font(.title)
                             .fontWeight(.bold)
                         
-                        Text("Du möchtest die App weiterentwickeln? Dann öffne das Repository und erstelle Pull Requests. Die App ist Open Source.")
+                        Text(SettingsModel.shared.language == .english ? 
+                            "Would you like to help develop the app? Then open the repository and create pull requests. The app is open source." : 
+                            "Du möchtest die App weiterentwickeln? Dann öffne das Repository und erstelle Pull Requests. Die App ist Open Source.")
                             .font(.body)
                             .lineSpacing(5)
                             .opacity(0.8)
@@ -403,7 +397,7 @@ struct ContributeView: View {
                     .padding(.top)
                     
                     VStack(alignment: .leading, spacing: 16) {
-                        Text("Repository Link:")
+                        Text(SettingsModel.shared.language == .english ? "Repository Link:" : "Repository Link:")
                             .font(.headline)
                         
                         Text(repositoryURL)
@@ -422,7 +416,7 @@ struct ContributeView: View {
                         HStack {
                             Image(systemName: "link")
                                 .font(.headline)
-                            Text("Repository öffnen")
+                            Text(SettingsModel.shared.language == .english ? "Open Repository" : "Repository öffnen")
                                 .fontWeight(.semibold)
                         }
                         .foregroundColor(.white)
@@ -438,7 +432,7 @@ struct ContributeView: View {
                 }
                 .padding(24)
             }
-            .navigationBarTitle("Mitwirken", displayMode: .inline)
+            .navigationBarTitle(SettingsModel.shared.language == .english ? "Contribute" : "Mitwirken", displayMode: .inline)
             .navigationBarItems(trailing: 
                 Button(action: {
                     presentationMode.wrappedValue.dismiss()

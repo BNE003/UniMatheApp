@@ -206,12 +206,6 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack {
-                        NavigationLink(destination: LanguageTestView()) {
-                            Image(systemName: "globe")
-                                .font(.system(size: 22))
-                                .foregroundColor(settings.accentColor)
-                        }
-                        
                         NavigationLink(destination: SettingsView()) {
                             Image(systemName: "gear")
                                 .font(.system(size: 22))
@@ -1514,6 +1508,7 @@ struct iPadProFeaturesView: View {
     @StateObject private var storeManager = StoreKitManager.shared
     @Environment(\.dismiss) private var dismiss
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @ObservedObject private var settings = SettingsModel.shared
     
     var body: some View {
         VStack(spacing: 10) {
@@ -1541,12 +1536,12 @@ struct iPadProFeaturesView: View {
                         
                         VStack(alignment: .leading, spacing: 8) {
                             // Titel
-                            Text("Höhere Mathematik Pro")
+                            Text(settings.language == .english ? "University Math Pro" : "Höhere Mathematik Pro")
                                 .font(.system(size: 26, weight: .bold, design: .rounded))
                                 .foregroundColor(Color(red: 0.0, green: 0.4, blue: 0.9))
                             
                             // Untertitel
-                            Text("Schalte alle Inhalte frei")
+                            Text(settings.language == .english ? "Unlock all content" : "Schalte alle Inhalte frei")
                                 .font(.system(size: 16, weight: .medium))
                                 .foregroundColor(Color.gray.opacity(0.8))
                         }
@@ -1558,10 +1553,14 @@ struct iPadProFeaturesView: View {
                     LazyVGrid(columns: [
                         GridItem(.adaptive(minimum: 300, maximum: 400), spacing: 16)
                     ], spacing: 16) {
-                        FeatureRow(icon: "checkmark.circle.fill", text: "Alle interaktiven Lektionen freischalten")
-                        FeatureRow(icon: "books.vertical.fill", text: "Vollen Zugriff auf über 300 Aufgaben")
-                        FeatureRow(icon: "list.bullet.rectangle.fill", text: "Detaillierte Lösungschritte")
-                        FeatureRow(icon: "star.fill", text: "Unterstütze die Weiterentwicklung")
+                        FeatureRow(icon: "checkmark.circle.fill", 
+                                   text: settings.language == .english ? "Unlock all interactive lessons" : "Alle interaktiven Lektionen freischalten")
+                        FeatureRow(icon: "books.vertical.fill", 
+                                   text: settings.language == .english ? "Full access to over 300 exercises" : "Vollen Zugriff auf über 300 Aufgaben")
+                        FeatureRow(icon: "list.bullet.rectangle.fill", 
+                                  text: settings.language == .english ? "Detailed solution steps" : "Detaillierte Lösungschritte")
+                        FeatureRow(icon: "star.fill", 
+                                  text: settings.language == .english ? "Support ongoing development" : "Unterstütze die Weiterentwicklung")
                     }
                     .padding(.horizontal, 20)
                     
@@ -1572,7 +1571,7 @@ struct iPadProFeaturesView: View {
                                 .font(.system(size: 30))
                                 .foregroundColor(Color(red: 0.0, green: 0.6, blue: 0.3))
                             
-                            Text("Du genießt bereits alle Pro-Features!")
+                            Text(settings.language == .english ? "You are already enjoying all Pro features!" : "Du genießt bereits alle Pro-Features!")
                                 .font(.headline)
                                 .foregroundColor(Color(red: 0.0, green: 0.6, blue: 0.3))
                         }
@@ -1602,7 +1601,7 @@ struct iPadProFeaturesView: View {
                         HStack(spacing: 8) {
                             Image(systemName: "arrow.clockwise")
                                 .font(.system(size: 14))
-                            Text("Käufe wiederherstellen")
+                            Text(settings.language == .english ? "Restore Purchases" : "Käufe wiederherstellen")
                                 .fontWeight(.medium)
                         }
                         .font(.subheadline)

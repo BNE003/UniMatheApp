@@ -4,6 +4,7 @@ import StoreKit
 struct ProFeaturesView: View {
     @StateObject private var storeManager = StoreKitManager.shared
     @Environment(\.dismiss) private var dismiss
+    @ObservedObject private var settings = SettingsModel.shared
     
     var body: some View {
         ScrollView {
@@ -20,12 +21,12 @@ struct ProFeaturesView: View {
                         .padding(.bottom, 10)
                     
                     // Titel mit modernem Blau
-                    Text("Höhere Mathematik Pro")
+                    Text(settings.language == .english ? "University Math Pro" : "Höhere Mathematik Pro")
                         .font(.system(size: 26, weight: .bold, design: .rounded))
                         .foregroundColor(Color(red: 0.0, green: 0.4, blue: 0.9))
                     
                     // Untertitel
-                    Text("Erweitere deine Lernmöglichkeiten")
+                    Text(settings.language == .english ? "Expand your learning opportunities" : "Erweitere deine Lernmöglichkeiten")
                         .font(.system(size: 16, weight: .medium))
                         .foregroundColor(Color.gray.opacity(0.8))
                         .multilineTextAlignment(.center)
@@ -35,10 +36,22 @@ struct ProFeaturesView: View {
 
                 // Feature-Liste mit verbesserten Cards
                 VStack(spacing: 12) {
-                    FeatureRow(icon: "checkmark.circle.fill", text: "Alle interaktiven Lektionen freischalten")
-                    FeatureRow(icon: "books.vertical.fill", text: "Vollen Zugriff auf über 300 Aufgaben")
-                    FeatureRow(icon: "list.bullet.rectangle.fill", text: "Detaillierte Lösungschritte")
-                    FeatureRow(icon: "star.fill", text: "Unterstütze die Weiterentwicklung")
+                    FeatureRow(
+                        icon: "checkmark.circle.fill", 
+                        text: settings.language == .english ? "Unlock all interactive lessons" : "Alle interaktiven Lektionen freischalten"
+                    )
+                    FeatureRow(
+                        icon: "books.vertical.fill", 
+                        text: settings.language == .english ? "Full access to over 300 exercises" : "Vollen Zugriff auf über 300 Aufgaben"
+                    )
+                    FeatureRow(
+                        icon: "list.bullet.rectangle.fill", 
+                        text: settings.language == .english ? "Detailed solution steps" : "Detaillierte Lösungschritte"
+                    )
+                    FeatureRow(
+                        icon: "star.fill", 
+                        text: settings.language == .english ? "Support ongoing development" : "Unterstütze die Weiterentwicklung"
+                    )
                 }
                 .padding(.horizontal, 20)
 
@@ -49,7 +62,7 @@ struct ProFeaturesView: View {
                             .font(.system(size: 30))
                             .foregroundColor(Color(red: 0.0, green: 0.6, blue: 0.3))
                         
-                        Text("Du genießt bereits alle Pro-Features!")
+                        Text(settings.language == .english ? "You are already enjoying all Pro features!" : "Du genießt bereits alle Pro-Features!")
                             .font(.headline)
                             .foregroundColor(Color(red: 0.0, green: 0.6, blue: 0.3))
                     }
@@ -79,7 +92,7 @@ struct ProFeaturesView: View {
                     HStack(spacing: 8) {
                         Image(systemName: "arrow.clockwise")
                             .font(.system(size: 14))
-                        Text("Käufe wiederherstellen")
+                        Text(settings.language == .english ? "Restore Purchases" : "Käufe wiederherstellen")
                             .fontWeight(.medium)
                     }
                     .font(.subheadline)
@@ -93,18 +106,22 @@ struct ProFeaturesView: View {
 
                 // Rechtliches - dezent und professionell
                 VStack(spacing: 8) {
-                    Text("Mit dem Kauf stimmst du den Nutzungsbedingungen und der Datenschutzerklärung zu.")
+                    Text(settings.language == .english ? 
+                         "By purchasing, you agree to the Terms of Service and Privacy Policy." : 
+                         "Mit dem Kauf stimmst du den Nutzungsbedingungen und der Datenschutzerklärung zu.")
                         .font(.footnote)
                         .foregroundColor(Color.gray.opacity(0.7))
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 20)
                     
                     HStack(spacing: 20) {
-                        Link("AGB", destination: URL(string: "https://sites.google.com/view/hoehere-mathematik-agb/startseite")!)
+                        Link(settings.language == .english ? "Terms" : "AGB", 
+                             destination: URL(string: "https://sites.google.com/view/hoehere-mathematik-agb/startseite")!)
                             .font(.footnote.weight(.medium))
                             .foregroundColor(Color(red: 0.0, green: 0.4, blue: 0.9))
                         
-                        Link("Datenschutz", destination: URL(string: "https://sites.google.com/view/hoehere-mathematik/startseite")!)
+                        Link(settings.language == .english ? "Privacy" : "Datenschutz", 
+                             destination: URL(string: "https://sites.google.com/view/hoehere-mathematik/startseite")!)
                             .font(.footnote.weight(.medium))
                             .foregroundColor(Color(red: 0.0, green: 0.4, blue: 0.9))
                     }
@@ -120,7 +137,7 @@ struct ProFeaturesView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: { dismiss() }) {
-                    Text("Schließen")
+                    Text(settings.language == .english ? "Close" : "Schließen")
                         .foregroundColor(Color(red: 0.0, green: 0.4, blue: 0.9))
                 }
             }
@@ -175,6 +192,7 @@ struct PurchaseButton: View {
     @State private var isPurchasing = false
     @State private var error: String?
     @ObservedObject private var storeManager = StoreKitManager.shared
+    @ObservedObject private var settings = SettingsModel.shared
     @State private var animate = false
     
     var body: some View {
@@ -232,7 +250,11 @@ struct PurchaseButton: View {
             get: { error != nil },
             set: { _ in error = nil }
         )) {
-            Alert(title: Text("Fehler"), message: Text(error ?? "Unbekannter Fehler"), dismissButton: .default(Text("OK")))
+            Alert(
+                title: Text(settings.language == .english ? "Error" : "Fehler"), 
+                message: Text(error ?? (settings.language == .english ? "Unknown error" : "Unbekannter Fehler")), 
+                dismissButton: .default(Text(settings.language == .english ? "OK" : "OK"))
+            )
         }
     }
     

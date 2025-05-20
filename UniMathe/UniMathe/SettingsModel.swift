@@ -62,7 +62,16 @@ class SettingsModel: ObservableObject {
            let language = AppLanguage(rawValue: savedLanguage) {
             self.language = language
         } else {
-            self.language = .german // Default language
+            // Try to use system language preference first
+            if let preferredLanguage = Locale.current.languageCode {
+                if preferredLanguage.starts(with: "de") {
+                    self.language = .german
+                } else {
+                    self.language = .english
+                }
+            } else {
+                self.language = .german // Default language if we can't detect
+            }
         }
         
         self.isDarkModeEnabled = UserDefaults.standard.bool(forKey: "isDarkModeEnabled")
@@ -84,6 +93,13 @@ class SettingsModel: ObservableObject {
         
         // Register for app lifecycle notifications
         setupAppLifecycleObservers()
+    }
+    
+    // MARK: - Language Settings
+    
+    func setLanguage(_ language: AppLanguage) {
+        self.language = language
+        UserDefaults.standard.set(true, forKey: "hasSelectedLanguage")
     }
     
     // MARK: - App Rating Methods
