@@ -7,7 +7,6 @@ struct SettingsView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
-    @State private var showContributeSheet = false
     @State private var showLegalActionSheet = false
     @State private var showMailView = false
     @State private var showImpressumSheet = false
@@ -153,16 +152,6 @@ struct SettingsView: View {
                         }
                         .sheet(isPresented: $showMailView) {
                             MailView(isShowing: $showMailView, recipient: "bene-held@web.de", subject: settings.language == .english ? "UniMathe App Support" : "UniMathe App Support")
-                        }
-                        
-                        // Contribute
-                        Button(action: {
-                            showContributeSheet = true
-                        }) {
-                            SettingsButton(icon: "hammer.fill", title: settings.language == .english ? "Contribute" : "Mitwirken", iconColor: .orange, isIpad: horizontalSizeClass == .regular)
-                        }
-                        .sheet(isPresented: $showContributeSheet) {
-                            ContributeView()
                         }
                         
                         // Rate
@@ -366,82 +355,6 @@ struct MailView: UIViewControllerRepresentable {
         
         func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
             parent.isShowing = false
-        }
-    }
-}
-
-// MARK: - Contribute View
-struct ContributeView: View {
-    @Environment(\.presentationMode) var presentationMode
-    let repositoryURL = "https://github.com/BNE003/UniMatheApp"
-    
-    var body: some View {
-        NavigationView {
-            ZStack {
-                Color(red: 0.98, green: 0.98, blue: 1.0)
-                    .ignoresSafeArea()
-                
-                VStack(alignment: .leading, spacing: 24) {
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text(SettingsModel.shared.language == .english ? "Contribute to the App" : "An der App mitwirken")
-                            .font(.title)
-                            .fontWeight(.bold)
-                        
-                        Text(SettingsModel.shared.language == .english ? 
-                            "Would you like to help develop the app? Then open the repository and create pull requests. The app is open source." : 
-                            "Du möchtest die App weiterentwickeln? Dann öffne das Repository und erstelle Pull Requests. Die App ist Open Source.")
-                            .font(.body)
-                            .lineSpacing(5)
-                            .opacity(0.8)
-                    }
-                    .padding(.top)
-                    
-                    VStack(alignment: .leading, spacing: 16) {
-                        Text(SettingsModel.shared.language == .english ? "Repository Link:" : "Repository Link:")
-                            .font(.headline)
-                        
-                        Text(repositoryURL)
-                            .font(.system(.subheadline, design: .monospaced))
-                            .padding(12)
-                            .background(Color.blue.opacity(0.1))
-                            .cornerRadius(8)
-                            .multilineTextAlignment(.leading)
-                    }
-                    
-                    Button(action: {
-                        if let url = URL(string: repositoryURL) {
-                            UIApplication.shared.open(url)
-                        }
-                    }) {
-                        HStack {
-                            Image(systemName: "link")
-                                .font(.headline)
-                            Text(SettingsModel.shared.language == .english ? "Open Repository" : "Repository öffnen")
-                                .fontWeight(.semibold)
-                        }
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 16)
-                        .background(Color.blue)
-                        .cornerRadius(12)
-                        .shadow(color: Color.blue.opacity(0.3), radius: 5, x: 0, y: 3)
-                    }
-                    .padding(.top, 10)
-                    
-                    Spacer()
-                }
-                .padding(24)
-            }
-            .navigationBarTitle(SettingsModel.shared.language == .english ? "Contribute" : "Mitwirken", displayMode: .inline)
-            .navigationBarItems(trailing: 
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.title2)
-                        .foregroundColor(.primary.opacity(0.7))
-                }
-            )
         }
     }
 }
