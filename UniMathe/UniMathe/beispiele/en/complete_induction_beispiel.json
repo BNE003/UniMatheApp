@@ -1,0 +1,180 @@
+{
+    "id": "cc0e8400-e29b-41d4-a716-446655440061",
+    "topic": "Complete Induction",
+    "steps": [
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440062",
+            "text": "Complete induction consists of two steps.",
+            "formula": "\\text{1. Base Case: } A(1) \\text{ is true} \\\\ \\text{2. Induction Step: } A(n) \\rightarrow A(n+1)",
+            "explanation": "Complete induction is like climbing a ladder. It’s like proving step by step!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440063",
+            "text": "The base case proves the statement for n=1.",
+            "formula": "A(1): \\text{ The statement for n=1}",
+            "explanation": "The base case is like the first step on the ladder. It’s like finding the starting point!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440064",
+            "text": "The induction step proves the implication.",
+            "formula": "A(n) \\rightarrow A(n+1): \\text{ If A(n) holds, then A(n+1) also holds}",
+            "explanation": "The induction step is like climbing further up the ladder. It’s like proving the next step!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440065",
+            "text": "The induction hypothesis is the assumption A(n).",
+            "formula": "\\text{Induction Hypothesis: } A(n) \\text{ is true}",
+            "explanation": "The induction hypothesis is like trusting the previous step. It’s like using what has already been proven!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440066",
+            "text": "The induction claim is the statement A(n+1) to be proven.",
+            "formula": "\\text{Induction Claim: } A(n+1) \\text{ is to be shown}",
+            "explanation": "The induction claim is like the goal of the next step. It’s like formulating the next proof!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440067",
+            "text": "The sum of the first n natural numbers.",
+            "formula": "\\sum_{k=1}^n k = \\frac{n(n+1)}{2}",
+            "explanation": "The sum formula is like a mathematical magic trick. It’s like finding an elegant solution!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440068",
+            "text": "The base case for the sum formula.",
+            "formula": "n=1: \\sum_{k=1}^1 k = 1 = \\frac{1 \\cdot 2}{2}",
+            "explanation": "The base case is like testing the formula. It’s like checking the first case!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440069",
+            "text": "The induction step for the sum formula.",
+            "formula": "\\sum_{k=1}^{n+1} k = \\sum_{k=1}^n k + (n+1) = \\frac{n(n+1)}{2} + (n+1) = \\frac{(n+1)(n+2)}{2}",
+            "explanation": "The induction step is like extending the formula. It’s like expanding the proof!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440070",
+            "text": "The sum of the first n square numbers.",
+            "formula": "\\sum_{k=1}^n k^2 = \\frac{n(n+1)(2n+1)}{6}",
+            "explanation": "The square sum formula is like another mathematical magic trick. It’s like finding a more complex solution!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440071",
+            "text": "The base case for the square sum formula.",
+            "formula": "n=1: \\sum_{k=1}^1 k^2 = 1 = \\frac{1 \\cdot 2 \\cdot 3}{6}",
+            "explanation": "The base case is like testing the more complex formula. It’s like checking the first case!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440072",
+            "text": "The induction step for the square sum formula.",
+            "formula": "\\sum_{k=1}^{n+1} k^2 = \\sum_{k=1}^n k^2 + (n+1)^2 = \\frac{n(n+1)(2n+1)}{6} + (n+1)^2 = \\frac{(n+1)(n+2)(2n+3)}{6}",
+            "explanation": "The induction step is like extending the more complex formula. It’s like expanding the more complex proof!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440073",
+            "text": "The sum of the first n cube numbers.",
+            "formula": "\\sum_{k=1}^n k^3 = \\left(\\frac{n(n+1)}{2}\\right)^2",
+            "explanation": "The cube sum formula is like a particularly elegant mathematical magic trick. It’s like finding a particularly beautiful solution!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440074",
+            "text": "The base case for the cube sum formula.",
+            "formula": "n=1: \\sum_{k=1}^1 k^3 = 1 = \\left(\\frac{1 \\cdot 2}{2}\\right)^2",
+            "explanation": "The base case is like testing the elegant formula. It’s like checking the first case!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440075",
+            "text": "The induction step for the cube sum formula.",
+            "formula": "\\sum_{k=1}^{n+1} k^3 = \\sum_{k=1}^n k^3 + (n+1)^3 = \\left(\\frac{n(n+1)}{2}\\right)^2 + (n+1)^3 = \\left(\\frac{(n+1)(n+2)}{2}\\right)^2",
+            "explanation": "The induction step is like extending the elegant formula. It’s like expanding the elegant proof!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440076",
+            "text": "The geometric sum.",
+            "formula": "\\sum_{k=0}^n q^k = \\frac{1-q^{n+1}}{1-q} \\text{ for } q \\neq 1",
+            "explanation": "The geometric sum is like a mathematical magic trick for powers. It’s like finding an elegant solution for power sums!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440077",
+            "text": "The base case for the geometric sum.",
+            "formula": "n=0: \\sum_{k=0}^0 q^k = 1 = \\frac{1-q^1}{1-q}",
+            "explanation": "The base case is like testing the power sum formula. It’s like checking the first case!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440078",
+            "text": "The induction step for the geometric sum.",
+            "formula": "\\sum_{k=0}^{n+1} q^k = \\sum_{k=0}^n q^k + q^{n+1} = \\frac{1-q^{n+1}}{1-q} + q^{n+1} = \\frac{1-q^{n+2}}{1-q}",
+            "explanation": "The induction step is like extending the power sum formula. It’s like expanding the power sum proof!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440079",
+            "text": "The binomial coefficients.",
+            "formula": "\\sum_{k=0}^n \\binom{n}{k} = 2^n",
+            "explanation": "The sum of binomial coefficients is like a mathematical magic trick for combinations. It’s like finding an elegant solution for combination sums!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440080",
+            "text": "The base case for the binomial coefficients.",
+            "formula": "n=0: \\sum_{k=0}^0 \\binom{0}{k} = 1 = 2^0",
+            "explanation": "The base case is like testing the combination sum formula. It’s like checking the first case!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440081",
+            "text": "The induction step for the binomial coefficients.",
+            "formula": "\\sum_{k=0}^{n+1} \\binom{n+1}{k} = \\sum_{k=0}^n \\binom{n}{k} + \\sum_{k=0}^n \\binom{n}{k-1} = 2^n + 2^n = 2^{n+1}",
+            "explanation": "The induction step is like extending the combination sum formula. It’s like expanding the combination sum proof!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440082",
+            "text": "The Fibonacci numbers.",
+            "formula": "F_{n+2} = F_{n+1} + F_n \\text{ with } F_0 = 0, F_1 = 1",
+            "explanation": "The Fibonacci numbers are like a mathematical magic trick for recursions. It’s like finding an elegant solution for recursive sequences!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440083",
+            "text": "The base case for the Fibonacci numbers.",
+            "formula": "n=0: F_2 = F_1 + F_0 = 1 + 0 = 1",
+            "explanation": "The base case is like testing the recursive formula. It’s like checking the first case!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440084",
+            "text": "The induction step for the Fibonacci numbers.",
+            "formula": "F_{n+3} = F_{n+2} + F_{n+1} = (F_{n+1} + F_n) + F_{n+1} = 2F_{n+1} + F_n",
+            "explanation": "The induction step is like extending the recursive formula. It’s like expanding the recursive proof!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440085",
+            "text": "The power set of an n-element set.",
+            "formula": "|\\mathcal{P}(M)| = 2^n \\text{ for } |M| = n",
+            "explanation": "The power set formula is like a mathematical magic trick for sets. It’s like finding an elegant solution for set operations!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440086",
+            "text": "The base case for the power set formula.",
+            "formula": "n=0: |\\mathcal{P}(\\emptyset)| = 1 = 2^0",
+            "explanation": "The base case is like testing the set formula. It’s like checking the first case!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440087",
+            "text": "The induction step for the power set formula.",
+            "formula": "|\\mathcal{P}(M \\cup \\{x\\})| = 2|\\mathcal{P}(M)| = 2 \\cdot 2^n = 2^{n+1}",
+            "explanation": "The induction step is like extending the set formula. It’s like expanding the set proof!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440088",
+            "text": "The number of subsets with k elements.",
+            "formula": "\\sum_{k=0}^n \\binom{n}{k} = 2^n",
+            "explanation": "The subset formula is like a mathematical magic trick for combinations. It’s like finding an elegant solution for subsets!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440089",
+            "text": "The base case for the subset formula.",
+            "formula": "n=0: \\sum_{k=0}^0 \\binom{0}{k} = 1 = 2^0",
+            "explanation": "The base case is like testing the subset formula. It’s like checking the first case!"
+        },
+        {
+            "id": "cc0e8400-e29b-41d4-a716-446655440090",
+            "text": "Finally, we look at how complete induction is used in mathematics.",
+            "formula": "\\text{Complete induction is a powerful tool for proofs about natural numbers}",
+            "explanation": "In mathematics, complete induction helps us prove statements for all natural numbers. It’s like translating mathematical concepts into the language of proofs!"
+        }
+    ]
+}
