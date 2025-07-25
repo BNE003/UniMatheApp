@@ -32,7 +32,7 @@ struct UniMatheApp: App {
                     }
                 }
                 
-                ContentView()
+                MainTabView()
                     .preferredColorScheme(settings.isDarkModeEnabled ? .dark : .light)
                     .id(settings.language) // Force view recreation when language changes
                 

@@ -1109,6 +1109,7 @@ struct InteractiveLearningView: View {
     @State private var showProSheet = false
     @State private var blurBackground = false
     @ObservedObject private var storeManager = StoreKitManager.shared
+    @EnvironmentObject private var tabBarViewModel: TabBarViewModel
     
     var body: some View {
         ZStack {
@@ -1196,7 +1197,11 @@ struct InteractiveLearningView: View {
         .navigationTitle(topic.title)
         .navigationBarTitleDisplayMode(.large)
         .onAppear {
+            tabBarViewModel.hideTabBar()
             loadExample()
+        }
+        .onDisappear {
+            tabBarViewModel.showTabBar()
         }
         .onChange(of: currentStep) { newStep in
             if newStep >= 4 && storeManager.purchasedProductIDs.isEmpty {

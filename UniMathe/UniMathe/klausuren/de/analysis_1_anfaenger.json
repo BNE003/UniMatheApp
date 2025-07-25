@@ -1,0 +1,104 @@
+{
+    "exam": {
+        "title": "Analysis I - Anfängerklausur",
+        "subtitle": "Grundlagen der Analysis",
+        "duration": 120,
+        "totalPoints": 60,
+        "difficulty": "beginner",
+        "language": "de",
+        "instructions": "Bearbeiten Sie alle Aufgaben. Geben Sie bei allen Berechnungen den vollständigen Lösungsweg an. Hilfsmittel: Taschenrechner ohne Programmierfunktion. Viel Erfolg!"
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Grenzwerte",
+            "title": "Grenzwert einer rationalen Funktion",
+            "description": "Berechnen Sie den Grenzwert: $$\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2}$$",
+            "difficulty": "easy",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Grenzwerts\nWir haben eine rationale Funktion mit dem Grenzwert gegen x = 2.\nDirekte Substitution führt zu $\\frac{0}{0}$ unbestimmte Form.",
+                "Schritt 2: Faktorisierung des Zählers\n$x^2 - 4 = x-2 \\cdot x+2$\nErklärung: Wir verwenden die dritte binomische Formel.",
+                "Schritt 3: Kürzen\n$\\frac{x^2 - 4}{x - 2} = \\frac{x-2 \\cdot x+2}{x-2} = x+2$ für $x \\neq 2$\nErklärung: Der Faktor $x-2$ kürzt sich weg.",
+                "Schritt 4: Grenzwert berechnen\n$\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2} = \\lim_{x \\to 2} (x+2) = 2+2 = 4$\nErklärung: Nach dem Kürzen können wir direkt einsetzen.",
+                "Schritt 5: Antwort\nDer Grenzwert ist 4."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Ableitungen",
+            "title": "Ableitung mit Produktregel",
+            "description": "Berechnen Sie die Ableitung der Funktion: $$f(x) = x^2 \\cdot e^x$$",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Identifikation der Regel\nDie Funktion ist ein Produkt zweier Funktionen: $u(x) = x^2$ und $v(x) = e^x$\nWir verwenden die Produktregel: $(u \\cdot v)' = u' \\cdot v + u \\cdot v'$",
+                "Schritt 2: Berechnung der einzelnen Ableitungen\n$u(x) = x^2 \\Rightarrow u'(x) = 2x$\n$v(x) = e^x \\Rightarrow v'(x) = e^x$",
+                "Schritt 3: Anwendung der Produktregel\n$f'(x) = u'(x) \\cdot v(x) + u(x) \\cdot v'(x)$\n$f'(x) = 2x \\cdot e^x + x^2 \\cdot e^x$",
+                "Schritt 4: Ausklammern\n$f'(x) = e^x(2x + x^2) = e^x \\cdot x(2 + x)$\nErklärung: $e^x$ und $x$ werden ausgeklammert.",
+                "Schritt 5: Endergebnis\n$f'(x) = xe^x(2 + x)$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Stetigkeit",
+            "title": "Stetigkeit einer Funktion",
+            "description": "Untersuchen Sie die Funktion auf Stetigkeit: $$f(x) = \\begin{cases} x^2 + 1 & \\text{für } x < 1 \\\\ 3x - 1 & \\text{für } x \\geq 1 \\end{cases}$$",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Stetigkeitsbedingungen\nEine Funktion ist an der Stelle $x_0$ stetig, wenn:\n1. $f(x_0)$ existiert\n2. $\\lim_{x \\to x_0} f(x)$ existiert\n3. $\\lim_{x \\to x_0} f(x) = f(x_0)$",
+                "Schritt 2: Kritische Stelle identifizieren\nDie einzige kritische Stelle ist $x = 1$ (Übergang zwischen den Funktionsteilen).",
+                "Schritt 3: Funktionswert bei x = 1\n$f(1) = 3 \\cdot 1 - 1 = 2$ (da $x = 1$ zur zweiten Definition gehört)",
+                "Schritt 4: Linksseitiger Grenzwert\n$\\lim_{x \\to 1^-} f(x) = \\lim_{x \\to 1^-} (x^2 + 1) = 1^2 + 1 = 2$",
+                "Schritt 5: Rechtsseitiger Grenzwert\n$\\lim_{x \\to 1^+} f(x) = \\lim_{x \\to 1^+} (3x - 1) = 3 \\cdot 1 - 1 = 2$",
+                "Schritt 6: Fazit\nDa $\\lim_{x \\to 1^-} f(x) = \\lim_{x \\to 1^+} f(x) = f(1) = 2$\nist die Funktion bei $x = 1$ stetig.\nDie Funktion ist überall stetig."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Kettenregel",
+            "title": "Ableitung mit Kettenregel",
+            "description": "Berechnen Sie die Ableitung der Funktion: $$f(x) = \\sin(3x^2 + 1)$$",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Identifikation der zusammengesetzten Funktion\n$f(x) = \\sin(3x^2 + 1)$\nÄußere Funktion: $g(u) = \\sin(u)$\nInnere Funktion: $h(x) = 3x^2 + 1$",
+                "Schritt 2: Kettenregel\n$(g \\circ h)'(x) = g'(h(x)) \\cdot h'(x)$",
+                "Schritt 3: Ableitungen berechnen\n$g'(u) = \\cos(u)$\n$h'(x) = 6x$",
+                "Schritt 4: Kettenregel anwenden\n$f'(x) = \\cos(3x^2 + 1) \\cdot 6x$",
+                "Schritt 5: Endergebnis\n$f'(x) = 6x \\cos(3x^2 + 1)$"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Kurvendiskussion",
+            "title": "Extremstellen einer Funktion",
+            "description": "Bestimmen Sie alle lokalen Extrema der Funktion: $$f(x) = x^3 - 3x^2 + 2$$",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Erste Ableitung\n$f'(x) = 3x^2 - 6x = 3x(x - 2)$",
+                "Schritt 2: Nullstellen der ersten Ableitung\n$f'(x) = 0 \\Rightarrow 3x(x - 2) = 0$\n$x_1 = 0$ oder $x_2 = 2$",
+                "Schritt 3: Zweite Ableitung\n$f''(x) = 6x - 6 = 6(x - 1)$",
+                "Schritt 4: Prüfung der kritischen Stellen\nFür $x_1 = 0$: $f''(0) = -6 < 0$ → lokales Maximum\nFür $x_2 = 2$: $f''(2) = 6 > 0$ → lokales Minimum",
+                "Schritt 5: Funktionswerte berechnen\n$f(0) = 0^3 - 3 \\cdot 0^2 + 2 = 2$\n$f(2) = 2^3 - 3 \\cdot 2^2 + 2 = 8 - 12 + 2 = -2$",
+                "Schritt 6: Antwort\nLokales Maximum bei $(0, 2)$\nLokales Minimum bei $(2, -2)$"
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Integration",
+            "title": "Grundintegrale",
+            "description": "Berechnen Sie das unbestimmte Integral: $$\\int (2x^3 - 5x + 4) \\, dx$$",
+            "difficulty": "easy",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Integrationsregeln\nWir verwenden die Linearität des Integrals:\n$\\int (f + g) \\, dx = \\int f \\, dx + \\int g \\, dx$\n$\\int c \\cdot f \\, dx = c \\int f \\, dx$",
+                "Schritt 2: Einzelne Terme integrieren\n$\\int 2x^3 \\, dx = 2 \\cdot \\frac{x^4}{4} = \\frac{x^4}{2}$\n$\\int (-5x) \\, dx = -5 \\cdot \\frac{x^2}{2} = -\\frac{5x^2}{2}$\n$\\int 4 \\, dx = 4x$",
+                "Schritt 3: Zusammenfassen\n$\\int (2x^3 - 5x + 4) \\, dx = \\frac{x^4}{2} - \\frac{5x^2}{2} + 4x + C$",
+                "Schritt 4: Endergebnis\n$\\int (2x^3 - 5x + 4) \\, dx = \\frac{x^4}{2} - \\frac{5x^2}{2} + 4x + C$\nwobei $C$ die Integrationskonstante ist."
+            ]
+        }
+    ]
+} 
