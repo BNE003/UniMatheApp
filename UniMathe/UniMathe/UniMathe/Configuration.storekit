@@ -83,7 +83,75 @@
     ]
   },
   "subscriptionGroups" : [
+    {
+      "id" : "3E0ECA0A",
+      "localizations" : [
 
+      ],
+      "name" : "Höhere Mathematik Pro",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "5.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "C78AE9CD",
+          "introductoryOffer" : {
+            "internalID" : "0AD2E80F",
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P3D"
+          },
+          "localizations" : [
+            {
+              "description" : "",
+              "displayName" : "",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "unimathe.pro.month",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Höhere Mathematik Pro Monatlich",
+          "subscriptionGroupID" : "3E0ECA0A",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "24.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "84EE0ACE",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "",
+              "displayName" : "",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "unimathe.pro.year",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Höhere Mahtematik Pro Jährlich",
+          "subscriptionGroupID" : "3E0ECA0A",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        }
+      ]
+    }
   ],
   "version" : {
     "major" : 4,

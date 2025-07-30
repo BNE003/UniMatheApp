@@ -154,6 +154,18 @@ struct SettingsView: View {
                             MailView(isShowing: $showMailView, recipient: "bene-held@web.de", subject: settings.language == .english ? "UniMathe App Support" : "UniMathe App Support")
                         }
                         
+                        // Show Onboarding
+                        Button(action: {
+                            // Reset onboarding to show it again
+                            let onboardingManager = OnboardingManager()
+                            onboardingManager.resetOnboarding()
+                            
+                            // Dismiss settings and show onboarding
+                            presentationMode.wrappedValue.dismiss()
+                        }) {
+                            SettingsButton(icon: "questionmark.circle.fill", title: settings.language == .english ? "Show Tutorial" : "Tutorial anzeigen", iconColor: .green, isIpad: horizontalSizeClass == .regular)
+                        }
+                        
                         // Rate
                         Button(action: {
                             // Use SKStoreReviewController for an in-app rating prompt
