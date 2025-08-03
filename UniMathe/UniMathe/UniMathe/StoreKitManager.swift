@@ -8,7 +8,7 @@ class StoreKitManager: ObservableObject {
     @Published private(set) var products: [Product] = []
     @Published private(set) var purchasedProductIDs = Set<String>()
     
-    private let productIDs = ["unimathe.pro.lifetime"]
+    private let productIDs = ["unimathe.pro.lifetime", "unimathe.pro.month", "unimathe.pro.year"]
     
     private init() {
         Task {

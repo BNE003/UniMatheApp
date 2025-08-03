@@ -10,6 +10,7 @@ struct SettingsView: View {
     @State private var showLegalActionSheet = false
     @State private var showMailView = false
     @State private var showImpressumSheet = false
+    @State private var showPurchaseView = false
     
     var body: some View {
         ZStack {
@@ -108,7 +109,9 @@ struct SettingsView: View {
                     SettingsSection {
                         // Get Pro Button - only show if not purchased
                         if StoreKitManager.shared.purchasedProductIDs.isEmpty {
-                            NavigationLink(destination: ProFeaturesView()) {
+                            Button(action: {
+                                showPurchaseView = true
+                            }) {
                                 HStack {
                                     Image(systemName: "star.fill")
                                         .foregroundColor(.white)
@@ -204,9 +207,9 @@ struct SettingsView: View {
                                 ]
                             )
                         }
-                        .sheet(isPresented: $showImpressumSheet) {
-                            ImpressumView()
-                        }
+                                .sheet(isPresented: $showImpressumSheet) {
+            ImpressumView()
+        }
                     }
                     
                     Spacer(minLength: 40)
@@ -224,6 +227,9 @@ struct SettingsView: View {
                     .foregroundColor(settings.accentColor)
             }
         )
+        .fullScreenCover(isPresented: $showPurchaseView) {
+            PurchaseView(isPresented: $showPurchaseView)
+        }
         .preferredColorScheme(settings.isDarkModeEnabled ? .dark : .light)
     }
 }

@@ -1150,10 +1150,12 @@ struct OnboardingFeatureRow: View {
 
 // MARK: - Monthly Updates Onboarding Screen
 struct MonthlyUpdatesOnboardingView: View {
+    @EnvironmentObject var onboardingManager: OnboardingManager
     @ObservedObject private var settings = SettingsModel.shared
     @State private var animateContent = false
     @State private var animateFeatures = false
     @State private var currentFeatureIndex = 0
+    @State private var showPaywall = false
     
     private let updateFeatures = [
         ("Neue Aufgaben", "plus.circle.fill", "Jeden Monat 20+ neue Übungsaufgaben", Color.blue),
@@ -1276,6 +1278,21 @@ struct MonthlyUpdatesOnboardingView: View {
                 animateFeatures = true
             }
         }
+        .fullScreenCover(isPresented: $showPaywall) {
+            PurchaseView(isPresented: $showPaywall)
+                .onDisappear {
+                    // Complete onboarding after paywall is dismissed
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                        onboardingManager.completeOnboarding()
+                    }
+                }
+        }
+        .onReceive(onboardingManager.$shouldShowPaywall) { shouldShow in
+            if shouldShow {
+                showPaywall = true
+                onboardingManager.shouldShowPaywall = false
+            }
+        }
     }
 }
 
@@ -1347,3 +1364,4 @@ struct MonthlyUpdateFeatureCard: View {
         )
     }
 } 
+

@@ -17,6 +17,7 @@ import SwiftUI
 struct PurchaseView: View {
     
     @StateObject var purchaseModel: PurchaseModel = PurchaseModel()
+    @ObservedObject private var settings = SettingsModel.shared
     
     @State private var shakeDegrees = 0.0
     @State private var shakeZoom = 0.9
@@ -45,14 +46,14 @@ struct PurchaseView: View {
     var callToActionText: String {
         if let selectedProductTrial = purchaseModel.productDetails.first(where: {$0.productId == selectedProductId})?.hasTrial {
             if selectedProductTrial {
-                return "Start Free Trial"
+                return settings.language == .english ? "Start Free Trial" : "Kostenlos testen"
             }
             else {
-                return "Unlock Now"
+                return settings.language == .english ? "Unlock Now" : "Jetzt freischalten"
             }
         }
         else {
-            return "Unlock Now"
+            return settings.language == .english ? "Unlock Now" : "Jetzt freischalten"
         }
     }
     
@@ -125,7 +126,8 @@ struct PurchaseView: View {
             VStack (spacing: 20) {
                 
                 ZStack {
-                    Image("purchaseview-hero")
+                    // Use app logo instead of missing hero image
+                    Image("logo")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 150, alignment: .center)
@@ -139,14 +141,14 @@ struct PurchaseView: View {
                 }
                 
                 VStack (spacing: 10) {
-                    Text("Unlock Premium Access")
-                        .font(.system(size: 30, weight: .semibold))
-                        .multilineTextAlignment(.center)
+                                    Text(settings.language == .english ? "Unlock Premium Access" : "Premium Zugang freischalten")
+                    .font(.system(size: 30, weight: .semibold))
+                    .multilineTextAlignment(.center)
                     VStack (alignment: .leading) {
-                        PurchaseFeatureView(title: "Add first feature here", icon: "star", color: color)
-                        PurchaseFeatureView(title: "Then add second feature", icon: "star", color: color)
-                        PurchaseFeatureView(title: "Put final feature here", icon: "star", color: color)
-                        PurchaseFeatureView(title: "Remove annoying paywalls", icon: "lock.square.stack", color: color)
+                        PurchaseFeatureView(title: settings.language == .english ? "Unlock all interactive lessons" : "Alle interaktiven Lektionen freischalten", icon: "checkmark.circle.fill", color: color)
+                        PurchaseFeatureView(title: settings.language == .english ? "Full access to over 300 exercises" : "Vollen Zugriff auf über 300 Aufgaben", icon: "books.vertical.fill", color: color)
+                        PurchaseFeatureView(title: settings.language == .english ? "Detailed solution steps" : "Detaillierte Lösungsschritte", icon: "list.bullet.rectangle.fill", color: color)
+                        PurchaseFeatureView(title: settings.language == .english ? "Practice exam simulations" : "Klausur-Simulationen üben", icon: "doc.text.fill", color: color)
                     }
                     .font(.system(size: 19))
                     .padding(.top)
@@ -243,7 +245,7 @@ struct PurchaseView: View {
                         
                         HStack {
                             Toggle(isOn: $freeTrial) {
-                                Text("Free Trial Enabled")
+                                Text(settings.language == .english ? "Free Trial Enabled" : "Kostenloser Test aktiviert")
                                     .font(.headline.bold())
                             }
                             .padding(.horizontal)
@@ -324,7 +326,7 @@ struct PurchaseView: View {
                     
                     HStack (spacing: 10) {
                         
-                        Button("Restore") {
+                        Button(settings.language == .english ? "Restore" : "Wiederherstellen") {
                             purchaseModel.restorePurchases()
                             DispatchQueue.main.asyncAfter(deadline: .now() + 7) {
                                 if !purchaseModel.isSubscribed {
@@ -333,7 +335,11 @@ struct PurchaseView: View {
                             }
                         }
                         .alert(isPresented: $showNoneRestoredAlert) {
-                            Alert(title: Text("Restore Purchases"), message: Text("No purchases restored"), dismissButton: .default(Text("OK")))
+                            Alert(
+                                title: Text(settings.language == .english ? "Restore Purchases" : "Käufe wiederherstellen"), 
+                                message: Text(settings.language == .english ? "No purchases restored" : "Keine Käufe wiederhergestellt"), 
+                                dismissButton: .default(Text("OK"))
+                            )
                         }
                         .overlay(
                             Rectangle()
@@ -343,7 +349,7 @@ struct PurchaseView: View {
                         .font(.footnote)
                         
                         
-                        Button("Terms of Use & Privacy Policy") {
+                        Button(settings.language == .english ? "Terms of Use & Privacy Policy" : "Nutzungsbedingungen & Datenschutz") {
                             showTermsActionSheet = true
                         }
                         .overlay(
@@ -352,20 +358,23 @@ struct PurchaseView: View {
                                 .foregroundColor(.gray), alignment: .bottom
                         )
                         .actionSheet(isPresented: $showTermsActionSheet) {
-                            ActionSheet(title: Text("View Terms & Conditions"), message: nil,
-                                        buttons: [
-                                            .default(Text("Terms of Use"), action: {
-                                                if let url = URL(string: "https://example.com") {
-                                                    UIApplication.shared.open(url)
-                                                }
-                                            }),
-                                            .default(Text("Privacy Policy"), action: {
-                                                if let url = URL(string: "https://example.com") {
-                                                    UIApplication.shared.open(url)
-                                                }
-                                            }),
-                                            .cancel()
-                                        ])
+                            ActionSheet(
+                                title: Text(settings.language == .english ? "View Terms & Conditions" : "Bedingungen anzeigen"), 
+                                message: nil,
+                                buttons: [
+                                    .default(Text(settings.language == .english ? "Terms of Use" : "Nutzungsbedingungen"), action: {
+                                        if let url = URL(string: "https://example.com") {
+                                            UIApplication.shared.open(url)
+                                        }
+                                    }),
+                                    .default(Text(settings.language == .english ? "Privacy Policy" : "Datenschutzerklärung"), action: {
+                                        if let url = URL(string: "https://example.com") {
+                                            UIApplication.shared.open(url)
+                                        }
+                                    }),
+                                    .cancel(Text(settings.language == .english ? "Cancel" : "Abbrechen"))
+                                ]
+                            )
                         }
                         .font(.footnote)
                         

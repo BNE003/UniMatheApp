@@ -6,6 +6,7 @@ class OnboardingManager: ObservableObject {
     @Published var currentScreen: OnboardingScreen = .languageSelection
     @Published var isOnboardingComplete = false
     @Published var showOnboarding = false
+    @Published var shouldShowPaywall = false
     
     init() {
         // Check if user has completed onboarding before
@@ -33,7 +34,8 @@ class OnboardingManager: ObservableObject {
             case .exercises:
                 currentScreen = .monthlyUpdates
             case .monthlyUpdates:
-                completeOnboarding()
+                // Show paywall when "Fertig" is clicked
+                shouldShowPaywall = true
             }
         }
     }
@@ -51,6 +53,7 @@ class OnboardingManager: ObservableObject {
                 currentScreen = .exams
             case .monthlyUpdates:
                 currentScreen = .exercises
+
             default:
                 break
             }
