@@ -7,6 +7,7 @@
 
 import SwiftUI
 import StoreKit
+import PostHog
 
 // import UniMathe // oder das entsprechende Modul, falls nötig
 
@@ -195,6 +196,14 @@ struct ContentView: View {
                                         AnyView(TopicDetailView(topic: topic))) {
                                         TopicCard(topic: topic)
                                     }
+                                    .onTapGesture {
+                                        PostHogSDK.shared.capture("topic_selected", properties: [
+                                            "topic_title": topic.title,
+                                            "topic_id": topic.id,
+                                            "has_subtopics": topic.subTopics != nil,
+                                            "language": settings.language.rawValue
+                                        ])
+                                    }
                                 }
                             }
                             .padding(16)
@@ -218,6 +227,9 @@ struct ContentView: View {
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
             loadTopics()
+            PostHogSDK.shared.capture("home_view_appeared", properties: [
+                "language": settings.language.rawValue
+            ])
         }
         .onChange(of: settings.language) { _ in
             // Reload content when language changes
@@ -598,6 +610,12 @@ struct ExercisesView: View {
             HStack(spacing: 16) {
                 ForEach(["easy", "medium", "hard"], id: \.self) { difficulty in
                     Button(action: {
+                        PostHogSDK.shared.capture("exercise_difficulty_selected", properties: [
+                            "topic_title": topic.title,
+                            "topic_id": topic.id,
+                            "difficulty": difficulty,
+                            "language": SettingsModel.shared.language.rawValue
+                        ])
                         withAnimation {
                             selectedDifficulty = difficulty
                         }

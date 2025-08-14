@@ -1,4 +1,5 @@
 import SwiftUI
+import PostHog
 
 struct ÜbungsklausurenView: View {
     @ObservedObject private var settings = SettingsModel.shared
@@ -186,6 +187,9 @@ struct ÜbungsklausurenView: View {
             }
         }
         .onAppear {
+            PostHogSDK.shared.capture("exams_view_appeared", properties: [
+                "language": settings.language.rawValue
+            ])
             withAnimation {
                 animateCards = true
             }
@@ -203,39 +207,56 @@ struct DifficultySelector: View {
         HStack(spacing: 8) {
             ForEach(ExamDifficulty.allCases, id: \.self) { difficulty in
                 Button(action: {
+                    PostHogSDK.shared.capture("exam_difficulty_selected", properties: [
+                        "difficulty": difficulty.rawValue,
+                        "language": settings.language.rawValue
+                    ])
                     withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
                         selectedDifficulty = difficulty
                     }
                 }) {
-                    Text(difficulty.localizedName(language: settings.language))
-                        .font(.custom("SF Pro Display", size: 13))
-                        .fontWeight(.semibold)
-                        .foregroundColor(selectedDifficulty == difficulty ? .white : .secondary)
-                        .padding(.horizontal, 18)
-                        .padding(.vertical, 8)
-                        .background(
-                            Group {
-                                if selectedDifficulty == difficulty {
-                                    LinearGradient(
-                                        gradient: Gradient(colors: difficulty.colors),
-                                        startPoint: .leading,
-                                        endPoint: .trailing
-                                    )
-                                } else {
-                                    Color.gray.opacity(0.12)
-                                }
-                            }
-                        )
-                        .clipShape(Capsule())
-                        .shadow(
-                            color: selectedDifficulty == difficulty ? difficulty.colors.first!.opacity(0.3) : .clear,
-                            radius: selectedDifficulty == difficulty ? 6 : 0,
-                            x: 0,
-                            y: 3
-                        )
+                    DifficultyButtonContent(
+                        difficulty: difficulty,
+                        isSelected: selectedDifficulty == difficulty
+                    )
                 }
             }
         }
+    }
+}
+
+struct DifficultyButtonContent: View {
+    let difficulty: ExamDifficulty
+    let isSelected: Bool
+    @ObservedObject private var settings = SettingsModel.shared
+    
+    var body: some View {
+        Text(difficulty.localizedName(language: settings.language))
+            .font(.custom("SF Pro Display", size: 13))
+            .fontWeight(.semibold)
+            .foregroundColor(isSelected ? .white : .secondary)
+            .padding(.horizontal, 18)
+            .padding(.vertical, 8)
+            .background(
+                Group {
+                    if isSelected {
+                        LinearGradient(
+                            gradient: Gradient(colors: difficulty.colors),
+                            startPoint: .leading,
+                            endPoint: .trailing
+                        )
+                    } else {
+                        Color.gray.opacity(0.12)
+                    }
+                }
+            )
+            .clipShape(Capsule())
+            .shadow(
+                color: isSelected ? difficulty.colors.first!.opacity(0.3) : .clear,
+                radius: isSelected ? 6 : 0,
+                x: 0,
+                y: 3
+            )
     }
 }
 
@@ -255,6 +276,13 @@ struct ExamCard: View {
                 }
                 .buttonStyle(PlainButtonStyle())
                 .simultaneousGesture(TapGesture().onEnded {
+                    PostHogSDK.shared.capture("exam_started", properties: [
+                        "exam_title": exam.title,
+                        "exam_difficulty": exam.difficulty.rawValue,
+                        "exam_duration": exam.duration,
+                        "exam_questions": exam.questions,
+                        "language": settings.language.rawValue
+                    ])
                     // Haptic feedback when tapping the exam card
                     let impactFeedback = UIImpactFeedbackGenerator(style: .light)
                     impactFeedback.impactOccurred()
@@ -268,6 +296,13 @@ struct ExamCard: View {
                 }
                 .buttonStyle(PlainButtonStyle())
                 .simultaneousGesture(TapGesture().onEnded {
+                    PostHogSDK.shared.capture("exam_started", properties: [
+                        "exam_title": exam.title,
+                        "exam_difficulty": exam.difficulty.rawValue,
+                        "exam_duration": exam.duration,
+                        "exam_questions": exam.questions,
+                        "language": settings.language.rawValue
+                    ])
                     // Haptic feedback when tapping the exam card
                     let impactFeedback = UIImpactFeedbackGenerator(style: .light)
                     impactFeedback.impactOccurred()
@@ -281,6 +316,13 @@ struct ExamCard: View {
 				}
 				.buttonStyle(PlainButtonStyle())
 				.simultaneousGesture(TapGesture().onEnded {
+					PostHogSDK.shared.capture("exam_started", properties: [
+						"exam_title": exam.title,
+						"exam_difficulty": exam.difficulty.rawValue,
+						"exam_duration": exam.duration,
+						"exam_questions": exam.questions,
+						"language": settings.language.rawValue
+					])
 					let impactFeedback = UIImpactFeedbackGenerator(style: .light)
 					impactFeedback.impactOccurred()
 				})
@@ -293,6 +335,13 @@ struct ExamCard: View {
 				}
 				.buttonStyle(PlainButtonStyle())
 				.simultaneousGesture(TapGesture().onEnded {
+					PostHogSDK.shared.capture("exam_started", properties: [
+						"exam_title": exam.title,
+						"exam_difficulty": exam.difficulty.rawValue,
+						"exam_duration": exam.duration,
+						"exam_questions": exam.questions,
+						"language": settings.language.rawValue
+					])
 					let impactFeedback = UIImpactFeedbackGenerator(style: .light)
 					impactFeedback.impactOccurred()
 				})
@@ -305,6 +354,13 @@ struct ExamCard: View {
 				}
 				.buttonStyle(PlainButtonStyle())
 				.simultaneousGesture(TapGesture().onEnded {
+					PostHogSDK.shared.capture("exam_started", properties: [
+						"exam_title": exam.title,
+						"exam_difficulty": exam.difficulty.rawValue,
+						"exam_duration": exam.duration,
+						"exam_questions": exam.questions,
+						"language": settings.language.rawValue
+					])
 					let impactFeedback = UIImpactFeedbackGenerator(style: .light)
 					impactFeedback.impactOccurred()
 				})
@@ -317,6 +373,13 @@ struct ExamCard: View {
 				}
 				.buttonStyle(PlainButtonStyle())
 				.simultaneousGesture(TapGesture().onEnded {
+					PostHogSDK.shared.capture("exam_started", properties: [
+						"exam_title": exam.title,
+						"exam_difficulty": exam.difficulty.rawValue,
+						"exam_duration": exam.duration,
+						"exam_questions": exam.questions,
+						"language": settings.language.rawValue
+					])
 					let impactFeedback = UIImpactFeedbackGenerator(style: .light)
 					impactFeedback.impactOccurred()
 				})
@@ -446,44 +509,7 @@ struct StatItem: View {
     }
 }
 
-// MARK: - Models
-
-struct ExamTopic: Identifiable {
-    let id = UUID()
-    let title: String
-    let subtitle: String
-    let difficulty: ExamDifficulty
-    let duration: Int // in minutes
-    let questions: Int
-    let icon: String
-    let color: Color
-}
-
-enum ExamDifficulty: CaseIterable {
-    case beginner, intermediate, advanced
-    
-    func localizedName(language: AppLanguage) -> String {
-        switch self {
-        case .beginner:
-            return language == .english ? "Beginner" : "Anfänger"
-        case .intermediate:
-            return language == .english ? "Intermediate" : "Fortgeschritten"
-        case .advanced:
-            return language == .english ? "Advanced" : "Experte"
-        }
-    }
-    
-    var colors: [Color] {
-        switch self {
-        case .beginner:
-            return [Color(red: 0.0, green: 0.7, blue: 0.4), Color(red: 0.2, green: 0.5, blue: 0.9)]
-        case .intermediate:
-            return [Color(red: 0.9, green: 0.4, blue: 0.1), Color(red: 0.8, green: 0.2, blue: 0.4)]
-        case .advanced:
-            return [Color(red: 0.6, green: 0.3, blue: 0.8), Color(red: 0.8, green: 0.2, blue: 0.6)]
-        }
-    }
-}
+// MARK: - Models are now in Models/Models.swift
 
 #Preview {
     ÜbungsklausurenView()

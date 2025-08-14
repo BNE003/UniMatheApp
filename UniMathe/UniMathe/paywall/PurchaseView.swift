@@ -13,6 +13,7 @@
 //      the word "FREE"
 
 import SwiftUI
+import PostHog
 
 struct PurchaseView: View {
     

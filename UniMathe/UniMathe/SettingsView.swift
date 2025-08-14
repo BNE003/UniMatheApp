@@ -1,6 +1,7 @@
 import SwiftUI
 import MessageUI
 import StoreKit
+import PostHog
 
 struct SettingsView: View {
     @ObservedObject private var settings = SettingsModel.shared
@@ -70,7 +71,12 @@ struct SettingsView: View {
                             
                             ForEach(AppLanguage.allCases, id: \.self) { language in
                                 Button(action: {
+                                    let previousLanguage = settings.language
                                     settings.language = language
+                                    PostHogSDK.shared.capture("language_changed", properties: [
+                                        "from_language": previousLanguage.rawValue,
+                                        "to_language": language.rawValue
+                                    ])
                                 }) {
                                     HStack {
                                         Image(systemName: language == .german ? "flag" : "globe")
@@ -110,6 +116,10 @@ struct SettingsView: View {
                         // Get Pro Button - only show if not purchased
                         if StoreKitManager.shared.purchasedProductIDs.isEmpty {
                             Button(action: {
+                                PostHogSDK.shared.capture("pro_purchase_initiated", properties: [
+                                    "source": "settings",
+                                    "language": settings.language.rawValue
+                                ])
                                 showPurchaseView = true
                             }) {
                                 HStack {
@@ -142,6 +152,10 @@ struct SettingsView: View {
                         
                         // Support
                         Button(action: {
+                            PostHogSDK.shared.capture("support_contacted", properties: [
+                                "method": MFMailComposeViewController.canSendMail() ? "in_app_mail" : "external_mail",
+                                "language": settings.language.rawValue
+                            ])
                             if MFMailComposeViewController.canSendMail() {
                                 showMailView = true
                             } else {
@@ -153,12 +167,16 @@ struct SettingsView: View {
                         }) {
                             SettingsButton(icon: "envelope.fill", title: "Support", iconColor: .blue, isIpad: horizontalSizeClass == .regular)
                         }
+                        .accessibilityIdentifier("ph-no-capture") // E-Mail wird nicht aufgezeichnet
                         .sheet(isPresented: $showMailView) {
                             MailView(isShowing: $showMailView, recipient: "bene-held@web.de", subject: settings.language == .english ? "UniMathe App Support" : "UniMathe App Support")
                         }
                         
                         // Feedback
                         Button(action: {
+                            PostHogSDK.shared.capture("feedback_opened", properties: [
+                                "language": settings.language.rawValue
+                            ])
                             if let url = URL(string: "https://insigh.to/b/uni-math") {
                                 UIApplication.shared.open(url)
                             }
@@ -168,6 +186,9 @@ struct SettingsView: View {
                         
                         // Rate
                         Button(action: {
+                            PostHogSDK.shared.capture("app_rating_requested", properties: [
+                                "language": settings.language.rawValue
+                            ])
                             // Use SKStoreReviewController for an in-app rating prompt
                             if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
                                 SKStoreReviewController.requestReview(in: scene)
@@ -226,6 +247,11 @@ struct SettingsView: View {
         )
         .fullScreenCover(isPresented: $showPurchaseView) {
             PurchaseView(isPresented: $showPurchaseView)
+        }
+        .onAppear {
+            PostHogSDK.shared.capture("settings_view_appeared", properties: [
+                "language": settings.language.rawValue
+            ])
         }
         .preferredColorScheme(settings.isDarkModeEnabled ? .dark : .light)
     }

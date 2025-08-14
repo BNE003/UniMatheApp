@@ -1,4 +1,5 @@
 import SwiftUI
+import PostHog
 
 // MARK: - Main Onboarding Coordinator
 struct OnboardingCoordinator: View {

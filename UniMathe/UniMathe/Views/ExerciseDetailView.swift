@@ -1,4 +1,5 @@
 import SwiftUI
+import PostHog
 
 struct ExerciseDetailView: View {
     let exercise: Exercise

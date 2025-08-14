@@ -1,4 +1,5 @@
 import SwiftUI
+import PostHog
 
 struct ExamDetailView: View {
     let examFilename: String

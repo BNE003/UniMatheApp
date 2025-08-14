@@ -1,4 +1,5 @@
 import SwiftUI
+import PostHog
 
 struct SubTopicsView: View {
     let topic: MathTopic
@@ -81,7 +82,12 @@ struct SubTopicsView: View {
                                         SubTopicCard(topic: subTopic)
                                     }
                                     .onTapGesture {
-                                        // Navigation handled by NavigationLink
+                                        PostHogSDK.shared.capture("subtopic_selected", properties: [
+                                            "parent_topic_title": topic.title,
+                                            "subtopic_title": subTopic.title,
+                                            "subtopic_id": subTopic.id,
+                                            "language": SettingsModel.shared.language.rawValue
+                                        ])
                                     }
                                 }
                             }
@@ -96,6 +102,11 @@ struct SubTopicsView: View {
         .navigationBarTitleDisplayMode(.large)
         .onAppear {
             loadSubTopics()
+            PostHogSDK.shared.capture("subtopics_view_appeared", properties: [
+                "parent_topic_title": topic.title,
+                "parent_topic_id": topic.id,
+                "language": SettingsModel.shared.language.rawValue
+            ])
         }
     }
     

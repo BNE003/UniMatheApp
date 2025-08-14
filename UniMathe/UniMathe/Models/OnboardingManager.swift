@@ -1,5 +1,6 @@
 import SwiftUI
 import Foundation
+import PostHog
 
 // MARK: - Onboarding Manager
 class OnboardingManager: ObservableObject {
@@ -21,6 +22,7 @@ class OnboardingManager: ObservableObject {
     }
     
     func nextScreen() {
+        let previousScreen = currentScreen
         withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
             switch currentScreen {
             case .languageSelection:
@@ -38,6 +40,12 @@ class OnboardingManager: ObservableObject {
                 shouldShowPaywall = true
             }
         }
+        
+        PostHogSDK.shared.capture("onboarding_screen_advanced", properties: [
+            "from_screen": previousScreen.title,
+            "to_screen": currentScreen.title,
+            "language": SettingsModel.shared.language.rawValue
+        ])
     }
     
     func previousScreen() {
@@ -65,6 +73,10 @@ class OnboardingManager: ObservableObject {
             isOnboardingComplete = true
             showOnboarding = false
         }
+        
+        PostHogSDK.shared.capture("onboarding_completed", properties: [
+            "language": SettingsModel.shared.language.rawValue
+        ])
         
         // Save completion state
         UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")

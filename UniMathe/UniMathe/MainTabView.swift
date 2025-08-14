@@ -1,4 +1,5 @@
 import SwiftUI
+import PostHog
 
 // ObservableObject to manage tab bar visibility
 class TabBarViewModel: ObservableObject {
@@ -54,6 +55,11 @@ struct MainTabView: View {
                 .animation(.spring(response: 0.6, dampingFraction: 0.8), value: isTabBarHidden)
         }
         .ignoresSafeArea(.keyboard, edges: .bottom)
+        .onAppear {
+            PostHogSDK.shared.capture("app_opened", properties: [
+                "language": settings.language.rawValue
+            ])
+        }
     }
 }
 
@@ -61,6 +67,15 @@ struct CustomTabBar: View {
     @Binding var selectedTab: Int
     @ObservedObject private var settings = SettingsModel.shared
     @Namespace private var tabSelection
+    
+    private func getTabName(_ index: Int) -> String {
+        switch index {
+        case 0: return "home"
+        case 1: return "exams"
+        case 2: return "settings"
+        default: return "unknown"
+        }
+    }
     
     var body: some View {
         GeometryReader { geometry in
@@ -127,6 +142,11 @@ struct CustomTabBar: View {
                         title: settings.language == .english ? "Home" : "Start",
                         isSelected: selectedTab == 0,
                         action: { 
+                            PostHogSDK.shared.capture("tab_switched", properties: [
+                                "from_tab": getTabName(selectedTab),
+                                "to_tab": "home",
+                                "language": settings.language.rawValue
+                            ])
                             withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) { 
                                 selectedTab = 0 
                             } 
@@ -140,6 +160,11 @@ struct CustomTabBar: View {
                         title: settings.language == .english ? "Exams" : "Klausuren",
                         isSelected: selectedTab == 1,
                         action: { 
+                            PostHogSDK.shared.capture("tab_switched", properties: [
+                                "from_tab": getTabName(selectedTab),
+                                "to_tab": "exams",
+                                "language": settings.language.rawValue
+                            ])
                             withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) { 
                                 selectedTab = 1 
                             } 
@@ -153,6 +178,11 @@ struct CustomTabBar: View {
                         title: settings.language == .english ? "Settings" : "Einstellungen",
                         isSelected: selectedTab == 2,
                         action: { 
+                            PostHogSDK.shared.capture("tab_switched", properties: [
+                                "from_tab": getTabName(selectedTab),
+                                "to_tab": "settings",
+                                "language": settings.language.rawValue
+                            ])
                             withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) { 
                                 selectedTab = 2 
                             } 
