@@ -1,0 +1,91 @@
+{
+    "exam": {
+        "title": "Differentialgleichungen - Expertenklausur",
+        "subtitle": "Gewöhnliche und partielle DGL",
+        "duration": 135,
+        "totalPoints": 80,
+        "difficulty": "advanced",
+        "language": "de",
+        "instructions": "Bearbeiten Sie alle Aufgaben. Begründen Sie Ihre Schritte. Zulässige Hilfsmittel: nicht programmierbarer Taschenrechner."
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Erste Ordnung",
+            "title": "Trennbare Gleichung",
+            "description": "Lösen Sie $\\frac{dy}{dx} = xy$ mit $y(0)=2$.",
+            "difficulty": "easy",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Trennen $\\frac{1}{y}dy = x dx$",
+                "Schritt 2: Integrieren $\\ln|y| = \\tfrac{x^2}{2} + C$",
+                "Schritt 3: Anfangsbedingung $y(0)=2$ ergibt $y=2 e^{x^2/2}$"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Lineare DGL",
+            "title": "Erste Ordnung linear",
+            "description": "Lösen Sie $y' + y = e^x$.",
+            "difficulty": "easy",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Integrierender Faktor $\\mu(x)=e^{x}$",
+                "Schritt 2: $(e^x y)' = e^{2x}$",
+                "Schritt 3: $y= \\tfrac{1}{2}e^{x} + C e^{-x}$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Zweite Ordnung",
+            "title": "Homogen, konstante Koeffizienten",
+            "description": "Lösen Sie $y'' - 3y' + 2y = 0$.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Charakteristische Gleichung $r^2 - 3r + 2=0$",
+                "Schritt 2: Wurzeln $r=1,2$",
+                "Schritt 3: Lösung $y(x)=C_1 e^{x} + C_2 e^{2x}$"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Systeme",
+            "title": "Lineares System",
+            "description": "Lösen Sie $x' = 2x + y$, $y' = x + 2y$ mittels Diagonalisierung.",
+            "difficulty": "medium",
+            "points": 14,
+            "solutionSteps": [
+                "Schritt 1: Matrix $A=\\begin{pmatrix}2 & 1 \\\\ 1 & 2 \\end{pmatrix}$ hat Eigenwerte $3,1$",
+                "Schritt 2: Eigenvektoren liefern entkoppeltes System",
+                "Schritt 3: Allgemeine Lösung Kombination aus $e^{3t}$ und $e^{t}$"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Laplace-Transformation",
+            "title": "Lösen mit Laplace",
+            "description": "Lösen Sie $y' + 2y = u(t)$ mit $y(0)=0$ mittels Laplace-Transformation ($u$ ist die Einheitssprungfunktion).",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Laplace: $sY - y(0) + 2Y = \\frac{1}{s}$",
+                "Schritt 2: $Y = \\frac{1}{s(s+2)}$",
+                "Schritt 3: Rücktransformation: $y(t) = \\tfrac{1}{2}(1 - e^{-2t})$"
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "PDGL",
+            "title": "Wärmeleitung (Skizze)",
+            "description": "Geben Sie die separierten Lösungen für $u_t = k u_{xx}$ auf $0<x<L$ mit homogenen Dirichlet-Randbedingungen an.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Ansatz $u(x,t)=X(x)T(t)$",
+                "Schritt 2: $X'' + \\lambda X=0$ mit $X(0)=X(L)=0$ ergibt $X_n=\\sin(\\tfrac{n\\pi x}{L})$",
+                "Schritt 3: $T_n(t)=e^{-k (n\\pi/L)^2 t}$, allgemeine Reihenlösung"
+            ]
+        }
+    ]
+}

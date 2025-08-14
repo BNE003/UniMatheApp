@@ -80,6 +80,9 @@ struct SubTopicsView: View {
                                     NavigationLink(destination: ContentSelectionView(topic: subTopic)) {
                                         SubTopicCard(topic: subTopic)
                                     }
+                                    .onTapGesture {
+                                        // Navigation handled by NavigationLink
+                                    }
                                 }
                             }
                             .padding(.horizontal)

@@ -1,0 +1,94 @@
+{
+    "exam": {
+        "title": "Numerical Mathematics - Expert Exam",
+        "subtitle": "Algorithms, Approximation and Error Analysis",
+        "duration": 150,
+        "totalPoints": 100,
+        "difficulty": "advanced",
+        "language": "en",
+        "instructions": "Complete all tasks thoroughly. Specify algorithms explicitly and perform error analyses. Permitted aids: non-programmable calculator."
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Root Finding",
+            "title": "Newton's Method with Convergence Analysis",
+            "description": "Given the function f(x) = x³ - 2x - 5.\n\na) Show that f has a root in the interval [2, 3].\nb) Perform three iterations of Newton's method with starting value x₀ = 2.5.\nc) Estimate the absolute error after the third iteration.\nd) Determine the convergence order of Newton's method for this problem.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Part a) - Existence of root\nf(2) = 2³ - 2·2 - 5 = 8 - 4 - 5 = -1 < 0\nf(3) = 3³ - 2·3 - 5 = 27 - 6 - 5 = 16 > 0\nSince f is continuous and f(2) < 0 < f(3), by the intermediate value theorem there exists at least one root in [2,3].",
+                "Step 2: Prepare Newton's method\nf(x) = x³ - 2x - 5\nf'(x) = 3x² - 2\nNewton iteration: $x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)} = x_n - \\frac{x_n³ - 2x_n - 5}{3x_n² - 2}$",
+                "Step 3: Part b) - First iteration\nx₀ = 2.5\nf(2.5) = (2.5)³ - 2·2.5 - 5 = 15.625 - 5 - 5 = 5.625\nf'(2.5) = 3·(2.5)² - 2 = 3·6.25 - 2 = 18.75 - 2 = 16.75\nx₁ = 2.5 - 5.625/16.75 = 2.5 - 0.3358 ≈ 2.1642",
+                "Step 4: Second and third iterations\nSecond iteration:\nf(2.1642) = (2.1642)³ - 2·2.1642 - 5 ≈ 10.1438 - 4.3284 - 5 ≈ 0.8154\nf'(2.1642) = 3·(2.1642)² - 2 ≈ 3·4.6838 - 2 ≈ 14.0514 - 2 = 12.0514\nx₂ ≈ 2.1642 - 0.8154/12.0514 ≈ 2.1642 - 0.0677 ≈ 2.0965\nThird iteration:\nf(2.0965) ≈ (2.0965)³ - 2·2.0965 - 5 ≈ 0.0279\nf'(2.0965) ≈ 3·(2.0965)² - 2 ≈ 11.1734\nx₃ ≈ 2.0965 - 0.0279/11.1734 ≈ 2.0965 - 0.0025 ≈ 2.0940",
+                "Step 5: Part c) - Error estimation\nFor Newton's method with sufficiently good approximation:\n$|x_{n+1} - x*| ≤ \\frac{M}{2m} |x_n - x*|²$\nwhere M = max|f''(x)| and m = min|f'(x)| in the relevant range.\nf''(x) = 6x, so f''(2.094) ≈ 12.564\nEstimate: $|x₃ - x*| ≤ \\frac{12.564}{2·11.17} |x₂ - x*|² ≈ 0.56|x₂ - x*|²$",
+                "Step 6: Part d) - Convergence order\nNewton's method has quadratic convergence for simple roots.\nSince f'(x*) = 3(x*)² - 2 ≠ 0 for the root x* ≈ 2.094, the convergence order is p = 2.\nThis means: $|x_{n+1} - x*| = O(|x_n - x*|²)$ for n → ∞."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Interpolation",
+            "title": "Lagrange Interpolation with Error Analysis",
+            "description": "Given the interpolation points and function values:\n(x₀, y₀) = (0, 1), (x₁, y₁) = (1, 2), (x₂, y₂) = (2, 5), (x₃, y₃) = (3, 10)\n\na) Determine the Lagrange interpolation polynomial p₃(x).\nb) Estimate the interpolation error for f(x) = x² + 1 at point x = 1.5.\nc) Calculate the divided differences and the Newton interpolation polynomial.",
+            "difficulty": "hard",
+            "points": 18,
+            "solutionSteps": [
+                "Step 1: Part a) - Lagrange basis polynomials\n$L₀(x) = \\frac{(x-1)(x-2)(x-3)}{(0-1)(0-2)(0-3)} = \\frac{(x-1)(x-2)(x-3)}{-6}$\n$L₁(x) = \\frac{(x-0)(x-2)(x-3)}{(1-0)(1-2)(1-3)} = \\frac{x(x-2)(x-3)}{2}$\n$L₂(x) = \\frac{(x-0)(x-1)(x-3)}{(2-0)(2-1)(2-3)} = \\frac{x(x-1)(x-3)}{-2}$\n$L₃(x) = \\frac{(x-0)(x-1)(x-2)}{(3-0)(3-1)(3-2)} = \\frac{x(x-1)(x-2)}{6}$",
+                "Step 2: Lagrange interpolation polynomial\np₃(x) = y₀L₀(x) + y₁L₁(x) + y₂L₂(x) + y₃L₃(x)\n= 1·L₀(x) + 2·L₁(x) + 5·L₂(x) + 10·L₃(x)\nAfter expansion and simplification:\np₃(x) = x² + 1",
+                "Step 3: Part b) - Error analysis\nSince f(x) = x² + 1 and p₃(x) = x² + 1 agree, the interpolation error is exactly zero.\nGeneral error formula: $|f(x) - p_n(x)| ≤ \\frac{M_{n+1}}{(n+1)!} |ω(x)|$\nwhere ω(x) = ∏(x - x_i) and M_{n+1} = max|f^{(n+1)}(ξ)|\nFor f(x) = x² + 1: f'''(x) = 0, therefore the error is exactly zero.",
+                "Step 4: Part c) - Divided differences scheme\nf[x₀] = f(0) = 1\nf[x₁] = f(1) = 2\nf[x₀,x₁] = (f[x₁] - f[x₀])/(x₁ - x₀) = (2-1)/(1-0) = 1\nf[x₁,x₂] = (f[x₂] - f[x₁])/(x₂ - x₁) = (5-2)/(2-1) = 3\nf[x₂,x₃] = (f[x₃] - f[x₂])/(x₃ - x₂) = (10-5)/(3-2) = 5",
+                "Step 5: Higher order divided differences\nf[x₀,x₁,x₂] = (f[x₁,x₂] - f[x₀,x₁])/(x₂ - x₀) = (3-1)/(2-0) = 1\nf[x₁,x₂,x₃] = (f[x₂,x₃] - f[x₁,x₂])/(x₃ - x₁) = (5-3)/(3-1) = 1\nf[x₀,x₁,x₂,x₃] = (f[x₁,x₂,x₃] - f[x₀,x₁,x₂])/(x₃ - x₀) = (1-1)/(3-0) = 0",
+                "Step 6: Newton interpolation polynomial\np₃(x) = f[x₀] + f[x₀,x₁](x-x₀) + f[x₀,x₁,x₂](x-x₀)(x-x₁) + f[x₀,x₁,x₂,x₃](x-x₀)(x-x₁)(x-x₂)\n= 1 + 1·x + 1·x(x-1) + 0·x(x-1)(x-2)\n= 1 + x + x² - x = x² + 1\nThe Newton polynomial agrees with the Lagrange polynomial."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Numerical Integration",
+            "title": "Composite Quadrature Rules",
+            "description": "Approximate the integral $I = \\int_0^2 e^{-x^2} dx$ with n = 4 subintervals.\n\na) Use the composite trapezoidal rule.\nb) Use the composite Simpson's rule.\nc) Estimate the errors of both methods.\nd) Compare the results with the exact value I ≈ 0.8820813908.",
+            "difficulty": "hard",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Preparation - Support points\nStep size: h = (b-a)/n = (2-0)/4 = 0.5\nSupport points: x₀ = 0, x₁ = 0.5, x₂ = 1.0, x₃ = 1.5, x₄ = 2.0\nFunction values:\nf(0) = e⁰ = 1\nf(0.5) = e^{-0.25} ≈ 0.7788\nf(1.0) = e^{-1} ≈ 0.3679\nf(1.5) = e^{-2.25} ≈ 0.1054\nf(2.0) = e^{-4} ≈ 0.0183",
+                "Step 2: Part a) - Composite trapezoidal rule\n$T_n = \\frac{h}{2}[f(a) + 2\\sum_{i=1}^{n-1} f(x_i) + f(b)]$\n$T₄ = \\frac{0.5}{2}[f(0) + 2(f(0.5) + f(1.0) + f(1.5)) + f(2.0)]$\n= 0.25[1 + 2(0.7788 + 0.3679 + 0.1054) + 0.0183]\n= 0.25[1 + 2·1.2521 + 0.0183]\n= 0.25[1 + 2.5042 + 0.0183] = 0.25·3.5225 ≈ 0.8806",
+                "Step 3: Part b) - Composite Simpson's rule\n$S_n = \\frac{h}{3}[f(a) + 4\\sum_{i \\text{ odd}} f(x_i) + 2\\sum_{i \\text{ even, } i≠0,n} f(x_i) + f(b)]$\n$S₄ = \\frac{0.5}{3}[f(0) + 4(f(0.5) + f(1.5)) + 2f(1.0) + f(2.0)]$\n$= \\frac{0.5}{3}[1 + 4(0.7788 + 0.1054) + 2·0.3679 + 0.0183]$\n$= \\frac{0.5}{3}[1 + 4·0.8842 + 0.7358 + 0.0183]$\n$= \\frac{0.5}{3}[1 + 3.5368 + 0.7358 + 0.0183] = \\frac{0.5}{3}·5.2909 ≈ 0.8818$",
+                "Step 4: Part c) - Error estimation trapezoidal rule\nTrapezoidal rule error: $|E_T| ≤ \\frac{(b-a)h^2}{12} \\max_{x \\in [a,b]} |f''(x)|$\nf(x) = e^{-x²}, f'(x) = -2xe^{-x²}, f''(x) = (4x² - 2)e^{-x²}\nf''(x) = 0 for x² = 1/2, so x = 1/√2 ≈ 0.707\nMaximum of |f''(x)| on [0,2]: |f''(0)| = 2\n|E_T| ≤ (2·(0.5)²·2)/12 = 1/12 ≈ 0.0833",
+                "Step 5: Error estimation Simpson's rule\nSimpson's rule error: $|E_S| ≤ \\frac{(b-a)h^4}{180} \\max_{x \\in [a,b]} |f^{(4)}(x)|$\nAfter calculating the fourth derivative (complex):\n$|E_S| ≤ \\frac{2·(0.5)^4·M_4}{180}$ where M₄ ≈ 12 (estimated)\n|E_S| ≤ (2·0.0625·12)/180 ≈ 0.0083",
+                "Step 6: Part d) - Comparison with exact value\nExact value: I ≈ 0.8820813908\nTrapezoidal rule: T₄ ≈ 0.8806, Error ≈ |0.8821 - 0.8806| ≈ 0.0015\nSimpson's rule: S₄ ≈ 0.8818, Error ≈ |0.8821 - 0.8818| ≈ 0.0003\nSimpson's rule is significantly more accurate since it has order O(h⁴) compared to O(h²) for the trapezoidal rule.\nThe theoretical error bounds are conservative; the actual errors are smaller."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Linear Systems",
+            "title": "LU Decomposition with Pivoting",
+            "description": "Solve the linear system Ax = b with\n$A = \\begin{pmatrix} 2 & 1 & 1 \\\\ 4 & 3 & 3 \\\\ 8 & 7 & 9 \\end{pmatrix}, \\quad b = \\begin{pmatrix} 4 \\\\ 10 \\\\ 24 \\end{pmatrix}$\n\na) Perform LU decomposition without pivoting.\nb) Solve the systems Ly = b and Ux = y.\nc) Calculate the condition number κ∞(A) = ||A||∞ · ||A⁻¹||∞.",
+            "difficulty": "hard",
+            "points": 22,
+            "solutionSteps": [
+                "Step 1: Part a) - Prepare LU decomposition\nWe decompose A = LU with L lower triangular matrix (diagonal = 1) and U upper triangular matrix.\nStarting system:\n$A^{(0)} = \\begin{pmatrix} 2 & 1 & 1 \\\\ 4 & 3 & 3 \\\\ 8 & 7 & 9 \\end{pmatrix}$",
+                "Step 2: First elimination (column 1)\nMultipliers: l₂₁ = a₂₁/a₁₁ = 4/2 = 2, l₃₁ = a₃₁/a₁₁ = 8/2 = 4\nRow 2 new: (4,3,3) - 2·(2,1,1) = (0,1,1)\nRow 3 new: (8,7,9) - 4·(2,1,1) = (0,3,5)\n$A^{(1)} = \\begin{pmatrix} 2 & 1 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 3 & 5 \\end{pmatrix}$",
+                "Step 3: Second elimination (column 2)\nMultiplier: l₃₂ = a₃₂⁽¹⁾/a₂₂⁽¹⁾ = 3/1 = 3\nRow 3 new: (0,3,5) - 3·(0,1,1) = (0,0,2)\n$U = A^{(2)} = \\begin{pmatrix} 2 & 1 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}$",
+                "Step 4: Construct L matrix\n$L = \\begin{pmatrix} 1 & 0 & 0 \\\\ l_{21} & 1 & 0 \\\\ l_{31} & l_{32} & 1 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 & 0 \\\\ 2 & 1 & 0 \\\\ 4 & 3 & 1 \\end{pmatrix}$\nVerification: LU should yield A (can be checked).",
+                "Step 5: Part b) - Solve auxiliary systems\nFirst solve Ly = b:\n$\\begin{pmatrix} 1 & 0 & 0 \\\\ 2 & 1 & 0 \\\\ 4 & 3 & 1 \\end{pmatrix} \\begin{pmatrix} y_1 \\\\ y_2 \\\\ y_3 \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 10 \\\\ 24 \\end{pmatrix}$\nForward substitution:\ny₁ = 4\ny₂ = 10 - 2y₁ = 10 - 8 = 2\ny₃ = 24 - 4y₁ - 3y₂ = 24 - 16 - 6 = 2",
+                "Step 6: Then solve Ux = y\n$\\begin{pmatrix} 2 & 1 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix} \\begin{pmatrix} x_1 \\\\ x_2 \\\\ x_3 \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 2 \\\\ 2 \\end{pmatrix}$\nBackward substitution:\nx₃ = 2/2 = 1\nx₂ = 2 - 1·x₃ = 2 - 1 = 1\nx₁ = (4 - 1·x₂ - 1·x₃)/2 = (4 - 1 - 1)/2 = 1\nSolution: x = (1, 1, 1)ᵀ",
+                "Step 7: Part c) - Calculate condition number\n||A||∞ = max of row sums = max{4, 10, 24} = 24\nFor A⁻¹ (calculation with Gauss-Jordan or cofactors):\n$A^{-1} = \\begin{pmatrix} 0 & -1/2 & 0 \\\\ -6 & 5 & -1 \\\\ 2 & -3/2 & 1 \\end{pmatrix}$\n||A⁻¹||∞ = max{0.5, 12, 6.5} = 12\nκ∞(A) = ||A||∞ · ||A⁻¹||∞ = 24 · 12 = 288\nThe matrix is moderately conditioned."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Ordinary Differential Equations",
+            "title": "Runge-Kutta Method",
+            "description": "Solve the initial value problem y' = -2y + x, y(0) = 1 numerically in the interval [0, 1] with step size h = 0.2.\n\na) Apply the classical 4th-order Runge-Kutta method.\nb) Compare with the exact solution y(x) = (x-1)/2 + 3e^{-2x}/2.\nc) Analyze the stability of the method for this problem.",
+            "difficulty": "hard",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Prepare 4th-order Runge-Kutta\nGiven: y' = f(x,y) = -2y + x, y(0) = 1, h = 0.2\nRK4 formulas:\nk₁ = hf(xₙ, yₙ)\nk₂ = hf(xₙ + h/2, yₙ + k₁/2)\nk₃ = hf(xₙ + h/2, yₙ + k₂/2)\nk₄ = hf(xₙ + h, yₙ + k₃)\nyₙ₊₁ = yₙ + (k₁ + 2k₂ + 2k₃ + k₄)/6",
+                "Step 2: First iteration (x₀ = 0, y₀ = 1)\nk₁ = 0.2·f(0,1) = 0.2·(-2·1 + 0) = -0.4\nk₂ = 0.2·f(0.1, 1-0.2) = 0.2·f(0.1, 0.8) = 0.2·(-2·0.8 + 0.1) = 0.2·(-1.5) = -0.3\nk₃ = 0.2·f(0.1, 1-0.15) = 0.2·f(0.1, 0.85) = 0.2·(-2·0.85 + 0.1) = -0.32\nk₄ = 0.2·f(0.2, 1-0.32) = 0.2·f(0.2, 0.68) = 0.2·(-2·0.68 + 0.2) = -0.232\ny₁ = 1 + (-0.4 + 2(-0.3) + 2(-0.32) + (-0.232))/6 = 1 - 0.3107 ≈ 0.6893",
+                "Step 3: Further iterations\nSecond iteration (x₁ = 0.2, y₁ ≈ 0.6893):\nAnalogous calculations lead to y₂ ≈ 0.5238\nThird iteration (x₂ = 0.4, y₂ ≈ 0.5238):\ny₃ ≈ 0.4493\nFourth iteration (x₃ = 0.6, y₃ ≈ 0.4493):\ny₄ ≈ 0.4187\nFifth iteration (x₄ = 0.8, y₄ ≈ 0.4187):\ny₅ ≈ 0.4184",
+                "Step 4: Part b) - Comparison with exact solution\nExact solution: y(x) = (x-1)/2 + 3e^{-2x}/2\nExact values:\ny(0.2) = (0.2-1)/2 + 3e^{-0.4}/2 ≈ -0.4 + 1.0070 ≈ 0.6070\ny(0.4) = (0.4-1)/2 + 3e^{-0.8}/2 ≈ -0.3 + 0.6749 ≈ 0.3749\ny(0.6) ≈ 0.4493, y(0.8) ≈ 0.4187, y(1.0) ≈ 0.4184",
+                "Step 5: Error analysis\nError at x = 0.2: |0.6893 - 0.6070| ≈ 0.0823\nError at x = 0.4: |0.5238 - 0.4493| ≈ 0.0745\nThe errors are reasonably large for RK4 with h = 0.2.\nGlobal error of RK4: O(h⁴), local error: O(h⁵)",
+                "Step 6: Part c) - Stability analysis\nFor the model equation y' = λy with λ = -2, the stability region is relevant.\nRK4 stability condition: |1 + hλ + (hλ)²/2 + (hλ)³/6 + (hλ)⁴/24| < 1\nWith hλ = 0.2·(-2) = -0.4:\n|1 - 0.4 + 0.08 - 0.0107 + 0.0007| = |0.6700| < 1\nThe method is stable for this step size.\nCritical step size for absolute stability: h < 2.785/|λ| = 1.39"
+            ]
+        }
+    ]
+}

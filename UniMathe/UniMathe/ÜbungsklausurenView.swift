@@ -18,10 +18,10 @@ struct ÜbungsklausurenView: View {
         ),
         ExamTopic(
             title: "Lineare Algebra",
-            subtitle: "Matrizen, Vektorräume, Eigenwerte",
+            subtitle: "Eigenwerte, Diagonalisierung und lineare Räume",
             difficulty: .intermediate,
             duration: 90,
-            questions: 12,
+            questions: 5,
             icon: "grid",
             color: Color(red: 0.0, green: 0.7, blue: 0.4)
         ),
@@ -259,6 +259,67 @@ struct ExamCard: View {
                     let impactFeedback = UIImpactFeedbackGenerator(style: .light)
                     impactFeedback.impactOccurred()
                 })
+            } else if exam.title == "Lineare Algebra" {
+                NavigationLink(destination: 
+                    ExamDetailView(examFilename: settings.language == .english ? "linear_algebra_intermediate" : "lineare_algebra_fortgeschritten")
+                        .navigationBarTitleDisplayMode(.inline)
+                ) {
+                    examCardContent
+                }
+                .buttonStyle(PlainButtonStyle())
+                .simultaneousGesture(TapGesture().onEnded {
+                    // Haptic feedback when tapping the exam card
+                    let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+                    impactFeedback.impactOccurred()
+                })
+			} else if exam.title == "Analysis II" {
+				NavigationLink(destination:
+					ExamDetailView(examFilename: settings.language == .english ? "analysis_2_advanced" : "analysis_2_experte")
+						.navigationBarTitleDisplayMode(.inline)
+				) {
+					examCardContent
+				}
+				.buttonStyle(PlainButtonStyle())
+				.simultaneousGesture(TapGesture().onEnded {
+					let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+					impactFeedback.impactOccurred()
+				})
+			} else if exam.title == "Differentialgleichungen" {
+				NavigationLink(destination:
+					ExamDetailView(examFilename: settings.language == .english ? "differential_equations_advanced" : "differentialgleichungen_experte")
+						.navigationBarTitleDisplayMode(.inline)
+				) {
+					examCardContent
+				}
+				.buttonStyle(PlainButtonStyle())
+				.simultaneousGesture(TapGesture().onEnded {
+					let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+					impactFeedback.impactOccurred()
+				})
+			} else if exam.title == "Statistik" {
+				NavigationLink(destination:
+					ExamDetailView(examFilename: settings.language == .english ? "statistics_intermediate" : "statistik_fortgeschritten")
+						.navigationBarTitleDisplayMode(.inline)
+				) {
+					examCardContent
+				}
+				.buttonStyle(PlainButtonStyle())
+				.simultaneousGesture(TapGesture().onEnded {
+					let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+					impactFeedback.impactOccurred()
+				})
+			} else if exam.title == "Numerische Mathematik" {
+				NavigationLink(destination:
+					ExamDetailView(examFilename: settings.language == .english ? "numerical_mathematics_advanced" : "numerische_mathematik_experte")
+						.navigationBarTitleDisplayMode(.inline)
+				) {
+					examCardContent
+				}
+				.buttonStyle(PlainButtonStyle())
+				.simultaneousGesture(TapGesture().onEnded {
+					let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+					impactFeedback.impactOccurred()
+				})
             } else {
                 Button(action: {
                     // Action for starting exam

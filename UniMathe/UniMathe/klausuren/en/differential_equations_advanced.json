@@ -1,0 +1,91 @@
+{
+    "exam": {
+        "title": "Differential Equations - Expert Exam",
+        "subtitle": "Ordinary and Partial Differential Equations",
+        "duration": 135,
+        "totalPoints": 80,
+        "difficulty": "advanced",
+        "language": "en",
+        "instructions": "Complete all tasks. Justify your steps. Permitted aids: non-programmable calculator."
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "First Order",
+            "title": "Separable Equation",
+            "description": "Solve `\\frac{dy}{dx} = xy` with `y(0)=2`.",
+            "difficulty": "easy",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Separate `\\frac{1}{y}dy = x dx`",
+                "Step 2: Integrate `\\ln|y| = \\tfrac{x^2}{2} + C`",
+                "Step 3: Initial condition `y(0)=2` gives `y=2 e^{x^2/2}`"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Linear ODE",
+            "title": "First Order Linear",
+            "description": "Solve `y' + y = e^x`.",
+            "difficulty": "easy",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Integrating factor `\\mu(x)=e^{x}`",
+                "Step 2: `(e^x y)' = e^{2x}`",
+                "Step 3: `y= \\tfrac{1}{2}e^{x} + C e^{-x}`"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Second Order",
+            "title": "Homogeneous, constant coefficients",
+            "description": "Solve `y'' - 3y' + 2y = 0`.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Characteristic equation `r^2 - 3r + 2=0`",
+                "Step 2: Roots `r=1,2`",
+                "Step 3: Solution `y(x)=C_1 e^{x} + C_2 e^{2x}`"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Systems",
+            "title": "Linear System",
+            "description": "Solve `x' = 2x + y`, `y' = x + 2y` using diagonalization.",
+            "difficulty": "medium",
+            "points": 14,
+            "solutionSteps": [
+                "Step 1: Matrix `A=\\begin{pmatrix}2 & 1 \\\\ 1 & 2 \\end{pmatrix}` has eigenvalues `3,1`",
+                "Step 2: Eigenvectors provide decoupled system",
+                "Step 3: General solution combination of `e^{3t}` and `e^{t}`"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Laplace Transform",
+            "title": "Solving with Laplace",
+            "description": "Solve `y' + 2y = u(t)` with `y(0)=0` using Laplace transform (`u` is the unit step function).",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Laplace: `sY - y(0) + 2Y = \\frac{1}{s}`",
+                "Step 2: `Y = \\frac{1}{s(s+2)}`",
+                "Step 3: Inverse transform: `y(t) = \\tfrac{1}{2}(1 - e^{-2t})`"
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "PDE",
+            "title": "Heat equation (outline)",
+            "description": "Give the separated solutions for `u_t = k u_{xx}` on `0<x<L` with homogeneous Dirichlet boundary conditions.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Ansatz `u(x,t)=X(x)T(t)`",
+                "Step 2: `X'' + \\lambda X=0` with `X(0)=X(L)=0` gives `X_n=\\sin(\\tfrac{n\\pi x}{L})`",
+                "Step 3: `T_n(t)=e^{-k (n\\pi/L)^2 t}`, general series solution"
+            ]
+        }
+    ]
+}

@@ -4,18 +4,16 @@ struct ExamDetailView: View {
     let examFilename: String
     @State private var exam: Exam?
     @State private var isLoading = true
-    @State private var currentExercise = 0
-    @State private var showSolution = false
-    @State private var currentStep = 0
     @State private var timeRemaining: Int = 0
     @State private var timer: Timer?
     @State private var isTimerRunning = false
     @State private var examStarted = false
     @State private var showEndExamAlert = false
     @State private var exerciseHeights: [CGFloat] = []
-    @State private var solutionHeights: [CGFloat] = []
-    @State private var exerciseContentHeight: CGFloat = 100
-    @State private var stepHeights: [CGFloat] = []
+    @State private var showSolutions: [Bool] = []
+    @State private var currentSteps: [Int] = []
+    // Dynamic heights for solution steps to auto-fit content without inner scrolling
+    @State private var solutionHeights: [String: CGFloat] = [:]
     @ObservedObject private var settings = SettingsModel.shared
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.presentationMode) var presentationMode
@@ -23,16 +21,53 @@ struct ExamDetailView: View {
     
     var body: some View {
         ZStack {
-            // Background gradient
+            // Modern gradient background with subtle patterns
             LinearGradient(
                 gradient: Gradient(colors: [
-                    Color(red: 0.95, green: 0.97, blue: 1.0),
-                    Color(red: 0.98, green: 0.98, blue: 1.0)
+                    Color(red: 0.98, green: 0.99, blue: 1.0),
+                    Color(red: 0.94, green: 0.97, blue: 0.99),
+                    Color(red: 0.96, green: 0.98, blue: 1.0)
                 ]),
-                startPoint: .top,
-                endPoint: .bottom
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
             )
             .ignoresSafeArea()
+            
+            // Subtle decorative elements for modern look
+            GeometryReader { geometry in
+                ZStack {
+                    Circle()
+                        .fill(
+                            RadialGradient(
+                                gradient: Gradient(colors: [
+                                    Color.blue.opacity(0.04),
+                                    Color.purple.opacity(0.02),
+                                    Color.clear
+                                ]),
+                                center: .center,
+                                startRadius: 80,
+                                endRadius: 200
+                            )
+                        )
+                        .frame(width: geometry.size.width * 0.6)
+                        .offset(x: -geometry.size.width * 0.2, y: -geometry.size.height * 0.1)
+                    
+                    RoundedRectangle(cornerRadius: 60)
+                        .fill(
+                            LinearGradient(
+                                gradient: Gradient(colors: [
+                                    Color.orange.opacity(0.03),
+                                    Color.pink.opacity(0.02)
+                                ]),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .frame(width: geometry.size.width * 0.4, height: geometry.size.height * 0.25)
+                        .offset(x: geometry.size.width * 0.4, y: geometry.size.height * 0.3)
+                        .rotationEffect(.degrees(15))
+                }
+            }
             
             if isLoading {
                 ProgressView(settings.language == .english ? "Loading exam..." : "Klausur wird geladen...")
@@ -70,7 +105,6 @@ struct ExamDetailView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
                         if isTimerRunning {
-                            // Show alert for exam in progress
                             showEndExamAlert = true
                         } else {
                             presentationMode.wrappedValue.dismiss()
@@ -104,33 +138,10 @@ struct ExamDetailView: View {
     @ViewBuilder
     private func examContent(exam: Exam) -> some View {
         VStack(spacing: 0) {
-            // Exam Header
             if !examStarted {
                 examIntroView(exam: exam)
             } else {
-                // Timer and Progress Header
-                examProgressHeader(exam: exam)
-                
-                // Main Content
-                ScrollView {
-                    VStack(spacing: 24) {
-                        // Current Exercise
-                        if currentExercise < exam.exercises.count {
-                            exerciseCard(exercise: exam.exercises[currentExercise], exerciseNumber: currentExercise + 1)
-                        }
-                        
-                        // Solution Section
-                        if showSolution {
-                            solutionSection(exercise: exam.exercises[currentExercise])
-                        }
-                        
-                        // Navigation Buttons
-                        navigationButtons(exam: exam)
-                        
-                        Spacer(minLength: 100)
-                    }
-                    .padding(.vertical)
-                }
+                modernExamPaperView(exam: exam)
             }
         }
     }
@@ -366,41 +377,111 @@ struct ExamDetailView: View {
     }
     
     @ViewBuilder
-    private func examProgressHeader(exam: Exam) -> some View {
+    private func modernExamPaperView(exam: Exam) -> some View {
+        VStack(spacing: 0) {
+            // Modern Exam Header
+            modernExamHeader(exam: exam)
+            
+            // Main Exam Content - Optimized for smooth scrolling
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 20) {
+                    // Exam Paper Title
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text(exam.exam.title)
+                            .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 32 : 28))
+                            .fontWeight(.black)
+                            .foregroundColor(.primary)
+                        
+                        Text(exam.exam.subtitle)
+                            .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 18 : 16))
+                            .fontWeight(.medium)
+                            .foregroundColor(.secondary)
+                        
+                        Divider()
+                            .background(Color.blue.opacity(0.3))
+                            .padding(.vertical, 8)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 24)
+                    .padding(.top, 20)
+                    
+                    // All Exercises - Optimized VStack
+                    VStack(spacing: 20) {
+                        ForEach(Array(exam.exercises.enumerated()), id: \.element.id) { index, exercise in
+                            optimizedExerciseCard(
+                                exercise: exercise,
+                                exerciseNumber: index + 1,
+                                exerciseIndex: index
+                            )
+                        }
+                    }
+                    .padding(.horizontal, 24)
+                    
+                    // Finish Exam Button
+                    modernFinishButton()
+                        .padding(.horizontal, 24)
+                        .padding(.top, 32)
+                    
+                    Spacer(minLength: 120)
+                }
+                .padding(.vertical)
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func modernExamHeader(exam: Exam) -> some View {
         VStack(spacing: 16) {
-            // Timer and Progress
             HStack {
                 // Timer
-                HStack {
-                    Image(systemName: "clock")
+                HStack(spacing: 8) {
+                    Image(systemName: "clock.fill")
                         .foregroundColor(.blue)
+                        .font(.system(size: 16, weight: .semibold))
+                    
                     Text(formatTime(timeRemaining))
-                        .font(.title3)
-                        .fontWeight(.semibold)
+                        .font(.custom("SF Pro Display", size: 18))
+                        .fontWeight(.bold)
                         .monospacedDigit()
+                        .foregroundColor(.primary)
                 }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 10)
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.ultraThinMaterial)
+                        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
+                )
                 
                 Spacer()
                 
-                // Exercise Progress
-                Text("\(currentExercise + 1) / \(exam.exercises.count)")
-                    .font(.title3)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.secondary)
+                // Points Info
+                HStack(spacing: 8) {
+                    Image(systemName: "star.fill")
+                        .foregroundColor(.orange)
+                        .font(.system(size: 16, weight: .semibold))
+                    
+                    Text("\(exam.exam.totalPoints) \(settings.language == .english ? "pts" : "Pkt")")
+                        .font(.custom("SF Pro Display", size: 18))
+                        .fontWeight(.bold)
+                        .foregroundColor(.primary)
+                }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 10)
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(.ultraThinMaterial)
+                        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
+                )
             }
             .padding(.horizontal, 24)
-            
-            // Progress Bar
-            ProgressView(value: Double(currentExercise + 1), total: Double(exam.exercises.count))
-                .progressViewStyle(LinearProgressViewStyle(tint: .blue))
-                .padding(.horizontal, 24)
         }
         .padding(.vertical, 16)
         .background(.ultraThinMaterial)
     }
     
     @ViewBuilder
-    private func exerciseCard(exercise: ExamExercise, exerciseNumber: Int) -> some View {
+    private func optimizedExerciseCard(exercise: ExamExercise, exerciseNumber: Int, exerciseIndex: Int) -> some View {
         VStack(alignment: .leading, spacing: 16) {
             // Exercise Header
             HStack {
@@ -408,18 +489,28 @@ struct ExamDetailView: View {
                     Text("\(settings.language == .english ? "Question" : "Aufgabe") \(exerciseNumber)")
                         .font(.title2)
                         .fontWeight(.bold)
+                        .foregroundColor(.primary)
                     
-                    HStack {
+                    HStack(spacing: 12) {
                         Text(exercise.topic)
-                            .font(.subheadline)
+                            .font(.caption)
+                            .fontWeight(.semibold)
                             .foregroundColor(.blue)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 2)
+                            .background(Color.blue.opacity(0.1))
+                            .clipShape(Capsule())
                         
                         Spacer()
                         
-                        Text("\(exercise.points) \(settings.language == .english ? "points" : "Punkte")")
-                            .font(.subheadline)
-                            .fontWeight(.semibold)
+                        Text("\(exercise.points) \(settings.language == .english ? "pts" : "Pkt")")
+                            .font(.caption)
+                            .fontWeight(.bold)
                             .foregroundColor(.orange)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 2)
+                            .background(Color.orange.opacity(0.1))
+                            .clipShape(Capsule())
                     }
                 }
             }
@@ -427,183 +518,251 @@ struct ExamDetailView: View {
             Divider()
             
             // Exercise Content
-            LaTeXView(
-                content: "<span style='font-size:1.1em;font-weight:bold;'>" + addHtmlLineBreaks(exercise.title) + "</span><br><br>" + addHtmlLineBreaks(exercise.description),
-                height: $exerciseContentHeight
-            )
-            .frame(height: exerciseContentHeight)
+            VStack(alignment: .leading, spacing: 8) {
+                Text(exercise.title)
+                    .font(.headline)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.primary)
+                
+                // LaTeX with adaptive height based on content length
+                LaTeXView(
+                    content: addHtmlLineBreaks(exercise.description),
+                    height: Binding<CGFloat>(
+                        get: {
+                            if exerciseHeights.indices.contains(exerciseIndex) && exerciseHeights[exerciseIndex] > 0 {
+                                return exerciseHeights[exerciseIndex]
+                            } else {
+                                return estimateContentHeight(for: exercise.description)
+                            }
+                        },
+                        set: { newHeight in
+                            if exerciseHeights.indices.contains(exerciseIndex) {
+                                exerciseHeights[exerciseIndex] = newHeight
+                            } else {
+                                while exerciseHeights.count <= exerciseIndex { exerciseHeights.append(0) }
+                                exerciseHeights[exerciseIndex] = newHeight
+                            }
+                        }
+                    )
+                )
+                .frame(height: {
+                    if exerciseHeights.indices.contains(exerciseIndex) && exerciseHeights[exerciseIndex] > 0 {
+                        return exerciseHeights[exerciseIndex]
+                    } else {
+                        return estimateContentHeight(for: exercise.description)
+                    }
+                }())
+            }
+            
+            // Solution Button
+            optimizedSolutionButton(exerciseIndex: exerciseIndex)
+            
+            // Solution Section
+            if showSolutions.indices.contains(exerciseIndex) && showSolutions[exerciseIndex] {
+                optimizedSolutionSection(exercise: exercise, exerciseIndex: exerciseIndex)
+            }
         }
         .padding(20)
         .background(
             RoundedRectangle(cornerRadius: 16)
-                .fill(.white)
-                .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
+                .fill(Color.white)
+                .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
         )
-        .padding(.horizontal, 24)
     }
     
     @ViewBuilder
-    private func solutionSection(exercise: ExamExercise) -> some View {
-        VStack(spacing: 16) {
-            ForEach(0..<min(currentStep + 1, exercise.solutionSteps.count), id: \.self) { step in
-                solutionStepCard(stepContent: exercise.solutionSteps[step], stepNumber: step + 1, stepIndex: step)
+    private func optimizedSolutionButton(exerciseIndex: Int) -> some View {
+        Button(action: {
+            // Ensure arrays are properly sized
+            while showSolutions.count <= exerciseIndex {
+                showSolutions.append(false)
+            }
+            while currentSteps.count <= exerciseIndex {
+                currentSteps.append(0)
             }
             
-            if currentStep < exercise.solutionSteps.count - 1 {
-                Button(action: {
-                    withAnimation(.spring()) {
-                        currentStep += 1
-                        // Ensure we have enough heights for all steps
-                        if currentStep >= stepHeights.count {
-                            stepHeights.append(100)
-                        }
-                    }
-                }) {
-                    HStack {
-                        Image(systemName: "chevron.right")
-                        Text(settings.language == .english ? "Next Step" : "Nächster Schritt")
-                    }
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.green)
-                    .cornerRadius(12)
-                }
-                .padding(.horizontal, 24)
+            showSolutions[exerciseIndex].toggle()
+            
+            if showSolutions[exerciseIndex] {
+                currentSteps[exerciseIndex] = 0
             }
+        }) {
+            HStack(spacing: 8) {
+                Image(systemName: showSolutions.indices.contains(exerciseIndex) && showSolutions[exerciseIndex] ? "eye.slash.fill" : "lightbulb.fill")
+                    .font(.system(size: 14, weight: .semibold))
+                
+                Text(showSolutions.indices.contains(exerciseIndex) && showSolutions[exerciseIndex] ? 
+                     (settings.language == .english ? "Hide Solution" : "Lösung ausblenden") :
+                     (settings.language == .english ? "Show Solution" : "Lösung anzeigen"))
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+            }
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 10)
+            .background(Color.orange)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
         }
     }
     
     @ViewBuilder
-    private func solutionStepCard(stepContent: String, stepNumber: Int, stepIndex: Int) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
+    private func optimizedSolutionSection(exercise: ExamExercise, exerciseIndex: Int) -> some View {
+        VStack(spacing: 12) {
+            // Solution Header
             HStack {
-                Text("\(settings.language == .english ? "Step" : "Schritt") \(stepNumber)")
-                    .font(.headline)
+                Image(systemName: "lightbulb.fill")
                     .foregroundColor(.green)
+                    .font(.system(size: 16, weight: .semibold))
+                
+                Text(settings.language == .english ? "Solution" : "Lösung")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                    .foregroundColor(.green)
+                
                 Spacer()
             }
             
-            if stepIndex < stepHeights.count {
-                LaTeXView(content: addHtmlLineBreaks(stepContent), height: $stepHeights[stepIndex])
-                    .frame(height: stepHeights[stepIndex])
-            } else {
-                LaTeXView(content: addHtmlLineBreaks(stepContent), height: .constant(100))
-                    .frame(height: 100)
+            // Solution Steps
+            let currentStepCount = currentSteps.indices.contains(exerciseIndex) ? currentSteps[exerciseIndex] : 0
+            
+            ForEach(0..<min(currentStepCount + 1, exercise.solutionSteps.count), id: \.self) { stepIndex in
+                optimizedSolutionStep(
+                    stepContent: exercise.solutionSteps[stepIndex],
+                    stepNumber: stepIndex + 1,
+                    exerciseIndex: exerciseIndex
+                )
+            }
+            
+            // Next Step Button
+            if currentStepCount < exercise.solutionSteps.count - 1 {
+                Button(action: {
+                    if currentSteps.indices.contains(exerciseIndex) {
+                        currentSteps[exerciseIndex] += 1
+                    }
+                }) {
+                    HStack(spacing: 6) {
+                        Image(systemName: "arrow.right.circle.fill")
+                            .font(.system(size: 14, weight: .semibold))
+                        
+                        Text(settings.language == .english ? "Next Step" : "Nächster Schritt")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                    }
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 8)
+                    .background(Color.green)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                }
             }
         }
         .padding(16)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(Color.green.opacity(0.1))
+                .fill(Color.green.opacity(0.05))
                 .overlay(
                     RoundedRectangle(cornerRadius: 12)
-                        .stroke(Color.green.opacity(0.3), lineWidth: 1)
+                        .stroke(Color.green.opacity(0.2), lineWidth: 1)
                 )
         )
-        .padding(.horizontal, 24)
     }
     
     @ViewBuilder
-    private func navigationButtons(exam: Exam) -> some View {
-        VStack(spacing: 16) {
-            // Show Solution Button
-            if !showSolution {
-                Button(action: {
-                    withAnimation {
-                        showSolution = true
-                        currentStep = 0
-                        // Initialize step heights when showing solution
-                        guard let currentExam = self.exam, currentExercise < currentExam.exercises.count else { return }
-                        stepHeights = Array(repeating: 100, count: currentExam.exercises[currentExercise].solutionSteps.count)
-                    }
-                }) {
-                    HStack {
-                        Image(systemName: "lightbulb")
-                        Text(settings.language == .english ? "Show Solution" : "Lösung anzeigen")
-                    }
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.orange)
-                    .cornerRadius(12)
-                }
+    private func optimizedSolutionStep(stepContent: String, stepNumber: Int, exerciseIndex: Int) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Text("\(settings.language == .english ? "Step" : "Schritt") \(stepNumber)")
+                    .font(.subheadline)
+                    .fontWeight(.bold)
+                    .foregroundColor(.green)
+                
+                Spacer()
+                
+                Circle()
+                    .fill(Color.green)
+                    .frame(width: 6, height: 6)
             }
             
-            // Navigation Buttons Row
-            HStack(spacing: 16) {
-                // Previous Exercise Button
-                if currentExercise > 0 {
-                    Button(action: previousExercise) {
-                        HStack {
-                            Image(systemName: "arrow.left")
-                            Text(settings.language == .english ? "Previous Question" : "Vorherige Aufgabe")
-                        }
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, minHeight: 50, maxHeight: 50)
-                        .background(Color.gray)
-                        .cornerRadius(12)
+            // LaTeX with adaptive height based on content length
+            LaTeXView(
+                content: addHtmlLineBreaks(stepContent),
+                height: Binding<CGFloat>(
+                    get: {
+                        let key = "\(stepNumberKey(exerciseIndex: exerciseIndex, stepIndex: stepNumber - 1))"
+                        return solutionHeights[key] ?? estimateContentHeight(for: stepContent)
+                    },
+                    set: { newHeight in
+                        let key = "\(stepNumberKey(exerciseIndex: exerciseIndex, stepIndex: stepNumber - 1))"
+                        solutionHeights[key] = newHeight
                     }
-                }
-                
-                // Next Exercise Button or Finish Button
-                if currentExercise < exam.exercises.count - 1 {
-                    Button(action: nextExercise) {
-                        HStack {
-                            Text(settings.language == .english ? "Next Question" : "Nächste Aufgabe")
-                            Image(systemName: "arrow.right")
-                        }
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, minHeight: 50, maxHeight: 50)
-                        .background(Color.blue)
-                        .cornerRadius(12)
-                    }
-                } else {
-                    Button(action: endExam) {
-                        HStack {
-                            Image(systemName: "checkmark")
-                            Text(settings.language == .english ? "Finish Exam" : "Klausur beenden")
-                        }
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, minHeight: 50, maxHeight: 50)
-                        .background(Color.red)
-                        .cornerRadius(12)
-                    }
-                }
-            }
+                )
+            )
+            .frame(height: {
+                let key = stepNumberKey(exerciseIndex: exerciseIndex, stepIndex: stepNumber - 1)
+                return solutionHeights[key] ?? estimateContentHeight(for: stepContent)
+            }())
         }
-        .padding(.horizontal, 24)
+        .padding(12)
+        .background(
+            RoundedRectangle(cornerRadius: 8)
+                .fill(Color.white)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.green.opacity(0.3), lineWidth: 1)
+                )
+        )
+    }
+    
+    @ViewBuilder
+    private func modernFinishButton() -> some View {
+        Button(action: endExam) {
+            HStack(spacing: 12) {
+                Image(systemName: "checkmark.circle.fill")
+                    .font(.system(size: 20, weight: .semibold))
+                
+                Text(settings.language == .english ? "Finish Exam" : "Klausur beenden")
+                    .font(.custom("SF Pro Display", size: 18))
+                    .fontWeight(.bold)
+            }
+            .foregroundColor(.white)
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 16)
+            .background(
+                LinearGradient(
+                    gradient: Gradient(colors: [
+                        Color.red,
+                        Color.red.opacity(0.8)
+                    ]),
+                    startPoint: .leading,
+                    endPoint: .trailing
+                )
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+            .shadow(color: Color.red.opacity(0.3), radius: 12, x: 0, y: 6)
+        }
     }
     
     // MARK: - Methods
     private func loadExam() {
         print("🔍 EXAM DETAIL: loadExam() called with filename: \(examFilename)")
-        print("🔍 EXAM DETAIL: Current language: \(settings.language)")
-        print("🔍 EXAM DETAIL: Language raw value: \(settings.language.rawValue)")
         
         DispatchQueue.global(qos: .userInitiated).async {
             let loadedExam = ExamRepository.shared.loadExam(filename: examFilename, language: settings.language)
             
             DispatchQueue.main.async {
-                print("🔍 EXAM DETAIL: Exam loading completed")
-                
                 if let exam = loadedExam {
                     print("✅ EXAM DETAIL: Successfully loaded exam: \(exam.exam.title)")
                     self.exam = exam
-                    self.timeRemaining = exam.exam.duration * 60 // Convert to seconds
-                    self.exerciseHeights = Array(repeating: 100, count: exam.exercises.count)
-                    self.solutionHeights = Array(repeating: 100, count: exam.exercises.count)
-                    // Initialize step heights for first exercise
-                    if !exam.exercises.isEmpty {
-                        self.stepHeights = Array(repeating: 100, count: exam.exercises[0].solutionSteps.count)
+                    self.timeRemaining = exam.exam.duration * 60
+                    
+                    // Initialize arrays with estimated heights for better content fitting
+                    self.exerciseHeights = exam.exercises.map { exercise in
+                        self.estimateContentHeight(for: exercise.description)
                     }
+                    self.showSolutions = Array(repeating: false, count: exam.exercises.count)
+                    self.currentSteps = Array(repeating: 0, count: exam.exercises.count)
                 } else {
-                    print("❌ EXAM DETAIL: Failed to load exam - exam is nil")
+                    print("❌ EXAM DETAIL: Failed to load exam")
                     self.exam = nil
                 }
                 
@@ -614,6 +773,16 @@ struct ExamDetailView: View {
     
     private func startExam() {
         examStarted = true
+        
+        // Initialize arrays for performance
+        if let currentExam = exam {
+            showSolutions = Array(repeating: false, count: currentExam.exercises.count)
+            currentSteps = Array(repeating: 0, count: currentExam.exercises.count)
+            exerciseHeights = currentExam.exercises.map { exercise in
+                estimateContentHeight(for: exercise.description)
+            }
+        }
+        
         startTimer()
     }
     
@@ -635,30 +804,6 @@ struct ExamDetailView: View {
         presentationMode.wrappedValue.dismiss()
     }
     
-    private func nextExercise() {
-        withAnimation {
-            currentExercise += 1
-            showSolution = false
-            currentStep = 0
-            
-            // Update step heights for new exercise
-            guard let currentExam = self.exam, currentExercise < currentExam.exercises.count else { return }
-            stepHeights = Array(repeating: 100, count: currentExam.exercises[currentExercise].solutionSteps.count)
-        }
-    }
-    
-    private func previousExercise() {
-        withAnimation {
-            currentExercise -= 1
-            showSolution = false
-            currentStep = 0
-            
-            // Update step heights for new exercise
-            guard let currentExam = self.exam, currentExercise >= 0 && currentExercise < currentExam.exercises.count else { return }
-            stepHeights = Array(repeating: 100, count: currentExam.exercises[currentExercise].solutionSteps.count)
-        }
-    }
-    
     private func formatTime(_ seconds: Int) -> String {
         let hours = seconds / 3600
         let minutes = (seconds % 3600) / 60
@@ -669,6 +814,40 @@ struct ExamDetailView: View {
         } else {
             return String(format: "%02d:%02d", minutes, secs)
         }
+    }
+    
+    // MARK: - Content Height Estimation
+    private func estimateContentHeight(for content: String) -> CGFloat {
+        // Base height for minimal content
+        let baseHeight: CGFloat = 50
+        
+        // Estimate height based on content characteristics
+        let characterCount = content.count
+        let lineBreaks = content.components(separatedBy: "\n").count - 1
+        let mathExpressions = content.components(separatedBy: "$").count / 2 // LaTeX math expressions
+        
+        // Calculate estimated height more conservatively
+        var estimatedHeight = baseHeight
+        
+        // Add height based on character count (roughly 50 characters per line for better density)
+        estimatedHeight += CGFloat(characterCount / 50) * 18
+        
+        // Add extra height for line breaks (reduced from 25 to 20)
+        estimatedHeight += CGFloat(lineBreaks) * 20
+        
+        // Add extra height for math expressions (reduced from 15 to 12)
+        estimatedHeight += CGFloat(mathExpressions) * 12
+        
+        // Set more conservative bounds - especially for solution steps
+        let minHeight: CGFloat = 50
+        let maxHeight: CGFloat = 200  // Reduced from 300 to 200
+        
+        return max(minHeight, min(maxHeight, estimatedHeight))
+    }
+
+    // Key builder for mapping dynamic heights of solution steps
+    private func stepNumberKey(exerciseIndex: Int, stepIndex: Int) -> String {
+        "ex\(exerciseIndex)_step\(stepIndex)"
     }
     
     // MARK: - Grading System
@@ -719,7 +898,7 @@ struct GradeInfo {
     let isPassing: Bool
 }
 
-// Hilfsfunktion, um Zeilenumbrüche in <br> umzuwandeln
+// Helper function for HTML line breaks
 fileprivate func addHtmlLineBreaks(_ text: String) -> String {
     text.replacingOccurrences(of: "\n", with: "<br>")
 }
@@ -728,4 +907,4 @@ fileprivate func addHtmlLineBreaks(_ text: String) -> String {
     NavigationView {
         ExamDetailView(examFilename: "analysis_1_anfaenger")
     }
-} 
+}

@@ -1,0 +1,104 @@
+{
+    "exam": {
+        "title": "Statistik - Fortgeschrittenenklausur",
+        "subtitle": "Wahrscheinlichkeitstheorie und Inferenzstatistik",
+        "duration": 120,
+        "totalPoints": 100,
+        "difficulty": "intermediate",
+        "language": "de",
+        "instructions": "Bearbeiten Sie alle Aufgaben vollständig. Geben Sie stets den Lösungsweg an. Zulässige Hilfsmittel: nicht programmierbarer Taschenrechner, Tabellen der Standardnormalverteilung und t-Verteilung."
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Bedingte Wahrscheinlichkeit und Bayes-Theorem",
+            "title": "Medizinischer Test",
+            "description": "Eine seltene Krankheit kommt in der Bevölkerung mit einer Prävalenz von 0,2% vor. Ein Test auf diese Krankheit hat eine Sensitivität von 95% und eine Spezifität von 98%.\n\na) Wie groß ist die Wahrscheinlichkeit, dass eine zufällig ausgewählte Person positiv getestet wird?\nb) Wie groß ist die Wahrscheinlichkeit, dass eine Person mit positivem Testergebnis tatsächlich krank ist?",
+            "difficulty": "medium",
+            "points": 18,
+            "solutionSteps": [
+                "Schritt 1: Ereignisse definieren\nSei K = 'Person ist krank', T+ = 'Test ist positiv'\nGegeben: P(K) = 0,002, P(T+|K) = 0,95, P(T-|K^c) = 0,98\nDaraus folgt: P(K^c) = 0,998, P(T+|K^c) = 0,02",
+                "Schritt 2: Teil a) - Totale Wahrscheinlichkeit\nP(T+) = P(T+|K) · P(K) + P(T+|K^c) · P(K^c)\nP(T+) = 0,95 · 0,002 + 0,02 · 0,998\nP(T+) = 0,0019 + 0,01996 = 0,02186",
+                "Schritt 3: Teil b) - Bayes-Theorem\n$P(K|T+) = \\frac{P(T+|K) \\cdot P(K)}{P(T+)}$\n$P(K|T+) = \\frac{0,95 \\cdot 0,002}{0,02186} = \\frac{0,0019}{0,02186} \\approx 0,0869$",
+                "Schritt 4: Interpretation\na) Die Wahrscheinlichkeit für einen positiven Test beträgt etwa 2,19%\nb) Trotz positivem Test ist die Wahrscheinlichkeit tatsächlich krank zu sein nur etwa 8,69%\nDies zeigt die Bedeutung der Vortestwahrscheinlichkeit bei seltenen Krankheiten."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Diskrete Verteilungen",
+            "title": "Binomial- und Poissonverteilung",
+            "description": "In einer Produktionslinie werden elektronische Bauteile hergestellt. Die Wahrscheinlichkeit für ein defektes Bauteil beträgt p = 0,03.\n\na) Wie groß ist die Wahrscheinlichkeit, dass unter 50 Bauteilen genau 2 defekt sind?\nb) Approximieren Sie diese Wahrscheinlichkeit mit der Poissonverteilung.\nc) Wie viele Bauteile müssen mindestens produziert werden, damit mit einer Wahrscheinlichkeit von mindestens 90% mindestens ein defektes Bauteil dabei ist?",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Teil a) - Binomialverteilung\nX ~ B(50; 0,03), gesucht: P(X = 2)\n$P(X = 2) = \\binom{50}{2} \\cdot 0,03^2 \\cdot 0,97^{48}$\nP(X = 2) = 1225 · 0,0009 · 0,2371 ≈ 0,2611",
+                "Schritt 2: Teil b) - Poisson-Approximation\nλ = n · p = 50 · 0,03 = 1,5\n$Y \\sim \\text{Pois}(1,5), \\quad P(Y = 2) = \\frac{e^{-1,5} \\cdot 1,5^2}{2!}$\n$P(Y = 2) = \\frac{0,2231 \\cdot 2,25}{2} \\approx 0,2510$",
+                "Schritt 3: Vergleich der Approximation\nExakter Wert: 0,2611\nPoisson-Approximation: 0,2510\n$\\text{Relativer Fehler: } \\frac{|0,2611 - 0,2510|}{0,2611} \\approx 3,9\\%$\nDie Approximation ist sehr gut.",
+                "Schritt 4: Teil c) - Mindestanzahl berechnen\nGesucht: kleinstes n mit P(X ≥ 1) ≥ 0,9\nP(X ≥ 1) = 1 - P(X = 0) = 1 - 0,97^n ≥ 0,9\n0,97^n ≤ 0,1\nn · ln(0,97) ≤ ln(0,1)\n$n \\geq \\frac{\\ln(0,1)}{\\ln(0,97)} = \\frac{-2,303}{-0,0305} \\approx 75,5$",
+                "Schritt 5: Antwort Teil c)\nEs müssen mindestens n = 76 Bauteile produziert werden.\nVerifikation: P(X ≥ 1) = 1 - 0,97^76 ≈ 1 - 0,0993 ≈ 0,9007 > 0,9 ✓"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Stetige Verteilungen",
+            "title": "Normalverteilung und Standardisierung",
+            "description": "Die Körpergröße von Männern sei normalverteilt mit μ = 175 cm und σ = 8 cm.\n\na) Wie groß ist der Anteil der Männer, die zwischen 170 cm und 185 cm groß sind?\nb) Bestimmen Sie das 95%-Quantil der Körpergröße.\nc) In einer Gruppe von 20 Männern: Wie groß ist die Wahrscheinlichkeit, dass höchstens 3 größer als 180 cm sind?",
+            "difficulty": "medium",
+            "points": 18,
+            "solutionSteps": [
+                "Schritt 1: Verteilung und Standardisierung\n$X \\sim N(175, 8^2)$, Standardisierung: $Z = \\frac{X - 175}{8}$\nZ ~ N(0,1) ist standardnormalverteilt",
+                "Schritt 2: Teil a) - Wahrscheinlichkeit zwischen 170 und 185\n$P(170 \\leq X \\leq 185) = P\\left(\\frac{170-175}{8} \\leq Z \\leq \\frac{185-175}{8}\\right)$\n= P(-0,625 ≤ Z ≤ 1,25)\n= Φ(1,25) - Φ(-0,625)\n= 0,8944 - 0,2660 = 0,6284",
+                "Schritt 3: Teil b) - 95%-Quantil\nGesucht: x₀,₉₅ mit P(X ≤ x₀,₉₅) = 0,95\nAus der Tabelle: Φ(1,645) = 0,95, also z₀,₉₅ = 1,645\nx₀,₉₅ = μ + z₀,₉₅ · σ = 175 + 1,645 · 8 = 175 + 13,16 = 188,16 cm",
+                "Schritt 4: Teil c) - Binomialverteilung der Gruppe\n$\\text{Erst: } P(X > 180) = P\\left(Z > \\frac{180-175}{8}\\right) = P(Z > 0,625)$\n= 1 - Φ(0,625) = 1 - 0,7340 = 0,2660\nSei Y = Anzahl der Männer > 180 cm in Gruppe von 20\nY ~ B(20; 0,2660)",
+                "Schritt 5: Wahrscheinlichkeit für höchstens 3\n$P(Y \\leq 3) = \\sum_{k=0}^{3} \\binom{20}{k} \\cdot 0,2660^k \\cdot 0,7340^{20-k}$\nP(Y = 0) = 0,7340²⁰ ≈ 0,0002\nP(Y = 1) = 20 · 0,2660 · 0,7340¹⁹ ≈ 0,0015\nP(Y = 2) = 190 · 0,2660² · 0,7340¹⁸ ≈ 0,0055\nP(Y = 3) = 1140 · 0,2660³ · 0,7340¹⁷ ≈ 0,0130\nP(Y ≤ 3) ≈ 0,0202"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Schätztheorie",
+            "title": "Konfidenzintervalle",
+            "description": "Zur Schätzung der mittleren Wartezeit an einer Bushaltestelle wurde eine Stichprobe von n = 25 Messungen durchgeführt. Die Stichprobenmittel beträgt x̄ = 8,4 Minuten mit einer Stichprobenstandardabweichung von s = 2,1 Minuten.\n\na) Bestimmen Sie ein 95%-Konfidenzintervall für die wahre mittlere Wartezeit.\nb) Wie groß müsste der Stichprobenumfang sein, damit die Breite des 95%-Konfidenzintervalls höchstens 1 Minute beträgt?",
+            "difficulty": "medium",
+            "points": 16,
+            "solutionSteps": [
+                "Schritt 1: Voraussetzungen und Verteilung\nStichprobenumfang: n = 25\nStichprobenmittel: x̄ = 8,4\nStichprobenstandardabweichung: s = 2,1\nDa σ unbekannt und n < 30, verwenden wir t-Verteilung mit df = n-1 = 24",
+                "Schritt 2: Teil a) - 95%-Konfidenzintervall\n$\\text{Konfidenzintervall: } \\bar{x} \\pm t_{0,975;24} \\cdot \\frac{s}{\\sqrt{n}}$\nAus t-Tabelle: t₀,₉₇₅;₂₄ = 2,064\n$\\text{Standardfehler: } SE = \\frac{s}{\\sqrt{n}} = \\frac{2,1}{\\sqrt{25}} = \\frac{2,1}{5} = 0,42$",
+                "Schritt 3: Berechnung des Konfidenzintervalls\nFehlergrenze: E = 2,064 · 0,42 = 0,867\nKonfidenzintervall: [8,4 - 0,867; 8,4 + 0,867] = [7,533; 9,267]\nInterpretation: Mit 95%iger Sicherheit liegt die wahre mittlere Wartezeit zwischen 7,53 und 9,27 Minuten.",
+                "Schritt 4: Teil b) - Erforderlicher Stichprobenumfang\n$\\text{Breite des KI} = 2E = 2 \\cdot t_{0,975;n-1} \\cdot \\frac{s}{\\sqrt{n}} \\leq 1$\n$\\text{Also: } t_{0,975;n-1} \\cdot \\frac{s}{\\sqrt{n}} \\leq 0,5$\nFür große n: t₀,₉₇₅;ₙ₋₁ ≈ 1,96\n$1,96 \\cdot \\frac{2,1}{\\sqrt{n}} \\leq 0,5$",
+                "Schritt 5: Auflösung nach n\n$\\frac{1,96 \\cdot 2,1}{\\sqrt{n}} \\leq 0,5$\n$\\sqrt{n} \\geq \\frac{1,96 \\cdot 2,1}{0,5} = \\frac{4,116}{0,5} = 8,232$\nn ≥ 67,76\nEs wird mindestens n = 68 Beobachtungen benötigt."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Hypothesentests",
+            "title": "t-Test für den Mittelwert",
+            "description": "Ein Pharmaunternehmen behauptet, dass ein neues Medikament die Heilungszeit einer Krankheit auf durchschnittlich μ = 12 Tage reduziert. In einer klinischen Studie mit n = 16 Patienten betrug die mittlere Heilungszeit x̄ = 13,5 Tage bei einer Standardabweichung von s = 3,2 Tagen.\n\nTesten Sie auf dem 5%-Niveau, ob das Medikament weniger wirksam ist als behauptet.",
+            "difficulty": "hard",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Hypothesen formulieren\nH₀: μ = 12 Tage (Medikament ist wie behauptet wirksam)\nH₁: μ > 12 Tage (Medikament ist weniger wirksam)\nEinseitiger Test, Signifikanzniveau α = 0,05",
+                "Schritt 2: Teststatistik bestimmen\nDa σ unbekannt und n = 16 < 30, verwenden wir t-Test\n$\\text{Teststatistik: } t = \\frac{\\bar{x} - \\mu_0}{s/\\sqrt{n}} = \\frac{13,5 - 12}{3,2/\\sqrt{16}} = \\frac{1,5}{3,2/4} = \\frac{1,5}{0,8} = 1,875$\nFreiheitsgrade: df = n - 1 = 15",
+                "Schritt 3: Kritischen Wert bestimmen\nFür einseitigen Test mit α = 0,05 und df = 15:\nKritischer Wert: t₀,₀₅;₁₅ = 1,753\nAblehnungsbereich: t > 1,753",
+                "Schritt 4: Testentscheidung\nBeobachtete Teststatistik: t = 1,875\nKritischer Wert: t₀,₀₅;₁₅ = 1,753\nDa 1,875 > 1,753, liegt t im Ablehnungsbereich\n⇒ H₀ wird abgelehnt auf dem 5%-Niveau",
+                "Schritt 5: p-Wert berechnen\np-Wert = P(T₁₅ > 1,875)\nAus t-Tabelle: P(T₁₅ > 1,875) liegt zwischen 0,025 und 0,05\nGenauer: p-Wert ≈ 0,04\nDa p-Wert < α = 0,05, bestätigt dies die Ablehnung von H₀",
+                "Schritt 6: Schlussfolgerung\nAuf dem 5%-Signifikanzniveau gibt es ausreichend Evidenz dafür, dass das Medikament weniger wirksam ist als behauptet. Die mittlere Heilungszeit ist signifikant länger als 12 Tage."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Regression und Korrelation",
+            "title": "Lineare Regression",
+            "description": "Ein Automobilhersteller untersucht den Zusammenhang zwischen Motorleistung (x, in PS) und Kraftstoffverbrauch (y, in l/100km). Folgende Daten wurden erhoben:\n\nΣx = 1200, Σy = 72, Σx² = 156000, Σy² = 576, Σxy = 9360, n = 10\n\na) Berechnen Sie die Regressionsgerade y = a + bx.\nb) Interpretieren Sie den Regressionskoeffizienten b.\nc) Berechnen Sie den Korrelationskoeffizienten r.",
+            "difficulty": "hard",
+            "points": 18,
+            "solutionSteps": [
+                "Schritt 1: Mittelwerte berechnen\n$\\bar{x} = \\frac{\\Sigma x}{n} = \\frac{1200}{10} = 120$\n$\\bar{y} = \\frac{\\Sigma y}{n} = \\frac{72}{10} = 7,2$",
+                "Schritt 2: Hilfswerte für Regression berechnen\n$S_{xx} = \\Sigma x^2 - n\\bar{x}^2 = 156000 - 10 \\cdot 120^2 = 156000 - 144000 = 12000$\n$S_{yy} = \\Sigma y^2 - n\\bar{y}^2 = 576 - 10 \\cdot 7,2^2 = 576 - 518,4 = 57,6$\n$S_{xy} = \\Sigma xy - n\\bar{x}\\bar{y} = 9360 - 10 \\cdot 120 \\cdot 7,2 = 9360 - 8640 = 720$",
+                "Schritt 3: Teil a) - Regressionskoeffizienten\n$\\text{Steigung: } b = \\frac{S_{xy}}{S_{xx}} = \\frac{720}{12000} = 0,06$\n$\\text{Achsenabschnitt: } a = \\bar{y} - b\\bar{x} = 7,2 - 0,06 \\cdot 120 = 7,2 - 7,2 = 0$\nRegressionsgerade: y = 0 + 0,06x = 0,06x",
+                "Schritt 4: Teil b) - Interpretation von b\nDer Regressionskoeffizient b = 0,06 bedeutet:\nBei einer Erhöhung der Motorleistung um 1 PS steigt der Kraftstoffverbrauch im Mittel um 0,06 l/100km.\nDies entspricht einem Anstieg von 6 l/100km pro 100 PS Mehrleistung.",
+                "Schritt 5: Teil c) - Korrelationskoeffizient\n$r = \\frac{S_{xy}}{\\sqrt{S_{xx} \\cdot S_{yy}}} = \\frac{720}{\\sqrt{12000 \\cdot 57,6}} = \\frac{720}{\\sqrt{691200}} = \\frac{720}{831,4} \\approx 0,866$",
+                "Schritt 6: Interpretation der Korrelation\nDer Korrelationskoeffizient r = 0,866 zeigt einen starken positiven linearen Zusammenhang zwischen Motorleistung und Kraftstoffverbrauch.\nEtwa 75% der Varianz im Kraftstoffverbrauch (r² = 0,75) werden durch die Motorleistung erklärt."
+            ]
+        }
+    ]
+}

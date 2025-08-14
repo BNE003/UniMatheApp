@@ -1,0 +1,104 @@
+{
+    "exam": {
+        "title": "Statistics - Advanced Exam",
+        "subtitle": "Probability Theory and Inferential Statistics",
+        "duration": 120,
+        "totalPoints": 100,
+        "difficulty": "intermediate",
+        "language": "en",
+        "instructions": "Complete all tasks thoroughly. Always show your solution approach. Permitted aids: non-programmable calculator, standard normal distribution and t-distribution tables."
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Conditional Probability and Bayes' Theorem",
+            "title": "Medical Test",
+            "description": "A rare disease occurs in the population with a prevalence of 0.2%. A test for this disease has a sensitivity of 95% and a specificity of 98%.\n\na) What is the probability that a randomly selected person tests positive?\nb) What is the probability that a person with a positive test result is actually sick?",
+            "difficulty": "medium",
+            "points": 18,
+            "solutionSteps": [
+                "Step 1: Define events\nLet D = 'person is sick', T+ = 'test is positive'\nGiven: P(D) = 0.002, P(T+|D) = 0.95, P(T-|D^c) = 0.98\nTherefore: P(D^c) = 0.998, P(T+|D^c) = 0.02",
+                "Step 2: Part a) - Total probability\nP(T+) = P(T+|D) · P(D) + P(T+|D^c) · P(D^c)\nP(T+) = 0.95 · 0.002 + 0.02 · 0.998\nP(T+) = 0.0019 + 0.01996 = 0.02186",
+                "Step 3: Part b) - Bayes' theorem\n$P(D|T+) = \\frac{P(T+|D) \\cdot P(D)}{P(T+)}$\n$P(D|T+) = \\frac{0.95 \\cdot 0.002}{0.02186} = \\frac{0.0019}{0.02186} \\approx 0.0869$",
+                "Step 4: Interpretation\na) The probability of a positive test is about 2.19%\nb) Despite a positive test, the probability of actually being sick is only about 8.69%\nThis shows the importance of prior probability for rare diseases."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Discrete Distributions",
+            "title": "Binomial and Poisson Distribution",
+            "description": "In a production line, electronic components are manufactured. The probability of a defective component is p = 0.03.\n\na) What is the probability that exactly 2 out of 50 components are defective?\nb) Approximate this probability using the Poisson distribution.\nc) How many components must be produced at minimum so that with probability at least 90%, at least one defective component is included?",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Part a) - Binomial distribution\nX ~ B(50; 0.03), sought: P(X = 2)\n$P(X = 2) = \\binom{50}{2} \\cdot 0.03^2 \\cdot 0.97^{48}$\nP(X = 2) = 1225 · 0.0009 · 0.2371 ≈ 0.2611",
+                "Step 2: Part b) - Poisson approximation\nλ = n · p = 50 · 0.03 = 1.5\n$Y \\sim \\text{Pois}(1.5), \\quad P(Y = 2) = \\frac{e^{-1.5} \\cdot 1.5^2}{2!}$\n$P(Y = 2) = \\frac{0.2231 \\cdot 2.25}{2} \\approx 0.2510$",
+                "Step 3: Comparison of approximation\nExact value: 0.2611\nPoisson approximation: 0.2510\n$\\text{Relative error: } \\frac{|0.2611 - 0.2510|}{0.2611} \\approx 3.9\\%$\nThe approximation is very good.",
+                "Step 4: Part c) - Calculate minimum number\nSought: smallest n with P(X ≥ 1) ≥ 0.9\nP(X ≥ 1) = 1 - P(X = 0) = 1 - 0.97^n ≥ 0.9\n0.97^n ≤ 0.1\nn · ln(0.97) ≤ ln(0.1)\n$n \\geq \\frac{\\ln(0.1)}{\\ln(0.97)} = \\frac{-2.303}{-0.0305} \\approx 75.5$",
+                "Step 5: Answer part c)\nAt least n = 76 components must be produced.\nVerification: P(X ≥ 1) = 1 - 0.97^76 ≈ 1 - 0.0993 ≈ 0.9007 > 0.9 ✓"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Continuous Distributions",
+            "title": "Normal Distribution and Standardization",
+            "description": "The height of men is normally distributed with μ = 175 cm and σ = 8 cm.\n\na) What is the proportion of men who are between 170 cm and 185 cm tall?\nb) Determine the 95% quantile of height.\nc) In a group of 20 men: What is the probability that at most 3 are taller than 180 cm?",
+            "difficulty": "medium",
+            "points": 18,
+            "solutionSteps": [
+                "Step 1: Distribution and standardization\n$X \\sim N(175, 8^2)$, standardization: $Z = \\frac{X - 175}{8}$\nZ ~ N(0,1) is standard normal",
+                "Step 2: Part a) - Probability between 170 and 185\n$P(170 \\leq X \\leq 185) = P\\left(\\frac{170-175}{8} \\leq Z \\leq \\frac{185-175}{8}\\right)$\n= P(-0.625 ≤ Z ≤ 1.25)\n= Φ(1.25) - Φ(-0.625)\n= 0.8944 - 0.2660 = 0.6284",
+                "Step 3: Part b) - 95% quantile\nSought: x₀.₉₅ with P(X ≤ x₀.₉₅) = 0.95\nFrom table: Φ(1.645) = 0.95, so z₀.₉₅ = 1.645\nx₀.₉₅ = μ + z₀.₉₅ · σ = 175 + 1.645 · 8 = 175 + 13.16 = 188.16 cm",
+                "Step 4: Part c) - Binomial distribution of the group\n$\\text{First: } P(X > 180) = P\\left(Z > \\frac{180-175}{8}\\right) = P(Z > 0.625)$\n= 1 - Φ(0.625) = 1 - 0.7340 = 0.2660\nLet Y = number of men > 180 cm in group of 20\nY ~ B(20; 0.2660)",
+                "Step 5: Probability for at most 3\n$P(Y \\leq 3) = \\sum_{k=0}^{3} \\binom{20}{k} \\cdot 0.2660^k \\cdot 0.7340^{20-k}$\nP(Y = 0) = 0.7340²⁰ ≈ 0.0002\nP(Y = 1) = 20 · 0.2660 · 0.7340¹⁹ ≈ 0.0015\nP(Y = 2) = 190 · 0.2660² · 0.7340¹⁸ ≈ 0.0055\nP(Y = 3) = 1140 · 0.2660³ · 0.7340¹⁷ ≈ 0.0130\nP(Y ≤ 3) ≈ 0.0202"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Estimation Theory",
+            "title": "Confidence Intervals",
+            "description": "To estimate the average waiting time at a bus stop, a sample of n = 25 measurements was taken. The sample mean is x̄ = 8.4 minutes with a sample standard deviation of s = 2.1 minutes.\n\na) Determine a 95% confidence interval for the true average waiting time.\nb) How large would the sample size need to be so that the width of the 95% confidence interval is at most 1 minute?",
+            "difficulty": "medium",
+            "points": 16,
+            "solutionSteps": [
+                "Step 1: Prerequisites and distribution\nSample size: n = 25\nSample mean: x̄ = 8.4\nSample standard deviation: s = 2.1\nSince σ unknown and n < 30, we use t-distribution with df = n-1 = 24",
+                "Step 2: Part a) - 95% confidence interval\n$\\text{Confidence interval: } \\bar{x} \\pm t_{0.975;24} \\cdot \\frac{s}{\\sqrt{n}}$\nFrom t-table: t₀.₉₇₅;₂₄ = 2.064\n$\\text{Standard error: } SE = \\frac{s}{\\sqrt{n}} = \\frac{2.1}{\\sqrt{25}} = \\frac{2.1}{5} = 0.42$",
+                "Step 3: Calculation of confidence interval\nMargin of error: E = 2.064 · 0.42 = 0.867\nConfidence interval: [8.4 - 0.867; 8.4 + 0.867] = [7.533; 9.267]\nInterpretation: With 95% confidence, the true average waiting time is between 7.53 and 9.27 minutes.",
+                "Step 4: Part b) - Required sample size\n$\\text{Width of CI} = 2E = 2 \\cdot t_{0.975;n-1} \\cdot \\frac{s}{\\sqrt{n}} \\leq 1$\n$\\text{Thus: } t_{0.975;n-1} \\cdot \\frac{s}{\\sqrt{n}} \\leq 0.5$\nFor large n: t₀.₉₇₅;ₙ₋₁ ≈ 1.96\n$1.96 \\cdot \\frac{2.1}{\\sqrt{n}} \\leq 0.5$",
+                "Step 5: Solve for n\n$\\frac{1.96 \\cdot 2.1}{\\sqrt{n}} \\leq 0.5$\n$\\sqrt{n} \\geq \\frac{1.96 \\cdot 2.1}{0.5} = \\frac{4.116}{0.5} = 8.232$\nn ≥ 67.76\nAt least n = 68 observations are needed."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Hypothesis Testing",
+            "title": "t-Test for the Mean",
+            "description": "A pharmaceutical company claims that a new drug reduces the healing time of a disease to an average of μ = 12 days. In a clinical study with n = 16 patients, the average healing time was x̄ = 13.5 days with a standard deviation of s = 3.2 days.\n\nTest at the 5% level whether the drug is less effective than claimed.",
+            "difficulty": "hard",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Formulate hypotheses\nH₀: μ = 12 days (drug is as effective as claimed)\nH₁: μ > 12 days (drug is less effective)\nOne-sided test, significance level α = 0.05",
+                "Step 2: Determine test statistic\nSince σ unknown and n = 16 < 30, we use t-test\n$\\text{Test statistic: } t = \\frac{\\bar{x} - \\mu_0}{s/\\sqrt{n}} = \\frac{13.5 - 12}{3.2/\\sqrt{16}} = \\frac{1.5}{3.2/4} = \\frac{1.5}{0.8} = 1.875$\nDegrees of freedom: df = n - 1 = 15",
+                "Step 3: Determine critical value\nFor one-sided test with α = 0.05 and df = 15:\nCritical value: t₀.₀₅;₁₅ = 1.753\nRejection region: t > 1.753",
+                "Step 4: Test decision\nObserved test statistic: t = 1.875\nCritical value: t₀.₀₅;₁₅ = 1.753\nSince 1.875 > 1.753, t lies in the rejection region\n⇒ H₀ is rejected at the 5% level",
+                "Step 5: Calculate p-value\np-value = P(T₁₅ > 1.875)\nFrom t-table: P(T₁₅ > 1.875) lies between 0.025 and 0.05\nMore precisely: p-value ≈ 0.04\nSince p-value < α = 0.05, this confirms the rejection of H₀",
+                "Step 6: Conclusion\nAt the 5% significance level, there is sufficient evidence that the drug is less effective than claimed. The average healing time is significantly longer than 12 days."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Regression and Correlation",
+            "title": "Linear Regression",
+            "description": "An automobile manufacturer investigates the relationship between engine power (x, in HP) and fuel consumption (y, in l/100km). The following data were collected:\n\nΣx = 1200, Σy = 72, Σx² = 156000, Σy² = 576, Σxy = 9360, n = 10\n\na) Calculate the regression line y = a + bx.\nb) Interpret the regression coefficient b.\nc) Calculate the correlation coefficient r.",
+            "difficulty": "hard",
+            "points": 18,
+            "solutionSteps": [
+                "Step 1: Calculate means\n$\\bar{x} = \\frac{\\Sigma x}{n} = \\frac{1200}{10} = 120$\n$\\bar{y} = \\frac{\\Sigma y}{n} = \\frac{72}{10} = 7.2$",
+                "Step 2: Calculate auxiliary values for regression\n$S_{xx} = \\Sigma x^2 - n\\bar{x}^2 = 156000 - 10 \\cdot 120^2 = 156000 - 144000 = 12000$\n$S_{yy} = \\Sigma y^2 - n\\bar{y}^2 = 576 - 10 \\cdot 7.2^2 = 576 - 518.4 = 57.6$\n$S_{xy} = \\Sigma xy - n\\bar{x}\\bar{y} = 9360 - 10 \\cdot 120 \\cdot 7.2 = 9360 - 8640 = 720$",
+                "Step 3: Part a) - Regression coefficients\n$\\text{Slope: } b = \\frac{S_{xy}}{S_{xx}} = \\frac{720}{12000} = 0.06$\n$\\text{Intercept: } a = \\bar{y} - b\\bar{x} = 7.2 - 0.06 \\cdot 120 = 7.2 - 7.2 = 0$\nRegression line: y = 0 + 0.06x = 0.06x",
+                "Step 4: Part b) - Interpretation of b\nThe regression coefficient b = 0.06 means:\nWhen engine power increases by 1 HP, fuel consumption increases on average by 0.06 l/100km.\nThis corresponds to an increase of 6 l/100km per 100 HP additional power.",
+                "Step 5: Part c) - Correlation coefficient\n$r = \\frac{S_{xy}}{\\sqrt{S_{xx} \\cdot S_{yy}}} = \\frac{720}{\\sqrt{12000 \\cdot 57.6}} = \\frac{720}{\\sqrt{691200}} = \\frac{720}{831.4} \\approx 0.866$",
+                "Step 6: Interpretation of correlation\nThe correlation coefficient r = 0.866 shows a strong positive linear relationship between engine power and fuel consumption.\nAbout 75% of the variance in fuel consumption (r² = 0.75) is explained by engine power."
+            ]
+        }
+    ]
+}

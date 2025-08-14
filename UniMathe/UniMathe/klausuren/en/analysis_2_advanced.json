@@ -1,0 +1,109 @@
+{
+    "exam": {
+        "title": "Analysis II - Expert Exam",
+        "subtitle": "Multivariable Analysis and Vector Analysis",
+        "duration": 180,
+        "totalPoints": 120,
+        "difficulty": "advanced",
+        "language": "en",
+        "instructions": "Complete all tasks thoroughly. Always show your solution approach. Create sketches where possible. Permitted aids: non-programmable calculator."
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Partial Derivatives and Tangent Plane",
+            "title": "Gradient, Hessian Matrix and Tangent Plane",
+            "description": "Given the function f: ℝ² → ℝ with f(x,y) = x³ + 2xy² - y³ + 4x - 2y.\n\na) Calculate all partial derivatives of first and second order.\nb) Determine the equation of the tangent plane to the graph of f at point P₀ = (1, 1).\nc) Calculate the Hessian matrix H_f(x,y) and examine its definiteness at point (1, 1).",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: First-order partial derivatives\n$f_x(x,y) = \\frac{\\partial f}{\\partial x} = 3x^2 + 2y^2 + 4$\n$f_y(x,y) = \\frac{\\partial f}{\\partial y} = 4xy - 3y^2 - 2$\n$\\nabla f(x,y) = (3x^2 + 2y^2 + 4, 4xy - 3y^2 - 2)$",
+                "Step 2: Second-order partial derivatives\n$f_{xx}(x,y) = \\frac{\\partial^2 f}{\\partial x^2} = 6x$\n$f_{yy}(x,y) = \\frac{\\partial^2 f}{\\partial y^2} = 4x - 6y$\n$f_{xy}(x,y) = f_{yx}(x,y) = \\frac{\\partial^2 f}{\\partial x \\partial y} = 4y$\n(By Schwarz's theorem, mixed derivatives are equal)",
+                "Step 3: Function value and gradient at point P₀ = (1,1)\n$f(1,1) = 1^3 + 2 \\cdot 1 \\cdot 1^2 - 1^3 + 4 \\cdot 1 - 2 \\cdot 1 = 1 + 2 - 1 + 4 - 2 = 4$\n$\\nabla f(1,1) = (3 \\cdot 1^2 + 2 \\cdot 1^2 + 4, 4 \\cdot 1 \\cdot 1 - 3 \\cdot 1^2 - 2) = (9, -1)$",
+                "Step 4: Part b) - Tangent plane\nGeneral form: $z = f(x_0,y_0) + f_x(x_0,y_0) \\cdot (x-x_0) + f_y(x_0,y_0) \\cdot (y-y_0)$\nSubstituting: $z = 4 + 9 \\cdot (x-1) + (-1) \\cdot (y-1)$\n$z = 4 + 9x - 9 - y + 1$\nTangent plane: $z = 9x - y - 4$",
+                "Step 5: Part c) - Hessian matrix\n$H_f(x,y) = \\begin{pmatrix} f_{xx} & f_{xy} \\\\\\\\ f_{yx} & f_{yy} \\end{pmatrix} = \\begin{pmatrix} 6x & 4y \\\\\\\\ 4y & 4x-6y \\end{pmatrix}$\nAt point (1,1): $H_f(1,1) = \\begin{pmatrix} 6 & 4 \\\\\\\\ 4 & -2 \\end{pmatrix}$",
+                "Step 6: Definiteness of Hessian matrix\nDeterminant: $\\det(H_f(1,1)) = 6 \\cdot (-2) - 4 \\cdot 4 = -12 - 16 = -28 < 0$\nSince det < 0, the matrix is indefinite.\nThis means: (1,1) is a saddle point of f."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Extreme Value Determination",
+            "title": "Local Extrema with Lagrange Multipliers",
+            "description": "Determine the extrema of function f(x,y) = x² + y² subject to constraint g(x,y) = x + 2y - 3 = 0.\n\na) Use the method of Lagrange multipliers.\nb) Classify the critical points found.\nc) Verify the result by substituting the constraint.",
+            "difficulty": "medium",
+            "points": 18,
+            "solutionSteps": [
+                "Step 1: Set up Lagrange function\n$L(x,y,\\lambda) = f(x,y) - \\lambda \\cdot g(x,y) = x^2 + y^2 - \\lambda(x + 2y - 3)$\nNecessary conditions for extrema:\n$\\nabla L = 0$ and $g(x,y) = 0$",
+                "Step 2: Partial derivatives of Lagrange function\n$\\frac{\\partial L}{\\partial x} = 2x - \\lambda = 0 \\quad \\Rightarrow \\quad x = \\frac{\\lambda}{2}$\n$\\frac{\\partial L}{\\partial y} = 2y - 2\\lambda = 0 \\quad \\Rightarrow \\quad y = \\lambda$\n$\\frac{\\partial L}{\\partial \\lambda} = -(x + 2y - 3) = 0 \\quad \\Rightarrow \\quad x + 2y = 3$",
+                "Step 3: Solve system of equations\nFrom the first two equations: $x = \\frac{\\lambda}{2}, y = \\lambda$\nSubstituting into constraint:\n$\\frac{\\lambda}{2} + 2\\lambda = 3$\n$\\frac{\\lambda}{2} + \\frac{4\\lambda}{2} = 3$\n$\\frac{5\\lambda}{2} = 3 \\quad \\Rightarrow \\quad \\lambda = \\frac{6}{5}$",
+                "Step 4: Determine critical point\n$x = \\frac{\\lambda}{2} = \\frac{6/5}{2} = \\frac{3}{5}$\n$y = \\lambda = \\frac{6}{5}$\nCritical point: $\\left(\\frac{3}{5}, \\frac{6}{5}\\right)$\n$\\text{Function value: } f\\left(\\frac{3}{5}, \\frac{6}{5}\\right) = \\left(\\frac{3}{5}\\right)^2 + \\left(\\frac{6}{5}\\right)^2 = \\frac{9}{25} + \\frac{36}{25} = \\frac{45}{25} = \\frac{9}{5}$",
+                "Step 5: Part b) - Classification\nSince we optimize under a linear constraint and $f(x,y) = x^2 + y^2$ is a strictly convex function, this is a global minimum.\nGeometric interpretation: We seek the point on line $x + 2y = 3$ closest to the origin.",
+                "Step 6: Part c) - Verification by substitution\nFrom $x + 2y = 3$ follows $x = 3 - 2y$\nSubstituting: $f(3-2y, y) = (3-2y)^2 + y^2 = 9 - 12y + 4y^2 + y^2 = 5y^2 - 12y + 9$\nDerivative: $f'(y) = 10y - 12 = 0 \\quad \\Rightarrow \\quad y = \\frac{6}{5}$\nSecond derivative: $f''(y) = 10 > 0 \\quad \\Rightarrow$ Minimum\nBack-substitution: $x = 3 - 2 \\cdot \\frac{6}{5} = 3 - \\frac{12}{5} = \\frac{3}{5}$ ✓"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Multiple Integrals",
+            "title": "Double Integral with Coordinate Transformation",
+            "description": "Calculate the integral $\\iint_D x^2 + y^2 \\, dA$ over the region D = {(x,y): x² + y² ≤ 4, x ≥ 0, y ≥ 0}.\n\na) Sketch the integration region D.\nb) Parametrize D in Cartesian coordinates.\nc) Calculate the integral using polar coordinates.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Part a) - Sketch of region\nD is a quarter circle with radius 2 in the first quadrant.\nBoundary: Circular arc $x^2 + y^2 = 4$ from (2,0) to (0,2)\nand the coordinate axes $x = 0$ (for $0 \\leq y \\leq 2$) and $y = 0$ (for $0 \\leq x \\leq 2$)",
+                "Step 2: Part b) - Cartesian parametrization\nFor fixed $x \\in [0,2]$: y runs from 0 to $\\sqrt{4-x^2}$\n$I = \\int_0^2 \\int_0^{\\sqrt{4-x^2}} (x^2 + y^2) \\, dy \\, dx$",
+                "Step 3: Calculation in Cartesian coordinates (for comparison)\nInner integral: $\\int_0^{\\sqrt{4-x^2}} (x^2 + y^2) \\, dy = \\left[x^2 y + \\frac{y^3}{3}\\right]_0^{\\sqrt{4-x^2}}$\n$= x^2 \\sqrt{4-x^2} + \\frac{1}{3}(4-x^2)^{3/2}$\nThis leads to a complex integral.",
+                "Step 4: Part c) - Transformation to polar coordinates\nSubstitution: $x = r \\cos \\varphi, y = r \\sin \\varphi$\nJacobian determinant: $|J| = r$\nIntegrand: $x^2 + y^2 = r^2$\nRegion D: $0 \\leq r \\leq 2, 0 \\leq \\varphi \\leq \\frac{\\pi}{2}$",
+                "Step 5: Integral in polar coordinates\n$I = \\int_0^{\\pi/2} \\int_0^2 r^2 \\cdot r \\, dr \\, d\\varphi = \\int_0^{\\pi/2} \\int_0^2 r^3 \\, dr \\, d\\varphi$\nInner integral: $\\int_0^2 r^3 \\, dr = \\left[\\frac{r^4}{4}\\right]_0^2 = \\frac{16}{4} = 4$",
+                "Step 6: Outer integral and final result\n$I = \\int_0^{\\pi/2} 4 \\, d\\varphi = 4 \\cdot \\frac{\\pi}{2} = 2\\pi$\nAnswer: The integral has value $2\\pi$.\nPhysical interpretation: This is the moment of inertia of a quarter circle with respect to the origin."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Line Integrals",
+            "title": "Work Integral and Path Independence",
+            "description": "Given the vector field $\\vec{F}(x,y) = (2xy + y^2, x^2 + 2xy - 1)$.\n\na) Check whether $\\vec{F}$ is conservative.\nb) If so, determine a potential φ(x,y).\nc) Calculate the line integral $\\int_C \\vec{F} \\cdot d\\vec{r}$ along path C from A(0,0) to B(2,1).",
+            "difficulty": "hard",
+            "points": 22,
+            "solutionSteps": [
+                "Step 1: Check conservativity\n$\\vec{F} = (P, Q)$ with $P(x,y) = 2xy + y^2, Q(x,y) = x^2 + 2xy - 1$\nNecessary condition for conservativity: $\\frac{\\partial P}{\\partial y} = \\frac{\\partial Q}{\\partial x}$\n$\\frac{\\partial P}{\\partial y} = \\frac{\\partial(2xy + y^2)}{\\partial y} = 2x + 2y$\n$\\frac{\\partial Q}{\\partial x} = \\frac{\\partial(x^2 + 2xy - 1)}{\\partial x} = 2x + 2y$\nSince $\\frac{\\partial P}{\\partial y} = \\frac{\\partial Q}{\\partial x}$, $\\vec{F}$ is conservative.",
+                "Step 2: Part b) - Determine potential\nSought: $\\varphi(x,y)$ with $\\nabla \\varphi = \\vec{F}$\n$\\frac{\\partial \\varphi}{\\partial x} = P = 2xy + y^2 \\quad \\Rightarrow \\quad \\varphi(x,y) = x^2y + xy^2 + g(y)$\n$\\frac{\\partial \\varphi}{\\partial y} = x^2 + 2xy + g'(y) = Q = x^2 + 2xy - 1$\nTherefore: $g'(y) = -1 \\quad \\Rightarrow \\quad g(y) = -y + C$",
+                "Step 3: Completely determine potential\n$\\varphi(x,y) = x^2y + xy^2 - y + C$\nVerification:\n$\\frac{\\partial \\varphi}{\\partial x} = 2xy + y^2 = P$ ✓\n$\\frac{\\partial \\varphi}{\\partial y} = x^2 + 2xy - 1 = Q$ ✓\nPotential (with C = 0): $\\varphi(x,y) = x^2y + xy^2 - y$",
+                "Step 4: Part c) - Calculate line integral\nSince $\\vec{F}$ is conservative, the integral is path-independent:\n$\\int_C \\vec{F} \\cdot d\\vec{r} = \\varphi(B) - \\varphi(A) = \\varphi(2,1) - \\varphi(0,0)$",
+                "Step 5: Calculate potential values\n$\\varphi(2,1) = 2^2 \\cdot 1 + 2 \\cdot 1^2 - 1 = 4 + 2 - 1 = 5$\n$\\varphi(0,0) = 0^2 \\cdot 0 + 0 \\cdot 0^2 - 0 = 0$\n$\\int_C \\vec{F} \\cdot d\\vec{r} = 5 - 0 = 5$",
+                "Step 6: Alternative verification via concrete path\nConsider the linear path: $\\vec{r}(t) = (2t, t), t \\in [0,1]$\n$\\vec{r}'(t) = (2, 1)$\n$\\vec{F}(\\vec{r}(t)) = (2 \\cdot 2t \\cdot t + t^2, (2t)^2 + 2 \\cdot 2t \\cdot t - 1) = (4t^2 + t^2, 4t^2 + 4t^2 - 1) = (5t^2, 8t^2 - 1)$\n$\\int_0^1 (5t^2, 8t^2 - 1) \\cdot (2, 1) dt = \\int_0^1 (10t^2 + 8t^2 - 1) dt = \\int_0^1 (18t^2 - 1) dt$\n$= \\left[6t^3 - t\\right]_0^1 = 6 - 1 = 5$ ✓"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Surface Integrals",
+            "title": "Flux through a Surface",
+            "description": "Calculate the flux of vector field $\\vec{F}(x,y,z) = (x, y, z)$ through surface S, which is the part of sphere $x^2 + y^2 + z^2 = 4$ with z ≥ 0, oriented outward.\n\na) Parametrize surface S.\nb) Calculate the normal vector.\nc) Determine the surface integral.",
+            "difficulty": "hard",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Part a) - Parametrization of hemisphere\nWe use spherical coordinates:\n$\\vec{r}(\\varphi,\\theta) = (2\\cos\\varphi\\sin\\theta, 2\\sin\\varphi\\sin\\theta, 2\\cos\\theta)$\nParameter range: $0 \\leq \\varphi \\leq 2\\pi, 0 \\leq \\theta \\leq \\frac{\\pi}{2}$\n($\\theta = 0$ corresponds to north pole, $\\theta = \\frac{\\pi}{2}$ to equatorial plane)",
+                "Step 2: Calculate partial derivatives\n$\\frac{\\partial \\vec{r}}{\\partial \\varphi} = (-2\\sin\\varphi\\sin\\theta, 2\\cos\\varphi\\sin\\theta, 0)$\n$\\frac{\\partial \\vec{r}}{\\partial \\theta} = (2\\cos\\varphi\\cos\\theta, 2\\sin\\varphi\\cos\\theta, -2\\sin\\theta)$",
+                "Step 3: Part b) - Normal vector\n$\\vec{n} = \\frac{\\partial \\vec{r}}{\\partial \\varphi} \\times \\frac{\\partial \\vec{r}}{\\partial \\theta}$\n$= \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\\\\\ -2\\sin\\varphi\\sin\\theta & 2\\cos\\varphi\\sin\\theta & 0 \\\\\\\\ 2\\cos\\varphi\\cos\\theta & 2\\sin\\varphi\\cos\\theta & -2\\sin\\theta \\end{vmatrix}$\n$= (-4\\cos\\varphi\\sin^2\\theta, -4\\sin\\varphi\\sin^2\\theta, -4\\sin^2\\varphi\\sin\\theta\\cos\\theta - 4\\cos^2\\varphi\\sin\\theta\\cos\\theta)$\n$= -4\\sin\\theta(\\cos\\varphi\\sin\\theta, \\sin\\varphi\\sin\\theta, \\sin\\theta\\cos\\theta)$\n$= -4\\sin\\theta \\cdot \\frac{\\vec{r}}{2} = -2\\sin\\theta \\cdot \\vec{r}$",
+                "Step 4: Correct orientation\nSince we want outward orientation and $\\vec{r}$ points away from origin, we take:\n$\\vec{n} = 2\\sin\\theta \\cdot \\vec{r} = 4\\sin\\theta(\\cos\\varphi\\sin\\theta, \\sin\\varphi\\sin\\theta, \\cos\\theta)$\n$|\\vec{n}| = 4\\sin\\theta \\cdot 2 = 8\\sin\\theta$",
+                "Step 5: Part c) - Calculate surface integral\n$\\vec{F}(\\vec{r}(\\varphi,\\theta)) = (2\\cos\\varphi\\sin\\theta, 2\\sin\\varphi\\sin\\theta, 2\\cos\\theta) = \\vec{r}(\\varphi,\\theta)$\n$\\vec{F} \\cdot \\vec{n} = \\vec{r} \\cdot (2\\sin\\theta \\cdot \\vec{r}) = 2\\sin\\theta \\cdot |\\vec{r}|^2 = 2\\sin\\theta \\cdot 4 = 8\\sin\\theta$",
+                "Step 6: Integration\n$\\iint_S \\vec{F} \\cdot d\\vec{S} = \\int_0^{2\\pi} \\int_0^{\\pi/2} 8\\sin\\theta \\, d\\theta \\, d\\varphi$\n$= \\int_0^{2\\pi} \\left[-8\\cos\\theta\\right]_0^{\\pi/2} d\\varphi$\n$= \\int_0^{2\\pi} (-8\\cos(\\pi/2) + 8\\cos(0)) d\\varphi$\n$= \\int_0^{2\\pi} (0 + 8) d\\varphi = 8 \\cdot 2\\pi = 16\\pi$\nThe flux is $16\\pi$."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Integral Theorems",
+            "title": "Gauss's Theorem",
+            "description": "Use Gauss's theorem (divergence theorem) to calculate the surface integral $\\iint_S \\vec{F} \\cdot \\vec{n} \\, dS$, where $\\vec{F}(x,y,z) = (x^3, y^3, z^3)$ and S is the complete surface of cube $[0,1]^3$.\n\na) Apply the divergence theorem.\nb) Compare with direct calculation over one face.",
+            "difficulty": "hard",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Part a) - Calculate divergence\n$\\vec{F}(x,y,z) = (x^3, y^3, z^3)$\n$\\text{div } \\vec{F} = \\nabla \\cdot \\vec{F} = \\frac{\\partial(x^3)}{\\partial x} + \\frac{\\partial(y^3)}{\\partial y} + \\frac{\\partial(z^3)}{\\partial z} = 3x^2 + 3y^2 + 3z^2$",
+                "Step 2: Apply Gauss's theorem\n$\\iint_S \\vec{F} \\cdot \\vec{n} \\, dS = \\iiint_V \\nabla \\cdot \\vec{F} \\, dV$\n$= \\iiint_{[0,1]^3} (3x^2 + 3y^2 + 3z^2) \\, dx \\, dy \\, dz$\n$= 3 \\iiint_{[0,1]^3} (x^2 + y^2 + z^2) \\, dx \\, dy \\, dz$",
+                "Step 3: Calculate volume integral\n$\\iiint_{[0,1]^3} (x^2 + y^2 + z^2) \\, dx \\, dy \\, dz$\n$= \\int_0^1 \\int_0^1 \\int_0^1 (x^2 + y^2 + z^2) \\, dx \\, dy \\, dz$\nSince variables separate:\n$= \\int_0^1 x^2 dx \\int_0^1 dy \\int_0^1 dz + \\int_0^1 dx \\int_0^1 y^2 dy \\int_0^1 dz + \\int_0^1 dx \\int_0^1 dy \\int_0^1 z^2 dz$",
+                "Step 4: Individual integrals\n$\\int_0^1 x^2 dx = \\left[\\frac{x^3}{3}\\right]_0^1 = \\frac{1}{3}$\n$\\int_0^1 dx = \\int_0^1 dy = \\int_0^1 dz = 1$\nTherefore: $\\iiint_{[0,1]^3} (x^2 + y^2 + z^2) \\, dx \\, dy \\, dz = \\frac{1}{3} \\cdot 1 \\cdot 1 + 1 \\cdot \\frac{1}{3} \\cdot 1 + 1 \\cdot 1 \\cdot \\frac{1}{3} = 3 \\cdot \\frac{1}{3} = 1$",
+                "Step 5: Final result with Gauss\n$\\iint_S \\vec{F} \\cdot \\vec{n} \\, dS = 3 \\cdot 1 = 3$",
+                "Step 6: Part b) - Verification over one face\nConsider the face $x = 1$ (unit normal $\\vec{n} = (1,0,0)$):\n$\\vec{F}(1,y,z) = (1, y^3, z^3), \\quad \\vec{F} \\cdot \\vec{n} = 1$\n$\\iint_{x=1} \\vec{F} \\cdot \\vec{n} \\, dS = \\int_0^1 \\int_0^1 1 \\, dy \\, dz = 1$\nSimilarly for all 6 faces:\n- $x = 0$: $\\iint 0 \\, dS = 0$\n- $x = 1$: $\\iint 1 \\, dS = 1$\n- $y = 0$: $\\iint 0 \\, dS = 0$\n- $y = 1$: $\\iint 1 \\, dS = 1$\n- $z = 0$: $\\iint 0 \\, dS = 0$\n- $z = 1$: $\\iint 1 \\, dS = 1$\nSum: $0 + 1 + 0 + 1 + 0 + 1 = 3$ ✓"
+            ]
+        }
+    ]
+}

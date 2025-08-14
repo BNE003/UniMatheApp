@@ -1,0 +1,94 @@
+{
+    "exam": {
+        "title": "Numerische Mathematik - Expertenklausur",
+        "subtitle": "Algorithmen, Approximation und Fehleranalyse",
+        "duration": 150,
+        "totalPoints": 100,
+        "difficulty": "advanced",
+        "language": "de",
+        "instructions": "Bearbeiten Sie alle Aufgaben vollständig. Geben Sie Algorithmen explizit an und führen Sie Fehleranalysen durch. Zulässige Hilfsmittel: nicht programmierbarer Taschenrechner."
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Nullstellenbestimmung",
+            "title": "Newton-Verfahren mit Konvergenzanalyse",
+            "description": "Gegeben sei die Funktion f(x) = x³ - 2x - 5.\n\na) Zeigen Sie, dass f eine Nullstelle im Intervall [2, 3] besitzt.\nb) Führen Sie drei Iterationen des Newton-Verfahrens mit Startwert x₀ = 2,5 durch.\nc) Schätzen Sie den absoluten Fehler nach der dritten Iteration ab.\nd) Bestimmen Sie die Konvergenzordnung des Newton-Verfahrens für diese Aufgabe.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Teil a) - Existenz der Nullstelle\\nf(2) = 2³ - 2·2 - 5 = 8 - 4 - 5 = -1 < 0\\nf(3) = 3³ - 2·3 - 5 = 27 - 6 - 5 = 16 > 0\\nDa f stetig ist und f(2) < 0 < f(3), existiert nach dem Zwischenwertsatz mindestens eine Nullstelle in [2,3].",
+                "Schritt 2: Newton-Verfahren vorbereiten\nf(x) = x³ - 2x - 5\nf'(x) = 3x² - 2\nNewton-Iteration: `x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} = x_n - \frac{x_n³ - 2x_n - 5}{3x_n² - 2}`",
+                "Schritt 3: Teil b) - Erste Iteration\nx₀ = 2,5\nf(2,5) = (2,5)³ - 2·2,5 - 5 = 15,625 - 5 - 5 = 5,625\nf'(2,5) = 3·(2,5)² - 2 = 3·6,25 - 2 = 18,75 - 2 = 16,75\nx₁ = 2,5 - 5,625/16,75 = 2,5 - 0,3358 ≈ 2,1642",
+                "Schritt 4: Zweite und dritte Iteration\nZweite Iteration:\nf(2,1642) = (2,1642)³ - 2·2,1642 - 5 ≈ 10,1438 - 4,3284 - 5 ≈ 0,8154\nf'(2,1642) = 3·(2,1642)² - 2 ≈ 3·4,6838 - 2 ≈ 14,0514 - 2 = 12,0514\nx₂ ≈ 2,1642 - 0,8154/12,0514 ≈ 2,1642 - 0,0677 ≈ 2,0965\nDritte Iteration:\nf(2,0965) ≈ (2,0965)³ - 2·2,0965 - 5 ≈ 0,0279\nf'(2,0965) ≈ 3·(2,0965)² - 2 ≈ 11,1734\nx₃ ≈ 2,0965 - 0,0279/11,1734 ≈ 2,0965 - 0,0025 ≈ 2,0940",
+                "Schritt 5: Teil c) - Fehlerabschätzung\nFür das Newton-Verfahren gilt bei hinreichend guter Näherung:\n`|x_{n+1} - x*| ≤ \frac{M}{2m} |x_n - x*|²`\nwobei M = max|f''(x)| und m = min|f'(x)| im relevanten Bereich.\nf''(x) = 6x, also f''(2,094) ≈ 12,564\nAbschätzung: `|x₃ - x*| ≤ \frac{12,564}{2·11,17} |x₂ - x*|² ≈ 0,56|x₂ - x*|²`",
+                "Schritt 6: Teil d) - Konvergenzordnung\nDas Newton-Verfahren hat bei einfachen Nullstellen quadratische Konvergenz.\nDa f'(x*) = 3(x*)² - 2 ≠ 0 für die Nullstelle x* ≈ 2,094, ist die Konvergenzordnung p = 2.\nDies bedeutet: `|x_{n+1} - x*| = O(|x_n - x*|²)` für n → ∞."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Interpolation",
+            "title": "Lagrange-Interpolation mit Fehleranalyse",
+            "description": "Gegeben seien die Stützstellen und Funktionswerte:\n(x₀, y₀) = (0, 1), (x₁, y₁) = (1, 2), (x₂, y₂) = (2, 5), (x₃, y₃) = (3, 10)\n\na) Bestimmen Sie das Lagrange-Interpolationspolynom p₃(x).\nb) Schätzen Sie den Interpolationsfehler für f(x) = x² + 1 im Punkt x = 1,5 ab.\nc) Berechnen Sie die dividierte Differenzen und das Newton-Interpolationspolynom.",
+            "difficulty": "hard",
+            "points": 18,
+            "solutionSteps": [
+                "Schritt 1: Teil a) - Lagrange-Basispolynome\n`L₀(x) = \frac{(x-1)(x-2)(x-3)}{(0-1)(0-2)(0-3)} = \frac{(x-1)(x-2)(x-3)}{-6}`\n`L₁(x) = \frac{(x-0)(x-2)(x-3)}{(1-0)(1-2)(1-3)} = \frac{x(x-2)(x-3)}{2}`\n`L₂(x) = \frac{(x-0)(x-1)(x-3)}{(2-0)(2-1)(2-3)} = \frac{x(x-1)(x-3)}{-2}`\n`L₃(x) = \frac{(x-0)(x-1)(x-2)}{(3-0)(3-1)(3-2)} = \frac{x(x-1)(x-2)}{6}`",
+                "Schritt 2: Lagrange-Interpolationspolynom\np₃(x) = y₀L₀(x) + y₁L₁(x) + y₂L₂(x) + y₃L₃(x)\n= 1·L₀(x) + 2·L₁(x) + 5·L₂(x) + 10·L₃(x)\nNach Ausmultiplikation und Vereinfachung:\np₃(x) = x² + 1",
+                "Schritt 3: Teil b) - Fehleranalyse\nDa f(x) = x² + 1 und p₃(x) = x² + 1 übereinstimmen, ist der Interpolationsfehler genau null.\nAllgemeine Fehlerformel: `|f(x) - p_n(x)| ≤ \frac{M_{n+1}}{(n+1)!} |ω(x)|`\nwobei ω(x) = ∏(x - x_i) und M_{n+1} = max|f^{(n+1)}(ξ)|\nFür f(x) = x² + 1: f'''(x) = 0, daher ist der Fehler exakt null.",
+                "Schritt 4: Teil c) - Dividierte Differenzen Schema\\nf[x₀] = f(0) = 1\\nf[x₁] = f(1) = 2\\nf[x₀,x₁] = (f[x₁] - f[x₀])/(x₁ - x₀) = (2-1)/(1-0) = 1\\nf[x₁,x₂] = (f[x₂] - f[x₁])/(x₂ - x₁) = (5-2)/(2-1) = 3\\nf[x₂,x₃] = (f[x₃] - f[x₂])/(x₃ - x₂) = (10-5)/(3-2) = 5",
+                "Schritt 5: Dividierte Differenzen höherer Ordnung\\nf[x₀,x₁,x₂] = (f[x₁,x₂] - f[x₀,x₁])/(x₂ - x₀) = (3-1)/(2-0) = 1\\nf[x₁,x₂,x₃] = (f[x₂,x₃] - f[x₁,x₂])/(x₃ - x₁) = (5-3)/(3-1) = 1\\nf[x₀,x₁,x₂,x₃] = (f[x₁,x₂,x₃] - f[x₀,x₁,x₂])/(x₃ - x₀) = (1-1)/(3-0) = 0",
+                "Schritt 6: Newton-Interpolationspolynom\np₃(x) = f[x₀] + f[x₀,x₁](x-x₀) + f[x₀,x₁,x₂](x-x₀)(x-x₁) + f[x₀,x₁,x₂,x₃](x-x₀)(x-x₁)(x-x₂)\n= 1 + 1·x + 1·x(x-1) + 0·x(x-1)(x-2)\n= 1 + x + x² - x = x² + 1\nDas Newton-Polynom stimmt mit dem Lagrange-Polynom überein."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Numerische Integration",
+            "title": "Zusammengesetzte Quadraturformeln",
+            "description": "Approximieren Sie das Integral `I = \\int_0^2 e^{-x^2} dx` mit n = 4 Teilintervallen.\n\na) Verwenden Sie die zusammengesetzte Trapezregel.\nb) Verwenden Sie die zusammengesetzte Simpson-Regel.\nc) Schätzen Sie die Fehler beider Verfahren ab.\nd) Vergleichen Sie die Ergebnisse mit dem exakten Wert I ≈ 0,8820813908.",
+            "difficulty": "hard",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Vorbereitung - Stützstellen\nSchrittweite: h = (b-a)/n = (2-0)/4 = 0,5\nStützstellen: x₀ = 0, x₁ = 0,5, x₂ = 1,0, x₃ = 1,5, x₄ = 2,0\nFunktionswerte:\nf(0) = e⁰ = 1\nf(0,5) = e^{-0,25} ≈ 0,7788\nf(1,0) = e^{-1} ≈ 0,3679\nf(1,5) = e^{-2,25} ≈ 0,1054\nf(2,0) = e^{-4} ≈ 0,0183",
+                "Schritt 2: Teil a) - Zusammengesetzte Trapezregel\n`T_n = \\frac{h}{2}[f(a) + 2\\sum_{i=1}^{n-1} f(x_i) + f(b)]`\n`T₄ = \\frac{0,5}{2}[f(0) + 2(f(0,5) + f(1,0) + f(1,5)) + f(2,0)]`\n= 0,25[1 + 2(0,7788 + 0,3679 + 0,1054) + 0,0183]\n= 0,25[1 + 2·1,2521 + 0,0183]\n= 0,25[1 + 2,5042 + 0,0183] = 0,25·3,5225 ≈ 0,8806",
+                "Schritt 3: Teil b) - Zusammengesetzte Simpson-Regel\n`S_n = \\frac{h}{3}[f(a) + 4\\sum_{i \\\\text{ ungerade}} f(x_i) + 2\\sum_{i \\\\text{ gerade, } i≠0,n} f(x_i) + f(b)]`\n`S₄ = \\frac{0,5}{3}[f(0) + 4(f(0,5) + f(1,5)) + 2f(1,0) + f(2,0)]`\n`= \\frac{0,5}{3}[1 + 4(0,7788 + 0,1054) + 2·0,3679 + 0,0183]`\n`= \\frac{0,5}{3}[1 + 4·0,8842 + 0,7358 + 0,0183]`\n`= \\frac{0,5}{3}[1 + 3,5368 + 0,7358 + 0,0183] = \\frac{0,5}{3}·5,2909 ≈ 0,8818`",
+                "Schritt 4: Teil c) - Fehlerabschätzung Trapezregel\nFehler der Trapezregel: `|E_T| ≤ \\frac{(b-a)h^2}{12} \\max_{x \\in [a,b]} |f''(x)|`\nf(x) = e^{-x²}, f'(x) = -2xe^{-x²}, f''(x) = (4x² - 2)e^{-x²}\nf''(x) = 0 für x² = 1/2, also x = 1/√2 ≈ 0,707\nMaximum von |f''(x)| auf [0,2]: |f''(0)| = 2\n|E_T| ≤ (2·(0,5)²·2)/12 = 1/12 ≈ 0,0833",
+                "Schritt 5: Fehlerabschätzung Simpson-Regel\nFehler der Simpson-Regel: `|E_S| ≤ \\frac{(b-a)h^4}{180} \\max_{x \\in [a,b]} |f^{(4)}(x)|`\nNach Berechnung der vierten Ableitung (komplex):\n`|E_S| ≤ \\frac{2·(0,5)^4·M_4}{180}` wo M₄ ≈ 12 (geschätzt)\n|E_S| ≤ (2·0,0625·12)/180 ≈ 0,0083",
+                "Schritt 6: Teil d) - Vergleich mit exaktem Wert\nExakter Wert: I ≈ 0,8820813908\nTrapezregel: T₄ ≈ 0,8806, Fehler ≈ |0,8821 - 0,8806| ≈ 0,0015\nSimpson-Regel: S₄ ≈ 0,8818, Fehler ≈ |0,8821 - 0,8818| ≈ 0,0003\nDie Simpson-Regel ist deutlich genauer, da sie Ordnung O(h⁴) hat gegenüber O(h²) der Trapezregel.\nDie theoretischen Fehlerschranken sind konservativ, die tatsächlichen Fehler sind kleiner."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Lineare Gleichungssysteme",
+            "title": "LU-Zerlegung mit Pivotisierung",
+            "description": "Lösen Sie das lineare Gleichungssystem Ax = b mit\n`A = \\\\begin{pmatrix} 2 & 1 & 1 \\\\\\\\ 4 & 3 & 3 \\\\\\\\ 8 & 7 & 9 \\\\end{pmatrix}, \\\\quad b = \\\\begin{pmatrix} 4 \\\\\\\\ 10 \\\\\\\\ 24 \\\\end{pmatrix}`\n\na) Führen Sie die LU-Zerlegung ohne Pivotisierung durch.\nb) Lösen Sie die Systeme Ly = b und Ux = y.\nc) Berechnen Sie die Konditionszahl κ∞(A) = ||A||∞ · ||A⁻¹||∞.",
+            "difficulty": "hard",
+            "points": 22,
+            "solutionSteps": [
+                "Schritt 1: Teil a) - LU-Zerlegung vorbereiten\nWir zerlegen A = LU mit L untere Dreiecksmatrix (Diagonale = 1) und U obere Dreiecksmatrix.\nAusgangssystem:\n`A^{(0)} = \\begin{pmatrix} 2 & 1 & 1 \\\\ 4 & 3 & 3 \\\\ 8 & 7 & 9 \\end{pmatrix}`",
+                "Schritt 2: Erste Elimination (Spalte 1)\nMultiplikatoren: l₂₁ = a₂₁/a₁₁ = 4/2 = 2, l₃₁ = a₃₁/a₁₁ = 8/2 = 4\nZeile 2 neu: (4,3,3) - 2·(2,1,1) = (0,1,1)\nZeile 3 neu: (8,7,9) - 4·(2,1,1) = (0,3,5)\n`A^{(1)} = \\begin{pmatrix} 2 & 1 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 3 & 5 \\end{pmatrix}`",
+                "Schritt 3: Zweite Elimination (Spalte 2)\nMultiplikator: l₃₂ = a₃₂⁽¹⁾/a₂₂⁽¹⁾ = 3/1 = 3\nZeile 3 neu: (0,3,5) - 3·(0,1,1) = (0,0,2)\n`U = A^{(2)} = \\begin{pmatrix} 2 & 1 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}`",
+                "Schritt 4: L-Matrix aufstellen\n`L = \\begin{pmatrix} 1 & 0 & 0 \\\\ l_{21} & 1 & 0 \\\\ l_{31} & l_{32} & 1 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 & 0 \\\\ 2 & 1 & 0 \\\\ 4 & 3 & 1 \\end{pmatrix}`\nVerifikation: LU sollte A ergeben (kann nachgeprüft werden).",
+                "Schritt 5: Teil b) - Lösung der Hilfssysteme\nErst Ly = b lösen:\n`\\begin{pmatrix} 1 & 0 & 0 \\\\ 2 & 1 & 0 \\\\ 4 & 3 & 1 \\end{pmatrix} \\begin{pmatrix} y_1 \\\\ y_2 \\\\ y_3 \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 10 \\\\ 24 \\end{pmatrix}`\nVorwärtssubstitution:\ny₁ = 4\ny₂ = 10 - 2y₁ = 10 - 8 = 2\ny₃ = 24 - 4y₁ - 3y₂ = 24 - 16 - 6 = 2",
+                "Schritt 6: Dann Ux = y lösen\n`\\begin{pmatrix} 2 & 1 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix} \\begin{pmatrix} x_1 \\\\ x_2 \\\\ x_3 \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 2 \\\\ 2 \\end{pmatrix}`\nRückwärtssubstitution:\nx₃ = 2/2 = 1\nx₂ = 2 - 1·x₃ = 2 - 1 = 1\nx₁ = (4 - 1·x₂ - 1·x₃)/2 = (4 - 1 - 1)/2 = 1\nLösung: x = (1, 1, 1)ᵀ",
+                "Schritt 7: Teil c) - Konditionszahl berechnen\n||A||∞ = max der Zeilensummen = max{4, 10, 24} = 24\nFür A⁻¹ (Berechnung mit Gauß-Jordan oder Kofaktoren):\n`A^{-1} = \\begin{pmatrix} 0 & -1/2 & 0 \\\\ -6 & 5 & -1 \\\\ 2 & -3/2 & 1 \\end{pmatrix}`\n||A⁻¹||∞ = max{0.5, 12, 6.5} = 12\nκ∞(A) = ||A||∞ · ||A⁻¹||∞ = 24 · 12 = 288\nDie Matrix ist mäßig konditioniert."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Gewöhnliche Differentialgleichungen",
+            "title": "Runge-Kutta-Verfahren",
+            "description": "Lösen Sie das Anfangswertproblem y' = -2y + x, y(0) = 1 numerisch im Intervall [0, 1] mit Schrittweite h = 0,2.\n\na) Wenden Sie das klassische Runge-Kutta-Verfahren 4. Ordnung an.\nb) Vergleichen Sie mit der exakten Lösung y(x) = (x-1)/2 + 3e^{-2x}/2.\nc) Analysieren Sie die Stabilität des Verfahrens für dieses Problem.",
+            "difficulty": "hard",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Runge-Kutta 4. Ordnung vorbereiten\nGegeben: y' = f(x,y) = -2y + x, y(0) = 1, h = 0,2\nRK4-Formeln:\nk₁ = hf(xₙ, yₙ)\nk₂ = hf(xₙ + h/2, yₙ + k₁/2)\nk₃ = hf(xₙ + h/2, yₙ + k₂/2)\nk₄ = hf(xₙ + h, yₙ + k₃)\nyₙ₊₁ = yₙ + (k₁ + 2k₂ + 2k₃ + k₄)/6",
+                "Schritt 2: Erste Iteration (x₀ = 0, y₀ = 1)\nk₁ = 0,2·f(0,1) = 0,2·(-2·1 + 0) = -0,4\nk₂ = 0,2·f(0,1, 1-0,2) = 0,2·f(0,1, 0,8) = 0,2·(-2·0,8 + 0,1) = 0,2·(-1,5) = -0,3\nk₃ = 0,2·f(0,1, 1-0,15) = 0,2·f(0,1, 0,85) = 0,2·(-2·0,85 + 0,1) = -0,32\nk₄ = 0,2·f(0,2, 1-0,32) = 0,2·f(0,2, 0,68) = 0,2·(-2·0,68 + 0,2) = -0,232\ny₁ = 1 + (-0,4 + 2(-0,3) + 2(-0,32) + (-0,232))/6 = 1 - 0,3107 ≈ 0,6893",
+                "Schritt 3: Weitere Iterationen\nZweite Iteration (x₁ = 0,2, y₁ ≈ 0,6893):\nAnaloge Berechnungen führen zu y₂ ≈ 0,5238\nDritte Iteration (x₂ = 0,4, y₂ ≈ 0,5238):\ny₃ ≈ 0,4493\nVierte Iteration (x₃ = 0,6, y₃ ≈ 0,4493):\ny₄ ≈ 0,4187\nFünfte Iteration (x₄ = 0,8, y₄ ≈ 0,4187):\ny₅ ≈ 0,4184",
+                "Schritt 4: Teil b) - Vergleich mit exakter Lösung\nExakte Lösung: y(x) = (x-1)/2 + 3e^{-2x}/2\nExakte Werte:\ny(0,2) = (0,2-1)/2 + 3e^{-0,4}/2 ≈ -0,4 + 1,0070 ≈ 0,6070\ny(0,4) = (0,4-1)/2 + 3e^{-0,8}/2 ≈ -0,3 + 0,6749 ≈ 0,3749\ny(0,6) ≈ 0,4493, y(0,8) ≈ 0,4187, y(1,0) ≈ 0,4184",
+                "Schritt 5: Fehleranalyse\nFehler bei x = 0,2: |0,6893 - 0,6070| ≈ 0,0823\nFehler bei x = 0,4: |0,5238 - 0,4493| ≈ 0,0745\nDie Fehler sind für RK4 mit h = 0,2 angemessen groß.\nGlobaler Fehler von RK4: O(h⁴), lokaler Fehler: O(h⁵)",
+                "Schritt 6: Teil c) - Stabilitätsanalyse\nFür die Modellgleichung y' = λy mit λ = -2 ist das Stabilitätsgebiet relevant.\nRK4-Stabilitätsbedingung: |1 + hλ + (hλ)²/2 + (hλ)³/6 + (hλ)⁴/24| < 1\nMit hλ = 0,2·(-2) = -0,4:\n|1 - 0,4 + 0,08 - 0,0107 + 0,0007| = |0,6700| < 1\nDas Verfahren ist stabil für diese Schrittweite.\nKritische Schrittweite für absolute Stabilität: h < 2,785/|λ| = 1,39"
+            ]
+        }
+    ]
+}

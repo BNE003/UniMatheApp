@@ -1,0 +1,92 @@
+{
+    "exam": {
+        "title": "Linear Algebra - Advanced Exam",
+        "subtitle": "Eigenvalues, Diagonalization and Linear Spaces",
+        "duration": 90,
+        "totalPoints": 60,
+        "difficulty": "intermediate",
+        "language": "en",
+        "instructions": "Complete all tasks. Show complete solution approach for all calculations. Permitted aids: calculator without programming function. Good luck!"
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Linear Systems of Equations",
+            "title": "Gaussian Algorithm and Solvability",
+            "description": "Given is the linear system of equations:\n`\\begin{align}\n2x_1 + 3x_2 - x_3 &= 5 \\\\\nx_1 - x_2 + 2x_3 &= 1 \\\\\n3x_1 + 2x_2 + x_3 &= 6\n\\end{align}`\n\na) Solve the system using the Gaussian algorithm.\nb) Determine the rank of the coefficient matrix.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Set up augmented matrix\n`\\left(\\begin{array}{ccc|c}\n2 & 3 & -1 & 5 \\\\\n1 & -1 & 2 & 1 \\\\\n3 & 2 & 1 & 6\n\\end{array}\\right)`",
+                "Step 2: First elimination (row 1 as pivot)\nSwap rows 1 and 2 for better pivot:\n`\\left(\\begin{array}{ccc|c}\n1 & -1 & 2 & 1 \\\\\n2 & 3 & -1 & 5 \\\\\n3 & 2 & 1 & 6\n\\end{array}\\right)`",
+                "Step 3: Eliminate first column\n`R_2 - 2R_1`: `(2,3,-1,5) - 2(1,-1,2,1) = (0,5,-5,3)`\n`R_3 - 3R_1`: `(3,2,1,6) - 3(1,-1,2,1) = (0,5,-5,3)`\n`\\left(\\begin{array}{ccc|c}\n1 & -1 & 2 & 1 \\\\\n0 & 5 & -5 & 3 \\\\\n0 & 5 & -5 & 3\n\\end{array}\\right)`",
+                "Step 4: Second elimination\n`R_3 - R_2`: `(0,5,-5,3) - (0,5,-5,3) = (0,0,0,0)`\n`\\left(\\begin{array}{ccc|c}\n1 & -1 & 2 & 1 \\\\\n0 & 5 & -5 & 3 \\\\\n0 & 0 & 0 & 0\n\\end{array}\\right)`",
+                "Step 5: Back substitution\nFrom row 2: `5x_2 - 5x_3 = 3 \\Rightarrow x_2 = x_3 + \\frac{3}{5}`\nFrom row 1: `x_1 - x_2 + 2x_3 = 1`\n`x_1 = 1 + x_2 - 2x_3 = 1 + (x_3 + \\frac{3}{5}) - 2x_3 = \\frac{8}{5} - x_3`",
+                "Step 6: General solution\n`x_3 = t` (free parameter)\n`x_2 = t + \\frac{3}{5}`\n`x_1 = \\frac{8}{5} - t`\n\nRank of coefficient matrix: `\\text{rank}(A) = 2`"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Eigenvalues and Eigenvectors",
+            "title": "Eigenvalues of a 2×2 Matrix",
+            "description": "Given is the matrix `A = \\begin{pmatrix} 3 & 1 \\\\ 2 & 2 \\end{pmatrix}`.\n\na) Determine all eigenvalues of A.\nb) Calculate the corresponding eigenvectors.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Set up characteristic polynomial\n`\\det(A - \\lambda I) = \\det\\begin{pmatrix} 3-\\lambda & 1 \\\\ 2 & 2-\\lambda \\end{pmatrix}`\n`= (3-\\lambda)(2-\\lambda) - 1 \\cdot 2`\n`= 6 - 3\\lambda - 2\\lambda + \\lambda^2 - 2`\n`= \\lambda^2 - 5\\lambda + 4`",
+                "Step 2: Calculate eigenvalues\n`\\lambda^2 - 5\\lambda + 4 = 0`\nUsing the quadratic formula:\n`\\lambda_{1,2} = \\frac{5 \\pm \\sqrt{25-16}}{2} = \\frac{5 \\pm 3}{2}`\n`\\lambda_1 = 4`, `\\lambda_2 = 1`",
+                "Step 3: Eigenvector for λ₁ = 4\n`(A - 4I)v = 0`:\n`\\begin{pmatrix} -1 & 1 \\\\ 2 & -2 \\end{pmatrix}\\begin{pmatrix} v_1 \\\\ v_2 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\end{pmatrix}`\nFrom first row: `-v_1 + v_2 = 0 \\Rightarrow v_2 = v_1`\nEigenvector: `v^{(1)} = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}`",
+                "Step 4: Eigenvector for λ₂ = 1\n`(A - I)v = 0`:\n`\\begin{pmatrix} 2 & 1 \\\\ 2 & 1 \\end{pmatrix}\\begin{pmatrix} v_1 \\\\ v_2 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\end{pmatrix}`\nFrom first row: `2v_1 + v_2 = 0 \\Rightarrow v_2 = -2v_1`\nEigenvector: `v^{(2)} = \\begin{pmatrix} 1 \\\\ -2 \\end{pmatrix}`",
+                "Step 5: Answer\nEigenvalues: `\\lambda_1 = 4`, `\\lambda_2 = 1`\nEigenvectors: `v^{(1)} = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}`, `v^{(2)} = \\begin{pmatrix} 1 \\\\ -2 \\end{pmatrix}`"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Diagonalization",
+            "title": "Diagonalization of a 3×3 Matrix",
+            "description": "Given is the matrix `B = \\begin{pmatrix} 1 & 0 & 1 \\\\ 0 & 2 & 0 \\\\ 1 & 0 & 1 \\end{pmatrix}`.\n\na) Check whether B is diagonalizable.\nb) If yes, give a diagonal matrix D and a transformation matrix P such that `P^{-1}BP = D`.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Characteristic polynomial\n`\\det(B - \\lambda I) = \\det\\begin{pmatrix} 1-\\lambda & 0 & 1 \\\\ 0 & 2-\\lambda & 0 \\\\ 1 & 0 & 1-\\lambda \\end{pmatrix}`\nExpansion along second row:\n`= (2-\\lambda) \\cdot \\det\\begin{pmatrix} 1-\\lambda & 1 \\\\ 1 & 1-\\lambda \\end{pmatrix}`\n`= (2-\\lambda)[(1-\\lambda)^2 - 1]`\n`= (2-\\lambda)(\\lambda^2 - 2\\lambda) = (2-\\lambda)\\lambda(\\lambda-2) = -\\lambda(2-\\lambda)^2`",
+                "Step 2: Eigenvalues\n`\\lambda_1 = 0` (simple), `\\lambda_2 = 2` (double)",
+                "Step 3: Eigenvector for λ₁ = 0\n`(B - 0I)v = Bv = 0`:\n`\\begin{pmatrix} 1 & 0 & 1 \\\\ 0 & 2 & 0 \\\\ 1 & 0 & 1 \\end{pmatrix}\\begin{pmatrix} v_1 \\\\ v_2 \\\\ v_3 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}`\nFrom row 2: `2v_2 = 0 \\Rightarrow v_2 = 0`\nFrom row 1: `v_1 + v_3 = 0 \\Rightarrow v_3 = -v_1`\nEigenvector: `v^{(1)} = \\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix}`",
+                "Step 4: Eigenvectors for λ₂ = 2\n`(B - 2I)v = 0`:\n`\\begin{pmatrix} -1 & 0 & 1 \\\\ 0 & 0 & 0 \\\\ 1 & 0 & -1 \\end{pmatrix}\\begin{pmatrix} v_1 \\\\ v_2 \\\\ v_3 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}`\nFrom row 1: `-v_1 + v_3 = 0 \\Rightarrow v_3 = v_1`\n`v_2` is freely choosable.\nEigenvectors: `v^{(2)} = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}`, `v^{(3)} = \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}`",
+                "Step 5: Check diagonalizability\nDimension of eigenspace for `\\lambda = 2`: `\\dim(E_2) = 2` = algebraic multiplicity\nSince we have 3 linearly independent eigenvectors, B is diagonalizable.",
+                "Step 6: Transformation matrix and diagonal matrix\n`P = \\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 0 & 1 \\\\ -1 & 1 & 0 \\end{pmatrix}`, `D = \\begin{pmatrix} 0 & 0 & 0 \\\\ 0 & 2 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}`\nIt holds: `P^{-1}BP = D`"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Linear Independence and Basis",
+            "title": "Basis and Dimension",
+            "description": "Given are the vectors in `\\mathbb{R}^3`:\n`v_1 = \\begin{pmatrix} 1 \\\\ 2 \\\\ 1 \\end{pmatrix}`, `v_2 = \\begin{pmatrix} 2 \\\\ 1 \\\\ 3 \\end{pmatrix}`, `v_3 = \\begin{pmatrix} 1 \\\\ -1 \\\\ 2 \\end{pmatrix}`, `v_4 = \\begin{pmatrix} 3 \\\\ 3 \\\\ 4 \\end{pmatrix}`\n\na) Check whether vectors `v_1, v_2, v_3` are linearly independent.\nb) Determine a basis of the subspace spanned by `\\{v_1, v_2, v_3, v_4\\}`.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Check linear independence of v₁, v₂, v₃\nWe solve `\\alpha_1 v_1 + \\alpha_2 v_2 + \\alpha_3 v_3 = 0`:\n`\\alpha_1 \\begin{pmatrix} 1 \\\\ 2 \\\\ 1 \\end{pmatrix} + \\alpha_2 \\begin{pmatrix} 2 \\\\ 1 \\\\ 3 \\end{pmatrix} + \\alpha_3 \\begin{pmatrix} 1 \\\\ -1 \\\\ 2 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}`",
+                "Step 2: Set up system of equations\n`\\begin{align}\n\\alpha_1 + 2\\alpha_2 + \\alpha_3 &= 0 \\\\\n2\\alpha_1 + \\alpha_2 - \\alpha_3 &= 0 \\\\\n\\alpha_1 + 3\\alpha_2 + 2\\alpha_3 &= 0\n\\end{align}`\nMatrix: `\\begin{pmatrix} 1 & 2 & 1 \\\\ 2 & 1 & -1 \\\\ 1 & 3 & 2 \\end{pmatrix}`",
+                "Step 3: Gaussian elimination\n`R_2 - 2R_1`: `(0, -3, -3)`\n`R_3 - R_1`: `(0, 1, 1)`\n`\\begin{pmatrix} 1 & 2 & 1 \\\\ 0 & -3 & -3 \\\\ 0 & 1 & 1 \\end{pmatrix}`\n`R_2 + 3R_3`: `(0, 0, 0)`\n`\\begin{pmatrix} 1 & 2 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix}`",
+                "Step 4: Back substitution\nFrom row 2: `\\alpha_2 + \\alpha_3 = 0 \\Rightarrow \\alpha_2 = -\\alpha_3`\nFrom row 1: `\\alpha_1 + 2(-\\alpha_3) + \\alpha_3 = 0 \\Rightarrow \\alpha_1 = \\alpha_3`\nOnly the trivial solution `\\alpha_1 = \\alpha_2 = \\alpha_3 = 0` exists.\n`\\Rightarrow v_1, v_2, v_3` are linearly independent.",
+                "Step 5: Basis of spanned subspace\nWe check whether `v_4` is linearly dependent on `v_1, v_2, v_3`:\n`v_4 = \\beta_1 v_1 + \\beta_2 v_2 + \\beta_3 v_3`\n`\\begin{pmatrix} 3 \\\\ 3 \\\\ 4 \\end{pmatrix} = \\beta_1 \\begin{pmatrix} 1 \\\\ 2 \\\\ 1 \\end{pmatrix} + \\beta_2 \\begin{pmatrix} 2 \\\\ 1 \\\\ 3 \\end{pmatrix} + \\beta_3 \\begin{pmatrix} 1 \\\\ -1 \\\\ 2 \\end{pmatrix}`",
+                "Step 6: Solve the system\n`\\begin{align}\n\\beta_1 + 2\\beta_2 + \\beta_3 &= 3 \\\\\n2\\beta_1 + \\beta_2 - \\beta_3 &= 3 \\\\\n\\beta_1 + 3\\beta_2 + 2\\beta_3 &= 4\n\\end{align}`\nSolution: `\\beta_1 = 1, \\beta_2 = 1, \\beta_3 = 0`\n`\\Rightarrow v_4 = v_1 + v_2`\nSince `v_4` is linearly dependent, `\\{v_1, v_2, v_3\\}` forms a basis of the subspace.\nDimension: 3"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Scalar Product and Orthogonality",
+            "title": "Gram-Schmidt Orthogonalization",
+            "description": "Given are the vectors in `\\mathbb{R}^3`:\n`u_1 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}`, `u_2 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}`, `u_3 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}`\n\nApply the Gram-Schmidt process to construct an orthonormal basis.",
+            "difficulty": "medium",
+            "points": 11,
+            "solutionSteps": [
+                "Step 1: Normalize first vector\n`v_1 = u_1 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}`\n`||v_1|| = \\sqrt{1^2 + 1^2 + 0^2} = \\sqrt{2}`\n`e_1 = \\frac{v_1}{||v_1||} = \\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} \\frac{1}{\\sqrt{2}} \\\\ \\frac{1}{\\sqrt{2}} \\\\ 0 \\end{pmatrix}`",
+                "Step 2: Orthogonalize second vector\n`v_2 = u_2 - \\langle u_2, e_1 \\rangle e_1`\n`\\langle u_2, e_1 \\rangle = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix} \\cdot \\begin{pmatrix} \\frac{1}{\\sqrt{2}} \\\\ \\frac{1}{\\sqrt{2}} \\\\ 0 \\end{pmatrix} = \\frac{1}{\\sqrt{2}}`\n`v_2 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix} - \\frac{1}{\\sqrt{2}} \\begin{pmatrix} \\frac{1}{\\sqrt{2}} \\\\ \\frac{1}{\\sqrt{2}} \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} \\frac{1}{2} \\\\ -\\frac{1}{2} \\\\ 1 \\end{pmatrix}`",
+                "Step 3: Normalize second vector\n`||v_2|| = \\sqrt{(\\frac{1}{2})^2 + (-\\frac{1}{2})^2 + 1^2} = \\sqrt{\\frac{1}{4} + \\frac{1}{4} + 1} = \\sqrt{\\frac{3}{2}} = \\frac{\\sqrt{6}}{2}`\n`e_2 = \\frac{v_2}{||v_2||} = \\frac{2}{\\sqrt{6}}\\begin{pmatrix} \\frac{1}{2} \\\\ -\\frac{1}{2} \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} \\frac{1}{\\sqrt{6}} \\\\ -\\frac{1}{\\sqrt{6}} \\\\ \\frac{2}{\\sqrt{6}} \\end{pmatrix}`",
+                "Step 4: Orthogonalize third vector\n`v_3 = u_3 - \\langle u_3, e_1 \\rangle e_1 - \\langle u_3, e_2 \\rangle e_2`\n`\\langle u_3, e_1 \\rangle = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix} \\cdot \\begin{pmatrix} \\frac{1}{\\sqrt{2}} \\\\ \\frac{1}{\\sqrt{2}} \\\\ 0 \\end{pmatrix} = \\frac{1}{\\sqrt{2}}`\n`\\langle u_3, e_2 \\rangle = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix} \\cdot \\begin{pmatrix} \\frac{1}{\\sqrt{6}} \\\\ -\\frac{1}{\\sqrt{6}} \\\\ \\frac{2}{\\sqrt{6}} \\end{pmatrix} = \\frac{1}{\\sqrt{6}}`",
+                "Step 5: Calculate v₃\n`v_3 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix} - \\frac{1}{\\sqrt{2}}\\begin{pmatrix} \\frac{1}{\\sqrt{2}} \\\\ \\frac{1}{\\sqrt{2}} \\\\ 0 \\end{pmatrix} - \\frac{1}{\\sqrt{6}}\\begin{pmatrix} \\frac{1}{\\sqrt{6}} \\\\ -\\frac{1}{\\sqrt{6}} \\\\ \\frac{2}{\\sqrt{6}} \\end{pmatrix}`\n`= \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix} - \\begin{pmatrix} \\frac{1}{2} \\\\ \\frac{1}{2} \\\\ 0 \\end{pmatrix} - \\begin{pmatrix} \\frac{1}{6} \\\\ -\\frac{1}{6} \\\\ \\frac{1}{3} \\end{pmatrix} = \\begin{pmatrix} -\\frac{2}{3} \\\\ \\frac{2}{3} \\\\ \\frac{2}{3} \\end{pmatrix}`",
+                "Step 6: Normalize third vector\n`||v_3|| = \\sqrt{\\frac{4}{9} + \\frac{4}{9} + \\frac{4}{9}} = \\sqrt{\\frac{4}{3}} = \\frac{2}{\\sqrt{3}}`\n`e_3 = \\frac{\\sqrt{3}}{2}\\begin{pmatrix} -\\frac{2}{3} \\\\ \\frac{2}{3} \\\\ \\frac{2}{3} \\end{pmatrix} = \\begin{pmatrix} -\\frac{1}{\\sqrt{3}} \\\\ \\frac{1}{\\sqrt{3}} \\\\ \\frac{1}{\\sqrt{3}} \\end{pmatrix}`\n\nOrthonormal basis: `\\left\\{\\begin{pmatrix} \\frac{1}{\\sqrt{2}} \\\\ \\frac{1}{\\sqrt{2}} \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} \\frac{1}{\\sqrt{6}} \\\\ -\\frac{1}{\\sqrt{6}} \\\\ \\frac{2}{\\sqrt{6}} \\end{pmatrix}, \\begin{pmatrix} -\\frac{1}{\\sqrt{3}} \\\\ \\frac{1}{\\sqrt{3}} \\\\ \\frac{1}{\\sqrt{3}} \\end{pmatrix}\\right\\}`"
+            ]
+        }
+    ]
+}

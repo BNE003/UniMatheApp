@@ -157,16 +157,13 @@ struct SettingsView: View {
                             MailView(isShowing: $showMailView, recipient: "bene-held@web.de", subject: settings.language == .english ? "UniMathe App Support" : "UniMathe App Support")
                         }
                         
-                        // Show Onboarding
+                        // Feedback
                         Button(action: {
-                            // Reset onboarding to show it again
-                            let onboardingManager = OnboardingManager()
-                            onboardingManager.resetOnboarding()
-                            
-                            // Dismiss settings and show onboarding
-                            presentationMode.wrappedValue.dismiss()
+                            if let url = URL(string: "https://insigh.to/b/uni-math") {
+                                UIApplication.shared.open(url)
+                            }
                         }) {
-                            SettingsButton(icon: "questionmark.circle.fill", title: settings.language == .english ? "Show Tutorial" : "Tutorial anzeigen", iconColor: .green, isIpad: horizontalSizeClass == .regular)
+                            SettingsButton(icon: "bubble.left.and.bubble.right.fill", title: settings.language == .english ? "Feedback" : "Feedback", iconColor: .green, isIpad: horizontalSizeClass == .regular)
                         }
                         
                         // Rate

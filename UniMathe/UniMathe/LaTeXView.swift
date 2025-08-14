@@ -14,6 +14,9 @@ struct LaTeXView: UIViewRepresentable {
         webView.isOpaque = false
         webView.backgroundColor = .clear
         webView.navigationDelegate = context.coordinator
+        // Allow horizontal scrolling inside overflow elements; prevent rubber-banding
+        webView.scrollView.isScrollEnabled = true
+        webView.scrollView.bounces = false
         
         // Add message handler for size updates
         webView.configuration.userContentController.add(context.coordinator, name: "sizeHandler")
@@ -22,6 +25,14 @@ struct LaTeXView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: WKWebView, context: Context) {
+        // Only reload HTML when the content actually changes to prevent scroll resets
+        guard context.coordinator.lastContent != content else {
+            // Content unchanged: request a height re-measure in case width changed (e.g., rotation)
+            let script = "window.requestAnimationFrame(() => { try { window.webkit.messageHandlers.sizeHandler.postMessage(document.body.scrollHeight); } catch(e){} });"
+            uiView.evaluateJavaScript(script, completionHandler: nil)
+            return
+        }
+
         let html = """
         <!DOCTYPE html>
         <html>
@@ -56,6 +67,29 @@ struct LaTeXView: UIViewRepresentable {
                     }
                 };
             </script>
+            <script>
+                let lastHeight = { value: null };
+                function postContentHeight() {
+                    try {
+                        const height = document.body.scrollHeight;
+                        if (lastHeight.value === null || Math.abs(lastHeight.value - height) > 0.5) {
+                            lastHeight.value = height;
+                            window.webkit.messageHandlers.sizeHandler.postMessage(height);
+                        }
+                    } catch (e) {
+                        // no-op
+                    }
+                }
+                window.addEventListener('load', postContentHeight);
+                window.addEventListener('resize', postContentHeight);
+                if (typeof ResizeObserver !== 'undefined') {
+                    new ResizeObserver(postContentHeight).observe(document.body);
+                }
+                // Fallback periodic checks in case MathJax layout updates asynchronously
+                setTimeout(postContentHeight, 100);
+                setTimeout(postContentHeight, 300);
+                setTimeout(postContentHeight, 600);
+            </script>
             <style>
                 :root {
                     --primary-color: #007AFF;
@@ -80,6 +114,7 @@ struct LaTeXView: UIViewRepresentable {
                     background-color: transparent;
                     padding: var(--spacing-unit);
                     -webkit-text-size-adjust: 100%;
+                    overflow-y: hidden; /* prevent inner vertical scrollbars */
                 }
                 
                 .content-container, .exercise-content {
@@ -137,7 +172,8 @@ struct LaTeXView: UIViewRepresentable {
                     display: block;
                     text-align: center;
                     margin: var(--spacing-unit) 0;
-                    overflow-x: auto;
+                     overflow-x: auto;
+                     -webkit-overflow-scrolling: touch; /* smooth horizontal scroll */
                     background: rgba(0, 122, 255, 0.05);
                     padding: var(--spacing-unit);
                     border-radius: var(--border-radius);
@@ -228,11 +264,14 @@ struct LaTeXView: UIViewRepresentable {
         </body>
         </html>
         """
+        context.coordinator.lastContent = content
         uiView.loadHTMLString(html, baseURL: nil)
     }
     
     class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
         var parent: LaTeXView
+        var lastContent: String?
+        var lastReportedHeight: CGFloat?
         
         init(_ parent: LaTeXView) {
             self.parent = parent
@@ -246,8 +285,28 @@ struct LaTeXView: UIViewRepresentable {
         }
         
         func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-            if let height = message.body as? CGFloat {
-                parent.height = height
+            // MathJax posts numeric height; handle Double/NSNumber safely and avoid redundant updates
+            let newHeight: CGFloat?
+            if let number = message.body as? NSNumber {
+                newHeight = CGFloat(truncating: number)
+            } else if let doubleValue = message.body as? Double {
+                newHeight = CGFloat(doubleValue)
+            } else if let intValue = message.body as? Int {
+                newHeight = CGFloat(intValue)
+            } else {
+                newHeight = nil
+            }
+
+            guard let heightValue = newHeight else { return }
+
+            DispatchQueue.main.async {
+                // Update only if height changed meaningfully
+                let epsilon: CGFloat = 0.5
+                if let last = self.lastReportedHeight, abs(last - heightValue) <= epsilon, abs(self.parent.height - heightValue) <= epsilon {
+                    return
+                }
+                self.lastReportedHeight = heightValue
+                self.parent.height = heightValue
             }
         }
     }
