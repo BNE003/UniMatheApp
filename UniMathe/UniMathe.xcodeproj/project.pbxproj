@@ -14,6 +14,7 @@
 		A76069632DC42C48000E1DB6 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = A76069622DC42C48000E1DB6 /* Storage */; };
 		A76069652DC42C62000E1DB6 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = A76069642DC42C62000E1DB6 /* Supabase */; };
 		A785ED1E2DD3F81D00BD9EE6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A785ED1D2DD3F81D00BD9EE6 /* StoreKit.framework */; };
+		A7PHBF012DF0000000000001 /* PostHog in Frameworks */ = {isa = PBXBuildFile; productRef = A7PHPROD12DF000000000002 /* PostHog */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7PHBF012DF0000000000001 /* PostHog in Frameworks */,
 				A760695F2DC42C48000E1DB6 /* PostgREST in Frameworks */,
 				A785ED1E2DD3F81D00BD9EE6 /* StoreKit.framework in Frameworks */,
 				A760695D2DC42C48000E1DB6 /* Functions in Frameworks */,
@@ -145,6 +147,7 @@
 				A76069602DC42C48000E1DB6 /* Realtime */,
 				A76069622DC42C48000E1DB6 /* Storage */,
 				A76069642DC42C62000E1DB6 /* Supabase */,
+				A7PHPROD12DF000000000002 /* PostHog */,
 			);
 			productName = UniMathe;
 			productReference = A747ED832DBA6838007744BD /* UniMathe.app */;
@@ -230,6 +233,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				A76069592DC42C48000E1DB6 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				A7PHPKG12DF0000000000003 /* XCRemoteSwiftPackageReference "posthog-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A747ED842DBA6838007744BD /* Products */;
@@ -602,6 +606,14 @@
 				minimumVersion = 2.5.1;
 			};
 		};
+		A7PHPKG12DF0000000000003 /* XCRemoteSwiftPackageReference "posthog-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PostHog/posthog-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -634,6 +646,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A76069592DC42C48000E1DB6 /* XCRemoteSwiftPackageReference "supabase-swift" */;
 			productName = Supabase;
+		};
+		A7PHPROD12DF000000000002 /* PostHog */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7PHPKG12DF0000000000003 /* XCRemoteSwiftPackageReference "posthog-ios" */;
+			productName = PostHog;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

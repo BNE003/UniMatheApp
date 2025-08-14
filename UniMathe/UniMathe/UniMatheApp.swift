@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct UniMatheApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @ObservedObject private var settings = SettingsModel.shared
     @StateObject private var onboardingManager = OnboardingManager()
     @State private var needsRefresh = false
