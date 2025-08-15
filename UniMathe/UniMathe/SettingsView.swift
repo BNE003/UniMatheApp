@@ -4,6 +4,7 @@ import StoreKit
 
 struct SettingsView: View {
     @ObservedObject private var settings = SettingsModel.shared
+    @ObservedObject private var storeManager = StoreKitManager.shared
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     
@@ -108,7 +109,7 @@ struct SettingsView: View {
                     // Action Buttons
                     SettingsSection {
                         // Get Pro Button - only show if not purchased
-                        if StoreKitManager.shared.purchasedProductIDs.isEmpty {
+                        if storeManager.purchasedProductIDs.isEmpty {
                             Button(action: {
                                 showPurchaseView = true
                             }) {

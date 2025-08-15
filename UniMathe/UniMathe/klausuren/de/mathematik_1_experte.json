@@ -1,0 +1,199 @@
+{
+    "exam": {
+        "title": "Mathematik I - Expertenklausur",
+        "subtitle": "Fortgeschrittene abstrakte und lineare Algebra",
+        "duration": 180,
+        "totalPoints": 180,
+        "difficulty": "advanced",
+        "language": "de",
+        "instructions": "Bearbeiten Sie alle Aufgaben. Geben Sie bei allen Berechnungen den vollständigen Lösungsweg an. Beweise müssen vollständig und rigoros geführt werden. Hilfsmittel: Taschenrechner ohne Programmierfunktion. Viel Erfolg!"
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Algebraische Zahlentheorie",
+            "title": "Quadratische Zahlkörper und Einheiten",
+            "description": "Betrachten Sie den quadratischen Zahlkörper $\\mathbb{Q}(\\sqrt{-5})$ mit Ganzheitsring $\\mathbb{Z}[\\sqrt{-5}]$.\n\na) Zeigen Sie, dass $\\mathbb{Z}[\\sqrt{-5}]$ nicht faktoriell ist\nb) Bestimmen Sie die Einheitengruppe von $\\mathbb{Z}[\\sqrt{-5}]$\nc) Berechnen Sie die Klassenzahl von $\\mathbb{Q}(\\sqrt{-5})$",
+            "difficulty": "hard",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Norm-Funktion definieren\nFür $\\alpha = a + b\\sqrt{-5} \\in \\mathbb{Z}[\\sqrt{-5}]$ ist die Norm:\n$N(\\alpha) = \\alpha \\overline{\\alpha} = (a + b\\sqrt{-5})(a - b\\sqrt{-5}) = a^2 + 5b^2$\nDie Norm ist multiplikativ: $N(\\alpha\\beta) = N(\\alpha)N(\\beta)$",
+                "Schritt 2: Nicht-Faktorialität zeigen\nBetrachte die Zahl $6 \\in \\mathbb{Z}[\\sqrt{-5}]$:\n$6 = 2 \\cdot 3 = (1 + \\sqrt{-5})(1 - \\sqrt{-5})$\nPrüfe Irreduzibilität von 2, 3, $1 \\pm \\sqrt{-5}$:\n$N(2) = 4$, $N(3) = 9$, $N(1 \\pm \\sqrt{-5}) = 1 + 5 = 6$",
+                "Schritt 3: Irreduzibilität nachweisen\nFür eine echte Faktorisierung $\\alpha = \\beta\\gamma$ mit $N(\\beta), N(\\gamma) > 1$ muss gelten:\n$N(\\alpha) = N(\\beta)N(\\gamma)$\nFür $\\alpha = 2$: $4 = N(\\beta)N(\\gamma)$ mit $N(\\beta), N(\\gamma) \\in \\{2, 4\\}$\nAber $N(a + b\\sqrt{-5}) = a^2 + 5b^2 = 2$ hat keine ganzzahligen Lösungen.\nAnalog für 3 und $1 \\pm \\sqrt{-5}$. Alle sind irreduzibel.",
+                "Schritt 4: Eindeutigkeit der Faktorisierung widerlegen\nDa $6 = 2 \\cdot 3 = (1 + \\sqrt{-5})(1 - \\sqrt{-5})$ zwei verschiedene Faktorisierungen in irreduzible Elemente hat, ist $\\mathbb{Z}[\\sqrt{-5}]$ nicht faktoriell.",
+                "Schritt 5: Einheitengruppe bestimmen\nEinheiten $u$ erfüllen $N(u) = \\pm 1$. Da $N(a + b\\sqrt{-5}) = a^2 + 5b^2 \\geq 0$:\n$a^2 + 5b^2 = 1$\nLösungen: $(a,b) \\in \\{(\\pm 1, 0)\\}$\n$\\Rightarrow$ Einheitengruppe: $\\{\\pm 1\\}$",
+                "Schritt 6: Klassenzahl berechnen\nDie Klassenzahl $h$ von $\\mathbb{Q}(\\sqrt{-5})$ kann mit der Minkowski-Schranke abgeschätzt werden:\n$M = \\frac{1}{2}\\sqrt{|\\Delta|} = \\frac{1}{2}\\sqrt{20} = \\sqrt{5} \\approx 2.236$\nAlle Primideale mit Norm $\\leq M$ müssen betrachtet werden: nur $(2)$ und $(3)$.",
+                "Schritt 7: Idealklassen analysieren\n$(2) = \\mathfrak{p}_2^2$ mit $\\mathfrak{p}_2 = (2, 1+\\sqrt{-5})$\n$(3) = \\mathfrak{p}_3 \\mathfrak{p}_3'$ mit $\\mathfrak{p}_3 = (3, 1+\\sqrt{-5})$, $\\mathfrak{p}_3' = (3, 1-\\sqrt{-5})$\n$(1+\\sqrt{-5}) = \\mathfrak{p}_2 \\mathfrak{p}_3$\nDurch Analyse der Idealrelationen: $h = 2$",
+                "Schritt 8: Endergebnisse\na) $\\mathbb{Z}[\\sqrt{-5}]$ ist nicht faktoriell (zwei verschiedene Faktorisierungen von 6)\nb) Einheitengruppe: $\\{\\pm 1\\}$\nc) Klassenzahl: $h = 2$"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Tensorprodukte",
+            "title": "Tensorprodukt von Moduln",
+            "description": "Seien $M = \\mathbb{Z}/4\\mathbb{Z}$ und $N = \\mathbb{Z}/6\\mathbb{Z}$ als $\\mathbb{Z}$-Moduln.\n\na) Berechnen Sie $M \\otimes_\\mathbb{Z} N$\nb) Bestimmen Sie die Torsionsuntergruppe von $M \\otimes_\\mathbb{Z} N$\nc) Zeigen Sie, dass $M \\otimes_\\mathbb{Z} N \\cong \\mathbb{Z}/2\\mathbb{Z}$",
+            "difficulty": "hard",
+            "points": 18,
+            "solutionSteps": [
+                "Schritt 1: Tensorprodukt-Struktur analysieren\n$M \\otimes_\\mathbb{Z} N$ wird erzeugt von Elementen der Form $\\overline{a} \\otimes \\overline{b}$ mit $\\overline{a} \\in \\mathbb{Z}/4\\mathbb{Z}$, $\\overline{b} \\in \\mathbb{Z}/6\\mathbb{Z}$\nRelationen: $r(\\overline{a} \\otimes \\overline{b}) = \\overline{ra} \\otimes \\overline{b} = \\overline{a} \\otimes \\overline{rb}$ für $r \\in \\mathbb{Z}$",
+                "Schritt 2: Erzeuger bestimmen\nErzeuger: $\\{\\overline{i} \\otimes \\overline{j} : i \\in \\{0,1,2,3\\}, j \\in \\{0,1,2,3,4,5\\}\\}$\nWichtige Relationen:\n$2(\\overline{1} \\otimes \\overline{3}) = \\overline{2} \\otimes \\overline{3} = \\overline{1} \\otimes \\overline{6} = \\overline{1} \\otimes \\overline{0} = 0$\n$3(\\overline{2} \\otimes \\overline{1}) = \\overline{6} \\otimes \\overline{1} = \\overline{2} \\otimes \\overline{3}$",
+                "Schritt 3: Chinesischer Restsatz anwenden\n$\\mathbb{Z}/4\\mathbb{Z} \\otimes_\\mathbb{Z} \\mathbb{Z}/6\\mathbb{Z} \\cong \\mathbb{Z}/(\\gcd(4,6))\\mathbb{Z} = \\mathbb{Z}/2\\mathbb{Z}$\nDies folgt aus der allgemeinen Formel:\n$\\mathbb{Z}/m\\mathbb{Z} \\otimes_\\mathbb{Z} \\mathbb{Z}/n\\mathbb{Z} \\cong \\mathbb{Z}/\\gcd(m,n)\\mathbb{Z}$",
+                "Schritt 4: Explizite Berechnung\nJedes Element hat die Form $\\sum_{i,j} a_{ij}(\\overline{i} \\otimes \\overline{j})$\nSchlüsselrelationen:\n$4(\\overline{1} \\otimes \\overline{b}) = \\overline{4} \\otimes \\overline{b} = 0$\n$6(\\overline{a} \\otimes \\overline{1}) = \\overline{a} \\otimes \\overline{6} = 0$\n$\\gcd(4,6) = 2$, also $2(\\overline{a} \\otimes \\overline{b}) = 0$ für alle Elemente",
+                "Schritt 5: Isomorphismus konstruieren\nDefiniere $\\phi: M \\otimes_\\mathbb{Z} N \\to \\mathbb{Z}/2\\mathbb{Z}$ durch:\n$\\phi(\\overline{a} \\otimes \\overline{b}) = \\overline{ab \\bmod 2}$\nWohldefiniertheit: Wenn $4|a$ oder $6|b$, dann $2|ab$, also $\\phi(\\overline{a} \\otimes \\overline{b}) = 0$",
+                "Schritt 6: Torsionsuntergruppe\nDa $M \\otimes_\\mathbb{Z} N \\cong \\mathbb{Z}/2\\mathbb{Z}$ endlich ist, ist jedes Element Torsion.\nTorsionsuntergruppe = $M \\otimes_\\mathbb{Z} N$ selbst.",
+                "Schritt 7: Surjektivität und Injektivität\nSurjektivität: $\\phi(\\overline{1} \\otimes \\overline{1}) = \\overline{1}$ erzeugt $\\mathbb{Z}/2\\mathbb{Z}$\nInjektivität: $\\ker(\\phi) = \\{0\\}$, da beide Gruppen Ordnung 2 haben\n$\\Rightarrow \\phi$ ist Isomorphismus",
+                "Schritt 8: Endergebnisse\na) $M \\otimes_\\mathbb{Z} N$ ist eine abelsche Gruppe der Ordnung 2\nb) Torsionsuntergruppe = $M \\otimes_\\mathbb{Z} N$ (da endlich)\nc) $M \\otimes_\\mathbb{Z} N \\cong \\mathbb{Z}/2\\mathbb{Z}$ via $\\overline{a} \\otimes \\overline{b} \\mapsto \\overline{ab}$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Spektraltheorie",
+            "title": "Spektralradius und Matrixnormen",
+            "description": "Gegeben ist die Matrix $A = \\begin{pmatrix} 2 & 1 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}$.\n\na) Berechnen Sie den Spektralradius $\\rho(A)$\nb) Bestimmen Sie $\\lim_{n \\to \\infty} \\|A^n\\|^{1/n}$ für die Spektralnorm\nc) Untersuchen Sie die Konvergenz der Reihe $\\sum_{n=0}^\\infty A^n$",
+            "difficulty": "hard",
+            "points": 16,
+            "solutionSteps": [
+                "Schritt 1: Eigenwerte bestimmen\nDa $A$ eine obere Dreiecksmatrix ist, sind die Eigenwerte die Diagonaleinträge:\n$\\lambda_1 = \\lambda_2 = \\lambda_3 = 2$\nDas charakteristische Polynom ist $(\\lambda - 2)^3$",
+                "Schritt 2: Spektralradius berechnen\nDer Spektralradius ist der größte Betrag aller Eigenwerte:\n$\\rho(A) = \\max\\{|\\lambda| : \\lambda \\text{ Eigenwert von } A\\} = |2| = 2$",
+                "Schritt 3: Jordan-Normalform bestimmen\nDa $A$ nicht diagonalisierbar ist (geometrische Vielfachheit < algebraische Vielfachheit), bestimmen wir die Jordan-Form:\n$(A - 2I) = \\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix}$\n$(A - 2I)^2 = \\begin{pmatrix} 0 & 0 & 1 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}$\n$(A - 2I)^3 = 0$",
+                "Schritt 4: Jordan-Blöcke analysieren\n$\\dim(\\ker(A - 2I)) = 2$, $\\dim(\\ker(A - 2I)^2) = 1$, $\\dim(\\ker(A - 2I)^3) = 0$\nJordan-Form: $J = \\begin{pmatrix} 2 & 1 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix} = A$ (bereits in Jordan-Form)",
+                "Schritt 5: Potenzen von A berechnen\n$A = 2I + N$ mit $N = \\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix}$\n$N^2 = \\begin{pmatrix} 0 & 0 & 1 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}$, $N^3 = 0$\nMit dem Binomialsatz:\n$A^n = (2I + N)^n = \\sum_{k=0}^n \\binom{n}{k} 2^{n-k} N^k = 2^n I + n \\cdot 2^{n-1} N + \\binom{n}{2} 2^{n-2} N^2$",
+                "Schritt 6: Explizite Form von A^n\n$A^n = \\begin{pmatrix} 2^n & n \\cdot 2^{n-1} & \\binom{n}{2} 2^{n-2} \\\\ 0 & 2^n & n \\cdot 2^{n-1} \\\\ 0 & 0 & 2^n \\end{pmatrix}$",
+                "Schritt 7: Spektralnorm-Grenzwert\nFür die Spektralnorm gilt der Satz von Gelfand:\n$\\lim_{n \\to \\infty} \\|A^n\\|^{1/n} = \\rho(A) = 2$\nDies gilt für jede submultiplikative Matrixnorm.",
+                "Schritt 8: Konvergenz der Neumann-Reihe\nDie Reihe $\\sum_{n=0}^\\infty A^n$ konvergiert genau dann, wenn $\\rho(A) < 1$.\nDa $\\rho(A) = 2 > 1$, divergiert die Reihe.\nAlternativ: Die Einträge von $A^n$ wachsen wie $2^n$, also kann die Reihe nicht konvergieren.",
+                "Schritt 9: Endergebnisse\na) Spektralradius: $\\rho(A) = 2$\nb) $\\lim_{n \\to \\infty} \\|A^n\\|^{1/n} = 2$ (Satz von Gelfand)\nc) Die Reihe $\\sum_{n=0}^\\infty A^n$ divergiert, da $\\rho(A) = 2 > 1$"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Kategorientheorie",
+            "title": "Funktoren und natürliche Transformationen",
+            "description": "Betrachten Sie die Kategorie $\\mathbf{Vect}_k$ der endlichdimensionalen Vektorräume über einem Körper $k$.\n\na) Zeigen Sie, dass der Dualraum-Funktor $D: \\mathbf{Vect}_k \\to \\mathbf{Vect}_k^{\\text{op}}$ mit $D(V) = V^*$ ein kontravarianter Funktor ist\nb) Konstruieren Sie eine natürliche Transformation $\\eta: \\text{Id} \\to D \\circ D$\nc) Zeigen Sie, dass $\\eta$ ein natürlicher Isomorphismus ist",
+            "difficulty": "hard",
+            "points": 18,
+            "solutionSteps": [
+                "Schritt 1: Dualraum-Funktor definieren\nFür einen Vektorraum $V$ ist $D(V) = V^* = \\text{Hom}_k(V, k)$\nFür eine lineare Abbildung $f: V \\to W$ ist $D(f): W^* \\to V^*$ definiert durch:\n$(D(f)(\\phi))(v) = \\phi(f(v))$ für $\\phi \\in W^*, v \\in V$\nBeachte die Richtungsumkehr: $f: V \\to W$ wird zu $D(f): W^* \\to V^*$",
+                "Schritt 2: Funktoreigenschaften verifizieren\n1. Identität: $D(\\text{id}_V) = \\text{id}_{V^*}$\n   Für $\\phi \\in V^*$: $(D(\\text{id}_V)(\\phi))(v) = \\phi(\\text{id}_V(v)) = \\phi(v)$\n2. Komposition: $D(g \\circ f) = D(f) \\circ D(g)$ für $f: U \\to V, g: V \\to W$\n   $(D(g \\circ f)(\\psi))(u) = \\psi((g \\circ f)(u)) = \\psi(g(f(u))) = (D(g)(\\psi))(f(u)) = (D(f)(D(g)(\\psi)))(u)$",
+                "Schritt 3: Kontravarianz bestätigen\nDa $D$ die Richtung der Morphismen umkehrt und Kompositionen in umgekehrter Reihenfolge erhält, ist $D$ ein kontravarianter Funktor von $\\mathbf{Vect}_k$ nach $\\mathbf{Vect}_k^{\\text{op}}$.",
+                "Schritt 4: Natürliche Transformation konstruieren\nFür jeden endlichdimensionalen Vektorraum $V$ definieren wir:\n$\\eta_V: V \\to V^{**} = (V^*)^*$\n$(\\eta_V(v))(\\phi) = \\phi(v)$ für $v \\in V, \\phi \\in V^*$\nDies ist die kanonische Einbettung von $V$ in seinen Bidualraum.",
+                "Schritt 5: Natürlichkeit beweisen\nFür eine lineare Abbildung $f: V \\to W$ muss das Diagramm kommutieren:\n$\\eta_W \\circ f = D(D(f)) \\circ \\eta_V$\nFür $v \\in V, \\psi \\in W^*$:\n$(\\eta_W(f(v)))(\\psi) = \\psi(f(v))$\n$(D(D(f))(\\eta_V(v)))(\\psi) = (\\eta_V(v))(D(f)(\\psi)) = (D(f)(\\psi))(v) = \\psi(f(v))$\n$\\Rightarrow$ Das Diagramm kommutiert.",
+                "Schritt 6: Isomorphismus-Eigenschaft\nFür endlichdimensionale Vektorräume ist $\\eta_V: V \\to V^{**}$ ein Isomorphismus:\n- Injektivität: Wenn $\\eta_V(v) = 0$, dann $\\phi(v) = 0$ für alle $\\phi \\in V^*$\n  Da $V^*$ $V$ separiert, folgt $v = 0$\n- Surjektivität: $\\dim(V) = \\dim(V^{**})$ für endlichdimensionale Räume\n  Eine injektive lineare Abbildung zwischen gleichdimensionalen Räumen ist surjektiv",
+                "Schritt 7: Natürlicher Isomorphismus\nDa $\\eta_V$ für jeden endlichdimensionalen Vektorraum $V$ ein Isomorphismus ist und die Familie $\\{\\eta_V\\}$ natürlich ist, ist $\\eta$ ein natürlicher Isomorphismus zwischen den Funktoren $\\text{Id}$ und $D \\circ D$.",
+                "Schritt 8: Endergebnisse\na) $D$ ist kontravarianter Funktor (Richtungsumkehr, Funktoreigenschaften erfüllt)\nb) $\\eta_V: V \\to V^{**}$ mit $(\\eta_V(v))(\\phi) = \\phi(v)$ ist natürliche Transformation\nc) $\\eta$ ist natürlicher Isomorphismus (jede Komponente $\\eta_V$ ist Isomorphismus)"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Homologische Algebra",
+            "title": "Ext-Funktoren und Projektive Auflösungen",
+            "description": "Betrachten Sie die $\\mathbb{Z}$-Moduln $M = \\mathbb{Z}/4\\mathbb{Z}$ und $N = \\mathbb{Z}/2\\mathbb{Z}$.\n\na) Konstruieren Sie eine projektive Auflösung von $M$\nb) Berechnen Sie $\\text{Ext}^1_\\mathbb{Z}(M, N)$\nc) Interpretieren Sie das Ergebnis in Termen von Erweiterungen",
+            "difficulty": "hard",
+            "points": 18,
+            "solutionSteps": [
+                "Schritt 1: Projektive Auflösung konstruieren\nEine projektive Auflösung von $M = \\mathbb{Z}/4\\mathbb{Z}$ ist:\n$0 \\to \\mathbb{Z} \\xrightarrow{\\cdot 4} \\mathbb{Z} \\xrightarrow{\\pi} \\mathbb{Z}/4\\mathbb{Z} \\to 0$\nwobei $\\pi$ die kanonische Projektion und $\\cdot 4$ die Multiplikation mit 4 ist.\nExaktheit: $\\ker(\\pi) = 4\\mathbb{Z} = \\text{im}(\\cdot 4)$",
+                "Schritt 2: Hom-Komplex bilden\nAnwenden von $\\text{Hom}_\\mathbb{Z}(-, N)$ auf die Auflösung:\n$0 \\to \\text{Hom}_\\mathbb{Z}(\\mathbb{Z}/4\\mathbb{Z}, N) \\xrightarrow{\\pi^*} \\text{Hom}_\\mathbb{Z}(\\mathbb{Z}, N) \\xrightarrow{(\\cdot 4)^*} \\text{Hom}_\\mathbb{Z}(\\mathbb{Z}, N) \\to 0$",
+                "Schritt 3: Hom-Gruppen identifizieren\n$\\text{Hom}_\\mathbb{Z}(\\mathbb{Z}, N) \\cong N = \\mathbb{Z}/2\\mathbb{Z}$\n$\\text{Hom}_\\mathbb{Z}(\\mathbb{Z}/4\\mathbb{Z}, N) \\cong \\{x \\in N : 4x = 0\\} = N$ (da $2 \\cdot 2 = 4 \\equiv 0$ in $\\mathbb{Z}/2\\mathbb{Z}$)\nDer Komplex wird zu:\n$0 \\to \\mathbb{Z}/2\\mathbb{Z} \\xrightarrow{\\pi^*} \\mathbb{Z}/2\\mathbb{Z} \\xrightarrow{(\\cdot 4)^*} \\mathbb{Z}/2\\mathbb{Z} \\to 0$",
+                "Schritt 4: Induzierte Abbildungen berechnen\n$\\pi^*: \\text{Hom}_\\mathbb{Z}(\\mathbb{Z}, N) \\to \\text{Hom}_\\mathbb{Z}(\\mathbb{Z}/4\\mathbb{Z}, N)$\n$(\\pi^*(f))(\\overline{a}) = f(a)$ für $f \\in \\text{Hom}_\\mathbb{Z}(\\mathbb{Z}, N) \\cong N$\n$(\\cdot 4)^*: \\text{Hom}_\\mathbb{Z}(\\mathbb{Z}, N) \\to \\text{Hom}_\\mathbb{Z}(\\mathbb{Z}, N)$\n$((\\cdot 4)^*(g))(a) = g(4a) = 4g(a)$ für $g \\in N$",
+                "Schritt 5: Kern und Bild bestimmen\nDa $N = \\mathbb{Z}/2\\mathbb{Z}$, ist $4g(a) = 0$ für alle $g \\in N, a \\in \\mathbb{Z}$\n$\\Rightarrow (\\cdot 4)^* = 0$\n$\\pi^*$ ist surjektiv, da jeder Homomorphismus $\\mathbb{Z}/4\\mathbb{Z} \\to \\mathbb{Z}/2\\mathbb{Z}$ von einem Homomorphismus $\\mathbb{Z} \\to \\mathbb{Z}/2\\mathbb{Z}$ induziert wird.\n$\\ker((\\cdot 4)^*) = \\mathbb{Z}/2\\mathbb{Z}$, $\\text{im}(\\pi^*) = \\mathbb{Z}/2\\mathbb{Z}$",
+                "Schritt 6: Ext^1 berechnen\n$\\text{Ext}^1_\\mathbb{Z}(M, N) = \\frac{\\ker((\\cdot 4)^*)}{\\text{im}(\\pi^*)} = \\frac{\\mathbb{Z}/2\\mathbb{Z}}{\\mathbb{Z}/2\\mathbb{Z}} = 0$\nAlternativ: Da $\\gcd(4, 2) = 2$ und $\\text{Ext}^1_\\mathbb{Z}(\\mathbb{Z}/m\\mathbb{Z}, \\mathbb{Z}/n\\mathbb{Z}) \\cong \\mathbb{Z}/\\gcd(m,n)\\mathbb{Z}$:\n$\\text{Ext}^1_\\mathbb{Z}(\\mathbb{Z}/4\\mathbb{Z}, \\mathbb{Z}/2\\mathbb{Z}) \\cong \\mathbb{Z}/2\\mathbb{Z}$",
+                "Schritt 7: Korrektur der Berechnung\nKorrigiere Schritt 6: Die Formel gibt $\\text{Ext}^1_\\mathbb{Z}(\\mathbb{Z}/4\\mathbb{Z}, \\mathbb{Z}/2\\mathbb{Z}) \\cong \\mathbb{Z}/\\gcd(4,2)\\mathbb{Z} = \\mathbb{Z}/2\\mathbb{Z}$\nDirekte Verifikation über kurze exakte Sequenzen bestätigt dies.",
+                "Schritt 8: Interpretation als Erweiterungen\n$\\text{Ext}^1_\\mathbb{Z}(M, N) \\cong \\mathbb{Z}/2\\mathbb{Z}$ klassifiziert Erweiterungen:\n$0 \\to \\mathbb{Z}/2\\mathbb{Z} \\to E \\to \\mathbb{Z}/4\\mathbb{Z} \\to 0$\nEs gibt zwei Äquivalenzklassen: die triviale Erweiterung $\\mathbb{Z}/2\\mathbb{Z} \\oplus \\mathbb{Z}/4\\mathbb{Z}$ und eine nichttriviale Erweiterung $\\mathbb{Z}/8\\mathbb{Z}$ (mit geeigneter Einbettung).",
+                "Schritt 9: Endergebnisse\na) Projektive Auflösung: $0 \\to \\mathbb{Z} \\xrightarrow{\\cdot 4} \\mathbb{Z} \\xrightarrow{\\pi} \\mathbb{Z}/4\\mathbb{Z} \\to 0$\nb) $\\text{Ext}^1_\\mathbb{Z}(\\mathbb{Z}/4\\mathbb{Z}, \\mathbb{Z}/2\\mathbb{Z}) \\cong \\mathbb{Z}/2\\mathbb{Z}$\nc) Klassifiziert 2 Erweiterungsklassen: triviale und nichttriviale Erweiterung"
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Strukturelle Induktion",
+            "title": "Starke Induktion und Wohlordnungsprinzip",
+            "description": "Beweisen Sie mit starker Induktion:\nJede natürliche Zahl $n \\geq 2$ lässt sich als Produkt von Primzahlen darstellen.\n\nZeigen Sie außerdem die Äquivalenz von starker Induktion und dem Wohlordnungsprinzip.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Starke Induktion - Induktionsanfang\nFür $n = 2$: 2 ist selbst eine Primzahl, also trivial als Produkt von Primzahlen darstellbar.\n$\\Rightarrow$ Induktionsanfang ist erfüllt.",
+                "Schritt 2: Starke Induktionsvoraussetzung\nAnnahme: Für alle $k$ mit $2 \\leq k \\leq n$ lässt sich $k$ als Produkt von Primzahlen darstellen.",
+                "Schritt 3: Induktionsschritt (n → n+1)\nZu zeigen: $n+1$ lässt sich als Produkt von Primzahlen darstellen.\nFall 1: $n+1$ ist prim $\\Rightarrow$ trivial erfüllt.\nFall 2: $n+1$ ist zusammengesetzt.",
+                "Schritt 4: Fall 2 - Zusammengesetzte Zahl\nWenn $n+1$ zusammengesetzt ist, existieren $a, b \\in \\mathbb{N}$ mit:\n$n+1 = a \\cdot b$ und $2 \\leq a, b \\leq n$\nNach Induktionsvoraussetzung haben $a$ und $b$ Primfaktorzerlegungen:\n$a = p_1^{\\alpha_1} \\cdots p_r^{\\alpha_r}$, $b = q_1^{\\beta_1} \\cdots q_s^{\\beta_s}$",
+                "Schritt 5: Primfaktorzerlegung von n+1\n$n+1 = a \\cdot b = p_1^{\\alpha_1} \\cdots p_r^{\\alpha_r} \\cdot q_1^{\\beta_1} \\cdots q_s^{\\beta_s}$\nDies ist eine Darstellung von $n+1$ als Produkt von Primzahlen.\n$\\Rightarrow$ Der Induktionsschritt ist bewiesen.",
+                "Schritt 6: Wohlordnungsprinzip → Starke Induktion\nSei $P(n)$ eine Eigenschaft und $A = \\{n \\in \\mathbb{N} : \\neg P(n)\\}$.\nAnnahme: Starke Induktion versagt, d.h. $A \\neq \\emptyset$.\nNach dem Wohlordnungsprinzip hat $A$ ein kleinstes Element $m$.\nDa die Induktionsvoraussetzung für alle $k < m$ erfüllt ist, aber $P(m)$ falsch ist, führt dies zu einem Widerspruch zum Induktionsschritt.",
+                "Schritt 7: Starke Induktion → Wohlordnungsprinzip\nSei $S \\subseteq \\mathbb{N}$ nichtleer. Definiere $P(n)$: \"$S \\cap \\{1, 2, ..., n\\} \\neq \\emptyset \\Rightarrow S \\cap \\{1, 2, ..., n\\}$ hat ein kleinstes Element\".\nInduktionsanfang: $P(1)$ ist trivial erfüllt.\nInduktionsschritt: Wenn $P(k)$ für alle $k \\leq n$ gilt und $S \\cap \\{1, 2, ..., n+1\\} \\neq \\emptyset$, dann:\n- Falls $n+1 \\notin S$, folgt aus IV, dass $S \\cap \\{1, 2, ..., n\\}$ ein kleinstes Element hat.\n- Falls $n+1 \\in S$ und $S \\cap \\{1, 2, ..., n\\} = \\emptyset$, ist $n+1$ das kleinste Element.\n- Falls $n+1 \\in S$ und $S \\cap \\{1, 2, ..., n\\} \\neq \\emptyset$, ist das kleinste Element von $S \\cap \\{1, 2, ..., n\\}$ auch das kleinste von $S \\cap \\{1, 2, ..., n+1\\}$.",
+                "Schritt 8: Schlussfolgerung\nDer Fundamentalsatz der Arithmetik (Existenz der Primfaktorzerlegung) ist durch starke Induktion bewiesen.\nStarke Induktion und das Wohlordnungsprinzip sind äquivalent, da sie sich gegenseitig implizieren."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Algebraische Topologie",
+            "title": "Fundamentalgruppe und Überlagerungen",
+            "description": "Betrachten Sie den Raum $X = S^1 \\vee S^1$ (Wedge-Produkt zweier Kreise).\n\na) Bestimmen Sie die Fundamentalgruppe $\\pi_1(X, x_0)$\nb) Konstruieren Sie die universelle Überlagerung von $X$\nc) Klassifizieren Sie alle zusammenhängenden Überlagerungen von $X$",
+            "difficulty": "hard",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Fundamentalgruppe des Wedge-Produkts\nFür das Wedge-Produkt $X = S^1 \\vee S^1$ gilt der Satz von van Kampen:\n$\\pi_1(S^1 \\vee S^1, x_0) \\cong \\pi_1(S^1, x_0) * \\pi_1(S^1, x_0) \\cong \\mathbb{Z} * \\mathbb{Z}$\nDies ist die freie Gruppe auf zwei Erzeugern $a, b$.",
+                "Schritt 2: Präsentation der Fundamentalgruppe\n$\\pi_1(X, x_0) = \\langle a, b \\mid \\rangle = F_2$ (freie Gruppe vom Rang 2)\nJedes Element kann eindeutig als reduziertes Wort in $a, a^{-1}, b, b^{-1}$ geschrieben werden.",
+                "Schritt 3: Universelle Überlagerung konstruieren\nDie universelle Überlagerung $\\tilde{X}$ von $X$ ist ein zusammenhängender, einfach zusammenhängender Raum.\nKonstruktion: $\\tilde{X}$ ist ein unendlicher Baum, wobei jeder Knoten Grad 4 hat.\nJeder Knoten entspricht einem Element von $\\pi_1(X, x_0) = F_2$.",
+                "Schritt 4: Struktur der universellen Überlagerung\n$\\tilde{X}$ ist der Cayley-Graph von $F_2$ bezüglich der Erzeuger $\\{a, b\\}$:\n- Knoten: Elemente von $F_2$\n- Kanten: Von $g$ nach $ga$ und $gb$ für jedes $g \\in F_2$\nDies ergibt einen 4-regulären Baum.",
+                "Schritt 5: Überlagerungskorrespondenz\nNach der Galois-Theorie für Überlagerungen entsprechen zusammenhängende Überlagerungen von $X$ den Untergruppen von $\\pi_1(X, x_0) = F_2$.\nÜberlagerung $Y \\to X$ entspricht Untergruppe $H \\leq F_2$\nGrad der Überlagerung = Index $[F_2 : H]$",
+                "Schritt 6: Klassifikation der Untergruppen\nUntergruppen von $F_2$:\n1. Triviale Untergruppe $\\{1\\}$ → universelle Überlagerung\n2. Endliche Indexuntergruppen → endliche Überlagerungen\n3. Unendliche Indexuntergruppen → unendliche Überlagerungen\n4. Normalteiler → Galois-Überlagerungen",
+                "Schritt 7: Spezielle Überlagerungen\n- Grad 1: $X$ selbst (entspricht $H = F_2$)\n- Grad 2: Entsprechen Untergruppen vom Index 2 in $F_2$\n- Unendlicher Grad: z.B. $H = \\langle a \\rangle$ (zyklische Untergruppe)\nJede Untergruppe von $F_2$ ist wieder frei (Satz von Nielsen-Schreier).",
+                "Schritt 8: Endergebnisse\na) $\\pi_1(S^1 \\vee S^1, x_0) \\cong F_2$ (freie Gruppe auf zwei Erzeugern)\nb) Universelle Überlagerung: 4-regulärer Baum (Cayley-Graph von $F_2$)\nc) Überlagerungen entsprechen Untergruppen von $F_2$ via Galois-Korrespondenz"
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Kommutative Algebra",
+            "title": "Noethersche Ringe und Hilbertscher Basissatz",
+            "description": "Sei $R$ ein noetherscher Ring und $I \\subseteq R$ ein Ideal.\n\na) Beweisen Sie, dass $R/I$ noethersch ist\nb) Zeigen Sie, dass $R[x]$ noethersch ist (Hilbertscher Basissatz)\nc) Folgern Sie, dass $\\mathbb{C}[x_1, ..., x_n]$ noethersch ist",
+            "difficulty": "hard",
+            "points": 22,
+            "solutionSteps": [
+                "Schritt 1: Noethersche Ringe definieren\nEin Ring $R$ ist noethersch, wenn jedes Ideal endlich erzeugt ist.\nÄquivalent: Jede aufsteigende Kette von Idealen wird stationär.",
+                "Schritt 2: R/I ist noethersch - Vorbereitung\nSei $\\pi: R \\to R/I$ die kanonische Projektion.\nFür ein Ideal $J \\subseteq R/I$ ist $\\pi^{-1}(J)$ ein Ideal in $R$ mit $I \\subseteq \\pi^{-1}(J)$.",
+                "Schritt 3: R/I ist noethersch - Beweis\nSei $J \\subseteq R/I$ ein Ideal. Dann ist $\\pi^{-1}(J) \\subseteq R$ ein Ideal.\nDa $R$ noethersch ist: $\\pi^{-1}(J) = (a_1, ..., a_n)$ für gewisse $a_i \\in R$.\n$J = \\pi(\\pi^{-1}(J)) = (\\pi(a_1), ..., \\pi(a_n)) = (\\overline{a_1}, ..., \\overline{a_n})$\n$\\Rightarrow J$ ist endlich erzeugt, also ist $R/I$ noethersch.",
+                "Schritt 4: Hilbertscher Basissatz - Aufsteigende Kette\nSei $(I_1 \\subseteq I_2 \\subseteq ...)$ eine aufsteigende Kette von Idealen in $R[x]$.\nDefiniere $J_n = \\{a \\in R : \\exists k \\geq 0, ax^k \\in I_n\\} \\cup \\{0\\}$\n$J_n$ ist ein Ideal in $R$ (Leitkoeffizientenideal von $I_n$).",
+                "Schritt 5: Leitkoeffizientenideale\nDie Folge $(J_1 \\subseteq J_2 \\subseteq ...)$ ist aufsteigend.\nDa $R$ noethersch ist, wird diese Kette stationär: $J_N = J_{N+1} = ...$ für ein $N$.\nSei $J = J_N$ und $J = (b_1, ..., b_r)$.",
+                "Schritt 6: Endliche Erzeugung konstruieren\nFür jeden $b_i$ wähle $f_i \\in I_N$ mit Leitkoeffizient $b_i$.\nSei $d = \\max\\{\\deg(f_i)\\}$.\nFür $k < d$ und jeden Grad $k$ wähle endlich viele Polynome aus $\\bigcup_{n=1}^N I_n$, die alle Polynome vom Grad $\\leq k$ in $I_N$ erzeugen.",
+                "Schritt 7: Stationarität beweisen\nSei $S$ die endliche Menge aller gewählten Polynome.\nBehauptung: $I_n = (S)$ für alle $n \\geq N$.\nBeweis durch Induktion über den Grad: Jedes Polynom in $I_n$ lässt sich durch Elemente aus $S$ darstellen.",
+                "Schritt 8: Folgerung für Polynomringe\nDa $\\mathbb{C}$ ein Körper ist, ist $\\mathbb{C}$ noethersch.\nNach dem Hilbertschen Basissatz:\n$\\mathbb{C}[x_1]$ ist noethersch\n$\\mathbb{C}[x_1, x_2] = \\mathbb{C}[x_1][x_2]$ ist noethersch\n...\n$\\mathbb{C}[x_1, ..., x_n]$ ist noethersch",
+                "Schritt 9: Endergebnisse\na) $R/I$ noethersch: Ideale in $R/I$ entsprechen Idealen in $R$, die $I$ enthalten\nb) Hilbertscher Basissatz: Aufsteigende Ketten in $R[x]$ werden durch Leitkoeffizientenideale kontrolliert\nc) $\\mathbb{C}[x_1, ..., x_n]$ noethersch durch iterierte Anwendung des Hilbertschen Basissatzes"
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Darstellungstheorie",
+            "title": "Charaktere und Schur-Orthogonalität",
+            "description": "Betrachten Sie die symmetrische Gruppe $S_3$ und ihre irreduziblen Darstellungen über $\\mathbb{C}$.\n\na) Bestimmen Sie alle Konjugationsklassen von $S_3$\nb) Konstruieren Sie die Charaktertafel von $S_3$\nc) Verifizieren Sie die Schur-Orthogonalitätsrelationen",
+            "difficulty": "hard",
+            "points": 18,
+            "solutionSteps": [
+                "Schritt 1: Konjugationsklassen von S₃\n$S_3 = \\{e, (12), (13), (23), (123), (132)\\}$\nKonjugationsklassen:\n$C_1 = \\{e\\}$ (Identität)\n$C_2 = \\{(12), (13), (23)\\}$ (Transpositionen)\n$C_3 = \\{(123), (132)\\}$ (3-Zyklen)\n$|S_3| = 6$, Anzahl Konjugationsklassen = 3",
+                "Schritt 2: Irreduzible Darstellungen\nAnzahl irreduzibler Darstellungen = Anzahl Konjugationsklassen = 3\nSeien $\\rho_1, \\rho_2, \\rho_3$ die irreduziblen Darstellungen mit Graden $d_1, d_2, d_3$.\n$\\sum_{i=1}^3 d_i^2 = |S_3| = 6$\nMögliche Lösungen: $(1,1,2)$ oder Permutationen davon.",
+                "Schritt 3: Eindimensionale Darstellungen\n$\\rho_1$: Triviale Darstellung, $\\rho_1(g) = 1$ für alle $g \\in S_3$\n$\\rho_2$: Signum-Darstellung, $\\rho_2(g) = \\text{sgn}(g)$\n$\\rho_2(e) = 1, \\rho_2((12)) = -1, \\rho_2((123)) = 1$",
+                "Schritt 4: Zweidimensionale Darstellung\n$\\rho_3$: Standarddarstellung auf $\\mathbb{C}^2$\nRealisierung über die Permutationsdarstellung auf $\\{x, y, z\\}$ mit $x + y + z = 0$:\nBasisvektoren: $v_1 = (1, -1, 0), v_2 = (1, 0, -1)$\n$\\rho_3((12)): v_1 \\mapsto (-1, 1, 0) = -v_1, v_2 \\mapsto (0, 1, -1) = v_2 - v_1$",
+                "Schritt 5: Charaktere berechnen\nCharakter = Spur der Darstellungsmatrix\n$\\chi_1(e) = 1, \\chi_1((12)) = 1, \\chi_1((123)) = 1$\n$\\chi_2(e) = 1, \\chi_2((12)) = -1, \\chi_2((123)) = 1$\n$\\chi_3(e) = 2, \\chi_3((12)) = 0, \\chi_3((123)) = -1$",
+                "Schritt 6: Charaktertafel\n$\\begin{array}{c|ccc}\n & C_1 & C_2 & C_3 \\\\\n & |1| & |3| & |2| \\\\\n\\hline\n\\chi_1 & 1 & 1 & 1 \\\\\n\\chi_2 & 1 & -1 & 1 \\\\\n\\chi_3 & 2 & 0 & -1\n\\end{array}$\nDie Zahlen in der zweiten Zeile sind die Größen der Konjugationsklassen.",
+                "Schritt 7: Erste Orthogonalitätsrelation\nFür verschiedene irreduzible Charaktere $\\chi_i, \\chi_j$:\n$\\sum_{g \\in G} \\chi_i(g) \\overline{\\chi_j(g)} = 0$\n$\\langle \\chi_1, \\chi_2 \\rangle = \\frac{1}{6}[1 \\cdot 1 \\cdot 1 + 3 \\cdot 1 \\cdot (-1) + 2 \\cdot 1 \\cdot 1] = \\frac{1}{6}[1 - 3 + 2] = 0$ ✓\n$\\langle \\chi_1, \\chi_3 \\rangle = \\frac{1}{6}[1 \\cdot 2 + 3 \\cdot 0 + 2 \\cdot (-1)] = 0$ ✓\n$\\langle \\chi_2, \\chi_3 \\rangle = \\frac{1}{6}[1 \\cdot 2 + 3 \\cdot 0 + 2 \\cdot (-1)] = 0$ ✓",
+                "Schritt 8: Zweite Orthogonalitätsrelation\nFür irreduzible Charaktere:\n$\\langle \\chi_i, \\chi_i \\rangle = 1$\n$\\langle \\chi_1, \\chi_1 \\rangle = \\frac{1}{6}[1 + 3 + 2] = 1$ ✓\n$\\langle \\chi_2, \\chi_2 \\rangle = \\frac{1}{6}[1 + 3 + 2] = 1$ ✓\n$\\langle \\chi_3, \\chi_3 \\rangle = \\frac{1}{6}[4 + 0 + 2] = 1$ ✓",
+                "Schritt 9: Endergebnisse\na) Konjugationsklassen: $\\{e\\}, \\{(12), (13), (23)\\}, \\{(123), (132)\\}$\nb) Charaktertafel mit drei irreduziblen Darstellungen der Grade 1, 1, 2\nc) Schur-Orthogonalitätsrelationen erfüllt: $\\langle \\chi_i, \\chi_j \\rangle = \\delta_{ij}$"
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Algebraische Geometrie",
+            "title": "Varietäten und Hilbertscher Nullstellensatz",
+            "description": "Betrachten Sie das Ideal $I = (x^2 + y^2 - 1, x - y) \\subseteq \\mathbb{C}[x, y]$.\n\na) Bestimmen Sie die algebraische Varietät $V(I) \\subseteq \\mathbb{C}^2$\nb) Berechnen Sie das Radikal $\\sqrt{I}$\nc) Verifizieren Sie den Hilbertschen Nullstellensatz für dieses Beispiel",
+            "difficulty": "hard",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Varietät V(I) bestimmen\n$V(I) = \\{(a, b) \\in \\mathbb{C}^2 : a^2 + b^2 - 1 = 0 \\text{ und } a - b = 0\\}$\nAus der zweiten Gleichung: $a = b$\nEinsetzen in die erste: $a^2 + a^2 - 1 = 0 \\Rightarrow 2a^2 = 1 \\Rightarrow a = \\pm\\frac{1}{\\sqrt{2}}$\n$V(I) = \\{(\\frac{1}{\\sqrt{2}}, \\frac{1}{\\sqrt{2}}), (-\\frac{1}{\\sqrt{2}}, -\\frac{1}{\\sqrt{2}})\\}$",
+                "Schritt 2: Gröbner-Basis berechnen\nMit lexikographischer Ordnung $x > y$:\n$f_1 = x^2 + y^2 - 1$\n$f_2 = x - y$\nS-Polynom: $S(f_1, f_2) = \\text{lcm}(x^2, x) \\cdot (\\frac{f_1}{x^2} - \\frac{f_2}{x}) = x(1 + \\frac{y^2}{x^2} - \\frac{1}{x^2}) - (x - y) = y^2 - 1 + y$",
+                "Schritt 3: Reduktion fortsetzen\nReduziere $y^2 + y - 1$ modulo $\\{x - y\\}$:\n$y^2 + y - 1$ ist bereits reduziert bezüglich $x - y$\nGröbner-Basis: $\\{x - y, y^2 + y - 1\\}$",
+                "Schritt 4: Eliminationsideal\nAus der Gröbner-Basis folgt:\n$y^2 + y - 1 = 0 \\Rightarrow y = \\frac{-1 \\pm \\sqrt{5}}{2}$\n$x = y$\nDies sind jedoch nicht die korrekten Lösungen. Korrektur der Berechnung:",
+                "Schritt 5: Korrekte Berechnung\nAus $x = y$ und $x^2 + y^2 = 1$:\n$2x^2 = 1 \\Rightarrow x^2 = \\frac{1}{2} \\Rightarrow x = \\pm\\frac{\\sqrt{2}}{2}$\n$V(I) = \\{(\\frac{\\sqrt{2}}{2}, \\frac{\\sqrt{2}}{2}), (-\\frac{\\sqrt{2}}{2}, -\\frac{\\sqrt{2}}{2})\\}$",
+                "Schritt 6: Radikal berechnen\nDa $V(I)$ endlich ist, ist $I$ nulldimensional.\nFür nulldimensionale Ideale in $\\mathbb{C}[x, y]$ gilt: $\\sqrt{I} = I(V(I))$\n$I(V(I))$ ist das Ideal aller Polynome, die auf $V(I)$ verschwinden.",
+                "Schritt 7: Ideal der Varietät\nDie Punkte $(\\frac{\\sqrt{2}}{2}, \\frac{\\sqrt{2}}{2})$ und $(-\\frac{\\sqrt{2}}{2}, -\\frac{\\sqrt{2}}{2})$ sind die Nullstellen von:\n$(x - \\frac{\\sqrt{2}}{2})(x + \\frac{\\sqrt{2}}{2}) = x^2 - \\frac{1}{2}$\n$(y - \\frac{\\sqrt{2}}{2})(y + \\frac{\\sqrt{2}}{2}) = y^2 - \\frac{1}{2}$\nUnd $x - y = 0$",
+                "Schritt 8: Radikal bestimmen\n$\\sqrt{I} = (x - y, x^2 - \\frac{1}{2}) = (x - y, y^2 - \\frac{1}{2})$\nDa $2x^2 - 1 = 2y^2 - 1$ aus $x = y$ folgt, ist dies konsistent.",
+                "Schritt 9: Hilbertscher Nullstellensatz\nSchwache Form: $I(V(I)) = \\sqrt{I}$\nWir haben $V(I) = \\{(\\pm\\frac{\\sqrt{2}}{2}, \\pm\\frac{\\sqrt{2}}{2})\\}$ (zwei Punkte)\n$I(V(I))$ enthält alle Polynome, die auf beiden Punkten verschwinden.\nDies entspricht $\\sqrt{I} = (x - y, 2x^2 - 1)$",
+                "Schritt 10: Endergebnisse\na) $V(I) = \\{(\\frac{\\sqrt{2}}{2}, \\frac{\\sqrt{2}}{2}), (-\\frac{\\sqrt{2}}{2}, -\\frac{\\sqrt{2}}{2})\\}$\nb) $\\sqrt{I} = (x - y, 2x^2 - 1)$\nc) Nullstellensatz erfüllt: $I(V(I)) = \\sqrt{I}$ (schwache Form)"
+            ]
+        }
+    ]
+}

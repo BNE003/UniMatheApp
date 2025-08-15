@@ -2,8 +2,8 @@
     "exam": {
         "title": "Lineare Algebra - Fortgeschrittenenklausur",
         "subtitle": "Eigenwerte, Diagonalisierung und lineare Räume",
-        "duration": 90,
-        "totalPoints": 60,
+        "duration": 150,
+        "totalPoints": 120,
         "difficulty": "intermediate",
         "language": "de",
         "instructions": "Bearbeiten Sie alle Aufgaben. Geben Sie bei allen Berechnungen den vollständigen Lösungsweg an. Hilfsmittel: Taschenrechner ohne Programmierfunktion. Viel Erfolg!"
@@ -86,6 +86,88 @@
                 "Schritt 4: Dritten Vektor orthogonalisieren\n$v_3 = u_3 - \\langle u_3, e_1 \\rangle e_1 - \\langle u_3, e_2 \\rangle e_2$\n$\\langle u_3, e_1 \\rangle = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix} \\cdot \\begin{pmatrix} \\frac{1}{\\sqrt{2}} \\\\ \\frac{1}{\\sqrt{2}} \\\\ 0 \\end{pmatrix} = \\frac{1}{\\sqrt{2}}$\n$\\langle u_3, e_2 \\rangle = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix} \\cdot \\begin{pmatrix} \\frac{1}{\\sqrt{6}} \\\\ -\\frac{1}{\\sqrt{6}} \\\\ \\frac{2}{\\sqrt{6}} \\end{pmatrix} = \\frac{1}{\\sqrt{6}}$",
                 "Schritt 5: Berechnung von v₃\n$v_3 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix} - \\frac{1}{\\sqrt{2}}\\begin{pmatrix} \\frac{1}{\\sqrt{2}} \\\\ \\frac{1}{\\sqrt{2}} \\\\ 0 \\end{pmatrix} - \\frac{1}{\\sqrt{6}}\\begin{pmatrix} \\frac{1}{\\sqrt{6}} \\\\ -\\frac{1}{\\sqrt{6}} \\\\ \\frac{2}{\\sqrt{6}} \\end{pmatrix}$\n$= \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix} - \\begin{pmatrix} \\frac{1}{2} \\\\ \\frac{1}{2} \\\\ 0 \\end{pmatrix} - \\begin{pmatrix} \\frac{1}{6} \\\\ -\\frac{1}{6} \\\\ \\frac{1}{3} \\end{pmatrix} = \\begin{pmatrix} -\\frac{2}{3} \\\\ \\frac{2}{3} \\\\ \\frac{2}{3} \\end{pmatrix}$",
                 "Schritt 6: Dritten Vektor normieren\n$||v_3|| = \\sqrt{\\frac{4}{9} + \\frac{4}{9} + \\frac{4}{9}} = \\sqrt{\\frac{4}{3}} = \\frac{2}{\\sqrt{3}}$\n$e_3 = \\frac{\\sqrt{3}}{2}\\begin{pmatrix} -\\frac{2}{3} \\\\ \\frac{2}{3} \\\\ \\frac{2}{3} \\end{pmatrix} = \\begin{pmatrix} -\\frac{1}{\\sqrt{3}} \\\\ \\frac{1}{\\sqrt{3}} \\\\ \\frac{1}{\\sqrt{3}} \\end{pmatrix}$\n\nOrthonormalbasis: $\\left\\{\\begin{pmatrix} \\frac{1}{\\sqrt{2}} \\\\ \\frac{1}{\\sqrt{2}} \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} \\frac{1}{\\sqrt{6}} \\\\ -\\frac{1}{\\sqrt{6}} \\\\ \\frac{2}{\\sqrt{6}} \\end{pmatrix}, \\begin{pmatrix} -\\frac{1}{\\sqrt{3}} \\\\ \\frac{1}{\\sqrt{3}} \\\\ \\frac{1}{\\sqrt{3}} \\end{pmatrix}\\right\\}$"
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Lineare Abbildungen",
+            "title": "Matrix einer linearen Abbildung",
+            "description": "Gegeben ist die lineare Abbildung $f: \\mathbb{R}^3 \\to \\mathbb{R}^2$ mit\n$f\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$, $f\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} 1 \\\\ 3 \\end{pmatrix}$, $f\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} -1 \\\\ 2 \\end{pmatrix}$\n\na) Bestimmen Sie die Darstellungsmatrix von $f$\nb) Berechnen Sie $\\ker(f)$ und $\\text{im}(f)$\nc) Verifizieren Sie die Dimensionsformel",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Teil a) - Darstellungsmatrix bestimmen\nDie Darstellungsmatrix $A$ hat als Spalten die Bilder der Standardbasisvektoren:\n$A = \\begin{pmatrix} 2 & 1 & -1 \\\\ 1 & 3 & 2 \\end{pmatrix}$\nDenn $f(x) = Ax$ für alle $x \\in \\mathbb{R}^3$.",
+                "Schritt 2: Teil b) - Kern bestimmen\n$\\ker(f) = \\{x \\in \\mathbb{R}^3 : Ax = 0\\}$\nLöse das homogene System:\n$\\begin{pmatrix} 2 & 1 & -1 \\\\ 1 & 3 & 2 \\end{pmatrix} \\begin{pmatrix} x_1 \\\\ x_2 \\\\ x_3 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\end{pmatrix}$",
+                "Schritt 3: Gauß-Elimination für den Kern\n$\\begin{pmatrix} 2 & 1 & -1 \\\\ 1 & 3 & 2 \\end{pmatrix}$\nVertausche Zeilen: $\\begin{pmatrix} 1 & 3 & 2 \\\\ 2 & 1 & -1 \\end{pmatrix}$\n$Z_2 - 2Z_1$: $\\begin{pmatrix} 1 & 3 & 2 \\\\ 0 & -5 & -5 \\end{pmatrix}$\nDividiere $Z_2$ durch $-5$: $\\begin{pmatrix} 1 & 3 & 2 \\\\ 0 & 1 & 1 \\end{pmatrix}$",
+                "Schritt 4: Rücksubstitution für den Kern\nAus Zeile 2: $x_2 + x_3 = 0 \\Rightarrow x_2 = -x_3$\nAus Zeile 1: $x_1 + 3x_2 + 2x_3 = 0 \\Rightarrow x_1 = -3x_2 - 2x_3 = 3x_3 - 2x_3 = x_3$\n$\\ker(f) = \\text{span}\\left\\{\\begin{pmatrix} 1 \\\\ -1 \\\\ 1 \\end{pmatrix}\\right\\}$\n$\\dim(\\ker(f)) = 1$",
+                "Schritt 5: Bild bestimmen\n$\\text{im}(f) = \\text{span}\\{A\\text{-Spalten}\\} = \\text{span}\\left\\{\\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 3 \\end{pmatrix}, \\begin{pmatrix} -1 \\\\ 2 \\end{pmatrix}\\right\\}$\nPrüfe lineare Unabhängigkeit der ersten beiden Spalten:\n$\\det\\begin{pmatrix} 2 & 1 \\\\ 1 & 3 \\end{pmatrix} = 6 - 1 = 5 \\neq 0$\nDie ersten beiden Spalten sind linear unabhängig.\n$\\text{im}(f) = \\mathbb{R}^2$, $\\dim(\\text{im}(f)) = 2$",
+                "Schritt 6: Teil c) - Dimensionsformel verifizieren\n$\\dim(\\mathbb{R}^3) = \\dim(\\ker(f)) + \\dim(\\text{im}(f))$\n$3 = 1 + 2 = 3$ ✓\nDie Dimensionsformel ist erfüllt."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Determinanten",
+            "title": "Determinante und Cramersche Regel",
+            "description": "Gegeben ist die Matrix $C = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 5 & 3 \\\\ 1 & 0 & 8 \\end{pmatrix}$ und das System $Cx = b$ mit $b = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$.\n\na) Berechnen Sie $\\det(C)$ mit Entwicklung nach der ersten Zeile\nb) Lösen Sie das System mit der Cramerschen Regel\nc) Bestimmen Sie $\\det(C^{-1})$",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Teil a) - Determinante berechnen\n$\\det(C) = 1 \\cdot \\det\\begin{pmatrix} 5 & 3 \\\\ 0 & 8 \\end{pmatrix} - 2 \\cdot \\det\\begin{pmatrix} 2 & 3 \\\\ 1 & 8 \\end{pmatrix} + 3 \\cdot \\det\\begin{pmatrix} 2 & 5 \\\\ 1 & 0 \\end{pmatrix}$\n$= 1 \\cdot (5 \\cdot 8 - 3 \\cdot 0) - 2 \\cdot (2 \\cdot 8 - 3 \\cdot 1) + 3 \\cdot (2 \\cdot 0 - 5 \\cdot 1)$\n$= 1 \\cdot 40 - 2 \\cdot 13 + 3 \\cdot (-5) = 40 - 26 - 15 = -1$",
+                "Schritt 2: Teil b) - Cramersche Regel anwenden\nDa $\\det(C) = -1 \\neq 0$, ist das System eindeutig lösbar.\n$x_1 = \\frac{\\det(C_1)}{\\det(C)}$, $x_2 = \\frac{\\det(C_2)}{\\det(C)}$, $x_3 = \\frac{\\det(C_3)}{\\det(C)}$\nwobei $C_i$ die Matrix ist, bei der die $i$-te Spalte durch $b$ ersetzt wird.",
+                "Schritt 3: Berechnung von $\\det(C_1)$\n$C_1 = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 5 & 3 \\\\ 3 & 0 & 8 \\end{pmatrix}$\n$\\det(C_1) = 1 \\cdot \\det\\begin{pmatrix} 5 & 3 \\\\ 0 & 8 \\end{pmatrix} - 2 \\cdot \\det\\begin{pmatrix} 2 & 3 \\\\ 3 & 8 \\end{pmatrix} + 3 \\cdot \\det\\begin{pmatrix} 2 & 5 \\\\ 3 & 0 \\end{pmatrix}$\n$= 1 \\cdot 40 - 2 \\cdot 7 + 3 \\cdot (-15) = 40 - 14 - 45 = -19$\n$x_1 = \\frac{-19}{-1} = 19$",
+                "Schritt 4: Berechnung von $\\det(C_2)$ und $\\det(C_3)$\n$C_2 = \\begin{pmatrix} 1 & 1 & 3 \\\\ 2 & 2 & 3 \\\\ 1 & 3 & 8 \\end{pmatrix}$\n$\\det(C_2) = 1 \\cdot (16 - 9) - 1 \\cdot (16 - 3) + 3 \\cdot (6 - 2) = 7 - 13 + 12 = 6$\n$x_2 = \\frac{6}{-1} = -6$\n\n$C_3 = \\begin{pmatrix} 1 & 2 & 1 \\\\ 2 & 5 & 2 \\\\ 1 & 0 & 3 \\end{pmatrix}$\n$\\det(C_3) = 1 \\cdot (15 - 0) - 2 \\cdot (6 - 2) + 1 \\cdot (0 - 5) = 15 - 8 - 5 = 2$\n$x_3 = \\frac{2}{-1} = -2$",
+                "Schritt 5: Teil c) - Determinante der Inversen\n$\\det(C^{-1}) = \\frac{1}{\\det(C)} = \\frac{1}{-1} = -1$\nAllgemein gilt: $\\det(A^{-1}) = \\frac{1}{\\det(A)}$ für invertierbare Matrizen.",
+                "Schritt 6: Endergebnisse\na) $\\det(C) = -1$\nb) Lösung: $x = \\begin{pmatrix} 19 \\\\ -6 \\\\ -2 \\end{pmatrix}$\nc) $\\det(C^{-1}) = -1$"
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Quadratische Formen",
+            "title": "Definitheit quadratischer Formen",
+            "description": "Gegeben ist die quadratische Form $q(x) = x_1^2 + 4x_1x_2 + 4x_2^2 + 2x_2x_3 + x_3^2$ auf $\\mathbb{R}^3$.\n\na) Bestimmen Sie die zugehörige symmetrische Matrix $A$\nb) Prüfen Sie die Definitheit von $q$ mit dem Hauptminorenkriterium\nc) Bestimmen Sie eine Orthogonalbasis, die $q$ diagonalisiert",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Teil a) - Symmetrische Matrix bestimmen\n$q(x) = x^T A x$ mit $A = \\begin{pmatrix} a_{11} & a_{12} & a_{13} \\\\ a_{12} & a_{22} & a_{23} \\\\ a_{13} & a_{23} & a_{33} \\end{pmatrix}$\nAus $q(x) = x_1^2 + 4x_1x_2 + 4x_2^2 + 2x_2x_3 + x_3^2$:\n$a_{11} = 1$, $a_{22} = 4$, $a_{33} = 1$\n$2a_{12} = 4 \\Rightarrow a_{12} = 2$\n$2a_{23} = 2 \\Rightarrow a_{23} = 1$\n$2a_{13} = 0 \\Rightarrow a_{13} = 0$\n$A = \\begin{pmatrix} 1 & 2 & 0 \\\\ 2 & 4 & 1 \\\\ 0 & 1 & 1 \\end{pmatrix}$",
+                "Schritt 2: Teil b) - Hauptminoren berechnen\n$M_1 = a_{11} = 1 > 0$\n$M_2 = \\det\\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\end{pmatrix} = 4 - 4 = 0$\n$M_3 = \\det(A) = \\det\\begin{pmatrix} 1 & 2 & 0 \\\\ 2 & 4 & 1 \\\\ 0 & 1 & 1 \\end{pmatrix}$",
+                "Schritt 3: Berechnung von $M_3$\n$M_3 = 1 \\cdot \\det\\begin{pmatrix} 4 & 1 \\\\ 1 & 1 \\end{pmatrix} - 2 \\cdot \\det\\begin{pmatrix} 2 & 1 \\\\ 0 & 1 \\end{pmatrix} + 0$\n$= 1 \\cdot (4 - 1) - 2 \\cdot (2 - 0) = 3 - 4 = -1 < 0$\nHauptminoren: $M_1 = 1 > 0$, $M_2 = 0$, $M_3 = -1 < 0$\nDa $M_2 = 0$, ist die Form indefinit (weder positiv noch negativ definit).",
+                "Schritt 4: Teil c) - Eigenwerte von A bestimmen\nCharakteristisches Polynom:\n$\\det(A - \\lambda I) = \\det\\begin{pmatrix} 1-\\lambda & 2 & 0 \\\\ 2 & 4-\\lambda & 1 \\\\ 0 & 1 & 1-\\lambda \\end{pmatrix}$\n$= (1-\\lambda)[(4-\\lambda)(1-\\lambda) - 1] - 2[2(1-\\lambda)]$\n$= (1-\\lambda)[4-5\\lambda+\\lambda^2-1] - 4(1-\\lambda)$\n$= (1-\\lambda)(\\lambda^2-5\\lambda+3) - 4(1-\\lambda)$\n$= (1-\\lambda)(\\lambda^2-5\\lambda-1)$",
+                "Schritt 5: Eigenwerte berechnen\n$\\lambda_1 = 1$\n$\\lambda^2 - 5\\lambda - 1 = 0$\n$\\lambda_{2,3} = \\frac{5 \\pm \\sqrt{25+4}}{2} = \\frac{5 \\pm \\sqrt{29}}{2}$\n$\\lambda_2 = \\frac{5 + \\sqrt{29}}{2} \\approx 5.19 > 0$\n$\\lambda_3 = \\frac{5 - \\sqrt{29}}{2} \\approx -0.19 < 0$\nDa es positive und negative Eigenwerte gibt, ist die Form indefinit.",
+                "Schritt 6: Eigenvektoren bestimmen (exemplarisch für $\\lambda_1 = 1$)\n$(A - I)v = 0$:\n$\\begin{pmatrix} 0 & 2 & 0 \\\\ 2 & 3 & 1 \\\\ 0 & 1 & 0 \\end{pmatrix}\\begin{pmatrix} v_1 \\\\ v_2 \\\\ v_3 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}$\nAus Zeile 3: $v_2 = 0$\nAus Zeile 1: $2v_2 = 0$ (erfüllt)\nAus Zeile 2: $2v_1 + v_3 = 0 \\Rightarrow v_3 = -2v_1$\nEigenvektor: $v^{(1)} = \\begin{pmatrix} 1 \\\\ 0 \\\\ -2 \\end{pmatrix}$",
+                "Schritt 7: Endergebnisse\na) $A = \\begin{pmatrix} 1 & 2 & 0 \\\\ 2 & 4 & 1 \\\\ 0 & 1 & 1 \\end{pmatrix}$\nb) Die Form ist indefinit (Hauptminoren: $1, 0, -1$)\nc) Eigenwerte: $1, \\frac{5 \\pm \\sqrt{29}}{2}$ mit entsprechenden orthogonalen Eigenvektoren"
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Matrixnormen",
+            "title": "Verschiedene Matrixnormen",
+            "description": "Gegeben ist die Matrix $M = \\begin{pmatrix} 2 & -1 & 0 \\\\ 1 & 3 & 2 \\\\ 0 & 1 & 1 \\end{pmatrix}$.\n\na) Berechnen Sie die Zeilensummennorm $\\|M\\|_\\infty$\nb) Berechnen Sie die Spaltensummennorm $\\|M\\|_1$\nc) Schätzen Sie die Spektralnorm $\\|M\\|_2$ ab",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Teil a) - Zeilensummennorm\n$\\|M\\|_\\infty = \\max_{1 \\leq i \\leq 3} \\sum_{j=1}^3 |m_{ij}|$\nZeile 1: $|2| + |-1| + |0| = 2 + 1 + 0 = 3$\nZeile 2: $|1| + |3| + |2| = 1 + 3 + 2 = 6$\nZeile 3: $|0| + |1| + |1| = 0 + 1 + 1 = 2$\n$\\|M\\|_\\infty = \\max\\{3, 6, 2\\} = 6$",
+                "Schritt 2: Teil b) - Spaltensummennorm\n$\\|M\\|_1 = \\max_{1 \\leq j \\leq 3} \\sum_{i=1}^3 |m_{ij}|$\nSpalte 1: $|2| + |1| + |0| = 2 + 1 + 0 = 3$\nSpalte 2: $|-1| + |3| + |1| = 1 + 3 + 1 = 5$\nSpalte 3: $|0| + |2| + |1| = 0 + 2 + 1 = 3$\n$\\|M\\|_1 = \\max\\{3, 5, 3\\} = 5$",
+                "Schritt 3: Teil c) - Spektralnorm abschätzen\nDie Spektralnorm ist $\\|M\\|_2 = \\sqrt{\\rho(M^T M)}$, wobei $\\rho$ der Spektralradius ist.\nAlternativ: $\\|M\\|_2 \\leq \\sqrt{\\|M\\|_1 \\cdot \\|M\\|_\\infty} = \\sqrt{5 \\cdot 6} = \\sqrt{30} \\approx 5.48$",
+                "Schritt 4: Genauere Abschätzung\nFür eine bessere Abschätzung berechnen wir $M^T M$:\n$M^T = \\begin{pmatrix} 2 & 1 & 0 \\\\ -1 & 3 & 1 \\\\ 0 & 2 & 1 \\end{pmatrix}$\n$M^T M = \\begin{pmatrix} 5 & 1 & 2 \\\\ 1 & 14 & 5 \\\\ 2 & 5 & 5 \\end{pmatrix}$",
+                "Schritt 5: Spektralradius abschätzen\nDer größte Eigenwert von $M^T M$ liegt zwischen dem kleinsten und größten Gershgorin-Kreis:\nZeile 1: Mittelpunkt 5, Radius $1+2=3$, Intervall $[2,8]$\nZeile 2: Mittelpunkt 14, Radius $1+5=6$, Intervall $[8,20]$\nZeile 3: Mittelpunkt 5, Radius $2+5=7$, Intervall $[-2,12]$\nGrößter Eigenwert $\\leq 20$, also $\\|M\\|_2 \\leq \\sqrt{20} \\approx 4.47$",
+                "Schritt 6: Endergebnisse\na) $\\|M\\|_\\infty = 6$\nb) $\\|M\\|_1 = 5$\nc) $\\|M\\|_2 \\leq \\sqrt{30} \\approx 5.48$ (grobe Schranke) oder $\\|M\\|_2 \\leq \\sqrt{20} \\approx 4.47$ (Gershgorin)"
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Singulärwertzerlegung",
+            "title": "SVD einer 2×3-Matrix",
+            "description": "Gegeben ist die Matrix $N = \\begin{pmatrix} 3 & 2 & 2 \\\\ -1 & 0 & 2 \\end{pmatrix}$.\n\na) Berechnen Sie $N^T N$ und bestimmen Sie dessen Eigenwerte\nb) Bestimmen Sie die Singulärwerte von $N$\nc) Geben Sie eine orthogonale Matrix $V$ an, sodass $N^T N V = V \\Sigma^2$",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Teil a) - Berechnung von $N^T N$\n$N^T = \\begin{pmatrix} 3 & -1 \\\\ 2 & 0 \\\\ 2 & 2 \\end{pmatrix}$\n$N^T N = \\begin{pmatrix} 3 & -1 \\\\ 2 & 0 \\\\ 2 & 2 \\end{pmatrix} \\begin{pmatrix} 3 & 2 & 2 \\\\ -1 & 0 & 2 \\end{pmatrix} = \\begin{pmatrix} 10 & 6 & 4 \\\\ 6 & 4 & 4 \\\\ 4 & 4 & 8 \\end{pmatrix}$",
+                "Schritt 2: Charakteristisches Polynom von $N^T N$\n$\\det(N^T N - \\lambda I) = \\det\\begin{pmatrix} 10-\\lambda & 6 & 4 \\\\ 6 & 4-\\lambda & 4 \\\\ 4 & 4 & 8-\\lambda \\end{pmatrix}$\nDurch Entwicklung (aufwendige Rechnung):\n$\\chi(\\lambda) = -\\lambda^3 + 22\\lambda^2 - 80\\lambda = -\\lambda(\\lambda^2 - 22\\lambda + 80)$",
+                "Schritt 3: Eigenwerte berechnen\n$\\lambda_1 = 0$\n$\\lambda^2 - 22\\lambda + 80 = 0$\n$\\lambda_{2,3} = \\frac{22 \\pm \\sqrt{484 - 320}}{2} = \\frac{22 \\pm \\sqrt{164}}{2} = \\frac{22 \\pm 2\\sqrt{41}}{2} = 11 \\pm \\sqrt{41}$\n$\\lambda_2 = 11 + \\sqrt{41} \\approx 17.40$\n$\\lambda_3 = 11 - \\sqrt{41} \\approx 4.60$",
+                "Schritt 4: Teil b) - Singulärwerte bestimmen\nDie Singulärwerte sind $\\sigma_i = \\sqrt{\\lambda_i}$ (für $\\lambda_i > 0$):\n$\\sigma_1 = \\sqrt{11 + \\sqrt{41}} \\approx 4.17$\n$\\sigma_2 = \\sqrt{11 - \\sqrt{41}} \\approx 2.14$\n$\\sigma_3 = \\sqrt{0} = 0$\nDa $N$ eine $2 \\times 3$-Matrix ist, hat sie höchstens 2 nichtverschwindende Singulärwerte.",
+                "Schritt 5: Teil c) - Eigenvektoren von $N^T N$\nFür $\\lambda_1 = 0$:\n$(N^T N)v = 0$ führt zu einem Eigenvektor $v^{(1)}$ (Berechnung aufwendig)\nFür $\\lambda_2, \\lambda_3$: Entsprechende Eigenvektoren $v^{(2)}, v^{(3)}$\nDie Matrix $V$ hat diese orthonormalen Eigenvektoren als Spalten.",
+                "Schritt 6: Vereinfachte Darstellung\nOhne explizite Berechnung aller Eigenvektoren:\n$V$ ist eine $3 \\times 3$ orthogonale Matrix mit $V^T (N^T N) V = \\text{diag}(\\lambda_1, \\lambda_2, \\lambda_3)$\n$\\Sigma^2 = \\text{diag}(\\sigma_1^2, \\sigma_2^2, \\sigma_3^2) = \\text{diag}(\\lambda_2, \\lambda_3, 0)$",
+                "Schritt 7: Endergebnisse\na) $N^T N = \\begin{pmatrix} 10 & 6 & 4 \\\\ 6 & 4 & 4 \\\\ 4 & 4 & 8 \\end{pmatrix}$, Eigenwerte: $0, 11 \\pm \\sqrt{41}$\nb) Singulärwerte: $\\sqrt{11 + \\sqrt{41}}, \\sqrt{11 - \\sqrt{41}}, 0$\nc) $V$ ist die Matrix der orthonormalen Eigenvektoren von $N^T N$"
             ]
         }
     ]

@@ -14,7 +14,9 @@ struct ExamDetailView: View {
     @State private var currentSteps: [Int] = []
     // Dynamic heights for solution steps to auto-fit content without inner scrolling
     @State private var solutionHeights: [String: CGFloat] = [:]
+    @State private var showPaywall = false
     @ObservedObject private var settings = SettingsModel.shared
+    @ObservedObject private var storeManager = StoreKitManager.shared
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject private var tabBarViewModel: TabBarViewModel
@@ -133,6 +135,9 @@ struct ExamDetailView: View {
                  "Are you sure you want to end the exam?" : 
                  "Sind Sie sicher, dass Sie die Klausur beenden möchten?")
         }
+        .fullScreenCover(isPresented: $showPaywall) {
+            PurchaseView(isPresented: $showPaywall)
+        }
     }
     
     @ViewBuilder
@@ -227,7 +232,14 @@ struct ExamDetailView: View {
                 .padding(.horizontal, 24)
                 
                 // Start Button
-                Button(action: startExam) {
+                Button(action: {
+                    // Check if user has premium access
+                    if storeManager.purchasedProductIDs.isEmpty {
+                        showPaywall = true
+                    } else {
+                        startExam()
+                    }
+                }) {
                     HStack {
                         Image(systemName: "play.fill")
                         Text(settings.language == .english ? "Start Exam" : "Klausur starten")

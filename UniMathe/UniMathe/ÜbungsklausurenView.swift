@@ -17,11 +17,56 @@ struct ÜbungsklausurenView: View {
             color: Color(red: 0.2, green: 0.5, blue: 0.9)
         ),
         ExamTopic(
+            title: "Lineare Algebra I",
+            subtitle: "Grundlagen der linearen Algebra",
+            difficulty: .beginner,
+            duration: 120,
+            questions: 6,
+            icon: "grid",
+            color: Color(red: 0.0, green: 0.7, blue: 0.4)
+        ),
+        ExamTopic(
+            title: "Mathematik I",
+            subtitle: "Lineare Algebra und abstrakte Algebra",
+            difficulty: .beginner,
+            duration: 120,
+            questions: 8,
+            icon: "number.circle",
+            color: Color(red: 0.8, green: 0.3, blue: 0.6)
+        ),
+        ExamTopic(
+            title: "Mathematik I",
+            subtitle: "Erweiterte lineare und abstrakte Algebra",
+            difficulty: .intermediate,
+            duration: 150,
+            questions: 10,
+            icon: "number.circle",
+            color: Color(red: 0.8, green: 0.3, blue: 0.6)
+        ),
+        ExamTopic(
             title: "Lineare Algebra",
             subtitle: "Eigenwerte, Diagonalisierung und lineare Räume",
             difficulty: .intermediate,
-            duration: 90,
-            questions: 5,
+            duration: 150,
+            questions: 10,
+            icon: "grid",
+            color: Color(red: 0.0, green: 0.7, blue: 0.4)
+        ),
+        ExamTopic(
+            title: "Mathematik I",
+            subtitle: "Fortgeschrittene abstrakte und lineare Algebra",
+            difficulty: .advanced,
+            duration: 180,
+            questions: 10,
+            icon: "number.circle",
+            color: Color(red: 0.8, green: 0.3, blue: 0.6)
+        ),
+        ExamTopic(
+            title: "Lineare Algebra",
+            subtitle: "Fortgeschrittene Theorie und Anwendungen",
+            difficulty: .advanced,
+            duration: 180,
+            questions: 10,
             icon: "grid",
             color: Color(red: 0.0, green: 0.7, blue: 0.4)
         ),
@@ -259,9 +304,74 @@ struct ExamCard: View {
                     let impactFeedback = UIImpactFeedbackGenerator(style: .light)
                     impactFeedback.impactOccurred()
                 })
-            } else if exam.title == "Lineare Algebra" {
+            } else if exam.title == "Lineare Algebra I" {
+                NavigationLink(destination: 
+                    ExamDetailView(examFilename: settings.language == .english ? "linear_algebra_1_beginner" : "lineare_algebra_1_anfaenger")
+                        .navigationBarTitleDisplayMode(.inline)
+                ) {
+                    examCardContent
+                }
+                .buttonStyle(PlainButtonStyle())
+                .simultaneousGesture(TapGesture().onEnded {
+                    // Haptic feedback when tapping the exam card
+                    let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+                    impactFeedback.impactOccurred()
+                })
+            } else if exam.title == "Mathematik I" && exam.difficulty == .beginner {
+                NavigationLink(destination: 
+                    ExamDetailView(examFilename: settings.language == .english ? "mathematics_1_beginner" : "mathematik_1_anfaenger")
+                        .navigationBarTitleDisplayMode(.inline)
+                ) {
+                    examCardContent
+                }
+                .buttonStyle(PlainButtonStyle())
+                .simultaneousGesture(TapGesture().onEnded {
+                    // Haptic feedback when tapping the exam card
+                    let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+                    impactFeedback.impactOccurred()
+                })
+            } else if exam.title == "Mathematik I" && exam.difficulty == .intermediate {
+                NavigationLink(destination: 
+                    ExamDetailView(examFilename: settings.language == .english ? "mathematics_1_intermediate" : "mathematik_1_fortgeschritten")
+                        .navigationBarTitleDisplayMode(.inline)
+                ) {
+                    examCardContent
+                }
+                .buttonStyle(PlainButtonStyle())
+                .simultaneousGesture(TapGesture().onEnded {
+                    // Haptic feedback when tapping the exam card
+                    let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+                    impactFeedback.impactOccurred()
+                })
+            } else if exam.title == "Mathematik I" && exam.difficulty == .advanced {
+                NavigationLink(destination: 
+                    ExamDetailView(examFilename: settings.language == .english ? "mathematics_1_advanced" : "mathematik_1_experte")
+                        .navigationBarTitleDisplayMode(.inline)
+                ) {
+                    examCardContent
+                }
+                .buttonStyle(PlainButtonStyle())
+                .simultaneousGesture(TapGesture().onEnded {
+                    // Haptic feedback when tapping the exam card
+                    let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+                    impactFeedback.impactOccurred()
+                })
+            } else if exam.title == "Lineare Algebra" && exam.difficulty == .intermediate {
                 NavigationLink(destination: 
                     ExamDetailView(examFilename: settings.language == .english ? "linear_algebra_intermediate" : "lineare_algebra_fortgeschritten")
+                        .navigationBarTitleDisplayMode(.inline)
+                ) {
+                    examCardContent
+                }
+                .buttonStyle(PlainButtonStyle())
+                .simultaneousGesture(TapGesture().onEnded {
+                    // Haptic feedback when tapping the exam card
+                    let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+                    impactFeedback.impactOccurred()
+                })
+            } else if exam.title == "Lineare Algebra" && exam.difficulty == .advanced {
+                NavigationLink(destination: 
+                    ExamDetailView(examFilename: settings.language == .english ? "linear_algebra_advanced" : "lineare_algebra_experte")
                         .navigationBarTitleDisplayMode(.inline)
                 ) {
                     examCardContent

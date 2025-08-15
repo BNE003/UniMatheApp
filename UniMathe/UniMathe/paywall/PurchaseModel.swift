@@ -8,6 +8,7 @@
 
 import Foundation
 import StoreKit
+import Combine
 
 class PurchaseModel: ObservableObject {
     
@@ -19,6 +20,7 @@ class PurchaseModel: ObservableObject {
     @Published var isFetchingProducts: Bool = false
     
     private let storeManager = StoreKitManager.shared
+    private var cancellables = Set<AnyCancellable>()
     
     init() {
 
@@ -41,6 +43,9 @@ class PurchaseModel: ObservableObject {
         
         // Update localized plan names
         updateLocalizedPlanNames()
+        
+        // Listen for changes in StoreKitManager
+        setupStoreKitObserver()
     }
     
     private func updateLocalizedPlanNames() {
@@ -103,6 +108,20 @@ class PurchaseModel: ObservableObject {
             } catch {
                 print("Restore failed: \(error)")
             }
+        }
+    }
+    
+    private func setupStoreKitObserver() {
+        // Observe changes in StoreKitManager's purchasedProductIDs
+        Task { @MainActor in
+            storeManager.$purchasedProductIDs
+                .receive(on: DispatchQueue.main)
+                .sink { [weak self] _ in
+                    Task { @MainActor in
+                        self?.updateSubscriptionStatus()
+                    }
+                }
+                .store(in: &cancellables)
         }
     }
     

@@ -1,0 +1,107 @@
+{
+    "exam": {
+        "title": "Lineare Algebra I - Anfängerklausur",
+        "subtitle": "Grundlagen der linearen Algebra",
+        "duration": 120,
+        "totalPoints": 60,
+        "difficulty": "beginner",
+        "language": "de",
+        "instructions": "Bearbeiten Sie alle Aufgaben. Geben Sie bei allen Berechnungen den vollständigen Lösungsweg an. Hilfsmittel: Taschenrechner ohne Programmierfunktion. Viel Erfolg!"
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Vektorrechnung",
+            "title": "Grundoperationen mit Vektoren",
+            "description": "Gegeben sind die Vektoren $\\vec{a} = \\begin{pmatrix} 2 \\\\ -1 \\\\ 3 \\end{pmatrix}$ und $\\vec{b} = \\begin{pmatrix} 1 \\\\ 4 \\\\ -2 \\end{pmatrix}$.\n\na) Berechnen Sie $\\vec{a} + \\vec{b}$\nb) Berechnen Sie $3\\vec{a} - 2\\vec{b}$\nc) Bestimmen Sie die Länge von $\\vec{a}$",
+            "difficulty": "easy",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Vektoraddition\n$\\vec{a} + \\vec{b} = \\begin{pmatrix} 2 \\\\ -1 \\\\ 3 \\end{pmatrix} + \\begin{pmatrix} 1 \\\\ 4 \\\\ -2 \\end{pmatrix}$\nKomponentenweise Addition:\n$\\vec{a} + \\vec{b} = \\begin{pmatrix} 2+1 \\\\ -1+4 \\\\ 3+(-2) \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 3 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 2: Linearkombination berechnen\n$3\\vec{a} - 2\\vec{b} = 3\\begin{pmatrix} 2 \\\\ -1 \\\\ 3 \\end{pmatrix} - 2\\begin{pmatrix} 1 \\\\ 4 \\\\ -2 \\end{pmatrix}$\n$= \\begin{pmatrix} 6 \\\\ -3 \\\\ 9 \\end{pmatrix} - \\begin{pmatrix} 2 \\\\ 8 \\\\ -4 \\end{pmatrix}$",
+                "Schritt 3: Subtraktion durchführen\n$3\\vec{a} - 2\\vec{b} = \\begin{pmatrix} 6-2 \\\\ -3-8 \\\\ 9-(-4) \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ -11 \\\\ 13 \\end{pmatrix}$",
+                "Schritt 4: Länge von $\\vec{a}$ berechnen\n$|\\vec{a}| = \\sqrt{a_1^2 + a_2^2 + a_3^2}$\n$|\\vec{a}| = \\sqrt{2^2 + (-1)^2 + 3^2} = \\sqrt{4 + 1 + 9} = \\sqrt{14}$",
+                "Schritt 5: Endergebnisse\na) $\\vec{a} + \\vec{b} = \\begin{pmatrix} 3 \\\\ 3 \\\\ 1 \\end{pmatrix}$\nb) $3\\vec{a} - 2\\vec{b} = \\begin{pmatrix} 4 \\\\ -11 \\\\ 13 \\end{pmatrix}$\nc) $|\\vec{a}| = \\sqrt{14}$"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Skalarprodukt",
+            "title": "Skalarprodukt und Winkel",
+            "description": "Gegeben sind die Vektoren $\\vec{u} = \\begin{pmatrix} 3 \\\\ 4 \\\\ 0 \\end{pmatrix}$ und $\\vec{v} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 5 \\end{pmatrix}$.\n\na) Berechnen Sie das Skalarprodukt $\\vec{u} \\cdot \\vec{v}$\nb) Bestimmen Sie den Winkel zwischen den Vektoren",
+            "difficulty": "easy",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Skalarprodukt berechnen\n$\\vec{u} \\cdot \\vec{v} = u_1 \\cdot v_1 + u_2 \\cdot v_2 + u_3 \\cdot v_3$\n$\\vec{u} \\cdot \\vec{v} = 3 \\cdot 1 + 4 \\cdot 2 + 0 \\cdot 5 = 3 + 8 + 0 = 11$",
+                "Schritt 2: Längen der Vektoren berechnen\n$|\\vec{u}| = \\sqrt{3^2 + 4^2 + 0^2} = \\sqrt{9 + 16 + 0} = \\sqrt{25} = 5$\n$|\\vec{v}| = \\sqrt{1^2 + 2^2 + 5^2} = \\sqrt{1 + 4 + 25} = \\sqrt{30}$",
+                "Schritt 3: Winkelformel anwenden\n$\\cos(\\alpha) = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}| \\cdot |\\vec{v}|}$\n$\\cos(\\alpha) = \\frac{11}{5 \\cdot \\sqrt{30}} = \\frac{11}{5\\sqrt{30}}$",
+                "Schritt 4: Bruch vereinfachen\n$\\cos(\\alpha) = \\frac{11}{5\\sqrt{30}} = \\frac{11\\sqrt{30}}{5 \\cdot 30} = \\frac{11\\sqrt{30}}{150}$",
+                "Schritt 5: Winkel bestimmen\n$\\alpha = \\arccos\\left(\\frac{11\\sqrt{30}}{150}\\right)$\nNumerisch: $\\cos(\\alpha) \\approx \\frac{11 \\cdot 5.477}{150} \\approx 0.401$\n$\\alpha \\approx 63.4°$",
+                "Schritt 6: Endergebnisse\na) $\\vec{u} \\cdot \\vec{v} = 11$\nb) $\\alpha = \\arccos\\left(\\frac{11\\sqrt{30}}{150}\\right) \\approx 63.4°$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Lineare Gleichungssysteme",
+            "title": "Einfaches lineares Gleichungssystem",
+            "description": "Lösen Sie das folgende lineare Gleichungssystem mit dem Gauß-Verfahren:\n$\\begin{align}\nx + 2y - z &= 3 \\\\\n2x - y + z &= 1 \\\\\n3x + y + 2z &= 11\n\\end{align}$",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Erweiterte Matrix aufstellen\n$\\left(\\begin{array}{ccc|c}\n1 & 2 & -1 & 3 \\\\\n2 & -1 & 1 & 1 \\\\\n3 & 1 & 2 & 11\n\\end{array}\\right)$",
+                "Schritt 2: Erste Spalte eliminieren\n$Z_2 - 2Z_1$: $(2,-1,1,1) - 2(1,2,-1,3) = (0,-5,3,-5)$\n$Z_3 - 3Z_1$: $(3,1,2,11) - 3(1,2,-1,3) = (0,-5,5,2)$\n$\\left(\\begin{array}{ccc|c}\n1 & 2 & -1 & 3 \\\\\n0 & -5 & 3 & -5 \\\\\n0 & -5 & 5 & 2\n\\end{array}\\right)$",
+                "Schritt 3: Zweite Spalte eliminieren\n$Z_3 - Z_2$: $(0,-5,5,2) - (0,-5,3,-5) = (0,0,2,7)$\n$\\left(\\begin{array}{ccc|c}\n1 & 2 & -1 & 3 \\\\\n0 & -5 & 3 & -5 \\\\\n0 & 0 & 2 & 7\n\\end{array}\\right)$",
+                "Schritt 4: Rücksubstitution - z bestimmen\nAus Zeile 3: $2z = 7 \\Rightarrow z = \\frac{7}{2}$",
+                "Schritt 5: y bestimmen\nAus Zeile 2: $-5y + 3z = -5$\n$-5y + 3 \\cdot \\frac{7}{2} = -5$\n$-5y + \\frac{21}{2} = -5$\n$-5y = -5 - \\frac{21}{2} = -\\frac{10}{2} - \\frac{21}{2} = -\\frac{31}{2}$\n$y = \\frac{31}{10}$",
+                "Schritt 6: x bestimmen\nAus Zeile 1: $x + 2y - z = 3$\n$x + 2 \\cdot \\frac{31}{10} - \\frac{7}{2} = 3$\n$x + \\frac{31}{5} - \\frac{7}{2} = 3$\n$x = 3 - \\frac{31}{5} + \\frac{7}{2} = \\frac{30}{10} - \\frac{62}{10} + \\frac{35}{10} = \\frac{3}{10}$",
+                "Schritt 7: Lösung\n$x = \\frac{3}{10}$, $y = \\frac{31}{10}$, $z = \\frac{7}{2}$\nProbe: Einsetzen in die ursprünglichen Gleichungen bestätigt die Lösung."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Matrizen",
+            "title": "Matrixoperationen",
+            "description": "Gegeben sind die Matrizen $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ und $B = \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix}$.\n\na) Berechnen Sie $A + B$\nb) Berechnen Sie $A \\cdot B$\nc) Bestimmen Sie $\\det(A)$",
+            "difficulty": "easy",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Matrixaddition\n$A + B = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} + \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix}$\nElementweise Addition:\n$A + B = \\begin{pmatrix} 1+2 & 2+1 \\\\ 3+0 & 4+3 \\end{pmatrix} = \\begin{pmatrix} 3 & 3 \\\\ 3 & 7 \\end{pmatrix}$",
+                "Schritt 2: Matrixmultiplikation\n$A \\cdot B = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix}$\nElement (1,1): $1 \\cdot 2 + 2 \\cdot 0 = 2$\nElement (1,2): $1 \\cdot 1 + 2 \\cdot 3 = 7$\nElement (2,1): $3 \\cdot 2 + 4 \\cdot 0 = 6$\nElement (2,2): $3 \\cdot 1 + 4 \\cdot 3 = 15$",
+                "Schritt 3: Ergebnis der Multiplikation\n$A \\cdot B = \\begin{pmatrix} 2 & 7 \\\\ 6 & 15 \\end{pmatrix}$",
+                "Schritt 4: Determinante berechnen\nFür eine 2×2-Matrix $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ ist $\\det = ad - bc$\n$\\det(A) = 1 \\cdot 4 - 2 \\cdot 3 = 4 - 6 = -2$",
+                "Schritt 5: Endergebnisse\na) $A + B = \\begin{pmatrix} 3 & 3 \\\\ 3 & 7 \\end{pmatrix}$\nb) $A \\cdot B = \\begin{pmatrix} 2 & 7 \\\\ 6 & 15 \\end{pmatrix}$\nc) $\\det(A) = -2$"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Lineare Unabhängigkeit",
+            "title": "Lineare Unabhängigkeit von Vektoren",
+            "description": "Prüfen Sie, ob die Vektoren $\\vec{v_1} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 1 \\end{pmatrix}$, $\\vec{v_2} = \\begin{pmatrix} 2 \\\\ 1 \\\\ 0 \\end{pmatrix}$ und $\\vec{v_3} = \\begin{pmatrix} 1 \\\\ -1 \\\\ -1 \\end{pmatrix}$ linear unabhängig sind.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Ansatz für lineare Unabhängigkeit\nDie Vektoren sind linear unabhängig, wenn die Gleichung\n$\\alpha_1 \\vec{v_1} + \\alpha_2 \\vec{v_2} + \\alpha_3 \\vec{v_3} = \\vec{0}$\nnur die triviale Lösung $\\alpha_1 = \\alpha_2 = \\alpha_3 = 0$ hat.",
+                "Schritt 2: Gleichungssystem aufstellen\n$\\alpha_1 \\begin{pmatrix} 1 \\\\ 2 \\\\ 1 \\end{pmatrix} + \\alpha_2 \\begin{pmatrix} 2 \\\\ 1 \\\\ 0 \\end{pmatrix} + \\alpha_3 \\begin{pmatrix} 1 \\\\ -1 \\\\ -1 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}$\n\nDies führt zu:\n$\\begin{align}\n\\alpha_1 + 2\\alpha_2 + \\alpha_3 &= 0 \\\\\n2\\alpha_1 + \\alpha_2 - \\alpha_3 &= 0 \\\\\n\\alpha_1 + 0\\alpha_2 - \\alpha_3 &= 0\n\\end{align}$",
+                "Schritt 3: Matrix des Gleichungssystems\n$\\begin{pmatrix} 1 & 2 & 1 \\\\ 2 & 1 & -1 \\\\ 1 & 0 & -1 \\end{pmatrix}$",
+                "Schritt 4: Gauß-Elimination\n$Z_2 - 2Z_1$: $(0, -3, -3)$\n$Z_3 - Z_1$: $(0, -2, -2)$\n$\\begin{pmatrix} 1 & 2 & 1 \\\\ 0 & -3 & -3 \\\\ 0 & -2 & -2 \\end{pmatrix}$\n\nDivide $Z_2$ durch $-3$: $(0, 1, 1)$\n$Z_3 + 2Z_2$: $(0, 0, 0)$\n$\\begin{pmatrix} 1 & 2 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix}$",
+                "Schritt 5: Rücksubstitution\nAus Zeile 2: $\\alpha_2 + \\alpha_3 = 0 \\Rightarrow \\alpha_2 = -\\alpha_3$\nAus Zeile 1: $\\alpha_1 + 2\\alpha_2 + \\alpha_3 = 0$\n$\\alpha_1 + 2(-\\alpha_3) + \\alpha_3 = 0$\n$\\alpha_1 - \\alpha_3 = 0 \\Rightarrow \\alpha_1 = \\alpha_3$",
+                "Schritt 6: Fazit\nDas System hat unendlich viele Lösungen mit $\\alpha_3$ als freiem Parameter:\n$\\alpha_1 = \\alpha_3$, $\\alpha_2 = -\\alpha_3$, $\\alpha_3$ beliebig\n\nDa es nichttriviale Lösungen gibt (z.B. $\\alpha_1 = 1, \\alpha_2 = -1, \\alpha_3 = 1$), sind die Vektoren linear abhängig.\n\nAntwort: Die Vektoren sind linear abhängig."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Inverse Matrix",
+            "title": "Inverse einer 2×2-Matrix",
+            "description": "Bestimmen Sie die Inverse der Matrix $C = \\begin{pmatrix} 3 & 1 \\\\ 2 & 1 \\end{pmatrix}$, falls sie existiert.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Determinante berechnen\n$\\det(C) = 3 \\cdot 1 - 1 \\cdot 2 = 3 - 2 = 1$\nDa $\\det(C) \\neq 0$, existiert die Inverse.",
+                "Schritt 2: Formel für 2×2-Inverse\nFür $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ ist die Inverse:\n$\\frac{1}{ad-bc} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$",
+                "Schritt 3: Inverse berechnen\n$C^{-1} = \\frac{1}{1} \\begin{pmatrix} 1 & -1 \\\\ -2 & 3 \\end{pmatrix} = \\begin{pmatrix} 1 & -1 \\\\ -2 & 3 \\end{pmatrix}$",
+                "Schritt 4: Probe durchführen\n$C \\cdot C^{-1} = \\begin{pmatrix} 3 & 1 \\\\ 2 & 1 \\end{pmatrix} \\begin{pmatrix} 1 & -1 \\\\ -2 & 3 \\end{pmatrix}$\n$= \\begin{pmatrix} 3-2 & -3+3 \\\\ 2-2 & -2+3 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} = I$",
+                "Schritt 5: Endergebnis\n$C^{-1} = \\begin{pmatrix} 1 & -1 \\\\ -2 & 3 \\end{pmatrix}$\nDie Probe bestätigt das Ergebnis."
+            ]
+        }
+    ]
+}

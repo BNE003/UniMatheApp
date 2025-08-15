@@ -31,6 +31,7 @@ struct PurchaseView: View {
 
     @State private var freeTrial: Bool = true
     @State private var selectedProductId: String = ""
+    @State private var showConfetti = false
     
     let color: Color = Color.blue
     
@@ -97,6 +98,52 @@ struct PurchaseView: View {
     
     var body: some View {
         ZStack (alignment: .top) {
+            
+            // Confetti animation overlay
+            if showConfetti {
+                ConfettiView()
+                    .allowsHitTesting(false)
+                    .zIndex(1000)
+                
+                // Success message overlay
+                VStack(spacing: 20) {
+                    Spacer()
+                    
+                    VStack(spacing: 16) {
+                        Image(systemName: "checkmark.circle.fill")
+                            .font(.system(size: 80))
+                            .foregroundColor(.green)
+                            .scaleEffect(showConfetti ? 1.0 : 0.5)
+                            .animation(.spring(response: 0.6, dampingFraction: 0.6), value: showConfetti)
+                        
+                        Text(settings.language == .english ? "Welcome to Premium!" : "Willkommen bei Premium!")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(.primary)
+                            .multilineTextAlignment(.center)
+                        
+                        Text(settings.language == .english ? 
+                             "You now have access to all features" : 
+                             "Du hast jetzt Zugriff auf alle Funktionen")
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                    }
+                    .padding(32)
+                    .background(
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(.ultraThinMaterial)
+                            .shadow(color: Color.black.opacity(0.1), radius: 20, x: 0, y: 10)
+                    )
+                    .scaleEffect(showConfetti ? 1.0 : 0.8)
+                    .opacity(showConfetti ? 1.0 : 0.0)
+                    .animation(.spring(response: 0.8, dampingFraction: 0.7).delay(0.3), value: showConfetti)
+                    
+                    Spacer()
+                }
+                .padding(.horizontal, 40)
+                .zIndex(1001)
+            }
             
             HStack {
                 Spacer()
@@ -408,7 +455,11 @@ struct PurchaseView: View {
         }
         .onChange(of: purchaseModel.isSubscribed) { isSubscribed in
             if(isSubscribed) {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                // Show confetti animation first
+                showConfetti = true
+                
+                // Dismiss after confetti animation
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
                     isPresented = false
                 }
             }
