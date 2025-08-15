@@ -5,7 +5,7 @@ struct SubTopicsView: View {
     @State private var subTopics: [MathTopic] = []
     @State private var isLoading = true
     @State private var error: Error?
-    @EnvironmentObject private var tabBarViewModel: TabBarViewModel
+    @ObservedObject private var tabBarManager = TabBarManager.shared
     
     var body: some View {
         ZStack {
@@ -96,11 +96,11 @@ struct SubTopicsView: View {
         .navigationTitle(topic.title)
         .navigationBarTitleDisplayMode(.large)
         .onAppear {
-            tabBarViewModel.hideTabBar()
+            tabBarManager.hide()
             loadSubTopics()
         }
         .onDisappear {
-            tabBarViewModel.showTabBar()
+            tabBarManager.show()
         }
     }
     
@@ -472,7 +472,7 @@ struct ContentSelectionView: View {
     @State private var loadedTopic: MathTopic?
     @State private var isLoading = true
     @State private var error: Error?
-    @EnvironmentObject private var tabBarViewModel: TabBarViewModel
+    @ObservedObject private var tabBarManager = TabBarManager.shared
     
     var body: some View {
         ZStack {
@@ -566,11 +566,11 @@ struct ContentSelectionView: View {
         .navigationTitle(topic.title)
         .navigationBarTitleDisplayMode(.large)
         .onAppear {
-            tabBarViewModel.hideTabBar()
+            tabBarManager.hide()
             loadTopicContent()
         }
         .onDisappear {
-            tabBarViewModel.showTabBar()
+            tabBarManager.show()
         }
     }
     

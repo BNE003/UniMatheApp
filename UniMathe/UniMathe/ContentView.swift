@@ -559,6 +559,7 @@ struct ExercisesView: View {
     @State private var error: Error?
     @State private var showProSheet = false
     @ObservedObject private var storeManager = StoreKitManager.shared
+    @ObservedObject private var tabBarManager = TabBarManager.shared
     
     private var filteredExercises: [Exercise] {
         guard let difficulty = selectedDifficulty else { return [] }
