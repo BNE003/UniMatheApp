@@ -2,7 +2,7 @@
     "exam": {
         "title": "Numerische Mathematik - Expertenklausur",
         "subtitle": "Algorithmen, Approximation und Fehleranalyse",
-        "duration": 150,
+        "duration": 90,
         "totalPoints": 100,
         "difficulty": "advanced",
         "language": "de",
@@ -87,7 +87,7 @@
                 "Schritt 3: Weitere Iterationen\nZweite Iteration ($x_1 = 0.2$, $y_1 \\approx 0.689$):\nAnaloge Berechnungen führen zu $y_2 \\approx 0.524$\nDritte Iteration: $y_3 \\approx 0.449$\nVierte Iteration: $y_4 \\approx 0.419$\nFünfte Iteration: $y_5 \\approx 0.418$",
                 "Schritt 4: Teil b) - Vergleich mit exakter Lösung\nExakte Lösung: $y(x) = \\frac{x-1}{2} + \\frac{3e^{-2x}}{2}$\nExakte Werte:\n$y(0.2) \\approx 0.607$\n$y(0.4) \\approx 0.375$\n$y(0.6) \\approx 0.249$\n$y(0.8) \\approx 0.181$\n$y(1.0) \\approx 0.153$",
                 "Schritt 5: Fehleranalyse\nFehler bei $x = 0.2$: $|0.689 - 0.607| \\approx 0.082$\nFehler bei $x = 0.4$: $|0.524 - 0.375| \\approx 0.149$\nGlobaler Fehler von RK4: $O(h^4)$, lokaler Fehler: $O(h^5)$",
-                "Schritt 6: Teil c) - Stabilitätsanalyse\nFür die Modellgleichung $y' = \\lambda y$ mit $\\lambda = -2$ ist das Stabilitätsgebiet relevant.\nRK4-Stabilitätsbedingung: $|1 + h\\lambda + \\frac{(h\\lambda)^2}{2} + \\frac{(h\\lambda)^3}{6} + \\frac{(h\\lambda)^4}{24}| < 1$\nMit $h\\lambda = 0.2 \\cdot (-2) = -0.4$:\n$|1 - 0.4 + 0.08 - 0.011 + 0.0007| = |0.670| < 1$\nDas Verfahren ist stabil für diese Schrittweite."
+                "Schritt 6: Teil c) - Stabilitätsanalyse\nFür die Modellgleichung $y' = \\lambda y$ mit $\\lambda = -2$ ist das Stabilitätsgebiet relevant.\nRK4-Stabilitätsbedingung: $\\left|1 + h\\lambda + \\frac{(h\\lambda)^2}{2} + \\frac{(h\\lambda)^3}{6} + \\frac{(h\\lambda)^4}{24}\\right| < 1$\nMit $h\\lambda = 0.2 \\cdot (-2) = -0.4$:\n$|1 - 0.4 + 0.08 - 0.011 + 0.0007| = |0.670| < 1$\nDas Verfahren ist stabil für diese Schrittweite."
             ]
         }
     ]

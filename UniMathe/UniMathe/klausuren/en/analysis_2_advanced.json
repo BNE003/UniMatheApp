@@ -2,8 +2,8 @@
     "exam": {
         "title": "Analysis II - Expert Exam",
         "subtitle": "Multivariable Analysis and Vector Analysis",
-        "duration": 180,
-        "totalPoints": 120,
+        "duration": 90,
+        "totalPoints": 170,
         "difficulty": "advanced",
         "language": "en",
         "instructions": "Complete all tasks thoroughly. Always show your solution approach. Create sketches where possible. Permitted aids: non-programmable calculator."
@@ -103,6 +103,86 @@
                 "Step 4: Individual integrals\n$\\int_0^1 x^2 dx = \\left[\\frac{x^3}{3}\\right]_0^1 = \\frac{1}{3}$\n$\\int_0^1 dx = \\int_0^1 dy = \\int_0^1 dz = 1$\nTherefore: $\\iiint_{[0,1]^3} (x^2 + y^2 + z^2) \\, dx \\, dy \\, dz = \\frac{1}{3} \\cdot 1 \\cdot 1 + 1 \\cdot \\frac{1}{3} \\cdot 1 + 1 \\cdot 1 \\cdot \\frac{1}{3} = 3 \\cdot \\frac{1}{3} = 1$",
                 "Step 5: Final result with Gauss\n$\\iint_S \\vec{F} \\cdot \\vec{n} \\, dS = 3 \\cdot 1 = 3$",
                 "Step 6: Part b) - Verification over one face\nConsider the face $x = 1$ (unit normal $\\vec{n} = (1,0,0)$):\n$\\vec{F}(1,y,z) = (1, y^3, z^3), \\quad \\vec{F} \\cdot \\vec{n} = 1$\n$\\iint_{x=1} \\vec{F} \\cdot \\vec{n} \\, dS = \\int_0^1 \\int_0^1 1 \\, dy \\, dz = 1$\nSimilarly for all 6 faces:\n- $x = 0$: $\\iint 0 \\, dS = 0$\n- $x = 1$: $\\iint 1 \\, dS = 1$\n- $y = 0$: $\\iint 0 \\, dS = 0$\n- $y = 1$: $\\iint 1 \\, dS = 1$\n- $z = 0$: $\\iint 0 \\, dS = 0$\n- $z = 1$: $\\iint 1 \\, dS = 1$\nSum: $0 + 1 + 0 + 1 + 0 + 1 = 3$ ✓"
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Taylor Series",
+            "title": "Taylor Series and Approximation",
+            "description": "Develop the function $f(x) = e^{2x}$ around point $x_0 = 0$ into a Taylor series up to 4th order.\n\na) Determine the Taylor polynomials $T_2(x)$ and $T_4(x)$.\nb) Estimate the error when approximating $e^{0.2}$ by $T_2(0.1)$.\nc) Determine the convergence interval of the Taylor series.",
+            "difficulty": "hard",
+            "points": 18,
+            "solutionSteps": [
+                "Step 1: Calculate derivatives\n$f(x) = e^{2x}$\n$f'(x) = 2e^{2x}$\n$f''(x) = 4e^{2x}$\n$f'''(x) = 8e^{2x}$\n$f^{(4)}(x) = 16e^{2x}$",
+                "Step 2: Function values at expansion point\n$f(0) = e^0 = 1$\n$f'(0) = 2e^0 = 2$\n$f''(0) = 4e^0 = 4$\n$f'''(0) = 8e^0 = 8$\n$f^{(4)}(0) = 16e^0 = 16$",
+                "Step 3: Part a) - Taylor polynomials\n$T_2(x) = f(0) + f'(0)x + \\frac{f''(0)}{2!}x^2 = 1 + 2x + \\frac{4}{2}x^2 = 1 + 2x + 2x^2$\n$T_4(x) = T_2(x) + \\frac{f'''(0)}{3!}x^3 + \\frac{f^{(4)}(0)}{4!}x^4$\n$= 1 + 2x + 2x^2 + \\frac{8}{6}x^3 + \\frac{16}{24}x^4$\n$= 1 + 2x + 2x^2 + \\frac{4}{3}x^3 + \\frac{2}{3}x^4$",
+                "Step 4: Part b) - Error estimation\nFor the remainder term: $R_2(x) = \\frac{f'''(\\xi)}{3!}x^3$ with $\\xi$ between 0 and $x$\n$R_2(0.1) = \\frac{8e^{2\\xi}}{6}(0.1)^3 = \\frac{8e^{2\\xi}}{6000}$\nFor $\\xi \\in [0, 0.1]$: $e^{2\\xi} \\leq e^{0.2} < 1.25$\n$|R_2(0.1)| < \\frac{8 \\cdot 1.25}{6000} = \\frac{10}{6000} = \\frac{1}{600} \\approx 0.00167$",
+                "Step 5: Approximation values\n$T_2(0.1) = 1 + 2(0.1) + 2(0.1)^2 = 1 + 0.2 + 0.02 = 1.22$\nExact value: $e^{0.2} \\approx 1.2214$\nError: $|1.2214 - 1.22| = 0.0014 < 0.00167$ ✓",
+                "Step 6: Part c) - Convergence interval\nSince $f(x) = e^{2x}$ is an entire function (analytic everywhere), the Taylor series converges for all $x \\in \\mathbb{R}$.\nRadius of convergence: $R = \\infty$\nConvergence interval: $(-\\infty, \\infty)$"
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Implicit Differentiation",
+            "title": "Implicit Functions and Tangents",
+            "description": "Given the implicitly defined curve $x^3 + y^3 - 3xy = 0$ (Folium of Descartes).\n\na) Determine $\\frac{dy}{dx}$ by implicit differentiation.\nb) Find all points where the tangent is horizontal.\nc) Determine the equation of the tangent at point $(\\frac{3}{2}, \\frac{3}{2})$.",
+            "difficulty": "hard",
+            "points": 16,
+            "solutionSteps": [
+                "Step 1: Part a) - Implicit differentiation\n$\\frac{d}{dx}(x^3 + y^3 - 3xy) = \\frac{d}{dx}(0)$\n$3x^2 + 3y^2 \\frac{dy}{dx} - 3y - 3x \\frac{dy}{dx} = 0$\n$3x^2 - 3y + (3y^2 - 3x) \\frac{dy}{dx} = 0$",
+                "Step 2: Solve for $\\frac{dy}{dx}$\n$(3y^2 - 3x) \\frac{dy}{dx} = 3y - 3x^2$\n$\\frac{dy}{dx} = \\frac{3y - 3x^2}{3y^2 - 3x} = \\frac{y - x^2}{y^2 - x}$ (for $y^2 \\neq x$)",
+                "Step 3: Part b) - Horizontal tangents\nHorizontal tangents: $\\frac{dy}{dx} = 0$\n$\\frac{y - x^2}{y^2 - x} = 0 \\Rightarrow y - x^2 = 0 \\Rightarrow y = x^2$\nSubstituting into original equation:\n$x^3 + (x^2)^3 - 3x(x^2) = 0$\n$x^3 + x^6 - 3x^3 = 0$\n$x^6 - 2x^3 = 0$\n$x^3(x^3 - 2) = 0$",
+                "Step 4: Solutions for horizontal tangents\n$x^3 = 0 \\Rightarrow x = 0, y = 0$\n$x^3 = 2 \\Rightarrow x = \\sqrt[3]{2}, y = (\\sqrt[3]{2})^2 = 2^{2/3}$\nPoints with horizontal tangent: $(0, 0)$ and $(\\sqrt[3]{2}, 2^{2/3})$",
+                "Step 5: Check point $(0,0)$\nSubstituting into $x^3 + y^3 - 3xy = 0$: $0 + 0 - 0 = 0$ ✓\nBut: $y^2 - x = 0 - 0 = 0$, so $\\frac{dy}{dx}$ is undefined.\nPoint $(0,0)$ is a singular point.",
+                "Step 6: Part c) - Tangent at point $(\\frac{3}{2}, \\frac{3}{2})$\nCheck point: $(\\frac{3}{2})^3 + (\\frac{3}{2})^3 - 3 \\cdot \\frac{3}{2} \\cdot \\frac{3}{2} = \\frac{27}{8} + \\frac{27}{8} - \\frac{27}{4} = \\frac{54}{8} - \\frac{54}{8} = 0$ ✓\nSlope: $\\frac{dy}{dx} = \\frac{\\frac{3}{2} - (\\frac{3}{2})^2}{(\\frac{3}{2})^2 - \\frac{3}{2}} = \\frac{\\frac{3}{2} - \\frac{9}{4}}{\\frac{9}{4} - \\frac{3}{2}} = \\frac{-\\frac{3}{4}}{\\frac{3}{4}} = -1$\nTangent equation: $y - \\frac{3}{2} = -1(x - \\frac{3}{2})$\n$y = -x + 3$"
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Triple Integrals",
+            "title": "Volume Calculation with Triple Integrals",
+            "description": "Calculate the volume of the solid bounded by surfaces $z = x^2 + y^2$, $z = 8 - x^2 - y^2$ and the xy-plane.\n\na) Determine the projection region in the xy-plane.\nb) Set up the triple integral in Cartesian coordinates.\nc) Calculate the volume using cylindrical coordinates.",
+            "difficulty": "hard",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Part a) - Determine projection region\nThe surfaces intersect when: $x^2 + y^2 = 8 - x^2 - y^2$\n$2(x^2 + y^2) = 8$\n$x^2 + y^2 = 4$\nThe projection region is the disk $D: x^2 + y^2 \\leq 4$ in the xy-plane.",
+                "Step 2: Determine bounds for z\nFor $(x,y) \\in D$:\n- Lower bound: $z = x^2 + y^2$ (upward paraboloid)\n- Upper bound: $z = 8 - x^2 - y^2$ (downward paraboloid)\nSince $x^2 + y^2 \\leq 4$, we have $8 - x^2 - y^2 \\geq 4 \\geq x^2 + y^2$.",
+                "Step 3: Part b) - Triple integral in Cartesian coordinates\n$V = \\iiint_E dV = \\iint_D \\int_{x^2+y^2}^{8-x^2-y^2} dz \\, dA$\n$= \\iint_D [(8-x^2-y^2) - (x^2+y^2)] \\, dA$\n$= \\iint_D (8 - 2x^2 - 2y^2) \\, dA$\n$= \\int_{-2}^2 \\int_{-\\sqrt{4-x^2}}^{\\sqrt{4-x^2}} (8 - 2x^2 - 2y^2) \\, dy \\, dx$",
+                "Step 4: Part c) - Transformation to cylindrical coordinates\nSubstitution: $x = r\\cos\\theta, y = r\\sin\\theta, z = z$\nJacobian determinant: $|J| = r$\nRegion: $0 \\leq r \\leq 2, 0 \\leq \\theta \\leq 2\\pi$\nIntegrand: $8 - 2x^2 - 2y^2 = 8 - 2r^2$",
+                "Step 5: Integration in cylindrical coordinates\n$V = \\int_0^{2\\pi} \\int_0^2 (8 - 2r^2) \\cdot r \\, dr \\, d\\theta$\n$= \\int_0^{2\\pi} \\int_0^2 (8r - 2r^3) \\, dr \\, d\\theta$\nInner integral: $\\int_0^2 (8r - 2r^3) \\, dr = \\left[4r^2 - \\frac{r^4}{2}\\right]_0^2 = 16 - 8 = 8$",
+                "Step 6: Outer integral and final result\n$V = \\int_0^{2\\pi} 8 \\, d\\theta = 8 \\cdot 2\\pi = 16\\pi$\nThe volume of the solid is $16\\pi$ cubic units."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Vector Fields and Curl",
+            "title": "Curl and Stokes' Theorem",
+            "description": "Given the vector field $\\vec{F}(x,y,z) = (y^2z, -xz^2, xy^2)$ and surface S, which is the part of sphere $x^2 + y^2 + z^2 = 4$ with $z \\geq 0$, oriented upward.\n\na) Calculate the curl $\\text{curl } \\vec{F}$.\nb) Determine the boundary $\\partial S$ of surface S.\nc) Verify Stokes' theorem for this example.",
+            "difficulty": "hard",
+            "points": 22,
+            "solutionSteps": [
+                "Step 1: Part a) - Calculate curl\n$\\vec{F} = (P, Q, R) = (y^2z, -xz^2, xy^2)$\n$\\text{curl } \\vec{F} = \\nabla \\times \\vec{F} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\\\\\ \\frac{\\partial}{\\partial x} & \\frac{\\partial}{\\partial y} & \\frac{\\partial}{\\partial z} \\\\\\\\ y^2z & -xz^2 & xy^2 \\end{vmatrix}$",
+                "Step 2: Components of curl\n$\\text{curl}_x \\vec{F} = \\frac{\\partial R}{\\partial y} - \\frac{\\partial Q}{\\partial z} = \\frac{\\partial(xy^2)}{\\partial y} - \\frac{\\partial(-xz^2)}{\\partial z} = 2xy - (-2xz) = 2xy + 2xz$\n$\\text{curl}_y \\vec{F} = \\frac{\\partial P}{\\partial z} - \\frac{\\partial R}{\\partial x} = \\frac{\\partial(y^2z)}{\\partial z} - \\frac{\\partial(xy^2)}{\\partial x} = y^2 - y^2 = 0$\n$\\text{curl}_z \\vec{F} = \\frac{\\partial Q}{\\partial x} - \\frac{\\partial P}{\\partial y} = \\frac{\\partial(-xz^2)}{\\partial x} - \\frac{\\partial(y^2z)}{\\partial y} = -z^2 - 2yz$",
+                "Step 3: Complete curl\n$\\text{curl } \\vec{F} = (2x(y + z), 0, -z^2 - 2yz) = (2x(y + z), 0, -z(z + 2y))$",
+                "Step 4: Part b) - Boundary of surface\nS is the upper hemisphere $x^2 + y^2 + z^2 = 4, z \\geq 0$\nThe boundary $\\partial S$ is the circle $x^2 + y^2 = 4, z = 0$ in the xy-plane.\nParametrization: $\\vec{r}(t) = (2\\cos t, 2\\sin t, 0), t \\in [0, 2\\pi]$\nOrientation: counterclockwise (right-hand rule)",
+                "Step 5: Calculate line integral\n$\\vec{r}'(t) = (-2\\sin t, 2\\cos t, 0)$\n$\\vec{F}(\\vec{r}(t)) = ((2\\sin t)^2 \\cdot 0, -2\\cos t \\cdot 0^2, 2\\cos t \\cdot (2\\sin t)^2) = (0, 0, 8\\cos t \\sin^2 t)$\n$\\int_{\\partial S} \\vec{F} \\cdot d\\vec{r} = \\int_0^{2\\pi} (0, 0, 8\\cos t \\sin^2 t) \\cdot (-2\\sin t, 2\\cos t, 0) dt$\n$= \\int_0^{2\\pi} 0 \\, dt = 0$",
+                "Step 6: Part c) - Surface integral of curl\nBy Stokes' theorem: $\\int_{\\partial S} \\vec{F} \\cdot d\\vec{r} = \\iint_S (\\text{curl } \\vec{F}) \\cdot \\vec{n} \\, dS$\nSince the line integral is 0, the surface integral must also be 0.\nVerification by symmetry considerations:\nThe curl has the form $(2x(y+z), 0, -z(z+2y))$\nOn the hemisphere, contributions cancel due to symmetry.\nStokes' theorem is satisfied: $0 = 0$ ✓"
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Fourier Series",
+            "title": "Fourier Development of a Periodic Function",
+            "description": "Develop the $2\\pi$-periodic function $f(x) = |\\sin x|$ into a Fourier series.\n\na) Determine the Fourier coefficients $a_0$, $a_n$ and $b_n$.\nb) Give the Fourier series explicitly.\nc) Calculate the value of the series at point $x = \\frac{\\pi}{2}$.",
+            "difficulty": "hard",
+            "points": 18,
+            "solutionSteps": [
+                "Step 1: Properties of the function\n$f(x) = |\\sin x|$ is an even function: $f(-x) = |\\sin(-x)| = |-\\sin x| = |\\sin x| = f(x)$\nTherefore all $b_n = 0$ (no sine terms).\nPeriod: $\\pi$ (not $2\\pi$), but we develop as $2\\pi$-periodic function.",
+                "Step 2: Calculate $a_0$\n$a_0 = \\frac{1}{\\pi} \\int_{-\\pi}^{\\pi} |\\sin x| \\, dx = \\frac{2}{\\pi} \\int_0^{\\pi} \\sin x \\, dx$ (since even function)\n$= \\frac{2}{\\pi} [-\\cos x]_0^{\\pi} = \\frac{2}{\\pi}(-\\cos \\pi + \\cos 0) = \\frac{2}{\\pi}(1 + 1) = \\frac{4}{\\pi}$",
+                "Step 3: Calculate $a_n$ for $n \\geq 1$\n$a_n = \\frac{1}{\\pi} \\int_{-\\pi}^{\\pi} |\\sin x| \\cos(nx) \\, dx = \\frac{2}{\\pi} \\int_0^{\\pi} \\sin x \\cos(nx) \\, dx$\nIntegration by parts or product formula:\n$\\sin x \\cos(nx) = \\frac{1}{2}[\\sin((n+1)x) + \\sin((n-1)x)]$ for $n \\neq 1$",
+                "Step 4: Integration for $n \\neq 1$\n$a_n = \\frac{2}{\\pi} \\cdot \\frac{1}{2} \\int_0^{\\pi} [\\sin((n+1)x) + \\sin((n-1)x)] \\, dx$\n$= \\frac{1}{\\pi} \\left[\\frac{-\\cos((n+1)x)}{n+1} + \\frac{-\\cos((n-1)x)}{n-1}\\right]_0^{\\pi}$\n$= \\frac{1}{\\pi} \\left[\\frac{-\\cos((n+1)\\pi) + 1}{n+1} + \\frac{-\\cos((n-1)\\pi) + 1}{n-1}\\right]$",
+                "Step 5: Simplification for even n\nFor even $n$: $\\cos(n\\pi) = 1$, so $\\cos((n+1)\\pi) = -1$ and $\\cos((n-1)\\pi) = -1$\n$a_n = \\frac{1}{\\pi} \\left[\\frac{1 + 1}{n+1} + \\frac{1 + 1}{n-1}\\right] = \\frac{2}{\\pi} \\left[\\frac{1}{n+1} + \\frac{1}{n-1}\\right]$\n$= \\frac{2}{\\pi} \\cdot \\frac{(n-1) + (n+1)}{(n+1)(n-1)} = \\frac{2}{\\pi} \\cdot \\frac{2n}{n^2-1} = \\frac{4n}{\\pi(n^2-1)}$\nFor odd $n$: $a_n = 0$",
+                "Step 6: Part b) - Fourier series\n$f(x) = \\frac{a_0}{2} + \\sum_{n=1}^{\\infty} a_n \\cos(nx)$\n$|\\sin x| = \\frac{2}{\\pi} - \\frac{4}{\\pi} \\sum_{k=1}^{\\infty} \\frac{\\cos(2kx)}{4k^2-1}$\n$= \\frac{2}{\\pi} - \\frac{4}{\\pi} \\left(\\frac{\\cos(2x)}{3} + \\frac{\\cos(4x)}{15} + \\frac{\\cos(6x)}{35} + \\ldots\\right)$\nPart c): At $x = \\frac{\\pi}{2}$: $|\\sin(\\frac{\\pi}{2})| = 1$\nThe series converges to 1."
             ]
         }
     ]

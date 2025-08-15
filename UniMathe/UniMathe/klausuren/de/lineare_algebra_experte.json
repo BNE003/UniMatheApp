@@ -2,7 +2,7 @@
     "exam": {
         "title": "Lineare Algebra - Expertenklausur",
         "subtitle": "Fortgeschrittene Theorie und Anwendungen",
-        "duration": 180,
+        "duration": 90,
         "totalPoints": 150,
         "difficulty": "advanced",
         "language": "de",

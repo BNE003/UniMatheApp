@@ -3,7 +3,7 @@
         "title": "Analysis I - Beginner Exam",
         "subtitle": "Fundamentals of Analysis",
         "duration": 120,
-        "totalPoints": 60,
+        "totalPoints": 110,
         "difficulty": "beginner",
         "language": "en",
         "instructions": "Answer all questions. Show all work and calculations. Permitted aids: Non-programmable calculator. Good luck!"
@@ -98,6 +98,82 @@
                 "Step 2: Integrate individual terms\n$\\int 2x^3 \\, dx = 2 \\cdot \\frac{x^4}{4} = \\frac{x^4}{2}$\n$\\int (-5x) \\, dx = -5 \\cdot \\frac{x^2}{2} = -\\frac{5x^2}{2}$\n$\\int 4 \\, dx = 4x$",
                 "Step 3: Combine results\n$\\int (2x^3 - 5x + 4) \\, dx = \\frac{x^4}{2} - \\frac{5x^2}{2} + 4x + C$",
                 "Step 4: Final result\n$\\int (2x^3 - 5x + 4) \\, dx = \\frac{x^4}{2} - \\frac{5x^2}{2} + 4x + C$\nwhere $C$ is the constant of integration."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Sequences and Series",
+            "title": "Convergence of a sequence",
+            "description": "Investigate the sequence $a_n = \\frac{2n^2 + 3n - 1}{n^2 + 5}$ for convergence and determine the limit if it exists.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Determine the limit\nWe consider $\\lim_{n \\to \\infty} \\frac{2n^2 + 3n - 1}{n^2 + 5}$\nSince both numerator and denominator approach infinity, we divide by the highest power $n^2$.",
+                "Step 2: Divide by $n^2$\n$\\lim_{n \\to \\infty} \\frac{2n^2 + 3n - 1}{n^2 + 5} = \\lim_{n \\to \\infty} \\frac{2 + \\frac{3}{n} - \\frac{1}{n^2}}{1 + \\frac{5}{n^2}}$",
+                "Step 3: Limits of individual terms\n$\\lim_{n \\to \\infty} \\frac{3}{n} = 0$\n$\\lim_{n \\to \\infty} \\frac{1}{n^2} = 0$\n$\\lim_{n \\to \\infty} \\frac{5}{n^2} = 0$",
+                "Step 4: Final result\n$\\lim_{n \\to \\infty} \\frac{2 + \\frac{3}{n} - \\frac{1}{n^2}}{1 + \\frac{5}{n^2}} = \\frac{2 + 0 - 0}{1 + 0} = 2$",
+                "Step 5: Answer\nThe sequence converges to 2."
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Definite Integration",
+            "title": "Area calculation",
+            "description": "Calculate the area between the curve $f(x) = x^2 - 4$ and the x-axis on the interval $[-2, 2]$.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Find zeros\n$f(x) = x^2 - 4 = 0$\n$x^2 = 4$\n$x = \\pm 2$\nThe function intersects the x-axis at $x = -2$ and $x = 2$.",
+                "Step 2: Sign of the function\nFor $x \\in (-2, 2)$: $f(x) = x^2 - 4 < 0$ (since $x^2 < 4$)\nThe function lies below the x-axis.",
+                "Step 3: Area calculation\nSince $f(x) < 0$ on interval $[-2, 2]$, the area is:\n$A = -\\int_{-2}^{2} (x^2 - 4) \\, dx = \\int_{-2}^{2} (4 - x^2) \\, dx$",
+                "Step 4: Integration\n$\\int_{-2}^{2} (4 - x^2) \\, dx = \\left[4x - \\frac{x^3}{3}\\right]_{-2}^{2}$\n$= \\left(4 \\cdot 2 - \\frac{2^3}{3}\\right) - \\left(4 \\cdot (-2) - \\frac{(-2)^3}{3}\\right)$\n$= \\left(8 - \\frac{8}{3}\\right) - \\left(-8 - \\frac{-8}{3}\\right)$\n$= 8 - \\frac{8}{3} + 8 - \\frac{8}{3} = 16 - \\frac{16}{3} = \\frac{48 - 16}{3} = \\frac{32}{3}$",
+                "Step 5: Answer\nThe area is $\\frac{32}{3}$ square units."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Mean Value Theorem",
+            "title": "Application of Mean Value Theorem",
+            "description": "Given the function $f(x) = x^3 - 6x^2 + 9x + 1$ on interval $[1, 4]$. Find a point $c \\in (1, 4)$ where the Mean Value Theorem is satisfied.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Check prerequisites\n$f(x) = x^3 - 6x^2 + 9x + 1$ is a polynomial, therefore:\n- continuous on $[1, 4]$\n- differentiable on $(1, 4)$\nThe Mean Value Theorem applies.",
+                "Step 2: Calculate function values\n$f(1) = 1^3 - 6 \\cdot 1^2 + 9 \\cdot 1 + 1 = 1 - 6 + 9 + 1 = 5$\n$f(4) = 4^3 - 6 \\cdot 4^2 + 9 \\cdot 4 + 1 = 64 - 96 + 36 + 1 = 5$",
+                "Step 3: Average rate of change\n$\\frac{f(4) - f(1)}{4 - 1} = \\frac{5 - 5}{3} = 0$",
+                "Step 4: Calculate derivative\n$f'(x) = 3x^2 - 12x + 9 = 3(x^2 - 4x + 3) = 3(x - 1)(x - 3)$",
+                "Step 5: Find point c\nBy the Mean Value Theorem, there exists $c \\in (1, 4)$ with $f'(c) = 0$:\n$3(c - 1)(c - 3) = 0$\n$c = 1$ or $c = 3$\nSince $c \\in (1, 4)$, we have $c = 3$.",
+                "Step 6: Verification\n$f'(3) = 3(3 - 1)(3 - 3) = 3 \\cdot 2 \\cdot 0 = 0$ ✓\nThe desired point is $c = 3$."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Substitution Rule",
+            "title": "Integration by substitution",
+            "description": "Calculate the integral $\\int \\frac{2x}{x^2 + 1} \\, dx$ using substitution.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Choose substitution\nLet $u = x^2 + 1$\nThen $\\frac{du}{dx} = 2x$, so $du = 2x \\, dx$",
+                "Step 2: Transform the integral\n$\\int \\frac{2x}{x^2 + 1} \\, dx = \\int \\frac{1}{u} \\, du$",
+                "Step 3: Integration\n$\\int \\frac{1}{u} \\, du = \\ln|u| + C$",
+                "Step 4: Back-substitution\n$\\ln|u| + C = \\ln|x^2 + 1| + C$\nSince $x^2 + 1 > 0$ for all real $x$, we can drop the absolute value:\n$= \\ln(x^2 + 1) + C$",
+                "Step 5: Final result\n$\\int \\frac{2x}{x^2 + 1} \\, dx = \\ln(x^2 + 1) + C$"
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Integration by Parts",
+            "title": "Integration by parts",
+            "description": "Calculate the integral $\\int x \\cdot e^x \\, dx$ using integration by parts.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Integration by parts formula\n$\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$",
+                "Step 2: Choose functions\n$u = x \\Rightarrow u' = 1$\n$v' = e^x \\Rightarrow v = e^x$\nChoice: differentiate polynomial, integrate exponential function",
+                "Step 3: Apply formula\n$\\int x \\cdot e^x \\, dx = x \\cdot e^x - \\int 1 \\cdot e^x \\, dx$\n$= x \\cdot e^x - \\int e^x \\, dx$",
+                "Step 4: Remaining integral\n$\\int e^x \\, dx = e^x + C$",
+                "Step 5: Final result\n$\\int x \\cdot e^x \\, dx = x \\cdot e^x - e^x + C = e^x(x - 1) + C$"
             ]
         }
     ]

@@ -2,8 +2,8 @@
     "exam": {
         "title": "Analysis II - Expertenklausur",
         "subtitle": "Mehrdimensionale Analysis und Vektoranalysis",
-        "duration": 180,
-        "totalPoints": 120,
+        "duration": 90,
+        "totalPoints": 170,
         "difficulty": "advanced",
         "language": "de",
         "instructions": "Bearbeiten Sie alle Aufgaben vollständig. Geben Sie stets den Lösungsweg an. Skizzen sind wo möglich anzufertigen. Zulässige Hilfsmittel: nicht programmierbarer Taschenrechner."
@@ -103,6 +103,86 @@
                 "Schritt 4: Einzelne Integrale\n$\\int_0^1 x^2 dx = \\left[\\frac{x^3}{3}\\right]_0^1 = \\frac{1}{3}$\n$\\int_0^1 dx = \\int_0^1 dy = \\int_0^1 dz = 1$\nDaher: $\\iiint_{[0,1]^3} (x^2 + y^2 + z^2) \\, dx \\, dy \\, dz = \\frac{1}{3} \\cdot 1 \\cdot 1 + 1 \\cdot \\frac{1}{3} \\cdot 1 + 1 \\cdot 1 \\cdot \\frac{1}{3} = 3 \\cdot \\frac{1}{3} = 1$",
                 "Schritt 5: Endergebnis mit Gauß\n$\\iint_S \\vec{F} \\cdot \\vec{n} \\, dS = 3 \\cdot 1 = 3$",
                 "Schritt 6: Teil b) - Verifikation über eine Seitenfläche\nBetrachten wir die Seitenfläche $x = 1$ (Einheitsnormale $\\vec{n} = (1,0,0)$):\n$\\vec{F}(1,y,z) = (1, y^3, z^3), \\quad \\vec{F} \\cdot \\vec{n} = 1$\n$\\iint_{x=1} \\vec{F} \\cdot \\vec{n} \\, dS = \\int_0^1 \\int_0^1 1 \\, dy \\, dz = 1$\nAnalog für alle 6 Seitenflächen:\n- $x = 0$: $\\iint 0 \\, dS = 0$\n- $x = 1$: $\\iint 1 \\, dS = 1$\n- $y = 0$: $\\iint 0 \\, dS = 0$\n- $y = 1$: $\\iint 1 \\, dS = 1$\n- $z = 0$: $\\iint 0 \\, dS = 0$\n- $z = 1$: $\\iint 1 \\, dS = 1$\nSumme: $0 + 1 + 0 + 1 + 0 + 1 = 3$ ✓"
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Taylorentwicklung",
+            "title": "Taylor-Reihe und Approximation",
+            "description": "Entwickeln Sie die Funktion $f(x) = e^{2x}$ um den Punkt $x_0 = 0$ in eine Taylor-Reihe bis zur 4. Ordnung.\n\na) Bestimmen Sie die Taylor-Polynome $T_2(x)$ und $T_4(x)$.\nb) Schätzen Sie den Fehler bei der Approximation von $e^{0.2}$ durch $T_2(0.1)$ ab.\nc) Bestimmen Sie das Konvergenzintervall der Taylor-Reihe.",
+            "difficulty": "hard",
+            "points": 18,
+            "solutionSteps": [
+                "Schritt 1: Ableitungen berechnen\n$f(x) = e^{2x}$\n$f'(x) = 2e^{2x}$\n$f''(x) = 4e^{2x}$\n$f'''(x) = 8e^{2x}$\n$f^{(4)}(x) = 16e^{2x}$",
+                "Schritt 2: Funktionswerte am Entwicklungspunkt\n$f(0) = e^0 = 1$\n$f'(0) = 2e^0 = 2$\n$f''(0) = 4e^0 = 4$\n$f'''(0) = 8e^0 = 8$\n$f^{(4)}(0) = 16e^0 = 16$",
+                "Schritt 3: Teil a) - Taylor-Polynome\n$T_2(x) = f(0) + f'(0)x + \\frac{f''(0)}{2!}x^2 = 1 + 2x + \\frac{4}{2}x^2 = 1 + 2x + 2x^2$\n$T_4(x) = T_2(x) + \\frac{f'''(0)}{3!}x^3 + \\frac{f^{(4)}(0)}{4!}x^4$\n$= 1 + 2x + 2x^2 + \\frac{8}{6}x^3 + \\frac{16}{24}x^4$\n$= 1 + 2x + 2x^2 + \\frac{4}{3}x^3 + \\frac{2}{3}x^4$",
+                "Schritt 4: Teil b) - Fehlerabschätzung\nFür das Restglied gilt: $R_2(x) = \\frac{f'''(\\xi)}{3!}x^3$ mit $\\xi$ zwischen 0 und $x$\n$R_2(0.1) = \\frac{8e^{2\\xi}}{6}(0.1)^3 = \\frac{8e^{2\\xi}}{6000}$\nFür $\\xi \\in [0, 0.1]$: $e^{2\\xi} \\leq e^{0.2} < 1.25$\n$|R_2(0.1)| < \\frac{8 \\cdot 1.25}{6000} = \\frac{10}{6000} = \\frac{1}{600} \\approx 0.00167$",
+                "Schritt 5: Approximationswerte\n$T_2(0.1) = 1 + 2(0.1) + 2(0.1)^2 = 1 + 0.2 + 0.02 = 1.22$\nExakter Wert: $e^{0.2} \\approx 1.2214$\nFehler: $|1.2214 - 1.22| = 0.0014 < 0.00167$ ✓",
+                "Schritt 6: Teil c) - Konvergenzintervall\nDa $f(x) = e^{2x}$ eine ganze Funktion ist (überall analytisch), konvergiert die Taylor-Reihe für alle $x \\in \\mathbb{R}$.\nKonvergenzradius: $R = \\infty$\nKonvergenzintervall: $(-\\infty, \\infty)$"
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Implizite Differentiation",
+            "title": "Implizite Funktionen und Tangenten",
+            "description": "Gegeben sei die implizit definierte Kurve $x^3 + y^3 - 3xy = 0$ (Folium von Descartes).\n\na) Bestimmen Sie $\\frac{dy}{dx}$ durch implizite Differentiation.\nb) Finden Sie alle Punkte, in denen die Tangente horizontal ist.\nc) Bestimmen Sie die Gleichung der Tangente im Punkt $(\\frac{3}{2}, \\frac{3}{2})$.",
+            "difficulty": "hard",
+            "points": 16,
+            "solutionSteps": [
+                "Schritt 1: Teil a) - Implizite Differentiation\n$\\frac{d}{dx}(x^3 + y^3 - 3xy) = \\frac{d}{dx}(0)$\n$3x^2 + 3y^2 \\frac{dy}{dx} - 3y - 3x \\frac{dy}{dx} = 0$\n$3x^2 - 3y + (3y^2 - 3x) \\frac{dy}{dx} = 0$",
+                "Schritt 2: Nach $\\frac{dy}{dx}$ auflösen\n$(3y^2 - 3x) \\frac{dy}{dx} = 3y - 3x^2$\n$\\frac{dy}{dx} = \\frac{3y - 3x^2}{3y^2 - 3x} = \\frac{y - x^2}{y^2 - x}$ (für $y^2 \\neq x$)",
+                "Schritt 3: Teil b) - Horizontale Tangenten\nHorizontale Tangenten: $\\frac{dy}{dx} = 0$\n$\\frac{y - x^2}{y^2 - x} = 0 \\Rightarrow y - x^2 = 0 \\Rightarrow y = x^2$\nEinsetzen in die ursprüngliche Gleichung:\n$x^3 + (x^2)^3 - 3x(x^2) = 0$\n$x^3 + x^6 - 3x^3 = 0$\n$x^6 - 2x^3 = 0$\n$x^3(x^3 - 2) = 0$",
+                "Schritt 4: Lösungen für horizontale Tangenten\n$x^3 = 0 \\Rightarrow x = 0, y = 0$\n$x^3 = 2 \\Rightarrow x = \\sqrt[3]{2}, y = (\\sqrt[3]{2})^2 = 2^{2/3}$\nPunkte mit horizontaler Tangente: $(0, 0)$ und $(\\sqrt[3]{2}, 2^{2/3})$",
+                "Schritt 5: Punkt $(0,0)$ prüfen\nEinsetzen in $x^3 + y^3 - 3xy = 0$: $0 + 0 - 0 = 0$ ✓\nAber: $y^2 - x = 0 - 0 = 0$, also ist $\\frac{dy}{dx}$ nicht definiert.\nDer Punkt $(0,0)$ ist ein singulärer Punkt.",
+                "Schritt 6: Teil c) - Tangente im Punkt $(\\frac{3}{2}, \\frac{3}{2})$\nPunkt prüfen: $(\\frac{3}{2})^3 + (\\frac{3}{2})^3 - 3 \\cdot \\frac{3}{2} \\cdot \\frac{3}{2} = \\frac{27}{8} + \\frac{27}{8} - \\frac{27}{4} = \\frac{54}{8} - \\frac{54}{8} = 0$ ✓\nSteigung: $\\frac{dy}{dx} = \\frac{\\frac{3}{2} - (\\frac{3}{2})^2}{(\\frac{3}{2})^2 - \\frac{3}{2}} = \\frac{\\frac{3}{2} - \\frac{9}{4}}{\\frac{9}{4} - \\frac{3}{2}} = \\frac{-\\frac{3}{4}}{\\frac{3}{4}} = -1$\nTangentengleichung: $y - \\frac{3}{2} = -1(x - \\frac{3}{2})$\n$y = -x + 3$"
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Dreifachintegrale",
+            "title": "Volumenberechnung mit Dreifachintegralen",
+            "description": "Berechnen Sie das Volumen des Körpers, der von den Flächen $z = x^2 + y^2$, $z = 8 - x^2 - y^2$ und der xy-Ebene begrenzt wird.\n\na) Bestimmen Sie die Projektionsregion in der xy-Ebene.\nb) Stellen Sie das Dreifachintegral in kartesischen Koordinaten auf.\nc) Berechnen Sie das Volumen mittels Zylinderkoordinaten.",
+            "difficulty": "hard",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Teil a) - Projektionsregion bestimmen\nDie Flächen schneiden sich, wenn: $x^2 + y^2 = 8 - x^2 - y^2$\n$2(x^2 + y^2) = 8$\n$x^2 + y^2 = 4$\nDie Projektionsregion ist der Kreis $D: x^2 + y^2 \\leq 4$ in der xy-Ebene.",
+                "Schritt 2: Grenzen für z bestimmen\nFür $(x,y) \\in D$:\n- Untere Grenze: $z = x^2 + y^2$ (Paraboloid nach oben)\n- Obere Grenze: $z = 8 - x^2 - y^2$ (Paraboloid nach unten)\nDa $x^2 + y^2 \\leq 4$, ist $8 - x^2 - y^2 \\geq 4 \\geq x^2 + y^2$.",
+                "Schritt 3: Teil b) - Dreifachintegral in kartesischen Koordinaten\n$V = \\iiint_E dV = \\iint_D \\int_{x^2+y^2}^{8-x^2-y^2} dz \\, dA$\n$= \\iint_D [(8-x^2-y^2) - (x^2+y^2)] \\, dA$\n$= \\iint_D (8 - 2x^2 - 2y^2) \\, dA$\n$= \\int_{-2}^2 \\int_{-\\sqrt{4-x^2}}^{\\sqrt{4-x^2}} (8 - 2x^2 - 2y^2) \\, dy \\, dx$",
+                "Schritt 4: Teil c) - Transformation zu Zylinderkoordinaten\nSubstitution: $x = r\\cos\\theta, y = r\\sin\\theta, z = z$\nJacobi-Determinante: $|J| = r$\nGebiet: $0 \\leq r \\leq 2, 0 \\leq \\theta \\leq 2\\pi$\nIntegrand: $8 - 2x^2 - 2y^2 = 8 - 2r^2$",
+                "Schritt 5: Integration in Zylinderkoordinaten\n$V = \\int_0^{2\\pi} \\int_0^2 (8 - 2r^2) \\cdot r \\, dr \\, d\\theta$\n$= \\int_0^{2\\pi} \\int_0^2 (8r - 2r^3) \\, dr \\, d\\theta$\nInneres Integral: $\\int_0^2 (8r - 2r^3) \\, dr = \\left[4r^2 - \\frac{r^4}{2}\\right]_0^2 = 16 - 8 = 8$",
+                "Schritt 6: Äußeres Integral und Endergebnis\n$V = \\int_0^{2\\pi} 8 \\, d\\theta = 8 \\cdot 2\\pi = 16\\pi$\nDas Volumen des Körpers beträgt $16\\pi$ Volumeneinheiten."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Vektorfelder und Rotation",
+            "title": "Rotation und Satz von Stokes",
+            "description": "Gegeben sei das Vektorfeld $\\vec{F}(x,y,z) = (y^2z, -xz^2, xy^2)$ und die Fläche S, die der Teil der Kugel $x^2 + y^2 + z^2 = 4$ mit $z \\geq 0$ ist, orientiert nach oben.\n\na) Berechnen Sie die Rotation $\\text{rot } \\vec{F}$.\nb) Bestimmen Sie den Rand $\\partial S$ der Fläche S.\nc) Verifizieren Sie den Satz von Stokes für dieses Beispiel.",
+            "difficulty": "hard",
+            "points": 22,
+            "solutionSteps": [
+                "Schritt 1: Teil a) - Rotation berechnen\n$\\vec{F} = (P, Q, R) = (y^2z, -xz^2, xy^2)$\n$\\text{rot } \\vec{F} = \\nabla \\times \\vec{F} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\\\\\ \\frac{\\partial}{\\partial x} & \\frac{\\partial}{\\partial y} & \\frac{\\partial}{\\partial z} \\\\\\\\ y^2z & -xz^2 & xy^2 \\end{vmatrix}$",
+                "Schritt 2: Komponenten der Rotation\n$\\text{rot}_x \\vec{F} = \\frac{\\partial R}{\\partial y} - \\frac{\\partial Q}{\\partial z} = \\frac{\\partial(xy^2)}{\\partial y} - \\frac{\\partial(-xz^2)}{\\partial z} = 2xy - (-2xz) = 2xy + 2xz$\n$\\text{rot}_y \\vec{F} = \\frac{\\partial P}{\\partial z} - \\frac{\\partial R}{\\partial x} = \\frac{\\partial(y^2z)}{\\partial z} - \\frac{\\partial(xy^2)}{\\partial x} = y^2 - y^2 = 0$\n$\\text{rot}_z \\vec{F} = \\frac{\\partial Q}{\\partial x} - \\frac{\\partial P}{\\partial y} = \\frac{\\partial(-xz^2)}{\\partial x} - \\frac{\\partial(y^2z)}{\\partial y} = -z^2 - 2yz$",
+                "Schritt 3: Rotation vollständig\n$\\text{rot } \\vec{F} = (2x(y + z), 0, -z^2 - 2yz) = (2x(y + z), 0, -z(z + 2y))$",
+                "Schritt 4: Teil b) - Rand der Fläche\nS ist die obere Halbkugel $x^2 + y^2 + z^2 = 4, z \\geq 0$\nDer Rand $\\partial S$ ist der Kreis $x^2 + y^2 = 4, z = 0$ in der xy-Ebene.\nParametrisierung: $\\vec{r}(t) = (2\\cos t, 2\\sin t, 0), t \\in [0, 2\\pi]$\nOrientierung: gegen den Uhrzeigersinn (rechtshändiges System)",
+                "Schritt 5: Kurvenintegral berechnen\n$\\vec{r}'(t) = (-2\\sin t, 2\\cos t, 0)$\n$\\vec{F}(\\vec{r}(t)) = ((2\\sin t)^2 \\cdot 0, -2\\cos t \\cdot 0^2, 2\\cos t \\cdot (2\\sin t)^2) = (0, 0, 8\\cos t \\sin^2 t)$\n$\\int_{\\partial S} \\vec{F} \\cdot d\\vec{r} = \\int_0^{2\\pi} (0, 0, 8\\cos t \\sin^2 t) \\cdot (-2\\sin t, 2\\cos t, 0) dt$\n$= \\int_0^{2\\pi} 0 \\, dt = 0$",
+                "Schritt 6: Teil c) - Oberflächenintegral der Rotation\nNach dem Satz von Stokes: $\\int_{\\partial S} \\vec{F} \\cdot d\\vec{r} = \\iint_S (\\text{rot } \\vec{F}) \\cdot \\vec{n} \\, dS$\nDa das Kurvenintegral 0 ist, muss auch das Oberflächenintegral 0 sein.\nVerifikation durch Symmetriebetrachtungen:\nDie Rotation hat die Form $(2x(y+z), 0, -z(z+2y))$\nAuf der Halbkugel heben sich die Beiträge aufgrund der Symmetrie auf.\nSatz von Stokes ist erfüllt: $0 = 0$ ✓"
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Fourier-Reihen",
+            "title": "Fourier-Entwicklung einer periodischen Funktion",
+            "description": "Entwickeln Sie die $2\\pi$-periodische Funktion $f(x) = |\\sin x|$ in eine Fourier-Reihe.\n\na) Bestimmen Sie die Fourier-Koeffizienten $a_0$, $a_n$ und $b_n$.\nb) Geben Sie die Fourier-Reihe explizit an.\nc) Berechnen Sie den Wert der Reihe an der Stelle $x = \\frac{\\pi}{2}$.",
+            "difficulty": "hard",
+            "points": 18,
+            "solutionSteps": [
+                "Schritt 1: Eigenschaften der Funktion\n$f(x) = |\\sin x|$ ist eine gerade Funktion: $f(-x) = |\\sin(-x)| = |-\\sin x| = |\\sin x| = f(x)$\nDaher sind alle $b_n = 0$ (keine Sinus-Terme).\nPeriode: $\\pi$ (nicht $2\\pi$), aber wir entwickeln als $2\\pi$-periodische Funktion.",
+                "Schritt 2: Berechnung von $a_0$\n$a_0 = \\frac{1}{\\pi} \\int_{-\\pi}^{\\pi} |\\sin x| \\, dx = \\frac{2}{\\pi} \\int_0^{\\pi} \\sin x \\, dx$ (da gerade Funktion)\n$= \\frac{2}{\\pi} [-\\cos x]_0^{\\pi} = \\frac{2}{\\pi}(-\\cos \\pi + \\cos 0) = \\frac{2}{\\pi}(1 + 1) = \\frac{4}{\\pi}$",
+                "Schritt 3: Berechnung von $a_n$ für $n \\geq 1$\n$a_n = \\frac{1}{\\pi} \\int_{-\\pi}^{\\pi} |\\sin x| \\cos(nx) \\, dx = \\frac{2}{\\pi} \\int_0^{\\pi} \\sin x \\cos(nx) \\, dx$\nPartielle Integration oder Produktformel:\n$\\sin x \\cos(nx) = \\frac{1}{2}[\\sin((n+1)x) + \\sin((n-1)x)]$ für $n \\neq 1$",
+                "Schritt 4: Integration für $n \\neq 1$\n$a_n = \\frac{2}{\\pi} \\cdot \\frac{1}{2} \\int_0^{\\pi} [\\sin((n+1)x) + \\sin((n-1)x)] \\, dx$\n$= \\frac{1}{\\pi} \\left[\\frac{-\\cos((n+1)x)}{n+1} + \\frac{-\\cos((n-1)x)}{n-1}\\right]_0^{\\pi}$\n$= \\frac{1}{\\pi} \\left[\\frac{-\\cos((n+1)\\pi) + 1}{n+1} + \\frac{-\\cos((n-1)\\pi) + 1}{n-1}\\right]$",
+                "Schritt 5: Vereinfachung für gerade n\nFür gerade $n$: $\\cos(n\\pi) = 1$, also $\\cos((n+1)\\pi) = -1$ und $\\cos((n-1)\\pi) = -1$\n$a_n = \\frac{1}{\\pi} \\left[\\frac{1 + 1}{n+1} + \\frac{1 + 1}{n-1}\\right] = \\frac{2}{\\pi} \\left[\\frac{1}{n+1} + \\frac{1}{n-1}\\right]$\n$= \\frac{2}{\\pi} \\cdot \\frac{(n-1) + (n+1)}{(n+1)(n-1)} = \\frac{2}{\\pi} \\cdot \\frac{2n}{n^2-1} = \\frac{4n}{\\pi(n^2-1)}$\nFür ungerade $n$: $a_n = 0$",
+                "Schritt 6: Teil b) - Fourier-Reihe\n$f(x) = \\frac{a_0}{2} + \\sum_{n=1}^{\\infty} a_n \\cos(nx)$\n$|\\sin x| = \\frac{2}{\\pi} - \\frac{4}{\\pi} \\sum_{k=1}^{\\infty} \\frac{\\cos(2kx)}{4k^2-1}$\n$= \\frac{2}{\\pi} - \\frac{4}{\\pi} \\left(\\frac{\\cos(2x)}{3} + \\frac{\\cos(4x)}{15} + \\frac{\\cos(6x)}{35} + \\ldots\\right)$\nTeil c): Bei $x = \\frac{\\pi}{2}$: $|\\sin(\\frac{\\pi}{2})| = 1$\nDie Reihe konvergiert gegen 1."
             ]
         }
     ]

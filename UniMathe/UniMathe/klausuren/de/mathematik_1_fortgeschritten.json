@@ -2,7 +2,7 @@
     "exam": {
         "title": "Mathematik I - Fortgeschrittenenklausur",
         "subtitle": "Erweiterte lineare und abstrakte Algebra",
-        "duration": 150,
+        "duration": 90,
         "totalPoints": 150,
         "difficulty": "intermediate",
         "language": "de",

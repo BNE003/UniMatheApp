@@ -1,0 +1,106 @@
+{
+    "exam": {
+        "title": "Statistik - Anfängerklausur",
+        "subtitle": "Grundlagen der Wahrscheinlichkeitsrechnung und Statistik",
+        "duration": 120,
+        "totalPoints": 60,
+        "difficulty": "beginner",
+        "language": "de",
+        "instructions": "Bearbeiten Sie alle Aufgaben. Geben Sie bei allen Berechnungen den vollständigen Lösungsweg an. Hilfsmittel: Taschenrechner ohne Programmierfunktion, Tabelle der Standardnormalverteilung. Viel Erfolg!"
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Grundlagen der Wahrscheinlichkeit",
+            "title": "Wahrscheinlichkeitsrechnung mit Urnenmodell",
+            "description": "In einer Urne befinden sich 5 rote, 3 blaue und 2 grüne Kugeln. Es wird eine Kugel zufällig gezogen.\n\na) Wie groß ist die Wahrscheinlichkeit, eine rote Kugel zu ziehen?\nb) Wie groß ist die Wahrscheinlichkeit, keine grüne Kugel zu ziehen?\nc) Berechnen Sie P(rot oder blau).",
+            "difficulty": "easy",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Gesamtanzahl der Kugeln bestimmen\nGesamtanzahl = 5 (rot) + 3 (blau) + 2 (grün) = 10 Kugeln",
+                "Schritt 2: Teil a) - Wahrscheinlichkeit für rote Kugel\nP(rot) = Anzahl roter Kugeln / Gesamtanzahl = 5/10 = 1/2 = 0,5",
+                "Schritt 3: Teil b) - Wahrscheinlichkeit für keine grüne Kugel\nP(nicht grün) = 1 - P(grün) = 1 - 2/10 = 1 - 1/5 = 4/5 = 0,8\nAlternativ: P(nicht grün) = (5 + 3)/10 = 8/10 = 0,8",
+                "Schritt 4: Teil c) - P(rot oder blau)\nDa sich die Ereignisse \"rot\" und \"blau\" ausschließen:\nP(rot oder blau) = P(rot) + P(blau) = 5/10 + 3/10 = 8/10 = 4/5 = 0,8",
+                "Schritt 5: Antworten\na) P(rot) = 0,5\nb) P(nicht grün) = 0,8\nc) P(rot oder blau) = 0,8"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Kombinatorik",
+            "title": "Permutationen und Kombinationen",
+            "description": "Eine Klasse besteht aus 12 Schülern.\n\na) Auf wie viele Arten können 3 Schüler für den Klassensprecher, Stellvertreter und Kassenwart gewählt werden?\nb) Auf wie viele Arten kann eine 4-köpfige Delegation ausgewählt werden?\nc) Wie viele verschiedene Sitzordnungen gibt es für alle 12 Schüler?",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Teil a) - Permutation ohne Wiederholung\nHier ist die Reihenfolge wichtig (verschiedene Ämter).\nAnzahl = P(12,3) = 12!/(12-3)! = 12!/9! = 12 × 11 × 10 = 1320",
+                "Schritt 2: Teil b) - Kombination ohne Wiederholung\nHier ist die Reihenfolge nicht wichtig (Delegation).\nAnzahl = C(12,4) = 12!/(4! × (12-4)!) = 12!/(4! × 8!)",
+                "Schritt 3: Berechnung von C(12,4)\nC(12,4) = (12 × 11 × 10 × 9)/(4 × 3 × 2 × 1) = 11880/24 = 495",
+                "Schritt 4: Teil c) - Permutation aller Elemente\nAnzahl der Sitzordnungen = 12! = 479.001.600",
+                "Schritt 5: Antworten\na) 1320 Möglichkeiten für die Ämter\nb) 495 Möglichkeiten für die Delegation\nc) 479.001.600 verschiedene Sitzordnungen"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Bedingte Wahrscheinlichkeit",
+            "title": "Baumdiagramm und Satz von Bayes",
+            "description": "Ein Unternehmen produziert Bauteile an zwei Maschinen. Maschine A produziert 60% aller Teile, Maschine B 40%. Die Ausschussrate beträgt bei Maschine A 2%, bei Maschine B 5%.\n\na) Wie groß ist die Wahrscheinlichkeit, dass ein zufällig ausgewähltes Teil defekt ist?\nb) Ein Teil ist defekt. Mit welcher Wahrscheinlichkeit stammt es von Maschine A?",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Gegeben Informationen\nP(A) = 0,6, P(B) = 0,4\nP(defekt|A) = 0,02, P(defekt|B) = 0,05\nP(intakt|A) = 0,98, P(intakt|B) = 0,95",
+                "Schritt 2: Teil a) - Totale Wahrscheinlichkeit\nP(defekt) = P(defekt|A) × P(A) + P(defekt|B) × P(B)\nP(defekt) = 0,02 × 0,6 + 0,05 × 0,4 = 0,012 + 0,02 = 0,032",
+                "Schritt 3: Teil b) - Satz von Bayes\nP(A|defekt) = P(defekt|A) × P(A) / P(defekt)\nP(A|defekt) = (0,02 × 0,6) / 0,032 = 0,012 / 0,032 = 0,375",
+                "Schritt 4: Verifikation\nP(B|defekt) = P(defekt|B) × P(B) / P(defekt)\nP(B|defekt) = (0,05 × 0,4) / 0,032 = 0,02 / 0,032 = 0,625\nKontrolle: 0,375 + 0,625 = 1 ✓",
+                "Schritt 5: Antworten\na) P(defekt) = 0,032 = 3,2%\nb) P(A|defekt) = 0,375 = 37,5%"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Diskrete Verteilungen",
+            "title": "Binomialverteilung",
+            "description": "Die Wahrscheinlichkeit, dass ein Student eine Prüfung besteht, beträgt 0,8. In einer Gruppe von 10 Studenten:\n\na) Wie groß ist die Wahrscheinlichkeit, dass genau 8 Studenten bestehen?\nb) Wie groß ist die Wahrscheinlichkeit, dass mindestens 7 Studenten bestehen?\nc) Berechnen Sie Erwartungswert und Varianz.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Parameter der Binomialverteilung\nn = 10 (Anzahl Studenten)\np = 0,8 (Erfolgswahrscheinlichkeit)\nX ~ B(10; 0,8)",
+                "Schritt 2: Teil a) - P(X = 8)\nP(X = 8) = C(10,8) × (0,8)^8 × (0,2)^2\nC(10,8) = 10!/(8! × 2!) = (10 × 9)/(2 × 1) = 45\nP(X = 8) = 45 × (0,8)^8 × (0,2)^2 = 45 × 0,16777 × 0,04 ≈ 0,3020",
+                "Schritt 3: Teil b) - P(X ≥ 7)\nP(X ≥ 7) = P(X = 7) + P(X = 8) + P(X = 9) + P(X = 10)\nP(X = 7) = C(10,7) × (0,8)^7 × (0,2)^3 = 120 × 0,2097 × 0,008 ≈ 0,2013\nP(X = 9) = C(10,9) × (0,8)^9 × (0,2)^1 = 10 × 0,1342 × 0,2 ≈ 0,2684\nP(X = 10) = C(10,10) × (0,8)^10 × (0,2)^0 = 1 × 0,1074 × 1 ≈ 0,1074",
+                "Schritt 4: Summe berechnen\nP(X ≥ 7) = 0,2013 + 0,3020 + 0,2684 + 0,1074 = 0,8791",
+                "Schritt 5: Teil c) - Erwartungswert und Varianz\nE(X) = n × p = 10 × 0,8 = 8\nVar(X) = n × p × (1-p) = 10 × 0,8 × 0,2 = 1,6\nStandardabweichung: σ = √1,6 ≈ 1,265",
+                "Schritt 6: Antworten\na) P(X = 8) ≈ 0,302 = 30,2%\nb) P(X ≥ 7) ≈ 0,879 = 87,9%\nc) E(X) = 8, Var(X) = 1,6"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Stetige Verteilungen",
+            "title": "Normalverteilung",
+            "description": "Die Körpergröße von Männern ist normalverteilt mit μ = 175 cm und σ = 8 cm.\n\na) Wie groß ist die Wahrscheinlichkeit, dass ein zufällig ausgewählter Mann zwischen 170 und 180 cm groß ist?\nb) Welche Körpergröße wird von 90% der Männer nicht überschritten?\nc) Wie groß ist der Anteil der Männer, die größer als 185 cm sind?",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Standardisierung\nX ~ N(175, 8²)\nStandardisierung: Z = (X - μ)/σ = (X - 175)/8\nZ ~ N(0,1)",
+                "Schritt 2: Teil a) - P(170 < X < 180)\nP(170 < X < 180) = P((170-175)/8 < Z < (180-175)/8)\n= P(-0,625 < Z < 0,625)\n= Φ(0,625) - Φ(-0,625)\n= Φ(0,625) - (1 - Φ(0,625)) = 2Φ(0,625) - 1",
+                "Schritt 3: Wert aus Tabelle\nΦ(0,625) ≈ Φ(0,62) = 0,7324\nP(170 < X < 180) = 2 × 0,7324 - 1 = 0,4648",
+                "Schritt 4: Teil b) - 90%-Quantil\nGesucht: x₀.₉ mit P(X ≤ x₀.₉) = 0,9\nP(Z ≤ (x₀.₉ - 175)/8) = 0,9\nAus Tabelle: z₀.₉ ≈ 1,28\n(x₀.₉ - 175)/8 = 1,28\nx₀.₉ = 175 + 8 × 1,28 = 175 + 10,24 = 185,24 cm",
+                "Schritt 5: Teil c) - P(X > 185)\nP(X > 185) = P(Z > (185-175)/8) = P(Z > 1,25)\n= 1 - Φ(1,25) = 1 - 0,8944 = 0,1056",
+                "Schritt 6: Antworten\na) P(170 < X < 180) ≈ 0,465 = 46,5%\nb) 90%-Quantil: 185,24 cm\nc) P(X > 185) ≈ 0,106 = 10,6%"
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Deskriptive Statistik",
+            "title": "Lagemaße und Streuungsmaße",
+            "description": "Gegeben sind die Noten einer Klausur: 1, 2, 2, 3, 3, 3, 4, 4, 5\n\na) Berechnen Sie das arithmetische Mittel.\nb) Bestimmen Sie den Median und den Modus.\nc) Berechnen Sie die Varianz und Standardabweichung.",
+            "difficulty": "easy",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Daten sortieren und analysieren\nSortierte Daten: 1, 2, 2, 3, 3, 3, 4, 4, 5\nAnzahl n = 9",
+                "Schritt 2: Teil a) - Arithmetisches Mittel\n$\\bar{x} = \\frac{1}{n} \\sum_{i=1}^{n} x_i = \\frac{1 + 2 + 2 + 3 + 3 + 3 + 4 + 4 + 5}{9}$\n$\\bar{x} = \\frac{27}{9} = 3$",
+                "Schritt 3: Teil b) - Median\nBei n = 9 (ungerade): Median = x₍₅₎ (5. Wert)\nMedian = 3\nModus: Häufigster Wert ist 3 (kommt 3-mal vor)\nModus = 3",
+                "Schritt 4: Teil c) - Varianz berechnen\n$s^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (x_i - \\bar{x})^2$\nAbweichungen: (1-3)², (2-3)², (2-3)², (3-3)², (3-3)², (3-3)², (4-3)², (4-3)², (5-3)²\n= 4, 1, 1, 0, 0, 0, 1, 1, 4",
+                "Schritt 5: Varianz und Standardabweichung\n$s^2 = \\frac{4 + 1 + 1 + 0 + 0 + 0 + 1 + 1 + 4}{9-1} = \\frac{12}{8} = 1,5$\nStandardabweichung: $s = \\sqrt{1,5} ≈ 1,225$",
+                "Schritt 6: Antworten\na) Arithmetisches Mittel: $\\bar{x} = 3$\nb) Median = 3, Modus = 3\nc) Varianz = 1,5, Standardabweichung ≈ 1,225"
+            ]
+        }
+    ]
+}

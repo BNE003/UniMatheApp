@@ -2,7 +2,7 @@
     "exam": {
         "title": "Statistik - Fortgeschrittenenklausur",
         "subtitle": "Wahrscheinlichkeitstheorie und Inferenzstatistik",
-        "duration": 120,
+        "duration": 90,
         "totalPoints": 100,
         "difficulty": "intermediate",
         "language": "de",

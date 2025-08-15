@@ -35,10 +35,19 @@ struct ÜbungsklausurenView: View {
             color: Color(red: 0.8, green: 0.3, blue: 0.6)
         ),
         ExamTopic(
+            title: "Statistik",
+            subtitle: "Grundlagen der Wahrscheinlichkeitsrechnung",
+            difficulty: .beginner,
+            duration: 120,
+            questions: 6,
+            icon: "chart.bar.fill",
+            color: Color(red: 0.8, green: 0.2, blue: 0.4)
+        ),
+        ExamTopic(
             title: "Mathematik I",
             subtitle: "Erweiterte lineare und abstrakte Algebra",
             difficulty: .intermediate,
-            duration: 150,
+            duration: 90,
             questions: 10,
             icon: "number.circle",
             color: Color(red: 0.8, green: 0.3, blue: 0.6)
@@ -47,7 +56,7 @@ struct ÜbungsklausurenView: View {
             title: "Lineare Algebra",
             subtitle: "Eigenwerte, Diagonalisierung und lineare Räume",
             difficulty: .intermediate,
-            duration: 150,
+            duration: 90,
             questions: 10,
             icon: "grid",
             color: Color(red: 0.0, green: 0.7, blue: 0.4)
@@ -56,7 +65,7 @@ struct ÜbungsklausurenView: View {
             title: "Mathematik I",
             subtitle: "Fortgeschrittene abstrakte und lineare Algebra",
             difficulty: .advanced,
-            duration: 180,
+            duration: 90,
             questions: 10,
             icon: "number.circle",
             color: Color(red: 0.8, green: 0.3, blue: 0.6)
@@ -65,7 +74,7 @@ struct ÜbungsklausurenView: View {
             title: "Lineare Algebra",
             subtitle: "Fortgeschrittene Theorie und Anwendungen",
             difficulty: .advanced,
-            duration: 180,
+            duration: 90,
             questions: 10,
             icon: "grid",
             color: Color(red: 0.0, green: 0.7, blue: 0.4)
@@ -74,8 +83,8 @@ struct ÜbungsklausurenView: View {
             title: "Analysis II",
             subtitle: "Mehrdimensionale Analysis",
             difficulty: .advanced,
-            duration: 150,
-            questions: 18,
+            duration: 90,
+            questions: 11,
             icon: "cube",
             color: Color(red: 0.6, green: 0.3, blue: 0.8)
         ),
@@ -83,8 +92,8 @@ struct ÜbungsklausurenView: View {
             title: "Differentialgleichungen",
             subtitle: "Gewöhnliche und partielle DGL",
             difficulty: .advanced,
-            duration: 135,
-            questions: 14,
+            duration: 90,
+            questions: 6,
             icon: "waveform.path",
             color: Color(red: 0.9, green: 0.4, blue: 0.1)
         ),
@@ -92,8 +101,8 @@ struct ÜbungsklausurenView: View {
             title: "Statistik",
             subtitle: "Wahrscheinlichkeitstheorie",
             difficulty: .intermediate,
-            duration: 100,
-            questions: 16,
+            duration: 90,
+            questions: 6,
             icon: "chart.bar.fill",
             color: Color(red: 0.8, green: 0.2, blue: 0.4)
         ),
@@ -101,8 +110,8 @@ struct ÜbungsklausurenView: View {
             title: "Numerische Mathematik",
             subtitle: "Algorithmen und Approximation",
             difficulty: .advanced,
-            duration: 120,
-            questions: 13,
+            duration: 90,
+            questions: 5,
             icon: "function",
             color: Color(red: 0.0, green: 0.6, blue: 0.7)
         )
@@ -421,6 +430,18 @@ struct ExamCard: View {
 			} else if exam.title == "Numerische Mathematik" {
 				NavigationLink(destination:
 					ExamDetailView(examFilename: settings.language == .english ? "numerical_mathematics_advanced" : "numerische_mathematik_experte")
+						.navigationBarTitleDisplayMode(.inline)
+				) {
+					examCardContent
+				}
+				.buttonStyle(PlainButtonStyle())
+				.simultaneousGesture(TapGesture().onEnded {
+					let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+					impactFeedback.impactOccurred()
+				})
+			} else if exam.title == "Statistik" && exam.difficulty == .beginner {
+				NavigationLink(destination:
+					ExamDetailView(examFilename: settings.language == .english ? "statistics_beginner" : "statistik_anfaenger")
 						.navigationBarTitleDisplayMode(.inline)
 				) {
 					examCardContent

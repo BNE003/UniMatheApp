@@ -2,7 +2,7 @@
     "exam": {
         "title": "Mathematik I - Expertenklausur",
         "subtitle": "Fortgeschrittene abstrakte und lineare Algebra",
-        "duration": 180,
+        "duration": 90,
         "totalPoints": 180,
         "difficulty": "advanced",
         "language": "de",

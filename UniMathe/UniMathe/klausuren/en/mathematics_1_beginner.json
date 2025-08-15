@@ -1,0 +1,146 @@
+{
+    "exam": {
+        "title": "Mathematics I - Beginner Exam",
+        "subtitle": "Linear Algebra and Abstract Algebra",
+        "duration": 120,
+        "totalPoints": 80,
+        "difficulty": "beginner",
+        "language": "en",
+        "instructions": "Complete all tasks. Show complete solution approach for all calculations. Permitted aids: calculator without programming function. Good luck!"
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Complex Numbers",
+            "title": "Basic Operations with Complex Numbers",
+            "description": "Given are the complex numbers $z_1 = 3 + 4i$ and $z_2 = 2 - i$.\n\na) Calculate $z_1 + z_2$\nb) Calculate $z_1 \\cdot z_2$\nc) Determine $|z_1|$ (modulus of $z_1$)",
+            "difficulty": "easy",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Addition of complex numbers\n$z_1 + z_2 = (3 + 4i) + (2 - i)$\nComplex numbers are added componentwise:\nReal part: $3 + 2 = 5$\nImaginary part: $4i + (-i) = 3i$\n$z_1 + z_2 = 5 + 3i$",
+                "Step 2: Multiplication of complex numbers\n$z_1 \\cdot z_2 = (3 + 4i)(2 - i)$\nExpand using the rule $(a + bi)(c + di) = (ac - bd) + (ad + bc)i$:\n$= 3 \\cdot 2 + 3 \\cdot (-i) + 4i \\cdot 2 + 4i \\cdot (-i)$\n$= 6 - 3i + 8i - 4i^2$",
+                "Step 3: Simplify the multiplication\nSince $i^2 = -1$:\n$z_1 \\cdot z_2 = 6 - 3i + 8i - 4(-1) = 6 - 3i + 8i + 4 = 10 + 5i$",
+                "Step 4: Modulus of a complex number\n$|z_1| = |3 + 4i| = \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5$\nThe modulus of a complex number $a + bi$ is $\\sqrt{a^2 + b^2}$",
+                "Step 5: Final results\na) $z_1 + z_2 = 5 + 3i$\nb) $z_1 \\cdot z_2 = 10 + 5i$\nc) $|z_1| = 5$"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Matrix Operations",
+            "title": "Determinant and Inverse of a 3×3 Matrix",
+            "description": "Given is the matrix $A = \\begin{pmatrix} 2 & 1 & 0 \\\\ 1 & 2 & 1 \\\\ 0 & 1 & 2 \\end{pmatrix}$.\n\na) Calculate $\\det(A)$\nb) Is the matrix invertible?",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Calculate determinant of 3×3 matrix\nFor the matrix $A = \\begin{pmatrix} 2 & 1 & 0 \\\\ 1 & 2 & 1 \\\\ 0 & 1 & 2 \\end{pmatrix}$ we use Sarrus' rule or expansion along the first row.",
+                "Step 2: Expansion along the first row\n$\\det(A) = 2 \\cdot \\det\\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} - 1 \\cdot \\det\\begin{pmatrix} 1 & 1 \\\\ 0 & 2 \\end{pmatrix} + 0 \\cdot \\det\\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}$",
+                "Step 3: Calculate 2×2 determinants\n$\\det\\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} = 2 \\cdot 2 - 1 \\cdot 1 = 4 - 1 = 3$\n$\\det\\begin{pmatrix} 1 & 1 \\\\ 0 & 2 \\end{pmatrix} = 1 \\cdot 2 - 1 \\cdot 0 = 2$",
+                "Step 4: Combine determinant\n$\\det(A) = 2 \\cdot 3 - 1 \\cdot 2 + 0 = 6 - 2 = 4$",
+                "Step 5: Check invertibility\nSince $\\det(A) = 4 \\neq 0$, the matrix $A$ is invertible.\nA matrix is invertible if and only if its determinant is non-zero.",
+                "Step 6: Answer\na) $\\det(A) = 4$\nb) Yes, the matrix is invertible since $\\det(A) \\neq 0$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Groups",
+            "title": "Group Axioms and Operation Table",
+            "description": "Consider the set $G = \\{0, 1, 2\\}$ with the operation $\\oplus$ (addition modulo 3).\n\na) Create the operation table\nb) Check if $(G, \\oplus)$ is a group",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Create operation table\nFor addition modulo 3 we calculate all possible operations:\n$0 \\oplus 0 = 0$, $0 \\oplus 1 = 1$, $0 \\oplus 2 = 2$\n$1 \\oplus 0 = 1$, $1 \\oplus 1 = 2$, $1 \\oplus 2 = 0$\n$2 \\oplus 0 = 2$, $2 \\oplus 1 = 0$, $2 \\oplus 2 = 1$",
+                "Step 2: Display operation table\n$\\begin{array}{c|ccc}\n\\oplus & 0 & 1 & 2 \\\\\n\\hline\n0 & 0 & 1 & 2 \\\\\n1 & 1 & 2 & 0 \\\\\n2 & 2 & 0 & 1\n\\end{array}$",
+                "Step 3: Check closure\nAll results of the operation lie in $G = \\{0, 1, 2\\}$.\n$\\Rightarrow$ Closure is satisfied.",
+                "Step 4: Check associativity\nAddition modulo 3 is associative since ordinary addition is associative.\nExample: $(1 \\oplus 2) \\oplus 1 = 0 \\oplus 1 = 1$ and $1 \\oplus (2 \\oplus 1) = 1 \\oplus 0 = 1$\n$\\Rightarrow$ Associativity is satisfied.",
+                "Step 5: Find neutral element\nFrom the table we see: $0 \\oplus x = x \\oplus 0 = x$ for all $x \\in G$\n$\\Rightarrow$ 0 is the neutral element.",
+                "Step 6: Find inverse elements\n$0^{-1} = 0$ (since $0 \\oplus 0 = 0$)\n$1^{-1} = 2$ (since $1 \\oplus 2 = 0$)\n$2^{-1} = 1$ (since $2 \\oplus 1 = 0$)\n$\\Rightarrow$ Every element has an inverse.",
+                "Step 7: Conclusion\nSince all four group axioms are satisfied (closure, associativity, neutral element, inverse elements), $(G, \\oplus)$ is a group."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Polynomial Rings",
+            "title": "Polynomial Division and Remainder Classes",
+            "description": "Given are the polynomials $f(x) = x^3 + 2x^2 - x + 1$ and $g(x) = x + 1$ over $\\mathbb{R}$.\n\na) Perform the polynomial division $f(x) : g(x)$\nb) Determine $f(-1)$",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Prepare polynomial division\nWe divide $f(x) = x^3 + 2x^2 - x + 1$ by $g(x) = x + 1$\nScheme: $(x^3 + 2x^2 - x + 1) : (x + 1) = ?$",
+                "Step 2: First division\n$x^3 : x = x^2$\n$x^2 \\cdot (x + 1) = x^3 + x^2$\n$(x^3 + 2x^2 - x + 1) - (x^3 + x^2) = x^2 - x + 1$",
+                "Step 3: Second division\n$x^2 : x = x$\n$x \\cdot (x + 1) = x^2 + x$\n$(x^2 - x + 1) - (x^2 + x) = -2x + 1$",
+                "Step 4: Third division\n$-2x : x = -2$\n$-2 \\cdot (x + 1) = -2x - 2$\n$(-2x + 1) - (-2x - 2) = 3$",
+                "Step 5: Result of polynomial division\n$f(x) = (x + 1)(x^2 + x - 2) + 3$\nQuotient: $q(x) = x^2 + x - 2$\nRemainder: $r(x) = 3$",
+                "Step 6: Calculate function value\n$f(-1) = (-1)^3 + 2(-1)^2 - (-1) + 1 = -1 + 2 + 1 + 1 = 3$\nAlternatively: Since $g(-1) = 0$, we have $f(-1) = r(-1) = 3$ (remainder theorem)",
+                "Step 7: Final results\na) $f(x) = (x + 1)(x^2 + x - 2) + 3$\nb) $f(-1) = 3$"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Vector Spaces",
+            "title": "Subspace and Basis",
+            "description": "Given is the vector space $\\mathbb{R}^3$ and the subset $U = \\{(x, y, z) \\in \\mathbb{R}^3 : x + y - z = 0\\}$.\n\na) Show that $U$ is a subspace of $\\mathbb{R}^3$\nb) Determine a basis of $U$",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Subspace criteria\nA subspace must satisfy three conditions:\n1. The zero vector lies in $U$\n2. $U$ is closed under addition\n3. $U$ is closed under scalar multiplication",
+                "Step 2: Check zero vector\nFor $(0, 0, 0)$: $0 + 0 - 0 = 0$ ✓\nThe zero vector lies in $U$.",
+                "Step 3: Closure under addition\nLet $u_1 = (x_1, y_1, z_1), u_2 = (x_2, y_2, z_2) \\in U$\nThen: $x_1 + y_1 - z_1 = 0$ and $x_2 + y_2 - z_2 = 0$\n$u_1 + u_2 = (x_1 + x_2, y_1 + y_2, z_1 + z_2)$\n$(x_1 + x_2) + (y_1 + y_2) - (z_1 + z_2) = (x_1 + y_1 - z_1) + (x_2 + y_2 - z_2) = 0 + 0 = 0$ ✓",
+                "Step 4: Closure under scalar multiplication\nLet $u = (x, y, z) \\in U$ and $\\lambda \\in \\mathbb{R}$\nThen: $x + y - z = 0$\n$\\lambda u = (\\lambda x, \\lambda y, \\lambda z)$\n$\\lambda x + \\lambda y - \\lambda z = \\lambda(x + y - z) = \\lambda \\cdot 0 = 0$ ✓\n$\\Rightarrow U$ is a subspace.",
+                "Step 5: Determine basis\n$U = \\{(x, y, z) : x + y - z = 0\\} = \\{(x, y, z) : z = x + y\\}$\n$= \\{(x, y, x + y) : x, y \\in \\mathbb{R}\\}$\n$= \\{x(1, 0, 1) + y(0, 1, 1) : x, y \\in \\mathbb{R}\\}$",
+                "Step 6: Check linear independence\nThe vectors $v_1 = (1, 0, 1)$ and $v_2 = (0, 1, 1)$ are linearly independent:\n$\\alpha(1, 0, 1) + \\beta(0, 1, 1) = (0, 0, 0)$\n$\\Rightarrow \\alpha = 0, \\beta = 0, \\alpha + \\beta = 0$\nOnly the trivial solution exists.",
+                "Step 7: Final results\na) $U$ is a subspace since all three criteria are satisfied\nb) A basis of $U$ is $\\{(1, 0, 1), (0, 1, 1)\\}$ with $\\dim(U) = 2$"
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Modular Arithmetic",
+            "title": "Congruences and Residue Classes",
+            "description": "Consider the congruence $3x \\equiv 7 \\pmod{11}$.\n\na) Solve the congruence\nb) Determine all solutions in $\\{0, 1, 2, ..., 10\\}$",
+            "difficulty": "easy",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Analyze congruence\nWe seek $x$ with $3x \\equiv 7 \\pmod{11}$\nThis means: $3x - 7$ is divisible by 11, or $3x = 7 + 11k$ for some $k \\in \\mathbb{Z}$",
+                "Step 2: Find multiplicative inverse\nWe need the multiplicative inverse of 3 modulo 11.\nFind $a$ with $3a \\equiv 1 \\pmod{11}$:\n$3 \\cdot 1 = 3 \\not\\equiv 1$\n$3 \\cdot 2 = 6 \\not\\equiv 1$\n$3 \\cdot 3 = 9 \\not\\equiv 1$\n$3 \\cdot 4 = 12 \\equiv 1 \\pmod{11}$ ✓",
+                "Step 3: Solve congruence\nThe multiplicative inverse of 3 modulo 11 is 4.\nMultiply both sides by 4:\n$4 \\cdot 3x \\equiv 4 \\cdot 7 \\pmod{11}$\n$12x \\equiv 28 \\pmod{11}$\n$x \\equiv 28 \\pmod{11}$",
+                "Step 4: Reduce modulo 11\n$28 = 2 \\cdot 11 + 6$\n$\\Rightarrow x \\equiv 6 \\pmod{11}$",
+                "Step 5: Verification\n$3 \\cdot 6 = 18 = 11 + 7 \\equiv 7 \\pmod{11}$ ✓",
+                "Step 6: All solutions in given set\nThe general solution is $x = 6 + 11k$ for $k \\in \\mathbb{Z}$\nIn $\\{0, 1, 2, ..., 10\\}$ the only solution is $x = 6$",
+                "Step 7: Final results\na) $x \\equiv 6 \\pmod{11}$\nb) The only solution in $\\{0, 1, 2, ..., 10\\}$ is $x = 6$"
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Mathematical Induction",
+            "title": "Proof by Mathematical Induction",
+            "description": "Prove by mathematical induction:\n$\\sum_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}$ for all $n \\in \\mathbb{N}$",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Base case (n = 1)\nTo show: $\\sum_{k=1}^{1} k^2 = \\frac{1(1+1)(2 \\cdot 1+1)}{6}$\nLeft side: $1^2 = 1$\nRight side: $\\frac{1 \\cdot 2 \\cdot 3}{6} = \\frac{6}{6} = 1$\n$\\Rightarrow$ Base case is satisfied.",
+                "Step 2: Inductive hypothesis\nAssumption: The formula holds for some arbitrary but fixed $n \\in \\mathbb{N}$:\n$\\sum_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}$",
+                "Step 3: Inductive step (n → n+1)\nTo show: $\\sum_{k=1}^{n+1} k^2 = \\frac{(n+1)(n+2)(2(n+1)+1)}{6} = \\frac{(n+1)(n+2)(2n+3)}{6}$",
+                "Step 4: Transform left side\n$\\sum_{k=1}^{n+1} k^2 = \\sum_{k=1}^{n} k^2 + (n+1)^2$\nUsing the inductive hypothesis:\n$= \\frac{n(n+1)(2n+1)}{6} + (n+1)^2$",
+                "Step 5: Find common denominator\n$= \\frac{n(n+1)(2n+1)}{6} + \\frac{6(n+1)^2}{6}$\n$= \\frac{n(n+1)(2n+1) + 6(n+1)^2}{6}$\n$= \\frac{(n+1)[n(2n+1) + 6(n+1)]}{6}$",
+                "Step 6: Expand and simplify\n$n(2n+1) + 6(n+1) = 2n^2 + n + 6n + 6 = 2n^2 + 7n + 6$\nFactorization: $2n^2 + 7n + 6 = (n+2)(2n+3)$\nVerification: $(n+2)(2n+3) = 2n^2 + 3n + 4n + 6 = 2n^2 + 7n + 6$ ✓",
+                "Step 7: Final result\n$\\sum_{k=1}^{n+1} k^2 = \\frac{(n+1)(n+2)(2n+3)}{6}$\nThis matches exactly the formula to be shown for $n+1$.\n$\\Rightarrow$ The inductive step is proven.",
+                "Step 8: Conclusion\nSince base case and inductive step are proven, the formula $\\sum_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6}$ holds for all $n \\in \\mathbb{N}$."
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Euclidean Algorithm",
+            "title": "GCD and Extended Euclidean Algorithm",
+            "description": "Given are the numbers $a = 252$ and $b = 105$.\n\na) Determine $\\gcd(252, 105)$ using the Euclidean algorithm\nb) Find integers $x, y$ with $252x + 105y = \\gcd(252, 105)$",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Euclidean algorithm\n$252 = 2 \\cdot 105 + 42$\n$105 = 2 \\cdot 42 + 21$\n$42 = 2 \\cdot 21 + 0$\nSince the remainder is 0, we have $\\gcd(252, 105) = 21$",
+                "Step 2: Extended Euclidean algorithm - Backwards\nWe work through the divisions backwards:\nFrom step 2: $21 = 105 - 2 \\cdot 42$\nFrom step 1: $42 = 252 - 2 \\cdot 105$",
+                "Step 3: Substitution\nSubstitute the second equation into the first:\n$21 = 105 - 2 \\cdot (252 - 2 \\cdot 105)$\n$21 = 105 - 2 \\cdot 252 + 4 \\cdot 105$\n$21 = 5 \\cdot 105 - 2 \\cdot 252$",
+                "Step 4: Rearrange\n$21 = (-2) \\cdot 252 + 5 \\cdot 105$\nSo: $252 \\cdot (-2) + 105 \\cdot 5 = 21$\n$\\Rightarrow x = -2, y = 5$",
+                "Step 5: Verification\n$252 \\cdot (-2) + 105 \\cdot 5 = -504 + 525 = 21$ ✓\nThis confirms our result.",
+                "Step 6: Final results\na) $\\gcd(252, 105) = 21$\nb) $x = -2, y = 5$ (one possible solution)\nGeneral solution: $x = -2 + 5t, y = 5 - 12t$ for $t \\in \\mathbb{Z}$"
+            ]
+        }
+    ]
+}

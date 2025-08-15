@@ -2,7 +2,7 @@
     "exam": {
         "title": "Statistics - Advanced Exam",
         "subtitle": "Probability Theory and Inferential Statistics",
-        "duration": 120,
+        "duration": 90,
         "totalPoints": 100,
         "difficulty": "intermediate",
         "language": "en",

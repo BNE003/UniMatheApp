@@ -2,7 +2,7 @@
     "exam": {
         "title": "Linear Algebra - Intermediate Exam",
         "subtitle": "Eigenvalues, Diagonalization and Linear Spaces",
-        "duration": 150,
+        "duration": 90,
         "totalPoints": 120,
         "difficulty": "intermediate",
         "language": "en",

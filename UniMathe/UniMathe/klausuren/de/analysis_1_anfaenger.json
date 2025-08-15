@@ -3,7 +3,7 @@
         "title": "Analysis I - Anfängerklausur",
         "subtitle": "Grundlagen der Analysis",
         "duration": 120,
-        "totalPoints": 60,
+        "totalPoints": 120,
         "difficulty": "beginner",
         "language": "de",
         "instructions": "Bearbeiten Sie alle Aufgaben. Geben Sie bei allen Berechnungen den vollständigen Lösungsweg an. Hilfsmittel: Taschenrechner ohne Programmierfunktion. Viel Erfolg!"
@@ -98,6 +98,82 @@
                 "Schritt 2: Einzelne Terme integrieren\n$\\int 2x^3 \\, dx = 2 \\cdot \\frac{x^4}{4} = \\frac{x^4}{2}$\n$\\int (-5x) \\, dx = -5 \\cdot \\frac{x^2}{2} = -\\frac{5x^2}{2}$\n$\\int 4 \\, dx = 4x$",
                 "Schritt 3: Zusammenfassen\n$\\int (2x^3 - 5x + 4) \\, dx = \\frac{x^4}{2} - \\frac{5x^2}{2} + 4x + C$",
                 "Schritt 4: Endergebnis\n$\\int (2x^3 - 5x + 4) \\, dx = \\frac{x^4}{2} - \\frac{5x^2}{2} + 4x + C$\nwobei $C$ die Integrationskonstante ist."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Folgen und Reihen",
+            "title": "Konvergenz einer Folge",
+            "description": "Untersuchen Sie die Folge $a_n = \\frac{2n^2 + 3n - 1}{n^2 + 5}$ auf Konvergenz und bestimmen Sie gegebenenfalls den Grenzwert.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Grenzwert bestimmen\nWir betrachten $\\lim_{n \\to \\infty} \\frac{2n^2 + 3n - 1}{n^2 + 5}$\nDa Zähler und Nenner beide gegen unendlich gehen, teilen wir durch die höchste Potenz $n^2$.",
+                "Schritt 2: Kürzen durch $n^2$\n$\\lim_{n \\to \\infty} \\frac{2n^2 + 3n - 1}{n^2 + 5} = \\lim_{n \\to \\infty} \\frac{2 + \\frac{3}{n} - \\frac{1}{n^2}}{1 + \\frac{5}{n^2}}$",
+                "Schritt 3: Grenzwerte der Teilterme\n$\\lim_{n \\to \\infty} \\frac{3}{n} = 0$\n$\\lim_{n \\to \\infty} \\frac{1}{n^2} = 0$\n$\\lim_{n \\to \\infty} \\frac{5}{n^2} = 0$",
+                "Schritt 4: Endergebnis\n$\\lim_{n \\to \\infty} \\frac{2 + \\frac{3}{n} - \\frac{1}{n^2}}{1 + \\frac{5}{n^2}} = \\frac{2 + 0 - 0}{1 + 0} = 2$",
+                "Schritt 5: Antwort\nDie Folge konvergiert gegen 2."
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Bestimmte Integration",
+            "title": "Flächenberechnung",
+            "description": "Berechnen Sie die Fläche zwischen der Kurve $f(x) = x^2 - 4$ und der x-Achse im Intervall $[-2, 2]$.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Nullstellen bestimmen\n$f(x) = x^2 - 4 = 0$\n$x^2 = 4$\n$x = \\pm 2$\nDie Funktion schneidet die x-Achse bei $x = -2$ und $x = 2$.",
+                "Schritt 2: Vorzeichen der Funktion\nFür $x \\in (-2, 2)$: $f(x) = x^2 - 4 < 0$ (da $x^2 < 4$)\nDie Funktion liegt unterhalb der x-Achse.",
+                "Schritt 3: Flächenberechnung\nDa $f(x) < 0$ im Intervall $[-2, 2]$, ist die Fläche:\n$A = -\\int_{-2}^{2} (x^2 - 4) \\, dx = \\int_{-2}^{2} (4 - x^2) \\, dx$",
+                "Schritt 4: Integration\n$\\int_{-2}^{2} (4 - x^2) \\, dx = \\left[4x - \\frac{x^3}{3}\\right]_{-2}^{2}$\n$= \\left(4 \\cdot 2 - \\frac{2^3}{3}\\right) - \\left(4 \\cdot (-2) - \\frac{(-2)^3}{3}\\right)$\n$= \\left(8 - \\frac{8}{3}\\right) - \\left(-8 - \\frac{-8}{3}\\right)$\n$= 8 - \\frac{8}{3} + 8 - \\frac{8}{3} = 16 - \\frac{16}{3} = \\frac{48 - 16}{3} = \\frac{32}{3}$",
+                "Schritt 5: Antwort\nDie Fläche beträgt $\\frac{32}{3}$ Flächeneinheiten."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Mittelwertsatz",
+            "title": "Anwendung des Mittelwertsatzes",
+            "description": "Gegeben sei die Funktion $f(x) = x^3 - 6x^2 + 9x + 1$ auf dem Intervall $[1, 4]$. Bestimmen Sie eine Stelle $c \\in (1, 4)$, für die der Mittelwertsatz erfüllt ist.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Voraussetzungen prüfen\n$f(x) = x^3 - 6x^2 + 9x + 1$ ist ein Polynom, daher:\n- stetig auf $[1, 4]$\n- differenzierbar auf $(1, 4)$\nDer Mittelwertsatz ist anwendbar.",
+                "Schritt 2: Funktionswerte berechnen\n$f(1) = 1^3 - 6 \\cdot 1^2 + 9 \\cdot 1 + 1 = 1 - 6 + 9 + 1 = 5$\n$f(4) = 4^3 - 6 \\cdot 4^2 + 9 \\cdot 4 + 1 = 64 - 96 + 36 + 1 = 5$",
+                "Schritt 3: Mittlere Änderungsrate\n$\\frac{f(4) - f(1)}{4 - 1} = \\frac{5 - 5}{3} = 0$",
+                "Schritt 4: Ableitung berechnen\n$f'(x) = 3x^2 - 12x + 9 = 3(x^2 - 4x + 3) = 3(x - 1)(x - 3)$",
+                "Schritt 5: Stelle c finden\nNach dem Mittelwertsatz existiert $c \\in (1, 4)$ mit $f'(c) = 0$:\n$3(c - 1)(c - 3) = 0$\n$c = 1$ oder $c = 3$\nDa $c \\in (1, 4)$ sein muss, ist $c = 3$.",
+                "Schritt 6: Verifikation\n$f'(3) = 3(3 - 1)(3 - 3) = 3 \\cdot 2 \\cdot 0 = 0$ ✓\nDie gesuchte Stelle ist $c = 3$."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Substitutionsregel",
+            "title": "Integration durch Substitution",
+            "description": "Berechnen Sie das Integral $\\int \\frac{2x}{x^2 + 1} \\, dx$ mittels Substitution.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Substitution wählen\nWir setzen $u = x^2 + 1$\nDann ist $\\frac{du}{dx} = 2x$, also $du = 2x \\, dx$",
+                "Schritt 2: Integral umformen\n$\\int \\frac{2x}{x^2 + 1} \\, dx = \\int \\frac{1}{u} \\, du$",
+                "Schritt 3: Integration\n$\\int \\frac{1}{u} \\, du = \\ln|u| + C$",
+                "Schritt 4: Rücksubstitution\n$\\ln|u| + C = \\ln|x^2 + 1| + C$\nDa $x^2 + 1 > 0$ für alle reellen $x$, können wir die Betragsstriche weglassen:\n$= \\ln(x^2 + 1) + C$",
+                "Schritt 5: Endergebnis\n$\\int \\frac{2x}{x^2 + 1} \\, dx = \\ln(x^2 + 1) + C$"
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Partielle Integration",
+            "title": "Integration durch partielle Integration",
+            "description": "Berechnen Sie das Integral $\\int x \\cdot e^x \\, dx$ mittels partieller Integration.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Formel der partiellen Integration\n$\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$",
+                "Schritt 2: Funktionen wählen\n$u = x \\Rightarrow u' = 1$\n$v' = e^x \\Rightarrow v = e^x$\nWahl: Polynom ableiten, Exponentialfunktion integrieren",
+                "Schritt 3: Formel anwenden\n$\\int x \\cdot e^x \\, dx = x \\cdot e^x - \\int 1 \\cdot e^x \\, dx$\n$= x \\cdot e^x - \\int e^x \\, dx$",
+                "Schritt 4: Verbleibendes Integral\n$\\int e^x \\, dx = e^x + C$",
+                "Schritt 5: Endergebnis\n$\\int x \\cdot e^x \\, dx = x \\cdot e^x - e^x + C = e^x(x - 1) + C$"
             ]
         }
     ]

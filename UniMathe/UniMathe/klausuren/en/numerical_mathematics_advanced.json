@@ -2,7 +2,7 @@
     "exam": {
         "title": "Numerical Mathematics - Expert Exam",
         "subtitle": "Algorithms, Approximation and Error Analysis",
-        "duration": 150,
+        "duration": 90,
         "totalPoints": 100,
         "difficulty": "advanced",
         "language": "en",
