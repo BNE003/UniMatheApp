@@ -178,28 +178,12 @@ struct ÜbungsklausurenView: View {
                     VStack(spacing: 32) {
                         // Elegant Header Section
                         VStack(alignment: .leading, spacing: 0) {
-                            Text(settings.language == .english ? "Practice" : "Übungs-")
-                                .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 54 : 42))
-                                .fontWeight(.black)
+                            Text(settings.language == .english ? "Exams" : "Klausuren")
+                                .font(.custom("Nexa Bold", size: horizontalSizeClass == .regular ? 54 : 42))
                                 .foregroundColor(.blue)
                                 .overlay(
-                                    Text(settings.language == .english ? "Practice" : "Übungs-")
-                                        .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 54 : 42))
-                                        .fontWeight(.black)
-                                        .foregroundColor(.blue)
-                                        .opacity(0.3)
-                                        .offset(x: 0.5, y: 0.5)
-                                )
-                                .shadow(color: Color.blue.opacity(0.15), radius: 4, x: 0, y: 2)
-                            
-                            Text(settings.language == .english ? "Exams" : "klausuren")
-                                .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 54 : 42))
-                                .fontWeight(.black)
-                                .foregroundColor(.blue)
-                                .overlay(
-                                    Text(settings.language == .english ? "Exams" : "klausuren")
-                                        .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 54 : 42))
-                                        .fontWeight(.black)
+                                    Text(settings.language == .english ? "Exams" : "Klausuren")
+                                        .font(.custom("Nexa Bold", size: horizontalSizeClass == .regular ? 54 : 42))
                                         .foregroundColor(.blue)
                                         .opacity(0.3)
                                         .offset(x: 0.5, y: 0.5)

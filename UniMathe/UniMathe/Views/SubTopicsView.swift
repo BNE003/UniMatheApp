@@ -5,6 +5,7 @@ struct SubTopicsView: View {
     @State private var subTopics: [MathTopic] = []
     @State private var isLoading = true
     @State private var error: Error?
+    @EnvironmentObject private var tabBarViewModel: TabBarViewModel
     
     var body: some View {
         ZStack {
@@ -95,7 +96,11 @@ struct SubTopicsView: View {
         .navigationTitle(topic.title)
         .navigationBarTitleDisplayMode(.large)
         .onAppear {
+            tabBarViewModel.hideTabBar()
             loadSubTopics()
+        }
+        .onDisappear {
+            tabBarViewModel.showTabBar()
         }
     }
     
@@ -467,6 +472,7 @@ struct ContentSelectionView: View {
     @State private var loadedTopic: MathTopic?
     @State private var isLoading = true
     @State private var error: Error?
+    @EnvironmentObject private var tabBarViewModel: TabBarViewModel
     
     var body: some View {
         ZStack {
@@ -560,7 +566,11 @@ struct ContentSelectionView: View {
         .navigationTitle(topic.title)
         .navigationBarTitleDisplayMode(.large)
         .onAppear {
+            tabBarViewModel.hideTabBar()
             loadTopicContent()
+        }
+        .onDisappear {
+            tabBarViewModel.showTabBar()
         }
     }
     

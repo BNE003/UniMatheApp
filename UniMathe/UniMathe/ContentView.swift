@@ -153,13 +153,11 @@ struct ContentView: View {
                         // Moderner App-Titel
                         VStack(alignment: .leading, spacing: 0) {
                             Text(SettingsModel.shared.language == .english ? "Advanced" : "Höhere")
-                                .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 54 : 42))
-                                .fontWeight(.black)
+                                .font(.custom("Nexa Bold", size: horizontalSizeClass == .regular ? 54 : 42))
                                 .foregroundColor(.blue)
                                 .overlay(
                                     Text(SettingsModel.shared.language == .english ? "Advanced" : "Höhere")
-                                        .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 54 : 42))
-                                        .fontWeight(.black)
+                                        .font(.custom("Nexa Bold", size: horizontalSizeClass == .regular ? 54 : 42))
                                         .foregroundColor(.blue)
                                         .opacity(0.3)
                                         .offset(x: 0.5, y: 0.5)
@@ -168,13 +166,11 @@ struct ContentView: View {
                                 .padding(.top, 24)
                             
                             Text(SettingsModel.shared.language == .english ? "Mathematics" : "Mathematik")
-                                .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 54 : 42))
-                                .fontWeight(.black)
+                                .font(.custom("Nexa Bold", size: horizontalSizeClass == .regular ? 54 : 42))
                                 .foregroundColor(.blue)
                                 .overlay(
                                     Text(SettingsModel.shared.language == .english ? "Mathematics" : "Mathematik")
-                                        .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 54 : 42))
-                                        .fontWeight(.black)
+                                        .font(.custom("Nexa Bold", size: horizontalSizeClass == .regular ? 54 : 42))
                                         .foregroundColor(.blue)
                                         .opacity(0.3)
                                         .offset(x: 0.5, y: 0.5)
@@ -199,17 +195,6 @@ struct ContentView: View {
                             }
                             .padding(16)
                             .frame(maxWidth: horizontalSizeClass == .regular ? .infinity : nil, alignment: .leading)
-                        }
-                    }
-                }
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    HStack {
-                        NavigationLink(destination: SettingsView()) {
-                            Image(systemName: "gear")
-                                .font(.system(size: 22))
-                                .foregroundColor(settings.accentColor)
                         }
                     }
                 }
@@ -1402,6 +1387,7 @@ struct TopicDetailView: View {
     let topic: MathTopic
     @State private var showExampleButton = false
     @State private var scrollPosition: CGFloat = 0
+    @EnvironmentObject private var tabBarViewModel: TabBarViewModel
     
     var body: some View {
         ZStack {
@@ -1473,12 +1459,16 @@ struct TopicDetailView: View {
         .navigationTitle(topic.title)
         .navigationBarTitleDisplayMode(.large)
         .onAppear {
+            tabBarViewModel.hideTabBar()
             // Ensure button appears after a short delay
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 withAnimation {
                     showExampleButton = true
                 }
             }
+        }
+        .onDisappear {
+            tabBarViewModel.showTabBar()
         }
     }
 }

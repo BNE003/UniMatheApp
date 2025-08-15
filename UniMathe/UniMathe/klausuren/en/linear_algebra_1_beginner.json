@@ -1,19 +1,19 @@
 {
     "exam": {
         "title": "Linear Algebra I - Beginner Exam",
-        "subtitle": "Fundamentals of Linear Algebra",
+        "subtitle": "Fundamentals of linear algebra",
         "duration": 120,
         "totalPoints": 60,
         "difficulty": "beginner",
         "language": "en",
-        "instructions": "Complete all tasks. Show complete solution approach for all calculations. Permitted aids: calculator without programming function. Good luck!"
+        "instructions": "Complete all tasks. Show all calculations and provide the complete solution approach. Permitted aids: non-programmable calculator. Good luck!"
     },
     "exercises": [
         {
             "id": 1,
             "topic": "Vector Operations",
             "title": "Basic Operations with Vectors",
-            "description": "Given are the vectors $\\vec{a} = \\begin{pmatrix} 2 \\\\ -1 \\\\ 3 \\end{pmatrix}$ and $\\vec{b} = \\begin{pmatrix} 1 \\\\ 4 \\\\ -2 \\end{pmatrix}$.\n\na) Calculate $\\vec{a} + \\vec{b}$\nb) Calculate $3\\vec{a} - 2\\vec{b}$\nc) Determine the length of $\\vec{a}$",
+            "description": "Given the vectors $\\vec{a} = \\begin{pmatrix} 2 \\\\ -1 \\\\ 3 \\end{pmatrix}$ and $\\vec{b} = \\begin{pmatrix} 1 \\\\ 4 \\\\ -2 \\end{pmatrix}$.\n\na) Calculate $\\vec{a} + \\vec{b}$\nb) Calculate $3\\vec{a} - 2\\vec{b}$\nc) Determine the length of $\\vec{a}$",
             "difficulty": "easy",
             "points": 8,
             "solutionSteps": [
@@ -28,7 +28,7 @@
             "id": 2,
             "topic": "Dot Product",
             "title": "Dot Product and Angle",
-            "description": "Given are the vectors $\\vec{u} = \\begin{pmatrix} 3 \\\\ 4 \\\\ 0 \\end{pmatrix}$ and $\\vec{v} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 5 \\end{pmatrix}$.\n\na) Calculate the dot product $\\vec{u} \\cdot \\vec{v}$\nb) Determine the angle between the vectors",
+            "description": "Given the vectors $\\vec{u} = \\begin{pmatrix} 3 \\\\ 4 \\\\ 0 \\end{pmatrix}$ and $\\vec{v} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 5 \\end{pmatrix}$.\n\na) Calculate the dot product $\\vec{u} \\cdot \\vec{v}$\nb) Determine the angle between the vectors",
             "difficulty": "easy",
             "points": 10,
             "solutionSteps": [
@@ -61,7 +61,7 @@
             "id": 4,
             "topic": "Matrices",
             "title": "Matrix Operations",
-            "description": "Given are the matrices $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ and $B = \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix}$.\n\na) Calculate $A + B$\nb) Calculate $A \\cdot B$\nc) Determine $\\det(A)$",
+            "description": "Given the matrices $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ and $B = \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix}$.\n\na) Calculate $A + B$\nb) Calculate $A \\cdot B$\nc) Determine $\\det(A)$",
             "difficulty": "easy",
             "points": 10,
             "solutionSteps": [
@@ -85,21 +85,21 @@
                 "Step 3: Matrix of the system\n$\\begin{pmatrix} 1 & 2 & 1 \\\\ 2 & 1 & -1 \\\\ 1 & 0 & -1 \\end{pmatrix}$",
                 "Step 4: Gaussian elimination\n$R_2 - 2R_1$: $(0, -3, -3)$\n$R_3 - R_1$: $(0, -2, -2)$\n$\\begin{pmatrix} 1 & 2 & 1 \\\\ 0 & -3 & -3 \\\\ 0 & -2 & -2 \\end{pmatrix}$\n\nDivide $R_2$ by $-3$: $(0, 1, 1)$\n$R_3 + 2R_2$: $(0, 0, 0)$\n$\\begin{pmatrix} 1 & 2 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix}$",
                 "Step 5: Back substitution\nFrom row 2: $\\alpha_2 + \\alpha_3 = 0 \\Rightarrow \\alpha_2 = -\\alpha_3$\nFrom row 1: $\\alpha_1 + 2\\alpha_2 + \\alpha_3 = 0$\n$\\alpha_1 + 2(-\\alpha_3) + \\alpha_3 = 0$\n$\\alpha_1 - \\alpha_3 = 0 \\Rightarrow \\alpha_1 = \\alpha_3$",
-                "Step 6: Conclusion\nThe system has infinitely many solutions with $\\alpha_3$ as a free parameter:\n$\\alpha_1 = \\alpha_3$, $\\alpha_2 = -\\alpha_3$, $\\alpha_3$ arbitrary\n\nSince there are non-trivial solutions (e.g., $\\alpha_1 = 1, \\alpha_2 = -1, \\alpha_3 = 1$), the vectors are linearly dependent.\n\nAnswer: The vectors are linearly dependent."
+                "Step 6: Conclusion\nThe system has infinitely many solutions with $\\alpha_3$ as a free parameter:\n$\\alpha_1 = \\alpha_3$, $\\alpha_2 = -\\alpha_3$, $\\alpha_3$ arbitrary\n\nSince non-trivial solutions exist (e.g., $\\alpha_1 = 1, \\alpha_2 = -1, \\alpha_3 = 1$), the vectors are linearly dependent.\n\nAnswer: The vectors are linearly dependent."
             ]
         },
         {
             "id": 6,
             "topic": "Matrix Inverse",
             "title": "Inverse of a 2×2 Matrix",
-            "description": "Determine the inverse of the matrix $C = \\begin{pmatrix} 3 & 1 \\\\ 2 & 1 \\end{pmatrix}$, if it exists.",
+            "description": "Determine the inverse of matrix $C = \\begin{pmatrix} 3 & 1 \\\\ 2 & 1 \\end{pmatrix}$, if it exists.",
             "difficulty": "medium",
             "points": 10,
             "solutionSteps": [
                 "Step 1: Calculate determinant\n$\\det(C) = 3 \\cdot 1 - 1 \\cdot 2 = 3 - 2 = 1$\nSince $\\det(C) \\neq 0$, the inverse exists.",
                 "Step 2: Formula for 2×2 inverse\nFor $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$, the inverse is:\n$\\frac{1}{ad-bc} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$",
                 "Step 3: Calculate inverse\n$C^{-1} = \\frac{1}{1} \\begin{pmatrix} 1 & -1 \\\\ -2 & 3 \\end{pmatrix} = \\begin{pmatrix} 1 & -1 \\\\ -2 & 3 \\end{pmatrix}$",
-                "Step 4: Perform verification\n$C \\cdot C^{-1} = \\begin{pmatrix} 3 & 1 \\\\ 2 & 1 \\end{pmatrix} \\begin{pmatrix} 1 & -1 \\\\ -2 & 3 \\end{pmatrix}$\n$= \\begin{pmatrix} 3-2 & -3+3 \\\\ 2-2 & -2+3 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} = I$",
+                "Step 4: Verify result\n$C \\cdot C^{-1} = \\begin{pmatrix} 3 & 1 \\\\ 2 & 1 \\end{pmatrix} \\begin{pmatrix} 1 & -1 \\\\ -2 & 3 \\end{pmatrix}$\n$= \\begin{pmatrix} 3-2 & -3+3 \\\\ 2-2 & -2+3 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} = I$",
                 "Step 5: Final result\n$C^{-1} = \\begin{pmatrix} 1 & -1 \\\\ -2 & 3 \\end{pmatrix}$\nThe verification confirms the result."
             ]
         }
