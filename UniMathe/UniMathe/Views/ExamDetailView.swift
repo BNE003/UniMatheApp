@@ -19,7 +19,7 @@ struct ExamDetailView: View {
     @ObservedObject private var storeManager = StoreKitManager.shared
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.presentationMode) var presentationMode
-    @EnvironmentObject private var tabBarViewModel: TabBarViewModel
+    @ObservedObject private var tabBarManager = TabBarManager.shared
     
     var body: some View {
         ZStack {
@@ -95,11 +95,11 @@ struct ExamDetailView: View {
         }
         .onAppear {
             print("🔥 EXAM DETAIL: ExamDetailView appeared with filename: \(examFilename)")
-            tabBarViewModel.hideTabBar()
+            tabBarManager.hide()
             loadExam()
         }
         .onDisappear {
-            tabBarViewModel.showTabBar()
+            tabBarManager.show()
         }
         .navigationBarBackButtonHidden(examStarted)
         .toolbar {

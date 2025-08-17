@@ -1088,7 +1088,7 @@ struct InteractiveLearningView: View {
     @State private var showProSheet = false
     @State private var blurBackground = false
     @ObservedObject private var storeManager = StoreKitManager.shared
-    @EnvironmentObject private var tabBarViewModel: TabBarViewModel
+    @ObservedObject private var tabBarManager = TabBarManager.shared
     
     var body: some View {
         ZStack {
@@ -1175,12 +1175,20 @@ struct InteractiveLearningView: View {
         }
         .navigationTitle(topic.title)
         .navigationBarTitleDisplayMode(.large)
+        .toolbar(.hidden, for: .tabBar)
         .onAppear {
-            tabBarViewModel.hideTabBar()
+            print("🧠 InteractiveLearningView: onAppear - hiding tab bar with toolbar hidden")
+            tabBarManager.hide()
             loadExample()
         }
         .onDisappear {
-            tabBarViewModel.showTabBar()
+            print("🧠 InteractiveLearningView: onDisappear")
+            // Verzögertes Anzeigen - nur wenn wirklich zurück navigiert wird
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                if !tabBarManager.isVisible {
+                    tabBarManager.show()
+                }
+            }
         }
         .onChange(of: currentStep) { newStep in
             if newStep >= 4 && storeManager.purchasedProductIDs.isEmpty {
@@ -1388,7 +1396,7 @@ struct TopicDetailView: View {
     let topic: MathTopic
     @State private var showExampleButton = false
     @State private var scrollPosition: CGFloat = 0
-    @EnvironmentObject private var tabBarViewModel: TabBarViewModel
+    @ObservedObject private var tabBarManager = TabBarManager.shared
     
     var body: some View {
         ZStack {
@@ -1459,17 +1467,16 @@ struct TopicDetailView: View {
         }
         .navigationTitle(topic.title)
         .navigationBarTitleDisplayMode(.large)
+        .toolbar(.hidden, for: .tabBar)
         .onAppear {
-            tabBarViewModel.hideTabBar()
+            print("🔵 TopicDetailView: onAppear - hiding tab bar with toolbar hidden")
+            tabBarManager.hide()
             // Ensure button appears after a short delay
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 withAnimation {
                     showExampleButton = true
                 }
             }
-        }
-        .onDisappear {
-            tabBarViewModel.showTabBar()
         }
     }
 }

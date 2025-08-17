@@ -8,7 +8,7 @@ struct ExerciseDetailView: View {
     @State private var solutionHeights: [CGFloat] = []
     @State private var titleHeight: CGFloat = 32
     @ObservedObject private var settings = SettingsModel.shared
-    @EnvironmentObject private var tabBarViewModel: TabBarViewModel
+    @ObservedObject private var tabBarManager = TabBarManager.shared
     
     var body: some View {
         ZStack {
@@ -92,10 +92,10 @@ struct ExerciseDetailView: View {
         .navigationTitle(settings.language == .english ? "Exercise" : "Aufgabe")
         .navigationBarTitleDisplayMode(.large)
         .onAppear {
-            tabBarViewModel.hideTabBar()
+            tabBarManager.hide()
         }
         .onDisappear {
-            tabBarViewModel.showTabBar()
+            tabBarManager.show()
         }
     }
 }
