@@ -1,6 +1,6 @@
 {
     "exam": {
-        "title": "Lineare Algebra - Fortgeschrittenenklausur",
+        "title": "Lineare Algebra I",
         "subtitle": "Eigenwerte, Diagonalisierung und lineare Räume",
         "duration": 90,
         "totalPoints": 120,

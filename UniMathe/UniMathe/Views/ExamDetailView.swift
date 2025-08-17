@@ -175,6 +175,7 @@ struct ExamDetailView: View {
                 // Exam Info Cards
                 LazyVGrid(columns: [
                     GridItem(.flexible()),
+                    GridItem(.flexible()),
                     GridItem(.flexible())
                 ], spacing: 16) {
                     examInfoCard(
@@ -198,12 +199,6 @@ struct ExamDetailView: View {
                         color: .green
                     )
                     
-                    examInfoCard(
-                        icon: "chart.bar",
-                        title: settings.language == .english ? "Level" : "Niveau",
-                        value: exam.exam.difficulty.capitalized,
-                        color: .purple
-                    )
                 }
                 .padding(.horizontal, 24)
                 

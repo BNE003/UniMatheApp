@@ -3,123 +3,143 @@ import SwiftUI
 struct ÜbungsklausurenView: View {
     @ObservedObject private var settings = SettingsModel.shared
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    @State private var selectedDifficulty: ExamDifficulty = .beginner
     @State private var animateCards = false
     
     let examTopics = [
         ExamTopic(
             title: "Analysis I",
+            titleEnglish: "Calculus I",
             subtitle: "Grenzwerte, Ableitungen, Integrale",
-            difficulty: .beginner,
+            subtitleEnglish: "Limits, Derivatives, Integrals",
             duration: 120,
             questions: 6,
             icon: "function",
-            color: Color(red: 0.2, green: 0.5, blue: 0.9)
+            color: Color(red: 0.2, green: 0.5, blue: 0.9),
+            examFilename: "analysis_1_anfaenger"
         ),
         ExamTopic(
             title: "Lineare Algebra I",
+            titleEnglish: "Linear Algebra I",
             subtitle: "Grundlagen der linearen Algebra",
-            difficulty: .beginner,
+            subtitleEnglish: "Fundamentals of Linear Algebra",
             duration: 120,
             questions: 6,
             icon: "grid",
-            color: Color(red: 0.0, green: 0.7, blue: 0.4)
+            color: Color(red: 0.0, green: 0.7, blue: 0.4),
+            examFilename: "lineare_algebra_1_anfaenger"
         ),
         ExamTopic(
             title: "Mathematik I",
+            titleEnglish: "Mathematics I",
             subtitle: "Lineare Algebra und abstrakte Algebra",
-            difficulty: .beginner,
+            subtitleEnglish: "Linear Algebra and Abstract Algebra",
             duration: 120,
             questions: 8,
             icon: "number.circle",
-            color: Color(red: 0.8, green: 0.3, blue: 0.6)
+            color: Color(red: 0.8, green: 0.3, blue: 0.6),
+            examFilename: "mathematik_1_anfaenger"
         ),
         ExamTopic(
-            title: "Statistik",
+            title: "Statistik I",
+            titleEnglish: "Statistics I",
             subtitle: "Grundlagen der Wahrscheinlichkeitsrechnung",
-            difficulty: .beginner,
+            subtitleEnglish: "Fundamentals of Probability Theory",
             duration: 120,
             questions: 6,
             icon: "chart.bar.fill",
-            color: Color(red: 0.8, green: 0.2, blue: 0.4)
+            color: Color(red: 0.8, green: 0.2, blue: 0.4),
+            examFilename: "statistik_anfaenger"
         ),
         ExamTopic(
             title: "Mathematik I",
+            titleEnglish: "Mathematics I",
             subtitle: "Erweiterte lineare und abstrakte Algebra",
-            difficulty: .intermediate,
+            subtitleEnglish: "Advanced Linear and Abstract Algebra",
             duration: 90,
             questions: 10,
             icon: "number.circle",
-            color: Color(red: 0.8, green: 0.3, blue: 0.6)
+            color: Color(red: 0.8, green: 0.3, blue: 0.6),
+            examFilename: "mathematik_1_fortgeschritten"
         ),
         ExamTopic(
-            title: "Lineare Algebra",
+            title: "Lineare Algebra I",
+            titleEnglish: "Linear Algebra I",
             subtitle: "Eigenwerte, Diagonalisierung und lineare Räume",
-            difficulty: .intermediate,
+            subtitleEnglish: "Eigenvalues, Diagonalization and Linear Spaces",
             duration: 90,
             questions: 10,
             icon: "grid",
-            color: Color(red: 0.0, green: 0.7, blue: 0.4)
+            color: Color(red: 0.0, green: 0.7, blue: 0.4),
+            examFilename: "lineare_algebra_fortgeschritten"
         ),
         ExamTopic(
             title: "Mathematik I",
+            titleEnglish: "Mathematics I",
             subtitle: "Fortgeschrittene abstrakte und lineare Algebra",
-            difficulty: .advanced,
+            subtitleEnglish: "Advanced Abstract and Linear Algebra",
             duration: 90,
             questions: 10,
             icon: "number.circle",
-            color: Color(red: 0.8, green: 0.3, blue: 0.6)
+            color: Color(red: 0.8, green: 0.3, blue: 0.6),
+            examFilename: "mathematik_1_experte"
         ),
         ExamTopic(
-            title: "Lineare Algebra",
+            title: "Lineare Algebra I",
+            titleEnglish: "Linear Algebra I",
             subtitle: "Fortgeschrittene Theorie und Anwendungen",
-            difficulty: .advanced,
+            subtitleEnglish: "Advanced Theory and Applications",
             duration: 90,
             questions: 10,
             icon: "grid",
-            color: Color(red: 0.0, green: 0.7, blue: 0.4)
+            color: Color(red: 0.0, green: 0.7, blue: 0.4),
+            examFilename: "lineare_algebra_experte"
         ),
         ExamTopic(
             title: "Analysis II",
+            titleEnglish: "Calculus II",
             subtitle: "Mehrdimensionale Analysis",
-            difficulty: .advanced,
+            subtitleEnglish: "Multivariable Calculus",
             duration: 90,
             questions: 11,
             icon: "cube",
-            color: Color(red: 0.6, green: 0.3, blue: 0.8)
+            color: Color(red: 0.6, green: 0.3, blue: 0.8),
+            examFilename: "analysis_2_experte"
         ),
         ExamTopic(
             title: "Differentialgleichungen",
+            titleEnglish: "Differential Equations",
             subtitle: "Gewöhnliche und partielle DGL",
-            difficulty: .advanced,
+            subtitleEnglish: "Ordinary and Partial Differential Equations",
             duration: 90,
             questions: 6,
             icon: "waveform.path",
-            color: Color(red: 0.9, green: 0.4, blue: 0.1)
+            color: Color(red: 0.9, green: 0.4, blue: 0.1),
+            examFilename: "differentialgleichungen_experte"
         ),
         ExamTopic(
-            title: "Statistik",
+            title: "Statistik I",
+            titleEnglish: "Statistics I",
             subtitle: "Wahrscheinlichkeitstheorie",
-            difficulty: .intermediate,
+            subtitleEnglish: "Probability Theory",
             duration: 90,
             questions: 6,
             icon: "chart.bar.fill",
-            color: Color(red: 0.8, green: 0.2, blue: 0.4)
+            color: Color(red: 0.8, green: 0.2, blue: 0.4),
+            examFilename: "statistik_fortgeschritten"
         ),
         ExamTopic(
             title: "Numerische Mathematik",
+            titleEnglish: "Numerical Mathematics",
             subtitle: "Algorithmen und Approximation",
-            difficulty: .advanced,
+            subtitleEnglish: "Algorithms and Approximation",
             duration: 90,
             questions: 5,
             icon: "function",
-            color: Color(red: 0.0, green: 0.6, blue: 0.7)
+            color: Color(red: 0.0, green: 0.6, blue: 0.7),
+            examFilename: "numerische_mathematik_experte"
         )
     ]
     
-    var filteredExams: [ExamTopic] {
-        examTopics.filter { $0.difficulty == selectedDifficulty }
-    }
     
     var body: some View {
         NavigationStack {
@@ -195,16 +215,13 @@ struct ÜbungsklausurenView: View {
                         .padding(.horizontal, 24)
                         .padding(.top, 24)
                         
-                        // Refined Difficulty Selector
-                        DifficultySelector(selectedDifficulty: $selectedDifficulty)
-                            .padding(.horizontal, 24)
                         
                         // Elegant Exam Cards
                         LazyVGrid(
                             columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: horizontalSizeClass == .regular ? 2 : 1),
                             spacing: 24
                         ) {
-                            ForEach(Array(filteredExams.enumerated()), id: \.element.id) { index, exam in
+                            ForEach(Array(examTopics.enumerated()), id: \.element.id) { index, exam in
                                 ExamCard(exam: exam)
                                     .scaleEffect(animateCards ? 1.0 : 0.9)
                                     .opacity(animateCards ? 1.0 : 0.0)
@@ -233,49 +250,6 @@ struct ÜbungsklausurenView: View {
 
 // MARK: - Supporting Views
 
-struct DifficultySelector: View {
-    @Binding var selectedDifficulty: ExamDifficulty
-    @ObservedObject private var settings = SettingsModel.shared
-    
-    var body: some View {
-        HStack(spacing: 8) {
-            ForEach(ExamDifficulty.allCases, id: \.self) { difficulty in
-                Button(action: {
-                    withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
-                        selectedDifficulty = difficulty
-                    }
-                }) {
-                    Text(difficulty.localizedName(language: settings.language))
-                        .font(.custom("SF Pro Display", size: 13))
-                        .fontWeight(.semibold)
-                        .foregroundColor(selectedDifficulty == difficulty ? .white : .secondary)
-                        .padding(.horizontal, 18)
-                        .padding(.vertical, 8)
-                        .background(
-                            Group {
-                                if selectedDifficulty == difficulty {
-                                    LinearGradient(
-                                        gradient: Gradient(colors: difficulty.colors),
-                                        startPoint: .leading,
-                                        endPoint: .trailing
-                                    )
-                                } else {
-                                    Color.gray.opacity(0.12)
-                                }
-                            }
-                        )
-                        .clipShape(Capsule())
-                        .shadow(
-                            color: selectedDifficulty == difficulty ? difficulty.colors.first!.opacity(0.3) : .clear,
-                            radius: selectedDifficulty == difficulty ? 6 : 0,
-                            x: 0,
-                            y: 3
-                        )
-                }
-            }
-        }
-    }
-}
 
 struct ExamCard: View {
     let exam: ExamTopic
@@ -283,167 +257,17 @@ struct ExamCard: View {
     @State private var isPressed = false
     
     var body: some View {
-        Group {
-            if exam.title == "Analysis I" {
-                NavigationLink(destination: 
-                    ExamDetailView(examFilename: settings.language == .english ? "analysis_1_beginner" : "analysis_1_anfaenger")
-                        .navigationBarTitleDisplayMode(.inline)
-                ) {
-                    examCardContent
-                }
-                .buttonStyle(PlainButtonStyle())
-                .simultaneousGesture(TapGesture().onEnded {
-                    // Haptic feedback when tapping the exam card
-                    let impactFeedback = UIImpactFeedbackGenerator(style: .light)
-                    impactFeedback.impactOccurred()
-                })
-            } else if exam.title == "Lineare Algebra I" {
-                NavigationLink(destination: 
-                    ExamDetailView(examFilename: settings.language == .english ? "linear_algebra_1_beginner" : "lineare_algebra_1_anfaenger")
-                        .navigationBarTitleDisplayMode(.inline)
-                ) {
-                    examCardContent
-                }
-                .buttonStyle(PlainButtonStyle())
-                .simultaneousGesture(TapGesture().onEnded {
-                    // Haptic feedback when tapping the exam card
-                    let impactFeedback = UIImpactFeedbackGenerator(style: .light)
-                    impactFeedback.impactOccurred()
-                })
-            } else if exam.title == "Mathematik I" && exam.difficulty == .beginner {
-                NavigationLink(destination: 
-                    ExamDetailView(examFilename: settings.language == .english ? "mathematics_1_beginner" : "mathematik_1_anfaenger")
-                        .navigationBarTitleDisplayMode(.inline)
-                ) {
-                    examCardContent
-                }
-                .buttonStyle(PlainButtonStyle())
-                .simultaneousGesture(TapGesture().onEnded {
-                    // Haptic feedback when tapping the exam card
-                    let impactFeedback = UIImpactFeedbackGenerator(style: .light)
-                    impactFeedback.impactOccurred()
-                })
-            } else if exam.title == "Mathematik I" && exam.difficulty == .intermediate {
-                NavigationLink(destination: 
-                    ExamDetailView(examFilename: settings.language == .english ? "mathematics_1_intermediate" : "mathematik_1_fortgeschritten")
-                        .navigationBarTitleDisplayMode(.inline)
-                ) {
-                    examCardContent
-                }
-                .buttonStyle(PlainButtonStyle())
-                .simultaneousGesture(TapGesture().onEnded {
-                    // Haptic feedback when tapping the exam card
-                    let impactFeedback = UIImpactFeedbackGenerator(style: .light)
-                    impactFeedback.impactOccurred()
-                })
-            } else if exam.title == "Mathematik I" && exam.difficulty == .advanced {
-                NavigationLink(destination: 
-                    ExamDetailView(examFilename: settings.language == .english ? "mathematics_1_advanced" : "mathematik_1_experte")
-                        .navigationBarTitleDisplayMode(.inline)
-                ) {
-                    examCardContent
-                }
-                .buttonStyle(PlainButtonStyle())
-                .simultaneousGesture(TapGesture().onEnded {
-                    // Haptic feedback when tapping the exam card
-                    let impactFeedback = UIImpactFeedbackGenerator(style: .light)
-                    impactFeedback.impactOccurred()
-                })
-            } else if exam.title == "Lineare Algebra" && exam.difficulty == .intermediate {
-                NavigationLink(destination: 
-                    ExamDetailView(examFilename: settings.language == .english ? "linear_algebra_intermediate" : "lineare_algebra_fortgeschritten")
-                        .navigationBarTitleDisplayMode(.inline)
-                ) {
-                    examCardContent
-                }
-                .buttonStyle(PlainButtonStyle())
-                .simultaneousGesture(TapGesture().onEnded {
-                    // Haptic feedback when tapping the exam card
-                    let impactFeedback = UIImpactFeedbackGenerator(style: .light)
-                    impactFeedback.impactOccurred()
-                })
-            } else if exam.title == "Lineare Algebra" && exam.difficulty == .advanced {
-                NavigationLink(destination: 
-                    ExamDetailView(examFilename: settings.language == .english ? "linear_algebra_advanced" : "lineare_algebra_experte")
-                        .navigationBarTitleDisplayMode(.inline)
-                ) {
-                    examCardContent
-                }
-                .buttonStyle(PlainButtonStyle())
-                .simultaneousGesture(TapGesture().onEnded {
-                    // Haptic feedback when tapping the exam card
-                    let impactFeedback = UIImpactFeedbackGenerator(style: .light)
-                    impactFeedback.impactOccurred()
-                })
-			} else if exam.title == "Analysis II" {
-				NavigationLink(destination:
-					ExamDetailView(examFilename: settings.language == .english ? "analysis_2_advanced" : "analysis_2_experte")
-						.navigationBarTitleDisplayMode(.inline)
-				) {
-					examCardContent
-				}
-				.buttonStyle(PlainButtonStyle())
-				.simultaneousGesture(TapGesture().onEnded {
-					let impactFeedback = UIImpactFeedbackGenerator(style: .light)
-					impactFeedback.impactOccurred()
-				})
-			} else if exam.title == "Differentialgleichungen" {
-				NavigationLink(destination:
-					ExamDetailView(examFilename: settings.language == .english ? "differential_equations_advanced" : "differentialgleichungen_experte")
-						.navigationBarTitleDisplayMode(.inline)
-				) {
-					examCardContent
-				}
-				.buttonStyle(PlainButtonStyle())
-				.simultaneousGesture(TapGesture().onEnded {
-					let impactFeedback = UIImpactFeedbackGenerator(style: .light)
-					impactFeedback.impactOccurred()
-				})
-			} else if exam.title == "Statistik" {
-				NavigationLink(destination:
-					ExamDetailView(examFilename: settings.language == .english ? "statistics_intermediate" : "statistik_fortgeschritten")
-						.navigationBarTitleDisplayMode(.inline)
-				) {
-					examCardContent
-				}
-				.buttonStyle(PlainButtonStyle())
-				.simultaneousGesture(TapGesture().onEnded {
-					let impactFeedback = UIImpactFeedbackGenerator(style: .light)
-					impactFeedback.impactOccurred()
-				})
-			} else if exam.title == "Numerische Mathematik" {
-				NavigationLink(destination:
-					ExamDetailView(examFilename: settings.language == .english ? "numerical_mathematics_advanced" : "numerische_mathematik_experte")
-						.navigationBarTitleDisplayMode(.inline)
-				) {
-					examCardContent
-				}
-				.buttonStyle(PlainButtonStyle())
-				.simultaneousGesture(TapGesture().onEnded {
-					let impactFeedback = UIImpactFeedbackGenerator(style: .light)
-					impactFeedback.impactOccurred()
-				})
-			} else if exam.title == "Statistik" && exam.difficulty == .beginner {
-				NavigationLink(destination:
-					ExamDetailView(examFilename: settings.language == .english ? "statistics_beginner" : "statistik_anfaenger")
-						.navigationBarTitleDisplayMode(.inline)
-				) {
-					examCardContent
-				}
-				.buttonStyle(PlainButtonStyle())
-				.simultaneousGesture(TapGesture().onEnded {
-					let impactFeedback = UIImpactFeedbackGenerator(style: .light)
-					impactFeedback.impactOccurred()
-				})
-            } else {
-                Button(action: {
-                    // Action for starting exam
-                    print("Starting exam: \(exam.title)")
-                }) {
-                    examCardContent
-                }
-            }
+        NavigationLink(destination: 
+            ExamDetailView(examFilename: settings.language == .english ? convertToEnglishFilename(exam.examFilename) : exam.examFilename)
+                .navigationBarTitleDisplayMode(.inline)
+        ) {
+            examCardContent
         }
+        .buttonStyle(PlainButtonStyle())
+        .simultaneousGesture(TapGesture().onEnded {
+            let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+            impactFeedback.impactOccurred()
+        })
     }
     
     private var examCardContent: some View {
@@ -472,31 +296,16 @@ struct ExamCard: View {
                 
                 Spacer()
                 
-                // Refined difficulty badge
-                Text(exam.difficulty.localizedName(language: settings.language))
-                    .font(.custom("SF Pro Display", size: 11))
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 4)
-                    .background(
-                        LinearGradient(
-                            gradient: Gradient(colors: exam.difficulty.colors),
-                            startPoint: .leading,
-                            endPoint: .trailing
-                        )
-                    )
-                    .clipShape(Capsule())
             }
             
             // Title and subtitle
             VStack(alignment: .leading, spacing: 6) {
-                Text(exam.title)
+                Text(exam.localizedTitle(language: settings.language))
                     .font(.custom("SF Pro Display", size: 18))
                     .fontWeight(.bold)
                     .foregroundColor(.primary)
                 
-                Text(exam.subtitle)
+                Text(exam.localizedSubtitle(language: settings.language))
                     .font(.custom("SF Pro Display", size: 13))
                     .fontWeight(.medium)
                     .foregroundColor(.secondary)
@@ -566,37 +375,53 @@ struct StatItem: View {
 struct ExamTopic: Identifiable {
     let id = UUID()
     let title: String
+    let titleEnglish: String
     let subtitle: String
-    let difficulty: ExamDifficulty
+    let subtitleEnglish: String
     let duration: Int // in minutes
     let questions: Int
     let icon: String
     let color: Color
-}
-
-enum ExamDifficulty: CaseIterable {
-    case beginner, intermediate, advanced
+    let examFilename: String
     
-    func localizedName(language: AppLanguage) -> String {
-        switch self {
-        case .beginner:
-            return language == .english ? "Beginner" : "Anfänger"
-        case .intermediate:
-            return language == .english ? "Intermediate" : "Fortgeschritten"
-        case .advanced:
-            return language == .english ? "Advanced" : "Experte"
-        }
+    func localizedTitle(language: AppLanguage) -> String {
+        return language == .english ? titleEnglish : title
     }
     
-    var colors: [Color] {
-        switch self {
-        case .beginner:
-            return [Color(red: 0.0, green: 0.7, blue: 0.4), Color(red: 0.2, green: 0.5, blue: 0.9)]
-        case .intermediate:
-            return [Color(red: 0.9, green: 0.4, blue: 0.1), Color(red: 0.8, green: 0.2, blue: 0.4)]
-        case .advanced:
-            return [Color(red: 0.6, green: 0.3, blue: 0.8), Color(red: 0.8, green: 0.2, blue: 0.6)]
-        }
+    func localizedSubtitle(language: AppLanguage) -> String {
+        return language == .english ? subtitleEnglish : subtitle
+    }
+}
+
+// Helper function to convert German filename to English
+private func convertToEnglishFilename(_ germanFilename: String) -> String {
+    switch germanFilename {
+    case "analysis_1_anfaenger":
+        return "analysis_1_beginner"
+    case "lineare_algebra_1_anfaenger":
+        return "linear_algebra_1_beginner"
+    case "mathematik_1_anfaenger":
+        return "mathematics_1_beginner"
+    case "statistik_anfaenger":
+        return "statistics_beginner"
+    case "mathematik_1_fortgeschritten":
+        return "mathematics_1_intermediate"
+    case "lineare_algebra_fortgeschritten":
+        return "linear_algebra_intermediate"
+    case "mathematik_1_experte":
+        return "mathematics_1_advanced"
+    case "lineare_algebra_experte":
+        return "linear_algebra_advanced"
+    case "analysis_2_experte":
+        return "analysis_2_advanced"
+    case "differentialgleichungen_experte":
+        return "differential_equations_advanced"
+    case "statistik_fortgeschritten":
+        return "statistics_intermediate"
+    case "numerische_mathematik_experte":
+        return "numerical_mathematics_advanced"
+    default:
+        return germanFilename // fallback to original
     }
 }
 
