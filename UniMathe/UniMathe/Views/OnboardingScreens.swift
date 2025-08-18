@@ -1245,26 +1245,6 @@ struct MonthlyUpdatesOnboardingView: View {
                         }
                         .padding(.horizontal, geometry.size.width < 400 ? 16 : 24)
                         
-                        // Call-to-Action Section
-                        VStack(spacing: geometry.size.height < 700 ? 16 : 20) {
-                            Text(settings.language == .german ? 
-                                 "🚀 Premium freischalten" :
-                                 "🚀 Unlock Premium")
-                                .font(.system(size: geometry.size.height < 700 ? 20 : 24, weight: .bold))
-                                .foregroundColor(.primary)
-                                .opacity(animateContent ? 1 : 0)
-                                .animation(.easeOut(duration: 0.8).delay(1.2), value: animateContent)
-                            
-                            Text(settings.language == .german ? 
-                                 "Erhalten Sie sofortigen Zugang zu allen Premium-Inhalten und monatlichen Updates" :
-                                 "Get instant access to all premium content and monthly updates")
-                                .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium))
-                                .foregroundColor(.secondary)
-                                .multilineTextAlignment(.center)
-                                .opacity(animateContent ? 1 : 0)
-                                .animation(.easeOut(duration: 0.8).delay(1.4), value: animateContent)
-                        }
-                        .padding(.horizontal, geometry.size.width < 400 ? 20 : 32)
                         
                         Spacer(minLength: geometry.size.height < 700 ? 80 : 100)
                     }

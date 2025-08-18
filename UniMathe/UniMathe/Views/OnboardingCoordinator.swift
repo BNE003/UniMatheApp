@@ -139,26 +139,13 @@ struct EnhancedLanguageSelectionView: View {
             VStack(spacing: 60) {
                 // Enhanced Header with app branding
                 VStack(spacing: 20) {
-                    // App logo placeholder with animation
-                    ZStack {
-                        Circle()
-                            .fill(
-                                LinearGradient(
-                                    colors: [.blue, .purple],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                )
-                            )
-                            .frame(width: 100, height: 100)
-                            .scaleEffect(showWelcome ? 1.0 : 0.3)
-                            .animation(.spring(response: 1.0, dampingFraction: 0.6).delay(0.2), value: showWelcome)
-                        
-                        Image(systemName: "function")
-                            .font(.system(size: 40, weight: .light))
-                            .foregroundColor(.white)
-                            .scaleEffect(showWelcome ? 1.0 : 0.3)
-                            .animation(.spring(response: 1.2, dampingFraction: 0.6).delay(0.4), value: showWelcome)
-                    }
+                    // App logo with animation
+                    Image("logo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 100, height: 100)
+                        .scaleEffect(showWelcome ? 1.0 : 0.3)
+                        .animation(.spring(response: 1.2, dampingFraction: 0.6).delay(0.4), value: showWelcome)
                     
                     VStack(spacing: 12) {
                         Text("UniMathe")
