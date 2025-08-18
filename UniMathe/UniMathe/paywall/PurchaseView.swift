@@ -93,7 +93,7 @@ struct PurchaseView: View {
             }
             
         }
-        return 90
+        return 65
     }
     
     var body: some View {
@@ -177,7 +177,7 @@ struct PurchaseView: View {
                     Image("logo")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(height: 150, alignment: .center)
+                        .frame(height: 100, alignment: .center)
                         .scaleEffect(shakeZoom)
                         .rotationEffect(.degrees(shakeDegrees))
                         .onAppear {
@@ -187,15 +187,29 @@ struct PurchaseView: View {
                         }
                 }
                 
-                VStack (spacing: 10) {
-                                    Text(settings.language == .english ? "Unlock Premium Access" : "Premium Zugang freischalten")
-                    .font(.system(size: 30, weight: .semibold))
-                    .multilineTextAlignment(.center)
+                VStack (spacing: 20) {
+                    Text(settings.language == .english ? "Unlock Premium Access" : "Premium freischalten")
+                        .font(.system(size: 40, weight: .bold, design: .rounded))
+                        .foregroundStyle(
+                            LinearGradient(
+                                gradient: Gradient(stops: [
+                                    .init(color: Color.primary, location: 0.0),
+                                    .init(color: Color.primary.opacity(0.8), location: 0.5),
+                                    .init(color: Color(red: 0.4, green: 0.6, blue: 1.0).opacity(0.7), location: 1.0)
+                                ]),
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                        .multilineTextAlignment(.center)
+                        .lineLimit(2)
+                        .minimumScaleFactor(0.8)
                     VStack (alignment: .leading) {
                         PurchaseFeatureView(title: settings.language == .english ? "Unlock all interactive lessons" : "Alle interaktiven Lektionen freischalten", icon: "checkmark.circle.fill", color: color)
                         PurchaseFeatureView(title: settings.language == .english ? "Full access to over 300 exercises" : "Vollen Zugriff auf über 300 Aufgaben", icon: "books.vertical.fill", color: color)
                         PurchaseFeatureView(title: settings.language == .english ? "Detailed solution steps" : "Detaillierte Lösungsschritte", icon: "list.bullet.rectangle.fill", color: color)
-                        PurchaseFeatureView(title: settings.language == .english ? "Practice exam simulations" : "Klausur-Simulationen üben", icon: "doc.text.fill", color: color)
+                        PurchaseFeatureView(title: settings.language == .english ? "Access to all exams" : "Zugang zu allen Klausuren", icon: "doc.text.fill", color: color)
+                        PurchaseFeatureView(title: settings.language == .english ? "Monthly new exams" : "Monatlich neue Klausuren", icon: "calendar.circle.fill", color: color)
                     }
                     .font(.system(size: 19))
                     .padding(.top)
@@ -203,115 +217,213 @@ struct PurchaseView: View {
                 
                 Spacer()
                 
-                VStack (spacing: 20) {
-                    VStack (spacing: 10) {
+                VStack (spacing: 24) {
+                    VStack (spacing: 16) {
                         
                         let productDetails = purchaseModel.isFetchingProducts ? placeholderProductDetails : purchaseModel.productDetails
                         
                         ForEach(productDetails) { productDetails in
                             
                             Button(action: {
-                                withAnimation {
+                                withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
                                     selectedProductId = productDetails.productId
                                 }
                                 self.freeTrial = productDetails.hasTrial
                             }) {
-                                VStack {
-                                    HStack {
-                                        VStack(alignment: .leading) {
+                                VStack(spacing: 0) {
+                                    HStack(spacing: 16) {
+                                        VStack(alignment: .leading, spacing: 6) {
                                             Text(productDetails.durationPlanName)
-                                                .font(.headline.bold())
+                                                .font(.system(size: 20, weight: .bold))
+                                                .foregroundColor(.primary)
+                                            
                                             if productDetails.hasTrial {
-                                                Text("then "+productDetails.price+" per "+productDetails.duration)
-                                                    .opacity(0.8)
+                                                let germanDuration: String = {
+                                                    switch productDetails.duration {
+                                                    case "month": return "Monat"
+                                                    case "year": return "Jahr"
+                                                    case "week": return "Woche"
+                                                    default: return productDetails.duration
+                                                    }
+                                                }()
+                                                
+                                                let trialText = settings.language == .english ? 
+                                                    "then \(productDetails.price) per \(productDetails.duration)" :
+                                                    "dann \(productDetails.price) pro \(germanDuration)"
+                                                
+                                                Text(trialText)
+                                                    .font(.system(size: 15, weight: .medium))
+                                                    .foregroundColor(.secondary)
                                             }
                                             else {
-                                                HStack (spacing: 0) {
-                                                    if let calculateFullPrice = calculateFullPrice, //round down
+                                                HStack(spacing: 4) {
+                                                    if let calculateFullPrice = calculateFullPrice,
                                                        let calculateFullPriceLocalCurrency = toLocalCurrencyString(calculateFullPrice),
                                                        calculateFullPrice > 0
                                                     {
-                                                        //shows the full price based on weekly calculaation
-                                                        Text("\(calculateFullPriceLocalCurrency) ")
+                                                        Text("\(calculateFullPriceLocalCurrency)")
+                                                            .font(.system(size: 14, weight: .medium))
                                                             .strikethrough()
-                                                            .opacity(0.4)
-                                                        
+                                                            .foregroundColor(.secondary.opacity(0.6))
                                                     }
-                                                    Text(" " + productDetails.price + " per " + productDetails.duration)
+                                                    
+                                                    let germanDuration: String = {
+                                                        switch productDetails.duration {
+                                                        case "month": return "Monat"
+                                                        case "year": return "Jahr"
+                                                        case "week": return "Woche"
+                                                        default: return productDetails.duration
+                                                        }
+                                                    }()
+                                                    
+                                                    let priceText = settings.language == .english ? 
+                                                        "\(productDetails.price) per \(productDetails.duration)" :
+                                                        "\(productDetails.price) pro \(germanDuration)"
+                                                    
+                                                    Text(priceText)
+                                                        .font(.system(size: 15, weight: .medium))
+                                                        .foregroundColor(.secondary)
                                                 }
-                                                .opacity(0.8)
                                             }
                                         }
+                                        
                                         Spacer()
-                                        if productDetails.hasTrial {
-                                            //removed: Some apps were being rejected with this caption present:
-                                            /*Text("FREE")
-                                                .font(.title2.bold())*/
-                                        }
-                                        else {
-                                            VStack {
-                                                Text("SAVE \(calculatePercentageSaved)%")
-                                                    .font(.caption.bold())
-                                                    .foregroundColor(.white)
-                                                    .padding(8)
-                                            }
-                                            .background(Color.red)
-                                            .cornerRadius(6)
+                                        
+                                        if !productDetails.hasTrial {
+                                            Text("SAVE \(calculatePercentageSaved)%")
+                                                .font(.system(size: 12, weight: .bold))
+                                                .foregroundColor(.white)
+                                                .padding(.horizontal, 12)
+                                                .padding(.vertical, 6)
+                                                .background(
+                                                    LinearGradient(
+                                                        gradient: Gradient(colors: [Color.orange, Color.red]),
+                                                        startPoint: .leading,
+                                                        endPoint: .trailing
+                                                    )
+                                                )
+                                                .cornerRadius(12)
                                         }
                                         
                                         ZStack {
-                                            Image(systemName: (selectedProductId == productDetails.productId) ? "circle.fill" : "circle")
-                                                .foregroundColor((selectedProductId == productDetails.productId) ? color : Color.primary.opacity(0.15))
+                                            Circle()
+                                                .fill(
+                                                    selectedProductId == productDetails.productId ?
+                                                    LinearGradient(
+                                                        gradient: Gradient(stops: [
+                                                            .init(color: Color(red: 0.4, green: 0.6, blue: 1.0), location: 0.0),
+                                                            .init(color: Color(red: 0.7, green: 0.3, blue: 0.9), location: 1.0)
+                                                        ]),
+                                                        startPoint: .topLeading,
+                                                        endPoint: .bottomTrailing
+                                                    ) :
+                                                    LinearGradient(
+                                                        gradient: Gradient(colors: [Color.clear]),
+                                                        startPoint: .topLeading,
+                                                        endPoint: .bottomTrailing
+                                                    )
+                                                )
+                                                .frame(width: 24, height: 24)
+                                            
+                                            Circle()
+                                                .stroke(
+                                                    selectedProductId == productDetails.productId ?
+                                                    Color.clear :
+                                                    Color.primary.opacity(0.3),
+                                                    lineWidth: 2
+                                                )
+                                                .frame(width: 24, height: 24)
                                             
                                             if selectedProductId == productDetails.productId {
                                                 Image(systemName: "checkmark")
-                                                    .foregroundColor(Color.white)
-                                                    .scaleEffect(0.7)
+                                                    .font(.system(size: 12, weight: .bold))
+                                                    .foregroundColor(.white)
                                             }
                                         }
-                                        .font(.title3.bold())
-                                        
                                     }
-                                    .padding(.horizontal)
-                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 20)
+                                    .padding(.vertical, 18)
                                 }
-                                //.background(Color(.systemGray4))
-                                .cornerRadius(6)
-                                .overlay(
+                                .background(
                                     ZStack {
-                                        RoundedRectangle(cornerRadius: 6)
-                                            .stroke((selectedProductId == productDetails.productId) ? color : Color.primary.opacity(0.15), lineWidth: 1) // Border color and width
-                                        RoundedRectangle(cornerRadius: 6)
-                                            .foregroundColor((selectedProductId == productDetails.productId) ? color.opacity(0.05) : Color.primary.opacity(0.001))
+                                        RoundedRectangle(cornerRadius: 16)
+                                            .fill(.ultraThinMaterial)
+                                        
+                                        if selectedProductId == productDetails.productId {
+                                            RoundedRectangle(cornerRadius: 16)
+                                                .stroke(
+                                                    LinearGradient(
+                                                        gradient: Gradient(stops: [
+                                                            .init(color: Color(red: 0.4, green: 0.6, blue: 1.0).opacity(0.6), location: 0.0),
+                                                            .init(color: Color(red: 0.7, green: 0.3, blue: 0.9).opacity(0.5), location: 1.0)
+                                                        ]),
+                                                        startPoint: .topLeading,
+                                                        endPoint: .bottomTrailing
+                                                    ),
+                                                    lineWidth: 2
+                                                )
+                                            
+                                            RoundedRectangle(cornerRadius: 16)
+                                                .fill(
+                                                    LinearGradient(
+                                                        gradient: Gradient(stops: [
+                                                            .init(color: Color(red: 0.4, green: 0.6, blue: 1.0).opacity(0.05), location: 0.0),
+                                                            .init(color: Color(red: 0.7, green: 0.3, blue: 0.9).opacity(0.03), location: 1.0)
+                                                        ]),
+                                                        startPoint: .topLeading,
+                                                        endPoint: .bottomTrailing
+                                                    )
+                                                )
+                                        } else {
+                                            RoundedRectangle(cornerRadius: 16)
+                                                .stroke(Color.primary.opacity(0.1), lineWidth: 1)
+                                        }
                                     }
                                 )
+                                .shadow(
+                                    color: selectedProductId == productDetails.productId ? 
+                                    Color.blue.opacity(0.2) : Color.black.opacity(0.05),
+                                    radius: selectedProductId == productDetails.productId ? 10 : 5,
+                                    x: 0,
+                                    y: selectedProductId == productDetails.productId ? 5 : 3
+                                )
+                                .scaleEffect(selectedProductId == productDetails.productId ? 1.02 : 1.0)
+                                .animation(.spring(response: 0.4, dampingFraction: 0.8), value: selectedProductId)
                             }
-                            .accentColor(Color.primary)
+                            .buttonStyle(PlainButtonStyle())
                             
                         }
                         
                         HStack {
                             Toggle(isOn: $freeTrial) {
-                                Text(settings.language == .english ? "Free Trial Enabled" : "Kostenloser Test aktiviert")
-                                    .font(.headline.bold())
+                                Text(settings.language == .english ? "Free Trial Enabled" : "Kostenlosen Test aktivieren")
+                                    .font(.system(size: 18, weight: .bold))
+                                    .foregroundColor(.primary)
                             }
-                            .padding(.horizontal)
-                            .padding(.vertical, 10)
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 16)
                             .onChange(of: freeTrial) { freeTrial in
                                 if !freeTrial, let firstProductId = self.purchaseModel.productIds.first {
-                                    withAnimation {
+                                    withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
                                         self.selectedProductId = String(firstProductId)
                                     }
                                 }
                                 else if freeTrial, let lastProductId = self.purchaseModel.productIds.last {
-                                    withAnimation {
+                                    withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
                                         self.selectedProductId = lastProductId
                                     }
                                 }
                             }
                         }
-                        .background(Color.primary.opacity(0.05))
-                        .cornerRadius(6)
+                        .background(
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 16)
+                                    .fill(.ultraThinMaterial)
+                                RoundedRectangle(cornerRadius: 16)
+                                    .stroke(Color.primary.opacity(0.1), lineWidth: 1)
+                            }
+                        )
+                        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
                         
                     }
                     .opacity(purchaseModel.isFetchingProducts ? 0 : 1)
