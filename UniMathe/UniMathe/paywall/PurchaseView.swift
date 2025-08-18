@@ -527,7 +527,7 @@ struct PurchaseView: View {
                                         }
                                     }),
                                     .default(Text(settings.language == .english ? "Privacy Policy" : "Datenschutzerklärung"), action: {
-                                        if let url = URL(string: "https://example.com") {
+                                        if let url = URL(string: "https://sites.google.com/view/hoehere-mathematik/startseite") {
                                             UIApplication.shared.open(url)
                                         }
                                     }),
