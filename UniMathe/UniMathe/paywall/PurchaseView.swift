@@ -522,7 +522,7 @@ struct PurchaseView: View {
                                 message: nil,
                                 buttons: [
                                     .default(Text(settings.language == .english ? "Terms of Use" : "Nutzungsbedingungen"), action: {
-                                        if let url = URL(string: "https://example.com") {
+                                        if let url = URL(string: "https://sites.google.com/view/hoehere-mathematik-agb/startseite") {
                                             UIApplication.shared.open(url)
                                         }
                                     }),
