@@ -1,13 +1,14 @@
 import SwiftUI
+import VoteFlow
 
 struct MainTabView: View {
     @ObservedObject private var settings = SettingsModel.shared
     @ObservedObject private var tabBarManager = TabBarManager.shared
-    
+
     init() {
         setupTabBarAppearance()
     }
-    
+
     var body: some View {
         TabView {
             ContentView()
@@ -16,14 +17,22 @@ struct MainTabView: View {
                     Text(settings.language == .english ? "Home" : "Start")
                 }
                 .tag(0)
-            
+
             ÜbungsklausurenView()
                 .tabItem {
                     Image(systemName: "doc.text.below.ecg")
                     Text(settings.language == .english ? "Exams" : "Klausuren")
                 }
                 .tag(1)
-            
+
+            //insert code here
+            FeatureFlowView(appId: "unimathe-uk02y2")
+                .tabItem {
+                    Image(systemName: "lightbulb.fill")
+                    Text("Feedback")
+                }
+                .tag(2)
+
             NavigationView {
                 SettingsView()
             }
@@ -31,7 +40,7 @@ struct MainTabView: View {
                 Image(systemName: "gear.circle.fill")
                 Text(settings.language == .english ? "Settings" : "Einstellungen")
             }
-            .tag(2)
+            .tag(3)
         }
         .toolbar(tabBarManager.isVisible ? .visible : .hidden, for: .tabBar)
         .onAppear {
