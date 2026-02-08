@@ -23,6 +23,13 @@ struct MainTabView: View {
                     Text(settings.language == .english ? "Exams" : "Klausuren")
                 }
                 .tag(1)
+
+            MatrixCalculatorView()
+                .tabItem {
+                    Image(systemName: "square.grid.3x3.fill")
+                    Text(settings.language == .english ? "Tools" : "Rechner")
+                }
+                .tag(2)
             
             NavigationView {
                 SettingsView()
@@ -31,7 +38,7 @@ struct MainTabView: View {
                 Image(systemName: "gear.circle.fill")
                 Text(settings.language == .english ? "Settings" : "Einstellungen")
             }
-            .tag(2)
+            .tag(3)
         }
         .toolbar(tabBarManager.isVisible ? .visible : .hidden, for: .tabBar)
         .onAppear {
