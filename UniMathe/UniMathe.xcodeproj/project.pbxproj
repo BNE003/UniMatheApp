@@ -14,8 +14,6 @@
 		A76069632DC42C48000E1DB6 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = A76069622DC42C48000E1DB6 /* Storage */; };
 		A76069652DC42C62000E1DB6 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = A76069642DC42C62000E1DB6 /* Supabase */; };
 		A785ED1E2DD3F81D00BD9EE6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A785ED1D2DD3F81D00BD9EE6 /* StoreKit.framework */; };
-		A7A0E8042EAC1C4500F04396 /* RevenueFlow in Frameworks */ = {isa = PBXBuildFile; productRef = A7A0E8032EAC1C4500F04396 /* RevenueFlow */; };
-		A7F579FC2E99C4B00097F0A5 /* VoteFlow in Frameworks */ = {isa = PBXBuildFile; productRef = A7F579FB2E99C4B00097F0A5 /* VoteFlow */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,14 +63,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7A0E8042EAC1C4500F04396 /* RevenueFlow in Frameworks */,
 				A760695F2DC42C48000E1DB6 /* PostgREST in Frameworks */,
 				A785ED1E2DD3F81D00BD9EE6 /* StoreKit.framework in Frameworks */,
 				A760695D2DC42C48000E1DB6 /* Functions in Frameworks */,
 				A76069652DC42C62000E1DB6 /* Supabase in Frameworks */,
 				A760695B2DC42C48000E1DB6 /* Auth in Frameworks */,
 				A76069632DC42C48000E1DB6 /* Storage in Frameworks */,
-				A7F579FC2E99C4B00097F0A5 /* VoteFlow in Frameworks */,
 				A76069612DC42C48000E1DB6 /* Realtime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,8 +145,6 @@
 				A76069602DC42C48000E1DB6 /* Realtime */,
 				A76069622DC42C48000E1DB6 /* Storage */,
 				A76069642DC42C62000E1DB6 /* Supabase */,
-				A7F579FB2E99C4B00097F0A5 /* VoteFlow */,
-				A7A0E8032EAC1C4500F04396 /* RevenueFlow */,
 			);
 			productName = UniMathe;
 			productReference = A747ED832DBA6838007744BD /* UniMathe.app */;
@@ -236,8 +230,6 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				A76069592DC42C48000E1DB6 /* XCRemoteSwiftPackageReference "supabase-swift" */,
-				A7F579FA2E99C4B00097F0A5 /* XCRemoteSwiftPackageReference "VoteFlow" */,
-				A7A0E8022EAC1C4500F04396 /* XCLocalSwiftPackageReference "../../../../Documents/dev/RevenueFlow-SDK/RevenueFlow" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A747ED842DBA6838007744BD /* Products */;
@@ -601,13 +593,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		A7A0E8022EAC1C4500F04396 /* XCLocalSwiftPackageReference "../../../../Documents/dev/RevenueFlow-SDK/RevenueFlow" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../../Documents/dev/RevenueFlow-SDK/RevenueFlow";
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
 		A76069592DC42C48000E1DB6 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -615,14 +600,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.5.1;
-			};
-		};
-		A7F579FA2E99C4B00097F0A5 /* XCRemoteSwiftPackageReference "VoteFlow" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/BNE003/VoteFlow";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -657,15 +634,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A76069592DC42C48000E1DB6 /* XCRemoteSwiftPackageReference "supabase-swift" */;
 			productName = Supabase;
-		};
-		A7A0E8032EAC1C4500F04396 /* RevenueFlow */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RevenueFlow;
-		};
-		A7F579FB2E99C4B00097F0A5 /* VoteFlow */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A7F579FA2E99C4B00097F0A5 /* XCRemoteSwiftPackageReference "VoteFlow" */;
-			productName = VoteFlow;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

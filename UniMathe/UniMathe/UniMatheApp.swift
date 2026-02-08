@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import RevenueFlow
 
 @main
 struct UniMatheApp: App {
@@ -17,7 +16,6 @@ struct UniMatheApp: App {
     init() {
         // Track app launch for rating prompt
         settings.trackAppLaunch()
-        RevenueFlow.shared.configure(appId: "app_c3a0179f636c39ccb497f552038f8c28", debugMode: true)
     }
     
     var body: some Scene {
