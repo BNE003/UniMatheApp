@@ -631,7 +631,7 @@ struct ExercisesView: View {
                 }
             } else if let selectedDifficulty = selectedDifficulty {
                 ScrollView {
-                    VStack(spacing: 20) {
+                    LazyVStack(spacing: 20) {
                         if !storeManager.purchasedProductIDs.isEmpty {
                             // PRO: Alle Übungen sichtbar
                             ForEach(filteredExercises) { exercise in
@@ -642,29 +642,25 @@ struct ExercisesView: View {
                             ForEach(freeExercises) { exercise in
                                 ExerciseCard(exercise: exercise, isFreeExercise: true)
                             }
-                            if !proExercises.isEmpty {
-                                VStack(spacing: 16) {
-                                    ForEach(proExercises) { exercise in
-                                        ZStack {
-                                            ExerciseCard(exercise: exercise, isFreeExercise: false)
-                                                .blur(radius: 3)
-                                                .allowsHitTesting(false)
-                                            VStack {
-                                                Image(systemName: "lock.fill")
-                                                    .font(.system(size: 30))
-                                                    .foregroundColor(.blue)
-                                                Text(SettingsModel.shared.language == .english ? "Unlock Pro" : "Pro freischalten")
-                                                    .font(.headline)
-                                                    .foregroundColor(.blue)
-                                            }
-                                            .padding()
-                                            .background(Color.white.opacity(0.9))
-                                            .cornerRadius(12)
-                                        }
-                                        .onTapGesture {
-                                            showProSheet = true
-                                        }
+                            ForEach(proExercises) { exercise in
+                                ZStack {
+                                    ExerciseCard(exercise: exercise, isFreeExercise: false)
+                                        .blur(radius: 3)
+                                        .allowsHitTesting(false)
+                                    VStack {
+                                        Image(systemName: "lock.fill")
+                                            .font(.system(size: 30))
+                                            .foregroundColor(.blue)
+                                        Text(SettingsModel.shared.language == .english ? "Unlock Pro" : "Pro freischalten")
+                                            .font(.headline)
+                                            .foregroundColor(.blue)
                                     }
+                                    .padding()
+                                    .background(Color.white.opacity(0.9))
+                                    .cornerRadius(12)
+                                }
+                                .onTapGesture {
+                                    showProSheet = true
                                 }
                             }
                         }

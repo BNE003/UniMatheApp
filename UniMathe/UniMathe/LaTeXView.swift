@@ -4,22 +4,29 @@ import WebKit
 struct LaTeXView: UIViewRepresentable {
     let content: String
     @Binding var height: CGFloat
+
+    private static let sharedProcessPool = WKProcessPool()
+    private static func makeConfiguration(coordinator: Coordinator) -> WKWebViewConfiguration {
+        let config = WKWebViewConfiguration()
+        config.processPool = sharedProcessPool
+        config.websiteDataStore = .default()
+        config.userContentController = WKUserContentController()
+        config.userContentController.add(coordinator, name: "sizeHandler")
+        return config
+    }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
     
     func makeUIView(context: Context) -> WKWebView {
-        let webView = WKWebView()
+        let webView = WKWebView(frame: .zero, configuration: Self.makeConfiguration(coordinator: context.coordinator))
         webView.isOpaque = false
         webView.backgroundColor = .clear
         webView.navigationDelegate = context.coordinator
         // Allow horizontal scrolling inside overflow elements; prevent rubber-banding
         webView.scrollView.isScrollEnabled = true
         webView.scrollView.bounces = false
-        
-        // Add message handler for size updates
-        webView.configuration.userContentController.add(context.coordinator, name: "sizeHandler")
         
         return webView
     }
@@ -33,14 +40,24 @@ struct LaTeXView: UIViewRepresentable {
             return
         }
 
+        let mathJaxBundleURL = Bundle.main.url(forResource: "MathJax", withExtension: "bundle")
+        let resourceBaseURL = mathJaxBundleURL ?? Bundle.main.resourceURL
+        let mathJaxSrc: String
+        let polyfillSrc: String
+        if mathJaxBundleURL != nil {
+            mathJaxSrc = "es5/tex-mml-chtml.js"
+            polyfillSrc = "polyfill.min.js"
+        } else {
+            mathJaxSrc = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+            polyfillSrc = "https://polyfill.io/v3/polyfill.min.js?features=es6"
+        }
+
         let html = """
         <!DOCTYPE html>
         <html>
         <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-            <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-            <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
             <script>
                 MathJax = {
                     tex: {
@@ -67,6 +84,8 @@ struct LaTeXView: UIViewRepresentable {
                     }
                 };
             </script>
+            <script src="\(polyfillSrc)"></script>
+            <script id="MathJax-script" defer src="\(mathJaxSrc)"></script>
             <script>
                 let lastHeight = { value: null };
                 function postContentHeight() {
@@ -265,7 +284,7 @@ struct LaTeXView: UIViewRepresentable {
         </html>
         """
         context.coordinator.lastContent = content
-        uiView.loadHTMLString(html, baseURL: nil)
+        uiView.loadHTMLString(html, baseURL: resourceBaseURL)
     }
     
     class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
