@@ -889,6 +889,217 @@ struct ExercisesOnboardingView: View {
     }
 }
 
+// MARK: - Matrix Methods Onboarding Screen
+struct MatrixMethodsOnboardingView: View {
+    @ObservedObject private var settings = SettingsModel.shared
+    @State private var animateElements = false
+    
+    private var methods: [MatrixMethod] {
+        if settings.language == .german {
+            return [
+                MatrixMethod(
+                    title: "Gauss-Verfahren",
+                    subtitle: "Schrittweise Lösung",
+                    color: Color.blue,
+                    icon: "square.grid.3x3.fill",
+                    accent: "arrow.triangle.2.circlepath"
+                ),
+                MatrixMethod(
+                    title: "Determinante",
+                    subtitle: "Schnell berechnen",
+                    color: Color.orange,
+                    icon: "pause",
+                    accent: "bolt.fill"
+                ),
+                MatrixMethod(
+                    title: "Matrixprodukt",
+                    subtitle: "Produkt schnell berechnen",
+                    color: Color.purple,
+                    icon: "multiply.circle.fill",
+                    accent: "sparkles"
+                )
+            ]
+        }
+        
+        return [
+            MatrixMethod(
+                title: "Gaussian Elimination",
+                subtitle: "Step-by-step solution",
+                color: Color.blue,
+                icon: "square.grid.3x3.fill",
+                accent: "arrow.triangle.2.circlepath"
+            ),
+            MatrixMethod(
+                title: "Determinant",
+                subtitle: "Compute quickly",
+                color: Color.orange,
+                icon: "pause",
+                accent: "bolt.fill"
+            ),
+            MatrixMethod(
+                title: "Matrix Product",
+                subtitle: "Compute product fast",
+                color: Color.purple,
+                icon: "multiply.circle.fill",
+                accent: "sparkles"
+            )
+        ]
+    }
+    
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                AnimatedBackground()
+                
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(spacing: geometry.size.height < 700 ? 18 : 24) {
+                        headerSection(geometry: geometry)
+                        
+                        ForEach(Array(methods.enumerated()), id: \.offset) { index, method in
+                            let direction: CGFloat = index % 2 == 0 ? -1 : 1
+                            MatrixMethodCard(
+                                method: method,
+                                isCompact: geometry.size.height < 700,
+                                animate: animateElements,
+                                delay: Double(index) * 0.18,
+                                entryDirection: direction
+                            )
+                        }
+                        
+                        calculatorNote(geometry: geometry)
+                        
+                        Spacer(minLength: geometry.size.height < 700 ? 90 : 110)
+                    }
+                    .padding(.horizontal, geometry.size.width < 400 ? 16 : 24)
+                    .padding(.top, geometry.size.height < 700 ? 10 : 20)
+                }
+            }
+        }
+        .onAppear {
+            withAnimation(.spring(response: 0.8, dampingFraction: 0.8)) {
+                animateElements = true
+            }
+        }
+    }
+    
+    private func headerSection(geometry: GeometryProxy) -> some View {
+        VStack(spacing: geometry.size.height < 700 ? 10 : 14) {
+            ZStack {
+                Circle()
+                    .fill(
+                        LinearGradient(
+                            colors: [.teal.opacity(0.9), .blue.opacity(0.8)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .frame(width: geometry.size.height < 700 ? 52 : 64,
+                           height: geometry.size.height < 700 ? 52 : 64)
+                    .shadow(color: Color.teal.opacity(0.25), radius: 12, x: 0, y: 8)
+                
+                Image(systemName: "tablecells.fill")
+                    .font(.system(size: geometry.size.height < 700 ? 22 : 28, weight: .medium))
+                    .foregroundColor(.white)
+            }
+            .scaleEffect(animateElements ? 1.0 : 0.6)
+            .opacity(animateElements ? 1 : 0)
+            .animation(.spring(response: 0.9, dampingFraction: 0.7), value: animateElements)
+            
+            VStack(spacing: geometry.size.height < 700 ? 4 : 8) {
+                Text(settings.language == .german ? "Matrixrechner" : "Matrix calculators")
+                    .font(.system(size: geometry.size.height < 700 ? 22 : 28, weight: .bold, design: .rounded))
+                    .multilineTextAlignment(.center)
+                    .opacity(animateElements ? 1 : 0)
+                    .offset(y: animateElements ? 0 : 20)
+                    .animation(.easeOut(duration: 0.8).delay(0.2), value: animateElements)
+                
+                Text(settings.language == .german ? "Gauss · Determinante · Matrixprodukt" : "Gauss · Determinant · Matrix product")
+                    .font(.system(size: geometry.size.height < 700 ? 12 : 14, weight: .medium))
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+                    .opacity(animateElements ? 1 : 0)
+                    .animation(.easeOut(duration: 0.8).delay(0.4), value: animateElements)
+            }
+        }
+    }
+    
+    private func calculatorNote(geometry: GeometryProxy) -> some View {
+        HStack(spacing: 10) {
+            Image(systemName: "calculator")
+                .font(.system(size: geometry.size.height < 700 ? 18 : 20))
+                .foregroundColor(.teal)
+            Text(settings.language == .german ? "Inklusive Matrix-Rechner" : "Includes matrix calculators")
+                .font(.system(size: geometry.size.height < 700 ? 12 : 14, weight: .semibold))
+                .foregroundColor(.secondary)
+        }
+        .padding(.horizontal, 14)
+        .padding(.vertical, 12)
+        .background(
+            RoundedRectangle(cornerRadius: 14)
+                .fill(.ultraThinMaterial)
+                .shadow(color: Color.black.opacity(0.06), radius: 8, x: 0, y: 4)
+        )
+        .opacity(animateElements ? 1 : 0)
+        .offset(y: animateElements ? 0 : 16)
+        .animation(.easeOut(duration: 0.8).delay(0.6), value: animateElements)
+    }
+}
+
+struct MatrixMethod {
+    let title: String
+    let subtitle: String
+    let color: Color
+    let icon: String
+    let accent: String
+}
+
+struct MatrixMethodCard: View {
+    let method: MatrixMethod
+    let isCompact: Bool
+    let animate: Bool
+    let delay: Double
+    let entryDirection: CGFloat
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: isCompact ? 10 : 12) {
+            HStack(spacing: isCompact ? 10 : 12) {
+                ZStack {
+                    Circle()
+                        .fill(method.color.opacity(0.15))
+                        .frame(width: isCompact ? 38 : 44, height: isCompact ? 38 : 44)
+                    
+                    Image(systemName: method.icon)
+                        .font(.system(size: isCompact ? 18 : 20, weight: .semibold))
+                        .foregroundColor(method.color)
+                }
+                
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(method.title)
+                        .font(.system(size: isCompact ? 16 : 18, weight: .bold))
+                        .scaleEffect(animate ? 1.0 : 0.92)
+                        .opacity(animate ? 1 : 0)
+                        .animation(.spring(response: 0.7, dampingFraction: 0.7).delay(delay), value: animate)
+                    Text(method.subtitle)
+                        .font(.system(size: isCompact ? 12 : 13, weight: .medium))
+                        .foregroundColor(.secondary)
+                }
+            }
+        }
+        .padding(isCompact ? 14 : 18)
+        .frame(maxWidth: .infinity, minHeight: isCompact ? 92 : 108, alignment: .leading)
+        .background(
+            RoundedRectangle(cornerRadius: 18)
+                .fill(.ultraThinMaterial)
+                .shadow(color: Color.black.opacity(0.08), radius: 10, x: 0, y: 6)
+        )
+        .opacity(animate ? 1 : 0)
+        .offset(x: animate ? 0 : (entryDirection * (isCompact ? 26 : 34)),
+                y: animate ? 0 : 14)
+        .rotationEffect(.degrees(animate ? 0 : (entryDirection < 0 ? -5 : 5)))
+        .animation(.spring(response: 0.75, dampingFraction: 0.65).delay(delay), value: animate)
+    }
+}
+
 // MARK: - Learning Plan Onboarding Screen
 struct LearningPlanOnboardingView: View {
     @ObservedObject private var settings = SettingsModel.shared

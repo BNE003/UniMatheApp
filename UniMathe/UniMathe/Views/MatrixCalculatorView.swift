@@ -2,6 +2,10 @@ import SwiftUI
 
 struct MatrixCalculatorView: View {
     @ObservedObject private var settings = SettingsModel.shared
+    @ObservedObject private var storeManager = StoreKitManager.shared
+
+    @AppStorage("matrixFreeOperationCount") private var matrixFreeOperationCount: Int = 0
+    @State private var showPaywall = false
 
     @State private var tool: Tool = .gauss
     @State private var matrixSize: MatrixSize = .threeByThree
@@ -119,6 +123,9 @@ struct MatrixCalculatorView: View {
             }
             .onChange(of: tool) { _ in
                 resetToolOutputs()
+            }
+            .fullScreenCover(isPresented: $showPaywall) {
+                PurchaseView(isPresented: $showPaywall)
             }
         }
     }
@@ -418,6 +425,10 @@ struct MatrixCalculatorView: View {
         settings.accentColor
     }
 
+    private var hasProAccess: Bool {
+        !storeManager.purchasedProductIDs.isEmpty
+    }
+
     private var stepIndicatorText: String {
         let total = gaussSteps.count
         if total == 0 { return "" }
@@ -559,27 +570,48 @@ struct MatrixCalculatorView: View {
     }
 
     private func calculateGauss() {
-        let numericMatrix = parseMatrix(matrix)
-        let numericRhs = parseRhs(rhs)
-        let output = gaussStepsFor(numericMatrix, rhs: numericRhs, algorithm: algorithm)
-        gaussSteps = output.steps
-        result = output.result
-        currentStepIndex = 0
-        showAllSteps = false
-        equationLines = buildEquationLines(matrix: numericMatrix, rhs: numericRhs)
-        let solution = solveLinearSystem(matrix: numericMatrix, rhs: numericRhs)
-        solutionSteps = solution.steps
-        solutionResults = solution.results
-        solutionVectorLines = solution.vectorLines
-        solutionStatus = solution.status
+        performOperation {
+            let numericMatrix = parseMatrix(matrix)
+            let numericRhs = parseRhs(rhs)
+            let output = gaussStepsFor(numericMatrix, rhs: numericRhs, algorithm: algorithm)
+            gaussSteps = output.steps
+            result = output.result
+            currentStepIndex = 0
+            showAllSteps = false
+            equationLines = buildEquationLines(matrix: numericMatrix, rhs: numericRhs)
+            let solution = solveLinearSystem(matrix: numericMatrix, rhs: numericRhs)
+            solutionSteps = solution.steps
+            solutionResults = solution.results
+            solutionVectorLines = solution.vectorLines
+            solutionStatus = solution.status
+        }
     }
 
     private func calculateMultiplication() {
-        productMatrix = multiply(parseMatrix(leftMatrix), parseMatrix(rightMatrix))
+        performOperation {
+            productMatrix = multiply(parseMatrix(leftMatrix), parseMatrix(rightMatrix))
+        }
     }
 
     private func calculateDeterminant() {
-        determinantValue = determinant(of: parseMatrix(matrix))
+        performOperation {
+            determinantValue = determinant(of: parseMatrix(matrix))
+        }
+    }
+
+    private func performOperation(_ action: () -> Void) {
+        if hasProAccess {
+            action()
+            return
+        }
+
+        if matrixFreeOperationCount < 1 {
+            matrixFreeOperationCount += 1
+            action()
+            return
+        }
+
+        showPaywall = true
     }
 
     private func nextStep() {

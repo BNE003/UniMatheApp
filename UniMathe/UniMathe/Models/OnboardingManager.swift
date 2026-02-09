@@ -32,6 +32,8 @@ class OnboardingManager: ObservableObject {
             case .exams:
                 currentScreen = .exercises
             case .exercises:
+                currentScreen = .matrixMethods
+            case .matrixMethods:
                 currentScreen = .learningPlan
             case .learningPlan:
                 currentScreen = .monthlyUpdates
@@ -54,6 +56,8 @@ class OnboardingManager: ObservableObject {
             case .exercises:
                 currentScreen = .exams
             case .learningPlan:
+                currentScreen = .matrixMethods
+            case .matrixMethods:
                 currentScreen = .exercises
             case .monthlyUpdates:
                 currentScreen = .learningPlan
@@ -109,6 +113,7 @@ enum OnboardingScreen: CaseIterable {
     case stepByStep
     case exams
     case exercises
+    case matrixMethods
     case learningPlan
     case monthlyUpdates
     
@@ -124,6 +129,8 @@ enum OnboardingScreen: CaseIterable {
             return "Klausuren üben"
         case .exercises:
             return "300+ Aufgaben"
+        case .matrixMethods:
+            return "Matrix-Rechnen"
         case .learningPlan:
             return "Dein Lernplan"
         case .monthlyUpdates:
@@ -143,6 +150,8 @@ enum OnboardingScreen: CaseIterable {
             return "Practice Exams"
         case .exercises:
             return "300+ Problems"
+        case .matrixMethods:
+            return "Matrix Skills"
         case .learningPlan:
             return "Your Learning Plan"
         case .monthlyUpdates:
@@ -162,6 +171,8 @@ enum OnboardingScreen: CaseIterable {
             return "Bereiten Sie sich optimal auf Ihre Klausuren vor"
         case .exercises:
             return "Über 300 sorgfältig ausgewählte Übungsaufgaben"
+        case .matrixMethods:
+            return "Gauss, Determinanten und Matrixrechnung mit Rechenweg"
         case .learningPlan:
             return "Stelle deinen persönlichen Lernplan zusammen"
         case .monthlyUpdates:
@@ -181,6 +192,8 @@ enum OnboardingScreen: CaseIterable {
             return "Prepare optimally for your exams"
         case .exercises:
             return "Over 300 carefully selected practice problems"
+        case .matrixMethods:
+            return "Gauss, determinants, and matrix calculations with steps"
         case .learningPlan:
             return "Build your personal learning plan"
         case .monthlyUpdates:
@@ -200,6 +213,8 @@ enum OnboardingScreen: CaseIterable {
             return "graduationcap.fill"
         case .exercises:
             return "checkmark.circle.fill"
+        case .matrixMethods:
+            return "tablecells.fill"
         case .learningPlan:
             return "sparkles.rectangle.stack.fill"
         case .monthlyUpdates:
@@ -219,6 +234,8 @@ enum OnboardingScreen: CaseIterable {
             return Color.purple
         case .exercises:
             return Color.red
+        case .matrixMethods:
+            return Color.teal
         case .learningPlan:
             return Color.blue
         case .monthlyUpdates:
