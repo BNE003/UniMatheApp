@@ -40,6 +40,17 @@ struct ÜbungsklausurenView: View {
             examFilename: "mathematik_1_anfaenger"
         ),
         ExamTopic(
+            title: "Mathematik I",
+            titleEnglish: "Mathematics I",
+            subtitle: "Klausur A: Lineare Algebra & Algebra-Grundlagen",
+            subtitleEnglish: "Exam A: Linear Algebra & Algebra Basics",
+            duration: 120,
+            questions: 6,
+            icon: "number.circle",
+            color: Color(red: 0.8, green: 0.3, blue: 0.6),
+            examFilename: "mathematik_1_klausur_1"
+        ),
+        ExamTopic(
             title: "Statistik I",
             titleEnglish: "Statistics I",
             subtitle: "Grundlagen der Wahrscheinlichkeitsrechnung",
@@ -60,6 +71,17 @@ struct ÜbungsklausurenView: View {
             icon: "number.circle",
             color: Color(red: 0.8, green: 0.3, blue: 0.6),
             examFilename: "mathematik_1_fortgeschritten"
+        ),
+        ExamTopic(
+            title: "Mathematik I",
+            titleEnglish: "Mathematics I",
+            subtitle: "Klausur B: Algebra, Induktion, Lineare Algebra",
+            subtitleEnglish: "Exam B: Algebra, Induction, Linear Algebra",
+            duration: 120,
+            questions: 6,
+            icon: "number.circle",
+            color: Color(red: 0.8, green: 0.3, blue: 0.6),
+            examFilename: "mathematik_1_klausur_2"
         ),
         ExamTopic(
             title: "Lineare Algebra I",
@@ -106,6 +128,17 @@ struct ÜbungsklausurenView: View {
             examFilename: "analysis_2_experte"
         ),
         ExamTopic(
+            title: "Mathematik II",
+            titleEnglish: "Mathematics II",
+            subtitle: "Klausur A: Reihen, Taylor, Mehrdimensionale Analysis",
+            subtitleEnglish: "Exam A: Series, Taylor, Multivariable Calculus",
+            duration: 120,
+            questions: 5,
+            icon: "sum",
+            color: Color(red: 0.3, green: 0.4, blue: 0.9),
+            examFilename: "mathematik_2_klausur_1"
+        ),
+        ExamTopic(
             title: "Differentialgleichungen",
             titleEnglish: "Differential Equations",
             subtitle: "Gewöhnliche und partielle DGL",
@@ -115,6 +148,17 @@ struct ÜbungsklausurenView: View {
             icon: "waveform.path",
             color: Color(red: 0.9, green: 0.4, blue: 0.1),
             examFilename: "differentialgleichungen_experte"
+        ),
+        ExamTopic(
+            title: "Mathematik II",
+            titleEnglish: "Mathematics II",
+            subtitle: "Klausur B: Potenzreihen, Vektoranalysis, DGL",
+            subtitleEnglish: "Exam B: Power Series, Vector Calculus, ODE",
+            duration: 120,
+            questions: 5,
+            icon: "sum",
+            color: Color(red: 0.3, green: 0.4, blue: 0.9),
+            examFilename: "mathematik_2_klausur_2"
         ),
         ExamTopic(
             title: "Statistik I",
@@ -128,6 +172,17 @@ struct ÜbungsklausurenView: View {
             examFilename: "statistik_fortgeschritten"
         ),
         ExamTopic(
+            title: "Statistik I",
+            titleEnglish: "Statistics I",
+            subtitle: "Klausur B: Deskriptive Statistik & Tests",
+            subtitleEnglish: "Exam B: Descriptive Statistics & Tests",
+            duration: 90,
+            questions: 5,
+            icon: "chart.bar.fill",
+            color: Color(red: 0.8, green: 0.2, blue: 0.4),
+            examFilename: "statistik_klausur_2"
+        ),
+        ExamTopic(
             title: "Numerische Mathematik",
             titleEnglish: "Numerical Mathematics",
             subtitle: "Algorithmen und Approximation",
@@ -137,6 +192,17 @@ struct ÜbungsklausurenView: View {
             icon: "function",
             color: Color(red: 0.0, green: 0.6, blue: 0.7),
             examFilename: "numerische_mathematik_experte"
+        ),
+        ExamTopic(
+            title: "Numerische Mathematik",
+            titleEnglish: "Numerical Mathematics",
+            subtitle: "Klausur B: Iterative Verfahren & ODE",
+            subtitleEnglish: "Exam B: Iterative Methods & ODE",
+            duration: 90,
+            questions: 5,
+            icon: "function",
+            color: Color(red: 0.0, green: 0.6, blue: 0.7),
+            examFilename: "numerische_mathematik_klausur_2"
         )
     ]
     
@@ -402,10 +468,14 @@ private func convertToEnglishFilename(_ germanFilename: String) -> String {
         return "linear_algebra_1_beginner"
     case "mathematik_1_anfaenger":
         return "mathematics_1_beginner"
+    case "mathematik_1_klausur_1":
+        return "mathematics_1_exam_1"
     case "statistik_anfaenger":
         return "statistics_beginner"
     case "mathematik_1_fortgeschritten":
         return "mathematics_1_intermediate"
+    case "mathematik_1_klausur_2":
+        return "mathematics_1_exam_2"
     case "lineare_algebra_fortgeschritten":
         return "linear_algebra_intermediate"
     case "mathematik_1_experte":
@@ -414,12 +484,20 @@ private func convertToEnglishFilename(_ germanFilename: String) -> String {
         return "linear_algebra_advanced"
     case "analysis_2_experte":
         return "analysis_2_advanced"
+    case "mathematik_2_klausur_1":
+        return "mathematics_2_exam_1"
     case "differentialgleichungen_experte":
         return "differential_equations_advanced"
+    case "mathematik_2_klausur_2":
+        return "mathematics_2_exam_2"
     case "statistik_fortgeschritten":
         return "statistics_intermediate"
+    case "statistik_klausur_2":
+        return "statistics_exam_2"
     case "numerische_mathematik_experte":
         return "numerical_mathematics_advanced"
+    case "numerische_mathematik_klausur_2":
+        return "numerical_mathematics_exam_2"
     default:
         return germanFilename // fallback to original
     }

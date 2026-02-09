@@ -1,0 +1,92 @@
+{
+    "exam": {
+        "title": "Mathematik I - Klausur B",
+        "subtitle": "Algebra, Induktion und Lineare Algebra",
+        "duration": 120,
+        "totalPoints": 100,
+        "difficulty": "intermediate",
+        "language": "de",
+        "instructions": "Bearbeiten Sie alle Aufgaben vollständig. Geben Sie den Lösungsweg an. Hilfsmittel: nicht programmierbarer Taschenrechner."
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Vollständige Induktion",
+            "title": "Summe der ersten ungeraden Zahlen",
+            "description": "Beweisen Sie durch vollständige Induktion:\n$\\sum_{k=1}^{n}(2k-1)=n^2$ für alle $n\\in\\mathbb{N}$.",
+            "difficulty": "medium",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Induktionsanfang\nFür $n=1$: $\\sum_{k=1}^{1}(2k-1)=1=n^2$",
+                "Schritt 2: Induktionsvoraussetzung\nAngenommen $\\sum_{k=1}^{n}(2k-1)=n^2$",
+                "Schritt 3: Induktionsschritt\n$\\sum_{k=1}^{n+1}(2k-1)=\\sum_{k=1}^{n}(2k-1)+[2(n+1)-1]$\n$=n^2+2n+1=(n+1)^2$",
+                "Schritt 4: Schluss\nDamit gilt die Aussage für alle $n\\in\\mathbb{N}$"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Polynome",
+            "title": "Irreduzibilität von $x^3-2$",
+            "description": "Untersuchen Sie das Polynom $f(x)=x^3-2$ über $\\mathbb{Q}$ und $\\mathbb{R}$.\n\na) Zeigen Sie die Irreduzibilität über $\\mathbb{Q}$.\nb) Faktorisieren Sie $f$ über $\\mathbb{R}$.",
+            "difficulty": "medium",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Rationaler Wurzelsatz\nMögliche rationale Nullstellen sind $\\pm1, \\pm2$.\nEinsetzen zeigt: keine Nullstelle, daher irreduzibel über $\\mathbb{Q}$.",
+                "Schritt 2: Reelle Faktorisierung\nEs gibt eine reelle Nullstelle $\\sqrt[3]{2}$.\nDamit $f(x)=(x-\\sqrt[3]{2})(x^2+\\sqrt[3]{2}x+\\sqrt[3]{4})$ über $\\mathbb{R}$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Eigenwerte",
+            "title": "Eigenwerte und Eigenvektoren",
+            "description": "Gegeben ist $A = \\begin{pmatrix} 0 & 1 \\\\ -2 & 3 \\end{pmatrix}$.\n\na) Bestimmen Sie die Eigenwerte.\nb) Bestimmen Sie Eigenvektoren.\nc) Ist $A$ diagonalisierbar?",
+            "difficulty": "medium",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(A-\\lambda I)=\\lambda^2-3\\lambda+2=(\\lambda-1)(\\lambda-2)$",
+                "Schritt 2: Eigenvektoren\nFür $\\lambda=1$: Eigenvektor $v_1=(1,1)^T$\nFür $\\lambda=2$: Eigenvektor $v_2=(1,2)^T$",
+                "Schritt 3: Diagonalisierbarkeit\nZwei verschiedene Eigenwerte $\\Rightarrow$ diagonalisierbar"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Lineare Unabhängigkeit",
+            "title": "Basis eines Spannraums",
+            "description": "Gegeben sind $v_1=(1,0,1)$, $v_2=(2,1,3)$, $v_3=(3,1,4)$.\n\na) Prüfen Sie lineare Unabhängigkeit.\nb) Bestimmen Sie eine Basis des Spannraums.\nc) Drücken Sie $v_3$ durch die Basis aus.",
+            "difficulty": "medium",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Zusammenhang erkennen\n$v_3 = v_1 + v_2$",
+                "Schritt 2: Unabhängigkeit\nDamit sind $v_1,v_2$ linear unabhängig, $v_3$ abhängig.",
+                "Schritt 3: Basis und Darstellung\nBasis: $\\{v_1,v_2\\}$\n$v_3 = 1\\cdot v_1 + 1\\cdot v_2$"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Modulare Arithmetik",
+            "title": "Kongruenz lösen",
+            "description": "Lösen Sie die Kongruenz $7x \\equiv 5 \\pmod{26}$.\nBestimmen Sie auch das multiplikative Inverse von 7 modulo 26.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Inverses bestimmen\nSuche $a$ mit $7a\\equiv1\\pmod{26}$.\n$7\\cdot15=105\\equiv1\\pmod{26}$, also $7^{-1}\\equiv15$",
+                "Schritt 2: Kongruenz lösen\n$x\\equiv 15\\cdot5\\pmod{26}$\n$=75\\equiv23\\pmod{26}$",
+                "Schritt 3: Allgemeine Lösung\n$x = 23 + 26k$, $k\\in\\mathbb{Z}$"
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Lineare Abbildungen",
+            "title": "Linearer Operator auf $P_2$",
+            "description": "Sei $T: P_2 \\to P_2$ definiert durch $T(p)=p' + p(0)$.\nFür $p(x)=a+bx+cx^2$:\n\na) Bestimmen Sie die Matrix von $T$ in der Basis $(1,x,x^2)$.\nb) Bestimmen Sie Kern und Bild.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Wirkung auf Basis\n$T(1)=1$, $T(x)=1$, $T(x^2)=2x$",
+                "Schritt 2: Matrixdarstellung\n$[T]=\\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 0 & 2 \\\\ 0 & 0 & 0 \\end{pmatrix}$",
+                "Schritt 3: Kern\n$T(a+bx+cx^2)=(a+b)+2cx \\Rightarrow a+b=0$ und $c=0$\n$\\ker(T)=\\mathrm{span}\\{(-1,1,0)\\}$",
+                "Schritt 4: Bild\nBild wird von $1$ und $x$ erzeugt, also zweidimensional."
+            ]
+        }
+    ]
+}

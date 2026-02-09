@@ -1,0 +1,92 @@
+{
+    "exam": {
+        "title": "Mathematik I - Klausur A",
+        "subtitle": "Lineare Algebra und Algebra-Grundlagen",
+        "duration": 120,
+        "totalPoints": 100,
+        "difficulty": "intermediate",
+        "language": "de",
+        "instructions": "Bearbeiten Sie alle Aufgaben vollständig. Geben Sie den Lösungsweg an. Hilfsmittel: nicht programmierbarer Taschenrechner."
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Komplexe Zahlen",
+            "title": "Polarform und Potenzen",
+            "description": "Gegeben sei $z = 1 - \\sqrt{3}i$.\n\na) Schreiben Sie $z$ in Polarform.\nb) Berechnen Sie $z^5$.",
+            "difficulty": "medium",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Betrag und Argument\n$|z| = \\sqrt{1^2 + (\\sqrt{3})^2} = 2$\nArgument: $\\varphi = -\\pi/3$ (Punkt im 4. Quadranten)",
+                "Schritt 2: Polarform\n$z = 2(\\cos(-\\pi/3) + i\\sin(-\\pi/3))$",
+                "Schritt 3: Potenz berechnen\n$z^5 = 2^5(\\cos(-5\\pi/3) + i\\sin(-5\\pi/3))$\n$= 32(\\cos(\\pi/3) + i\\sin(\\pi/3))$\n$= 32(1/2 + i\\sqrt{3}/2) = 16 + 16\\sqrt{3}i$"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Lineare Gleichungssysteme",
+            "title": "Determinante und Lösen",
+            "description": "Gegeben sind\n$A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 1 & 4 \\\\ 2 & 0 & 1 \\end{pmatrix}$, $b = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$.\n\na) Berechnen Sie $\\det(A)$.\nb) Lösen Sie $Ax=b$.",
+            "difficulty": "medium",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Determinante\n$\\det(A) = 1\\cdot\\det\\begin{pmatrix}1&4\\0&1\\end{pmatrix} - 2\\cdot\\det\\begin{pmatrix}0&4\\2&1\\end{pmatrix} + 3\\cdot\\det\\begin{pmatrix}0&1\\2&0\\end{pmatrix}$\n$= 1 - 2(-8) + 3(-2) = 11$",
+                "Schritt 2: Lösen des Systems\nAus $y + 4z = 2$ folgt $y = 2 - 4z$\nAus $2x + z = 3$ folgt $x = (3 - z)/2$",
+                "Schritt 3: Einsetzen in die erste Gleichung\n$(3 - z)/2 + 2(2 - 4z) + 3z = 1 \\Rightarrow z = 9/11$",
+                "Schritt 4: Rücksubstitution\n$x = 12/11$, $y = -14/11$\nLösung: $x = (12/11, -14/11, 9/11)^T$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Vektorräume",
+            "title": "Unterraum, Basis, Dimension",
+            "description": "Gegeben ist $U = \\{(x,y,z,w) \\in \\mathbb{R}^4 : x+y+z+w=0,\\ 2x-y+w=0\\}$.\n\na) Zeigen Sie, dass $U$ ein Unterraum ist.\nb) Bestimmen Sie eine Basis und die Dimension.",
+            "difficulty": "medium",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Unterraumkriterien\nDie Menge ist durch homogene lineare Gleichungen definiert, also Unterraum von $\\mathbb{R}^4$.",
+                "Schritt 2: Parametrisierung\nAus $2x-y+w=0$ folgt $y=2x+w$.\nEinsetzen in $x+y+z+w=0$: $3x+z+2w=0 \\Rightarrow z=-3x-2w$",
+                "Schritt 3: Basis und Dimension\n$(x,y,z,w) = x(1,2,-3,0) + w(0,1,-2,1)$\nBasis: $\\{(1,2,-3,0),(0,1,-2,1)\\}$, Dimension $=2$"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Eigenwerte",
+            "title": "Diagonalisation einer 2×2-Matrix",
+            "description": "Gegeben ist $B = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$.\n\na) Bestimmen Sie Eigenwerte und Eigenvektoren.\nb) Geben Sie eine Diagonalisierung an.",
+            "difficulty": "medium",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\n$\\det(B-\\lambda I) = (2-\\lambda)^2-1 = \\lambda^2-4\\lambda+3$\nEigenwerte: $\\lambda_1=3$, $\\lambda_2=1$",
+                "Schritt 2: Eigenvektoren\nFür $\\lambda=3$: $(B-3I)v=0 \\Rightarrow v=(1,1)^T$\nFür $\\lambda=1$: $(B-I)v=0 \\Rightarrow v=(1,-1)^T$",
+                "Schritt 3: Diagonalisierung\n$P = \\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$, $D=\\mathrm{diag}(3,1)$\n$B = P D P^{-1}$"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Gruppen",
+            "title": "Untergruppe in $\\mathbb{Z}_8$",
+            "description": "Betrachten Sie die Gruppe $(\\mathbb{Z}_8,+)$.\n\na) Bestimmen Sie die von 6 erzeugte Untergruppe.\nb) Geben Sie die Ordnung der Untergruppe an.\nc) Ist die Untergruppe zyklisch?",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Erzeugte Elemente\n$\\langle 6 \\rangle = \\{0,6,12,18,\\dots\\} \\mod 8$",
+                "Schritt 2: Untergruppe explizit\n$6\\mod 8=6$, $2\\cdot6=12\\mod 8=4$, $3\\cdot6=18\\mod 8=2$, $4\\cdot6=24\\mod 8=0 \\Rightarrow \\langle 6 \\rangle = \\{0,6,4,2\\}$",
+                "Schritt 3: Ordnung und Zyklizit\nOrdnung = 4.\nDie Untergruppe ist zyklisch, da sie von 6 erzeugt wird."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Lineare Abbildungen",
+            "title": "Kern und Bild",
+            "description": "Gegeben ist $T: \\mathbb{R}^3 \\to \\mathbb{R}^3$, $T(x,y,z) = (x+y,\\ y+z,\\ x+z)$.\n\na) Bestimmen Sie die Matrix von $T$.\nb) Bestimmen Sie $\\ker(T)$ und $\\mathrm{rang}(T)$.\nc) Beschreiben Sie das Bild.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Matrixdarstellung\n$T(e_1)=(1,0,1)$, $T(e_2)=(1,1,0)$, $T(e_3)=(0,1,1)$\n$[T] = \\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\\\ 1 & 0 & 1 \\end{pmatrix}$",
+                "Schritt 2: Kern bestimmen\nLöse $T(x,y,z)=0$: $x+y=0$, $y+z=0$, $x+z=0$\nDaraus folgt $x=y=z=0$\n$\\ker(T)=\\{0\\}$",
+                "Schritt 3: Rang und Bild\n$\\det([T])=2\\neq0$, also Rang $=3$\nBild $= \\mathbb{R}^3$"
+            ]
+        }
+    ]
+}

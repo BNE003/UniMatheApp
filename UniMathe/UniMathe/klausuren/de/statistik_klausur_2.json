@@ -1,0 +1,80 @@
+{
+    "exam": {
+        "title": "Statistik I - Klausur B",
+        "subtitle": "Deskriptive Statistik, Verteilungen und Tests",
+        "duration": 90,
+        "totalPoints": 100,
+        "difficulty": "intermediate",
+        "language": "de",
+        "instructions": "Bearbeiten Sie alle Aufgaben vollständig. Geben Sie stets den Lösungsweg an. Zulässige Hilfsmittel: nicht programmierbarer Taschenrechner, Tabellen der Standardnormalverteilung und t-Verteilung."
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Deskriptive Statistik",
+            "title": "Mittelwert, Median, Varianz",
+            "description": "Gegeben sind die Messwerte: 10, 12, 13, 15, 15, 16, 18, 21.\n\na) Berechnen Sie den Mittelwert.\nb) Bestimmen Sie den Median.\nc) Berechnen Sie die Stichprobenvarianz und die Standardabweichung.",
+            "difficulty": "easy",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Mittelwert\nSumme = 120, n = 8\n$\\bar{x} = 120/8 = 15$",
+                "Schritt 2: Median\nSortierte Daten: 10, 12, 13, 15, 15, 16, 18, 21\nMedian = Mittel der 4. und 5. Beobachtung = (15+15)/2 = 15",
+                "Schritt 3: Stichprobenvarianz\nAbweichungen zu 15: -5, -3, -2, 0, 0, 1, 3, 6\nQuadrate: 25, 9, 4, 0, 0, 1, 9, 36\nSumme der Quadrate = 84\n$s^2 = \\frac{1}{n-1}\\sum (x_i-\\bar{x})^2 = 84/7 = 12$",
+                "Schritt 4: Standardabweichung\n$s = \\sqrt{12} \\approx 3{,}46$"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Diskrete Verteilungen",
+            "title": "Binomialverteilung und Poisson-Approximation",
+            "description": "Ein Gerät hat eine Ausfallwahrscheinlichkeit von $p=0{,}02$. Es werden $n=100$ Geräte geprüft.\n\na) Berechnen Sie $P(X=3)$ für $X \\sim B(100;0{,}02)$.\nb) Approximieren Sie die Wahrscheinlichkeit mit einer Poissonverteilung.\nc) Berechnen Sie die Wahrscheinlichkeit, dass mindestens ein Gerät ausfällt.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Binomialwahrscheinlichkeit\n$P(X=3)=\\binom{100}{3}0{,}02^3\\cdot0{,}98^{97} \\approx 0{,}1823$",
+                "Schritt 2: Poisson-Approximation\n$\\lambda = np = 2$\n$P(Y=3)=e^{-2}\\cdot\\frac{2^3}{3!} \\approx 0{,}1804$",
+                "Schritt 3: Wahrscheinlichkeit für mindestens einen Ausfall\n$P(X\\ge 1)=1-P(X=0)=1-0{,}98^{100} \\approx 0{,}8674$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Normalverteilung",
+            "title": "Standardisierung und Quantile",
+            "description": "Die Lebensdauer eines Produkts sei normalverteilt mit $\\mu=100$ und $\\sigma=15$.\n\na) Berechnen Sie $P(90 \\le X \\le 120)$.\nb) Bestimmen Sie das 90%-Quantil.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Standardisierung\n$Z = \\frac{X-100}{15}$\n$z_1 = (90-100)/15 = -0{,}67$, $z_2 = (120-100)/15 = 1{,}33$",
+                "Schritt 2: Wahrscheinlichkeit\n$P(90\\le X\\le120)=\\Phi(1{,}33)-\\Phi(-0{,}67)$\n$\\approx 0{,}9082-0{,}2519=0{,}6563$",
+                "Schritt 3: 90%-Quantil\n$z_{0{,}9}\\approx1{,}2816$\n$x_{0{,}9}=100+1{,}2816\\cdot15\\approx119{,}2$"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Konfidenzintervalle",
+            "title": "Konfidenzintervall für einen Anteil",
+            "description": "In einer Stichprobe von $n=200$ Beobachtungen wurden 36 Erfolge beobachtet.\nBestimmen Sie ein 95%-Konfidenzintervall für den wahren Anteil $p$.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Punktschätzung\n$\\hat{p} = 36/200 = 0{,}18$",
+                "Schritt 2: Standardfehler\n$SE = \\sqrt{\\hat{p}(1-\\hat{p})/n} = \\sqrt{0{,}18\\cdot0{,}82/200} \\approx 0{,}0272$",
+                "Schritt 3: Konfidenzintervall\n$\\hat{p} \\pm 1{,}96\\cdot SE = 0{,}18 \\pm 0{,}0532$\nIntervall: $[0{,}1268; 0{,}2332]$"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Hypothesentests",
+            "title": "z-Test für den Mittelwert",
+            "description": "Ein Hersteller behauptet, der Mittelwert einer Messgröße betrage $\\mu=50$. Es ist $\\sigma=6$ bekannt.\nIn einer Stichprobe mit $n=25$ ergibt sich $\\bar{x}=52$.\nTesten Sie zweiseitig auf dem 5%-Niveau.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Hypothesen\n$H_0: \\mu=50$, $H_1: \\mu\\ne50$",
+                "Schritt 2: Teststatistik\n$z = \\frac{\\bar{x}-\\mu_0}{\\sigma/\\sqrt{n}} = \\frac{52-50}{6/5} = 1{,}667$",
+                "Schritt 3: Entscheidung\nKritischer Bereich: $|z|>1{,}96$\nDa $1{,}667<1{,}96$, wird $H_0$ nicht verworfen.",
+                "Schritt 4: p-Wert (optional)\n$p \\approx 0{,}096 > 0{,}05$"
+            ]
+        }
+    ]
+}

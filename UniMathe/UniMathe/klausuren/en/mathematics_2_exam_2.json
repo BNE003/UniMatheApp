@@ -1,0 +1,78 @@
+{
+    "exam": {
+        "title": "Mathematics II - Exam B",
+        "subtitle": "Power series, vector calculus, integrals, ODE",
+        "duration": 120,
+        "totalPoints": 100,
+        "difficulty": "intermediate",
+        "language": "en",
+        "instructions": "Complete all tasks and show your work. Permitted aids: non-programmable calculator."
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Power Series",
+            "title": "Radius of Convergence",
+            "description": "Determine the radius and interval of convergence of\n$\\sum_{n=1}^{\\infty} \\frac{n^2}{3^n}x^n$.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Ratio test\n$\\lim_{n\\to\\infty}\\left|\\frac{a_{n+1}}{a_n}\\right|=\\lim\\frac{(n+1)^2}{n^2}\\cdot\\frac{|x|}{3}=\\frac{|x|}{3}$",
+                "Step 2: Radius\nConvergence if $|x|/3<1 \\Rightarrow R=3$",
+                "Step 3: Endpoints\nAt $x=3$: terms $n^2$ → diverges\nAt $x=-3$: terms $(-1)^n n^2$ → diverges\nInterval: $(-3,3)$"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Improper Integrals",
+            "title": "Convergence and Value",
+            "description": "Analyze and compute\n$I = \\int_1^{\\infty} \\frac{1}{x^2+1}\\,dx$.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Convergence\n$\\frac{1}{x^2+1} \\le \\frac{1}{x^2}$ for $x\\ge1$, so the integral converges.",
+                "Step 2: Evaluation\n$\\int \\frac{1}{x^2+1}\\,dx = \\arctan(x)$\n$I = \\lim_{b\\to\\infty}[\\arctan(b)-\\arctan(1)] = \\frac{\\pi}{2}-\\frac{\\pi}{4}=\\frac{\\pi}{4}$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Line Integrals",
+            "title": "Potential Field",
+            "description": "Given $\\vec{F}(x,y)=(2xy, x^2+2y)$.\n\na) Show that $\\vec{F}$ is conservative.\nb) Find a potential function.\nc) Compute the line integral from $(0,0)$ to $(1,1)$.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Curl-free check\n$P=2xy$, $Q=x^2+2y$\n$\\partial P/\\partial y = 2x$, $\\partial Q/\\partial x = 2x$ $\\Rightarrow$ conservative.",
+                "Step 2: Potential\nIntegrate $P$ w.r.t. $x$: $\\phi(x,y)=x^2y+g(y)$\nThen $\\phi_y = x^2+g'(y) = Q = x^2+2y \\Rightarrow g'(y)=2y$, $g(y)=y^2$\nPotential: $\\phi(x,y)=x^2y+y^2$",
+                "Step 3: Line integral\n$\\int_C \\vec{F}\\cdot d\\vec{r} = \\phi(1,1)-\\phi(0,0) = 1+1=2$"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Polar Coordinates",
+            "title": "Integral over the Unit Disk",
+            "description": "Compute\n$\\iint_{x^2+y^2\\le1} (x^2+y^2)\\,dA$.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Polar coordinates\n$x^2+y^2=r^2$, $dA = r\\,dr\\,d\\theta$",
+                "Step 2: Integral\n$\\int_0^{2\\pi}\\int_0^1 r^2\\cdot r\\,dr\\,d\\theta = \\int_0^{2\\pi}\\left[\\frac{r^4}{4}\\right]_0^1 d\\theta = \\int_0^{2\\pi} \\frac{1}{4} d\\theta$",
+                "Step 3: Result\n$= \\frac{1}{4}\\cdot 2\\pi = \\frac{\\pi}{2}$"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Differential Equations",
+            "title": "First-Order Linear ODE",
+            "description": "Solve the initial value problem\n$y' + 2y = x$, $y(0)=0$.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Integrating factor\n$\\mu(x)=e^{2x}$, then $(e^{2x}y)' = xe^{2x}$",
+                "Step 2: Integrate\n$\\int xe^{2x}dx = \\frac{1}{2}xe^{2x} - \\frac{1}{4}e^{2x} + C$",
+                "Step 3: Solution form\n$e^{2x}y = \\frac{1}{2}xe^{2x} - \\frac{1}{4}e^{2x} + C \\Rightarrow y = \\frac{1}{2}x - \\frac{1}{4} + Ce^{-2x}$",
+                "Step 4: Initial condition\n$y(0)=0 \\Rightarrow C=\\frac{1}{4}$\n$y(x)=\\frac{1}{2}x - \\frac{1}{4} + \\frac{1}{4}e^{-2x}$"
+            ]
+        }
+    ]
+}

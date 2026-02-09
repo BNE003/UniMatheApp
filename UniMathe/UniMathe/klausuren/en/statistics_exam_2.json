@@ -1,0 +1,80 @@
+{
+    "exam": {
+        "title": "Statistics I - Exam B",
+        "subtitle": "Descriptive statistics, distributions and tests",
+        "duration": 90,
+        "totalPoints": 100,
+        "difficulty": "intermediate",
+        "language": "en",
+        "instructions": "Complete all tasks thoroughly. Show your work. Permitted aids: non-programmable calculator, standard normal and t-distribution tables."
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Descriptive Statistics",
+            "title": "Mean, Median, Variance",
+            "description": "Given the data: 10, 12, 13, 15, 15, 16, 18, 21.\n\na) Compute the mean.\nb) Determine the median.\nc) Compute the sample variance and standard deviation.",
+            "difficulty": "easy",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Mean\nSum = 120, n = 8\n$\\bar{x} = 120/8 = 15$",
+                "Step 2: Median\nSorted data: 10, 12, 13, 15, 15, 16, 18, 21\nMedian = average of the 4th and 5th values = (15+15)/2 = 15",
+                "Step 3: Sample variance\nDeviations from 15: -5, -3, -2, 0, 0, 1, 3, 6\nSquares: 25, 9, 4, 0, 0, 1, 9, 36\nSum of squares = 84\n$s^2 = \\frac{1}{n-1}\\sum (x_i-\\bar{x})^2 = 84/7 = 12$",
+                "Step 4: Standard deviation\n$s = \\sqrt{12} \\approx 3.46$"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Discrete Distributions",
+            "title": "Binomial and Poisson Approximation",
+            "description": "A device has failure probability $p=0.02$. In a batch of $n=100$ devices:\n\na) Compute $P(X=3)$ for $X \\sim B(100;0.02)$.\nb) Approximate this probability with a Poisson distribution.\nc) Compute the probability that at least one device fails.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Binomial probability\n$P(X=3)=\\binom{100}{3}0.02^3\\cdot0.98^{97} \\approx 0.1823$",
+                "Step 2: Poisson approximation\n$\\lambda = np = 2$\n$P(Y=3)=e^{-2}\\cdot\\frac{2^3}{3!} \\approx 0.1804$",
+                "Step 3: At least one failure\n$P(X\\ge 1)=1-P(X=0)=1-0.98^{100} \\approx 0.8674$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Normal Distribution",
+            "title": "Standardization and Quantiles",
+            "description": "Product lifetime is normally distributed with $\\mu=100$ and $\\sigma=15$.\n\na) Compute $P(90 \\le X \\le 120)$.\nb) Determine the 90% quantile.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Standardization\n$Z = \\frac{X-100}{15}$\n$z_1 = (90-100)/15 = -0.67$, $z_2 = (120-100)/15 = 1.33$",
+                "Step 2: Probability\n$P(90\\le X\\le120)=\\Phi(1.33)-\\Phi(-0.67)$\n$\\approx 0.9082-0.2519=0.6563$",
+                "Step 3: 90% quantile\n$z_{0.9}\\approx1.2816$\n$x_{0.9}=100+1.2816\\cdot15\\approx119.2$"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Confidence Intervals",
+            "title": "Confidence Interval for a Proportion",
+            "description": "In a sample of $n=200$ observations, 36 successes were recorded.\nFind a 95% confidence interval for the true proportion $p$.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Point estimate\n$\\hat{p} = 36/200 = 0.18$",
+                "Step 2: Standard error\n$SE = \\sqrt{\\hat{p}(1-\\hat{p})/n} = \\sqrt{0.18\\cdot0.82/200} \\approx 0.0272$",
+                "Step 3: Confidence interval\n$\\hat{p} \\pm 1.96\\cdot SE = 0.18 \\pm 0.0532$\nInterval: $[0.1268, 0.2332]$"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Hypothesis Tests",
+            "title": "z-Test for the Mean",
+            "description": "A manufacturer claims the mean is $\\mu=50$. The standard deviation is known: $\\sigma=6$.\nA sample of $n=25$ yields $\\bar{x}=52$.\nPerform a two-sided test at the 5% level.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Step 1: Hypotheses\n$H_0: \\mu=50$, $H_1: \\mu\\ne50$",
+                "Step 2: Test statistic\n$z = \\frac{\\bar{x}-\\mu_0}{\\sigma/\\sqrt{n}} = \\frac{52-50}{6/5} = 1.667$",
+                "Step 3: Decision\nCritical region: $|z|>1.96$\nSince $1.667<1.96$, fail to reject $H_0$.",
+                "Step 4: p-value (optional)\n$p \\approx 0.096 > 0.05$"
+            ]
+        }
+    ]
+}

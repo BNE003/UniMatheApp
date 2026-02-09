@@ -1,0 +1,78 @@
+{
+    "exam": {
+        "title": "Mathematik II - Klausur B",
+        "subtitle": "Potenzreihen, Vektoranalysis, Integrale, DGL",
+        "duration": 120,
+        "totalPoints": 100,
+        "difficulty": "intermediate",
+        "language": "de",
+        "instructions": "Bearbeiten Sie alle Aufgaben vollständig. Geben Sie den Lösungsweg an. Hilfsmittel: nicht programmierbarer Taschenrechner."
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Potenzreihen",
+            "title": "Konvergenzradius",
+            "description": "Bestimmen Sie den Konvergenzradius und das Konvergenzintervall der Reihe\n$\\sum_{n=1}^{\\infty} \\frac{n^2}{3^n}x^n$.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Quotientenkriterium\n$\\lim_{n\\to\\infty}\\left|\\frac{a_{n+1}}{a_n}\\right|=\\lim\\frac{(n+1)^2}{n^2}\\cdot\\frac{|x|}{3}=\\frac{|x|}{3}$",
+                "Schritt 2: Radius\nKonvergenz falls $|x|/3<1 \\Rightarrow R=3$",
+                "Schritt 3: Randpunkte\nBei $x=3$: Glieder $n^2$ → divergiert\nBei $x=-3$: Glieder $(-1)^n n^2$ → divergiert\nIntervall: $(-3,3)$"
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Uneigentliche Integrale",
+            "title": "Konvergenz und Wert",
+            "description": "Untersuchen und berechnen Sie\n$I = \\int_1^{\\infty} \\frac{1}{x^2+1}\\,dx$.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Konvergenz\n$\\frac{1}{x^2+1} \\le \\frac{1}{x^2}$ für $x\\ge1$, daher konvergent.",
+                "Schritt 2: Berechnung\n$\\int \\frac{1}{x^2+1}\\,dx = \\arctan(x)$\n$I = \\lim_{b\\to\\infty}[\\arctan(b)-\\arctan(1)] = \\frac{\\pi}{2}-\\frac{\\pi}{4}=\\frac{\\pi}{4}$"
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Linienintegrale",
+            "title": "Potentialfeld",
+            "description": "Gegeben ist $\\vec{F}(x,y)=(2xy, x^2+2y)$.\n\na) Zeigen Sie, dass $\\vec{F}$ konservativ ist.\nb) Bestimmen Sie ein Potential.\nc) Berechnen Sie das Linienintegral von $(0,0)$ nach $(1,1)$.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Rotationsfreiheit\n$P=2xy$, $Q=x^2+2y$\n$\\partial P/\\partial y = 2x$, $\\partial Q/\\partial x = 2x$ $\\Rightarrow$ konservativ.",
+                "Schritt 2: Potential bestimmen\nIntegriere $P$ nach $x$: $\\phi(x,y)=x^2y+g(y)$\nDann $\\phi_y = x^2+g'(y) = Q = x^2+2y \\Rightarrow g'(y)=2y$, $g(y)=y^2$\nPotential: $\\phi(x,y)=x^2y+y^2$",
+                "Schritt 3: Linienintegral\n$\\int_C \\vec{F}\\cdot d\\vec{r} = \\phi(1,1)-\\phi(0,0) = 1+1=2$"
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Polarkoordinaten",
+            "title": "Integral über die Einheitskreisscheibe",
+            "description": "Berechnen Sie\n$\\iint_{x^2+y^2\\le1} (x^2+y^2)\\,dA$.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Polarkoordinaten\n$x^2+y^2=r^2$, $dA = r\\,dr\\,d\\theta$",
+                "Schritt 2: Integral\n$\\int_0^{2\\pi}\\int_0^1 r^2\\cdot r\\,dr\\,d\\theta = \\int_0^{2\\pi}\\left[\\frac{r^4}{4}\\right]_0^1 d\\theta = \\int_0^{2\\pi} \\frac{1}{4} d\\theta$",
+                "Schritt 3: Ergebnis\n$= \\frac{1}{4}\\cdot 2\\pi = \\frac{\\pi}{2}$"
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Differentialgleichungen",
+            "title": "Lineare DGL 1. Ordnung",
+            "description": "Lösen Sie das Anfangswertproblem\n$y' + 2y = x$, $y(0)=0$.",
+            "difficulty": "medium",
+            "points": 20,
+            "solutionSteps": [
+                "Schritt 1: Integrationsfaktor\n$\\mu(x)=e^{2x}$, dann $(e^{2x}y)' = xe^{2x}$",
+                "Schritt 2: Integrieren\n$\\int xe^{2x}dx = \\frac{1}{2}xe^{2x} - \\frac{1}{4}e^{2x} + C$",
+                "Schritt 3: Lösung\n$e^{2x}y = \\frac{1}{2}xe^{2x} - \\frac{1}{4}e^{2x} + C \\Rightarrow y = \\frac{1}{2}x - \\frac{1}{4} + Ce^{-2x}$",
+                "Schritt 4: Anfangsbedingung\n$y(0)=0 \\Rightarrow C=\\frac{1}{4}$\n$y(x)=\\frac{1}{2}x - \\frac{1}{4} + \\frac{1}{4}e^{-2x}$"
+            ]
+        }
+    ]
+}

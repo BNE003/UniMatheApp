@@ -9,6 +9,7 @@ struct ExamDetailView: View {
     @State private var isTimerRunning = false
     @State private var examStarted = false
     @State private var showEndExamAlert = false
+    @State private var titleHeights: [CGFloat] = []
     @State private var exerciseHeights: [CGFloat] = []
     @State private var showSolutions: [Bool] = []
     @State private var currentSteps: [Int] = []
@@ -526,10 +527,33 @@ struct ExamDetailView: View {
             
             // Exercise Content
             VStack(alignment: .leading, spacing: 8) {
-                Text(exercise.title)
-                    .font(.headline)
-                    .fontWeight(.semibold)
-                    .foregroundColor(.primary)
+                LaTeXView(
+                    content: "<span style='font-size:1.05em;font-weight:600;'>" + addHtmlLineBreaks(exercise.title) + "</span>",
+                    height: Binding<CGFloat>(
+                        get: {
+                            if titleHeights.indices.contains(exerciseIndex) && titleHeights[exerciseIndex] > 0 {
+                                return titleHeights[exerciseIndex]
+                            } else {
+                                return estimateTitleHeight(for: exercise.title)
+                            }
+                        },
+                        set: { newHeight in
+                            if titleHeights.indices.contains(exerciseIndex) {
+                                titleHeights[exerciseIndex] = newHeight
+                            } else {
+                                while titleHeights.count <= exerciseIndex { titleHeights.append(0) }
+                                titleHeights[exerciseIndex] = newHeight
+                            }
+                        }
+                    )
+                )
+                .frame(height: {
+                    if titleHeights.indices.contains(exerciseIndex) && titleHeights[exerciseIndex] > 0 {
+                        return titleHeights[exerciseIndex]
+                    } else {
+                        return estimateTitleHeight(for: exercise.title)
+                    }
+                }())
                 
                 // LaTeX with adaptive height based on content length
                 LaTeXView(
@@ -767,6 +791,9 @@ struct ExamDetailView: View {
                     self.timeRemaining = exam.exam.duration * 60
                     
                     // Initialize arrays with estimated heights for better content fitting
+                    self.titleHeights = exam.exercises.map { exercise in
+                        self.estimateTitleHeight(for: exercise.title)
+                    }
                     self.exerciseHeights = exam.exercises.map { exercise in
                         self.estimateContentHeight(for: exercise.description)
                     }
@@ -789,6 +816,9 @@ struct ExamDetailView: View {
         if let currentExam = exam {
             showSolutions = Array(repeating: false, count: currentExam.exercises.count)
             currentSteps = Array(repeating: 0, count: currentExam.exercises.count)
+            titleHeights = currentExam.exercises.map { exercise in
+                estimateTitleHeight(for: exercise.title)
+            }
             exerciseHeights = currentExam.exercises.map { exercise in
                 estimateContentHeight(for: exercise.description)
             }
@@ -828,6 +858,23 @@ struct ExamDetailView: View {
     }
     
     // MARK: - Content Height Estimation
+    private func estimateTitleHeight(for content: String) -> CGFloat {
+        let baseHeight: CGFloat = 26
+        let characterCount = content.count
+        let lineBreaks = content.components(separatedBy: "\n").count - 1
+        let mathExpressions = content.components(separatedBy: "$").count / 2
+        
+        var estimatedHeight = baseHeight
+        estimatedHeight += CGFloat(characterCount / 40) * 16
+        estimatedHeight += CGFloat(lineBreaks) * 18
+        estimatedHeight += CGFloat(mathExpressions) * 10
+        
+        let minHeight: CGFloat = 22
+        let maxHeight: CGFloat = 90
+        
+        return max(minHeight, min(maxHeight, estimatedHeight))
+    }
+
     private func estimateContentHeight(for content: String) -> CGFloat {
         // Base height for minimal content
         let baseHeight: CGFloat = 50
