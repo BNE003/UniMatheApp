@@ -841,8 +841,8 @@ struct ExercisesOnboardingView: View {
                         .minimumScaleFactor(0.8)
                         
                         Text(settings.language == .german ?
-                             "Über 300 sorgfältig ausgewählte Übungsaufgaben" :
-                             "Over 300 carefully selected practice problems")
+                             "Über 400 sorgfältig ausgewählte Übungsaufgaben" :
+                             "Over 400 carefully selected practice problems")
                             .font(.system(size: 18, weight: .medium))
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
@@ -880,7 +880,7 @@ struct ExercisesOnboardingView: View {
     
     private func startCounterAnimation() {
         let timer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true) { timer in
-            if currentCount < 300 {
+            if currentCount < 400 {
                 currentCount += 5
             } else {
                 timer.invalidate()
@@ -1299,7 +1299,25 @@ struct LearningPlanOnboardingView: View {
                     .font(.system(size: geometry.size.height < 700 ? 16 : 18, weight: .bold))
 
                 TextField(settings.language == .german ? "Themen suchen" : "Search topics", text: $searchText)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(.horizontal, 14)
+                    .padding(.vertical, 12)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(
+                                settings.isDarkModeEnabled
+                                ? Color.appSurfaceStrong.opacity(0.92)
+                                : Color.white.opacity(0.92)
+                            )
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 12)
+                                    .strokeBorder(
+                                        settings.isDarkModeEnabled
+                                        ? Color.white.opacity(0.18)
+                                        : Color.blue.opacity(0.14),
+                                        lineWidth: 1
+                                    )
+                            )
+                    )
 
                 LazyVGrid(
                     columns: [GridItem(.adaptive(minimum: geometry.size.width < 400 ? 120 : 150), spacing: 12)],

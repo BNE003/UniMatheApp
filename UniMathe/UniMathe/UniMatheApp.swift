@@ -44,6 +44,7 @@ struct UniMatheApp: App {
                         .animation(.easeInOut(duration: 0.5), value: onboardingManager.showOnboarding)
                 }
             }
+            .animation(.easeInOut(duration: 0.35), value: settings.isDarkModeEnabled)
             .onChange(of: settings.language) { _ in
                 // Force view refresh when language changes
                 needsRefresh = true

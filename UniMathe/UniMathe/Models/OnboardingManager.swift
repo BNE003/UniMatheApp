@@ -3,27 +3,50 @@ import Foundation
 
 // MARK: - Onboarding Manager
 class OnboardingManager: ObservableObject {
+    private enum StorageKey {
+        static let flowState = "onboardingFlowState_v2"
+        static let currentScreen = "onboardingCurrentScreen_v2"
+        static let legacyCompletion = "hasCompletedOnboarding"
+    }
+    
+    private enum FlowState: String {
+        case notStarted
+        case inProgress
+        case completed
+    }
+    
     @Published var currentScreen: OnboardingScreen = .languageSelection
     @Published var isOnboardingComplete = false
     @Published var showOnboarding = false
     @Published var shouldShowPaywall = false
     
     init() {
-        // Check if user has completed onboarding before
-        let hasCompletedOnboarding = UserDefaults.standard.bool(forKey: "hasCompletedOnboarding")
-        self.isOnboardingComplete = hasCompletedOnboarding
-        self.showOnboarding = !hasCompletedOnboarding
+        let flowState = loadFlowState()
         
-        // If not completed, start with language selection
-        if !hasCompletedOnboarding {
+        if flowState == .completed {
+            self.isOnboardingComplete = true
+            self.showOnboarding = false
             self.currentScreen = .languageSelection
+        } else {
+            self.isOnboardingComplete = false
+            self.showOnboarding = true
+            self.currentScreen = loadCurrentScreen()
+            
+            // Make sure onboarding always starts at the language step on the first open.
+            if flowState == .notStarted {
+                self.currentScreen = .languageSelection
+            }
         }
     }
     
     func nextScreen() {
+        persistFlowState(.inProgress)
+        
         withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
             switch currentScreen {
             case .languageSelection:
+                currentScreen = .themeSelection
+            case .themeSelection:
                 currentScreen = .learningTopics
             case .learningTopics:
                 currentScreen = .stepByStep
@@ -42,13 +65,19 @@ class OnboardingManager: ObservableObject {
                 shouldShowPaywall = true
             }
         }
+        
+        persistCurrentScreen()
     }
     
     func previousScreen() {
+        persistFlowState(.inProgress)
+        
         withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
             switch currentScreen {
-            case .learningTopics:
+            case .themeSelection:
                 currentScreen = .languageSelection
+            case .learningTopics:
+                currentScreen = .themeSelection
             case .stepByStep:
                 currentScreen = .learningTopics
             case .exams:
@@ -66,6 +95,8 @@ class OnboardingManager: ObservableObject {
                 break
             }
         }
+        
+        persistCurrentScreen()
     }
     
     func completeOnboarding() {
@@ -74,27 +105,42 @@ class OnboardingManager: ObservableObject {
             showOnboarding = false
         }
         
-        // Save completion state
-        UserDefaults.standard.set(true, forKey: "hasCompletedOnboarding")
+        persistFlowState(.completed)
+        UserDefaults.standard.set(true, forKey: StorageKey.legacyCompletion)
+        UserDefaults.standard.removeObject(forKey: StorageKey.currentScreen)
     }
     
     func resetOnboarding() {
-        UserDefaults.standard.set(false, forKey: "hasCompletedOnboarding")
+        UserDefaults.standard.set(false, forKey: StorageKey.legacyCompletion)
+        persistFlowState(.notStarted)
+        UserDefaults.standard.removeObject(forKey: StorageKey.currentScreen)
         currentScreen = .languageSelection
         isOnboardingComplete = false
         showOnboarding = true
     }
     
     var screenProgress: Double {
-        let allScreens = OnboardingScreen.allCases
-        let progressScreens = allScreens.filter { $0 != .languageSelection }
-
+        let progressScreens = OnboardingScreen.progressScreens
         guard let currentIndex = progressScreens.firstIndex(of: currentScreen) else {
             return 0.0
         }
         
         let totalSteps = progressScreens.count
+        guard totalSteps > 0 else { return 0.0 }
+        
         return Double(currentIndex + 1) / Double(totalSteps)
+    }
+    
+    var currentProgressStep: Int {
+        guard let currentIndex = OnboardingScreen.progressScreens.firstIndex(of: currentScreen) else {
+            return 0
+        }
+        
+        return currentIndex + 1
+    }
+    
+    var progressStepCount: Int {
+        OnboardingScreen.progressScreens.count
     }
     
     var isFirstScreen: Bool {
@@ -104,11 +150,40 @@ class OnboardingManager: ObservableObject {
     var isLastScreen: Bool {
         currentScreen == .monthlyUpdates
     }
+    
+    private func loadFlowState() -> FlowState {
+        if let rawValue = UserDefaults.standard.string(forKey: StorageKey.flowState),
+           let flowState = FlowState(rawValue: rawValue) {
+            return flowState
+        }
+        
+        UserDefaults.standard.set(FlowState.notStarted.rawValue, forKey: StorageKey.flowState)
+        return .notStarted
+    }
+    
+    private func loadCurrentScreen() -> OnboardingScreen {
+        guard let rawValue = UserDefaults.standard.string(forKey: StorageKey.currentScreen),
+              let screen = OnboardingScreen(rawValue: rawValue) else {
+            return .languageSelection
+        }
+        
+        return screen
+    }
+    
+    private func persistFlowState(_ flowState: FlowState) {
+        UserDefaults.standard.set(flowState.rawValue, forKey: StorageKey.flowState)
+    }
+    
+    private func persistCurrentScreen() {
+        guard !isOnboardingComplete else { return }
+        UserDefaults.standard.set(currentScreen.rawValue, forKey: StorageKey.currentScreen)
+    }
 }
 
 // MARK: - Onboarding Screens Enum
-enum OnboardingScreen: CaseIterable {
+enum OnboardingScreen: String, CaseIterable {
     case languageSelection
+    case themeSelection
     case learningTopics
     case stepByStep
     case exams
@@ -121,6 +196,8 @@ enum OnboardingScreen: CaseIterable {
         switch self {
         case .languageSelection:
             return "Sprache wählen"
+        case .themeSelection:
+            return "Hell oder Dunkel"
         case .learningTopics:
             return "Alle Themen meistern"
         case .stepByStep:
@@ -128,7 +205,7 @@ enum OnboardingScreen: CaseIterable {
         case .exams:
             return "Klausuren üben"
         case .exercises:
-            return "300+ Aufgaben"
+            return "400+ Aufgaben"
         case .matrixMethods:
             return "Matrix-Rechnen"
         case .learningPlan:
@@ -142,6 +219,8 @@ enum OnboardingScreen: CaseIterable {
         switch self {
         case .languageSelection:
             return "Choose Language"
+        case .themeSelection:
+            return "Choose Theme"
         case .learningTopics:
             return "Master All Topics"
         case .stepByStep:
@@ -149,7 +228,7 @@ enum OnboardingScreen: CaseIterable {
         case .exams:
             return "Practice Exams"
         case .exercises:
-            return "300+ Problems"
+            return "400+ Problems"
         case .matrixMethods:
             return "Matrix Skills"
         case .learningPlan:
@@ -163,6 +242,8 @@ enum OnboardingScreen: CaseIterable {
         switch self {
         case .languageSelection:
             return "Wählen Sie Ihre bevorzugte Sprache für das beste Lernerlebnis"
+        case .themeSelection:
+            return "Stellen Sie direkt Ihr bevorzugtes Erscheinungsbild ein"
         case .learningTopics:
             return "Von Grundlagen bis zu fortgeschrittenen Themen - alles an einem Ort"
         case .stepByStep:
@@ -170,7 +251,7 @@ enum OnboardingScreen: CaseIterable {
         case .exams:
             return "Bereiten Sie sich optimal auf Ihre Klausuren vor"
         case .exercises:
-            return "Über 300 sorgfältig ausgewählte Übungsaufgaben"
+            return "Über 400 sorgfältig ausgewählte Übungsaufgaben"
         case .matrixMethods:
             return "Gauss, Determinanten und Matrixrechnung mit Rechenweg"
         case .learningPlan:
@@ -184,6 +265,8 @@ enum OnboardingScreen: CaseIterable {
         switch self {
         case .languageSelection:
             return "Choose your preferred language for the best learning experience"
+        case .themeSelection:
+            return "Pick your preferred appearance right away"
         case .learningTopics:
             return "From basics to advanced topics - everything in one place"
         case .stepByStep:
@@ -191,7 +274,7 @@ enum OnboardingScreen: CaseIterable {
         case .exams:
             return "Prepare optimally for your exams"
         case .exercises:
-            return "Over 300 carefully selected practice problems"
+            return "Over 400 carefully selected practice problems"
         case .matrixMethods:
             return "Gauss, determinants, and matrix calculations with steps"
         case .learningPlan:
@@ -205,6 +288,8 @@ enum OnboardingScreen: CaseIterable {
         switch self {
         case .languageSelection:
             return "globe"
+        case .themeSelection:
+            return "circle.lefthalf.filled"
         case .learningTopics:
             return "book.fill"
         case .stepByStep:
@@ -226,6 +311,8 @@ enum OnboardingScreen: CaseIterable {
         switch self {
         case .languageSelection:
             return Color.blue
+        case .themeSelection:
+            return Color.indigo
         case .learningTopics:
             return Color.green
         case .stepByStep:
@@ -241,5 +328,9 @@ enum OnboardingScreen: CaseIterable {
         case .monthlyUpdates:
             return Color.mint
         }
+    }
+    
+    static var progressScreens: [OnboardingScreen] {
+        allCases.filter { $0 != .languageSelection }
     }
 }

@@ -98,6 +98,15 @@ struct PurchaseView: View {
     
     var body: some View {
         ZStack (alignment: .top) {
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color.appBackgroundSecondary,
+                    Color.appBackground
+                ]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
             
             // Confetti animation overlay
             if showConfetti {
@@ -169,6 +178,7 @@ struct PurchaseView: View {
                 }
             }
             .padding(.top)
+            .padding(.horizontal)
 
             VStack (spacing: 20) {
                 
@@ -206,7 +216,8 @@ struct PurchaseView: View {
                         .minimumScaleFactor(0.8)
                     VStack (alignment: .leading) {
                         PurchaseFeatureView(title: settings.language == .english ? "Unlock all interactive lessons" : "Alle interaktiven Lektionen freischalten", icon: "checkmark.circle.fill", color: color)
-                        PurchaseFeatureView(title: settings.language == .english ? "Full access to over 300 exercises" : "Vollen Zugriff auf über 300 Aufgaben", icon: "books.vertical.fill", color: color)
+                        PurchaseFeatureView(title: settings.language == .english ? "Full access to over 400 exercises" : "Vollen Zugriff auf über 400 Aufgaben", icon: "books.vertical.fill", color: color)
+                        PurchaseFeatureView(title: settings.language == .english ? "Matrix calculator" : "Matrix-Rechner", icon: "tablecells.fill", color: color)
                         PurchaseFeatureView(title: settings.language == .english ? "Detailed solution steps" : "Detaillierte Lösungsschritte", icon: "list.bullet.rectangle.fill", color: color)
                         PurchaseFeatureView(title: settings.language == .english ? "Access to all exams" : "Zugang zu allen Klausuren", icon: "doc.text.fill", color: color)
                         PurchaseFeatureView(title: settings.language == .english ? "Monthly new exams" : "Monatlich neue Klausuren", icon: "calendar.circle.fill", color: color)
@@ -550,8 +561,8 @@ struct PurchaseView: View {
 
                 
             }
+            .padding(.horizontal)
         }
-        .padding(.horizontal)
         .onAppear {
             selectedProductId = purchaseModel.productIds.last ?? ""
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
