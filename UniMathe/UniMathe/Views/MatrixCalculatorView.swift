@@ -1,4 +1,7 @@
 import SwiftUI
+#if canImport(UIKit)
+import UIKit
+#endif
 
 struct MatrixCalculatorView: View {
     @ObservedObject private var settings = SettingsModel.shared
@@ -112,16 +115,23 @@ struct MatrixCalculatorView: View {
                     }
                     .padding(.horizontal, 20)
                     .padding(.bottom, 40)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        dismissKeyboard()
+                    }
                 }
             }
             .navigationTitle(localized("Matrix Rechner", "Matrix Tools"))
             .onChange(of: matrixSize) { newSize in
+                dismissKeyboard()
                 updateMatrixSize(to: newSize.size)
             }
             .onChange(of: algorithm) { _ in
+                dismissKeyboard()
                 resetGaussOutput()
             }
             .onChange(of: tool) { _ in
+                dismissKeyboard()
                 resetToolOutputs()
             }
             .fullScreenCover(isPresented: $showPaywall) {
@@ -600,6 +610,7 @@ struct MatrixCalculatorView: View {
     }
 
     private func performOperation(_ action: () -> Void) {
+        dismissKeyboard()
         if hasProAccess {
             action()
             return
@@ -612,6 +623,12 @@ struct MatrixCalculatorView: View {
         }
 
         showPaywall = true
+    }
+
+    private func dismissKeyboard() {
+#if canImport(UIKit)
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+#endif
     }
 
     private func nextStep() {
