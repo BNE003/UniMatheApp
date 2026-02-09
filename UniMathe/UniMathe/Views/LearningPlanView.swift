@@ -20,8 +20,8 @@ struct LearningPlanView: View {
             ZStack {
                 LinearGradient(
                     gradient: Gradient(colors: [
-                        Color(red: 0.96, green: 0.98, blue: 1.0),
-                        Color(red: 0.94, green: 0.97, blue: 1.0)
+                        Color.appBackground,
+                        Color.appBackgroundSecondary
                     ]),
                     startPoint: .top,
                     endPoint: .bottom
@@ -34,7 +34,7 @@ struct LearningPlanView: View {
                             .scaleEffect(1.2)
                         Text(settings.language == .english ? "Loading..." : "Wird geladen...")
                             .font(.subheadline)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.secondary)
                             .padding(.top, 8)
                     }
                 } else if let error = error {
@@ -44,7 +44,7 @@ struct LearningPlanView: View {
                             .foregroundColor(.red)
                         Text(error.localizedDescription)
                             .font(.subheadline)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
                             .padding()
                     }
@@ -192,7 +192,7 @@ struct LearningPlanView: View {
 
                 ZStack(alignment: .leading) {
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.gray.opacity(0.15))
+                        .fill(Color.secondary.opacity(0.15))
                         .frame(height: 10)
 
                     RoundedRectangle(cornerRadius: 10)
@@ -372,8 +372,8 @@ private struct PlanCard<Content: View>: View {
             .padding()
             .background(
                 RoundedRectangle(cornerRadius: 18)
-                    .fill(Color.white.opacity(0.85))
-                    .shadow(color: Color.black.opacity(0.06), radius: 8, x: 0, y: 4)
+                    .fill(Color.appSurface.opacity(0.85))
+                    .shadow(color: Color.appShadow.opacity(0.6), radius: 8, x: 0, y: 4)
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 18)

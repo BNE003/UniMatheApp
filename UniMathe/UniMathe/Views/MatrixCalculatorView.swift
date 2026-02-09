@@ -399,8 +399,8 @@ struct MatrixCalculatorView: View {
         ZStack {
             LinearGradient(
                 gradient: Gradient(colors: [
-                    Color(red: 0.94, green: 0.97, blue: 1.0),
-                    Color(red: 0.98, green: 0.99, blue: 1.0)
+                    Color.appBackgroundSecondary,
+                    Color.appBackground
                 ]),
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
@@ -1176,7 +1176,7 @@ struct MatrixInputView: View {
                             .multilineTextAlignment(.center)
                             .font(.system(size: 15, weight: .semibold, design: .rounded))
                             .frame(width: cellSize, height: cellSize * 0.7)
-                            .background(Color.white.opacity(0.7), in: RoundedRectangle(cornerRadius: 10))
+                            .background(Color.appSurface.opacity(0.7), in: RoundedRectangle(cornerRadius: 10))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(accent.opacity(0.25), lineWidth: 1)
@@ -1204,7 +1204,7 @@ struct AugmentedMatrixInputView: View {
                             .multilineTextAlignment(.center)
                             .font(.system(size: 15, weight: .semibold, design: .rounded))
                             .frame(width: cellSize, height: cellSize * 0.7)
-                            .background(Color.white.opacity(0.7), in: RoundedRectangle(cornerRadius: 10))
+                            .background(Color.appSurface.opacity(0.7), in: RoundedRectangle(cornerRadius: 10))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(accent.opacity(0.25), lineWidth: 1)
@@ -1221,7 +1221,7 @@ struct AugmentedMatrixInputView: View {
                         .multilineTextAlignment(.center)
                         .font(.system(size: 15, weight: .semibold, design: .rounded))
                         .frame(width: cellSize, height: cellSize * 0.7)
-                        .background(Color.white.opacity(0.8), in: RoundedRectangle(cornerRadius: 10))
+                        .background(Color.appSurface.opacity(0.8), in: RoundedRectangle(cornerRadius: 10))
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(accent.opacity(0.3), lineWidth: 1)
@@ -1255,7 +1255,7 @@ struct MatrixResultView: View {
                             .font(.system(size: 14, weight: .medium, design: .rounded))
                             .frame(width: cellSize, height: cellSize * 0.7)
                             .background(
-                                (highlightRows.contains(row) ? accent.opacity(0.16) : Color.white.opacity(0.55)),
+                                (highlightRows.contains(row) ? accent.opacity(0.16) : Color.appSurface.opacity(0.55)),
                                 in: RoundedRectangle(cornerRadius: 10)
                             )
                             .overlay(
@@ -1313,7 +1313,7 @@ struct AugmentedMatrixResultView: View {
             .font(.system(size: 14, weight: .medium, design: .rounded))
             .frame(width: cellSize, height: cellSize * 0.7)
             .background(
-                (highlighted ? accent.opacity(0.16) : Color.white.opacity(0.55)),
+                (highlighted ? accent.opacity(0.16) : Color.appSurface.opacity(0.55)),
                 in: RoundedRectangle(cornerRadius: 10)
             )
             .overlay(
@@ -1346,9 +1346,9 @@ struct GlassCard<Content: View>: View {
             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 20))
             .overlay(
                 RoundedRectangle(cornerRadius: 20)
-                    .stroke(Color.white.opacity(0.4), lineWidth: 1)
+                    .stroke(Color.appSurface.opacity(0.4), lineWidth: 1)
             )
-            .shadow(color: Color.black.opacity(0.08), radius: 10, x: 0, y: 6)
+            .shadow(color: Color.appShadow.opacity(0.7), radius: 10, x: 0, y: 6)
     }
 }
 

@@ -32,8 +32,11 @@ struct LaTeXView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: WKWebView, context: Context) {
+        let isDarkMode = context.environment.colorScheme == .dark
+        uiView.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
+
         // Only reload HTML when the content actually changes to prevent scroll resets
-        guard context.coordinator.lastContent != content else {
+        guard context.coordinator.lastContent != content || context.coordinator.lastIsDarkMode != isDarkMode else {
             // Content unchanged: request a height re-measure in case width changed (e.g., rotation)
             let script = "window.requestAnimationFrame(() => { try { window.webkit.messageHandlers.sizeHandler.postMessage(document.body.scrollHeight); } catch(e){} });"
             uiView.evaluateJavaScript(script, completionHandler: nil)
@@ -51,6 +54,13 @@ struct LaTeXView: UIViewRepresentable {
             mathJaxSrc = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
             polyfillSrc = "https://polyfill.io/v3/polyfill.min.js?features=es6"
         }
+
+        let primaryColor = isDarkMode ? "#33A3FF" : "#007AFF"
+        let textColor = isDarkMode ? "#E8ECF4" : "#1C1C1E"
+        let cardBackground = isDarkMode ? "rgba(40, 45, 54, 0.88)" : "rgba(255, 255, 255, 0.9)"
+        let mathBlockBackground = isDarkMode ? "rgba(74, 144, 255, 0.18)" : "rgba(0, 122, 255, 0.05)"
+        let subtleBorderColor = isDarkMode ? "rgba(255, 255, 255, 0.16)" : "rgba(0, 0, 0, 0.1)"
+        let mutedTextColor = isDarkMode ? "#B2BDD0" : "#666666"
 
         let html = """
         <!DOCTYPE html>
@@ -111,10 +121,13 @@ struct LaTeXView: UIViewRepresentable {
             </script>
             <style>
                 :root {
-                    --primary-color: #007AFF;
-                    --text-color: #1C1C1E;
-                    --background-color: #FFFFFF;
-                    --card-background: rgba(255, 255, 255, 0.9);
+                    --primary-color: \(primaryColor);
+                    --text-color: \(textColor);
+                    --background-color: transparent;
+                    --card-background: \(cardBackground);
+                    --math-block-background: \(mathBlockBackground);
+                    --border-color: \(subtleBorderColor);
+                    --muted-text-color: \(mutedTextColor);
                     --border-radius: 12px;
                     --spacing-unit: 8px;
                 }
@@ -176,6 +189,10 @@ struct LaTeXView: UIViewRepresentable {
                     margin: var(--spacing-unit) 0;
                     font-size: 0.95em;
                 }
+
+                .MathJax, mjx-container {
+                    color: var(--text-color) !important;
+                }
                 
                 .math {
                     font-size: 1.2em;
@@ -193,7 +210,7 @@ struct LaTeXView: UIViewRepresentable {
                     margin: var(--spacing-unit) 0;
                      overflow-x: auto;
                      -webkit-overflow-scrolling: touch; /* smooth horizontal scroll */
-                    background: rgba(0, 122, 255, 0.05);
+                    background: var(--math-block-background);
                     padding: var(--spacing-unit);
                     border-radius: var(--border-radius);
                 }
@@ -203,7 +220,7 @@ struct LaTeXView: UIViewRepresentable {
                     padding: var(--spacing-unit);
                     border-radius: var(--border-radius);
                     margin-bottom: var(--spacing-unit);
-                    border: 1px solid rgba(0, 0, 0, 0.1);
+                    border: 1px solid var(--border-color);
                 }
                 
                 .operation h3, .relation h3, .important-set h3 {
@@ -226,7 +243,7 @@ struct LaTeXView: UIViewRepresentable {
                 
                 .diagram-caption {
                     font-size: 0.9em;
-                    color: #666;
+                    color: var(--muted-text-color);
                     text-align: center;
                     margin-top: var(--spacing-unit);
                 }
@@ -258,7 +275,7 @@ struct LaTeXView: UIViewRepresentable {
                     border-left: 3px solid var(--primary-color);
                     margin: var(--spacing-unit) 0;
                     padding: var(--spacing-unit);
-                    background-color: rgba(0, 122, 255, 0.05);
+                    background-color: var(--math-block-background);
                     border-radius: var(--border-radius);
                     font-size: 0.95em;
                 }
@@ -284,12 +301,14 @@ struct LaTeXView: UIViewRepresentable {
         </html>
         """
         context.coordinator.lastContent = content
+        context.coordinator.lastIsDarkMode = isDarkMode
         uiView.loadHTMLString(html, baseURL: resourceBaseURL)
     }
     
     class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
         var parent: LaTeXView
         var lastContent: String?
+        var lastIsDarkMode: Bool?
         var lastReportedHeight: CGFloat?
         
         init(_ parent: LaTeXView) {

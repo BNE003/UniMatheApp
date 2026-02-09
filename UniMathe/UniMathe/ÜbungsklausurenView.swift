@@ -3,6 +3,7 @@ import SwiftUI
 struct ÜbungsklausurenView: View {
     @ObservedObject private var settings = SettingsModel.shared
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.colorScheme) private var colorScheme
     @State private var animateCards = false
     
     let examTopics = [
@@ -213,9 +214,9 @@ struct ÜbungsklausurenView: View {
                 // Elegant gradient background
                 LinearGradient(
                     gradient: Gradient(colors: [
-                        Color(red: 0.98, green: 0.99, blue: 1.0),
-                        Color(red: 0.94, green: 0.97, blue: 0.99),
-                        Color(red: 0.96, green: 0.98, blue: 1.0)
+                        Color.appBackground,
+                        Color.appBackgroundSecondary,
+                        Color.appBackground
                     ]),
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
@@ -230,7 +231,7 @@ struct ÜbungsklausurenView: View {
                             .fill(
                                 RadialGradient(
                                     gradient: Gradient(colors: [
-                                        Color.blue.opacity(0.06),
+                                        Color.appAccentBlue.opacity(0.06),
                                         Color.purple.opacity(0.03),
                                         Color.clear
                                     ]),
@@ -266,15 +267,15 @@ struct ÜbungsklausurenView: View {
                         VStack(alignment: .leading, spacing: 0) {
                             Text(settings.language == .english ? "Exams" : "Klausuren")
                                 .font(.custom("Nexa Bold", size: horizontalSizeClass == .regular ? 54 : 42))
-                                .foregroundColor(.blue)
+                                .foregroundColor(colorScheme == .dark ? .white : .blue)
                                 .overlay(
                                     Text(settings.language == .english ? "Exams" : "Klausuren")
                                         .font(.custom("Nexa Bold", size: horizontalSizeClass == .regular ? 54 : 42))
-                                        .foregroundColor(.blue)
+                                        .foregroundColor(colorScheme == .dark ? .white : .blue)
                                         .opacity(0.3)
                                         .offset(x: 0.5, y: 0.5)
                                 )
-                                .shadow(color: Color.blue.opacity(0.15), radius: 4, x: 0, y: 2)
+                                .shadow(color: (colorScheme == .dark ? Color.white : Color.appAccentBlue).opacity(0.15), radius: 4, x: 0, y: 2)
                                 .padding(.bottom, 8)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -320,6 +321,7 @@ struct ÜbungsklausurenView: View {
 struct ExamCard: View {
     let exam: ExamTopic
     @ObservedObject private var settings = SettingsModel.shared
+    @Environment(\.colorScheme) private var colorScheme
     @State private var isPressed = false
     
     var body: some View {
@@ -403,15 +405,26 @@ struct ExamCard: View {
                 .fill(
                     LinearGradient(
                         gradient: Gradient(colors: [
-                            Color.white.opacity(0.95),
-                            Color.white.opacity(0.85)
+                            colorScheme == .dark
+                                ? Color(red: 0.22, green: 0.25, blue: 0.30)
+                                : Color.appSurface.opacity(0.95),
+                            colorScheme == .dark
+                                ? Color(red: 0.20, green: 0.23, blue: 0.28)
+                                : Color.appSurface.opacity(0.85)
                         ]),
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     )
                 )
                 .shadow(color: exam.color.opacity(0.15), radius: 12, x: 0, y: 6)
-                .shadow(color: Color.black.opacity(0.04), radius: 3, x: 0, y: 1)
+                .shadow(color: Color.black.opacity(colorScheme == .dark ? 0.18 : 0.04), radius: 3, x: 0, y: 1)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 18)
+                        .stroke(
+                            colorScheme == .dark ? Color.white.opacity(0.08) : Color.appBorder,
+                            lineWidth: 1
+                        )
+                )
         )
         .scaleEffect(isPressed ? 0.97 : 1.0)
     }

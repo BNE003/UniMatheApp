@@ -18,8 +18,8 @@ struct SettingsView: View {
             // Modern gradient background
             LinearGradient(
                 gradient: Gradient(colors: [
-                    Color(red: 0.98, green: 0.98, blue: 1.0),
-                    Color(red: 0.95, green: 0.97, blue: 1.0)
+                    Color.appBackground,
+                    Color.appBackgroundSecondary
                 ]),
                 startPoint: .top,
                 endPoint: .bottom
@@ -89,7 +89,7 @@ struct SettingsView: View {
                                                 .foregroundColor(settings.accentColor)
                                         } else {
                                             Circle()
-                                                .strokeBorder(Color.gray.opacity(0.5), lineWidth: 1.5)
+                                                .strokeBorder(Color.secondary.opacity(0.5), lineWidth: 1.5)
                                                 .frame(width: 22, height: 22)
                                         }
                                     }
@@ -98,6 +98,54 @@ struct SettingsView: View {
                                     .background(
                                         RoundedRectangle(cornerRadius: 10)
                                             .fill(settings.language == language ? settings.accentColor.opacity(0.1) : Color.clear)
+                                    )
+                                }
+                                .foregroundColor(.primary)
+                            }
+                        }
+                        .padding(.vertical, 6)
+                    }
+
+                    SettingsSection {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text(settings.language == .english ? "Appearance" : "Darstellung")
+                                .font(.headline)
+                                .foregroundColor(.secondary)
+                                .padding(.horizontal, horizontalSizeClass == .regular ? 24 : 16)
+                                .padding(.top, 12)
+
+                            ForEach([false, true], id: \.self) { isDark in
+                                Button(action: {
+                                    settings.isDarkModeEnabled = isDark
+                                }) {
+                                    HStack {
+                                        Image(systemName: isDark ? "moon.fill" : "sun.max.fill")
+                                            .font(.system(size: 18))
+                                            .foregroundColor(settings.isDarkModeEnabled == isDark ? settings.accentColor : .secondary)
+
+                                        Text(isDark
+                                            ? (settings.language == .english ? "Dark Mode" : "Dunkelmodus")
+                                            : (settings.language == .english ? "Light Mode" : "Hellmodus")
+                                        )
+                                        .font(.system(size: horizontalSizeClass == .regular ? 20 : 17))
+
+                                        Spacer()
+
+                                        if settings.isDarkModeEnabled == isDark {
+                                            Image(systemName: "checkmark.circle.fill")
+                                                .font(.system(size: 22))
+                                                .foregroundColor(settings.accentColor)
+                                        } else {
+                                            Circle()
+                                                .strokeBorder(Color.secondary.opacity(0.4), lineWidth: 1.5)
+                                                .frame(width: 22, height: 22)
+                                        }
+                                    }
+                                    .padding(.horizontal, horizontalSizeClass == .regular ? 24 : 16)
+                                    .padding(.vertical, 12)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .fill(settings.isDarkModeEnabled == isDark ? settings.accentColor.opacity(0.12) : Color.clear)
                                     )
                                 }
                                 .foregroundColor(.primary)
@@ -247,8 +295,8 @@ struct SettingsSection<Content: View>: View {
         }
         .background(
             RoundedRectangle(cornerRadius: 18)
-                .fill(Color.white.opacity(0.8))
-                .shadow(color: Color.black.opacity(0.05), radius: 12)
+                .fill(Color.appSurface)
+                .shadow(color: Color.appShadow, radius: 12)
         )
         .padding(.horizontal, horizontalSizeClass == .regular ? 32 : 20)
     }
@@ -282,7 +330,7 @@ struct SettingsButton: View {
             
             Image(systemName: "chevron.right")
                 .font(.system(size: isIpad ? 18 : 14, weight: .semibold))
-                .foregroundColor(.gray)
+                .foregroundColor(.secondary)
                 .padding(.trailing, isIpad ? 24 : 16)
         }
         .padding(.vertical, isIpad ? 14 : 10)
@@ -297,7 +345,7 @@ struct ImpressumView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color(red: 0.98, green: 0.98, blue: 1.0)
+                Color.appBackground
                     .ignoresSafeArea()
                 
                 VStack(alignment: .leading, spacing: 24) {
@@ -320,8 +368,8 @@ struct ImpressumView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(
                         RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.white)
-                            .shadow(color: Color.black.opacity(0.05), radius: 5)
+                            .fill(Color.appSurface)
+                            .shadow(color: Color.appShadow, radius: 5)
                     )
                     
                     Spacer()

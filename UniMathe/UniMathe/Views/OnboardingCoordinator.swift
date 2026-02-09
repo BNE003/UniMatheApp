@@ -11,8 +11,8 @@ struct OnboardingCoordinator: View {
             // Solid Background to prevent any bleed-through
             LinearGradient(
                 gradient: Gradient(colors: [
-                    Color(red: 0.98, green: 0.99, blue: 1.0),
-                    Color(red: 0.94, green: 0.97, blue: 0.99)
+                    Color.appBackground,
+                    Color.appBackgroundSecondary
                 ]),
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
@@ -89,8 +89,8 @@ struct EnhancedLanguageSelectionView: View {
                     // Base gradient
                     LinearGradient(
                         gradient: Gradient(colors: [
-                            Color(red: 0.98, green: 0.99, blue: 1.0),
-                            Color(red: 0.94, green: 0.97, blue: 0.99)
+                            Color.appBackground,
+                            Color.appBackgroundSecondary
                         ]),
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
@@ -285,7 +285,7 @@ struct EnhancedLanguageSelectionView: View {
                 ZStack {
                     Circle()
                         .strokeBorder(
-                            selectedLanguage == language ? Color.blue : Color.gray.opacity(0.3),
+                            selectedLanguage == language ? Color.blue : Color.secondary.opacity(0.3),
                             lineWidth: 3
                         )
                         .frame(width: 28, height: 28)
@@ -311,7 +311,7 @@ struct EnhancedLanguageSelectionView: View {
                             )
                     )
                     .shadow(
-                        color: selectedLanguage == language ? Color.blue.opacity(0.2) : Color.black.opacity(0.1),
+                        color: selectedLanguage == language ? Color.blue.opacity(0.2) : Color.appShadow.opacity(0.8),
                         radius: selectedLanguage == language ? 20 : 10,
                         x: 0,
                         y: selectedLanguage == language ? 10 : 5
@@ -426,9 +426,9 @@ struct OnboardingNavigationControls: View {
                             .fill(
                                 LinearGradient(
                                     gradient: Gradient(colors: [
-                                        Color.white.opacity(0.4),
-                                        Color.white.opacity(0.15),
-                                        Color.white.opacity(0.05),
+                                        Color.appSurface.opacity(0.4),
+                                        Color.appSurface.opacity(0.15),
+                                        Color.appSurface.opacity(0.05),
                                         Color.clear
                                     ]),
                                     startPoint: .top,
@@ -467,11 +467,11 @@ struct OnboardingNavigationControls: View {
                         .foregroundStyle(
                             LinearGradient(
                                 gradient: Gradient(colors: [
-                                    Color.white.opacity(0.6),
-                                    Color.white.opacity(0.9),
+                                    Color.appSurface.opacity(0.6),
+                                    Color.appSurface.opacity(0.9),
                                     Color.blue.opacity(0.4),
-                                    Color.white.opacity(0.9),
-                                    Color.white.opacity(0.6)
+                                    Color.appSurface.opacity(0.9),
+                                    Color.appSurface.opacity(0.6)
                                 ]),
                                 startPoint: .leading,
                                 endPoint: .trailing
@@ -501,7 +501,7 @@ struct OnboardingProgressBar: View {
             ZStack(alignment: .leading) {
                 // Background
                 RoundedRectangle(cornerRadius: geometry.size.height < 700 ? 4 : 6)
-                    .fill(Color.gray.opacity(0.2))
+                    .fill(Color.secondary.opacity(0.2))
                     .frame(height: geometry.size.height < 700 ? 8 : 10)
                     .overlay(
                         RoundedRectangle(cornerRadius: geometry.size.height < 700 ? 4 : 6)
@@ -530,7 +530,7 @@ struct OnboardingProgressBar: View {
                 HStack(spacing: geometry.size.width / 5 - 4) {
                     ForEach(0..<5, id: \.self) { index in
                         Circle()
-                            .fill(progress > Double(index) * 0.2 ? Color.white : Color.gray.opacity(0.3))
+                            .fill(progress > Double(index) * 0.2 ? Color.appSurfaceStrong : Color.secondary.opacity(0.3))
                             .frame(width: 4, height: 4)
                             .animation(.easeInOut(duration: 0.3).delay(Double(index) * 0.1), value: progress)
                     }

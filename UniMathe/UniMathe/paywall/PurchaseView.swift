@@ -133,7 +133,7 @@ struct PurchaseView: View {
                     .background(
                         RoundedRectangle(cornerRadius: 20)
                             .fill(.ultraThinMaterial)
-                            .shadow(color: Color.black.opacity(0.1), radius: 20, x: 0, y: 10)
+                            .shadow(color: Color.appShadow.opacity(0.8), radius: 20, x: 0, y: 10)
                     )
                     .scaleEffect(showConfetti ? 1.0 : 0.8)
                     .opacity(showConfetti ? 1.0 : 0.0)
@@ -382,7 +382,7 @@ struct PurchaseView: View {
                                 )
                                 .shadow(
                                     color: selectedProductId == productDetails.productId ? 
-                                    Color.blue.opacity(0.2) : Color.black.opacity(0.05),
+                                    Color.blue.opacity(0.2) : Color.appShadow.opacity(0.5),
                                     radius: selectedProductId == productDetails.productId ? 10 : 5,
                                     x: 0,
                                     y: selectedProductId == productDetails.productId ? 5 : 3
@@ -423,7 +423,7 @@ struct PurchaseView: View {
                                     .stroke(Color.primary.opacity(0.1), lineWidth: 1)
                             }
                         )
-                        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+                        .shadow(color: Color.appShadow.opacity(0.5), radius: 5, x: 0, y: 2)
                         
                     }
                     .opacity(purchaseModel.isFetchingProducts ? 0 : 1)
@@ -503,7 +503,7 @@ struct PurchaseView: View {
                         .overlay(
                             Rectangle()
                                 .frame(height: 1)
-                                .foregroundColor(.gray), alignment: .bottom
+                                .foregroundColor(.secondary), alignment: .bottom
                         )
                         .font(.footnote)
                         
@@ -514,7 +514,7 @@ struct PurchaseView: View {
                         .overlay(
                             Rectangle()
                                 .frame(height: 1)
-                                .foregroundColor(.gray), alignment: .bottom
+                                .foregroundColor(.secondary), alignment: .bottom
                         )
                         .actionSheet(isPresented: $showTermsActionSheet) {
                             ActionSheet(
@@ -540,7 +540,7 @@ struct PurchaseView: View {
                         
                     }
                     //.font(.headline)
-                    .foregroundColor(.gray)
+                    .foregroundColor(.secondary)
                     .font(.system(size: 15))
                     
                     

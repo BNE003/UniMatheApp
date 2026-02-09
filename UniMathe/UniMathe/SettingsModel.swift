@@ -165,4 +165,43 @@ class SettingsModel: ObservableObject {
             self?.trackAppWillEnterForeground()
         }
     }
-} 
+}
+
+// MARK: - App Theme
+extension Color {
+    private static func dynamic(light: UIColor, dark: UIColor) -> Color {
+        Color(UIColor { traitCollection in
+            traitCollection.userInterfaceStyle == .dark ? dark : light
+        })
+    }
+
+    // Modern dark palette (dark gray instead of pure black)
+    static let appBackground = dynamic(
+        light: UIColor(red: 0.96, green: 0.97, blue: 0.99, alpha: 1.0),
+        dark: UIColor(red: 0.08, green: 0.09, blue: 0.11, alpha: 1.0)
+    )
+    static let appBackgroundSecondary = dynamic(
+        light: UIColor(red: 0.92, green: 0.95, blue: 0.99, alpha: 1.0),
+        dark: UIColor(red: 0.12, green: 0.14, blue: 0.17, alpha: 1.0)
+    )
+    static let appSurface = dynamic(
+        light: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.94),
+        dark: UIColor(red: 0.15, green: 0.17, blue: 0.20, alpha: 0.94)
+    )
+    static let appSurfaceStrong = dynamic(
+        light: UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
+        dark: UIColor(red: 0.18, green: 0.20, blue: 0.24, alpha: 1.0)
+    )
+    static let appBorder = dynamic(
+        light: UIColor(red: 0.19, green: 0.46, blue: 0.95, alpha: 0.15),
+        dark: UIColor(red: 0.45, green: 0.62, blue: 1.0, alpha: 0.22)
+    )
+    static let appShadow = dynamic(
+        light: UIColor.black.withAlphaComponent(0.08),
+        dark: UIColor.black.withAlphaComponent(0.35)
+    )
+    static let appAccentBlue = dynamic(
+        light: UIColor.systemBlue,
+        dark: UIColor(red: 0.20, green: 0.64, blue: 1.0, alpha: 1.0)
+    )
+}

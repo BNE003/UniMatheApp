@@ -261,7 +261,7 @@ struct EnhancedTopicCategoryView: View {
                                 )
                         )
                         .shadow(
-                            color: isSelected ? color.opacity(0.3) : Color.black.opacity(0.1),
+                            color: isSelected ? color.opacity(0.3) : Color.appShadow.opacity(0.8),
                             radius: isSelected ? 20 : 10,
                             x: 0,
                             y: isSelected ? 10 : 5
@@ -360,7 +360,7 @@ struct SubtopicRowView: View {
             RoundedRectangle(cornerRadius: 12)
                 .fill(.ultraThinMaterial)
                 .shadow(
-                    color: isPressed ? color.opacity(0.2) : Color.black.opacity(0.05),
+                    color: isPressed ? color.opacity(0.2) : Color.appShadow.opacity(0.5),
                     radius: isPressed ? 8 : 4,
                     x: 0,
                     y: isPressed ? 4 : 2
@@ -610,7 +610,7 @@ struct LearningContentDemo: View {
             HStack(spacing: 8) {
                 ForEach(0..<learningSteps.count, id: \.self) { index in
                     Circle()
-                        .fill(index <= currentStep ? Color.blue : Color.gray.opacity(0.3))
+                        .fill(index <= currentStep ? Color.blue : Color.secondary.opacity(0.3))
                         .frame(width: 8, height: 8)
                         .scaleEffect(index == currentStep ? 1.4 : 1.0)
                         .animation(.spring(response: 0.5, dampingFraction: 0.7), value: currentStep)
@@ -624,9 +624,9 @@ struct LearningContentDemo: View {
                     // Brain icon in white circle
                     ZStack {
                         Circle()
-                            .fill(Color.white)
+                            .fill(Color.appSurface)
                             .frame(width: isCompact ? 40 : 50, height: isCompact ? 40 : 50)
-                            .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
+                            .shadow(color: Color.appShadow.opacity(0.8), radius: 4, x: 0, y: 2)
                         
                         Image(systemName: "brain.head.profile")
                             .font(.system(size: isCompact ? 18 : 22, weight: .medium))
@@ -656,7 +656,7 @@ struct LearningContentDemo: View {
                 // Formula in blue box (like in the image)
                 Text(learningSteps[currentStep].formula)
                     .font(.system(size: isCompact ? 15 : 17, weight: .semibold, design: .monospaced))
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, isCompact ? 10 : 14)
                     .padding(.horizontal, isCompact ? 14 : 18)
@@ -678,7 +678,7 @@ struct LearningContentDemo: View {
                     .padding(.horizontal, isCompact ? 14 : 18)
                     .background(
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.gray.opacity(0.1))
+                            .fill(Color.secondary.opacity(0.1))
                     )
                     .padding(.horizontal, isCompact ? 14 : 18)
                     .padding(.top, isCompact ? 8 : 10)
@@ -687,7 +687,7 @@ struct LearningContentDemo: View {
             .background(
                 RoundedRectangle(cornerRadius: 16)
                     .fill(.ultraThinMaterial)
-                    .shadow(color: Color.black.opacity(0.08), radius: 12, x: 0, y: 6)
+                    .shadow(color: Color.appShadow.opacity(0.7), radius: 12, x: 0, y: 6)
             )
         }
         .transition(.scale(scale: 0.95).combined(with: .opacity))
@@ -1037,7 +1037,7 @@ struct MatrixMethodsOnboardingView: View {
         .background(
             RoundedRectangle(cornerRadius: 14)
                 .fill(.ultraThinMaterial)
-                .shadow(color: Color.black.opacity(0.06), radius: 8, x: 0, y: 4)
+                .shadow(color: Color.appShadow.opacity(0.6), radius: 8, x: 0, y: 4)
         )
         .opacity(animateElements ? 1 : 0)
         .offset(y: animateElements ? 0 : 16)
@@ -1090,7 +1090,7 @@ struct MatrixMethodCard: View {
         .background(
             RoundedRectangle(cornerRadius: 18)
                 .fill(.ultraThinMaterial)
-                .shadow(color: Color.black.opacity(0.08), radius: 10, x: 0, y: 6)
+                .shadow(color: Color.appShadow.opacity(0.7), radius: 10, x: 0, y: 6)
         )
         .opacity(animate ? 1 : 0)
         .offset(x: animate ? 0 : (entryDirection * (isCompact ? 26 : 34)),
@@ -1647,9 +1647,9 @@ struct LearningPlanOnboardingView: View {
                     .fill(.ultraThinMaterial)
                     .overlay(
                         RoundedRectangle(cornerRadius: 22)
-                            .strokeBorder(Color.white.opacity(0.2), lineWidth: 1)
+                            .strokeBorder(Color.appSurface.opacity(0.2), lineWidth: 1)
                     )
-                    .shadow(color: Color.black.opacity(0.08), radius: 16, x: 0, y: 8)
+                    .shadow(color: Color.appShadow.opacity(0.7), radius: 16, x: 0, y: 8)
             )
     }
 
@@ -1722,25 +1722,25 @@ struct LearningPlanOnboardingView: View {
 
                 ZStack {
                     Capsule()
-                        .fill(isOn.wrappedValue ? color : Color.gray.opacity(0.25))
+                        .fill(isOn.wrappedValue ? color : Color.secondary.opacity(0.25))
                         .frame(width: 44, height: 26)
                     Circle()
-                        .fill(Color.white)
+                        .fill(Color.appSurface)
                         .frame(width: 20, height: 20)
                         .offset(x: isOn.wrappedValue ? 9 : -9)
-                        .shadow(color: Color.black.opacity(0.1), radius: 3, x: 0, y: 2)
+                        .shadow(color: Color.appShadow.opacity(0.8), radius: 3, x: 0, y: 2)
                 }
             }
             .padding(.vertical, 10)
             .padding(.horizontal, 12)
             .background(
                 RoundedRectangle(cornerRadius: 18)
-                    .fill(Color.white.opacity(0.9))
+                    .fill(Color.appSurface.opacity(0.9))
                     .overlay(
                         RoundedRectangle(cornerRadius: 18)
                             .strokeBorder(color.opacity(isOn.wrappedValue ? 0.5 : 0.2), lineWidth: 1)
                     )
-                    .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
+                    .shadow(color: Color.appShadow.opacity(0.5), radius: 8, x: 0, y: 4)
             )
         }
         .buttonStyle(.plain)
@@ -1765,7 +1765,7 @@ struct LearningPlanOnboardingView: View {
             .frame(maxWidth: .infinity, minHeight: 54, maxHeight: 54)
             .background(
                 RoundedRectangle(cornerRadius: 14)
-                    .fill(isSelected ? color : Color.white.opacity(0.7))
+                    .fill(isSelected ? color : Color.appSurface.opacity(0.7))
                     .overlay(
                         RoundedRectangle(cornerRadius: 14)
                             .strokeBorder(color.opacity(isSelected ? 0.8 : 0.2), lineWidth: 1)
@@ -1786,8 +1786,8 @@ struct AnimatedBackground: View {
                 // Base gradient
                 LinearGradient(
                     gradient: Gradient(colors: [
-                        Color(red: 0.98, green: 0.99, blue: 1.0),
-                        Color(red: 0.94, green: 0.97, blue: 0.99)
+                        Color.appBackground,
+                        Color.appBackgroundSecondary
                     ]),
                     startPoint: .topLeading,
                     endPoint: .bottomTrailing
@@ -1881,7 +1881,7 @@ struct StepRow: View {
             // Step indicator
             ZStack {
                 Circle()
-                    .fill(isActive ? Color.orange : Color.gray.opacity(0.3))
+                    .fill(isActive ? Color.orange : Color.secondary.opacity(0.3))
                     .frame(width: 40, height: 40)
                 
                 if isActive {
@@ -1891,7 +1891,7 @@ struct StepRow: View {
                 } else {
                     Text("\(index + 1)")
                         .font(.system(size: 16, weight: .bold))
-                        .foregroundColor(.gray)
+                        .foregroundColor(.secondary)
                 }
             }
             .scaleEffect(isActive ? 1.1 : 1.0)
@@ -1978,7 +1978,7 @@ struct OnboardingExamCard: View {
                         )
                 )
                 .shadow(
-                    color: isSelected ? color.opacity(0.3) : Color.black.opacity(0.1),
+                    color: isSelected ? color.opacity(0.3) : Color.appShadow.opacity(0.8),
                     radius: isSelected ? 20 : 10,
                     x: 0,
                     y: isSelected ? 10 : 5

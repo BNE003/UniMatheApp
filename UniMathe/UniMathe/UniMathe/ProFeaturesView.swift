@@ -28,7 +28,7 @@ struct ProFeaturesView: View {
                     // Untertitel
                     Text(settings.language == .english ? "Expand your learning opportunities" : "Erweitere deine Lernmöglichkeiten")
                         .font(.system(size: 16, weight: .medium))
-                        .foregroundColor(Color.gray.opacity(0.8))
+                        .foregroundColor(Color.secondary.opacity(0.8))
                         .multilineTextAlignment(.center)
                 }
                 .padding(.top, 10)
@@ -71,7 +71,7 @@ struct ProFeaturesView: View {
                     .background(
                         RoundedRectangle(cornerRadius: 16)
                             .fill(Color(red: 0.9, green: 1.0, blue: 0.95))
-                            .shadow(color: Color.black.opacity(0.05), radius: 6, x: 0, y: 3)
+                            .shadow(color: Color.appShadow.opacity(0.5), radius: 6, x: 0, y: 3)
                     )
                     .padding(.horizontal, 20)
                 } else {
@@ -110,7 +110,7 @@ struct ProFeaturesView: View {
                          "By purchasing, you agree to the Terms of Service and Privacy Policy." : 
                          "Mit dem Kauf stimmst du den Nutzungsbedingungen und der Datenschutzerklärung zu.")
                         .font(.footnote)
-                        .foregroundColor(Color.gray.opacity(0.7))
+                        .foregroundColor(Color.secondary.opacity(0.7))
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 20)
                     
@@ -130,7 +130,7 @@ struct ProFeaturesView: View {
                 .padding(.bottom, 24)
             }
         }
-        .background(Color.white)
+        .background(Color.appSurface)
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true) // Versteckt den Standard-Back-Button
@@ -181,8 +181,8 @@ struct FeatureRow: View {
         .padding(.horizontal, 16)
         .background(
             RoundedRectangle(cornerRadius: 14)
-                .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.05), radius: 4, x: 0, y: 2)
+                .fill(Color.appSurface)
+                .shadow(color: Color.appShadow.opacity(0.5), radius: 4, x: 0, y: 2)
         )
     }
 }
@@ -221,7 +221,7 @@ struct PurchaseButton: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
-                        .background(Color.white.opacity(0.15))
+                        .background(Color.appSurface.opacity(0.15))
                         .cornerRadius(10)
                 }
             }

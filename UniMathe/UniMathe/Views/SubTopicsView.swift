@@ -12,8 +12,8 @@ struct SubTopicsView: View {
             // Modern abstract background
             LinearGradient(
                 gradient: Gradient(colors: [
-                    Color(red: 0.95, green: 0.97, blue: 1.0),
-                    Color(red: 0.98, green: 0.98, blue: 1.0)
+                    Color.appBackgroundSecondary,
+                    Color.appBackground
                 ]),
                 startPoint: .top,
                 endPoint: .bottom
@@ -25,7 +25,7 @@ struct SubTopicsView: View {
                 ZStack {
                     // Large blue circle
                     Circle()
-                        .fill(Color.blue.opacity(0.05))
+                        .fill(Color.appAccentBlue.opacity(0.05))
                         .frame(width: geometry.size.width * 1.2)
                         .offset(x: -geometry.size.width * 0.2, y: -geometry.size.height * 0.1)
                     
@@ -37,7 +37,7 @@ struct SubTopicsView: View {
                     
                     // Small blue circle
                     Circle()
-                        .fill(Color.blue.opacity(0.04))
+                        .fill(Color.appAccentBlue.opacity(0.04))
                         .frame(width: geometry.size.width * 0.4)
                         .offset(x: -geometry.size.width * 0.3, y: geometry.size.height * 0.4)
                 }
@@ -49,7 +49,7 @@ struct SubTopicsView: View {
                         .scaleEffect(1.5)
                     Text(SettingsModel.shared.language == .english ? "Loading..." : "Wird geladen...")
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.secondary)
                         .padding(.top, 10)
                 }
             } else if let error = error {
@@ -59,7 +59,7 @@ struct SubTopicsView: View {
                         .foregroundColor(.red)
                     Text(error.localizedDescription)
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
                         .padding()
                 }
@@ -261,14 +261,14 @@ struct SubTopicCard: View {
                             .fill(
                                 LinearGradient(
                                     gradient: Gradient(colors: [
-                                        Color.blue,
-                                        Color.blue.opacity(0.8)
+                                        Color.appAccentBlue,
+                                        Color.appAccentBlue.opacity(0.8)
                                     ]),
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 )
                             )
-                            .shadow(color: Color.blue.opacity(0.3), radius: 8, x: 0, y: 4)
+                            .shadow(color: Color.appAccentBlue.opacity(0.3), radius: 8, x: 0, y: 4)
                     )
                     .padding()
             } else if topic.title == "Mehrdimensionale Analysis" || topic.title == "Multidimensional Calculus" {
@@ -283,14 +283,14 @@ struct SubTopicCard: View {
                             .fill(
                                 LinearGradient(
                                     gradient: Gradient(colors: [
-                                        Color.blue,
-                                        Color.blue.opacity(0.8)
+                                        Color.appAccentBlue,
+                                        Color.appAccentBlue.opacity(0.8)
                                     ]),
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 )
                             )
-                            .shadow(color: Color.blue.opacity(0.3), radius: 8, x: 0, y: 4)
+                            .shadow(color: Color.appAccentBlue.opacity(0.3), radius: 8, x: 0, y: 4)
                     )
                     .padding()
             } else if topic.title == "Differentialrechnung" || topic.title == "Differential Calculus" {
@@ -305,14 +305,14 @@ struct SubTopicCard: View {
                             .fill(
                                 LinearGradient(
                                     gradient: Gradient(colors: [
-                                        Color.blue,
-                                        Color.blue.opacity(0.8)
+                                        Color.appAccentBlue,
+                                        Color.appAccentBlue.opacity(0.8)
                                     ]),
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 )
                             )
-                            .shadow(color: Color.blue.opacity(0.3), radius: 8, x: 0, y: 4)
+                            .shadow(color: Color.appAccentBlue.opacity(0.3), radius: 8, x: 0, y: 4)
                     )
                     .padding()
             } else if topic.title == "Matrizen" || topic.title == "Matrices" {
@@ -327,14 +327,14 @@ struct SubTopicCard: View {
                             .fill(
                                 LinearGradient(
                                     gradient: Gradient(colors: [
-                                        Color.blue,
-                                        Color.blue.opacity(0.8)
+                                        Color.appAccentBlue,
+                                        Color.appAccentBlue.opacity(0.8)
                                     ]),
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 )
                             )
-                            .shadow(color: Color.blue.opacity(0.3), radius: 8, x: 0, y: 4)
+                            .shadow(color: Color.appAccentBlue.opacity(0.3), radius: 8, x: 0, y: 4)
                     )
                     .padding()
             } else if topic.title == "Vektorräume" || topic.title == "Vector Spaces" {
@@ -349,14 +349,14 @@ struct SubTopicCard: View {
                             .fill(
                                 LinearGradient(
                                     gradient: Gradient(colors: [
-                                        Color.blue,
-                                        Color.blue.opacity(0.8)
+                                        Color.appAccentBlue,
+                                        Color.appAccentBlue.opacity(0.8)
                                     ]),
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 )
                             )
-                            .shadow(color: Color.blue.opacity(0.3), radius: 8, x: 0, y: 4)
+                            .shadow(color: Color.appAccentBlue.opacity(0.3), radius: 8, x: 0, y: 4)
                     )
                     .padding()
             } else if topic.title == "Lineare Abbildungen" || topic.title == "Linear Mappings" {
@@ -371,14 +371,14 @@ struct SubTopicCard: View {
                             .fill(
                                 LinearGradient(
                                     gradient: Gradient(colors: [
-                                        Color.blue,
-                                        Color.blue.opacity(0.8)
+                                        Color.appAccentBlue,
+                                        Color.appAccentBlue.opacity(0.8)
                                     ]),
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 )
                             )
-                            .shadow(color: Color.blue.opacity(0.3), radius: 8, x: 0, y: 4)
+                            .shadow(color: Color.appAccentBlue.opacity(0.3), radius: 8, x: 0, y: 4)
                     )
                     .padding()
             } else if topic.title == "Determinanten" || topic.title == "Determinants" {
@@ -393,14 +393,14 @@ struct SubTopicCard: View {
                             .fill(
                                 LinearGradient(
                                     gradient: Gradient(colors: [
-                                        Color.blue,
-                                        Color.blue.opacity(0.8)
+                                        Color.appAccentBlue,
+                                        Color.appAccentBlue.opacity(0.8)
                                     ]),
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 )
                             )
-                            .shadow(color: Color.blue.opacity(0.3), radius: 8, x: 0, y: 4)
+                            .shadow(color: Color.appAccentBlue.opacity(0.3), radius: 8, x: 0, y: 4)
                     )
                     .padding()
             } else if topic.title == "Eigenwerte und Eigenvektoren" || topic.title == "Eigenvalues and Eigenvectors" {
@@ -415,14 +415,14 @@ struct SubTopicCard: View {
                             .fill(
                                 LinearGradient(
                                     gradient: Gradient(colors: [
-                                        Color.blue,
-                                        Color.blue.opacity(0.8)
+                                        Color.appAccentBlue,
+                                        Color.appAccentBlue.opacity(0.8)
                                     ]),
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 )
                             )
-                            .shadow(color: Color.blue.opacity(0.3), radius: 8, x: 0, y: 4)
+                            .shadow(color: Color.appAccentBlue.opacity(0.3), radius: 8, x: 0, y: 4)
                     )
                     .padding()
             } else {
@@ -435,21 +435,21 @@ struct SubTopicCard: View {
                             .fill(
                                 LinearGradient(
                                     gradient: Gradient(colors: [
-                                        Color.blue,
-                                        Color.blue.opacity(0.8)
+                                        Color.appAccentBlue,
+                                        Color.appAccentBlue.opacity(0.8)
                                     ]),
                                     startPoint: .topLeading,
                                     endPoint: .bottomTrailing
                                 )
                             )
-                            .shadow(color: Color.blue.opacity(0.3), radius: 8, x: 0, y: 4)
+                            .shadow(color: Color.appAccentBlue.opacity(0.3), radius: 8, x: 0, y: 4)
                     )
                     .padding()
             }
             
             Text(topic.title)
                 .font(.headline)
-                .foregroundColor(.black)
+                .foregroundColor(.primary)
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 8)
         }
@@ -457,12 +457,12 @@ struct SubTopicCard: View {
         .frame(height: 150)
         .background(
             RoundedRectangle(cornerRadius: 16)
-                .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+                .fill(Color.appSurface)
+                .shadow(color: Color.appShadow.opacity(0.5), radius: 5, x: 0, y: 2)
         )
         .overlay(
             RoundedRectangle(cornerRadius: 16)
-                .stroke(Color.blue.opacity(0.1), lineWidth: 1)
+                .stroke(Color.appAccentBlue.opacity(0.1), lineWidth: 1)
         )
     }
 }
@@ -479,8 +479,8 @@ struct ContentSelectionView: View {
             // Modern gradient background with abstract shapes
             LinearGradient(
                 gradient: Gradient(colors: [
-                    Color(red: 0.95, green: 0.97, blue: 1.0),
-                    Color(red: 0.98, green: 0.98, blue: 1.0)
+                    Color.appBackgroundSecondary,
+                    Color.appBackground
                 ]),
                 startPoint: .top,
                 endPoint: .bottom
@@ -491,7 +491,7 @@ struct ContentSelectionView: View {
             GeometryReader { geometry in
                 ZStack {
                     Circle()
-                        .fill(Color.blue.opacity(0.03))
+                        .fill(Color.appAccentBlue.opacity(0.03))
                         .frame(width: geometry.size.width * 1.2)
                         .offset(x: -geometry.size.width * 0.2, y: -geometry.size.height * 0.1)
                     
@@ -508,7 +508,7 @@ struct ContentSelectionView: View {
                         .scaleEffect(1.5)
                     Text(SettingsModel.shared.language == .english ? "Loading..." : "Wird geladen...")
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.secondary)
                         .padding(.top, 10)
                 }
             } else if let error = error {
@@ -518,7 +518,7 @@ struct ContentSelectionView: View {
                         .foregroundColor(.red)
                     Text(error.localizedDescription)
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
                         .padding()
                 }

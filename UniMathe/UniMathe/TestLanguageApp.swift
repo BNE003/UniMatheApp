@@ -33,7 +33,7 @@ struct TestLanguageApp: View {
                     .font(.system(.body, design: .monospaced))
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Color.black.opacity(0.05))
+                    .background(Color.appShadow.opacity(0.5))
                     .cornerRadius(8)
             }
             .frame(height: 400)

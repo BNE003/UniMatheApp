@@ -53,7 +53,7 @@ struct LanguageTestView: View {
                     .font(.system(.body, design: .monospaced))
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Color.black.opacity(0.05))
+                    .background(Color.appShadow.opacity(0.5))
                     .cornerRadius(8)
             }
             
@@ -61,7 +61,7 @@ struct LanguageTestView: View {
                 // This is a placeholder for navigation back
             }
             .padding()
-            .background(Color.gray.opacity(0.2))
+            .background(Color.secondary.opacity(0.2))
             .cornerRadius(8)
             .padding(.top, 20)
         }

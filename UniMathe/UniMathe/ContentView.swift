@@ -99,6 +99,7 @@ struct ContentView: View {
     @State private var isLoading = true
     @State private var error: Error?
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
         NavigationStack {
@@ -106,8 +107,8 @@ struct ContentView: View {
                 // Subtle gradient background
                 LinearGradient(
                     gradient: Gradient(colors: [
-                        Color(red: 0.98, green: 0.98, blue: 1.0),
-                        Color(red: 0.95, green: 0.97, blue: 1.0)
+                        Color.appBackground,
+                        Color.appBackgroundSecondary
                     ]),
                     startPoint: .top,
                     endPoint: .bottom
@@ -118,7 +119,7 @@ struct ContentView: View {
                 GeometryReader { geometry in
                     ZStack {
                         Circle()
-                            .fill(Color.blue.opacity(0.05))
+                            .fill(Color.appAccentBlue.opacity(0.05))
                             .frame(width: geometry.size.width * 0.8)
                             .offset(x: -geometry.size.width * 0.3, y: -geometry.size.height * 0.2)
                         
@@ -135,7 +136,7 @@ struct ContentView: View {
                             .scaleEffect(1.5)
                         Text(SettingsModel.shared.language == .english ? "Loading..." : "Wird geladen...")
                             .font(.subheadline)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.secondary)
                             .padding(.top, 10)
                     }
                 } else if let error = error {
@@ -145,7 +146,7 @@ struct ContentView: View {
                             .foregroundColor(.red)
                         Text(error.localizedDescription)
                             .font(.subheadline)
-                            .foregroundColor(.gray)
+                            .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
                             .padding()
                     }
@@ -155,28 +156,28 @@ struct ContentView: View {
                         VStack(alignment: .leading, spacing: 0) {
                             Text(SettingsModel.shared.language == .english ? "Advanced" : "Höhere")
                                 .font(.custom("Nexa Bold", size: horizontalSizeClass == .regular ? 54 : 42))
-                                .foregroundColor(.blue)
+                                .foregroundColor(colorScheme == .dark ? .white : .blue)
                                 .overlay(
                                     Text(SettingsModel.shared.language == .english ? "Advanced" : "Höhere")
                                         .font(.custom("Nexa Bold", size: horizontalSizeClass == .regular ? 54 : 42))
-                                        .foregroundColor(.blue)
+                                        .foregroundColor(colorScheme == .dark ? .white : .blue)
                                         .opacity(0.3)
                                         .offset(x: 0.5, y: 0.5)
                                 )
-                                .shadow(color: Color.blue.opacity(0.15), radius: 4, x: 0, y: 2)
+                                .shadow(color: (colorScheme == .dark ? Color.white : Color.appAccentBlue).opacity(0.15), radius: 4, x: 0, y: 2)
                                 .padding(.top, 24)
                             
                             Text(SettingsModel.shared.language == .english ? "Mathematics" : "Mathematik")
                                 .font(.custom("Nexa Bold", size: horizontalSizeClass == .regular ? 54 : 42))
-                                .foregroundColor(.blue)
+                                .foregroundColor(colorScheme == .dark ? .white : .blue)
                                 .overlay(
                                     Text(SettingsModel.shared.language == .english ? "Mathematics" : "Mathematik")
                                         .font(.custom("Nexa Bold", size: horizontalSizeClass == .regular ? 54 : 42))
-                                        .foregroundColor(.blue)
+                                        .foregroundColor(colorScheme == .dark ? .white : .blue)
                                         .opacity(0.3)
                                         .offset(x: 0.5, y: 0.5)
                                 )
-                                .shadow(color: Color.blue.opacity(0.15), radius: 4, x: 0, y: 2)
+                                .shadow(color: (colorScheme == .dark ? Color.white : Color.appAccentBlue).opacity(0.15), radius: 4, x: 0, y: 2)
                                 .padding(.bottom, 8)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -540,12 +541,12 @@ struct TopicCard: View {
         .padding(horizontalSizeClass == .regular ? 28 : 16)
         .background(
             RoundedRectangle(cornerRadius: 16)
-                .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
+                .fill(Color.appSurface)
+                .shadow(color: Color.appShadow.opacity(0.5), radius: 8, x: 0, y: 4)
         )
         .overlay(
             RoundedRectangle(cornerRadius: 16)
-                .stroke(Color.blue.opacity(0.1), lineWidth: 1)
+                .stroke(Color.appAccentBlue.opacity(0.1), lineWidth: 1)
         )
         .frame(maxWidth: .infinity)
         .padding(.horizontal, horizontalSizeClass == .regular ? 32 : 0)
@@ -584,97 +585,109 @@ struct ExercisesView: View {
     }
     
     var body: some View {
-        VStack {
-            // Schwierigkeitsgrad-Auswahl
-            HStack(spacing: 16) {
-                ForEach(["easy", "medium", "hard"], id: \.self) { difficulty in
-                    Button(action: {
-                        withAnimation {
-                            selectedDifficulty = difficulty
+        ZStack {
+            LinearGradient(
+                gradient: Gradient(colors: [
+                    Color.appBackgroundSecondary,
+                    Color.appBackground
+                ]),
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
+
+            VStack {
+                // Schwierigkeitsgrad-Auswahl
+                HStack(spacing: 16) {
+                    ForEach(["easy", "medium", "hard"], id: \.self) { difficulty in
+                        Button(action: {
+                            withAnimation {
+                                selectedDifficulty = difficulty
+                            }
+                        }) {
+                            Text(SettingsModel.shared.language == .english ?
+                                 (difficulty == "easy" ? "Easy" :
+                                  difficulty == "medium" ? "Medium" : "Hard") :
+                                 (difficulty == "easy" ? "Leicht" :
+                                  difficulty == "medium" ? "Mittel" : "Schwer"))
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 10)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill(difficulty == "easy" ? Color.green :
+                                              difficulty == "medium" ? Color.orange : Color.red)
+                                        .shadow(color: (difficulty == "easy" ? Color.green :
+                                                      difficulty == "medium" ? Color.orange : Color.red).opacity(0.3),
+                                               radius: 5, x: 0, y: 2)
+                                )
                         }
-                    }) {
-                        Text(SettingsModel.shared.language == .english ? 
-                             (difficulty == "easy" ? "Easy" : 
-                              difficulty == "medium" ? "Medium" : "Hard") :
-                             (difficulty == "easy" ? "Leicht" : 
-                              difficulty == "medium" ? "Mittel" : "Schwer"))
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding(.horizontal, 20)
-                            .padding(.vertical, 10)
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .fill(difficulty == "easy" ? Color.green :
-                                          difficulty == "medium" ? Color.orange : Color.red)
-                                    .shadow(color: (difficulty == "easy" ? Color.green :
-                                                  difficulty == "medium" ? Color.orange : Color.red).opacity(0.3),
-                                           radius: 5, x: 0, y: 2)
-                            )
                     }
                 }
-            }
-            .padding()
+                .padding()
             
-            if isLoading {
-                ProgressView()
-                    .scaleEffect(1.5)
-            } else if let error = error {
-                VStack {
-                    Text(SettingsModel.shared.language == .english ? "Error loading exercises" : "Fehler beim Laden der Übungen")
-                        .font(.headline)
-                        .foregroundColor(.red)
-                    Text(error.localizedDescription)
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                        .multilineTextAlignment(.center)
-                        .padding()
-                }
-            } else if let selectedDifficulty = selectedDifficulty {
-                ScrollView {
-                    LazyVStack(spacing: 20) {
-                        if !storeManager.purchasedProductIDs.isEmpty {
-                            // PRO: Alle Übungen sichtbar
-                            ForEach(filteredExercises) { exercise in
-                                ExerciseCard(exercise: exercise, isFreeExercise: false)
-                            }
-                        } else {
-                            // FREE: 1 frei, Rest geblurrt
-                            ForEach(freeExercises) { exercise in
-                                ExerciseCard(exercise: exercise, isFreeExercise: true)
-                            }
-                            ForEach(proExercises) { exercise in
-                                ZStack {
+                if isLoading {
+                    ProgressView()
+                        .scaleEffect(1.5)
+                } else if let error = error {
+                    VStack {
+                        Text(SettingsModel.shared.language == .english ? "Error loading exercises" : "Fehler beim Laden der Übungen")
+                            .font(.headline)
+                            .foregroundColor(.red)
+                        Text(error.localizedDescription)
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                            .padding()
+                    }
+                } else if let selectedDifficulty = selectedDifficulty {
+                    ScrollView {
+                        LazyVStack(spacing: 20) {
+                            if !storeManager.purchasedProductIDs.isEmpty {
+                                // PRO: Alle Übungen sichtbar
+                                ForEach(filteredExercises) { exercise in
                                     ExerciseCard(exercise: exercise, isFreeExercise: false)
-                                        .blur(radius: 3)
-                                        .allowsHitTesting(false)
-                                    VStack {
-                                        Image(systemName: "lock.fill")
-                                            .font(.system(size: 30))
-                                            .foregroundColor(.blue)
-                                        Text(SettingsModel.shared.language == .english ? "Unlock Pro" : "Pro freischalten")
-                                            .font(.headline)
-                                            .foregroundColor(.blue)
-                                    }
-                                    .padding()
-                                    .background(Color.white.opacity(0.9))
-                                    .cornerRadius(12)
                                 }
-                                .onTapGesture {
-                                    showProSheet = true
+                            } else {
+                                // FREE: 1 frei, Rest geblurrt
+                                ForEach(freeExercises) { exercise in
+                                    ExerciseCard(exercise: exercise, isFreeExercise: true)
+                                }
+                                ForEach(proExercises) { exercise in
+                                    ZStack {
+                                        ExerciseCard(exercise: exercise, isFreeExercise: false)
+                                            .blur(radius: 3)
+                                            .allowsHitTesting(false)
+                                        VStack {
+                                            Image(systemName: "lock.fill")
+                                                .font(.system(size: 30))
+                                                .foregroundColor(.appAccentBlue)
+                                            Text(SettingsModel.shared.language == .english ? "Unlock Pro" : "Pro freischalten")
+                                                .font(.headline)
+                                                .foregroundColor(.appAccentBlue)
+                                        }
+                                        .padding()
+                                        .background(Color.appSurface.opacity(0.9))
+                                        .cornerRadius(12)
+                                    }
+                                    .onTapGesture {
+                                        showProSheet = true
+                                    }
                                 }
                             }
                         }
+                        .padding()
                     }
-                    .padding()
+                } else {
+                    Spacer()
+                    Text(SettingsModel.shared.language == .english ?
+                         "Please select a difficulty level" :
+                         "Bitte wählen Sie einen Schwierigkeitsgrad aus")
+                        .foregroundColor(.secondary)
+                        .font(.headline)
+                    Spacer()
                 }
-            } else {
-                Spacer()
-                Text(SettingsModel.shared.language == .english ? 
-                     "Please select a difficulty level" : 
-                     "Bitte wählen Sie einen Schwierigkeitsgrad aus")
-                    .foregroundColor(.gray)
-                    .font(.headline)
-                Spacer()
             }
         }
         .navigationTitle(SettingsModel.shared.language == .english ? 
@@ -836,7 +849,7 @@ struct ExerciseRow: View {
                 Spacer()
                 Text("\(exercise.points) Punkte")
                     .font(.subheadline)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.appAccentBlue)
             }
             
             LaTeXView(content: addHtmlLineBreaks(exercise.description), height: $descriptionHeight)
@@ -855,11 +868,11 @@ struct ExerciseRow: View {
                 
                 Text("Start")
                     .font(.subheadline)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.appAccentBlue)
             }
         }
         .padding()
-        .background(Color.white)
+        .background(Color.appSurface)
     }
 }
 
@@ -877,7 +890,7 @@ struct ExerciseCard: View {
                 Spacer()
                 Text("\(exercise.points) Punkte")
                     .font(.subheadline)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.appAccentBlue)
             }
             
             LaTeXView(content: addHtmlLineBreaks(exercise.description), height: $descriptionHeight)
@@ -900,7 +913,7 @@ struct ExerciseCard: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 16)
                         .padding(.vertical, 8)
-                        .background(Color.blue)
+                        .background(Color.appAccentBlue)
                         .cornerRadius(8)
                 }
             }
@@ -908,12 +921,12 @@ struct ExerciseCard: View {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+                .fill(Color.appSurface)
+                .shadow(color: Color.appShadow.opacity(0.5), radius: 5, x: 0, y: 2)
         )
         .overlay(
             RoundedRectangle(cornerRadius: 12)
-                .stroke(Color.blue.opacity(0.1), lineWidth: 1)
+                .stroke(Color.appAccentBlue.opacity(0.1), lineWidth: 1)
         )
     }
 }
@@ -935,11 +948,11 @@ struct ProgressHeader: View {
                 GeometryReader { geometry in
                     ZStack(alignment: .leading) {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.gray.opacity(0.2))
+                            .fill(Color.secondary.opacity(0.2))
                             .frame(height: 8)
                         
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.blue)
+                            .fill(Color.appAccentBlue)
                             .frame(width: geometry.size.width * CGFloat(currentStep + 1) / CGFloat(totalSteps), height: 8)
                     }
                 }
@@ -951,12 +964,12 @@ struct ProgressHeader: View {
                  "Step \(currentStep + 1) of \(totalSteps)" : 
                  "Schritt \(currentStep + 1) von \(totalSteps)")
                 .font(.subheadline)
-                .foregroundColor(.gray)
+                .foregroundColor(.secondary)
                 .transition(.opacity.combined(with: .scale))
         }
         .padding()
-        .background(Color.white)
-        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+        .background(Color.appSurface)
+        .shadow(color: Color.appShadow.opacity(0.5), radius: 5, x: 0, y: 2)
     }
 }
 
@@ -976,7 +989,7 @@ struct LearningPlanProgressCard: View {
                 NavigationLink(destination: LearningPlanView()) {
                     Text(settings.language == .english ? "Open" : "Öffnen")
                         .font(.subheadline)
-                        .foregroundColor(.blue)
+                        .foregroundColor(.appAccentBlue)
                 }
             }
 
@@ -985,11 +998,11 @@ struct LearningPlanProgressCard: View {
                 GeometryReader { geometry in
                     ZStack(alignment: .leading) {
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.gray.opacity(0.2))
+                            .fill(Color.secondary.opacity(0.2))
                             .frame(height: 8)
 
                         RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.blue)
+                            .fill(Color.appAccentBlue)
                             .frame(width: geometry.size.width * ratio, height: 8)
                     }
                 }
@@ -1011,7 +1024,7 @@ struct LearningPlanProgressCard: View {
                         .foregroundColor(.white)
                         .padding(.vertical, 8)
                         .padding(.horizontal, 14)
-                        .background(Color.blue)
+                        .background(Color.appAccentBlue)
                         .cornerRadius(8)
                 }
             }
@@ -1019,12 +1032,12 @@ struct LearningPlanProgressCard: View {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+                .fill(Color.appSurface)
+                .shadow(color: Color.appShadow.opacity(0.5), radius: 5, x: 0, y: 2)
         )
         .overlay(
             RoundedRectangle(cornerRadius: 12)
-                .stroke(Color.blue.opacity(0.1), lineWidth: 1)
+                .stroke(Color.appAccentBlue.opacity(0.1), lineWidth: 1)
         )
     }
 }
@@ -1040,13 +1053,13 @@ struct ExplanationContent: View {
         VStack(alignment: .leading, spacing: 12) {
             Text(step.text)
                 .font(.body)
-                .foregroundColor(.black)
+                .foregroundColor(.primary)
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(
                     RoundedRectangle(cornerRadius: 16)
-                        .fill(Color.white)
-                        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+                        .fill(Color.appSurface)
+                        .shadow(color: Color.appShadow.opacity(0.5), radius: 5, x: 0, y: 2)
                 )
                 .fixedSize(horizontal: false, vertical: true)
                 .transition(.asymmetric(
@@ -1061,7 +1074,7 @@ struct ExplanationContent: View {
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 16)
-                            .fill(Color.blue.opacity(0.1))
+                            .fill(Color.appAccentBlue.opacity(0.1))
                     )
                     .fixedSize(horizontal: false, vertical: true)
                     .transition(.asymmetric(
@@ -1074,12 +1087,12 @@ struct ExplanationContent: View {
             if let explanation = step.explanation {
                 Text(explanation)
                     .font(.subheadline)
-                    .foregroundColor(.black)
+                    .foregroundColor(.primary)
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(
                         RoundedRectangle(cornerRadius: 16)
-                            .fill(Color.gray.opacity(0.1))
+                            .fill(Color.secondary.opacity(0.1))
                     )
                     .fixedSize(horizontal: false, vertical: true)
                     .transition(.asymmetric(
@@ -1100,12 +1113,12 @@ struct BotAvatar: View {
     var body: some View {
         Image(systemName: "brain.head.profile")
             .font(.system(size: 40))
-            .foregroundColor(.blue)
+            .foregroundColor(.appAccentBlue)
             .padding()
             .background(
                 Circle()
-                    .fill(Color.white)
-                    .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
+                    .fill(Color.appSurface)
+                    .shadow(color: Color.appShadow.opacity(0.8), radius: 10, x: 0, y: 5)
             )
     }
 }
@@ -1138,8 +1151,8 @@ struct ContinueButton: View {
             .padding()
             .background(
                 RoundedRectangle(cornerRadius: 12)
-                    .fill(Color.blue)
-                    .shadow(color: Color.blue.opacity(0.3), radius: 5, x: 0, y: 2)
+                    .fill(Color.appAccentBlue)
+                    .shadow(color: Color.appAccentBlue.opacity(0.3), radius: 5, x: 0, y: 2)
             )
         }
         .scaleEffect(showCurrentStep ? 1 : 0.95)
@@ -1163,16 +1176,16 @@ struct BackStepButton: View {
                 Image(systemName: "arrow.left")
             }
             .font(.headline)
-            .foregroundColor(.blue)
+            .foregroundColor(.appAccentBlue)
             .frame(maxWidth: .infinity)
             .padding()
             .background(
                 RoundedRectangle(cornerRadius: 12)
-                    .fill(Color.white)
+                    .fill(Color.appSurface)
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 12)
-                    .stroke(Color.blue.opacity(0.25), lineWidth: 1)
+                    .stroke(Color.appAccentBlue.opacity(0.25), lineWidth: 1)
             )
         }
         .disabled(currentStep == 0)
@@ -1201,8 +1214,8 @@ struct InteractiveLearningView: View {
             // Hintergrund
             LinearGradient(
                 gradient: Gradient(colors: [
-                    Color(red: 0.95, green: 0.97, blue: 1.0),
-                    Color(red: 0.98, green: 0.98, blue: 1.0)
+                    Color.appBackgroundSecondary,
+                    Color.appBackground
                 ]),
                 startPoint: .top,
                 endPoint: .bottom
@@ -1219,7 +1232,7 @@ struct InteractiveLearningView: View {
                         .foregroundColor(.red)
                     Text(error.localizedDescription)
                         .font(.subheadline)
-                        .foregroundColor(.gray)
+                        .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
                         .padding()
                 }
@@ -1546,8 +1559,8 @@ struct TopicDetailView: View {
             // Background gradient
             LinearGradient(
                 gradient: Gradient(colors: [
-                    Color(red: 0.95, green: 0.97, blue: 1.0),
-                    Color(red: 0.98, green: 0.98, blue: 1.0)
+                    Color.appBackgroundSecondary,
+                    Color.appBackground
                 ]),
                 startPoint: .top,
                 endPoint: .bottom
@@ -1564,7 +1577,7 @@ struct TopicDetailView: View {
                             } else {
                                 Text(topic.description)
                                     .font(.body)
-                                    .foregroundColor(.black)
+                                    .foregroundColor(.primary)
                                     .lineSpacing(8)
                                     .padding()
                             }
@@ -1597,13 +1610,13 @@ struct TopicDetailView: View {
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color.blue)
+                        .background(Color.appAccentBlue)
                         .cornerRadius(12)
-                        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
+                        .shadow(color: Color.appShadow.opacity(0.8), radius: 5, x: 0, y: 2)
                     }
                     .padding(.horizontal)
                     .padding(.vertical, 10)
-                    .background(Color.white)
+                    .background(Color.appSurface)
                     .transition(.move(edge: .bottom).combined(with: .opacity))
                 }
             }

@@ -27,9 +27,9 @@ struct ExamDetailView: View {
             // Modern gradient background with subtle patterns
             LinearGradient(
                 gradient: Gradient(colors: [
-                    Color(red: 0.98, green: 0.99, blue: 1.0),
-                    Color(red: 0.94, green: 0.97, blue: 0.99),
-                    Color(red: 0.96, green: 0.98, blue: 1.0)
+                    Color.appBackground,
+                    Color.appBackgroundSecondary,
+                    Color.appBackground
                 ]),
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
@@ -43,7 +43,7 @@ struct ExamDetailView: View {
                         .fill(
                             RadialGradient(
                                 gradient: Gradient(colors: [
-                                    Color.blue.opacity(0.04),
+                                    Color.appAccentBlue.opacity(0.04),
                                     Color.purple.opacity(0.02),
                                     Color.clear
                                 ]),
@@ -119,7 +119,7 @@ struct ExamDetailView: View {
                             Text(settings.language == .english ? "Back" : "Zurück")
                                 .font(.system(size: 16, weight: .medium))
                         }
-                        .foregroundColor(.blue)
+                        .foregroundColor(.appAccentBlue)
                     }
                 }
             }
@@ -161,7 +161,7 @@ struct ExamDetailView: View {
                     Text(exam.exam.title)
                         .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 42 : 34))
                         .fontWeight(.black)
-                        .foregroundColor(.blue)
+                        .foregroundColor(.appAccentBlue)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     Text(exam.exam.subtitle)
@@ -222,8 +222,8 @@ struct ExamDetailView: View {
                 .padding(20)
                 .background(
                     RoundedRectangle(cornerRadius: 16)
-                        .fill(.white)
-                        .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
+                        .fill(Color.appSurface)
+                        .shadow(color: Color.appShadow.opacity(0.5), radius: 10, x: 0, y: 5)
                 )
                 .padding(.horizontal, 24)
                 
@@ -253,7 +253,7 @@ struct ExamDetailView: View {
                         )
                     )
                     .cornerRadius(16)
-                    .shadow(color: Color.blue.opacity(0.3), radius: 10, x: 0, y: 5)
+                    .shadow(color: Color.appAccentBlue.opacity(0.3), radius: 10, x: 0, y: 5)
                 }
                 .padding(.horizontal, 24)
                 
@@ -266,13 +266,13 @@ struct ExamDetailView: View {
                         Text(settings.language == .english ? "Back to Exams" : "Zurück zu Klausuren")
                     }
                     .font(.headline)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.appAccentBlue)
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 12)
                     .background(Color.clear)
                     .overlay(
                         RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color.blue, lineWidth: 2)
+                            .stroke(Color.appAccentBlue, lineWidth: 2)
                     )
                 }
                 .padding(.horizontal, 24)
@@ -300,8 +300,8 @@ struct ExamDetailView: View {
         .padding()
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(.white)
-                .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+                .fill(Color.appSurface)
+                .shadow(color: Color.appShadow.opacity(0.5), radius: 5, x: 0, y: 2)
         )
     }
     
@@ -333,7 +333,7 @@ struct ExamDetailView: View {
                 }
                 .padding(.vertical, 12)
                 .padding(.horizontal, 16)
-                .background(Color.blue.opacity(0.1))
+                .background(Color.appAccentBlue.opacity(0.1))
                 
                 // Grading rows
                 ForEach(Array(getGradingScale(totalPoints: totalPoints).enumerated()), id: \.offset) { index, gradeInfo in
@@ -354,23 +354,23 @@ struct ExamDetailView: View {
                     }
                     .padding(.vertical, 10)
                     .padding(.horizontal, 16)
-                    .background(index % 2 == 0 ? Color.gray.opacity(0.05) : Color.clear)
+                    .background(index % 2 == 0 ? Color.secondary.opacity(0.05) : Color.clear)
                 }
             }
             .background(
                 RoundedRectangle(cornerRadius: 12)
-                    .fill(.white)
-                    .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
+                    .fill(Color.appSurface)
+                    .shadow(color: Color.appShadow.opacity(0.5), radius: 8, x: 0, y: 4)
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 12)
-                    .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+                    .stroke(Color.secondary.opacity(0.2), lineWidth: 1)
             )
             
             // Passing note
             HStack {
                 Image(systemName: "info.circle.fill")
-                    .foregroundColor(.blue)
+                    .foregroundColor(.appAccentBlue)
                 Text(settings.language == .english ? "Minimum 50% required to pass" : "Mindestens 50% zum Bestehen erforderlich")
                     .font(.caption)
                     .foregroundColor(.secondary)
@@ -379,8 +379,8 @@ struct ExamDetailView: View {
         .padding(20)
         .background(
             RoundedRectangle(cornerRadius: 16)
-                .fill(.white)
-                .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
+                .fill(Color.appSurface)
+                .shadow(color: Color.appShadow.opacity(0.5), radius: 10, x: 0, y: 5)
         )
     }
     
@@ -406,7 +406,7 @@ struct ExamDetailView: View {
                             .foregroundColor(.secondary)
                         
                         Divider()
-                            .background(Color.blue.opacity(0.3))
+                            .background(Color.appAccentBlue.opacity(0.3))
                             .padding(.vertical, 8)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -444,7 +444,7 @@ struct ExamDetailView: View {
                 // Timer
                 HStack(spacing: 8) {
                     Image(systemName: "clock.fill")
-                        .foregroundColor(.blue)
+                        .foregroundColor(.appAccentBlue)
                         .font(.system(size: 16, weight: .semibold))
                     
                     Text(formatTime(timeRemaining))
@@ -458,7 +458,7 @@ struct ExamDetailView: View {
                 .background(
                     RoundedRectangle(cornerRadius: 20)
                         .fill(.ultraThinMaterial)
-                        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
+                        .shadow(color: Color.appShadow.opacity(0.8), radius: 10, x: 0, y: 5)
                 )
                 
                 Spacer()
@@ -479,7 +479,7 @@ struct ExamDetailView: View {
                 .background(
                     RoundedRectangle(cornerRadius: 20)
                         .fill(.ultraThinMaterial)
-                        .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 5)
+                        .shadow(color: Color.appShadow.opacity(0.8), radius: 10, x: 0, y: 5)
                 )
             }
             .padding(.horizontal, 24)
@@ -503,10 +503,10 @@ struct ExamDetailView: View {
                         Text(exercise.topic)
                             .font(.caption)
                             .fontWeight(.semibold)
-                            .foregroundColor(.blue)
+                            .foregroundColor(.appAccentBlue)
                             .padding(.horizontal, 8)
                             .padding(.vertical, 2)
-                            .background(Color.blue.opacity(0.1))
+                            .background(Color.appAccentBlue.opacity(0.1))
                             .clipShape(Capsule())
                         
                         Spacer()
@@ -596,8 +596,8 @@ struct ExamDetailView: View {
         .padding(20)
         .background(
             RoundedRectangle(cornerRadius: 16)
-                .fill(Color.white)
-                .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
+                .fill(Color.appSurface)
+                .shadow(color: Color.appShadow.opacity(0.5), radius: 8, x: 0, y: 4)
         )
     }
     
@@ -694,10 +694,10 @@ struct ExamDetailView: View {
         .padding(16)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(Color.green.opacity(0.05))
+                .fill(Color.appSurfaceStrong)
                 .overlay(
                     RoundedRectangle(cornerRadius: 12)
-                        .stroke(Color.green.opacity(0.2), lineWidth: 1)
+                        .stroke(Color.green.opacity(0.28), lineWidth: 1)
                 )
         )
     }
@@ -740,7 +740,7 @@ struct ExamDetailView: View {
         .padding(12)
         .background(
             RoundedRectangle(cornerRadius: 8)
-                .fill(Color.white)
+                .fill(Color.appSurface)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color.green.opacity(0.3), lineWidth: 1)

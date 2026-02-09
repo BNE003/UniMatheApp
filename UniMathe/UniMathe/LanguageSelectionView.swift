@@ -21,7 +21,7 @@ struct LanguageSelectionView: View {
             GeometryReader { geometry in
                 ZStack {
                     // Background base color
-                    Color(red: 0.96, green: 0.97, blue: 0.98)
+                    Color.appBackgroundSecondary
                         .ignoresSafeArea()
                     
                     // Animated background shapes
@@ -51,11 +51,11 @@ struct LanguageSelectionView: View {
                     
                     Text("Bitte wählen Sie Ihre Sprache aus")
                         .font(.system(size: 18, weight: .medium))
-                        .foregroundColor(.gray)
+                        .foregroundColor(.secondary)
                     
                     Text("Please select your language")
                         .font(.system(size: 18, weight: .medium))
-                        .foregroundColor(.gray)
+                        .foregroundColor(.secondary)
                 }
                 .padding(.top, 40)
                 
@@ -124,7 +124,7 @@ struct LanguageSelectionView: View {
                     
                     Text(description)
                         .font(.system(size: 15))
-                        .foregroundColor(.gray)
+                        .foregroundColor(.secondary)
                 }
                 
                 Spacer()
@@ -141,7 +141,7 @@ struct LanguageSelectionView: View {
                         )
                 } else {
                     Circle()
-                        .stroke(Color.gray.opacity(0.5), lineWidth: 2)
+                        .stroke(Color.secondary.opacity(0.5), lineWidth: 2)
                         .frame(width: 24, height: 24)
                 }
             }
@@ -149,9 +149,9 @@ struct LanguageSelectionView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .background(
                 RoundedRectangle(cornerRadius: 16)
-                    .fill(Color.white)
+                    .fill(Color.appSurface)
                     .shadow(
-                        color: selectedLanguage == language ? Color.blue.opacity(0.15) : Color.black.opacity(0.05),
+                        color: selectedLanguage == language ? Color.blue.opacity(0.15) : Color.appShadow.opacity(0.5),
                         radius: 10, x: 0, y: 5
                     )
             )

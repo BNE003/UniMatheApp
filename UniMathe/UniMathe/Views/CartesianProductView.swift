@@ -21,7 +21,7 @@ struct CartesianProductView: View {
                     Text("A × B = {(x,y) | x ∈ A und y ∈ B}")
                         .font(.system(.body, design: .monospaced))
                         .padding()
-                        .background(Color.gray.opacity(0.1))
+                        .background(Color.secondary.opacity(0.1))
                         .cornerRadius(8)
                 }
                 
@@ -50,7 +50,7 @@ struct CartesianProductView: View {
                     }
                 }
                 .padding()
-                .background(Color.gray.opacity(0.1))
+                .background(Color.secondary.opacity(0.1))
                 .cornerRadius(12)
                 
                 // Result
@@ -70,7 +70,7 @@ struct CartesianProductView: View {
                     }
                 }
                 .padding()
-                .background(Color.gray.opacity(0.1))
+                .background(Color.secondary.opacity(0.1))
                 .cornerRadius(12)
                 
                 // Properties
@@ -83,7 +83,7 @@ struct CartesianProductView: View {
                     PropertyRow(icon: "equal.square", text: "A × B ≠ B × A (außer wenn A = B)")
                 }
                 .padding()
-                .background(Color.gray.opacity(0.1))
+                .background(Color.secondary.opacity(0.1))
                 .cornerRadius(12)
                 
                 // Applications
@@ -96,7 +96,7 @@ struct CartesianProductView: View {
                     ApplicationRow(icon: "cube", text: "Konstruktion von Produkträumen in der Topologie")
                 }
                 .padding()
-                .background(Color.gray.opacity(0.1))
+                .background(Color.secondary.opacity(0.1))
                 .cornerRadius(12)
                 
                 // Explanation Button

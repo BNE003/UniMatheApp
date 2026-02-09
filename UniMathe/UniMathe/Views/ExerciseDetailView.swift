@@ -19,8 +19,8 @@ struct ExerciseDetailView: View {
             // Background
             LinearGradient(
                 gradient: Gradient(colors: [
-                    Color(red: 0.95, green: 0.97, blue: 1.0),
-                    Color(red: 0.98, green: 0.98, blue: 1.0)
+                    Color.appBackgroundSecondary,
+                    Color.appBackground
                 ]),
                 startPoint: .top,
                 endPoint: .bottom
@@ -40,8 +40,8 @@ struct ExerciseDetailView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(
                         RoundedRectangle(cornerRadius: 16)
-                            .fill(.white)
-                            .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
+                            .fill(Color.appSurface)
+                            .shadow(color: Color.appShadow.opacity(0.5), radius: 10, x: 0, y: 5)
                     )
                     .padding(.horizontal)
                     
@@ -66,7 +66,7 @@ struct ExerciseDetailView: View {
                                         .foregroundColor(.white)
                                         .padding()
                                         .frame(maxWidth: .infinity)
-                                        .background(Color.blue)
+                                        .background(Color.appAccentBlue)
                                         .cornerRadius(12)
                                 }
                                 .padding(.horizontal)
@@ -86,7 +86,7 @@ struct ExerciseDetailView: View {
                                 .foregroundColor(.white)
                                 .padding()
                                 .frame(maxWidth: .infinity)
-                                .background(Color.blue)
+                                .background(Color.appAccentBlue)
                                 .cornerRadius(12)
                         }
                         .padding(.horizontal)
@@ -144,7 +144,11 @@ struct SolutionStepView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(
             RoundedRectangle(cornerRadius: 12)
-                .fill(Color(.systemGray6))
+                .fill(Color.appSurface)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(Color.appBorder, lineWidth: 1)
+                )
         )
         .padding(.horizontal)
     }
