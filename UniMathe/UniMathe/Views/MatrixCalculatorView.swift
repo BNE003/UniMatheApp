@@ -578,7 +578,7 @@ struct MatrixCalculatorView: View {
             result = output.result
             currentStepIndex = 0
             showAllSteps = false
-            equationLines = buildEquationLines(matrix: numericMatrix, rhs: numericRhs)
+            equationLines = buildEquationLines(augmented: output.result)
             let solution = solveLinearSystem(matrix: numericMatrix, rhs: numericRhs)
             solutionSteps = solution.steps
             solutionResults = solution.results
@@ -836,12 +836,13 @@ struct MatrixCalculatorView: View {
         return Double(normalized) ?? 0
     }
 
-    private func buildEquationLines(matrix: [[Double]], rhs: [Double]) -> [String] {
+    private func buildEquationLines(augmented: [[Double]]) -> [String] {
         var lines: [String] = []
-        let n = matrix.count
-        for row in 0..<n {
-            let rhsValue = row < rhs.count ? rhs[row] : 0
-            lines.append(equationLatexString(coefficients: matrix[row], rhs: rhsValue))
+        for row in augmented {
+            guard !row.isEmpty else { continue }
+            let rhsValue = row.last ?? 0
+            let coefficients = Array(row.dropLast())
+            lines.append(equationLatexString(coefficients: coefficients, rhs: rhsValue))
         }
         return lines
     }
