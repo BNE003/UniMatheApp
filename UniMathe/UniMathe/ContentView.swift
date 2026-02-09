@@ -94,6 +94,7 @@ func normalizedFileName(from title: String) -> String {
 struct ContentView: View {
     @ObservedObject private var storeManager = StoreKitManager.shared
     @ObservedObject private var settings = SettingsModel.shared
+    @ObservedObject private var planManager = LearningPlanManager.shared
     @State private var topics: [MathTopic] = []
     @State private var isLoading = true
     @State private var error: Error?
@@ -180,6 +181,10 @@ struct ContentView: View {
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, 24)
+
+                        LearningPlanProgressCard(planManager: planManager)
+                            .padding(.horizontal, 24)
+                            .padding(.bottom, 8)
                         
                         ScrollView {
                             LazyVGrid(columns: [
@@ -957,6 +962,75 @@ struct ProgressHeader: View {
     }
 }
 
+struct LearningPlanProgressCard: View {
+    @ObservedObject var planManager: LearningPlanManager
+    @ObservedObject private var settings = SettingsModel.shared
+
+    var body: some View {
+        let progress = planManager.progress
+        let hasPlan = planManager.plan != nil && progress.total > 0
+
+        return VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Text(settings.language == .english ? "Your Learning Plan" : "Dein Lernplan")
+                    .font(.headline)
+                Spacer()
+                NavigationLink(destination: LearningPlanView()) {
+                    Text(settings.language == .english ? "Open" : "Öffnen")
+                        .font(.subheadline)
+                        .foregroundColor(.blue)
+                }
+            }
+
+            if hasPlan {
+                let ratio = CGFloat(progress.completed) / CGFloat(max(progress.total, 1))
+                GeometryReader { geometry in
+                    ZStack(alignment: .leading) {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.gray.opacity(0.2))
+                            .frame(height: 8)
+
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.blue)
+                            .frame(width: geometry.size.width * ratio, height: 8)
+                    }
+                }
+                .frame(height: 8)
+
+                Text(settings.language == .english ?
+                     "\(progress.completed) of \(progress.total) completed" :
+                     "\(progress.completed) von \(progress.total) abgeschlossen")
+                .font(.subheadline)
+                .foregroundColor(.secondary)
+            } else {
+                Text(settings.language == .english ? "Create a personalized plan with topics, exercises and exams." : "Erstelle einen persönlichen Plan mit Themen, Übungen und Klausuren.")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+
+                NavigationLink(destination: LearningPlanView()) {
+                    Text(settings.language == .english ? "Create Plan" : "Plan erstellen")
+                        .font(.subheadline)
+                        .foregroundColor(.white)
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 14)
+                        .background(Color.blue)
+                        .cornerRadius(8)
+                }
+            }
+        }
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(Color.white)
+                .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(Color.blue.opacity(0.1), lineWidth: 1)
+        )
+    }
+}
+
 struct ExplanationContent: View {
     let step: InteractiveExampleStep
     let showCurrentStep: Bool
@@ -1491,6 +1565,3 @@ struct ScrollOffsetPreferenceKey: PreferenceKey {
 #Preview {
     ContentView()
 }
-
-
-
