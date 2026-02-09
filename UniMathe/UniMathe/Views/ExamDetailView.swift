@@ -580,6 +580,10 @@ struct ExamDetailView: View {
     @ViewBuilder
     private func optimizedSolutionButton(exerciseIndex: Int) -> some View {
         Button(action: {
+            if storeManager.purchasedProductIDs.isEmpty {
+                showPaywall = true
+                return
+            }
             // Ensure arrays are properly sized
             while showSolutions.count <= exerciseIndex {
                 showSolutions.append(false)

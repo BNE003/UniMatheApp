@@ -2,12 +2,16 @@ import SwiftUI
 
 struct ExerciseDetailView: View {
     let exercise: Exercise
+    let isFreeExercise: Bool
     @State private var currentStep = 0
     @State private var showSolution = false
     @State private var descriptionHeight: CGFloat = 100
     @State private var solutionHeights: [CGFloat] = []
     @State private var titleHeight: CGFloat = 32
+    @State private var showPaywall = false
+    @State private var pendingShowSolutionAfterPaywall = false
     @ObservedObject private var settings = SettingsModel.shared
+    @ObservedObject private var storeManager = StoreKitManager.shared
     @ObservedObject private var tabBarManager = TabBarManager.shared
     
     var body: some View {
@@ -70,9 +74,11 @@ struct ExerciseDetailView: View {
                         }
                     } else {
                         Button(action: {
-                            withAnimation {
-                                showSolution = true
-                                solutionHeights = Array(repeating: 100, count: exercise.solutionSteps.count)
+                            if storeManager.purchasedProductIDs.isEmpty {
+                                pendingShowSolutionAfterPaywall = true
+                                showPaywall = true
+                            } else {
+                                revealSolution()
                             }
                         }) {
                             Text(settings.language == .english ? "Show Solution" : "Lösung anzeigen")
@@ -96,6 +102,25 @@ struct ExerciseDetailView: View {
         }
         .onDisappear {
             tabBarManager.show()
+        }
+        .fullScreenCover(isPresented: $showPaywall, onDismiss: handlePaywallDismiss) {
+            PurchaseView(isPresented: $showPaywall)
+        }
+    }
+    
+    private func revealSolution() {
+        withAnimation {
+            showSolution = true
+            solutionHeights = Array(repeating: 100, count: exercise.solutionSteps.count)
+        }
+    }
+    
+    private func handlePaywallDismiss() {
+        guard pendingShowSolutionAfterPaywall else { return }
+        pendingShowSolutionAfterPaywall = false
+        
+        if !storeManager.purchasedProductIDs.isEmpty || isFreeExercise {
+            revealSolution()
         }
     }
 }
@@ -149,6 +174,6 @@ fileprivate func addHtmlLineBreaks(_ text: String) -> String {
                 "Schritt 4: Bestimme die Differenz $B \\setminus A$",
                 "$B \\setminus A = \\{5, 6\\}$"
             ]
-        ))
+        ), isFreeExercise: true)
     }
 } 

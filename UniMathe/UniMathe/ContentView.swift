@@ -574,13 +574,13 @@ struct ExercisesView: View {
     private var freeExercises: [Exercise] {
         guard let difficulty = selectedDifficulty else { return [] }
         let exercisesForDifficulty = exercises.filter { $0.difficulty == difficulty }
-        return Array(exercisesForDifficulty.prefix(2))
+        return Array(exercisesForDifficulty.prefix(1))
     }
     
     private var proExercises: [Exercise] {
         guard let difficulty = selectedDifficulty else { return [] }
         let exercisesForDifficulty = exercises.filter { $0.difficulty == difficulty }
-        return Array(exercisesForDifficulty.dropFirst(2))
+        return Array(exercisesForDifficulty.dropFirst(1))
     }
     
     var body: some View {
@@ -635,19 +635,20 @@ struct ExercisesView: View {
                         if !storeManager.purchasedProductIDs.isEmpty {
                             // PRO: Alle Übungen sichtbar
                             ForEach(filteredExercises) { exercise in
-                                ExerciseCard(exercise: exercise)
+                                ExerciseCard(exercise: exercise, isFreeExercise: false)
                             }
                         } else {
-                            // FREE: 2 frei, Rest geblurrt
+                            // FREE: 1 frei, Rest geblurrt
                             ForEach(freeExercises) { exercise in
-                                ExerciseCard(exercise: exercise)
+                                ExerciseCard(exercise: exercise, isFreeExercise: true)
                             }
                             if !proExercises.isEmpty {
                                 VStack(spacing: 16) {
                                     ForEach(proExercises) { exercise in
                                         ZStack {
-                                            ExerciseCard(exercise: exercise)
+                                            ExerciseCard(exercise: exercise, isFreeExercise: false)
                                                 .blur(radius: 3)
+                                                .allowsHitTesting(false)
                                             VStack {
                                                 Image(systemName: "lock.fill")
                                                     .font(.system(size: 30))
@@ -868,6 +869,7 @@ struct ExerciseRow: View {
 
 struct ExerciseCard: View {
     let exercise: Exercise
+    let isFreeExercise: Bool
     @State private var descriptionHeight: CGFloat = 100
     @State private var titleHeight: CGFloat = 20
     
@@ -896,7 +898,7 @@ struct ExerciseCard: View {
                 
                 Spacer()
                 
-                NavigationLink(destination: ExerciseDetailView(exercise: exercise)) {
+                NavigationLink(destination: ExerciseDetailView(exercise: exercise, isFreeExercise: isFreeExercise)) {
                     Text("Start")
                         .font(.subheadline)
                         .foregroundColor(.white)
@@ -1144,7 +1146,41 @@ struct ContinueButton: View {
                     .shadow(color: Color.blue.opacity(0.3), radius: 5, x: 0, y: 2)
             )
         }
-        .padding(.horizontal)
+        .scaleEffect(showCurrentStep ? 1 : 0.95)
+        .animation(.spring(response: 0.3, dampingFraction: 0.7), value: showCurrentStep)
+    }
+}
+
+struct BackStepButton: View {
+    let currentStep: Int
+    let showCurrentStep: Bool
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: {
+            if currentStep > 0 {
+                action()
+            }
+        }) {
+            HStack {
+                Text(SettingsModel.shared.language == .english ? "Back" : "Zurück")
+                Image(systemName: "arrow.left")
+            }
+            .font(.headline)
+            .foregroundColor(.blue)
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.white)
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(Color.blue.opacity(0.25), lineWidth: 1)
+            )
+        }
+        .disabled(currentStep == 0)
+        .opacity(currentStep == 0 ? 0.5 : 1.0)
         .scaleEffect(showCurrentStep ? 1 : 0.95)
         .animation(.spring(response: 0.3, dampingFraction: 0.7), value: showCurrentStep)
     }
@@ -1220,29 +1256,66 @@ struct InteractiveLearningView: View {
                     
                     // Fixed button at bottom
                     VStack {
-                        ContinueButton(
-                            currentStep: currentStep,
-                            totalSteps: example.steps.count,
-                            showCurrentStep: showCurrentStep
-                        ) {
-                            withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
-                                if currentStep < example.steps.count - 1 {
-                                    showCurrentStep = false
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                        currentStep += 1
-                                        withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
-                                            showCurrentStep = true
+                        if currentStep == 0 {
+                            ContinueButton(
+                                currentStep: currentStep,
+                                totalSteps: example.steps.count,
+                                showCurrentStep: showCurrentStep
+                            ) {
+                                withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                                    if currentStep < example.steps.count - 1 {
+                                        showCurrentStep = false
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                            currentStep += 1
+                                            withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                                                showCurrentStep = true
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        } else {
+                            HStack(spacing: 12) {
+                                BackStepButton(
+                                    currentStep: currentStep,
+                                    showCurrentStep: showCurrentStep
+                                ) {
+                                    withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                                        if currentStep > 0 {
+                                            showCurrentStep = false
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                                currentStep -= 1
+                                                withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                                                    showCurrentStep = true
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                ContinueButton(
+                                    currentStep: currentStep,
+                                    totalSteps: example.steps.count,
+                                    showCurrentStep: showCurrentStep
+                                ) {
+                                    withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                                        if currentStep < example.steps.count - 1 {
+                                            showCurrentStep = false
+                                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                                currentStep += 1
+                                                withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                                                    showCurrentStep = true
+                                                }
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
                     }
-                    .background(
-                        Rectangle()
-                            .fill(Color.white)
-                            .shadow(color: Color.black.opacity(0.05), radius: 5, y: -2)
-                    )
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    .background(Color.clear)
                 }
                 .blur(radius: blurBackground ? 5 : 0)
             }
