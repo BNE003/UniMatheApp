@@ -32,6 +32,8 @@ class OnboardingManager: ObservableObject {
             case .exams:
                 currentScreen = .exercises
             case .exercises:
+                currentScreen = .learningPlan
+            case .learningPlan:
                 currentScreen = .monthlyUpdates
             case .monthlyUpdates:
                 // Show paywall when "Fertig" is clicked
@@ -51,8 +53,10 @@ class OnboardingManager: ObservableObject {
                 currentScreen = .stepByStep
             case .exercises:
                 currentScreen = .exams
-            case .monthlyUpdates:
+            case .learningPlan:
                 currentScreen = .exercises
+            case .monthlyUpdates:
+                currentScreen = .learningPlan
 
             default:
                 break
@@ -105,6 +109,7 @@ enum OnboardingScreen: CaseIterable {
     case stepByStep
     case exams
     case exercises
+    case learningPlan
     case monthlyUpdates
     
     var title: String {
@@ -119,6 +124,8 @@ enum OnboardingScreen: CaseIterable {
             return "Klausuren üben"
         case .exercises:
             return "300+ Aufgaben"
+        case .learningPlan:
+            return "Dein Lernplan"
         case .monthlyUpdates:
             return "Immer aktuell bleiben"
         }
@@ -136,6 +143,8 @@ enum OnboardingScreen: CaseIterable {
             return "Practice Exams"
         case .exercises:
             return "300+ Problems"
+        case .learningPlan:
+            return "Your Learning Plan"
         case .monthlyUpdates:
             return "Stay Up to Date"
         }
@@ -153,6 +162,8 @@ enum OnboardingScreen: CaseIterable {
             return "Bereiten Sie sich optimal auf Ihre Klausuren vor"
         case .exercises:
             return "Über 300 sorgfältig ausgewählte Übungsaufgaben"
+        case .learningPlan:
+            return "Stelle deinen persönlichen Lernplan zusammen"
         case .monthlyUpdates:
             return "Jeden Monat neue Inhalte, Übungen und Prüfungen"
         }
@@ -170,6 +181,8 @@ enum OnboardingScreen: CaseIterable {
             return "Prepare optimally for your exams"
         case .exercises:
             return "Over 300 carefully selected practice problems"
+        case .learningPlan:
+            return "Build your personal learning plan"
         case .monthlyUpdates:
             return "New content, exercises and exams every month"
         }
@@ -187,6 +200,8 @@ enum OnboardingScreen: CaseIterable {
             return "graduationcap.fill"
         case .exercises:
             return "checkmark.circle.fill"
+        case .learningPlan:
+            return "sparkles.rectangle.stack.fill"
         case .monthlyUpdates:
             return "calendar.badge.plus"
         }
@@ -204,8 +219,10 @@ enum OnboardingScreen: CaseIterable {
             return Color.purple
         case .exercises:
             return Color.red
+        case .learningPlan:
+            return Color.blue
         case .monthlyUpdates:
             return Color.mint
         }
     }
-} 
+}

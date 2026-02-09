@@ -32,6 +32,8 @@ struct OnboardingCoordinator: View {
                     ExamsOnboardingView()
                 case .exercises:
                     ExercisesOnboardingView()
+                case .learningPlan:
+                    LearningPlanOnboardingView()
                 case .monthlyUpdates:
                     MonthlyUpdatesOnboardingView()
                 }

@@ -1,4 +1,5 @@
 import SwiftUI
+import Foundation
 
 // MARK: - Learning Topics Onboarding Screen
 struct LearningTopicsOnboardingView: View {
@@ -888,6 +889,681 @@ struct ExercisesOnboardingView: View {
     }
 }
 
+// MARK: - Learning Plan Onboarding Screen
+struct LearningPlanOnboardingView: View {
+    @ObservedObject private var settings = SettingsModel.shared
+    @ObservedObject private var planManager = LearningPlanManager.shared
+    @State private var topics: [MathTopic] = []
+    @State private var isLoading = true
+    @State private var errorMessage: String?
+    @State private var selectedTopicIDs: Set<String> = []
+    @State private var includeExercises = true
+    @State private var includeSteps = true
+    @State private var includeExams = true
+    @State private var searchText = ""
+    @State private var animateContent = false
+    @State private var animateCards = false
+    @State private var showSavedBadge = false
+    @State private var exerciseTotalCount = 0
+    @State private var examTotalCount = 0
+    @State private var exerciseCountCache: [String: Int] = [:]
+
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                AnimatedBackground()
+
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(spacing: geometry.size.height < 700 ? 20 : 28) {
+                        headerSection(geometry: geometry)
+
+                        if isLoading {
+                            ProgressView()
+                                .scaleEffect(1.2)
+                                .padding(.top, 20)
+                        } else if let errorMessage {
+                            Text(errorMessage)
+                                .font(.subheadline)
+                                .foregroundColor(.red)
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 24)
+                        } else {
+                            optionsCard(geometry: geometry)
+                            topicsCard(geometry: geometry)
+                            createButton(geometry: geometry)
+                            summaryCard(geometry: geometry)
+                        }
+
+                        Spacer(minLength: geometry.size.height < 700 ? 90 : 110)
+                    }
+                    .padding(.horizontal, geometry.size.width < 400 ? 16 : 24)
+                    .padding(.top, geometry.size.height < 700 ? 10 : 20)
+                }
+            }
+        }
+        .onAppear {
+            animateContent = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                animateCards = true
+            }
+            loadTopics()
+            hydrateFromPlan()
+            updateExamTotal()
+        }
+        .onChange(of: settings.language) { _ in
+            loadTopics()
+            hydrateFromPlan()
+            exerciseCountCache = [:]
+            updateExamTotal()
+        }
+        .onChange(of: selectedTopicIDs) { _ in
+            showSavedBadge = false
+            updateExerciseTotal()
+        }
+        .onChange(of: includeExercises) { _ in showSavedBadge = false }
+        .onChange(of: includeSteps) { _ in showSavedBadge = false }
+        .onChange(of: includeExams) { _ in showSavedBadge = false }
+        .onDisappear {
+            createPlan(showFeedback: false)
+        }
+    }
+
+    private func headerSection(geometry: GeometryProxy) -> some View {
+        VStack(spacing: geometry.size.height < 700 ? 10 : 16) {
+            ZStack {
+                Circle()
+                    .fill(
+                        LinearGradient(
+                            colors: [.blue.opacity(0.9), .purple.opacity(0.8)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .frame(width: geometry.size.height < 700 ? 52 : 64,
+                           height: geometry.size.height < 700 ? 52 : 64)
+                    .shadow(color: Color.blue.opacity(0.25), radius: 12, x: 0, y: 8)
+
+                Image(systemName: "sparkles.rectangle.stack.fill")
+                    .font(.system(size: geometry.size.height < 700 ? 22 : 28, weight: .medium))
+                    .foregroundColor(.white)
+            }
+            .scaleEffect(animateContent ? 1.0 : 0.6)
+            .opacity(animateContent ? 1 : 0)
+            .animation(.spring(response: 0.9, dampingFraction: 0.7), value: animateContent)
+
+            VStack(spacing: geometry.size.height < 700 ? 6 : 10) {
+                Text(settings.language == .german ? "Dein persönlicher Lernplan" : "Your personal learning plan")
+                    .font(.system(size: geometry.size.height < 700 ? 22 : 28, weight: .bold, design: .rounded))
+                    .multilineTextAlignment(.center)
+                    .opacity(animateContent ? 1 : 0)
+                    .offset(y: animateContent ? 0 : 20)
+                    .animation(.easeOut(duration: 0.8).delay(0.2), value: animateContent)
+
+            }
+        }
+        .padding(.horizontal, geometry.size.width < 400 ? 10 : 16)
+    }
+
+    private func summaryCard(geometry: GeometryProxy) -> some View {
+        glassCard {
+            VStack(alignment: .leading, spacing: 10) {
+                Text(settings.language == .german ? "Plan auf einen Blick" : "Plan at a glance")
+                    .font(.system(size: geometry.size.height < 700 ? 15 : 16, weight: .bold))
+
+                HStack(spacing: 10) {
+                    summaryPill(
+                        title: settings.language == .german ? "Themen" : "Topics",
+                        value: "\(selectedTopicIDs.count)",
+                        color: .blue
+                    )
+                    summaryPill(
+                        title: settings.language == .german ? "Schritte" : "Steps",
+                        value: "\(includeSteps ? selectedTopicIDs.count : 0)",
+                        color: .purple
+                    )
+                    summaryPill(
+                        title: settings.language == .german ? "Übungen" : "Exercises",
+                        value: "\(includeExercises ? exerciseTotalCount : 0)",
+                        color: .green
+                    )
+                    summaryPill(
+                        title: settings.language == .german ? "Klausuren" : "Exams",
+                        value: "\(includeExams ? examTotalCount : 0)",
+                        color: .orange
+                    )
+                }
+            }
+        }
+        .opacity(animateCards ? 1 : 0)
+        .offset(y: animateCards ? 0 : 20)
+        .animation(.easeOut(duration: 0.8).delay(0.2), value: animateCards)
+    }
+
+    private func optionsCard(geometry: GeometryProxy) -> some View {
+        glassCard {
+            VStack(alignment: .leading, spacing: 12) {
+                Text(settings.language == .german ? "Bausteine auswählen" : "Choose building blocks")
+                    .font(.system(size: geometry.size.height < 700 ? 15 : 16, weight: .bold))
+
+                VStack(spacing: 10) {
+                    optionSwitch(
+                        title: settings.language == .german ? "Schritt-für-Schritt" : "Step by step",
+                        subtitle: settings.language == .german ? "Geführte Erklärungen" : "Guided explanations",
+                        icon: "list.number",
+                        color: .purple,
+                        isOn: $includeSteps
+                    )
+                    optionSwitch(
+                        title: settings.language == .german ? "Übungen" : "Exercises",
+                        subtitle: settings.language == .german ? "Direkt anwenden" : "Apply instantly",
+                        icon: "checkmark.circle.fill",
+                        color: .green,
+                        isOn: $includeExercises
+                    )
+                    optionSwitch(
+                        title: settings.language == .german ? "Klausuren" : "Exams",
+                        subtitle: settings.language == .german ? "Am Ende testen" : "Test at the end",
+                        icon: "graduationcap.fill",
+                        color: .orange,
+                        isOn: $includeExams
+                    )
+                }
+
+                if !hasAnyContentSelected {
+                    Text(settings.language == .german ? "Bitte mindestens einen Baustein aktivieren." : "Please enable at least one block.")
+                        .font(.caption)
+                        .foregroundColor(.red)
+                }
+            }
+        }
+        .opacity(animateCards ? 1 : 0)
+        .offset(y: animateCards ? 0 : 20)
+        .animation(.easeOut(duration: 0.8).delay(0.3), value: animateCards)
+    }
+
+    private func topicsCard(geometry: GeometryProxy) -> some View {
+        glassCard {
+            VStack(alignment: .leading, spacing: 12) {
+                Text(settings.language == .german ? "Themen wählen" : "Pick your topics")
+                    .font(.system(size: geometry.size.height < 700 ? 16 : 18, weight: .bold))
+
+                TextField(settings.language == .german ? "Themen suchen" : "Search topics", text: $searchText)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+
+                LazyVGrid(
+                    columns: [GridItem(.adaptive(minimum: geometry.size.width < 400 ? 120 : 150), spacing: 12)],
+                    spacing: 12
+                ) {
+                    ForEach(filteredTopics) { topic in
+                        topicChip(
+                            title: topic.title,
+                            isSelected: selectedTopicIDs.contains(topic.id),
+                            color: .blue
+                        ) {
+                            toggleTopic(topic.id)
+                        }
+                    }
+                }
+            }
+        }
+        .opacity(animateCards ? 1 : 0)
+        .offset(y: animateCards ? 0 : 20)
+        .animation(.easeOut(duration: 0.8).delay(0.4), value: animateCards)
+    }
+
+    private func createButton(geometry: GeometryProxy) -> some View {
+        VStack(spacing: 8) {
+            Button(action: {
+                createPlan(showFeedback: true)
+            }) {
+                HStack {
+                    Image(systemName: "sparkles")
+                    Text(settings.language == .german ? "Lernplan erstellen" : "Create learning plan")
+                        .font(.system(size: geometry.size.height < 700 ? 16 : 18, weight: .bold))
+                }
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, geometry.size.height < 700 ? 12 : 14)
+                .background(
+                    LinearGradient(
+                        colors: [.blue, .purple],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                )
+                .cornerRadius(18)
+                .shadow(color: Color.blue.opacity(0.3), radius: 12, x: 0, y: 8)
+            }
+            .disabled(selectedTopicIDs.isEmpty || !hasAnyContentSelected)
+            .opacity(selectedTopicIDs.isEmpty || !hasAnyContentSelected ? 0.6 : 1.0)
+
+            if showSavedBadge {
+                Text(settings.language == .german ? "Gespeichert ✓" : "Saved ✓")
+                    .font(.caption)
+                    .foregroundColor(.green)
+                    .transition(.opacity)
+            } else if selectedTopicIDs.isEmpty {
+                Text(settings.language == .german ? "Bitte wähle mindestens ein Thema." : "Please choose at least one topic.")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+        }
+        .opacity(animateCards ? 1 : 0)
+        .offset(y: animateCards ? 0 : 20)
+        .animation(.easeOut(duration: 0.8).delay(0.5), value: animateCards)
+    }
+
+    private var filteredTopics: [MathTopic] {
+        let trimmed = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+        if trimmed.isEmpty {
+            return selectableTopics
+        }
+        let term = trimmed.lowercased()
+        return selectableTopics.filter { $0.title.lowercased().contains(term) || $0.description.lowercased().contains(term) }
+    }
+
+    private var selectableTopics: [MathTopic] {
+        leafTopics(from: topics)
+    }
+
+    private var hasAnyContentSelected: Bool {
+        includeExercises || includeSteps || includeExams
+    }
+
+    private func toggleTopic(_ id: String) {
+        if selectedTopicIDs.contains(id) {
+            selectedTopicIDs.remove(id)
+        } else {
+            selectedTopicIDs.insert(id)
+        }
+    }
+
+    private func createPlan(showFeedback: Bool) {
+        guard !selectedTopicIDs.isEmpty else { return }
+        guard hasAnyContentSelected else { return }
+        planManager.generatePlan(
+            topics: topics,
+            selectedTopicIDs: selectedTopicIDs,
+            includeExercises: includeExercises,
+            includeExams: includeExams,
+            includeSteps: includeSteps
+        )
+        if showFeedback {
+            withAnimation(.easeInOut(duration: 0.2)) {
+                showSavedBadge = true
+            }
+        }
+    }
+
+    private func hydrateFromPlan() {
+        guard let plan = planManager.plan else { return }
+        selectedTopicIDs = Set(plan.selectedTopicIDs)
+        includeExercises = plan.includeExercises
+        includeExams = plan.includeExams
+        includeSteps = plan.includeSteps
+    }
+
+    private func ensureDefaultSelection() {
+        if selectedTopicIDs.isEmpty {
+            let defaults = selectableTopics.prefix(3).map { $0.id }
+            selectedTopicIDs = Set(defaults)
+        }
+    }
+
+    private func loadTopics() {
+        let language = settings.language
+        let languageSuffix = language == .english ? "_en" : ""
+        let indexName = "index" + languageSuffix
+        var indexUrl: URL?
+
+        if let url = Bundle.main.url(forResource: indexName, withExtension: "json") {
+            indexUrl = url
+        } else if let url = Bundle.main.url(forResource: "index", withExtension: "json") {
+            indexUrl = url
+        } else if let url = Bundle.main.url(forResource: indexName, withExtension: "json", subdirectory: "lerninhalt") {
+            indexUrl = url
+        } else if let url = Bundle.main.url(forResource: "index", withExtension: "json", subdirectory: "lerninhalt") {
+            indexUrl = url
+        } else if let url = Bundle.main.url(forResource: indexName, withExtension: "json", subdirectory: "lerninhalt/\(language.rawValue)") {
+            indexUrl = url
+        } else if let url = Bundle.main.url(forResource: "index", withExtension: "json", subdirectory: "lerninhalt/\(language.rawValue)") {
+            indexUrl = url
+        } else {
+            errorMessage = settings.language == .english ?
+                "Index file not found in bundle" :
+                "Index-Datei nicht im Bundle gefunden"
+            isLoading = false
+            return
+        }
+
+        do {
+            let indexData = try Data(contentsOf: indexUrl!)
+            let indexResponse = try JSONDecoder().decode(IndexResponse.self, from: indexData)
+            var loadedTopics: [MathTopic] = []
+
+            for topicIndex in indexResponse.topics {
+                let filenameWithoutExtension = topicIndex.filename.replacingOccurrences(of: ".json", with: "")
+                let localizedFilename = filenameWithoutExtension + languageSuffix
+                let topicUrl: URL?
+
+                if let url = Bundle.main.url(forResource: localizedFilename, withExtension: "json") {
+                    topicUrl = url
+                } else if let url = Bundle.main.url(forResource: filenameWithoutExtension, withExtension: "json") {
+                    topicUrl = url
+                } else if let url = Bundle.main.url(forResource: localizedFilename, withExtension: "json", subdirectory: "lerninhalt") {
+                    topicUrl = url
+                } else if let url = Bundle.main.url(forResource: filenameWithoutExtension, withExtension: "json", subdirectory: "lerninhalt") {
+                    topicUrl = url
+                } else if let url = Bundle.main.url(forResource: localizedFilename, withExtension: "json", subdirectory: "lerninhalt/\(language.rawValue)") {
+                    topicUrl = url
+                } else if let url = Bundle.main.url(forResource: filenameWithoutExtension, withExtension: "json", subdirectory: "lerninhalt/\(language.rawValue)") {
+                    topicUrl = url
+                } else {
+                    continue
+                }
+
+                do {
+                    let topicData = try Data(contentsOf: topicUrl!)
+                    let topic = try JSONDecoder().decode(MathTopic.self, from: topicData)
+                    loadedTopics.append(topic)
+                } catch {
+                    continue
+                }
+            }
+
+            topics = loadedTopics
+            isLoading = false
+            exerciseCountCache = [:]
+            ensureDefaultSelection()
+            updateExerciseTotal()
+        } catch {
+            errorMessage = error.localizedDescription
+            isLoading = false
+        }
+    }
+
+    private func updateExamTotal() {
+        let repo = ExamRepository.shared
+        let available = repo.loadAvailableExams(language: settings.language)
+        if !available.isEmpty {
+            examTotalCount = available.count
+            return
+        }
+
+        let englishFallback = [
+            "analysis_1_beginner",
+            "linear_algebra_intermediate",
+            "statistics_intermediate",
+            "analysis_2_advanced",
+            "differential_equations_advanced",
+            "numerical_mathematics_advanced",
+            "linear_algebra_advanced",
+            "linear_algebra_expert",
+            "mathematics_1_beginner",
+            "mathematics_1_intermediate",
+            "mathematics_1_advanced",
+            "linear_algebra_1_beginner",
+            "linear_algebra_beginner",
+            "statistics_beginner"
+        ]
+
+        let germanFallback = [
+            "analysis_1_anfaenger",
+            "lineare_algebra_fortgeschritten",
+            "statistik_fortgeschritten",
+            "analysis_2_experte",
+            "differentialgleichungen_experte",
+            "numerische_mathematik_experte",
+            "lineare_algebra_experte",
+            "mathematik_1_anfaenger",
+            "mathematik_1_fortgeschritten",
+            "mathematik_1_experte",
+            "lineare_algebra_1_anfaenger",
+            "statistik_anfaenger"
+        ]
+
+        examTotalCount = (settings.language == .english ? englishFallback.count : germanFallback.count)
+    }
+
+    private func updateExerciseTotal() {
+        let selectedTopics = selectableTopics.filter { selectedTopicIDs.contains($0.id) }
+        var total = 0
+        for topic in selectedTopics {
+            if let cached = exerciseCountCache[topic.id] {
+                total += cached
+                continue
+            }
+            let count = loadExerciseCount(for: topic)
+            exerciseCountCache[topic.id] = count
+            total += count
+        }
+        exerciseTotalCount = total
+    }
+
+    private func loadExerciseCount(for topic: MathTopic) -> Int {
+        guard let baseFileName = exerciseBaseFileName(for: topic.title) else { return 0 }
+        let language = settings.language
+        let langFolder = language == .english ? "en" : "de"
+        let localizedFileName = language == .english ? baseFileName + "_en" : baseFileName
+
+        var fileURL: URL?
+        if let url = Bundle.main.url(forResource: localizedFileName, withExtension: "json", subdirectory: "aufgaben/\(langFolder)") {
+            fileURL = url
+        } else if let url = Bundle.main.url(forResource: baseFileName, withExtension: "json", subdirectory: "aufgaben/\(langFolder)") {
+            fileURL = url
+        } else if let url = Bundle.main.url(forResource: localizedFileName, withExtension: "json", subdirectory: "aufgaben") {
+            fileURL = url
+        } else if let url = Bundle.main.url(forResource: baseFileName, withExtension: "json", subdirectory: "aufgaben") {
+            fileURL = url
+        } else if let url = Bundle.main.url(forResource: localizedFileName, withExtension: "json") {
+            fileURL = url
+        } else if let url = Bundle.main.url(forResource: baseFileName, withExtension: "json") {
+            fileURL = url
+        }
+
+        guard let foundURL = fileURL else { return 0 }
+        do {
+            let data = try Data(contentsOf: foundURL)
+            let response = try JSONDecoder().decode(ExercisesResponse.self, from: data)
+            return response.exercises.count
+        } catch {
+            return 0
+        }
+    }
+
+    private func exerciseBaseFileName(for topicTitle: String) -> String? {
+        switch topicTitle {
+        case "Mengen und Abbildungen", "Sets and Mappings":
+            return "mengen_und_abbildungen"
+        case "Logik", "Logic":
+            return "logik"
+        case "Vollständige Induktion", "Mathematical Induction":
+            return "vollstaendige_induktion"
+        case "Binomische Formeln", "Binomial Formulas":
+            return "binomische_formeln"
+        case "Größter gemeinsamer Teiler", "Greatest Common Divisor":
+            return "groesster_gemeinsamer_teiler"
+        case "Gruppen", "Groups":
+            return "gruppen"
+        case "Ringe", "Rings":
+            return "ringe"
+        case "Körper", "Fields":
+            return "koerper"
+        case "Komplexe Zahlen", "Complex Numbers":
+            return "komplexe_zahlen"
+        case "Folgen und Reihen", "Sequences and Series":
+            return "folgen_und_reihen"
+        case "Grenzwerte", "Limits":
+            return "grenzwerte"
+        case "Differentialrechnung", "Differential Calculus":
+            return "differentialrechnung"
+        case "Integralrechnung", "Integral Calculus":
+            return "integralrechnung"
+        case "Mehrdimensionale Analysis", "Multidimensional Calculus":
+            return "mehrdimensionale_analysis"
+        case "Matrizen", "Matrices":
+            return "matrizen"
+        case "Vektorräume", "Vector Spaces":
+            return "vektorraeume"
+        case "Determinanten", "Determinants":
+            return "determinanten"
+        case "Lineare Abbildungen", "Linear Mappings":
+            return "lineare_abbildungen"
+        case "Eigenwerte", "Eigenvalues", "Eigenwerte und Eigenvektoren", "Eigenvalues and Eigenvectors":
+            return "eigenwerte"
+        default:
+            return nil
+        }
+    }
+
+    private func leafTopics(from topics: [MathTopic]) -> [MathTopic] {
+        var result: [MathTopic] = []
+        for topic in topics {
+            if let subTopics = topic.subTopics, !subTopics.isEmpty {
+                result.append(contentsOf: leafTopics(from: subTopics))
+            } else {
+                result.append(topic)
+            }
+        }
+        return result
+    }
+
+    private func glassCard<Content: View>(@ViewBuilder content: () -> Content) -> some View {
+        content()
+            .padding(20)
+            .background(
+                RoundedRectangle(cornerRadius: 22)
+                    .fill(.ultraThinMaterial)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 22)
+                            .strokeBorder(Color.white.opacity(0.2), lineWidth: 1)
+                    )
+                    .shadow(color: Color.black.opacity(0.08), radius: 16, x: 0, y: 8)
+            )
+    }
+
+    private func summaryPill(title: String, value: String, color: Color) -> some View {
+        VStack(spacing: 4) {
+            Text(value)
+                .font(.system(size: 15, weight: .bold))
+                .foregroundColor(color)
+            Text(title)
+                .font(.caption2)
+                .foregroundColor(.secondary)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 6)
+        .background(
+            RoundedRectangle(cornerRadius: 14)
+                .fill(color.opacity(0.12))
+        )
+    }
+
+    private func optionToggle(title: String, subtitle: String, icon: String, color: Color, isOn: Binding<Bool>) -> some View {
+        HStack(spacing: 12) {
+            ZStack {
+                Circle()
+                    .fill(color.opacity(0.15))
+                    .frame(width: 40, height: 40)
+                Image(systemName: icon)
+                    .font(.system(size: 18, weight: .medium))
+                    .foregroundColor(color)
+            }
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(title)
+                    .font(.system(size: 15, weight: .semibold))
+                Text(subtitle)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+
+            Spacer()
+
+            Toggle("", isOn: isOn)
+                .labelsHidden()
+                .tint(color)
+        }
+    }
+
+    private func optionSwitch(title: String, subtitle: String, icon: String, color: Color, isOn: Binding<Bool>) -> some View {
+        Button(action: { isOn.wrappedValue.toggle() }) {
+            HStack(spacing: 12) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 12)
+                        .fill(color.opacity(0.15))
+                        .frame(width: 42, height: 42)
+                    Image(systemName: icon)
+                        .font(.system(size: 18, weight: .semibold))
+                        .foregroundColor(color)
+                }
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(title)
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundColor(.primary)
+                    Text(subtitle)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+
+                Spacer()
+
+                ZStack {
+                    Capsule()
+                        .fill(isOn.wrappedValue ? color : Color.gray.opacity(0.25))
+                        .frame(width: 44, height: 26)
+                    Circle()
+                        .fill(Color.white)
+                        .frame(width: 20, height: 20)
+                        .offset(x: isOn.wrappedValue ? 9 : -9)
+                        .shadow(color: Color.black.opacity(0.1), radius: 3, x: 0, y: 2)
+                }
+            }
+            .padding(.vertical, 10)
+            .padding(.horizontal, 12)
+            .background(
+                RoundedRectangle(cornerRadius: 18)
+                    .fill(Color.white.opacity(0.9))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 18)
+                            .strokeBorder(color.opacity(isOn.wrappedValue ? 0.5 : 0.2), lineWidth: 1)
+                    )
+                    .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
+            )
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func topicChip(title: String, isSelected: Bool, color: Color, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            HStack(spacing: 6) {
+                if isSelected {
+                    Image(systemName: "checkmark.circle.fill")
+                        .font(.system(size: 12, weight: .bold))
+                        .foregroundColor(.white)
+                }
+                Text(title)
+                    .font(.system(size: 13, weight: .semibold))
+                    .foregroundColor(isSelected ? .white : .primary)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.center)
+            }
+            .padding(.vertical, 8)
+            .padding(.horizontal, 10)
+            .frame(maxWidth: .infinity, minHeight: 54, maxHeight: 54)
+            .background(
+                RoundedRectangle(cornerRadius: 14)
+                    .fill(isSelected ? color : Color.white.opacity(0.7))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 14)
+                            .strokeBorder(color.opacity(isSelected ? 0.8 : 0.2), lineWidth: 1)
+                    )
+            )
+        }
+    }
+}
+
 // MARK: - Supporting Views
 
 struct AnimatedBackground: View {
@@ -1344,4 +2020,3 @@ struct MonthlyUpdateFeatureCard: View {
         )
     }
 } 
-
