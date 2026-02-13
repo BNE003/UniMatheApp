@@ -5,4 +5,5 @@ EXCLUDED_RESOURCE_FILE_NAMES = **/backup/**
 // Add language specific directories
 // This helps Xcode locate the resources in the language directories
 INFOPLIST_KEY_UIAppSupportsLocalizations = YES
-INFOPLIST_KEY_CFBundleLocalizations = de en
+INFOPLIST_KEY_CFBundleLocalizations[0] = de
+INFOPLIST_KEY_CFBundleLocalizations[1] = en

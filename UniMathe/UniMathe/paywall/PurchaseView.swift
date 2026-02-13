@@ -98,15 +98,6 @@ struct PurchaseView: View {
     
     var body: some View {
         ZStack (alignment: .top) {
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    Color.appBackgroundSecondary,
-                    Color.appBackground
-                ]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
             
             // Confetti animation overlay
             if showConfetti {
@@ -142,7 +133,7 @@ struct PurchaseView: View {
                     .background(
                         RoundedRectangle(cornerRadius: 20)
                             .fill(.ultraThinMaterial)
-                            .shadow(color: Color.appShadow.opacity(0.8), radius: 20, x: 0, y: 10)
+                            .shadow(color: Color.black.opacity(0.1), radius: 20, x: 0, y: 10)
                     )
                     .scaleEffect(showConfetti ? 1.0 : 0.8)
                     .opacity(showConfetti ? 1.0 : 0.0)
@@ -164,21 +155,26 @@ struct PurchaseView: View {
                         .opacity(0.1 + 0.1 * self.progress)
                         .rotationEffect(Angle(degrees: -90))
                         .frame(width: 20, height: 20)
+                        .frame(width: 44, height: 44)
                 }
                 else {
-                    Image(systemName: "multiply")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 20, alignment: .center)
-                        .clipped()
-                        .onTapGesture {
-                            isPresented = false
-                        }
-                        .opacity(0.2)
+                    Button(action: {
+                        isPresented = false
+                    }) {
+                        Image(systemName: "multiply")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 20, alignment: .center)
+                            .clipped()
+                            .frame(width: 44, height: 44)
+                            .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
+                    .opacity(0.2)
                 }
             }
-            .padding(.top)
-            .padding(.horizontal)
+            .padding(.top, 10)
+            .padding(.trailing, 6)
 
             VStack (spacing: 20) {
                 
@@ -216,8 +212,7 @@ struct PurchaseView: View {
                         .minimumScaleFactor(0.8)
                     VStack (alignment: .leading) {
                         PurchaseFeatureView(title: settings.language == .english ? "Unlock all interactive lessons" : "Alle interaktiven Lektionen freischalten", icon: "checkmark.circle.fill", color: color)
-                        PurchaseFeatureView(title: settings.language == .english ? "Full access to over 400 exercises" : "Vollen Zugriff auf über 400 Aufgaben", icon: "books.vertical.fill", color: color)
-                        PurchaseFeatureView(title: settings.language == .english ? "Matrix calculator" : "Matrix-Rechner", icon: "tablecells.fill", color: color)
+                        PurchaseFeatureView(title: settings.language == .english ? "Full access to over 300 exercises" : "Vollen Zugriff auf über 300 Aufgaben", icon: "books.vertical.fill", color: color)
                         PurchaseFeatureView(title: settings.language == .english ? "Detailed solution steps" : "Detaillierte Lösungsschritte", icon: "list.bullet.rectangle.fill", color: color)
                         PurchaseFeatureView(title: settings.language == .english ? "Access to all exams" : "Zugang zu allen Klausuren", icon: "doc.text.fill", color: color)
                         PurchaseFeatureView(title: settings.language == .english ? "Monthly new exams" : "Monatlich neue Klausuren", icon: "calendar.circle.fill", color: color)
@@ -393,7 +388,7 @@ struct PurchaseView: View {
                                 )
                                 .shadow(
                                     color: selectedProductId == productDetails.productId ? 
-                                    Color.blue.opacity(0.2) : Color.appShadow.opacity(0.5),
+                                    Color.blue.opacity(0.2) : Color.black.opacity(0.05),
                                     radius: selectedProductId == productDetails.productId ? 10 : 5,
                                     x: 0,
                                     y: selectedProductId == productDetails.productId ? 5 : 3
@@ -434,7 +429,7 @@ struct PurchaseView: View {
                                     .stroke(Color.primary.opacity(0.1), lineWidth: 1)
                             }
                         )
-                        .shadow(color: Color.appShadow.opacity(0.5), radius: 5, x: 0, y: 2)
+                        .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: 2)
                         
                     }
                     .opacity(purchaseModel.isFetchingProducts ? 0 : 1)
@@ -514,7 +509,7 @@ struct PurchaseView: View {
                         .overlay(
                             Rectangle()
                                 .frame(height: 1)
-                                .foregroundColor(.secondary), alignment: .bottom
+                                .foregroundColor(.gray), alignment: .bottom
                         )
                         .font(.footnote)
                         
@@ -525,7 +520,7 @@ struct PurchaseView: View {
                         .overlay(
                             Rectangle()
                                 .frame(height: 1)
-                                .foregroundColor(.secondary), alignment: .bottom
+                                .foregroundColor(.gray), alignment: .bottom
                         )
                         .actionSheet(isPresented: $showTermsActionSheet) {
                             ActionSheet(
@@ -551,7 +546,7 @@ struct PurchaseView: View {
                         
                     }
                     //.font(.headline)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.gray)
                     .font(.system(size: 15))
                     
                     
@@ -561,8 +556,8 @@ struct PurchaseView: View {
 
                 
             }
-            .padding(.horizontal)
         }
+        .padding(.horizontal)
         .onAppear {
             selectedProductId = purchaseModel.productIds.last ?? ""
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {

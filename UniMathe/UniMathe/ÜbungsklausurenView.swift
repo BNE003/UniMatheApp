@@ -8,6 +8,17 @@ struct ÜbungsklausurenView: View {
     
     let examTopics = [
         ExamTopic(
+            title: "Mathematik I",
+            titleEnglish: "Mathematics I",
+            subtitle: "Lineare Algebra und abstrakte Algebra",
+            subtitleEnglish: "Linear Algebra and Abstract Algebra",
+            duration: 120,
+            questions: 8,
+            icon: "number.circle",
+            color: Color(red: 0.8, green: 0.3, blue: 0.6),
+            examFilename: "mathematik_1_anfaenger"
+        ),
+        ExamTopic(
             title: "Analysis I",
             titleEnglish: "Calculus I",
             subtitle: "Grenzwerte, Ableitungen, Integrale",
@@ -28,17 +39,6 @@ struct ÜbungsklausurenView: View {
             icon: "grid",
             color: Color(red: 0.0, green: 0.7, blue: 0.4),
             examFilename: "lineare_algebra_1_anfaenger"
-        ),
-        ExamTopic(
-            title: "Mathematik I",
-            titleEnglish: "Mathematics I",
-            subtitle: "Lineare Algebra und abstrakte Algebra",
-            subtitleEnglish: "Linear Algebra and Abstract Algebra",
-            duration: 120,
-            questions: 8,
-            icon: "number.circle",
-            color: Color(red: 0.8, green: 0.3, blue: 0.6),
-            examFilename: "mathematik_1_anfaenger"
         ),
         ExamTopic(
             title: "Mathematik I",

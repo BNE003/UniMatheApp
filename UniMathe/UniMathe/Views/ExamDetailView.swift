@@ -19,6 +19,7 @@ struct ExamDetailView: View {
     @ObservedObject private var settings = SettingsModel.shared
     @ObservedObject private var storeManager = StoreKitManager.shared
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.colorScheme) private var colorScheme
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject private var tabBarManager = TabBarManager.shared
     
@@ -161,7 +162,7 @@ struct ExamDetailView: View {
                     Text(exam.exam.title)
                         .font(.custom("SF Pro Display", size: horizontalSizeClass == .regular ? 42 : 34))
                         .fontWeight(.black)
-                        .foregroundColor(.appAccentBlue)
+                        .foregroundColor(colorScheme == .dark ? .white : .appAccentBlue)
                         .frame(maxWidth: .infinity, alignment: .leading)
                     
                     Text(exam.exam.subtitle)
@@ -254,26 +255,6 @@ struct ExamDetailView: View {
                     )
                     .cornerRadius(16)
                     .shadow(color: Color.appAccentBlue.opacity(0.3), radius: 10, x: 0, y: 5)
-                }
-                .padding(.horizontal, 24)
-                
-                // Back Button
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    HStack {
-                        Image(systemName: "chevron.left")
-                        Text(settings.language == .english ? "Back to Exams" : "Zurück zu Klausuren")
-                    }
-                    .font(.headline)
-                    .foregroundColor(.appAccentBlue)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 12)
-                    .background(Color.clear)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(Color.appAccentBlue, lineWidth: 2)
-                    )
                 }
                 .padding(.horizontal, 24)
                 .padding(.bottom, 32)
