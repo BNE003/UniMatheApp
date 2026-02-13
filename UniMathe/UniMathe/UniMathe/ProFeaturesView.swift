@@ -5,6 +5,15 @@ struct ProFeaturesView: View {
     @StateObject private var storeManager = StoreKitManager.shared
     @Environment(\.dismiss) private var dismiss
     @ObservedObject private var settings = SettingsModel.shared
+
+    private var orderedProducts: [Product] {
+        let order = StoreKitManager.productIDs
+        return storeManager.products.sorted { lhs, rhs in
+            let leftIndex = order.firstIndex(of: lhs.id) ?? Int.max
+            let rightIndex = order.firstIndex(of: rhs.id) ?? Int.max
+            return leftIndex < rightIndex
+        }
+    }
     
     var body: some View {
         ScrollView {
@@ -56,7 +65,7 @@ struct ProFeaturesView: View {
                 .padding(.horizontal, 20)
 
                 // Kaufoptionen
-                if storeManager.purchasedProductIDs.contains("unimathe.pro.lifetime") {
+                if !storeManager.purchasedProductIDs.isEmpty {
                     VStack(spacing: 8) {
                         Image(systemName: "checkmark.circle.fill")
                             .font(.system(size: 30))
@@ -76,7 +85,7 @@ struct ProFeaturesView: View {
                     .padding(.horizontal, 20)
                 } else {
                     VStack(spacing: 16) {
-                        ForEach(storeManager.products.filter { $0.id == "unimathe.pro.lifetime" }) { product in
+                        ForEach(orderedProducts) { product in
                             PurchaseButton(product: product)
                         }
                     }
@@ -86,7 +95,7 @@ struct ProFeaturesView: View {
                 // Restore purchases - verbessert
                 Button(action: {
                     Task {
-                        await storeManager.updatePurchasedProducts()
+                        await storeManager.restorePurchases()
                     }
                 }) {
                     HStack(spacing: 8) {

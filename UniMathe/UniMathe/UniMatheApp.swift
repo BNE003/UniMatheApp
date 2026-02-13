@@ -14,6 +14,9 @@ struct UniMatheApp: App {
     @State private var needsRefresh = false
     
     init() {
+        RevenueCatManager.configure()
+        RevenueCatManager.syncPurchasesIfNeededOnLaunch()
+
         // Track app launch for rating prompt
         settings.trackAppLaunch()
     }

@@ -229,7 +229,7 @@ struct PurchaseView: View {
                         let productDetails = purchaseModel.isFetchingProducts ? placeholderProductDetails : purchaseModel.productDetails
                         
                         ForEach(productDetails) { productDetails in
-                            let isYearlyPlan = productDetails.productId == "unimathe.pro.year"
+                            let isYearlyPlan = productDetails.productId == StoreKitManager.yearlyProductID
                             let monthlyEquivalentHint = purchaseModel.monthlyEquivalentHint(
                                 for: productDetails.productId,
                                 language: settings.language

@@ -4,11 +4,15 @@ import SwiftUI
 @MainActor
 class StoreKitManager: ObservableObject {
     static let shared = StoreKitManager()
+    static let yearlyProductID = "prod1f378b1c9f"
+    static let monthlyProductID = "prodccc986482c"
+    static let lifetimeProductID = "prod7db1447f08"
+    static let productIDs = [yearlyProductID, monthlyProductID, lifetimeProductID]
     
     @Published private(set) var products: [Product] = []
     @Published private(set) var purchasedProductIDs = Set<String>()
     
-    private let productIDs = ["unimathe.pro.lifetime", "unimathe.pro.month", "unimathe.pro.year"]
+    private let productIDs = StoreKitManager.productIDs
     
     private init() {
         Task {
@@ -42,6 +46,7 @@ class StoreKitManager: ObservableObject {
             case .verified(let transaction):
                 await transaction.finish()
                 await updatePurchasedProducts()
+                RevenueCatManager.syncPurchasesAfterTransaction()
             case .unverified:
                 throw StoreError.failedVerification
             }
@@ -51,6 +56,16 @@ class StoreKitManager: ObservableObject {
             throw StoreError.pending
         @unknown default:
             throw StoreError.unknown
+        }
+    }
+
+    func restorePurchases() async {
+        do {
+            try await AppStore.sync()
+            await updatePurchasedProducts()
+            RevenueCatManager.syncPurchasesAfterTransaction()
+        } catch {
+            print("Restore failed:", error)
         }
     }
     

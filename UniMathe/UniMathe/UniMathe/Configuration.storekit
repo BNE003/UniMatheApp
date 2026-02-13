@@ -25,62 +25,59 @@
           "locale" : "de"
         }
       ],
-      "productID" : "unimathe.pro.lifetime",
+      "productID" : "prod7db1447f08",
       "referenceName" : "Höhere Mathematik Pro lifetime",
       "type" : "NonConsumable"
     }
   ],
   "settings" : {
+    "_askToBuyEnabled" : false,
+    "_billingGracePeriodEnabled" : false,
+    "_billingIssuesEnabled" : false,
+    "_disableDialogs" : false,
     "_failTransactionsEnabled" : false,
     "_locale" : "de",
+    "_renewalBillingIssuesEnabled" : false,
     "_storefront" : "DEU",
     "_storeKitErrors" : [
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Load Products"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Purchase"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Verification"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "App Store Sync"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Subscription Status"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "App Transaction"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Manage Subscriptions Sheet"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Refund Request Sheet"
       },
       {
-        "current" : null,
         "enabled" : false,
         "name" : "Offer Code Redeem Sheet"
       }
-    ]
+    ],
+    "_timeRate" : 0
   },
   "subscriptionGroups" : [
     {
@@ -113,7 +110,7 @@
               "locale" : "en_US"
             }
           ],
-          "productID" : "unimathe.pro.month",
+          "productID" : "prodccc986482c",
           "recurringSubscriptionPeriod" : "P1M",
           "referenceName" : "Höhere Mathematik Pro Monatlich",
           "subscriptionGroupID" : "3E0ECA0A",
@@ -141,8 +138,8 @@
               "locale" : "en_US"
             }
           ],
-          "productID" : "unimathe.pro.year",
-          "recurringSubscriptionPeriod" : "P1M",
+          "productID" : "prod1f378b1c9f",
+          "recurringSubscriptionPeriod" : "P1Y",
           "referenceName" : "Höhere Mahtematik Pro Jährlich",
           "subscriptionGroupID" : "3E0ECA0A",
           "type" : "RecurringSubscription",

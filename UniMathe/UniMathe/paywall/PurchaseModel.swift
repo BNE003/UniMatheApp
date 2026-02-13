@@ -25,12 +25,13 @@ class PurchaseModel: ObservableObject {
     init() {
 
         //initialise your productids and product details
-        self.productIds = ["unimathe.pro.year", "unimathe.pro.month"]
+        // Paywall layout is optimized for subscription plans (yearly/monthly).
+        self.productIds = [StoreKitManager.yearlyProductID, StoreKitManager.monthlyProductID]
         
         // Create placeholder details - they will be updated with real prices from StoreKit
         self.productDetails = [
-            PurchaseProductDetails(price: "$29.99", productId: "unimathe.pro.year", duration: "year", durationPlanName: "Yearly Plan", hasTrial: false),
-            PurchaseProductDetails(price: "$4.99", productId: "unimathe.pro.month", duration: "month", durationPlanName: "3-Day Trial", hasTrial: true)
+            PurchaseProductDetails(price: "$29.99", productId: StoreKitManager.yearlyProductID, duration: "year", durationPlanName: "Yearly Plan", hasTrial: false),
+            PurchaseProductDetails(price: "$4.99", productId: StoreKitManager.monthlyProductID, duration: "month", durationPlanName: "3-Day Trial", hasTrial: true)
         ]
         
         // Update subscription status based on StoreKit
@@ -54,10 +55,10 @@ class PurchaseModel: ObservableObject {
         
         for index in productDetails.indices {
             let product = productDetails[index]
-            if product.productId == "unimathe.pro.year" {
+            if product.productId == StoreKitManager.yearlyProductID {
                 productDetails[index].durationPlanName = isEnglish ? "Yearly Plan" : "Jahresabo"
                 productDetails[index].duration = isEnglish ? "year" : "Jahr"
-            } else if product.productId == "unimathe.pro.month" {
+            } else if product.productId == StoreKitManager.monthlyProductID {
                 productDetails[index].durationPlanName = isEnglish ? "3-Day Trial" : "3-Tage-Test"
                 productDetails[index].duration = isEnglish ? "month" : "Monat"
             }
@@ -101,13 +102,8 @@ class PurchaseModel: ObservableObject {
     
     func restorePurchases() {
         Task { @MainActor in
-            do {
-                try await AppStore.sync()
-                await storeManager.updatePurchasedProducts()
-                updateSubscriptionStatus()
-            } catch {
-                print("Restore failed: \(error)")
-            }
+            await storeManager.restorePurchases()
+            updateSubscriptionStatus()
         }
     }
     
@@ -127,7 +123,7 @@ class PurchaseModel: ObservableObject {
 
     @MainActor
     func monthlyEquivalentHint(for productId: String, language: AppLanguage) -> String? {
-        guard productId == "unimathe.pro.year",
+        guard productId == StoreKitManager.yearlyProductID,
               let yearlyProduct = storeManager.products.first(where: { $0.id == productId }) else {
             return nil
         }
