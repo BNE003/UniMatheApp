@@ -229,6 +229,11 @@ struct PurchaseView: View {
                         let productDetails = purchaseModel.isFetchingProducts ? placeholderProductDetails : purchaseModel.productDetails
                         
                         ForEach(productDetails) { productDetails in
+                            let isYearlyPlan = productDetails.productId == "unimathe.pro.year"
+                            let monthlyEquivalentHint = purchaseModel.monthlyEquivalentHint(
+                                for: productDetails.productId,
+                                language: settings.language
+                            )
                             
                             Button(action: {
                                 withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
@@ -397,6 +402,27 @@ struct PurchaseView: View {
                                 .animation(.spring(response: 0.4, dampingFraction: 0.8), value: selectedProductId)
                             }
                             .buttonStyle(PlainButtonStyle())
+                            .padding(.top, isYearlyPlan && monthlyEquivalentHint != nil ? 12 : 0)
+                            .overlay(alignment: .top) {
+                                if isYearlyPlan, let monthlyEquivalentHint {
+                                    Text(monthlyEquivalentHint)
+                                        .font(.system(size: 12, weight: .semibold))
+                                        .foregroundColor(Color(red: 0.18, green: 0.42, blue: 0.95))
+                                        .padding(.horizontal, 10)
+                                        .padding(.vertical, 5)
+                                        .background(
+                                            Capsule()
+                                                .fill(Color(.systemBackground).opacity(0.95))
+                                        )
+                                        .overlay(
+                                            Capsule()
+                                                .stroke(Color.blue.opacity(0.25), lineWidth: 1)
+                                        )
+                                        .shadow(color: Color.blue.opacity(0.12), radius: 6, x: 0, y: 3)
+                                        .offset(y: -5)
+                                        .allowsHitTesting(false)
+                                }
+                            }
                             
                         }
                         

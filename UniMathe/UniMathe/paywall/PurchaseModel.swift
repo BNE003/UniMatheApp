@@ -124,6 +124,25 @@ class PurchaseModel: ObservableObject {
                 .store(in: &cancellables)
         }
     }
+
+    @MainActor
+    func monthlyEquivalentHint(for productId: String, language: AppLanguage) -> String? {
+        guard productId == "unimathe.pro.year",
+              let yearlyProduct = storeManager.products.first(where: { $0.id == productId }) else {
+            return nil
+        }
+
+        let monthlyDecimalPrice = NSDecimalNumber(decimal: yearlyProduct.price)
+            .dividing(by: NSDecimalNumber(value: 12))
+            .decimalValue
+        let formattedMonthlyPrice = monthlyDecimalPrice.formatted(yearlyProduct.priceFormatStyle)
+
+        if language == .english {
+            return "equivalent to \(formattedMonthlyPrice) /month"
+        }
+
+        return "entspricht \(formattedMonthlyPrice) /Monat"
+    }
     
 }
 
@@ -146,4 +165,3 @@ class PurchaseProductDetails: ObservableObject, Identifiable {
     }
     
 }
-
