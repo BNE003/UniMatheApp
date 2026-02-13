@@ -212,9 +212,9 @@ struct PurchaseView: View {
                         .minimumScaleFactor(0.8)
                     VStack (alignment: .leading) {
                         PurchaseFeatureView(title: settings.language == .english ? "Unlock all interactive lessons" : "Alle interaktiven Lektionen freischalten", icon: "checkmark.circle.fill", color: color)
-                        PurchaseFeatureView(title: settings.language == .english ? "Full access to over 300 exercises" : "Vollen Zugriff auf über 300 Aufgaben", icon: "books.vertical.fill", color: color)
-                        PurchaseFeatureView(title: settings.language == .english ? "Detailed solution steps" : "Detaillierte Lösungsschritte", icon: "list.bullet.rectangle.fill", color: color)
+                        PurchaseFeatureView(title: settings.language == .english ? "Full access to over 400 exercises" : "Vollen Zugriff auf über 400 Aufgaben", icon: "books.vertical.fill", color: color)
                         PurchaseFeatureView(title: settings.language == .english ? "Access to all exams" : "Zugang zu allen Klausuren", icon: "doc.text.fill", color: color)
+                        PurchaseFeatureView(title: settings.language == .english ? "Full access to the matrix calculator" : "Vollen Zugriff auf den Matrix-Rechner", icon: "tablecells.fill", color: color)
                         PurchaseFeatureView(title: settings.language == .english ? "Monthly new exams" : "Monatlich neue Klausuren", icon: "calendar.circle.fill", color: color)
                     }
                     .font(.system(size: 19))
