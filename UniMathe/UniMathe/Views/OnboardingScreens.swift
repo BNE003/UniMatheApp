@@ -503,6 +503,7 @@ struct ExamSelectionOnboardingView: View {
                                 ForEach(examOptions) { option in
                                     Button(action: {
                                         selectedExamKey = option.key
+                                        UserDefaults.standard.set(option.key, forKey: StorageKey.selectedExamKey)
                                         let generator = UISelectionFeedbackGenerator()
                                         generator.prepare()
                                         generator.selectionChanged()
@@ -927,6 +928,416 @@ struct ExamSelectionOnboardingView: View {
         ]
 
         return map[key] ?? "book.closed"
+    }
+}
+
+private struct ExamPreviewCardModel: Identifiable {
+    let id = UUID()
+    let title: String
+    let detail: String
+    let icon: String
+}
+
+struct ExamPreviewOnboardingView: View {
+    @EnvironmentObject var onboardingManager: OnboardingManager
+    @ObservedObject private var settings = SettingsModel.shared
+    @AppStorage("onboardingSelectedExamKey") private var persistedSelectedExamKey: String = ""
+    @State private var animateCards = false
+
+    private var isGerman: Bool {
+        settings.language == .german
+    }
+
+    private var stepLabel: String {
+        if isGerman {
+            return "Schritt \(onboardingManager.currentProgressStep) von \(onboardingManager.progressStepCount)"
+        }
+        return "Step \(onboardingManager.currentProgressStep) of \(onboardingManager.progressStepCount)"
+    }
+
+    private var titleText: String {
+        isGerman ? "Perfekt 👌" : "Perfect 👌"
+    }
+
+    private var selectedExamKey: String {
+        let normalized = persistedSelectedExamKey.trimmingCharacters(in: .whitespacesAndNewlines)
+        return normalized.isEmpty ? defaultExamKey() : normalized
+    }
+
+    private var subtitleText: String {
+        if isGerman {
+            return "Wir haben 3 realistische \(selectedExamTitle)-Klausuren für dich vorbereitet - genau im Stil typischer Uni-Prüfungen."
+        }
+        return "We prepared 3 realistic \(selectedExamTitle) exams for you - just like typical university exams."
+    }
+
+    private var motivationText: String {
+        if isGerman {
+            return "Die meisten starten mit einer Probeklausur, um ihren aktuellen Stand zu checken."
+        }
+        return "Most learners start with a mock exam to check their current level."
+    }
+
+    private var selectedExamTitle: String {
+        titleForExamKey(selectedExamKey)
+    }
+
+    private var levelExamTitles: (first: String, second: String) {
+        let subjectTitle = titleForExamKey(selectedExamKey)
+
+        if subjectTitle.hasSuffix(" II") {
+            let base = String(subjectTitle.dropLast(3)).trimmingCharacters(in: .whitespaces)
+            return ("\(base) I", subjectTitle)
+        }
+
+        if subjectTitle.hasSuffix(" I") {
+            let base = String(subjectTitle.dropLast(2)).trimmingCharacters(in: .whitespaces)
+            return (subjectTitle, "\(base) II")
+        }
+
+        let base = normalizeBaseTitle(subjectTitle)
+        return ("\(base) I", "\(base) II")
+    }
+
+    private var previewCards: [ExamPreviewCardModel] {
+        if isGerman {
+            return [
+                ExamPreviewCardModel(
+                    title: levelExamTitles.first,
+                    detail: "Klausurjahr 2025 - 90 Minuten - 12 Aufgaben",
+                    icon: "clock"
+                ),
+                ExamPreviewCardModel(
+                    title: levelExamTitles.second,
+                    detail: "Klausurjahr 2024 - 120 Minuten - 15 Aufgaben",
+                    icon: "list.bullet.clipboard"
+                ),
+                ExamPreviewCardModel(
+                    title: "Probeklausur",
+                    detail: "Schwierigkeit: Mittel",
+                    icon: "star.fill"
+                )
+            ]
+        }
+
+        return [
+            ExamPreviewCardModel(
+                title: levelExamTitles.first,
+                detail: "Exam year 2025 - 90 minutes - 12 questions",
+                icon: "clock"
+            ),
+            ExamPreviewCardModel(
+                title: levelExamTitles.second,
+                detail: "Exam year 2024 - 120 minutes - 15 questions",
+                icon: "list.bullet.clipboard"
+            ),
+            ExamPreviewCardModel(
+                title: "Mock Exam",
+                detail: "Difficulty: Medium",
+                icon: "star.fill"
+            )
+        ]
+    }
+
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                AnimatedBackground()
+
+                Circle()
+                    .fill(Color.onboardingBlue.opacity(0.1))
+                    .frame(width: geometry.size.width * 0.74)
+                    .offset(y: geometry.size.height * 0.25)
+                    .blur(radius: 2)
+
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(alignment: .leading, spacing: 16) {
+                        HStack(spacing: 12) {
+                            Text(stepLabel)
+                                .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium, design: .rounded))
+                                .foregroundColor(Color.onboardingGrayStrong)
+
+                            Spacer()
+
+                            Text("Onboarding")
+                                .font(.system(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold, design: .rounded))
+                                .foregroundColor(Color.onboardingInk)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 9)
+                                .background(
+                                    Capsule()
+                                        .fill(Color.white.opacity(0.92))
+                                        .overlay(
+                                            Capsule()
+                                                .strokeBorder(Color.onboardingGray.opacity(0.22), lineWidth: 1)
+                                        )
+                                )
+                        }
+
+                        segmentedProgress(
+                            totalSteps: onboardingManager.progressStepCount,
+                            currentStep: onboardingManager.currentProgressStep
+                        )
+                        .padding(.bottom, 10)
+
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(titleText)
+                                .font(.system(size: geometry.size.height < 700 ? 30 : 34, weight: .bold, design: .rounded))
+                                .foregroundColor(Color.onboardingInk)
+
+                            Text(subtitleText)
+                                .font(.system(size: geometry.size.height < 700 ? 17 : 19, weight: .medium, design: .rounded))
+                                .foregroundColor(Color.onboardingGrayStrong)
+                                .lineSpacing(2)
+                        }
+                        .padding(.bottom, 4)
+
+                        VStack(spacing: -6) {
+                            ForEach(Array(previewCards.enumerated()), id: \.element.id) { index, card in
+                                examPreviewCard(card: card, index: index, geometry: geometry)
+                                    .opacity(animateCards ? 1 : 0)
+                                    .offset(y: animateCards ? 0 : 18)
+                                    .scaleEffect(animateCards ? 1.0 : 0.97)
+                                    .rotationEffect(.degrees(cardRotation(for: index)))
+                                    .offset(x: cardHorizontalOffset(for: index))
+                                    .zIndex(Double(previewCards.count - index))
+                                    .animation(
+                                        .spring(response: 0.58, dampingFraction: 0.84)
+                                            .delay(Double(index) * 0.12),
+                                        value: animateCards
+                                    )
+                            }
+                        }
+
+                        Text(motivationText)
+                            .font(.system(size: geometry.size.height < 700 ? 15 : 16, weight: .medium, design: .rounded))
+                            .foregroundColor(Color.onboardingGrayStrong)
+                            .multilineTextAlignment(.leading)
+                            .padding(.top, 8)
+
+                        Spacer(minLength: geometry.size.height < 700 ? 126 : 144)
+                    }
+                    .padding(.horizontal, geometry.size.width < 400 ? 18 : 24)
+                    .padding(.top, geometry.size.height < 700 ? 20 : 24)
+                }
+            }
+            .safeAreaInset(edge: .bottom) {
+                VStack(spacing: 0) {
+                    Button(action: {
+                        onboardingManager.nextScreen()
+                    }) {
+                        HStack(spacing: 8) {
+                            Text(isGerman ? "Weiter" : "Continue")
+                                .font(.system(size: 18, weight: .semibold))
+                            Image(systemName: "arrow.right")
+                                .font(.system(size: 16, weight: .semibold))
+                        }
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(
+                                    LinearGradient(
+                                        colors: [Color.onboardingBlue, Color.onboardingInk.opacity(0.88)],
+                                        startPoint: .leading,
+                                        endPoint: .trailing
+                                    )
+                                )
+                                .shadow(color: Color.onboardingBlue.opacity(0.24), radius: 10, x: 0, y: 5)
+                        )
+                    }
+                    .padding(.horizontal, geometry.size.width < 400 ? 18 : 24)
+                    .padding(.top, 10)
+                    .padding(.bottom, max(geometry.safeAreaInsets.bottom, 12))
+                }
+                .background(
+                    LinearGradient(
+                        colors: [
+                            Color.onboardingCanvas.opacity(0.0),
+                            Color.onboardingCanvas.opacity(0.92),
+                            Color.onboardingCanvas
+                        ],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .ignoresSafeArea(edges: .bottom)
+                )
+            }
+            .onAppear {
+                if persistedSelectedExamKey.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                    persistedSelectedExamKey = defaultExamKey()
+                }
+                animateCards = false
+                DispatchQueue.main.async {
+                    animateCards = true
+                }
+            }
+        }
+    }
+
+    private func examPreviewCard(card: ExamPreviewCardModel, index: Int, geometry: GeometryProxy) -> some View {
+        let accent = accentColor(for: index)
+
+        return HStack(spacing: 14) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .fill(
+                        LinearGradient(
+                            colors: [accent.opacity(0.2), accent.opacity(0.08)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                    .frame(width: 46, height: 46)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 14, style: .continuous)
+                            .strokeBorder(accent.opacity(0.25), lineWidth: 1)
+                    )
+
+                Image(systemName: card.icon)
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundColor(accent)
+            }
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(card.title)
+                    .font(.system(size: geometry.size.height < 700 ? 18 : 19, weight: .semibold, design: .rounded))
+                    .foregroundColor(Color.onboardingInk)
+                    .lineLimit(1)
+
+                Text(card.detail)
+                    .font(.system(size: geometry.size.height < 700 ? 15 : 16, weight: .medium, design: .rounded))
+                    .foregroundColor(Color.onboardingGrayStrong)
+                    .lineLimit(2)
+            }
+
+            Spacer(minLength: 10)
+        }
+        .padding(.horizontal, 14)
+        .padding(.vertical, 14)
+        .frame(minHeight: 98)
+        .background(
+            RoundedRectangle(cornerRadius: 18)
+                .fill(Color.white.opacity(0.88))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 18)
+                        .strokeBorder(
+                            LinearGradient(
+                                colors: [
+                                    accent.opacity(0.34),
+                                    Color.onboardingGray.opacity(0.2)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            ),
+                            lineWidth: 1
+                        )
+                )
+                .shadow(color: Color.onboardingInk.opacity(0.08), radius: 12, x: 0, y: 6)
+        )
+    }
+
+    private func cardRotation(for index: Int) -> Double {
+        switch index {
+        case 0: return 0.9
+        case 1: return -0.8
+        case 2: return 0.7
+        default: return 0
+        }
+    }
+
+    private func cardHorizontalOffset(for index: Int) -> CGFloat {
+        switch index {
+        case 0: return 4
+        case 1: return -3
+        case 2: return 3
+        default: return 0
+        }
+    }
+
+    private func accentColor(for index: Int) -> Color {
+        let palette: [Color] = [
+            Color.onboardingBlue,
+            Color.onboardingInk.opacity(0.8),
+            Color.onboardingBlue.opacity(0.9)
+        ]
+        return palette[index % palette.count]
+    }
+
+    private func normalizeBaseTitle(_ title: String) -> String {
+        if title.hasSuffix(" II") {
+            return String(title.dropLast(3)).trimmingCharacters(in: .whitespaces)
+        }
+        if title.hasSuffix(" I") {
+            return String(title.dropLast(2)).trimmingCharacters(in: .whitespaces)
+        }
+        return title
+    }
+
+    private func defaultExamKey() -> String {
+        isGerman ? "mathematik_1" : "mathematics_1"
+    }
+
+    private func titleForExamKey(_ key: String) -> String {
+        if isGerman {
+            let map: [String: String] = [
+                "mathematik_1": "Mathematik I",
+                "mathematik_2": "Mathematik II",
+                "analysis_1": "Analysis I",
+                "analysis_2": "Analysis II",
+                "lineare_algebra_1": "Lineare Algebra I",
+                "lineare_algebra": "Lineare Algebra",
+                "statistik": "Statistik I",
+                "numerische_mathematik": "Numerik"
+            ]
+            if let mapped = map[key] {
+                return mapped
+            }
+        } else {
+            let map: [String: String] = [
+                "mathematics_1": "Mathematics I",
+                "mathematics_2": "Mathematics II",
+                "analysis_1": "Analysis I",
+                "analysis_2": "Analysis II",
+                "linear_algebra_1": "Linear Algebra I",
+                "linear_algebra": "Linear Algebra",
+                "statistics": "Statistics I",
+                "numerical_mathematics": "Numerics"
+            ]
+            if let mapped = map[key] {
+                return mapped
+            }
+        }
+
+        return key
+            .split(separator: "_")
+            .map { token in
+                switch token {
+                case "1": return "I"
+                case "2": return "II"
+                case "3": return "III"
+                default: return token.prefix(1).uppercased() + token.dropFirst().lowercased()
+                }
+            }
+            .joined(separator: " ")
+    }
+
+    private func segmentedProgress(totalSteps: Int, currentStep: Int) -> some View {
+        let safeTotalSteps = max(totalSteps, 1)
+
+        return HStack(spacing: 8) {
+            ForEach(0..<safeTotalSteps, id: \.self) { index in
+                Capsule()
+                    .fill(
+                        index < currentStep
+                        ? Color.onboardingBlue
+                        : Color.onboardingGray.opacity(0.25)
+                    )
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 7)
+            }
+        }
     }
 }
 

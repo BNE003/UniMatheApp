@@ -29,6 +29,8 @@ struct OnboardingCoordinator: View {
                     ProblemActivationOnboardingView()
                 case .examSelection:
                     ExamSelectionOnboardingView()
+                case .examPreview:
+                    ExamPreviewOnboardingView()
                 }
             }
             .transition(
