@@ -4,9 +4,9 @@ import SwiftUI
 @MainActor
 class StoreKitManager: ObservableObject {
     static let shared = StoreKitManager()
-    static let yearlyProductID = "prod1f378b1c9f"
-    static let monthlyProductID = "prodccc986482c"
-    static let lifetimeProductID = "prod7db1447f08"
+    static let yearlyProductID = "unimathe.pro.year"
+    static let monthlyProductID = "unimathe.pro.month"
+    static let lifetimeProductID = "unimathe.pro.lifetime"
     static let productIDs = [yearlyProductID, monthlyProductID, lifetimeProductID]
     
     @Published private(set) var products: [Product] = []

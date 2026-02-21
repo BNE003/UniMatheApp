@@ -25,7 +25,7 @@
           "locale" : "de"
         }
       ],
-      "productID" : "prod7db1447f08",
+      "productID" : "unimathe.pro.lifetime",
       "referenceName" : "Höhere Mathematik Pro lifetime",
       "type" : "NonConsumable"
     }
@@ -110,7 +110,7 @@
               "locale" : "en_US"
             }
           ],
-          "productID" : "prodccc986482c",
+          "productID" : "unimathe.pro.month",
           "recurringSubscriptionPeriod" : "P1M",
           "referenceName" : "Höhere Mathematik Pro Monatlich",
           "subscriptionGroupID" : "3E0ECA0A",
@@ -138,7 +138,7 @@
               "locale" : "en_US"
             }
           ],
-          "productID" : "prod1f378b1c9f",
+          "productID" : "unimathe.pro.year",
           "recurringSubscriptionPeriod" : "P1Y",
           "referenceName" : "Höhere Mahtematik Pro Jährlich",
           "subscriptionGroupID" : "3E0ECA0A",
