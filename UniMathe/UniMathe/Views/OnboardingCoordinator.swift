@@ -31,6 +31,10 @@ struct OnboardingCoordinator: View {
                     ExamSelectionOnboardingView()
                 case .examPreview:
                     ExamPreviewOnboardingView()
+                case .miniDiagnosis:
+                    MiniDiagnosisOnboardingView()
+                case .topicsShowcase:
+                    TopicShowcaseOnboardingView()
                 }
             }
             .transition(

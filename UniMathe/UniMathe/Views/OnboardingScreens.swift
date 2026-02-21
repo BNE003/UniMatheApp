@@ -956,7 +956,7 @@ struct ExamPreviewOnboardingView: View {
     }
 
     private var titleText: String {
-        isGerman ? "Perfekt 👌" : "Perfect 👌"
+        isGerman ? "\(selectedExamTitle)? Haben wir 👌" : "\(selectedExamTitle)? We got you 👌"
     }
 
     private var selectedExamKey: String {
@@ -982,59 +982,42 @@ struct ExamPreviewOnboardingView: View {
         titleForExamKey(selectedExamKey)
     }
 
-    private var levelExamTitles: (first: String, second: String) {
-        let subjectTitle = titleForExamKey(selectedExamKey)
-
-        if subjectTitle.hasSuffix(" II") {
-            let base = String(subjectTitle.dropLast(3)).trimmingCharacters(in: .whitespaces)
-            return ("\(base) I", subjectTitle)
-        }
-
-        if subjectTitle.hasSuffix(" I") {
-            let base = String(subjectTitle.dropLast(2)).trimmingCharacters(in: .whitespaces)
-            return (subjectTitle, "\(base) II")
-        }
-
-        let base = normalizeBaseTitle(subjectTitle)
-        return ("\(base) I", "\(base) II")
-    }
-
     private var previewCards: [ExamPreviewCardModel] {
         if isGerman {
             return [
                 ExamPreviewCardModel(
-                    title: levelExamTitles.first,
+                    title: selectedExamTitle,
                     detail: "Klausurjahr 2025 - 90 Minuten - 12 Aufgaben",
                     icon: "clock"
                 ),
                 ExamPreviewCardModel(
-                    title: levelExamTitles.second,
+                    title: selectedExamTitle,
                     detail: "Klausurjahr 2024 - 120 Minuten - 15 Aufgaben",
                     icon: "list.bullet.clipboard"
                 ),
                 ExamPreviewCardModel(
-                    title: "Probeklausur",
-                    detail: "Schwierigkeit: Mittel",
-                    icon: "star.fill"
+                    title: selectedExamTitle,
+                    detail: "Klausurjahr 2022 - 105 Minuten - 13 Aufgaben",
+                    icon: "doc.text"
                 )
             ]
         }
 
         return [
             ExamPreviewCardModel(
-                title: levelExamTitles.first,
+                title: selectedExamTitle,
                 detail: "Exam year 2025 - 90 minutes - 12 questions",
                 icon: "clock"
             ),
             ExamPreviewCardModel(
-                title: levelExamTitles.second,
+                title: selectedExamTitle,
                 detail: "Exam year 2024 - 120 minutes - 15 questions",
                 icon: "list.bullet.clipboard"
             ),
             ExamPreviewCardModel(
-                title: "Mock Exam",
-                detail: "Difficulty: Medium",
-                icon: "star.fill"
+                title: selectedExamTitle,
+                detail: "Exam year 2022 - 105 minutes - 13 questions",
+                icon: "doc.text"
             )
         ]
     }
@@ -1265,16 +1248,6 @@ struct ExamPreviewOnboardingView: View {
         return palette[index % palette.count]
     }
 
-    private func normalizeBaseTitle(_ title: String) -> String {
-        if title.hasSuffix(" II") {
-            return String(title.dropLast(3)).trimmingCharacters(in: .whitespaces)
-        }
-        if title.hasSuffix(" I") {
-            return String(title.dropLast(2)).trimmingCharacters(in: .whitespaces)
-        }
-        return title
-    }
-
     private func defaultExamKey() -> String {
         isGerman ? "mathematik_1" : "mathematics_1"
     }
@@ -1321,6 +1294,712 @@ struct ExamPreviewOnboardingView: View {
                 }
             }
             .joined(separator: " ")
+    }
+
+    private func segmentedProgress(totalSteps: Int, currentStep: Int) -> some View {
+        let safeTotalSteps = max(totalSteps, 1)
+
+        return HStack(spacing: 8) {
+            ForEach(0..<safeTotalSteps, id: \.self) { index in
+                Capsule()
+                    .fill(
+                        index < currentStep
+                        ? Color.onboardingBlue
+                        : Color.onboardingGray.opacity(0.25)
+                    )
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 7)
+            }
+        }
+    }
+}
+
+private struct MiniDiagnosisOption: Identifiable {
+    let id: String
+    let titleDE: String
+    let titleEN: String
+    let emoji: String
+}
+
+struct MiniDiagnosisOnboardingView: View {
+    @EnvironmentObject var onboardingManager: OnboardingManager
+    @ObservedObject private var settings = SettingsModel.shared
+    @State private var selectedOptions: Set<String> = []
+
+    private enum StorageKey {
+        static let diagnosisSelections = "onboardingDiagnosisSelections"
+    }
+
+    private let options: [MiniDiagnosisOption] = [
+        MiniDiagnosisOption(
+            id: "theory",
+            titleDE: "Ich verstehe die Theorie nicht",
+            titleEN: "I don't understand the theory",
+            emoji: "📚"
+        ),
+        MiniDiagnosisOption(
+            id: "tasks",
+            titleDE: "Ich scheitere an Aufgaben",
+            titleEN: "I fail on exercises",
+            emoji: "🧩"
+        ),
+        MiniDiagnosisOption(
+            id: "relevant",
+            titleDE: "Ich weiß nicht, was klausurrelevant ist",
+            titleEN: "I don't know what is exam-relevant",
+            emoji: "🎯"
+        ),
+        MiniDiagnosisOption(
+            id: "procrastination",
+            titleDE: "Ich prokrastiniere",
+            titleEN: "I procrastinate",
+            emoji: "⏳"
+        )
+    ]
+
+    private var isGerman: Bool {
+        settings.language == .german
+    }
+
+    private var stepLabel: String {
+        if isGerman {
+            return "Schritt \(onboardingManager.currentProgressStep) von \(onboardingManager.progressStepCount)"
+        }
+        return "Step \(onboardingManager.currentProgressStep) of \(onboardingManager.progressStepCount)"
+    }
+
+    private var titleText: String {
+        isGerman ? "Was ist dein größtes Problem?" : "What's your biggest challenge?"
+    }
+
+    private var subtitleText: String {
+        if isGerman {
+            return "Wähle aus, was dich am meisten ausbremst. Wir richten die App genau darauf aus."
+        }
+        return "Pick what slows you down most. We'll adapt the app to exactly that."
+    }
+
+    private var solutionHintText: String {
+        if isGerman {
+            return "UniMathe zeigt dir genau die nächsten Schritte, passende Aufgaben und klare Prioritäten."
+        }
+        return "UniMathe gives you clear next steps, targeted exercises, and focused priorities."
+    }
+
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                AnimatedBackground()
+
+                Circle()
+                    .fill(Color.onboardingBlue.opacity(0.1))
+                    .frame(width: geometry.size.width * 0.74)
+                    .offset(y: geometry.size.height * 0.25)
+                    .blur(radius: 2)
+
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(alignment: .leading, spacing: 16) {
+                        HStack(spacing: 12) {
+                            Text(stepLabel)
+                                .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium, design: .rounded))
+                                .foregroundColor(Color.onboardingGrayStrong)
+
+                            Spacer()
+
+                            Text("Onboarding")
+                                .font(.system(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold, design: .rounded))
+                                .foregroundColor(Color.onboardingInk)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 9)
+                                .background(
+                                    Capsule()
+                                        .fill(Color.white.opacity(0.92))
+                                        .overlay(
+                                            Capsule()
+                                                .strokeBorder(Color.onboardingGray.opacity(0.22), lineWidth: 1)
+                                        )
+                                )
+                        }
+
+                        segmentedProgress(
+                            totalSteps: onboardingManager.progressStepCount,
+                            currentStep: onboardingManager.currentProgressStep
+                        )
+                        .padding(.bottom, 10)
+
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(titleText)
+                                .font(.system(size: geometry.size.height < 700 ? 30 : 34, weight: .bold, design: .rounded))
+                                .foregroundColor(Color.onboardingInk)
+
+                            Text(subtitleText)
+                                .font(.system(size: geometry.size.height < 700 ? 17 : 19, weight: .medium, design: .rounded))
+                                .foregroundColor(Color.onboardingGrayStrong)
+                                .lineSpacing(2)
+                        }
+
+                        VStack(spacing: 12) {
+                            ForEach(options) { option in
+                                checkboxRow(option: option, geometry: geometry)
+                            }
+                        }
+                        .padding(.top, 6)
+
+                        Text(solutionHintText)
+                            .font(.system(size: geometry.size.height < 700 ? 15 : 16, weight: .medium, design: .rounded))
+                            .foregroundColor(Color.onboardingGrayStrong)
+                            .lineSpacing(2)
+                            .padding(.top, 8)
+
+                        Spacer(minLength: geometry.size.height < 700 ? 126 : 144)
+                    }
+                    .padding(.horizontal, geometry.size.width < 400 ? 18 : 24)
+                    .padding(.top, geometry.size.height < 700 ? 20 : 24)
+                }
+            }
+            .safeAreaInset(edge: .bottom) {
+                VStack(spacing: 0) {
+                    Button(action: {
+                        persistSelections()
+                        onboardingManager.nextScreen()
+                    }) {
+                        HStack(spacing: 8) {
+                            Text(isGerman ? "Weiter" : "Continue")
+                                .font(.system(size: 18, weight: .semibold))
+                            Image(systemName: "arrow.right")
+                                .font(.system(size: 16, weight: .semibold))
+                        }
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(
+                                    LinearGradient(
+                                        colors: [Color.onboardingBlue, Color.onboardingInk.opacity(0.88)],
+                                        startPoint: .leading,
+                                        endPoint: .trailing
+                                    )
+                                )
+                                .shadow(color: Color.onboardingBlue.opacity(0.24), radius: 10, x: 0, y: 5)
+                        )
+                    }
+                    .padding(.horizontal, geometry.size.width < 400 ? 18 : 24)
+                    .padding(.top, 10)
+                    .padding(.bottom, max(geometry.safeAreaInsets.bottom, 12))
+                }
+                .background(
+                    LinearGradient(
+                        colors: [
+                            Color.onboardingCanvas.opacity(0.0),
+                            Color.onboardingCanvas.opacity(0.92),
+                            Color.onboardingCanvas
+                        ],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .ignoresSafeArea(edges: .bottom)
+                )
+            }
+            .onAppear {
+                let defaults = UserDefaults.standard
+                if let stored = defaults.array(forKey: StorageKey.diagnosisSelections) as? [String] {
+                    selectedOptions = Set(stored)
+                }
+            }
+        }
+    }
+
+    private func checkboxRow(option: MiniDiagnosisOption, geometry: GeometryProxy) -> some View {
+        let isSelected = selectedOptions.contains(option.id)
+        let title = isGerman ? option.titleDE : option.titleEN
+
+        return Button(action: {
+            withAnimation(.spring(response: 0.32, dampingFraction: 0.85)) {
+                if isSelected {
+                    selectedOptions.remove(option.id)
+                } else {
+                    selectedOptions.insert(option.id)
+                }
+            }
+            let generator = UISelectionFeedbackGenerator()
+            generator.prepare()
+            generator.selectionChanged()
+        }) {
+            HStack(spacing: 12) {
+                Text("\(option.emoji)  \(title)")
+                    .font(.system(size: geometry.size.height < 700 ? 16 : 17, weight: .semibold, design: .rounded))
+                    .foregroundColor(Color.onboardingInk)
+                    .multilineTextAlignment(.leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                Image(systemName: isSelected ? "checkmark.square.fill" : "square")
+                    .font(.system(size: 22, weight: .semibold))
+                    .foregroundColor(isSelected ? Color.onboardingBlue : Color.onboardingGray.opacity(0.6))
+            }
+            .padding(.horizontal, 14)
+            .padding(.vertical, 14)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(isSelected ? Color.onboardingBlue.opacity(0.08) : Color.white.opacity(0.9))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 16)
+                            .strokeBorder(
+                                isSelected ? Color.onboardingBlue.opacity(0.7) : Color.onboardingGray.opacity(0.22),
+                                lineWidth: isSelected ? 1.6 : 1
+                            )
+                    )
+            )
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func persistSelections() {
+        let defaults = UserDefaults.standard
+        defaults.set(Array(selectedOptions), forKey: StorageKey.diagnosisSelections)
+    }
+
+    private func segmentedProgress(totalSteps: Int, currentStep: Int) -> some View {
+        let safeTotalSteps = max(totalSteps, 1)
+
+        return HStack(spacing: 8) {
+            ForEach(0..<safeTotalSteps, id: \.self) { index in
+                Capsule()
+                    .fill(
+                        index < currentStep
+                        ? Color.onboardingBlue
+                        : Color.onboardingGray.opacity(0.25)
+                    )
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 7)
+            }
+        }
+    }
+}
+
+private struct TopicShowcaseTileModel: Identifiable, Hashable {
+    let id: String
+    let title: String
+    let icon: String
+}
+
+private struct TopicFilePreview: Decodable {
+    let id: String
+    let title: String
+    let icon: String
+}
+
+private struct TopicShowcaseMarqueeRow: View {
+    let items: [TopicShowcaseTileModel]
+    let movesLeft: Bool
+    let elapsed: TimeInterval
+    let cardWidth: CGFloat
+
+    private let cardHeight: CGFloat = 96
+    private let spacing: CGFloat = 10
+    private let speed: CGFloat = 26
+
+    var body: some View {
+        let safeItems = items.isEmpty ? [TopicShowcaseTileModel(id: "placeholder", title: "Topic", icon: "book.fill")] : items
+        let contentWidth = CGFloat(safeItems.count) * cardWidth + CGFloat(max(0, safeItems.count - 1)) * spacing
+        let cycle = max(contentWidth + spacing, 1)
+        let travel = (CGFloat(elapsed) * speed).truncatingRemainder(dividingBy: cycle)
+        let offsetX = movesLeft ? -travel : travel - cycle
+
+        HStack(spacing: spacing) {
+            rowContent(for: safeItems)
+            rowContent(for: safeItems)
+            rowContent(for: safeItems)
+        }
+        .offset(x: offsetX)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(height: cardHeight)
+    }
+
+    private func rowContent(for items: [TopicShowcaseTileModel]) -> some View {
+        HStack(spacing: spacing) {
+            ForEach(items) { item in
+                TopicShowcaseChip(item: item)
+                    .frame(width: cardWidth, height: cardHeight)
+            }
+        }
+    }
+}
+
+private struct TopicShowcaseChip: View {
+    let item: TopicShowcaseTileModel
+
+    var body: some View {
+        HStack(spacing: 10) {
+            iconView(for: item)
+
+            Text(item.title)
+                .font(.system(size: 13, weight: .semibold, design: .rounded))
+                .foregroundColor(Color.onboardingInk)
+                .lineLimit(2)
+                .truncationMode(.tail)
+                .multilineTextAlignment(.leading)
+                .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .padding(.horizontal, 10)
+        .padding(.vertical, 10)
+        .background(
+            RoundedRectangle(cornerRadius: 14)
+                .fill(Color.white.opacity(0.9))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 14)
+                        .strokeBorder(Color.onboardingGray.opacity(0.2), lineWidth: 1)
+                )
+                .shadow(color: Color.onboardingInk.opacity(0.08), radius: 7, x: 0, y: 4)
+        )
+    }
+
+    @ViewBuilder
+    private func iconView(for item: TopicShowcaseTileModel) -> some View {
+        let maybeAsset = customAssetName(for: item.title)
+
+        ZStack {
+            Circle()
+                .fill(
+                    LinearGradient(
+                        colors: [Color.onboardingBlue, Color.onboardingInk.opacity(0.85)],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+
+            if let asset = maybeAsset {
+                Image(asset)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 18, height: 18)
+                    .foregroundColor(.white)
+            } else {
+                Image(systemName: item.icon)
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundColor(.white)
+            }
+        }
+        .frame(width: 34, height: 34)
+        .shadow(color: Color.onboardingBlue.opacity(0.28), radius: 5, x: 0, y: 2)
+    }
+
+    private func customAssetName(for title: String) -> String? {
+        let map: [String: String] = [
+            "Integralrechnung": "integral",
+            "Integral Calculus": "integral",
+            "Mehrdimensionale Analysis": "mehrdimensionale_analysis",
+            "Multidimensional Analysis": "mehrdimensionale_analysis",
+            "Multidimensional Calculus": "mehrdimensionale_analysis",
+            "Differentialrechnung": "differentialrechnung",
+            "Differential Calculus": "differentialrechnung",
+            "Matrizen": "matrizen",
+            "Matrices": "matrizen",
+            "Vektorräume": "vektor",
+            "Vector Spaces": "vektor",
+            "Lineare Abbildungen": "abbildung",
+            "Linear Mappings": "abbildung",
+            "Determinanten": "determinante",
+            "Determinants": "determinante",
+            "Eigenwerte und Eigenvektoren": "eigenwerte",
+            "Eigenvalues and Eigenvectors": "eigenwerte"
+        ]
+        return map[title]
+    }
+}
+
+struct TopicShowcaseOnboardingView: View {
+    @EnvironmentObject var onboardingManager: OnboardingManager
+    @ObservedObject private var settings = SettingsModel.shared
+    @State private var topicTiles: [TopicShowcaseTileModel] = []
+    @State private var animationStartDate = Date()
+
+    private var isGerman: Bool {
+        settings.language == .german
+    }
+
+    private var stepLabel: String {
+        if isGerman {
+            return "Schritt \(onboardingManager.currentProgressStep) von \(onboardingManager.progressStepCount)"
+        }
+        return "Step \(onboardingManager.currentProgressStep) of \(onboardingManager.progressStepCount)"
+    }
+
+    private var titleText: String {
+        isGerman ? "Alles in einer App" : "Everything in one app"
+    }
+
+    private var subtitleText: String {
+        if isGerman {
+            return "Von Grundlagen bis zur Klausurvorbereitung: UniMathe deckt viele Themenbereiche ab."
+        }
+        return "From fundamentals to exam prep: UniMathe covers a wide range of topics."
+    }
+
+    private var fallbackTiles: [TopicShowcaseTileModel] {
+        if isGerman {
+            return [
+                TopicShowcaseTileModel(id: "de-1", title: "Mengen und Abbildungen", icon: "circle.grid.2x2.fill"),
+                TopicShowcaseTileModel(id: "de-2", title: "Logik", icon: "arrow.triangle.branch"),
+                TopicShowcaseTileModel(id: "de-3", title: "Vollständige Induktion", icon: "arrow.up.forward"),
+                TopicShowcaseTileModel(id: "de-4", title: "Binomische Formeln", icon: "x.squareroot"),
+                TopicShowcaseTileModel(id: "de-5", title: "Differentialrechnung", icon: "function"),
+                TopicShowcaseTileModel(id: "de-6", title: "Integralrechnung", icon: "integral"),
+                TopicShowcaseTileModel(id: "de-7", title: "Mehrdimensionale Analysis", icon: "function"),
+                TopicShowcaseTileModel(id: "de-8", title: "Matrizen", icon: "square.grid.2x2.fill"),
+                TopicShowcaseTileModel(id: "de-9", title: "Vektorräume", icon: "square.grid.2x2.fill"),
+                TopicShowcaseTileModel(id: "de-10", title: "Lineare Abbildungen", icon: "square.grid.2x2.fill"),
+                TopicShowcaseTileModel(id: "de-11", title: "Determinanten", icon: "square.grid.2x2.fill"),
+                TopicShowcaseTileModel(id: "de-12", title: "Eigenwerte und Eigenvektoren", icon: "square.grid.2x2.fill")
+            ]
+        }
+
+        return [
+            TopicShowcaseTileModel(id: "en-1", title: "Sets and Mappings", icon: "circle.grid.2x2.fill"),
+            TopicShowcaseTileModel(id: "en-2", title: "Logic", icon: "arrow.triangle.branch"),
+            TopicShowcaseTileModel(id: "en-3", title: "Mathematical Induction", icon: "arrow.up.forward"),
+            TopicShowcaseTileModel(id: "en-4", title: "Binomial Formulas", icon: "x.squareroot"),
+            TopicShowcaseTileModel(id: "en-5", title: "Differential Calculus", icon: "function"),
+            TopicShowcaseTileModel(id: "en-6", title: "Integral Calculus", icon: "integral"),
+            TopicShowcaseTileModel(id: "en-7", title: "Multidimensional Calculus", icon: "function"),
+            TopicShowcaseTileModel(id: "en-8", title: "Matrices", icon: "square.grid.2x2.fill"),
+            TopicShowcaseTileModel(id: "en-9", title: "Vector Spaces", icon: "square.grid.2x2.fill"),
+            TopicShowcaseTileModel(id: "en-10", title: "Linear Mappings", icon: "square.grid.2x2.fill"),
+            TopicShowcaseTileModel(id: "en-11", title: "Determinants", icon: "square.grid.2x2.fill"),
+            TopicShowcaseTileModel(id: "en-12", title: "Eigenvalues and Eigenvectors", icon: "square.grid.2x2.fill")
+        ]
+    }
+
+    private var topicRows: [[TopicShowcaseTileModel]] {
+        let source = topicTiles.isEmpty ? fallbackTiles : topicTiles
+        let rowSize = 5
+        var rows: [[TopicShowcaseTileModel]] = []
+        var cursor = 0
+
+        while cursor < source.count {
+            let end = min(cursor + rowSize, source.count)
+            rows.append(Array(source[cursor..<end]))
+            cursor += rowSize
+        }
+
+        if rows.count >= 4 {
+            return rows
+        }
+
+        var rotated = source
+        while rows.count < 4 && !rotated.isEmpty {
+            if let first = rotated.first {
+                rotated.removeFirst()
+                rotated.append(first)
+            }
+            rows.append(Array(rotated.prefix(min(rowSize, rotated.count))))
+        }
+
+        return rows
+    }
+
+    var body: some View {
+        GeometryReader { geometry in
+            let horizontalPadding: CGFloat = geometry.size.width < 400 ? 18 : 24
+            let marqueeCardWidth: CGFloat = min(176, max(148, geometry.size.width * 0.44))
+
+            ZStack {
+                AnimatedBackground()
+
+                Circle()
+                    .fill(Color.onboardingBlue.opacity(0.1))
+                    .frame(width: geometry.size.width * 0.78)
+                    .offset(y: geometry.size.height * 0.2)
+                    .blur(radius: 2)
+
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(alignment: .leading, spacing: 16) {
+                        HStack(spacing: 12) {
+                            Text(stepLabel)
+                                .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium, design: .rounded))
+                                .foregroundColor(Color.onboardingGrayStrong)
+
+                            Spacer()
+
+                            Text("Onboarding")
+                                .font(.system(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold, design: .rounded))
+                                .foregroundColor(Color.onboardingInk)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 9)
+                                .background(
+                                    Capsule()
+                                        .fill(Color.white.opacity(0.92))
+                                        .overlay(
+                                            Capsule()
+                                                .strokeBorder(Color.onboardingGray.opacity(0.22), lineWidth: 1)
+                                        )
+                                )
+                        }
+
+                        segmentedProgress(
+                            totalSteps: onboardingManager.progressStepCount,
+                            currentStep: onboardingManager.currentProgressStep
+                        )
+                        .padding(.bottom, 10)
+
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(titleText)
+                                .font(.system(size: geometry.size.height < 700 ? 30 : 34, weight: .bold, design: .rounded))
+                                .foregroundColor(Color.onboardingInk)
+                                .lineLimit(2)
+
+                            Text(subtitleText)
+                                .font(.system(size: geometry.size.height < 700 ? 17 : 19, weight: .medium, design: .rounded))
+                                .foregroundColor(Color.onboardingGrayStrong)
+                                .lineSpacing(2)
+                        }
+                        .padding(.bottom, 4)
+
+                        TimelineView(.animation(minimumInterval: 1.0 / 30.0, paused: false)) { timeline in
+                            let elapsed = timeline.date.timeIntervalSince(animationStartDate)
+
+                            VStack(spacing: 0) {
+                                ForEach(Array(topicRows.enumerated()), id: \.offset) { index, row in
+                                    TopicShowcaseMarqueeRow(
+                                        items: row,
+                                        movesLeft: index.isMultiple(of: 2),
+                                        elapsed: elapsed,
+                                        cardWidth: marqueeCardWidth
+                                    )
+                                }
+                            }
+                        }
+                        .frame(width: geometry.size.width, height: min(geometry.size.height * 0.4, 300), alignment: .topLeading)
+                        .padding(.horizontal, -horizontalPadding)
+
+                        Spacer(minLength: geometry.size.height < 700 ? 126 : 144)
+                    }
+                    .padding(.horizontal, horizontalPadding)
+                    .padding(.top, geometry.size.height < 700 ? 20 : 24)
+                }
+            }
+            .safeAreaInset(edge: .bottom) {
+                VStack(spacing: 0) {
+                    Button(action: {
+                        onboardingManager.nextScreen()
+                    }) {
+                        HStack(spacing: 8) {
+                            Text(isGerman ? "Weiter" : "Continue")
+                                .font(.system(size: 18, weight: .semibold))
+                            Image(systemName: "arrow.right")
+                                .font(.system(size: 16, weight: .semibold))
+                        }
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(
+                                    LinearGradient(
+                                        colors: [Color.onboardingBlue, Color.onboardingInk.opacity(0.88)],
+                                        startPoint: .leading,
+                                        endPoint: .trailing
+                                    )
+                                )
+                                .shadow(color: Color.onboardingBlue.opacity(0.24), radius: 10, x: 0, y: 5)
+                        )
+                    }
+                    .padding(.horizontal, horizontalPadding)
+                    .padding(.top, 10)
+                    .padding(.bottom, max(geometry.safeAreaInsets.bottom, 12))
+                }
+                .background(
+                    LinearGradient(
+                        colors: [
+                            Color.onboardingCanvas.opacity(0.0),
+                            Color.onboardingCanvas.opacity(0.92),
+                            Color.onboardingCanvas
+                        ],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .ignoresSafeArea(edges: .bottom)
+                )
+            }
+            .onAppear {
+                animationStartDate = Date()
+                loadTopicTiles()
+            }
+            .onChange(of: settings.language) { _ in
+                loadTopicTiles()
+            }
+        }
+    }
+
+    private func loadTopicTiles() {
+        let language = settings.language
+        let languageSuffix = language == .english ? "_en" : ""
+        let indexNames = ["index" + languageSuffix, "index"]
+        let subdirectories: [String?] = [nil, "lerninhalt", "lerninhalt/\(language.rawValue)"]
+
+        guard let indexUrl = firstResourceURL(names: indexNames, subdirectories: subdirectories) else {
+            topicTiles = fallbackTiles
+            return
+        }
+
+        do {
+            let indexData = try Data(contentsOf: indexUrl)
+            let indexResponse = try JSONDecoder().decode(IndexResponse.self, from: indexData)
+            var loaded: [TopicShowcaseTileModel] = []
+
+            let subTopics = indexResponse.topics.flatMap { $0.subTopics ?? [] }
+            for subTopic in subTopics {
+                let baseName = subTopic.filename.replacingOccurrences(of: ".json", with: "")
+                let localizedName = baseName + languageSuffix
+
+                guard let topicUrl = firstResourceURL(
+                    names: [localizedName, baseName],
+                    subdirectories: subdirectories
+                ) else {
+                    continue
+                }
+
+                do {
+                    let data = try Data(contentsOf: topicUrl)
+                    let preview = try JSONDecoder().decode(TopicFilePreview.self, from: data)
+                    loaded.append(
+                        TopicShowcaseTileModel(
+                            id: preview.id,
+                            title: preview.title,
+                            icon: preview.icon
+                        )
+                    )
+                } catch {
+                    continue
+                }
+            }
+
+            if loaded.isEmpty {
+                topicTiles = fallbackTiles
+                return
+            }
+
+            var seen = Set<String>()
+            topicTiles = loaded.filter { seen.insert($0.id).inserted }
+        } catch {
+            topicTiles = fallbackTiles
+        }
+    }
+
+    private func firstResourceURL(names: [String], subdirectories: [String?]) -> URL? {
+        for name in names {
+            for subdirectory in subdirectories {
+                if let subdirectory {
+                    if let url = Bundle.main.url(forResource: name, withExtension: "json", subdirectory: subdirectory) {
+                        return url
+                    }
+                } else if let url = Bundle.main.url(forResource: name, withExtension: "json") {
+                    return url
+                }
+            }
+        }
+        return nil
     }
 
     private func segmentedProgress(totalSteps: Int, currentStep: Int) -> some View {

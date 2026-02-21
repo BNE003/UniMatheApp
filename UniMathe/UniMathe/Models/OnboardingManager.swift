@@ -53,6 +53,10 @@ class OnboardingManager: ObservableObject {
             case .examSelection:
                 currentScreen = .examPreview
             case .examPreview:
+                currentScreen = .miniDiagnosis
+            case .miniDiagnosis:
+                currentScreen = .topicsShowcase
+            case .topicsShowcase:
                 shouldShowPaywall = true
             }
         }
@@ -73,6 +77,10 @@ class OnboardingManager: ObservableObject {
                 currentScreen = .problemActivation
             case .examPreview:
                 currentScreen = .examSelection
+            case .miniDiagnosis:
+                currentScreen = .examPreview
+            case .topicsShowcase:
+                currentScreen = .miniDiagnosis
             default:
                 break
             }
@@ -130,7 +138,7 @@ class OnboardingManager: ObservableObject {
     }
     
     var isLastScreen: Bool {
-        currentScreen == .examPreview
+        currentScreen == .topicsShowcase
     }
     
     private func loadFlowState() -> FlowState {
@@ -153,7 +161,9 @@ class OnboardingManager: ObservableObject {
             screen != .themeSelection &&
             screen != .problemActivation &&
             screen != .examSelection &&
-            screen != .examPreview {
+            screen != .examPreview &&
+            screen != .miniDiagnosis &&
+            screen != .topicsShowcase {
             return .themeSelection
         }
 
@@ -177,6 +187,8 @@ enum OnboardingScreen: String, CaseIterable {
     case problemActivation
     case examSelection
     case examPreview
+    case miniDiagnosis
+    case topicsShowcase
     
     var title: String {
         switch self {
@@ -190,6 +202,10 @@ enum OnboardingScreen: String, CaseIterable {
             return "Welche Prüfung steht an?"
         case .examPreview:
             return "Perfekt"
+        case .miniDiagnosis:
+            return "Mini-Diagnose"
+        case .topicsShowcase:
+            return "Themen entdecken"
         }
     }
     
@@ -205,6 +221,10 @@ enum OnboardingScreen: String, CaseIterable {
             return "Which exam is coming up?"
         case .examPreview:
             return "Perfect"
+        case .miniDiagnosis:
+            return "Mini Diagnosis"
+        case .topicsShowcase:
+            return "Explore Topics"
         }
     }
     
@@ -220,6 +240,10 @@ enum OnboardingScreen: String, CaseIterable {
             return "Wir passen deinen Lernplan darauf an."
         case .examPreview:
             return "Dein personalisierter Klausur-Start ist bereit."
+        case .miniDiagnosis:
+            return "Wir passen deinen Lernweg an deine Hürden an."
+        case .topicsShowcase:
+            return "Viele Themen und passende Inhalte warten auf dich."
         }
     }
     
@@ -235,6 +259,10 @@ enum OnboardingScreen: String, CaseIterable {
             return "We'll tailor your learning plan accordingly."
         case .examPreview:
             return "Your personalized exam start is ready."
+        case .miniDiagnosis:
+            return "We tailor your learning path to your biggest blockers."
+        case .topicsShowcase:
+            return "Plenty of topics and matching content are ready for you."
         }
     }
     
@@ -250,6 +278,10 @@ enum OnboardingScreen: String, CaseIterable {
             return "list.clipboard.fill"
         case .examPreview:
             return "sparkles.rectangle.stack.fill"
+        case .miniDiagnosis:
+            return "checklist"
+        case .topicsShowcase:
+            return "square.grid.3x3.fill"
         }
     }
     
@@ -264,6 +296,10 @@ enum OnboardingScreen: String, CaseIterable {
         case .examSelection:
             return Color.onboardingBlue
         case .examPreview:
+            return Color.onboardingBlue
+        case .miniDiagnosis:
+            return Color.onboardingBlue
+        case .topicsShowcase:
             return Color.onboardingBlue
         }
     }
