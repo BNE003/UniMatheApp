@@ -396,9 +396,14 @@ struct ExamSelectionOnboardingView: View {
 
     @State private var examOptions: [OnboardingExamOption] = []
     @State private var selectedExamKey: String?
+    @State private var showExamDatePrompt = false
+    @State private var includeExamDate = false
+    @State private var examDate = Date().addingTimeInterval(60 * 60 * 24 * 21)
 
     private enum StorageKey {
         static let selectedExamKey = "onboardingSelectedExamKey"
+        static let hasExamDate = "onboardingHasExamDate"
+        static let examDate = "onboardingExamDate"
     }
 
     private var isGerman: Bool {
@@ -418,6 +423,22 @@ struct ExamSelectionOnboardingView: View {
 
     private var subtitleText: String {
         isGerman ? "Wir passen deinen Lernplan darauf an." : "We'll tailor your learning plan accordingly."
+    }
+
+    private var datePromptTitleText: String {
+        isGerman ? "Wann hast du die Prüfung?" : "When is your exam?"
+    }
+
+    private var datePromptSubtitleText: String {
+        isGerman ? "Du kannst das auch überspringen und später festlegen." : "You can skip this for now and set it later."
+    }
+
+    private var skipText: String {
+        isGerman ? "Überspringen" : "Skip"
+    }
+
+    private var saveDateText: String {
+        isGerman ? "Datum speichern" : "Save date"
     }
 
     var body: some View {
@@ -485,6 +506,7 @@ struct ExamSelectionOnboardingView: View {
                                         let generator = UISelectionFeedbackGenerator()
                                         generator.prepare()
                                         generator.selectionChanged()
+                                        showExamDatePrompt = true
                                     }) {
                                         HStack(spacing: 14) {
                                             ZStack {
@@ -592,6 +614,86 @@ struct ExamSelectionOnboardingView: View {
             .onAppear {
                 loadInitialState()
             }
+            .sheet(isPresented: $showExamDatePrompt) {
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(spacing: 18) {
+                        VStack(spacing: 8) {
+                            Text(datePromptTitleText)
+                                .font(.system(size: 24, weight: .bold, design: .rounded))
+                                .foregroundColor(Color.onboardingInk)
+                                .multilineTextAlignment(.center)
+
+                            Text(datePromptSubtitleText)
+                                .font(.system(size: 15, weight: .medium, design: .rounded))
+                                .foregroundColor(Color.onboardingGrayStrong)
+                                .multilineTextAlignment(.center)
+                        }
+
+                        DatePicker(
+                            "",
+                            selection: $examDate,
+                            in: Date()...,
+                            displayedComponents: .date
+                        )
+                        .labelsHidden()
+                        .datePickerStyle(.graphical)
+                        .tint(Color.onboardingBlue)
+                        .padding(.horizontal, 8)
+
+                        HStack(spacing: 12) {
+                            Button(action: {
+                                includeExamDate = false
+                                persistExamDateState()
+                                showExamDatePrompt = false
+                            }) {
+                                Text(skipText)
+                                    .font(.system(size: 16, weight: .semibold, design: .rounded))
+                                    .foregroundColor(Color.onboardingInk)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 14)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 14)
+                                            .fill(Color.white)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 14)
+                                                    .strokeBorder(Color.onboardingGray.opacity(0.35), lineWidth: 1)
+                                            )
+                                    )
+                            }
+
+                            Button(action: {
+                                includeExamDate = true
+                                persistExamDateState()
+                                showExamDatePrompt = false
+                            }) {
+                                Text(saveDateText)
+                                    .font(.system(size: 16, weight: .semibold, design: .rounded))
+                                    .foregroundColor(.white)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 14)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 14)
+                                            .fill(
+                                                LinearGradient(
+                                                    colors: [Color.onboardingBlue, Color.onboardingInk.opacity(0.9)],
+                                                    startPoint: .leading,
+                                                    endPoint: .trailing
+                                                )
+                                            )
+                                    )
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 20)
+                    .padding(.top, 24)
+                    .padding(.bottom, 28)
+                }
+                .safeAreaInset(edge: .bottom) {
+                    Color.clear.frame(height: 12)
+                }
+                .presentationDetents([.fraction(0.72)])
+                .presentationDragIndicator(.visible)
+            }
         }
     }
 
@@ -622,13 +724,30 @@ struct ExamSelectionOnboardingView: View {
         } else if selectedExamKey == nil {
             selectedExamKey = examOptions.first?.key
         }
+
+        if defaults.object(forKey: StorageKey.hasExamDate) != nil {
+            includeExamDate = defaults.bool(forKey: StorageKey.hasExamDate)
+        }
+
+        if let savedDate = defaults.object(forKey: StorageKey.examDate) as? Date {
+            examDate = savedDate
+        }
     }
 
     private func persistSelection() {
         let defaults = UserDefaults.standard
         defaults.set(selectedExamKey, forKey: StorageKey.selectedExamKey)
-        defaults.removeObject(forKey: "onboardingHasExamDate")
-        defaults.removeObject(forKey: "onboardingExamDate")
+        persistExamDateState()
+    }
+
+    private func persistExamDateState() {
+        let defaults = UserDefaults.standard
+        defaults.set(includeExamDate, forKey: StorageKey.hasExamDate)
+        if includeExamDate {
+            defaults.set(examDate, forKey: StorageKey.examDate)
+        } else {
+            defaults.removeObject(forKey: StorageKey.examDate)
+        }
     }
 
     private func loadExamOptions() -> [OnboardingExamOption] {
