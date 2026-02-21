@@ -47,21 +47,10 @@ class OnboardingManager: ObservableObject {
             case .languageSelection:
                 currentScreen = .themeSelection
             case .themeSelection:
-                currentScreen = .learningTopics
-            case .learningTopics:
-                currentScreen = .stepByStep
-            case .stepByStep:
-                currentScreen = .exams
-            case .exams:
-                currentScreen = .exercises
-            case .exercises:
-                currentScreen = .matrixMethods
-            case .matrixMethods:
-                currentScreen = .learningPlan
-            case .learningPlan:
-                currentScreen = .monthlyUpdates
-            case .monthlyUpdates:
-                // Show paywall when "Fertig" is clicked
+                currentScreen = .problemActivation
+            case .problemActivation:
+                currentScreen = .examSelection
+            case .examSelection:
                 shouldShowPaywall = true
             }
         }
@@ -76,21 +65,10 @@ class OnboardingManager: ObservableObject {
             switch currentScreen {
             case .themeSelection:
                 currentScreen = .languageSelection
-            case .learningTopics:
+            case .problemActivation:
                 currentScreen = .themeSelection
-            case .stepByStep:
-                currentScreen = .learningTopics
-            case .exams:
-                currentScreen = .stepByStep
-            case .exercises:
-                currentScreen = .exams
-            case .learningPlan:
-                currentScreen = .matrixMethods
-            case .matrixMethods:
-                currentScreen = .exercises
-            case .monthlyUpdates:
-                currentScreen = .learningPlan
-
+            case .examSelection:
+                currentScreen = .problemActivation
             default:
                 break
             }
@@ -148,7 +126,7 @@ class OnboardingManager: ObservableObject {
     }
     
     var isLastScreen: Bool {
-        currentScreen == .monthlyUpdates
+        currentScreen == .examSelection
     }
     
     private func loadFlowState() -> FlowState {
@@ -166,7 +144,14 @@ class OnboardingManager: ObservableObject {
               let screen = OnboardingScreen(rawValue: rawValue) else {
             return .languageSelection
         }
-        
+
+        if screen != .languageSelection &&
+            screen != .themeSelection &&
+            screen != .problemActivation &&
+            screen != .examSelection {
+            return .themeSelection
+        }
+
         return screen
     }
     
@@ -184,34 +169,19 @@ class OnboardingManager: ObservableObject {
 enum OnboardingScreen: String, CaseIterable {
     case languageSelection
     case themeSelection
-    case learningTopics
-    case stepByStep
-    case exams
-    case exercises
-    case matrixMethods
-    case learningPlan
-    case monthlyUpdates
+    case problemActivation
+    case examSelection
     
     var title: String {
         switch self {
         case .languageSelection:
             return "Sprache wählen"
         case .themeSelection:
-            return "Hell oder Dunkel"
-        case .learningTopics:
-            return "Alle Themen meistern"
-        case .stepByStep:
-            return "Schritt für Schritt"
-        case .exams:
-            return "Klausuren üben"
-        case .exercises:
-            return "400+ Aufgaben"
-        case .matrixMethods:
-            return "Matrix-Rechnen"
-        case .learningPlan:
-            return "Dein Lernplan"
-        case .monthlyUpdates:
-            return "Immer aktuell bleiben"
+            return "Willkommen"
+        case .problemActivation:
+            return "Mathe-Klausur bald?"
+        case .examSelection:
+            return "Welche Prüfung steht an?"
         }
     }
     
@@ -220,21 +190,11 @@ enum OnboardingScreen: String, CaseIterable {
         case .languageSelection:
             return "Choose Language"
         case .themeSelection:
-            return "Choose Theme"
-        case .learningTopics:
-            return "Master All Topics"
-        case .stepByStep:
-            return "Step by Step"
-        case .exams:
-            return "Practice Exams"
-        case .exercises:
-            return "400+ Problems"
-        case .matrixMethods:
-            return "Matrix Skills"
-        case .learningPlan:
-            return "Your Learning Plan"
-        case .monthlyUpdates:
-            return "Stay Up to Date"
+            return "Welcome"
+        case .problemActivation:
+            return "Exam Soon?"
+        case .examSelection:
+            return "Which exam is coming up?"
         }
     }
     
@@ -243,21 +203,11 @@ enum OnboardingScreen: String, CaseIterable {
         case .languageSelection:
             return "Wählen Sie Ihre bevorzugte Sprache für das beste Lernerlebnis"
         case .themeSelection:
-            return "Stellen Sie direkt Ihr bevorzugtes Erscheinungsbild ein"
-        case .learningTopics:
-            return "Von Grundlagen bis zu fortgeschrittenen Themen - alles an einem Ort"
-        case .stepByStep:
-            return "Detaillierte Erklärungen und Lösungswege für jede Aufgabe"
-        case .exams:
-            return "Bereiten Sie sich optimal auf Ihre Klausuren vor"
-        case .exercises:
-            return "Über 400 sorgfältig ausgewählte Übungsaufgaben"
-        case .matrixMethods:
-            return "Gauss, Determinanten und Matrixrechnung mit Rechenweg"
-        case .learningPlan:
-            return "Stelle deinen persönlichen Lernplan zusammen"
-        case .monthlyUpdates:
-            return "Jeden Monat neue Inhalte, Übungen und Prüfungen"
+            return "Lerne die App in wenigen Schritten kennen und starte direkt"
+        case .problemActivation:
+            return "Wie fühlst du dich gerade?"
+        case .examSelection:
+            return "Wir passen deinen Lernplan darauf an."
         }
     }
     
@@ -266,21 +216,11 @@ enum OnboardingScreen: String, CaseIterable {
         case .languageSelection:
             return "Choose your preferred language for the best learning experience"
         case .themeSelection:
-            return "Pick your preferred appearance right away"
-        case .learningTopics:
-            return "From basics to advanced topics - everything in one place"
-        case .stepByStep:
-            return "Detailed explanations and solution paths for every problem"
-        case .exams:
-            return "Prepare optimally for your exams"
-        case .exercises:
-            return "Over 400 carefully selected practice problems"
-        case .matrixMethods:
-            return "Gauss, determinants, and matrix calculations with steps"
-        case .learningPlan:
-            return "Build your personal learning plan"
-        case .monthlyUpdates:
-            return "New content, exercises and exams every month"
+            return "Get to know the app in a few steps and start right away"
+        case .problemActivation:
+            return "How do you feel right now?"
+        case .examSelection:
+            return "We'll tailor your learning plan accordingly."
         }
     }
     
@@ -289,21 +229,11 @@ enum OnboardingScreen: String, CaseIterable {
         case .languageSelection:
             return "globe"
         case .themeSelection:
-            return "circle.lefthalf.filled"
-        case .learningTopics:
-            return "book.fill"
-        case .stepByStep:
-            return "list.number"
-        case .exams:
-            return "graduationcap.fill"
-        case .exercises:
-            return "checkmark.circle.fill"
-        case .matrixMethods:
-            return "tablecells.fill"
-        case .learningPlan:
-            return "sparkles.rectangle.stack.fill"
-        case .monthlyUpdates:
-            return "calendar.badge.plus"
+            return "hand.wave.fill"
+        case .problemActivation:
+            return "person.crop.circle.badge.exclamationmark"
+        case .examSelection:
+            return "list.clipboard.fill"
         }
     }
     
@@ -312,21 +242,11 @@ enum OnboardingScreen: String, CaseIterable {
         case .languageSelection:
             return Color.blue
         case .themeSelection:
-            return Color.indigo
-        case .learningTopics:
-            return Color.green
-        case .stepByStep:
-            return Color.orange
-        case .exams:
-            return Color.purple
-        case .exercises:
-            return Color.red
-        case .matrixMethods:
-            return Color.teal
-        case .learningPlan:
-            return Color.blue
-        case .monthlyUpdates:
-            return Color.mint
+            return Color.onboardingBlue
+        case .problemActivation:
+            return Color.onboardingInk
+        case .examSelection:
+            return Color.onboardingBlue
         }
     }
     

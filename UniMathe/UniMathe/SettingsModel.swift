@@ -204,4 +204,11 @@ extension Color {
         light: UIColor.systemBlue,
         dark: UIColor(red: 0.20, green: 0.64, blue: 1.0, alpha: 1.0)
     )
+
+    // Onboarding palette based on Assets.xcassets/0.imageset/0.svg
+    static let onboardingBlue = Color(red: 64.0 / 255.0, green: 123.0 / 255.0, blue: 1.0)
+    static let onboardingInk = Color(red: 38.0 / 255.0, green: 50.0 / 255.0, blue: 56.0 / 255.0)
+    static let onboardingGray = Color(red: 133.0 / 255.0, green: 133.0 / 255.0, blue: 133.0 / 255.0)
+    static let onboardingGrayStrong = Color(red: 112.0 / 255.0, green: 112.0 / 255.0, blue: 112.0 / 255.0)
+    static let onboardingCanvas = Color.white
 }
