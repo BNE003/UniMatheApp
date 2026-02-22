@@ -57,6 +57,8 @@ class OnboardingManager: ObservableObject {
             case .miniDiagnosis:
                 currentScreen = .topicsShowcase
             case .topicsShowcase:
+                currentScreen = .stepByStep
+            case .stepByStep:
                 shouldShowPaywall = true
             }
         }
@@ -81,6 +83,8 @@ class OnboardingManager: ObservableObject {
                 currentScreen = .examPreview
             case .topicsShowcase:
                 currentScreen = .miniDiagnosis
+            case .stepByStep:
+                currentScreen = .topicsShowcase
             default:
                 break
             }
@@ -138,7 +142,7 @@ class OnboardingManager: ObservableObject {
     }
     
     var isLastScreen: Bool {
-        currentScreen == .topicsShowcase
+        currentScreen == .stepByStep
     }
     
     private func loadFlowState() -> FlowState {
@@ -163,7 +167,8 @@ class OnboardingManager: ObservableObject {
             screen != .examSelection &&
             screen != .examPreview &&
             screen != .miniDiagnosis &&
-            screen != .topicsShowcase {
+            screen != .topicsShowcase &&
+            screen != .stepByStep {
             return .themeSelection
         }
 
@@ -189,6 +194,7 @@ enum OnboardingScreen: String, CaseIterable {
     case examPreview
     case miniDiagnosis
     case topicsShowcase
+    case stepByStep
     
     var title: String {
         switch self {
@@ -206,6 +212,8 @@ enum OnboardingScreen: String, CaseIterable {
             return "Mini-Diagnose"
         case .topicsShowcase:
             return "Themen entdecken"
+        case .stepByStep:
+            return "Schritt für Schritt"
         }
     }
     
@@ -225,6 +233,8 @@ enum OnboardingScreen: String, CaseIterable {
             return "Mini Diagnosis"
         case .topicsShowcase:
             return "Explore Topics"
+        case .stepByStep:
+            return "Step by Step"
         }
     }
     
@@ -244,6 +254,8 @@ enum OnboardingScreen: String, CaseIterable {
             return "Wir passen deinen Lernweg an deine Hürden an."
         case .topicsShowcase:
             return "Viele Themen und passende Inhalte warten auf dich."
+        case .stepByStep:
+            return "Lerne komplexe Inhalte über klare Einzelschritte."
         }
     }
     
@@ -263,6 +275,8 @@ enum OnboardingScreen: String, CaseIterable {
             return "We tailor your learning path to your biggest blockers."
         case .topicsShowcase:
             return "Plenty of topics and matching content are ready for you."
+        case .stepByStep:
+            return "Understand complex topics through clear step-by-step guidance."
         }
     }
     
@@ -282,6 +296,8 @@ enum OnboardingScreen: String, CaseIterable {
             return "checklist"
         case .topicsShowcase:
             return "square.grid.3x3.fill"
+        case .stepByStep:
+            return "list.number"
         }
     }
     
@@ -300,6 +316,8 @@ enum OnboardingScreen: String, CaseIterable {
         case .miniDiagnosis:
             return Color.onboardingBlue
         case .topicsShowcase:
+            return Color.onboardingBlue
+        case .stepByStep:
             return Color.onboardingBlue
         }
     }

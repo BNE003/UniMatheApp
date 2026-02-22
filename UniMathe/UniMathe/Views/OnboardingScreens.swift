@@ -2111,25 +2111,330 @@ struct LearningTopicsOnboardingView: View {
 }
 
 struct StepByStepOnboardingView: View {
-    var body: some View {
-        MinimalOnboardingPage(
-            titleDE: "Schritt für Schritt",
-            titleEN: "Step by Step",
-            subtitleDE: "Komplexe Inhalte werden in klare Einzelschritte zerlegt.",
-            subtitleEN: "Complex topics are broken down into clear steps.",
-            pointsDE: [
-                "Einfacher Einstieg",
-                "Verständliche Erklärungen",
-                "Saubere Lösungswege"
-            ],
-            pointsEN: [
-                "Easy entry",
-                "Understandable explanations",
-                "Clean solution paths"
-            ],
-            symbolName: "list.number"
-        )
+    @EnvironmentObject var onboardingManager: OnboardingManager
+    @ObservedObject private var settings = SettingsModel.shared
+    @State private var currentDemoStep = 0
+    @State private var formulaHeight: CGFloat = 56
+
+    private let demoTimer = Timer.publish(every: 2.8, on: .main, in: .common).autoconnect()
+
+    private var isGerman: Bool {
+        settings.language == .german
     }
+
+    private var stepLabel: String {
+        if isGerman {
+            return "Schritt \(onboardingManager.currentProgressStep) von \(onboardingManager.progressStepCount)"
+        }
+        return "Step \(onboardingManager.currentProgressStep) of \(onboardingManager.progressStepCount)"
+    }
+
+    private var titleText: String {
+        isGerman ? "Schritt für Schritt Erklärungen" : "Step by Step Explanations"
+    }
+
+    private var subtitleText: String {
+        if isGerman {
+            return "Komplexe Lerninhalte werden in klare, verständliche Einzelschritte aufgeteilt."
+        }
+        return "Complex learning content is split into clear, understandable steps."
+    }
+
+    private var highlightTitle: String {
+        isGerman ? "Von komplex zu einfach" : "From complex to simple"
+    }
+
+    private var highlightSubtitle: String {
+        isGerman ? "Schritt für Schritt zum Verständnis" : "Step by step to understanding"
+    }
+
+    private var formulaTitle: String {
+        isGerman ? "Formel" : "Formula"
+    }
+
+    private var simpleTitle: String {
+        isGerman ? "Einfach erklärt" : "In simple words"
+    }
+
+    private var learningSteps: [StepByStepDemoItem] {
+        if isGerman {
+            return [
+                StepByStepDemoItem(
+                    title: "Was ist ein Vektor?",
+                    explanation: "Ein Vektor beschreibt eine Richtung und eine Länge. Er wird als Koordinatenpaar dargestellt.",
+                    formula: "\\vec{v} = (x, y)",
+                    simpleExplanation: "Stell dir einen Pfeil vor: Er zeigt wohin und wie weit."
+                ),
+                StepByStepDemoItem(
+                    title: "Länge berechnen",
+                    explanation: "Die Länge eines Vektors berechnest du mit dem Satz des Pythagoras.",
+                    formula: "\\lVert \\vec{v} \\rVert = \\sqrt{x^2 + y^2}",
+                    simpleExplanation: "Du berechnest die Pfeillänge wie bei einem rechtwinkligen Dreieck."
+                ),
+                StepByStepDemoItem(
+                    title: "Vektoren addieren",
+                    explanation: "Addiere x-Werte und y-Werte getrennt. So erhältst du den Ergebnisvektor.",
+                    formula: "(2,3) + (1,4) = (3,7)",
+                    simpleExplanation: "Komponente für Komponente addieren, fertig."
+                )
+            ]
+        }
+
+        return [
+            StepByStepDemoItem(
+                title: "What is a vector?",
+                explanation: "A vector has a direction and a magnitude, represented by coordinates.",
+                formula: "\\vec{v} = (x, y)",
+                simpleExplanation: "Think of an arrow: it points somewhere and has a length."
+            ),
+            StepByStepDemoItem(
+                title: "Find the length",
+                explanation: "You compute vector length with the Pythagorean theorem.",
+                formula: "\\lVert \\vec{v} \\rVert = \\sqrt{x^2 + y^2}",
+                simpleExplanation: "It is the same triangle rule used for hypotenuse calculations."
+            ),
+            StepByStepDemoItem(
+                title: "Add vectors",
+                explanation: "Add x-values and y-values separately to get the result vector.",
+                formula: "(2,3) + (1,4) = (3,7)",
+                simpleExplanation: "Add each component one by one."
+            )
+        ]
+    }
+
+    private var safeStepIndex: Int {
+        guard !learningSteps.isEmpty else { return 0 }
+        return currentDemoStep % learningSteps.count
+    }
+
+    private var activeStep: StepByStepDemoItem {
+        learningSteps[safeStepIndex]
+    }
+
+    var body: some View {
+        GeometryReader { geometry in
+            let horizontalPadding: CGFloat = geometry.size.width < 400 ? 18 : 24
+            let cardCornerRadius: CGFloat = geometry.size.height < 700 ? 22 : 26
+            let cardMaxWidth: CGFloat = min(geometry.size.width * 0.82, 332)
+
+            ZStack {
+                AnimatedBackground()
+
+                Circle()
+                    .fill(Color.onboardingBlue.opacity(0.11))
+                    .frame(width: geometry.size.width * 0.76)
+                    .offset(y: geometry.size.height * 0.16)
+                    .blur(radius: 2)
+
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(alignment: .leading, spacing: 16) {
+                        HStack(spacing: 12) {
+                            Text(stepLabel)
+                                .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium, design: .rounded))
+                                .foregroundColor(Color.onboardingGrayStrong)
+
+                            Spacer()
+
+                            Text("Onboarding")
+                                .font(.system(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold, design: .rounded))
+                                .foregroundColor(Color.onboardingInk)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 9)
+                                .background(
+                                    Capsule()
+                                        .fill(Color.white.opacity(0.92))
+                                        .overlay(
+                                            Capsule()
+                                                .strokeBorder(Color.onboardingGray.opacity(0.22), lineWidth: 1)
+                                        )
+                                )
+                        }
+
+                        segmentedProgress(
+                            totalSteps: onboardingManager.progressStepCount,
+                            currentStep: onboardingManager.currentProgressStep
+                        )
+                        .padding(.bottom, 10)
+
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(titleText)
+                                .font(.system(size: geometry.size.height < 700 ? 30 : 34, weight: .bold, design: .rounded))
+                                .foregroundColor(Color.onboardingInk)
+                                .lineLimit(2)
+
+                            Text(subtitleText)
+                                .font(.system(size: geometry.size.height < 700 ? 17 : 19, weight: .medium, design: .rounded))
+                                .foregroundColor(Color.onboardingGrayStrong)
+                                .lineSpacing(2)
+                        }
+                        .padding(.bottom, 2)
+
+                        VStack(alignment: .leading, spacing: 12) {
+                            Text(activeStep.title)
+                                .font(.system(size: geometry.size.height < 700 ? 20 : 22, weight: .bold, design: .rounded))
+                                .foregroundColor(Color.onboardingInk)
+                                .lineLimit(2)
+
+                            Text(activeStep.explanation)
+                                .font(.system(size: geometry.size.height < 700 ? 15 : 16, weight: .medium, design: .rounded))
+                                .foregroundColor(Color.onboardingGrayStrong)
+                                .lineSpacing(2)
+
+                            VStack(alignment: .leading, spacing: 7) {
+                                Text(formulaTitle)
+                                    .font(.system(size: 13, weight: .semibold, design: .rounded))
+                                    .foregroundColor(Color.onboardingGrayStrong)
+
+                                LaTeXView(
+                                    content: "<div class=\"math-block\">$$\(activeStep.formula)$$</div>",
+                                    height: $formulaHeight
+                                )
+                                    .frame(height: max(44, min(formulaHeight, 86)))
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+
+                            VStack(alignment: .leading, spacing: 6) {
+                                Text(simpleTitle)
+                                    .font(.system(size: 13, weight: .semibold, design: .rounded))
+                                    .foregroundColor(Color.onboardingGrayStrong)
+
+                                Text(activeStep.simpleExplanation)
+                                    .font(.system(size: geometry.size.height < 700 ? 14 : 15, weight: .medium, design: .rounded))
+                                    .foregroundColor(Color.onboardingInk)
+                                    .lineSpacing(2)
+                            }
+
+                            HStack(spacing: 8) {
+                                ForEach(learningSteps.indices, id: \.self) { index in
+                                    Capsule()
+                                        .fill(
+                                            index == safeStepIndex
+                                            ? Color.onboardingBlue
+                                            : Color.onboardingGray.opacity(0.3)
+                                        )
+                                        .frame(width: index == safeStepIndex ? 24 : 8, height: 8)
+                                        .animation(.spring(response: 0.45, dampingFraction: 0.85), value: safeStepIndex)
+                                }
+                            }
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .padding(.top, 2)
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 16)
+                        .frame(maxWidth: cardMaxWidth, alignment: .leading)
+                        .background(
+                            RoundedRectangle(cornerRadius: cardCornerRadius)
+                                .fill(Color.white.opacity(0.93))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: cardCornerRadius)
+                                        .strokeBorder(Color.onboardingGray.opacity(0.2), lineWidth: 1)
+                                )
+                                .shadow(color: Color.onboardingInk.opacity(0.12), radius: 12, x: 0, y: 8)
+                        )
+                        .frame(maxWidth: .infinity, alignment: .center)
+
+                        VStack(spacing: 6) {
+                            Text(highlightTitle)
+                                .font(.system(size: geometry.size.height < 700 ? 17 : 18, weight: .semibold, design: .rounded))
+                                .foregroundColor(Color.onboardingBlue)
+                                .multilineTextAlignment(.center)
+
+                            Text(highlightSubtitle)
+                                .font(.system(size: geometry.size.height < 700 ? 13 : 14, weight: .medium, design: .rounded))
+                                .foregroundColor(Color.onboardingGrayStrong)
+                                .multilineTextAlignment(.center)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding(.top, 8)
+
+                        Spacer(minLength: geometry.size.height < 700 ? 126 : 144)
+                    }
+                    .padding(.horizontal, horizontalPadding)
+                    .padding(.top, geometry.size.height < 700 ? 20 : 24)
+                }
+            }
+            .safeAreaInset(edge: .bottom) {
+                VStack(spacing: 0) {
+                    Button(action: {
+                        onboardingManager.nextScreen()
+                    }) {
+                        HStack(spacing: 8) {
+                            Text(isGerman ? "Weiter" : "Continue")
+                                .font(.system(size: 18, weight: .semibold))
+                            Image(systemName: "arrow.right")
+                                .font(.system(size: 16, weight: .semibold))
+                        }
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 16)
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill(
+                                    LinearGradient(
+                                        colors: [Color.onboardingBlue, Color.onboardingInk.opacity(0.88)],
+                                        startPoint: .leading,
+                                        endPoint: .trailing
+                                    )
+                                )
+                                .shadow(color: Color.onboardingBlue.opacity(0.24), radius: 10, x: 0, y: 5)
+                        )
+                    }
+                    .padding(.horizontal, horizontalPadding)
+                    .padding(.top, 10)
+                    .padding(.bottom, max(geometry.safeAreaInsets.bottom, 12))
+                }
+                .background(
+                    LinearGradient(
+                        colors: [
+                            Color.onboardingCanvas.opacity(0.0),
+                            Color.onboardingCanvas.opacity(0.92),
+                            Color.onboardingCanvas
+                        ],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .ignoresSafeArea(edges: .bottom)
+                )
+            }
+            .onReceive(demoTimer) { _ in
+                guard learningSteps.count > 1 else { return }
+                withAnimation(.spring(response: 0.55, dampingFraction: 0.82)) {
+                    currentDemoStep = (currentDemoStep + 1) % learningSteps.count
+                }
+            }
+            .onChange(of: settings.language) { _ in
+                currentDemoStep = 0
+                formulaHeight = 56
+            }
+            .onChange(of: safeStepIndex) { _ in
+                formulaHeight = 56
+            }
+        }
+    }
+
+    private func segmentedProgress(totalSteps: Int, currentStep: Int) -> some View {
+        let safeTotalSteps = max(totalSteps, 1)
+
+        return HStack(spacing: 8) {
+            ForEach(0..<safeTotalSteps, id: \.self) { index in
+                Capsule()
+                    .fill(
+                        index < currentStep
+                        ? Color.onboardingBlue
+                        : Color.onboardingGray.opacity(0.25)
+                    )
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 7)
+            }
+        }
+    }
+}
+
+private struct StepByStepDemoItem {
+    let title: String
+    let explanation: String
+    let formula: String
+    let simpleExplanation: String
 }
 
 struct ExamsOnboardingView: View {
