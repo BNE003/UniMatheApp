@@ -2523,6 +2523,77 @@ struct PersonalizedPlanOnboardingView: View {
         }
     }
 
+    private var theoryPhaseTitleDE: String {
+        "Theorie verstehen"
+    }
+
+    private var theoryPhaseTitleEN: String {
+        "Understand theory instead of step-by-step explanations"
+    }
+
+    private var theoryPhaseDetailDE: String {
+        let bullets = theoryMainTopics.de.map { "• \($0)" }.joined(separator: "\n")
+        return "\(bullets)\n+ 6 weitere prüfungsrelevante Themen"
+    }
+
+    private var theoryPhaseDetailEN: String {
+        let bullets = theoryMainTopics.en.map { "• \($0)" }.joined(separator: "\n")
+        return "\(bullets)\n+ 6 more exam-relevant topics"
+    }
+
+    private var theoryMainTopics: (de: [String], en: [String]) {
+        switch selectedExamKey {
+        case "lineare_algebra_1", "lineare_algebra", "linear_algebra_1", "linear_algebra":
+            return (
+                ["Vektorräume", "Matrizenrechnung", "Eigenwerte und Eigenvektoren"],
+                ["Vector spaces", "Matrix operations", "Eigenvalues and eigenvectors"]
+            )
+        case "statistik", "statistics":
+            return (
+                ["Wahrscheinlichkeitsrechnung", "Verteilungen", "Hypothesentests"],
+                ["Probability theory", "Distributions", "Hypothesis tests"]
+            )
+        case "analysis_1":
+            return (
+                ["Grenzwerte", "Ableitungsregeln", "Kurvendiskussion"],
+                ["Limits", "Derivative rules", "Curve analysis"]
+            )
+        case "analysis_2":
+            return (
+                ["Integralrechnung", "Reihen", "Mehrdimensionale Analysis"],
+                ["Integral calculus", "Series", "Multivariable analysis"]
+            )
+        case "numerische_mathematik", "numerical_mathematics":
+            return (
+                ["Fehlerrechnung", "Newton-Verfahren", "Lineare Gleichungssysteme"],
+                ["Error analysis", "Newton's method", "Linear equation systems"]
+            )
+        case "mathematik_2", "mathematics_2":
+            return (
+                ["Integralrechnung", "Folgen und Reihen", "Differentialgleichungen"],
+                ["Integral calculus", "Sequences and series", "Differential equations"]
+            )
+        case "mathematik_1", "mathematics_1":
+            return (
+                ["Funktionen und Graphen", "Lineare Gleichungssysteme", "Differentialrechnung"],
+                ["Functions and graphs", "Linear equation systems", "Differential calculus"]
+            )
+        default:
+            return (
+                [
+                    "\(selectedExamTitle): Grundlagen",
+                    "\(selectedExamTitle): zentrale Methoden",
+                    "\(selectedExamTitle): typische Klausuraufgaben"
+                ],
+                [
+                    "\(selectedExamTitle): fundamentals",
+                    "\(selectedExamTitle): core methods",
+                    "\(selectedExamTitle): typical exam tasks"
+                ]
+            )
+        }
+    }
+
     private var timelineRanges: [(Int, Int)] {
         let total = max(daysUntilExam, 3)
         let firstEnd = min(max(1, Int(round(Double(total) * 0.2))), total - 2)
@@ -2543,19 +2614,19 @@ struct PersonalizedPlanOnboardingView: View {
             PersonalizedPlanPhase(
                 startDay: ranges[0].0,
                 endDay: ranges[0].1,
-                titleDE: "Schritt-für-Schritt Erklärungen",
-                titleEN: "Step-by-step explanations",
-                detailDE: "Verstehe die prüfungsrelevanten Grundlagen schnell und klar.",
-                detailEN: "Understand exam-relevant fundamentals clearly and quickly.",
+                titleDE: theoryPhaseTitleDE,
+                titleEN: theoryPhaseTitleEN,
+                detailDE: theoryPhaseDetailDE,
+                detailEN: theoryPhaseDetailEN,
                 icon: "list.number"
             ),
             PersonalizedPlanPhase(
                 startDay: ranges[1].0,
                 endDay: ranges[1].1,
-                titleDE: "\(practiceUnitsPerWeek) Übungseinheiten pro Woche",
-                titleEN: "\(practiceUnitsPerWeek) practice sessions per week",
-                detailDE: "Fokussierte Aufgabenblöcke für sichere Routine bis zur Prüfung.",
-                detailEN: "Focused problem blocks to build reliable routine before the exam.",
+                titleDE: "Aufgabenroutine aufbauen",
+                titleEN: "Build a problem routine",
+                detailDE: "• 50 gezielte Übungseinheiten\n• Von Grundlagen bis Klausurniveau\n• Schritt-für-Schritt Lösungen inklusive",
+                detailEN: "• 50 focused practice sessions\n• From fundamentals to exam level\n• Step-by-step solutions included",
                 icon: "calendar.badge.clock"
             ),
             PersonalizedPlanPhase(
