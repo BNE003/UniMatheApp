@@ -59,6 +59,8 @@ class OnboardingManager: ObservableObject {
             case .topicsShowcase:
                 currentScreen = .stepByStep
             case .stepByStep:
+                currentScreen = .personalizedPlan
+            case .personalizedPlan:
                 shouldShowPaywall = true
             }
         }
@@ -85,6 +87,8 @@ class OnboardingManager: ObservableObject {
                 currentScreen = .miniDiagnosis
             case .stepByStep:
                 currentScreen = .topicsShowcase
+            case .personalizedPlan:
+                currentScreen = .stepByStep
             default:
                 break
             }
@@ -142,7 +146,7 @@ class OnboardingManager: ObservableObject {
     }
     
     var isLastScreen: Bool {
-        currentScreen == .stepByStep
+        currentScreen == .personalizedPlan
     }
     
     private func loadFlowState() -> FlowState {
@@ -168,7 +172,8 @@ class OnboardingManager: ObservableObject {
             screen != .examPreview &&
             screen != .miniDiagnosis &&
             screen != .topicsShowcase &&
-            screen != .stepByStep {
+            screen != .stepByStep &&
+            screen != .personalizedPlan {
             return .themeSelection
         }
 
@@ -195,6 +200,7 @@ enum OnboardingScreen: String, CaseIterable {
     case miniDiagnosis
     case topicsShowcase
     case stepByStep
+    case personalizedPlan
     
     var title: String {
         switch self {
@@ -214,6 +220,8 @@ enum OnboardingScreen: String, CaseIterable {
             return "Themen entdecken"
         case .stepByStep:
             return "Schritt für Schritt"
+        case .personalizedPlan:
+            return "Dein Lernplan"
         }
     }
     
@@ -235,6 +243,8 @@ enum OnboardingScreen: String, CaseIterable {
             return "Explore Topics"
         case .stepByStep:
             return "Step by Step"
+        case .personalizedPlan:
+            return "Your Study Plan"
         }
     }
     
@@ -256,6 +266,8 @@ enum OnboardingScreen: String, CaseIterable {
             return "Viele Themen und passende Inhalte warten auf dich."
         case .stepByStep:
             return "Lerne komplexe Inhalte über klare Einzelschritte."
+        case .personalizedPlan:
+            return "Dein Plan führt dich gezielt bis zur Prüfung."
         }
     }
     
@@ -277,6 +289,8 @@ enum OnboardingScreen: String, CaseIterable {
             return "Plenty of topics and matching content are ready for you."
         case .stepByStep:
             return "Understand complex topics through clear step-by-step guidance."
+        case .personalizedPlan:
+            return "Your plan guides you to exam day with clear priorities."
         }
     }
     
@@ -298,6 +312,8 @@ enum OnboardingScreen: String, CaseIterable {
             return "square.grid.3x3.fill"
         case .stepByStep:
             return "list.number"
+        case .personalizedPlan:
+            return "target"
         }
     }
     
@@ -318,6 +334,8 @@ enum OnboardingScreen: String, CaseIterable {
         case .topicsShowcase:
             return Color.onboardingBlue
         case .stepByStep:
+            return Color.onboardingBlue
+        case .personalizedPlan:
             return Color.onboardingBlue
         }
     }

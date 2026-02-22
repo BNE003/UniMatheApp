@@ -37,6 +37,8 @@ struct OnboardingCoordinator: View {
                     TopicShowcaseOnboardingView()
                 case .stepByStep:
                     StepByStepOnboardingView()
+                case .personalizedPlan:
+                    PersonalizedPlanOnboardingView()
                 }
             }
             .transition(

@@ -2437,6 +2437,454 @@ private struct StepByStepDemoItem {
     let simpleExplanation: String
 }
 
+private struct PersonalizedPlanPhase: Identifiable {
+    let id = UUID()
+    let startDay: Int
+    let endDay: Int
+    let titleDE: String
+    let titleEN: String
+    let detailDE: String
+    let detailEN: String
+    let icon: String
+}
+
+private struct DashedVerticalLine: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        path.move(to: CGPoint(x: rect.midX, y: rect.minY))
+        path.addLine(to: CGPoint(x: rect.midX, y: rect.maxY))
+        return path
+    }
+}
+
+struct PersonalizedPlanOnboardingView: View {
+    @EnvironmentObject var onboardingManager: OnboardingManager
+    @ObservedObject private var settings = SettingsModel.shared
+    @AppStorage("onboardingSelectedExamKey") private var persistedSelectedExamKey: String = ""
+
+    private enum StorageKey {
+        static let hasExamDate = "onboardingHasExamDate"
+        static let examDate = "onboardingExamDate"
+    }
+
+    private var isGerman: Bool {
+        settings.language == .german
+    }
+
+    private var daysUntilExam: Int {
+        let defaults = UserDefaults.standard
+        let hasDate = defaults.bool(forKey: StorageKey.hasExamDate)
+        guard hasDate, let examDate = defaults.object(forKey: StorageKey.examDate) as? Date else {
+            return 21
+        }
+
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+        let target = calendar.startOfDay(for: examDate)
+        let diff = calendar.dateComponents([.day], from: today, to: target).day ?? 21
+        return max(1, diff)
+    }
+
+    private var selectedExamKey: String {
+        let trimmed = persistedSelectedExamKey.trimmingCharacters(in: .whitespacesAndNewlines)
+        if trimmed.isEmpty {
+            return isGerman ? "mathematik_1" : "mathematics_1"
+        }
+        return trimmed
+    }
+
+    private var selectedExamTitle: String {
+        titleForExamKey(selectedExamKey)
+    }
+
+    private var practiceUnitsPerWeek: Int {
+        switch daysUntilExam {
+        case ...10:
+            return 5
+        case ...21:
+            return 4
+        case ...42:
+            return 3
+        default:
+            return 2
+        }
+    }
+
+    private var simulationCount: Int {
+        switch daysUntilExam {
+        case ...10:
+            return 1
+        case ...28:
+            return 2
+        case ...56:
+            return 3
+        default:
+            return 4
+        }
+    }
+
+    private var timelineRanges: [(Int, Int)] {
+        let total = max(daysUntilExam, 3)
+        let firstEnd = min(max(1, Int(round(Double(total) * 0.2))), total - 2)
+        let secondEnd = min(max(firstEnd + 1, Int(round(Double(total) * 0.7))), total - 1)
+        return [
+            (1, firstEnd),
+            (firstEnd + 1, secondEnd),
+            (secondEnd + 1, total)
+        ]
+    }
+
+    private var phases: [PersonalizedPlanPhase] {
+        let ranges = timelineRanges
+        let simulationsTitleDE = simulationCount == 1 ? "1 realistische Klausur-Simulation" : "\(simulationCount) realistische Klausur-Simulationen"
+        let simulationsTitleEN = simulationCount == 1 ? "1 realistic mock exam simulation" : "\(simulationCount) realistic mock exam simulations"
+
+        return [
+            PersonalizedPlanPhase(
+                startDay: ranges[0].0,
+                endDay: ranges[0].1,
+                titleDE: "Schritt-für-Schritt Erklärungen",
+                titleEN: "Step-by-step explanations",
+                detailDE: "Verstehe die prüfungsrelevanten Grundlagen schnell und klar.",
+                detailEN: "Understand exam-relevant fundamentals clearly and quickly.",
+                icon: "list.number"
+            ),
+            PersonalizedPlanPhase(
+                startDay: ranges[1].0,
+                endDay: ranges[1].1,
+                titleDE: "\(practiceUnitsPerWeek) Übungseinheiten pro Woche",
+                titleEN: "\(practiceUnitsPerWeek) practice sessions per week",
+                detailDE: "Fokussierte Aufgabenblöcke für sichere Routine bis zur Prüfung.",
+                detailEN: "Focused problem blocks to build reliable routine before the exam.",
+                icon: "calendar.badge.clock"
+            ),
+            PersonalizedPlanPhase(
+                startDay: ranges[2].0,
+                endDay: ranges[2].1,
+                titleDE: simulationsTitleDE,
+                titleEN: simulationsTitleEN,
+                detailDE: "Prüfungsnahe Simulationen unter realistischen Bedingungen.",
+                detailEN: "Exam-like simulations under realistic conditions.",
+                icon: "doc.text.magnifyingglass"
+            )
+        ]
+    }
+
+    private var stepLabel: String {
+        if isGerman {
+            return "Schritt \(onboardingManager.currentProgressStep) von \(onboardingManager.progressStepCount)"
+        }
+        return "Step \(onboardingManager.currentProgressStep) of \(onboardingManager.progressStepCount)"
+    }
+
+    private var titleText: String {
+        isGerman ? "Okay. Hier ist dein Plan." : "Okay. Here is your plan."
+    }
+
+    private var subtitleText: String {
+        if isGerman {
+            return "Basierend auf deiner Klausur in \(daysUntilExam) Tagen empfehlen wir:"
+        }
+        return "Based on your exam in \(daysUntilExam) days, we recommend:"
+    }
+
+    private var goalTitleText: String {
+        if isGerman {
+            return "Bestehe \(selectedExamTitle) im ersten Versuch."
+        }
+        return "Pass \(selectedExamTitle) on your first attempt."
+    }
+
+    private var goalSubtitleText: String {
+        if isGerman {
+            return "Klarer Fokus bis zum Prüfungstag."
+        }
+        return "A focused path all the way to exam day."
+    }
+
+    private var timelineTitleText: String {
+        isGerman ? "So erreichen wir das:" : "How we get you there:"
+    }
+
+    private var startButtonText: String {
+        isGerman ? "Plan starten" : "Start Plan"
+    }
+
+    var body: some View {
+        GeometryReader { geometry in
+            let horizontalPadding: CGFloat = geometry.size.width < 400 ? 18 : 24
+            let goalCardMaxWidth: CGFloat = min(geometry.size.width * 0.86, 340)
+            let timelineCardMaxWidth: CGFloat = min(geometry.size.width * 0.8, 310)
+
+            ZStack {
+                AnimatedBackground()
+
+                Circle()
+                    .fill(Color.onboardingBlue.opacity(0.11))
+                    .frame(width: geometry.size.width * 0.76)
+                    .offset(y: geometry.size.height * 0.16)
+                    .blur(radius: 2)
+
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(alignment: .leading, spacing: 16) {
+                        HStack(spacing: 12) {
+                            Text(stepLabel)
+                                .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium, design: .rounded))
+                                .foregroundColor(Color.onboardingGrayStrong)
+
+                            Spacer()
+
+                            Text("Onboarding")
+                                .font(.system(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold, design: .rounded))
+                                .foregroundColor(Color.onboardingInk)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 9)
+                                .background(
+                                    Capsule()
+                                        .fill(Color.white.opacity(0.92))
+                                        .overlay(
+                                            Capsule()
+                                                .strokeBorder(Color.onboardingGray.opacity(0.22), lineWidth: 1)
+                                        )
+                                )
+                        }
+
+                        segmentedProgress(
+                            totalSteps: onboardingManager.progressStepCount,
+                            currentStep: onboardingManager.currentProgressStep
+                        )
+                        .padding(.bottom, 8)
+
+                        Text(titleText)
+                            .font(.system(size: geometry.size.height < 700 ? 34 : 38, weight: .bold, design: .rounded))
+                            .foregroundColor(Color.onboardingInk)
+                            .lineLimit(2)
+
+                        Text(subtitleText)
+                            .font(.system(size: geometry.size.height < 700 ? 17 : 19, weight: .medium, design: .rounded))
+                            .foregroundColor(Color.onboardingGrayStrong)
+                            .lineSpacing(2)
+
+                        VStack(alignment: .leading, spacing: 8) {
+                            HStack(spacing: 10) {
+                                Text("🎯")
+                                    .font(.system(size: 30))
+
+                                Text(goalTitleText)
+                                    .font(.system(size: geometry.size.height < 700 ? 24 : 26, weight: .bold, design: .rounded))
+                                    .foregroundColor(Color.onboardingInk)
+                                    .lineLimit(2)
+                            }
+
+                            Text(goalSubtitleText)
+                                .font(.system(size: geometry.size.height < 700 ? 15 : 16, weight: .medium, design: .rounded))
+                                .foregroundColor(Color.onboardingGrayStrong)
+                        }
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 14)
+                        .frame(maxWidth: goalCardMaxWidth, alignment: .leading)
+                        .background(
+                            RoundedRectangle(cornerRadius: 24)
+                                .fill(Color.white.opacity(0.9))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 24)
+                                        .strokeBorder(Color.onboardingGray.opacity(0.2), lineWidth: 1)
+                                )
+                                .shadow(color: Color.onboardingInk.opacity(0.1), radius: 10, x: 0, y: 5)
+                        )
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding(.top, 2)
+
+                        Text(timelineTitleText)
+                            .font(.system(size: geometry.size.height < 700 ? 28 : 30, weight: .bold, design: .rounded))
+                            .foregroundColor(Color.onboardingInk)
+                            .padding(.top, 6)
+
+                        VStack(spacing: 14) {
+                            ForEach(Array(phases.enumerated()), id: \.element.id) { index, phase in
+                                HStack(alignment: .top, spacing: 12) {
+                                    VStack(spacing: 0) {
+                                        Circle()
+                                            .fill(Color.onboardingBlue)
+                                            .frame(width: 12, height: 12)
+                                    }
+                                    .frame(width: 20)
+
+                                    VStack(alignment: .leading, spacing: 10) {
+                                        Text(dayRangeLabel(for: phase))
+                                            .font(.system(size: geometry.size.height < 700 ? 20 : 21, weight: .bold, design: .rounded))
+                                            .foregroundColor(Color.onboardingBlue)
+
+                                        HStack(alignment: .top, spacing: 12) {
+                                            Image(systemName: phase.icon)
+                                                .font(.system(size: 20, weight: .semibold))
+                                                .foregroundColor(Color.onboardingBlue)
+                                                .frame(width: 30, height: 30)
+
+                                            VStack(alignment: .leading, spacing: 6) {
+                                                Text(isGerman ? phase.titleDE : phase.titleEN)
+                                                    .font(.system(size: geometry.size.height < 700 ? 19 : 20, weight: .bold, design: .rounded))
+                                                    .foregroundColor(Color.onboardingInk)
+                                                    .fixedSize(horizontal: false, vertical: true)
+
+                                                Text(isGerman ? phase.detailDE : phase.detailEN)
+                                                    .font(.system(size: geometry.size.height < 700 ? 14 : 15, weight: .medium, design: .rounded))
+                                                    .foregroundColor(Color.onboardingGrayStrong)
+                                                    .lineSpacing(2)
+                                                    .fixedSize(horizontal: false, vertical: true)
+                                            }
+                                        }
+                                        .padding(.horizontal, 12)
+                                        .padding(.vertical, 10)
+                                        .frame(maxWidth: timelineCardMaxWidth, alignment: .leading)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 22)
+                                                .fill(Color.white.opacity(0.9))
+                                                .overlay(
+                                                    RoundedRectangle(cornerRadius: 22)
+                                                        .strokeBorder(Color.onboardingGray.opacity(0.2), lineWidth: 1)
+                                                )
+                                                .shadow(color: Color.onboardingInk.opacity(0.08), radius: 8, x: 0, y: 4)
+                                        )
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                    }
+                                }
+                            }
+                        }
+                        .padding(.bottom, 10)
+                        .background(alignment: .leading) {
+                            GeometryReader { proxy in
+                                DashedVerticalLine()
+                                    .stroke(
+                                        Color.onboardingBlue.opacity(0.42),
+                                        style: StrokeStyle(lineWidth: 2, dash: [6, 6])
+                                    )
+                                    .frame(width: 2, height: max(0, proxy.size.height - 8))
+                                    .offset(x: 9, y: 6)
+                            }
+                        }
+
+                        Spacer(minLength: geometry.size.height < 700 ? 126 : 144)
+                    }
+                    .padding(.horizontal, horizontalPadding)
+                    .padding(.top, geometry.size.height < 700 ? 20 : 24)
+                }
+            }
+            .safeAreaInset(edge: .bottom) {
+                VStack(spacing: 0) {
+                    Button(action: {
+                        onboardingManager.nextScreen()
+                    }) {
+                        Text(startButtonText)
+                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 18)
+                            .background(
+                                RoundedRectangle(cornerRadius: 26)
+                                    .fill(
+                                        LinearGradient(
+                                            colors: [Color.onboardingBlue, Color.onboardingInk.opacity(0.88)],
+                                            startPoint: .leading,
+                                            endPoint: .trailing
+                                        )
+                                    )
+                                    .shadow(color: Color.onboardingBlue.opacity(0.24), radius: 10, x: 0, y: 5)
+                            )
+                    }
+                    .padding(.horizontal, horizontalPadding)
+                    .padding(.top, 10)
+                    .padding(.bottom, max(geometry.safeAreaInsets.bottom, 12))
+                }
+                .background(
+                    LinearGradient(
+                        colors: [
+                            Color.onboardingCanvas.opacity(0.0),
+                            Color.onboardingCanvas.opacity(0.92),
+                            Color.onboardingCanvas
+                        ],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .ignoresSafeArea(edges: .bottom)
+                )
+            }
+        }
+    }
+
+    private func segmentedProgress(totalSteps: Int, currentStep: Int) -> some View {
+        let safeTotalSteps = max(totalSteps, 1)
+
+        return HStack(spacing: 8) {
+            ForEach(0..<safeTotalSteps, id: \.self) { index in
+                Capsule()
+                    .fill(
+                        index < currentStep
+                        ? Color.onboardingBlue
+                        : Color.onboardingGray.opacity(0.25)
+                    )
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 7)
+            }
+        }
+    }
+
+    private func dayRangeLabel(for phase: PersonalizedPlanPhase) -> String {
+        if phase.startDay == phase.endDay {
+            return isGerman ? "TAG \(phase.startDay)" : "DAY \(phase.startDay)"
+        }
+        return isGerman ? "TAG \(phase.startDay)-\(phase.endDay)" : "DAY \(phase.startDay)-\(phase.endDay)"
+    }
+
+    private func titleForExamKey(_ key: String) -> String {
+        if isGerman {
+            let map: [String: String] = [
+                "mathematik_1": "Mathematik I",
+                "mathematik_2": "Mathematik II",
+                "analysis_1": "Analysis I",
+                "analysis_2": "Analysis II",
+                "lineare_algebra_1": "Lineare Algebra I",
+                "lineare_algebra": "Lineare Algebra",
+                "statistik": "Statistik I",
+                "numerische_mathematik": "Numerik"
+            ]
+            if let mapped = map[key] {
+                return mapped
+            }
+        } else {
+            let map: [String: String] = [
+                "mathematics_1": "Mathematics I",
+                "mathematics_2": "Mathematics II",
+                "analysis_1": "Analysis I",
+                "analysis_2": "Analysis II",
+                "linear_algebra_1": "Linear Algebra I",
+                "linear_algebra": "Linear Algebra",
+                "statistics": "Statistics I",
+                "numerical_mathematics": "Numerics"
+            ]
+            if let mapped = map[key] {
+                return mapped
+            }
+        }
+
+        return prettyTitle(from: key)
+    }
+
+    private func prettyTitle(from key: String) -> String {
+        key
+            .split(separator: "_")
+            .map { token in
+                switch token {
+                case "1": return "I"
+                case "2": return "II"
+                case "3": return "III"
+                default: return token.prefix(1).uppercased() + token.dropFirst().lowercased()
+                }
+            }
+            .joined(separator: " ")
+    }
+}
+
 struct ExamsOnboardingView: View {
     var body: some View {
         MinimalOnboardingPage(
