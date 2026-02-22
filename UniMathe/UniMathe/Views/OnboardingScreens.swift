@@ -1594,8 +1594,17 @@ private struct TopicShowcaseMarqueeRow: View {
     let movesLeft: Bool
     let elapsed: TimeInterval
     let cardWidth: CGFloat
+    let cardHeight: CGFloat
+    let titleFontSize: CGFloat
+    let chipContentSpacing: CGFloat
+    let chipHorizontalPadding: CGFloat
+    let chipVerticalPadding: CGFloat
+    let chipCornerRadius: CGFloat
+    let iconSize: CGFloat
+    let iconSymbolSize: CGFloat
+    let assetIconSize: CGFloat
+    let fillChipFrame: Bool
 
-    private let cardHeight: CGFloat = 96
     private let spacing: CGFloat = 10
     private let speed: CGFloat = 26
 
@@ -1619,7 +1628,18 @@ private struct TopicShowcaseMarqueeRow: View {
     private func rowContent(for items: [TopicShowcaseTileModel]) -> some View {
         HStack(spacing: spacing) {
             ForEach(items) { item in
-                TopicShowcaseChip(item: item)
+                TopicShowcaseChip(
+                    item: item,
+                    titleFontSize: titleFontSize,
+                    chipContentSpacing: chipContentSpacing,
+                    chipHorizontalPadding: chipHorizontalPadding,
+                    chipVerticalPadding: chipVerticalPadding,
+                    chipCornerRadius: chipCornerRadius,
+                    iconSize: iconSize,
+                    iconSymbolSize: iconSymbolSize,
+                    assetIconSize: assetIconSize,
+                    fillChipFrame: fillChipFrame
+                )
                     .frame(width: cardWidth, height: cardHeight)
             }
         }
@@ -1628,13 +1648,22 @@ private struct TopicShowcaseMarqueeRow: View {
 
 private struct TopicShowcaseChip: View {
     let item: TopicShowcaseTileModel
+    let titleFontSize: CGFloat
+    let chipContentSpacing: CGFloat
+    let chipHorizontalPadding: CGFloat
+    let chipVerticalPadding: CGFloat
+    let chipCornerRadius: CGFloat
+    let iconSize: CGFloat
+    let iconSymbolSize: CGFloat
+    let assetIconSize: CGFloat
+    let fillChipFrame: Bool
 
     var body: some View {
-        HStack(spacing: 10) {
+        HStack(spacing: chipContentSpacing) {
             iconView(for: item)
 
             Text(item.title)
-                .font(.system(size: 13, weight: .semibold, design: .rounded))
+                .font(.system(size: titleFontSize, weight: .semibold, design: .rounded))
                 .foregroundColor(Color.onboardingInk)
                 .lineLimit(2)
                 .truncationMode(.tail)
@@ -1642,13 +1671,18 @@ private struct TopicShowcaseChip: View {
                 .fixedSize(horizontal: false, vertical: true)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(.horizontal, 10)
-        .padding(.vertical, 10)
+        .frame(
+            maxWidth: fillChipFrame ? .infinity : nil,
+            maxHeight: fillChipFrame ? .infinity : nil,
+            alignment: .leading
+        )
+        .padding(.horizontal, chipHorizontalPadding)
+        .padding(.vertical, chipVerticalPadding)
         .background(
-            RoundedRectangle(cornerRadius: 14)
+            RoundedRectangle(cornerRadius: chipCornerRadius)
                 .fill(Color.white.opacity(0.9))
                 .overlay(
-                    RoundedRectangle(cornerRadius: 14)
+                    RoundedRectangle(cornerRadius: chipCornerRadius)
                         .strokeBorder(Color.onboardingGray.opacity(0.2), lineWidth: 1)
                 )
                 .shadow(color: Color.onboardingInk.opacity(0.08), radius: 7, x: 0, y: 4)
@@ -1673,15 +1707,15 @@ private struct TopicShowcaseChip: View {
                 Image(asset)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 18, height: 18)
+                    .frame(width: assetIconSize, height: assetIconSize)
                     .foregroundColor(.white)
             } else {
                 Image(systemName: item.icon)
-                    .font(.system(size: 15, weight: .semibold))
+                    .font(.system(size: iconSymbolSize, weight: .semibold))
                     .foregroundColor(.white)
             }
         }
-        .frame(width: 34, height: 34)
+        .frame(width: iconSize, height: iconSize)
         .shadow(color: Color.onboardingBlue.opacity(0.28), radius: 5, x: 0, y: 2)
     }
 
@@ -1801,8 +1835,32 @@ struct TopicShowcaseOnboardingView: View {
 
     var body: some View {
         GeometryReader { geometry in
+            let displayBounds = UIScreen.main.bounds
+            let screenWidth = min(displayBounds.width, displayBounds.height)
+            let screenHeight = max(displayBounds.width, displayBounds.height)
+            let isIPhoneMaxDisplay = UIDevice.current.userInterfaceIdiom == .phone
+                && (
+                    (screenWidth >= 428 && screenHeight >= 926)
+                    || (screenWidth >= 414 && screenHeight >= 896)
+                )
             let horizontalPadding: CGFloat = geometry.size.width < 400 ? 18 : 24
-            let marqueeCardWidth: CGFloat = min(176, max(148, geometry.size.width * 0.44))
+            let marqueeCardWidth: CGFloat = isIPhoneMaxDisplay
+                ? min(244, max(198, geometry.size.width * 0.58))
+                : min(176, max(148, geometry.size.width * 0.44))
+            let marqueeCardHeight: CGFloat = isIPhoneMaxDisplay ? 80 : 96
+            let marqueeTitleFontSize: CGFloat = isIPhoneMaxDisplay ? 16 : 13
+            let marqueeChipContentSpacing: CGFloat = isIPhoneMaxDisplay ? 11 : 10
+            let marqueeChipHorizontalPadding: CGFloat = isIPhoneMaxDisplay ? 11 : 10
+            let marqueeChipVerticalPadding: CGFloat = isIPhoneMaxDisplay ? 10 : 10
+            let marqueeChipCornerRadius: CGFloat = isIPhoneMaxDisplay ? 18 : 14
+            let marqueeIconSize: CGFloat = isIPhoneMaxDisplay ? 39 : 34
+            let marqueeIconSymbolSize: CGFloat = isIPhoneMaxDisplay ? 17 : 15
+            let marqueeAssetIconSize: CGFloat = isIPhoneMaxDisplay ? 22 : 18
+            let marqueeFillChipFrame: Bool = isIPhoneMaxDisplay
+            let marqueeRowSpacing: CGFloat = isIPhoneMaxDisplay ? 6 : 0
+            let marqueeContainerHeight: CGFloat = isIPhoneMaxDisplay
+                ? min(geometry.size.height * 0.47, 360)
+                : min(geometry.size.height * 0.4, 300)
 
             ZStack {
                 AnimatedBackground()
@@ -1859,18 +1917,28 @@ struct TopicShowcaseOnboardingView: View {
                         TimelineView(.animation(minimumInterval: 1.0 / 30.0, paused: false)) { timeline in
                             let elapsed = timeline.date.timeIntervalSince(animationStartDate)
 
-                            VStack(spacing: 0) {
+                            VStack(spacing: marqueeRowSpacing) {
                                 ForEach(Array(topicRows.enumerated()), id: \.offset) { index, row in
                                     TopicShowcaseMarqueeRow(
                                         items: row,
                                         movesLeft: index.isMultiple(of: 2),
                                         elapsed: elapsed,
-                                        cardWidth: marqueeCardWidth
+                                        cardWidth: marqueeCardWidth,
+                                        cardHeight: marqueeCardHeight,
+                                        titleFontSize: marqueeTitleFontSize,
+                                        chipContentSpacing: marqueeChipContentSpacing,
+                                        chipHorizontalPadding: marqueeChipHorizontalPadding,
+                                        chipVerticalPadding: marqueeChipVerticalPadding,
+                                        chipCornerRadius: marqueeChipCornerRadius,
+                                        iconSize: marqueeIconSize,
+                                        iconSymbolSize: marqueeIconSymbolSize,
+                                        assetIconSize: marqueeAssetIconSize,
+                                        fillChipFrame: marqueeFillChipFrame
                                     )
                                 }
                             }
                         }
-                        .frame(width: geometry.size.width, height: min(geometry.size.height * 0.4, 300), alignment: .topLeading)
+                        .frame(width: geometry.size.width, height: marqueeContainerHeight, alignment: .topLeading)
                         .padding(.horizontal, -horizontalPadding)
 
                         Spacer(minLength: geometry.size.height < 700 ? 126 : 144)
