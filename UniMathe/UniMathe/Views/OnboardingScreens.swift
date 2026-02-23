@@ -2575,8 +2575,8 @@ struct PersonalizedPlanOnboardingView: View {
             )
         case "mathematik_1", "mathematics_1":
             return (
-                ["Funktionen und Graphen", "Lineare Gleichungssysteme", "Differentialrechnung"],
-                ["Functions and graphs", "Linear equation systems", "Differential calculus"]
+                ["Komplexe Zahlen", "Gruppen, Ringe und Körper", "Lineare Abbildungen", "Gauss-Verfahren"],
+                ["Complex numbers", "Groups, rings, and fields", "Linear maps", "Gaussian elimination"]
             )
         default:
             return (
@@ -2686,6 +2686,7 @@ struct PersonalizedPlanOnboardingView: View {
             let horizontalPadding: CGFloat = geometry.size.width < 400 ? 18 : 24
             let goalCardMaxWidth: CGFloat = min(geometry.size.width * 0.86, 340)
             let timelineCardMaxWidth: CGFloat = min(geometry.size.width * 0.8, 310)
+            let timelineItemSpacing: CGFloat = 14
 
             ZStack {
                 AnimatedBackground()
@@ -2771,7 +2772,7 @@ struct PersonalizedPlanOnboardingView: View {
                             .foregroundColor(Color.onboardingInk)
                             .padding(.top, 6)
 
-                        VStack(spacing: 14) {
+                        VStack(spacing: timelineItemSpacing) {
                             ForEach(Array(phases.enumerated()), id: \.element.id) { index, phase in
                                 HStack(alignment: .top, spacing: 12) {
                                     VStack(spacing: 0) {
@@ -2820,20 +2821,22 @@ struct PersonalizedPlanOnboardingView: View {
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                     }
                                 }
+                                .background(alignment: .leading) {
+                                    if index < phases.count - 1 {
+                                        GeometryReader { proxy in
+                                            DashedVerticalLine()
+                                                .stroke(
+                                                    Color.onboardingBlue.opacity(0.42),
+                                                    style: StrokeStyle(lineWidth: 2, dash: [6, 6])
+                                                )
+                                                .frame(width: 2, height: max(0, proxy.size.height + timelineItemSpacing))
+                                                .offset(x: 9, y: 6)
+                                        }
+                                    }
+                                }
                             }
                         }
                         .padding(.bottom, 10)
-                        .background(alignment: .leading) {
-                            GeometryReader { proxy in
-                                DashedVerticalLine()
-                                    .stroke(
-                                        Color.onboardingBlue.opacity(0.42),
-                                        style: StrokeStyle(lineWidth: 2, dash: [6, 6])
-                                    )
-                                    .frame(width: 2, height: max(0, proxy.size.height - 8))
-                                    .offset(x: 9, y: 6)
-                            }
-                        }
 
                         Spacer(minLength: geometry.size.height < 700 ? 126 : 144)
                     }
