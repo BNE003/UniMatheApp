@@ -39,6 +39,10 @@ struct OnboardingCoordinator: View {
                     StepByStepOnboardingView()
                 case .personalizedPlan:
                     PersonalizedPlanOnboardingView()
+                case .premiumTrialOffer:
+                    PremiumTrialOfferOnboardingView()
+                case .trialReminder:
+                    TrialReminderOnboardingView()
                 }
             }
             .transition(

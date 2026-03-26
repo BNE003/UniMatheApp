@@ -13,9 +13,8 @@
 		A76069612DC42C48000E1DB6 /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = A76069602DC42C48000E1DB6 /* Realtime */; };
 		A76069632DC42C48000E1DB6 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = A76069622DC42C48000E1DB6 /* Storage */; };
 		A76069652DC42C62000E1DB6 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = A76069642DC42C62000E1DB6 /* Supabase */; };
-		A77B9B692F3FD6B20046B0F0 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = A77B9B682F3FD6B20046B0F0 /* RevenueCat */; };
-		A77B9B6B2F3FD6B20046B0F0 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = A77B9B6A2F3FD6B20046B0F0 /* RevenueCatUI */; };
 		A785ED1E2DD3F81D00BD9EE6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A785ED1D2DD3F81D00BD9EE6 /* StoreKit.framework */; };
+		A7887A132F75C28900BE6ADE /* SuperwallKit in Frameworks */ = {isa = PBXBuildFile; productRef = A7887A122F75C28900BE6ADE /* SuperwallKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,9 +67,8 @@
 				A760695F2DC42C48000E1DB6 /* PostgREST in Frameworks */,
 				A785ED1E2DD3F81D00BD9EE6 /* StoreKit.framework in Frameworks */,
 				A760695D2DC42C48000E1DB6 /* Functions in Frameworks */,
+				A7887A132F75C28900BE6ADE /* SuperwallKit in Frameworks */,
 				A76069652DC42C62000E1DB6 /* Supabase in Frameworks */,
-				A77B9B692F3FD6B20046B0F0 /* RevenueCat in Frameworks */,
-				A77B9B6B2F3FD6B20046B0F0 /* RevenueCatUI in Frameworks */,
 				A760695B2DC42C48000E1DB6 /* Auth in Frameworks */,
 				A76069632DC42C48000E1DB6 /* Storage in Frameworks */,
 				A76069612DC42C48000E1DB6 /* Realtime in Frameworks */,
@@ -149,8 +147,7 @@
 				A76069602DC42C48000E1DB6 /* Realtime */,
 				A76069622DC42C48000E1DB6 /* Storage */,
 				A76069642DC42C62000E1DB6 /* Supabase */,
-				A77B9B682F3FD6B20046B0F0 /* RevenueCat */,
-				A77B9B6A2F3FD6B20046B0F0 /* RevenueCatUI */,
+				A7887A122F75C28900BE6ADE /* SuperwallKit */,
 			);
 			productName = UniMathe;
 			productReference = A747ED832DBA6838007744BD /* UniMathe.app */;
@@ -236,7 +233,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				A76069592DC42C48000E1DB6 /* XCRemoteSwiftPackageReference "supabase-swift" */,
-				A77B9B672F3FD6B10046B0F0 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
+				A7887A112F75C28900BE6ADE /* XCRemoteSwiftPackageReference "Superwall-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A747ED842DBA6838007744BD /* Products */;
@@ -609,12 +606,12 @@
 				minimumVersion = 2.5.1;
 			};
 		};
-		A77B9B672F3FD6B10046B0F0 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */ = {
+		A7887A112F75C28900BE6ADE /* XCRemoteSwiftPackageReference "Superwall-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RevenueCat/purchases-ios-spm.git";
+			repositoryURL = "https://github.com/superwall/Superwall-iOS";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.59.0;
+				minimumVersion = 4.14.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -650,15 +647,10 @@
 			package = A76069592DC42C48000E1DB6 /* XCRemoteSwiftPackageReference "supabase-swift" */;
 			productName = Supabase;
 		};
-		A77B9B682F3FD6B20046B0F0 /* RevenueCat */ = {
+		A7887A122F75C28900BE6ADE /* SuperwallKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A77B9B672F3FD6B10046B0F0 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
-			productName = RevenueCat;
-		};
-		A77B9B6A2F3FD6B20046B0F0 /* RevenueCatUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A77B9B672F3FD6B10046B0F0 /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
-			productName = RevenueCatUI;
+			package = A7887A112F75C28900BE6ADE /* XCRemoteSwiftPackageReference "Superwall-iOS" */;
+			productName = SuperwallKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

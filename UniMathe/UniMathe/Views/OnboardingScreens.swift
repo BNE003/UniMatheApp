@@ -2959,6 +2959,391 @@ struct PersonalizedPlanOnboardingView: View {
     }
 }
 
+struct PremiumTrialOfferOnboardingView: View {
+    @EnvironmentObject var onboardingManager: OnboardingManager
+    @ObservedObject private var settings = SettingsModel.shared
+
+    private var isGerman: Bool {
+        settings.language == .german
+    }
+
+    private var stepLabel: String {
+        if isGerman {
+            return "Schritt \(onboardingManager.currentProgressStep) von \(onboardingManager.progressStepCount)"
+        }
+        return "Step \(onboardingManager.currentProgressStep) of \(onboardingManager.progressStepCount)"
+    }
+
+    private var titleText: Text {
+        if isGerman {
+            return Text("Wir schenken dir ")
+                + Text("3 Tage").foregroundColor(Color.onboardingBlue)
+                + Text(" Premiumzugang.")
+        }
+
+        return Text("We offer ")
+            + Text("3 days").foregroundColor(Color.onboardingBlue)
+            + Text(" of premium access, just for you")
+    }
+
+    private var subtitleText: String {
+        if isGerman {
+            return "Starte direkt mit allen Premium-Funktionen. Jetzt ist noch keine Zahlung fällig."
+        }
+        return "Start right away with all premium features. No payment is due now."
+    }
+
+    private var premiumBadgeText: String {
+        isGerman ? "Premium-Zugang" : "Premium Access"
+    }
+
+    private var footnoteText: String {
+        isGerman ? "Jetzt keine Zahlung fällig" : "No Payment Due Now"
+    }
+
+    private var buttonText: String {
+        isGerman ? "Jetzt für 0,00 € testen" : "Try now for €0.00"
+    }
+
+    var body: some View {
+        GeometryReader { geometry in
+            let horizontalPadding: CGFloat = geometry.size.width < 400 ? 18 : 24
+
+            ZStack {
+                AnimatedBackground()
+
+                Circle()
+                    .fill(Color.onboardingBlue.opacity(0.1))
+                    .frame(width: geometry.size.width * 0.7)
+                    .offset(y: geometry.size.height * 0.12)
+                    .blur(radius: 4)
+
+                VStack(spacing: 0) {
+                    HStack(spacing: 12) {
+                        Text(stepLabel)
+                            .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium, design: .rounded))
+                            .foregroundColor(Color.onboardingGrayStrong)
+
+                        Spacer()
+
+                        Text("Onboarding")
+                            .font(.system(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold, design: .rounded))
+                            .foregroundColor(Color.onboardingInk)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 9)
+                            .background(
+                                Capsule()
+                                    .fill(Color.white.opacity(0.92))
+                                    .overlay(
+                                        Capsule()
+                                            .strokeBorder(Color.onboardingGray.opacity(0.22), lineWidth: 1)
+                                    )
+                            )
+                    }
+
+                    segmentedProgress(
+                        totalSteps: onboardingManager.progressStepCount,
+                        currentStep: onboardingManager.currentProgressStep
+                    )
+                    .padding(.top, 16)
+
+                    Spacer(minLength: geometry.size.height < 700 ? 70 : 96)
+
+                    VStack(spacing: 24) {
+                        Text(premiumBadgeText)
+                            .font(.system(size: geometry.size.height < 700 ? 14 : 15, weight: .bold, design: .rounded))
+                            .foregroundColor(Color.onboardingBlue)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 10)
+                            .background(
+                                Capsule()
+                                    .fill(Color.white.opacity(0.92))
+                                    .overlay(
+                                        Capsule()
+                                            .strokeBorder(Color.onboardingBlue.opacity(0.18), lineWidth: 1)
+                                    )
+                            )
+
+                        titleText
+                            .font(.system(size: geometry.size.height < 700 ? 33 : 38, weight: .bold, design: .rounded))
+                            .foregroundColor(Color.onboardingInk)
+                            .multilineTextAlignment(.center)
+                            .lineSpacing(3)
+                            .frame(maxWidth: 320)
+
+                        Text(subtitleText)
+                            .font(.system(size: geometry.size.height < 700 ? 16 : 18, weight: .medium, design: .rounded))
+                            .foregroundColor(Color.onboardingGrayStrong)
+                            .multilineTextAlignment(.center)
+                            .lineSpacing(2)
+                            .frame(maxWidth: 300)
+                    }
+                    .frame(maxWidth: .infinity)
+
+                    Spacer()
+                }
+                .padding(.horizontal, horizontalPadding)
+                .padding(.top, geometry.size.height < 700 ? 20 : 24)
+            }
+            .safeAreaInset(edge: .bottom) {
+                VStack(spacing: 12) {
+                    HStack(spacing: 6) {
+                        Image(systemName: "checkmark")
+                            .font(.system(size: 13, weight: .bold))
+                            .foregroundColor(Color.onboardingGrayStrong)
+
+                        Text(footnoteText)
+                            .font(.system(size: 15, weight: .semibold, design: .rounded))
+                            .foregroundColor(Color.onboardingGrayStrong)
+                    }
+
+                    Button(action: {
+                        onboardingManager.nextScreen()
+                    }) {
+                        Text(buttonText)
+                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 18)
+                            .background(
+                                RoundedRectangle(cornerRadius: 26)
+                                    .fill(
+                                        LinearGradient(
+                                            colors: [Color.onboardingBlue, Color.onboardingInk.opacity(0.88)],
+                                            startPoint: .leading,
+                                            endPoint: .trailing
+                                        )
+                                    )
+                                    .shadow(color: Color.onboardingBlue.opacity(0.24), radius: 10, x: 0, y: 5)
+                            )
+                    }
+                    .padding(.bottom, max(geometry.safeAreaInsets.bottom, 12))
+                }
+                .padding(.horizontal, horizontalPadding)
+                .padding(.top, 10)
+                .background(
+                    LinearGradient(
+                        colors: [
+                            Color.onboardingCanvas.opacity(0.0),
+                            Color.onboardingCanvas.opacity(0.92),
+                            Color.onboardingCanvas
+                        ],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .ignoresSafeArea(edges: .bottom)
+                )
+            }
+        }
+    }
+
+    private func segmentedProgress(totalSteps: Int, currentStep: Int) -> some View {
+        let safeTotalSteps = max(totalSteps, 1)
+
+        return HStack(spacing: 8) {
+            ForEach(0..<safeTotalSteps, id: \.self) { index in
+                Capsule()
+                    .fill(
+                        index < currentStep
+                        ? Color.onboardingBlue
+                        : Color.onboardingGray.opacity(0.25)
+                    )
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 7)
+            }
+        }
+    }
+}
+
+struct TrialReminderOnboardingView: View {
+    @EnvironmentObject var onboardingManager: OnboardingManager
+    @ObservedObject private var settings = SettingsModel.shared
+    @State private var animateBell = false
+
+    private var isGerman: Bool {
+        settings.language == .german
+    }
+
+    private var stepLabel: String {
+        if isGerman {
+            return "Schritt \(onboardingManager.currentProgressStep) von \(onboardingManager.progressStepCount)"
+        }
+        return "Step \(onboardingManager.currentProgressStep) of \(onboardingManager.progressStepCount)"
+    }
+
+    private var titleText: Text {
+        if isGerman {
+            return Text("Wir erinnern dich ")
+                + Text("1 Tag").foregroundColor(Color.onboardingBlue)
+                + Text(" bevor dein Test endet")
+        }
+
+        return Text("We'll send you a reminder ")
+            + Text("1 day").foregroundColor(Color.onboardingBlue)
+            + Text(" before your trial ends")
+    }
+
+    private var subtitleText: String {
+        if isGerman {
+            return "Du wirst rechtzeitig erinnert und behältst die volle Kontrolle."
+        }
+        return "You'll get a heads-up in time and stay fully in control."
+    }
+
+    private var footnoteText: String {
+        isGerman ? "Jetzt keine Zahlung fällig" : "No Payment Due Now"
+    }
+
+    private var buttonText: String {
+        isGerman ? "Kostenlos weiter" : "Continue for FREE"
+    }
+
+    var body: some View {
+        GeometryReader { geometry in
+            let horizontalPadding: CGFloat = geometry.size.width < 400 ? 18 : 24
+
+            ZStack {
+                AnimatedBackground()
+
+                Circle()
+                    .fill(Color.onboardingBlue.opacity(0.1))
+                    .frame(width: geometry.size.width * 0.68)
+                    .offset(y: geometry.size.height * 0.08)
+                    .blur(radius: 4)
+
+                VStack(spacing: 0) {
+                    HStack(spacing: 12) {
+                        Text(stepLabel)
+                            .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium, design: .rounded))
+                            .foregroundColor(Color.onboardingGrayStrong)
+
+                        Spacer()
+
+                        Text("Onboarding")
+                            .font(.system(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold, design: .rounded))
+                            .foregroundColor(Color.onboardingInk)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 9)
+                            .background(
+                                Capsule()
+                                    .fill(Color.white.opacity(0.92))
+                                    .overlay(
+                                        Capsule()
+                                            .strokeBorder(Color.onboardingGray.opacity(0.22), lineWidth: 1)
+                                    )
+                            )
+                    }
+
+                    segmentedProgress(
+                        totalSteps: onboardingManager.progressStepCount,
+                        currentStep: onboardingManager.currentProgressStep
+                    )
+                    .padding(.top, 16)
+
+                    Spacer(minLength: geometry.size.height < 700 ? 54 : 72)
+
+                    VStack(spacing: 24) {
+                        Text("🔔")
+                            .font(.system(size: geometry.size.height < 700 ? 82 : 94))
+                            .rotationEffect(.degrees(animateBell ? 12 : -12), anchor: .top)
+                            .scaleEffect(animateBell ? 1.05 : 0.94)
+                            .offset(y: animateBell ? -4 : 4)
+                            .animation(.easeInOut(duration: 0.9).repeatForever(autoreverses: true), value: animateBell)
+
+                        titleText
+                            .font(.system(size: geometry.size.height < 700 ? 33 : 38, weight: .bold, design: .rounded))
+                            .foregroundColor(Color.onboardingInk)
+                            .multilineTextAlignment(.center)
+                            .lineSpacing(3)
+                            .frame(maxWidth: 320)
+
+                        Text(subtitleText)
+                            .font(.system(size: geometry.size.height < 700 ? 16 : 18, weight: .medium, design: .rounded))
+                            .foregroundColor(Color.onboardingGrayStrong)
+                            .multilineTextAlignment(.center)
+                            .lineSpacing(2)
+                            .frame(maxWidth: 300)
+                    }
+                    .frame(maxWidth: .infinity)
+
+                    Spacer()
+                }
+                .padding(.horizontal, horizontalPadding)
+                .padding(.top, geometry.size.height < 700 ? 20 : 24)
+            }
+            .safeAreaInset(edge: .bottom) {
+                VStack(spacing: 12) {
+                    HStack(spacing: 6) {
+                        Image(systemName: "checkmark")
+                            .font(.system(size: 13, weight: .bold))
+                            .foregroundColor(Color.onboardingGrayStrong)
+
+                        Text(footnoteText)
+                            .font(.system(size: 15, weight: .semibold, design: .rounded))
+                            .foregroundColor(Color.onboardingGrayStrong)
+                    }
+
+                    Button(action: {
+                        onboardingManager.nextScreen()
+                    }) {
+                        Text(buttonText)
+                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 18)
+                            .background(
+                                RoundedRectangle(cornerRadius: 26)
+                                    .fill(
+                                        LinearGradient(
+                                            colors: [Color.onboardingBlue, Color.onboardingInk.opacity(0.88)],
+                                            startPoint: .leading,
+                                            endPoint: .trailing
+                                        )
+                                    )
+                                    .shadow(color: Color.onboardingBlue.opacity(0.24), radius: 10, x: 0, y: 5)
+                            )
+                    }
+                    .padding(.bottom, max(geometry.safeAreaInsets.bottom, 12))
+                }
+                .padding(.horizontal, horizontalPadding)
+                .padding(.top, 10)
+                .background(
+                    LinearGradient(
+                        colors: [
+                            Color.onboardingCanvas.opacity(0.0),
+                            Color.onboardingCanvas.opacity(0.92),
+                            Color.onboardingCanvas
+                        ],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .ignoresSafeArea(edges: .bottom)
+                )
+            }
+            .onAppear {
+                animateBell = true
+            }
+        }
+    }
+
+    private func segmentedProgress(totalSteps: Int, currentStep: Int) -> some View {
+        let safeTotalSteps = max(totalSteps, 1)
+
+        return HStack(spacing: 8) {
+            ForEach(0..<safeTotalSteps, id: \.self) { index in
+                Capsule()
+                    .fill(
+                        index < currentStep
+                        ? Color.onboardingBlue
+                        : Color.onboardingGray.opacity(0.25)
+                    )
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 7)
+            }
+        }
+    }
+}
+
 struct ExamsOnboardingView: View {
     var body: some View {
         MinimalOnboardingPage(

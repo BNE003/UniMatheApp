@@ -46,7 +46,6 @@ class StoreKitManager: ObservableObject {
             case .verified(let transaction):
                 await transaction.finish()
                 await updatePurchasedProducts()
-                RevenueCatManager.syncPurchasesAfterTransaction()
             case .unverified:
                 throw StoreError.failedVerification
             }
@@ -63,7 +62,6 @@ class StoreKitManager: ObservableObject {
         do {
             try await AppStore.sync()
             await updatePurchasedProducts()
-            RevenueCatManager.syncPurchasesAfterTransaction()
         } catch {
             print("Restore failed:", error)
         }

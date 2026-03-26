@@ -61,6 +61,10 @@ class OnboardingManager: ObservableObject {
             case .stepByStep:
                 currentScreen = .personalizedPlan
             case .personalizedPlan:
+                currentScreen = .premiumTrialOffer
+            case .premiumTrialOffer:
+                currentScreen = .trialReminder
+            case .trialReminder:
                 shouldShowPaywall = true
             }
         }
@@ -89,6 +93,10 @@ class OnboardingManager: ObservableObject {
                 currentScreen = .topicsShowcase
             case .personalizedPlan:
                 currentScreen = .stepByStep
+            case .premiumTrialOffer:
+                currentScreen = .personalizedPlan
+            case .trialReminder:
+                currentScreen = .premiumTrialOffer
             default:
                 break
             }
@@ -146,7 +154,7 @@ class OnboardingManager: ObservableObject {
     }
     
     var isLastScreen: Bool {
-        currentScreen == .personalizedPlan
+        currentScreen == .trialReminder
     }
     
     private func loadFlowState() -> FlowState {
@@ -173,7 +181,9 @@ class OnboardingManager: ObservableObject {
             screen != .miniDiagnosis &&
             screen != .topicsShowcase &&
             screen != .stepByStep &&
-            screen != .personalizedPlan {
+            screen != .personalizedPlan &&
+            screen != .premiumTrialOffer &&
+            screen != .trialReminder {
             return .themeSelection
         }
 
@@ -201,6 +211,8 @@ enum OnboardingScreen: String, CaseIterable {
     case topicsShowcase
     case stepByStep
     case personalizedPlan
+    case premiumTrialOffer
+    case trialReminder
     
     var title: String {
         switch self {
@@ -222,6 +234,10 @@ enum OnboardingScreen: String, CaseIterable {
             return "Schritt für Schritt"
         case .personalizedPlan:
             return "Dein Lernplan"
+        case .premiumTrialOffer:
+            return "3 Tage gratis"
+        case .trialReminder:
+            return "Erinnerung vor Ablauf"
         }
     }
     
@@ -245,6 +261,10 @@ enum OnboardingScreen: String, CaseIterable {
             return "Step by Step"
         case .personalizedPlan:
             return "Your Study Plan"
+        case .premiumTrialOffer:
+            return "3 Days Free"
+        case .trialReminder:
+            return "Reminder Before Trial Ends"
         }
     }
     
@@ -268,6 +288,10 @@ enum OnboardingScreen: String, CaseIterable {
             return "Lerne komplexe Inhalte über klare Einzelschritte."
         case .personalizedPlan:
             return "Dein Plan führt dich gezielt bis zur Prüfung."
+        case .premiumTrialOffer:
+            return "Drei Tage Premiumzugang ohne sofortige Zahlung."
+        case .trialReminder:
+            return "Wir erinnern dich vor Ablauf deines Testzeitraums."
         }
     }
     
@@ -291,6 +315,10 @@ enum OnboardingScreen: String, CaseIterable {
             return "Understand complex topics through clear step-by-step guidance."
         case .personalizedPlan:
             return "Your plan guides you to exam day with clear priorities."
+        case .premiumTrialOffer:
+            return "Three days of premium access without paying now."
+        case .trialReminder:
+            return "We'll remind you before your trial period ends."
         }
     }
     
@@ -314,6 +342,10 @@ enum OnboardingScreen: String, CaseIterable {
             return "list.number"
         case .personalizedPlan:
             return "target"
+        case .premiumTrialOffer:
+            return "gift.fill"
+        case .trialReminder:
+            return "bell.fill"
         }
     }
     
@@ -336,6 +368,10 @@ enum OnboardingScreen: String, CaseIterable {
         case .stepByStep:
             return Color.onboardingBlue
         case .personalizedPlan:
+            return Color.onboardingBlue
+        case .premiumTrialOffer:
+            return Color.onboardingBlue
+        case .trialReminder:
             return Color.onboardingBlue
         }
     }

@@ -1,15 +1,6 @@
 {
-  "originHash" : "0f17c197485a5d8ffb1cf61a6b07a83cca138e955b31514740a562c7ce65d42c",
+  "originHash" : "c36a3dbef32c9403457126ea84c749f66dd820111cd57c0c85dfe639c126b26b",
   "pins" : [
-    {
-      "identity" : "purchases-ios-spm",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/RevenueCat/purchases-ios-spm.git",
-      "state" : {
-        "revision" : "524b94b8c36ff60bc1412e248678147ccc607e09",
-        "version" : "5.59.0"
-      }
-    },
     {
       "identity" : "supabase-swift",
       "kind" : "remoteSourceControl",
@@ -17,6 +8,24 @@
       "state" : {
         "revision" : "4c4f2a0483a794e9294ae0f550a63881e4ee1de9",
         "version" : "2.26.1"
+      }
+    },
+    {
+      "identity" : "superscript-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/superwall/Superscript-iOS",
+      "state" : {
+        "revision" : "711866edcb62dbd237c24ed3e5fa39fad0db639f",
+        "version" : "1.0.13"
+      }
+    },
+    {
+      "identity" : "superwall-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/superwall/Superwall-iOS",
+      "state" : {
+        "revision" : "280fd1afa38875e7e6342bf646f45be6872176e2",
+        "version" : "4.14.1"
       }
     },
     {
