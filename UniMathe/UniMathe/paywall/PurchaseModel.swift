@@ -25,13 +25,12 @@ class PurchaseModel: ObservableObject {
     init() {
 
         //initialise your productids and product details
-        // Paywall layout is optimized for subscription plans (yearly/monthly).
-        self.productIds = [StoreKitManager.yearlyProductID, StoreKitManager.monthlyProductID]
+        self.productIds = ["unimathe.pro.year", "unimathe.pro.month"]
         
         // Create placeholder details - they will be updated with real prices from StoreKit
         self.productDetails = [
-            PurchaseProductDetails(price: "$29.99", productId: StoreKitManager.yearlyProductID, duration: "year", durationPlanName: "Yearly Plan", hasTrial: false),
-            PurchaseProductDetails(price: "$4.99", productId: StoreKitManager.monthlyProductID, duration: "month", durationPlanName: "3-Day Trial", hasTrial: true)
+            PurchaseProductDetails(price: "$29.99", productId: "unimathe.pro.year", duration: "year", durationPlanName: "Yearly Plan", hasTrial: false),
+            PurchaseProductDetails(price: "$4.99", productId: "unimathe.pro.month", duration: "month", durationPlanName: "3-Day Trial", hasTrial: true)
         ]
         
         // Update subscription status based on StoreKit
@@ -55,10 +54,10 @@ class PurchaseModel: ObservableObject {
         
         for index in productDetails.indices {
             let product = productDetails[index]
-            if product.productId == StoreKitManager.yearlyProductID {
+            if product.productId == "unimathe.pro.year" {
                 productDetails[index].durationPlanName = isEnglish ? "Yearly Plan" : "Jahresabo"
                 productDetails[index].duration = isEnglish ? "year" : "Jahr"
-            } else if product.productId == StoreKitManager.monthlyProductID {
+            } else if product.productId == "unimathe.pro.month" {
                 productDetails[index].durationPlanName = isEnglish ? "3-Day Trial" : "3-Tage-Test"
                 productDetails[index].duration = isEnglish ? "month" : "Monat"
             }
@@ -89,7 +88,14 @@ class PurchaseModel: ObservableObject {
         
         Task { @MainActor in
             do {
-                if let product = storeManager.products.first(where: { $0.id == productId }) {
+                var product = storeManager.products.first(where: { $0.id == productId })
+                
+                if product == nil {
+                    await storeManager.loadProducts()
+                    product = storeManager.products.first(where: { $0.id == productId })
+                }
+                
+                if let product {
                     try await storeManager.purchase(product)
                     updateSubscriptionStatus()
                 }
@@ -102,8 +108,13 @@ class PurchaseModel: ObservableObject {
     
     func restorePurchases() {
         Task { @MainActor in
-            await storeManager.restorePurchases()
-            updateSubscriptionStatus()
+            do {
+                try await AppStore.sync()
+                await storeManager.updatePurchasedProducts()
+                updateSubscriptionStatus()
+            } catch {
+                print("Restore failed: \(error)")
+            }
         }
     }
     
@@ -119,25 +130,6 @@ class PurchaseModel: ObservableObject {
                 }
                 .store(in: &cancellables)
         }
-    }
-
-    @MainActor
-    func monthlyEquivalentHint(for productId: String, language: AppLanguage) -> String? {
-        guard productId == StoreKitManager.yearlyProductID,
-              let yearlyProduct = storeManager.products.first(where: { $0.id == productId }) else {
-            return nil
-        }
-
-        let monthlyDecimalPrice = NSDecimalNumber(decimal: yearlyProduct.price)
-            .dividing(by: NSDecimalNumber(value: 12))
-            .decimalValue
-        let formattedMonthlyPrice = monthlyDecimalPrice.formatted(yearlyProduct.priceFormatStyle)
-
-        if language == .english {
-            return "equivalent to \(formattedMonthlyPrice) /month"
-        }
-
-        return "entspricht \(formattedMonthlyPrice) /Monat"
     }
     
 }

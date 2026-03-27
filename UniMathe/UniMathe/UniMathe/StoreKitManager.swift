@@ -44,6 +44,8 @@ class StoreKitManager: ObservableObject {
         case .success(let verification):
             switch verification {
             case .verified(let transaction):
+                // Mark entitlement immediately so UI can unlock without a second tap.
+                purchasedProductIDs.insert(transaction.productID)
                 await transaction.finish()
                 await updatePurchasedProducts()
             case .unverified:
@@ -68,16 +70,16 @@ class StoreKitManager: ObservableObject {
     }
     
     func updatePurchasedProducts() async {
-        // Clear before updating to avoid stale state
-        purchasedProductIDs = []
+        var updatedProductIDs = Set<String>()
         for await result in Transaction.currentEntitlements {
             switch result {
             case .verified(let transaction):
-                purchasedProductIDs.insert(transaction.productID)
+                updatedProductIDs.insert(transaction.productID)
             case .unverified:
                 continue
             }
         }
+        purchasedProductIDs = updatedProductIDs
     }
 
     // Listen for transaction updates and keep purchase state in sync

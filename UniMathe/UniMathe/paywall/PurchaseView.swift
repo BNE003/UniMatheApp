@@ -122,8 +122,8 @@ struct PurchaseView: View {
                             .foregroundColor(.primary)
                             .multilineTextAlignment(.center)
                         
-                        Text(settings.language == .english ? 
-                             "You now have access to all features" : 
+                        Text(settings.language == .english ?
+                             "You now have access to all features" :
                              "Du hast jetzt Zugriff auf alle Funktionen")
                             .font(.headline)
                             .foregroundColor(.secondary)
@@ -155,26 +155,20 @@ struct PurchaseView: View {
                         .opacity(0.1 + 0.1 * self.progress)
                         .rotationEffect(Angle(degrees: -90))
                         .frame(width: 20, height: 20)
-                        .frame(width: 44, height: 44)
                 }
                 else {
-                    Button(action: {
-                        isPresented = false
-                    }) {
-                        Image(systemName: "multiply")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 20, alignment: .center)
-                            .clipped()
-                            .frame(width: 44, height: 44)
-                            .contentShape(Rectangle())
-                    }
-                    .buttonStyle(.plain)
-                    .opacity(0.2)
+                    Image(systemName: "multiply")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 20, alignment: .center)
+                        .clipped()
+                        .onTapGesture {
+                            isPresented = false
+                        }
+                        .opacity(0.2)
                 }
             }
-            .padding(.top, 10)
-            .padding(.trailing, 6)
+            .padding(.top)
 
             VStack (spacing: 20) {
                 
@@ -212,9 +206,9 @@ struct PurchaseView: View {
                         .minimumScaleFactor(0.8)
                     VStack (alignment: .leading) {
                         PurchaseFeatureView(title: settings.language == .english ? "Unlock all interactive lessons" : "Alle interaktiven Lektionen freischalten", icon: "checkmark.circle.fill", color: color)
-                        PurchaseFeatureView(title: settings.language == .english ? "Full access to over 400 exercises" : "Vollen Zugriff auf über 400 Aufgaben", icon: "books.vertical.fill", color: color)
+                        PurchaseFeatureView(title: settings.language == .english ? "Full access to over 300 exercises" : "Vollen Zugriff auf über 300 Aufgaben", icon: "books.vertical.fill", color: color)
+                        PurchaseFeatureView(title: settings.language == .english ? "Detailed solution steps" : "Detaillierte Lösungsschritte", icon: "list.bullet.rectangle.fill", color: color)
                         PurchaseFeatureView(title: settings.language == .english ? "Access to all exams" : "Zugang zu allen Klausuren", icon: "doc.text.fill", color: color)
-                        PurchaseFeatureView(title: settings.language == .english ? "Full access to the matrix calculator" : "Vollen Zugriff auf den Matrix-Rechner", icon: "tablecells.fill", color: color)
                         PurchaseFeatureView(title: settings.language == .english ? "Monthly new exams" : "Monatlich neue Klausuren", icon: "calendar.circle.fill", color: color)
                     }
                     .font(.system(size: 19))
@@ -229,11 +223,6 @@ struct PurchaseView: View {
                         let productDetails = purchaseModel.isFetchingProducts ? placeholderProductDetails : purchaseModel.productDetails
                         
                         ForEach(productDetails) { productDetails in
-                            let isYearlyPlan = productDetails.productId == StoreKitManager.yearlyProductID
-                            let monthlyEquivalentHint = purchaseModel.monthlyEquivalentHint(
-                                for: productDetails.productId,
-                                language: settings.language
-                            )
                             
                             Button(action: {
                                 withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
@@ -258,7 +247,7 @@ struct PurchaseView: View {
                                                     }
                                                 }()
                                                 
-                                                let trialText = settings.language == .english ? 
+                                                let trialText = settings.language == .english ?
                                                     "then \(productDetails.price) per \(productDetails.duration)" :
                                                     "dann \(productDetails.price) pro \(germanDuration)"
                                                 
@@ -287,7 +276,7 @@ struct PurchaseView: View {
                                                         }
                                                     }()
                                                     
-                                                    let priceText = settings.language == .english ? 
+                                                    let priceText = settings.language == .english ?
                                                         "\(productDetails.price) per \(productDetails.duration)" :
                                                         "\(productDetails.price) pro \(germanDuration)"
                                                     
@@ -392,7 +381,7 @@ struct PurchaseView: View {
                                     }
                                 )
                                 .shadow(
-                                    color: selectedProductId == productDetails.productId ? 
+                                    color: selectedProductId == productDetails.productId ?
                                     Color.blue.opacity(0.2) : Color.black.opacity(0.05),
                                     radius: selectedProductId == productDetails.productId ? 10 : 5,
                                     x: 0,
@@ -402,27 +391,6 @@ struct PurchaseView: View {
                                 .animation(.spring(response: 0.4, dampingFraction: 0.8), value: selectedProductId)
                             }
                             .buttonStyle(PlainButtonStyle())
-                            .padding(.top, isYearlyPlan && monthlyEquivalentHint != nil ? 12 : 0)
-                            .overlay(alignment: .top) {
-                                if isYearlyPlan, let monthlyEquivalentHint {
-                                    Text(monthlyEquivalentHint)
-                                        .font(.system(size: 12, weight: .semibold))
-                                        .foregroundColor(Color(red: 0.18, green: 0.42, blue: 0.95))
-                                        .padding(.horizontal, 10)
-                                        .padding(.vertical, 5)
-                                        .background(
-                                            Capsule()
-                                                .fill(Color(.systemBackground).opacity(0.95))
-                                        )
-                                        .overlay(
-                                            Capsule()
-                                                .stroke(Color.blue.opacity(0.25), lineWidth: 1)
-                                        )
-                                        .shadow(color: Color.blue.opacity(0.12), radius: 6, x: 0, y: 3)
-                                        .offset(y: -5)
-                                        .allowsHitTesting(false)
-                                }
-                            }
                             
                         }
                         
@@ -527,8 +495,8 @@ struct PurchaseView: View {
                         }
                         .alert(isPresented: $showNoneRestoredAlert) {
                             Alert(
-                                title: Text(settings.language == .english ? "Restore Purchases" : "Käufe wiederherstellen"), 
-                                message: Text(settings.language == .english ? "No purchases restored" : "Keine Käufe wiederhergestellt"), 
+                                title: Text(settings.language == .english ? "Restore Purchases" : "Käufe wiederherstellen"),
+                                message: Text(settings.language == .english ? "No purchases restored" : "Keine Käufe wiederhergestellt"),
                                 dismissButton: .default(Text("OK"))
                             )
                         }
@@ -550,7 +518,7 @@ struct PurchaseView: View {
                         )
                         .actionSheet(isPresented: $showTermsActionSheet) {
                             ActionSheet(
-                                title: Text(settings.language == .english ? "View Terms & Conditions" : "Bedingungen anzeigen"), 
+                                title: Text(settings.language == .english ? "View Terms & Conditions" : "Bedingungen anzeigen"),
                                 message: nil,
                                 buttons: [
                                     .default(Text(settings.language == .english ? "Terms of Use" : "Nutzungsbedingungen"), action: {
