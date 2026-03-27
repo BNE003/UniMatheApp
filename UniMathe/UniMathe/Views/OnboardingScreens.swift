@@ -398,7 +398,7 @@ struct ExamSelectionOnboardingView: View {
     @State private var selectedExamKey: String?
     @State private var showExamDatePrompt = false
     @State private var includeExamDate = false
-    @State private var examDate = Date().addingTimeInterval(60 * 60 * 24 * 21)
+    @State private var examDate = Date()
 
     private enum StorageKey {
         static let selectedExamKey = "onboardingSelectedExamKey"
@@ -504,6 +504,7 @@ struct ExamSelectionOnboardingView: View {
                                     Button(action: {
                                         selectedExamKey = option.key
                                         UserDefaults.standard.set(option.key, forKey: StorageKey.selectedExamKey)
+                                        examDate = Date()
                                         let generator = UISelectionFeedbackGenerator()
                                         generator.prepare()
                                         generator.selectionChanged()
@@ -719,12 +720,7 @@ struct ExamSelectionOnboardingView: View {
         examOptions = loadExamOptions()
 
         let defaults = UserDefaults.standard
-        if let storedKey = defaults.string(forKey: StorageKey.selectedExamKey),
-           examOptions.contains(where: { $0.key == storedKey }) {
-            selectedExamKey = storedKey
-        } else if selectedExamKey == nil {
-            selectedExamKey = examOptions.first?.key
-        }
+        selectedExamKey = nil
 
         if defaults.object(forKey: StorageKey.hasExamDate) != nil {
             includeExamDate = defaults.bool(forKey: StorageKey.hasExamDate)

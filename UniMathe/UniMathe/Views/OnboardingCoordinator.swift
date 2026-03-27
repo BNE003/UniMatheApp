@@ -22,7 +22,7 @@ struct OnboardingCoordinator: View {
             Group {
                 switch onboardingManager.currentScreen {
                 case .languageSelection:
-                    EnhancedLanguageSelectionView()
+                    ThemeSelectionOnboardingView()
                 case .themeSelection:
                     ThemeSelectionOnboardingView()
                 case .problemActivation:

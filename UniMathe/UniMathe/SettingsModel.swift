@@ -62,16 +62,11 @@ class SettingsModel: ObservableObject {
            let language = AppLanguage(rawValue: savedLanguage) {
             self.language = language
         } else {
-            // Try to use system language preference first
-            if let preferredLanguage = Locale.current.languageCode {
-                if preferredLanguage.starts(with: "de") {
-                    self.language = .german
-                } else {
-                    self.language = .english
-                }
-            } else {
-                self.language = .german // Default language if we can't detect
-            }
+            // Auto-configure language from iPhone preferred language for first launch.
+            let autoDetectedLanguage = Self.detectDeviceLanguage()
+            self.language = autoDetectedLanguage
+            UserDefaults.standard.set(autoDetectedLanguage.rawValue, forKey: "appLanguage")
+            UserDefaults.standard.set(true, forKey: "hasSelectedLanguage")
         }
         
         self.isDarkModeEnabled = UserDefaults.standard.bool(forKey: "isDarkModeEnabled")
@@ -100,6 +95,14 @@ class SettingsModel: ObservableObject {
     func setLanguage(_ language: AppLanguage) {
         self.language = language
         UserDefaults.standard.set(true, forKey: "hasSelectedLanguage")
+    }
+    
+    private static func detectDeviceLanguage() -> AppLanguage {
+        guard let preferredLanguageIdentifier = Locale.preferredLanguages.first?.lowercased() else {
+            return .english
+        }
+        
+        return preferredLanguageIdentifier.hasPrefix("de") ? .german : .english
     }
     
     // MARK: - App Rating Methods

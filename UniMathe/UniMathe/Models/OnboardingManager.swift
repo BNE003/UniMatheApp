@@ -9,13 +9,15 @@ class OnboardingManager: ObservableObject {
         static let legacyCompletion = "hasCompletedOnboarding"
     }
     
+    private static let initialScreen: OnboardingScreen = .themeSelection
+    
     private enum FlowState: String {
         case notStarted
         case inProgress
         case completed
     }
     
-    @Published var currentScreen: OnboardingScreen = .languageSelection
+    @Published var currentScreen: OnboardingScreen = initialScreen
     @Published var isOnboardingComplete = false
     @Published var showOnboarding = false
     @Published var shouldShowPaywall = false
@@ -26,15 +28,15 @@ class OnboardingManager: ObservableObject {
         if flowState == .completed {
             self.isOnboardingComplete = true
             self.showOnboarding = false
-            self.currentScreen = .languageSelection
+            self.currentScreen = Self.initialScreen
         } else {
             self.isOnboardingComplete = false
             self.showOnboarding = true
             self.currentScreen = loadCurrentScreen()
             
-            // Make sure onboarding always starts at the language step on the first open.
+            // Make sure onboarding starts on the first content screen on first open.
             if flowState == .notStarted {
-                self.currentScreen = .languageSelection
+                self.currentScreen = Self.initialScreen
             }
         }
     }
@@ -78,7 +80,7 @@ class OnboardingManager: ObservableObject {
         withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
             switch currentScreen {
             case .themeSelection:
-                currentScreen = .languageSelection
+                break
             case .problemActivation:
                 currentScreen = .themeSelection
             case .examSelection:
@@ -120,7 +122,7 @@ class OnboardingManager: ObservableObject {
         UserDefaults.standard.set(false, forKey: StorageKey.legacyCompletion)
         persistFlowState(.notStarted)
         UserDefaults.standard.removeObject(forKey: StorageKey.currentScreen)
-        currentScreen = .languageSelection
+        currentScreen = Self.initialScreen
         isOnboardingComplete = false
         showOnboarding = true
     }
@@ -150,7 +152,7 @@ class OnboardingManager: ObservableObject {
     }
     
     var isFirstScreen: Bool {
-        currentScreen == .languageSelection
+        currentScreen == Self.initialScreen
     }
     
     var isLastScreen: Bool {
@@ -170,21 +172,12 @@ class OnboardingManager: ObservableObject {
     private func loadCurrentScreen() -> OnboardingScreen {
         guard let rawValue = UserDefaults.standard.string(forKey: StorageKey.currentScreen),
               let screen = OnboardingScreen(rawValue: rawValue) else {
-            return .languageSelection
+            return Self.initialScreen
         }
-
-        if screen != .languageSelection &&
-            screen != .themeSelection &&
-            screen != .problemActivation &&
-            screen != .examSelection &&
-            screen != .examPreview &&
-            screen != .miniDiagnosis &&
-            screen != .topicsShowcase &&
-            screen != .stepByStep &&
-            screen != .personalizedPlan &&
-            screen != .premiumTrialOffer &&
-            screen != .trialReminder {
-            return .themeSelection
+        
+        // Migrate legacy in-progress users off the removed language step.
+        if screen == .languageSelection {
+            return Self.initialScreen
         }
 
         return screen
