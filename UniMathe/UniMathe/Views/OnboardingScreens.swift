@@ -2472,7 +2472,7 @@ private struct DashedVerticalLine: Shape {
     }
 }
 
-private func loweredOnboardingBottomButtonPadding(for geometry: GeometryProxy) -> CGFloat {
+func loweredOnboardingBottomButtonPadding(for geometry: GeometryProxy) -> CGFloat {
     guard UIDevice.current.userInterfaceIdiom == .phone else {
         return max(geometry.safeAreaInsets.bottom, 12)
     }

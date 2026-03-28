@@ -430,6 +430,13 @@ struct ThemeSelectionOnboardingView: View {
                             value: floatArtwork
                         )
 
+                    Spacer(minLength: geometry.size.height < 700 ? 126 : 144)
+                }
+                .padding(.horizontal, geometry.size.width < 400 ? 18 : 24)
+                .padding(.top, geometry.size.height < 700 ? 16 : 22)
+            }
+            .overlay(alignment: .bottom) {
+                VStack(spacing: 0) {
                     Button(action: {
                         onboardingManager.nextScreen()
                     }) {
@@ -454,12 +461,22 @@ struct ThemeSelectionOnboardingView: View {
                                 .shadow(color: Color.onboardingBlue.opacity(0.28), radius: 10, x: 0, y: 5)
                         )
                     }
-                    .padding(.top, 8)
-
-                    Spacer(minLength: geometry.size.height < 700 ? 10 : 14)
+                    .padding(.horizontal, geometry.size.width < 400 ? 18 : 24)
+                    .padding(.top, 10)
+                    .padding(.bottom, loweredOnboardingBottomButtonPadding(for: geometry))
                 }
-                .padding(.horizontal, geometry.size.width < 400 ? 18 : 24)
-                .padding(.top, geometry.size.height < 700 ? 16 : 22)
+                .background(
+                    LinearGradient(
+                        colors: [
+                            Color.onboardingCanvas.opacity(0.0),
+                            Color.onboardingCanvas.opacity(0.92),
+                            Color.onboardingCanvas
+                        ],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                    .ignoresSafeArea(edges: .bottom)
+                )
             }
         }
         .onAppear {
