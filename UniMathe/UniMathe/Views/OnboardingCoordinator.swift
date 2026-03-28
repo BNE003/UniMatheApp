@@ -107,7 +107,7 @@ struct EnhancedLanguageSelectionView: View {
                     // Floating mathematical symbols
                     Group {
                         Text("∫")
-                            .font(.system(size: 60, weight: .light))
+                            .font(.onboarding(size: 60, weight: .light))
                             .foregroundColor(Color.onboardingBlue.opacity(0.14))
                             .offset(
                                 x: animateBackground ? geometry.size.width * 0.1 : -geometry.size.width * 0.1,
@@ -120,7 +120,7 @@ struct EnhancedLanguageSelectionView: View {
                             )
                         
                         Text("Σ")
-                            .font(.system(size: 50, weight: .light))
+                            .font(.onboarding(size: 50, weight: .light))
                             .foregroundColor(Color.onboardingInk.opacity(0.08))
                             .offset(
                                 x: animateBackground ? -geometry.size.width * 0.2 : geometry.size.width * 0.2,
@@ -133,7 +133,7 @@ struct EnhancedLanguageSelectionView: View {
                             )
                         
                         Text("π")
-                            .font(.system(size: 40, weight: .light))
+                            .font(.onboarding(size: 40, weight: .light))
                             .foregroundColor(Color.onboardingGray.opacity(0.15))
                             .offset(
                                 x: animateBackground ? geometry.size.width * 0.3 : -geometry.size.width * 0.3,
@@ -160,7 +160,7 @@ struct EnhancedLanguageSelectionView: View {
                     
                     VStack(spacing: 12) {
                         Text("UniMathe")
-                            .font(.system(size: 42, weight: .bold, design: .rounded))
+                            .font(.onboarding(size: 42, weight: .bold))
                             .foregroundStyle(
                                 LinearGradient(
                                     colors: [.onboardingBlue, .onboardingInk],
@@ -173,7 +173,7 @@ struct EnhancedLanguageSelectionView: View {
                             .animation(.easeOut(duration: 0.8).delay(0.6), value: showWelcome)
                         
                         Text("Willkommen | Welcome")
-                            .font(.system(size: 24, weight: .medium, design: .rounded))
+                            .font(.onboarding(size: 24, weight: .medium))
                             .foregroundColor(.primary.opacity(0.8))
                             .opacity(showWelcome ? 1 : 0)
                             .offset(y: showWelcome ? 0 : 20)
@@ -182,13 +182,13 @@ struct EnhancedLanguageSelectionView: View {
                     
                     VStack(spacing: 8) {
                         Text("Bitte wählen Sie Ihre Sprache aus")
-                            .font(.system(size: 16, weight: .medium))
+                            .font(.onboarding(size: 16, weight: .medium))
                             .foregroundColor(.secondary)
                             .opacity(showWelcome ? 1 : 0)
                             .animation(.easeOut(duration: 0.8).delay(1.0), value: showWelcome)
                         
                         Text("Please select your language")
-                            .font(.system(size: 16, weight: .medium))
+                            .font(.onboarding(size: 16, weight: .medium))
                             .foregroundColor(.secondary)
                             .opacity(showWelcome ? 1 : 0)
                             .animation(.easeOut(duration: 0.8).delay(1.0), value: showWelcome)
@@ -230,10 +230,10 @@ struct EnhancedLanguageSelectionView: View {
                 }) {
                     HStack(spacing: 12) {
                         Text(selectedLanguage == .german ? "Weiter" : "Continue")
-                            .font(.system(size: 18, weight: .semibold))
+                            .font(.onboarding(size: 18, weight: .semibold))
                         
                         Image(systemName: "arrow.right")
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(.onboarding(size: 16, weight: .semibold))
                     }
                     .foregroundColor(.white)
                     .padding(.horizontal, 40)
@@ -272,17 +272,17 @@ struct EnhancedLanguageSelectionView: View {
             HStack(spacing: 20) {
                 // Flag with enhanced animation
                 Text(flagEmoji)
-                    .font(.system(size: 32))
+                    .font(.onboarding(size: 32))
                     .scaleEffect(selectedLanguage == language ? 1.2 : 1.0)
                     .animation(.spring(response: 0.4, dampingFraction: 0.6), value: selectedLanguage == language)
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(title)
-                        .font(.system(size: 22, weight: .semibold))
+                        .font(.onboarding(size: 22, weight: .semibold))
                         .foregroundColor(.primary)
                     
                     Text(description)
-                        .font(.system(size: 16, weight: .medium))
+                        .font(.onboarding(size: 16, weight: .medium))
                         .foregroundColor(.secondary)
                 }
                 
@@ -368,13 +368,13 @@ struct ThemeSelectionOnboardingView: View {
                 VStack(alignment: .leading, spacing: geometry.size.height < 700 ? 18 : 24) {
                     HStack(spacing: 12) {
                         Text(stepLabel)
-                            .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 14 : 16, weight: .medium))
                             .foregroundColor(Color.onboardingGrayStrong)
 
                         Spacer()
 
                         Text("Onboarding")
-                            .font(.system(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold))
                             .foregroundColor(Color.onboardingInk)
                             .padding(.horizontal, 16)
                             .padding(.vertical, 9)
@@ -395,7 +395,7 @@ struct ThemeSelectionOnboardingView: View {
 
                     VStack(alignment: .leading, spacing: geometry.size.height < 700 ? 10 : 14) {
                         Text(isGerman ? "Willkommen bei UniMathe" : "Welcome to UniMathe")
-                            .font(.system(size: geometry.size.height < 700 ? 30 : 34, weight: .bold, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 30 : 34, weight: .bold))
                             .foregroundColor(Color.onboardingInk)
                             .lineLimit(2)
 
@@ -404,7 +404,7 @@ struct ThemeSelectionOnboardingView: View {
                             ? "Lerne Mathematik klar, strukturiert und effizient. In wenigen Schritten bist du startklar."
                             : "Learn mathematics with clarity and structure. You will be ready in just a few steps."
                         )
-                        .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium, design: .rounded))
+                        .font(.onboarding(size: geometry.size.height < 700 ? 14 : 16, weight: .medium))
                         .foregroundColor(Color.onboardingGrayStrong)
                         .lineSpacing(4)
                     }
@@ -435,9 +435,9 @@ struct ThemeSelectionOnboardingView: View {
                     }) {
                         HStack(spacing: 8) {
                             Text(isGerman ? "Weiter" : "Continue")
-                                .font(.system(size: 18, weight: .semibold))
+                                .font(.onboarding(size: 18, weight: .semibold))
                             Image(systemName: "arrow.right")
-                                .font(.system(size: 16, weight: .semibold))
+                                .font(.onboarding(size: 16, weight: .semibold))
                         }
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
@@ -456,7 +456,7 @@ struct ThemeSelectionOnboardingView: View {
                     }
                     .padding(.top, 8)
 
-                    Spacer(minLength: geometry.size.height < 700 ? 28 : 34)
+                    Spacer(minLength: geometry.size.height < 700 ? 10 : 14)
                 }
                 .padding(.horizontal, geometry.size.width < 400 ? 18 : 24)
                 .padding(.top, geometry.size.height < 700 ? 16 : 22)
@@ -509,7 +509,7 @@ struct DarkModeTwinkleStars: View {
             ZStack {
                 ForEach(Array(stars.enumerated()), id: \.offset) { index, star in
                     Image(systemName: index.isMultiple(of: 3) ? "sparkle" : "star.fill")
-                        .font(.system(size: star.size))
+                        .font(.onboarding(size: star.size))
                         .foregroundColor(.white.opacity(twinkle ? 0.85 : 0.35))
                         .scaleEffect(twinkle ? 1.08 : 0.72)
                         .position(

@@ -39,12 +39,12 @@ private struct MinimalOnboardingPage: View {
                     VStack(alignment: .leading, spacing: 20) {
                         VStack(alignment: .leading, spacing: 10) {
                             Text(titleText)
-                                .font(.system(size: geometry.size.height < 700 ? 32 : 36, weight: .bold, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 32 : 36, weight: .bold))
                                 .foregroundColor(Color.onboardingInk)
                                 .lineLimit(2)
 
                             Text(subtitleText)
-                                .font(.system(size: geometry.size.height < 700 ? 18 : 20, weight: .medium, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 18 : 20, weight: .medium))
                                 .foregroundColor(Color.onboardingGrayStrong)
                                 .lineSpacing(2)
                         }
@@ -53,11 +53,11 @@ private struct MinimalOnboardingPage: View {
                             ForEach(points, id: \.self) { point in
                                 HStack(spacing: 10) {
                                     Image(systemName: "checkmark.circle.fill")
-                                        .font(.system(size: 16, weight: .semibold))
+                                        .font(.onboarding(size: 16, weight: .semibold))
                                         .foregroundColor(Color.onboardingBlue)
 
                                     Text(point)
-                                        .font(.system(size: geometry.size.height < 700 ? 15 : 16, weight: .medium, design: .rounded))
+                                        .font(.onboarding(size: geometry.size.height < 700 ? 15 : 16, weight: .medium))
                                         .foregroundColor(Color.onboardingInk)
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                 }
@@ -83,12 +83,12 @@ private struct MinimalOnboardingPage: View {
                                     .frame(width: min(geometry.size.width * 0.56, 230), height: min(geometry.size.width * 0.56, 230))
 
                                 Image(systemName: symbolName)
-                                    .font(.system(size: geometry.size.height < 700 ? 56 : 64, weight: .light))
+                                    .font(.onboarding(size: geometry.size.height < 700 ? 56 : 64, weight: .light))
                                     .foregroundColor(Color.onboardingBlue)
                             }
 
                             Text(isGerman ? "Schritt für Schritt zum Ziel" : "Step by step to your goal")
-                                .font(.system(size: geometry.size.height < 700 ? 13 : 14, weight: .semibold, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 13 : 14, weight: .semibold))
                                 .foregroundColor(Color.onboardingGrayStrong)
                         }
                         .frame(maxWidth: .infinity)
@@ -177,13 +177,13 @@ struct ProblemActivationOnboardingView: View {
                     VStack(spacing: 18) {
                         HStack(spacing: 12) {
                             Text(stepLabel)
-                                .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 14 : 16, weight: .medium))
                                 .foregroundColor(Color.onboardingGrayStrong)
 
                             Spacer()
 
                             Text("Onboarding")
-                                .font(.system(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold))
                                 .foregroundColor(Color.onboardingInk)
                                 .padding(.horizontal, 16)
                                 .padding(.vertical, 9)
@@ -205,18 +205,18 @@ struct ProblemActivationOnboardingView: View {
 
                         VStack(spacing: 8) {
                             Text(questionTitle)
-                                .font(.system(size: geometry.size.height < 700 ? 32 : 36, weight: .bold, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 32 : 36, weight: .bold))
                                 .foregroundColor(Color.onboardingInk)
                                 .multilineTextAlignment(.center)
                                 .lineLimit(2)
 
                             Text(questionSubtitle)
-                                .font(.system(size: geometry.size.height < 700 ? 22 : 24, weight: .semibold, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 22 : 24, weight: .semibold))
                                 .foregroundColor(Color.onboardingInk)
                                 .multilineTextAlignment(.center)
 
                             Text(questionHint)
-                                .font(.system(size: geometry.size.height < 700 ? 16 : 18, weight: .medium, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 16 : 18, weight: .medium))
                                 .foregroundColor(Color.onboardingGrayStrong)
                                 .multilineTextAlignment(.center)
                         }
@@ -226,10 +226,10 @@ struct ProblemActivationOnboardingView: View {
 
                         VStack(spacing: 18) {
                             Text(options[selection].emoji)
-                                .font(.system(size: geometry.size.height < 700 ? 74 : 82))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 74 : 82))
 
                             Text(options[selection].title)
-                                .font(.system(size: geometry.size.height < 700 ? 22 : 24, weight: .semibold, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 22 : 24, weight: .semibold))
                                 .foregroundColor(Color.onboardingInk)
                                 .multilineTextAlignment(.center)
                         }
@@ -280,7 +280,7 @@ struct ProblemActivationOnboardingView: View {
                                 Spacer()
                                 Text(rightSliderLabel)
                             }
-                            .font(.system(size: geometry.size.height < 700 ? 16 : 18, weight: .medium, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 16 : 18, weight: .medium))
                             .foregroundColor(Color.onboardingGrayStrong)
                         }
                         .padding(.horizontal, 10)
@@ -291,16 +291,16 @@ struct ProblemActivationOnboardingView: View {
                     .padding(.top, geometry.size.height < 700 ? 20 : 24)
                 }
             }
-            .safeAreaInset(edge: .bottom) {
+            .overlay(alignment: .bottom) {
                 VStack(spacing: 0) {
                     Button(action: {
                         onboardingManager.nextScreen()
                     }) {
                         HStack(spacing: 8) {
                             Text(isGerman ? "Weiter" : "Continue")
-                                .font(.system(size: 18, weight: .semibold))
+                                .font(.onboarding(size: 18, weight: .semibold))
                             Image(systemName: "arrow.right")
-                                .font(.system(size: 16, weight: .semibold))
+                                .font(.onboarding(size: 16, weight: .semibold))
                         }
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
@@ -319,7 +319,7 @@ struct ProblemActivationOnboardingView: View {
                     }
                     .padding(.horizontal, geometry.size.width < 400 ? 18 : 24)
                     .padding(.top, 10)
-                    .padding(.bottom, max(geometry.safeAreaInsets.bottom, 12))
+                    .padding(.bottom, loweredOnboardingBottomButtonPadding(for: geometry))
                 }
                 .background(
                     LinearGradient(
@@ -455,13 +455,13 @@ struct ExamSelectionOnboardingView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     HStack(spacing: 12) {
                         Text(stepLabel)
-                            .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 14 : 16, weight: .medium))
                             .foregroundColor(Color.onboardingGrayStrong)
 
                         Spacer()
 
                         Text("Onboarding")
-                            .font(.system(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold))
                             .foregroundColor(Color.onboardingInk)
                             .padding(.horizontal, 16)
                             .padding(.vertical, 9)
@@ -483,11 +483,11 @@ struct ExamSelectionOnboardingView: View {
 
                     VStack(alignment: .leading, spacing: 8) {
                         Text(titleText)
-                            .font(.system(size: geometry.size.height < 700 ? 30 : 34, weight: .bold, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 30 : 34, weight: .bold))
                             .foregroundColor(Color.onboardingInk)
 
                         Text(subtitleText)
-                            .font(.system(size: geometry.size.height < 700 ? 17 : 19, weight: .medium, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 17 : 19, weight: .medium))
                             .foregroundColor(Color.onboardingGrayStrong)
                     }
 
@@ -517,18 +517,18 @@ struct ExamSelectionOnboardingView: View {
                                                     .frame(width: 38, height: 38)
 
                                                 Image(systemName: iconName(for: option.key))
-                                                    .font(.system(size: 17, weight: .semibold))
+                                                    .font(.onboarding(size: 17, weight: .semibold))
                                                     .foregroundColor(selectedExamKey == option.key ? Color.onboardingBlue : Color.onboardingGrayStrong)
                                             }
 
                                             VStack(alignment: .leading, spacing: 4) {
                                                 Text(option.title)
-                                                    .font(.system(size: geometry.size.height < 700 ? 17 : 18, weight: .semibold, design: .rounded))
+                                                    .font(.onboarding(size: geometry.size.height < 700 ? 17 : 18, weight: .semibold))
                                                     .foregroundColor(Color.onboardingInk)
                                                     .lineLimit(1)
 
                                                 Text(subtitleForExamKey(option.key))
-                                                    .font(.system(size: geometry.size.height < 700 ? 13 : 14, weight: .medium, design: .rounded))
+                                                    .font(.onboarding(size: geometry.size.height < 700 ? 13 : 14, weight: .medium))
                                                     .foregroundColor(Color.onboardingGrayStrong)
                                                     .lineLimit(2)
                                             }
@@ -536,7 +536,7 @@ struct ExamSelectionOnboardingView: View {
                                             Spacer(minLength: 8)
 
                                             Image(systemName: selectedExamKey == option.key ? "checkmark.circle.fill" : "circle")
-                                                .font(.system(size: 25, weight: .semibold))
+                                                .font(.onboarding(size: 25, weight: .semibold))
                                                 .foregroundColor(selectedExamKey == option.key ? Color.onboardingBlue : Color.onboardingGray.opacity(0.6))
                                         }
                                         .frame(maxWidth: .infinity)
@@ -567,7 +567,7 @@ struct ExamSelectionOnboardingView: View {
                 .padding(.horizontal, geometry.size.width < 400 ? 18 : 24)
                 .padding(.top, geometry.size.height < 700 ? 20 : 24)
             }
-            .safeAreaInset(edge: .bottom) {
+            .overlay(alignment: .bottom) {
                 VStack(spacing: 0) {
                     Button(action: {
                         persistSelection()
@@ -575,9 +575,9 @@ struct ExamSelectionOnboardingView: View {
                     }) {
                         HStack(spacing: 8) {
                             Text(isGerman ? "Weiter" : "Continue")
-                                .font(.system(size: 18, weight: .semibold))
+                                .font(.onboarding(size: 18, weight: .semibold))
                             Image(systemName: "arrow.right")
-                                .font(.system(size: 16, weight: .semibold))
+                                .font(.onboarding(size: 16, weight: .semibold))
                         }
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
@@ -598,7 +598,7 @@ struct ExamSelectionOnboardingView: View {
                     .opacity(selectedExamKey == nil ? 0.55 : 1.0)
                     .padding(.horizontal, geometry.size.width < 400 ? 18 : 24)
                     .padding(.top, 10)
-                    .padding(.bottom, max(geometry.safeAreaInsets.bottom, 12))
+                    .padding(.bottom, loweredOnboardingBottomButtonPadding(for: geometry))
                 }
                 .background(
                     LinearGradient(
@@ -621,12 +621,12 @@ struct ExamSelectionOnboardingView: View {
                     VStack(spacing: 18) {
                         VStack(spacing: 8) {
                             Text(datePromptTitleText)
-                                .font(.system(size: 24, weight: .bold, design: .rounded))
+                                .font(.onboarding(size: 24, weight: .bold))
                                 .foregroundColor(Color.onboardingInk)
                                 .multilineTextAlignment(.center)
 
                             Text(datePromptSubtitleText)
-                                .font(.system(size: 15, weight: .medium, design: .rounded))
+                                .font(.onboarding(size: 15, weight: .medium))
                                 .foregroundColor(Color.onboardingGrayStrong)
                                 .multilineTextAlignment(.center)
                         }
@@ -649,7 +649,7 @@ struct ExamSelectionOnboardingView: View {
                                 showExamDatePrompt = false
                             }) {
                                 Text(skipText)
-                                    .font(.system(size: 16, weight: .semibold, design: .rounded))
+                                    .font(.onboarding(size: 16, weight: .semibold))
                                     .foregroundColor(Color.onboardingInk)
                                     .frame(maxWidth: .infinity)
                                     .padding(.vertical, 14)
@@ -669,7 +669,7 @@ struct ExamSelectionOnboardingView: View {
                                 showExamDatePrompt = false
                             }) {
                                 Text(saveDateText)
-                                    .font(.system(size: 16, weight: .semibold, design: .rounded))
+                                    .font(.onboarding(size: 16, weight: .semibold))
                                     .foregroundColor(.white)
                                     .frame(maxWidth: .infinity)
                                     .padding(.vertical, 14)
@@ -962,16 +962,16 @@ struct ExamPreviewOnboardingView: View {
 
     private var subtitleText: String {
         if isGerman {
-            return "Wir haben 3 realistische \(selectedExamTitle)-Klausuren für dich vorbereitet - genau im Stil typischer Uni-Prüfungen."
+            return "Wir haben 3 echte \(selectedExamTitle)-Klausuren für dich vorbereitet."
         }
-        return "We prepared 3 realistic \(selectedExamTitle) exams for you - just like typical university exams."
+        return "We prepared 3 real \(selectedExamTitle) exams for you."
     }
 
     private var motivationText: String {
         if isGerman {
-            return "Die meisten starten mit einer Probeklausur, um ihren aktuellen Stand zu checken."
+            return "Die meisten starten mit einer echten Klausur, um ihren aktuellen Stand zu checken."
         }
-        return "Most learners start with a mock exam to check their current level."
+        return "Most learners start with a real exam to check their current level."
     }
 
     private var selectedExamTitle: String {
@@ -1033,13 +1033,13 @@ struct ExamPreviewOnboardingView: View {
                     VStack(alignment: .leading, spacing: 16) {
                         HStack(spacing: 12) {
                             Text(stepLabel)
-                                .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 14 : 16, weight: .medium))
                                 .foregroundColor(Color.onboardingGrayStrong)
 
                             Spacer()
 
                             Text("Onboarding")
-                                .font(.system(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold))
                                 .foregroundColor(Color.onboardingInk)
                                 .padding(.horizontal, 16)
                                 .padding(.vertical, 9)
@@ -1061,11 +1061,11 @@ struct ExamPreviewOnboardingView: View {
 
                         VStack(alignment: .leading, spacing: 8) {
                             Text(titleText)
-                                .font(.system(size: geometry.size.height < 700 ? 30 : 34, weight: .bold, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 30 : 34, weight: .bold))
                                 .foregroundColor(Color.onboardingInk)
 
                             Text(subtitleText)
-                                .font(.system(size: geometry.size.height < 700 ? 17 : 19, weight: .medium, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 17 : 19, weight: .medium))
                                 .foregroundColor(Color.onboardingGrayStrong)
                                 .lineSpacing(2)
                         }
@@ -1089,7 +1089,7 @@ struct ExamPreviewOnboardingView: View {
                         }
 
                         Text(motivationText)
-                            .font(.system(size: geometry.size.height < 700 ? 15 : 16, weight: .medium, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 15 : 16, weight: .medium))
                             .foregroundColor(Color.onboardingGrayStrong)
                             .multilineTextAlignment(.leading)
                             .padding(.top, 8)
@@ -1100,16 +1100,16 @@ struct ExamPreviewOnboardingView: View {
                     .padding(.top, geometry.size.height < 700 ? 20 : 24)
                 }
             }
-            .safeAreaInset(edge: .bottom) {
+            .overlay(alignment: .bottom) {
                 VStack(spacing: 0) {
                     Button(action: {
                         onboardingManager.nextScreen()
                     }) {
                         HStack(spacing: 8) {
                             Text(isGerman ? "Weiter" : "Continue")
-                                .font(.system(size: 18, weight: .semibold))
+                                .font(.onboarding(size: 18, weight: .semibold))
                             Image(systemName: "arrow.right")
-                                .font(.system(size: 16, weight: .semibold))
+                                .font(.onboarding(size: 16, weight: .semibold))
                         }
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
@@ -1128,7 +1128,7 @@ struct ExamPreviewOnboardingView: View {
                     }
                     .padding(.horizontal, geometry.size.width < 400 ? 18 : 24)
                     .padding(.top, 10)
-                    .padding(.bottom, max(geometry.safeAreaInsets.bottom, 12))
+                    .padding(.bottom, loweredOnboardingBottomButtonPadding(for: geometry))
                 }
                 .background(
                     LinearGradient(
@@ -1175,18 +1175,18 @@ struct ExamPreviewOnboardingView: View {
                     )
 
                 Image(systemName: card.icon)
-                    .font(.system(size: 18, weight: .semibold))
+                    .font(.onboarding(size: 18, weight: .semibold))
                     .foregroundColor(accent)
             }
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(card.title)
-                    .font(.system(size: geometry.size.height < 700 ? 18 : 19, weight: .semibold, design: .rounded))
+                    .font(.onboarding(size: geometry.size.height < 700 ? 18 : 19, weight: .semibold))
                     .foregroundColor(Color.onboardingInk)
                     .lineLimit(1)
 
                 Text(card.detail)
-                    .font(.system(size: geometry.size.height < 700 ? 15 : 16, weight: .medium, design: .rounded))
+                    .font(.onboarding(size: geometry.size.height < 700 ? 15 : 16, weight: .medium))
                     .foregroundColor(Color.onboardingGrayStrong)
                     .lineLimit(2)
             }
@@ -1397,13 +1397,13 @@ struct MiniDiagnosisOnboardingView: View {
                     VStack(alignment: .leading, spacing: 16) {
                         HStack(spacing: 12) {
                             Text(stepLabel)
-                                .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 14 : 16, weight: .medium))
                                 .foregroundColor(Color.onboardingGrayStrong)
 
                             Spacer()
 
                             Text("Onboarding")
-                                .font(.system(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold))
                                 .foregroundColor(Color.onboardingInk)
                                 .padding(.horizontal, 16)
                                 .padding(.vertical, 9)
@@ -1425,11 +1425,11 @@ struct MiniDiagnosisOnboardingView: View {
 
                         VStack(alignment: .leading, spacing: 8) {
                             Text(titleText)
-                                .font(.system(size: geometry.size.height < 700 ? 30 : 34, weight: .bold, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 30 : 34, weight: .bold))
                                 .foregroundColor(Color.onboardingInk)
 
                             Text(subtitleText)
-                                .font(.system(size: geometry.size.height < 700 ? 17 : 19, weight: .medium, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 17 : 19, weight: .medium))
                                 .foregroundColor(Color.onboardingGrayStrong)
                                 .lineSpacing(2)
                         }
@@ -1442,7 +1442,7 @@ struct MiniDiagnosisOnboardingView: View {
                         .padding(.top, 6)
 
                         Text(solutionHintText)
-                            .font(.system(size: geometry.size.height < 700 ? 15 : 16, weight: .medium, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 15 : 16, weight: .medium))
                             .foregroundColor(Color.onboardingGrayStrong)
                             .lineSpacing(2)
                             .padding(.top, 8)
@@ -1453,7 +1453,7 @@ struct MiniDiagnosisOnboardingView: View {
                     .padding(.top, geometry.size.height < 700 ? 20 : 24)
                 }
             }
-            .safeAreaInset(edge: .bottom) {
+            .overlay(alignment: .bottom) {
                 VStack(spacing: 0) {
                     Button(action: {
                         persistSelections()
@@ -1461,9 +1461,9 @@ struct MiniDiagnosisOnboardingView: View {
                     }) {
                         HStack(spacing: 8) {
                             Text(isGerman ? "Weiter" : "Continue")
-                                .font(.system(size: 18, weight: .semibold))
+                                .font(.onboarding(size: 18, weight: .semibold))
                             Image(systemName: "arrow.right")
-                                .font(.system(size: 16, weight: .semibold))
+                                .font(.onboarding(size: 16, weight: .semibold))
                         }
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
@@ -1482,7 +1482,7 @@ struct MiniDiagnosisOnboardingView: View {
                     }
                     .padding(.horizontal, geometry.size.width < 400 ? 18 : 24)
                     .padding(.top, 10)
-                    .padding(.bottom, max(geometry.safeAreaInsets.bottom, 12))
+                    .padding(.bottom, loweredOnboardingBottomButtonPadding(for: geometry))
                 }
                 .background(
                     LinearGradient(
@@ -1524,13 +1524,13 @@ struct MiniDiagnosisOnboardingView: View {
         }) {
             HStack(spacing: 12) {
                 Text("\(option.emoji)  \(title)")
-                    .font(.system(size: geometry.size.height < 700 ? 16 : 17, weight: .semibold, design: .rounded))
+                    .font(.onboarding(size: geometry.size.height < 700 ? 16 : 17, weight: .semibold))
                     .foregroundColor(Color.onboardingInk)
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
                 Image(systemName: isSelected ? "checkmark.square.fill" : "square")
-                    .font(.system(size: 22, weight: .semibold))
+                    .font(.onboarding(size: 22, weight: .semibold))
                     .foregroundColor(isSelected ? Color.onboardingBlue : Color.onboardingGray.opacity(0.6))
             }
             .padding(.horizontal, 14)
@@ -1600,13 +1600,17 @@ private struct TopicShowcaseMarqueeRow: View {
     let iconSymbolSize: CGFloat
     let assetIconSize: CGFloat
     let fillChipFrame: Bool
+    let expandedTitles: Set<String>
+    let expandedCardExtraWidth: CGFloat
 
     private let spacing: CGFloat = 10
     private let speed: CGFloat = 26
 
     var body: some View {
         let safeItems = items.isEmpty ? [TopicShowcaseTileModel(id: "placeholder", title: "Topic", icon: "book.fill")] : items
-        let contentWidth = CGFloat(safeItems.count) * cardWidth + CGFloat(max(0, safeItems.count - 1)) * spacing
+        let contentWidth = safeItems.reduce(CGFloat.zero) { partialResult, item in
+            partialResult + itemWidth(for: item)
+        } + CGFloat(max(0, safeItems.count - 1)) * spacing
         let cycle = max(contentWidth + spacing, 1)
         let travel = (CGFloat(elapsed) * speed).truncatingRemainder(dividingBy: cycle)
         let offsetX = movesLeft ? -travel : travel - cycle
@@ -1636,9 +1640,17 @@ private struct TopicShowcaseMarqueeRow: View {
                     assetIconSize: assetIconSize,
                     fillChipFrame: fillChipFrame
                 )
-                    .frame(width: cardWidth, height: cardHeight)
+                    .frame(width: itemWidth(for: item), height: cardHeight)
             }
         }
+    }
+
+    private func itemWidth(for item: TopicShowcaseTileModel) -> CGFloat {
+        if expandedTitles.contains(item.title) {
+            return cardWidth + expandedCardExtraWidth
+        }
+
+        return cardWidth
     }
 }
 
@@ -1659,7 +1671,7 @@ private struct TopicShowcaseChip: View {
             iconView(for: item)
 
             Text(item.title)
-                .font(.system(size: titleFontSize, weight: .semibold, design: .rounded))
+                .font(.onboarding(size: titleFontSize, weight: .semibold))
                 .foregroundColor(Color.onboardingInk)
                 .lineLimit(2)
                 .truncationMode(.tail)
@@ -1707,7 +1719,7 @@ private struct TopicShowcaseChip: View {
                     .foregroundColor(.white)
             } else {
                 Image(systemName: item.icon)
-                    .font(.system(size: iconSymbolSize, weight: .semibold))
+                    .font(.onboarding(size: iconSymbolSize, weight: .semibold))
                     .foregroundColor(.white)
             }
         }
@@ -1839,6 +1851,7 @@ struct TopicShowcaseOnboardingView: View {
                     (screenWidth >= 428 && screenHeight >= 926)
                     || (screenWidth >= 414 && screenHeight >= 896)
                 )
+            let isStandardIPhoneDisplay = UIDevice.current.userInterfaceIdiom == .phone && !isIPhoneMaxDisplay
             let horizontalPadding: CGFloat = geometry.size.width < 400 ? 18 : 24
             let marqueeCardWidth: CGFloat = isIPhoneMaxDisplay
                 ? min(244, max(198, geometry.size.width * 0.58))
@@ -1857,6 +1870,10 @@ struct TopicShowcaseOnboardingView: View {
             let marqueeContainerHeight: CGFloat = isIPhoneMaxDisplay
                 ? min(geometry.size.height * 0.47, 360)
                 : min(geometry.size.height * 0.4, 300)
+            let expandedMarqueeTitles: Set<String> = isStandardIPhoneDisplay
+                ? ["Differentialrechnung", "Differential Calculus"]
+                : []
+            let expandedMarqueeExtraWidth: CGFloat = isStandardIPhoneDisplay ? 34 : 0
 
             ZStack {
                 AnimatedBackground()
@@ -1871,13 +1888,13 @@ struct TopicShowcaseOnboardingView: View {
                     VStack(alignment: .leading, spacing: 16) {
                         HStack(spacing: 12) {
                             Text(stepLabel)
-                                .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 14 : 16, weight: .medium))
                                 .foregroundColor(Color.onboardingGrayStrong)
 
                             Spacer()
 
                             Text("Onboarding")
-                                .font(.system(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold))
                                 .foregroundColor(Color.onboardingInk)
                                 .padding(.horizontal, 16)
                                 .padding(.vertical, 9)
@@ -1899,12 +1916,12 @@ struct TopicShowcaseOnboardingView: View {
 
                         VStack(alignment: .leading, spacing: 8) {
                             Text(titleText)
-                                .font(.system(size: geometry.size.height < 700 ? 30 : 34, weight: .bold, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 30 : 34, weight: .bold))
                                 .foregroundColor(Color.onboardingInk)
                                 .lineLimit(2)
 
                             Text(subtitleText)
-                                .font(.system(size: geometry.size.height < 700 ? 17 : 19, weight: .medium, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 17 : 19, weight: .medium))
                                 .foregroundColor(Color.onboardingGrayStrong)
                                 .lineSpacing(2)
                         }
@@ -1929,7 +1946,9 @@ struct TopicShowcaseOnboardingView: View {
                                         iconSize: marqueeIconSize,
                                         iconSymbolSize: marqueeIconSymbolSize,
                                         assetIconSize: marqueeAssetIconSize,
-                                        fillChipFrame: marqueeFillChipFrame
+                                        fillChipFrame: marqueeFillChipFrame,
+                                        expandedTitles: expandedMarqueeTitles,
+                                        expandedCardExtraWidth: expandedMarqueeExtraWidth
                                     )
                                 }
                             }
@@ -1943,16 +1962,16 @@ struct TopicShowcaseOnboardingView: View {
                     .padding(.top, geometry.size.height < 700 ? 20 : 24)
                 }
             }
-            .safeAreaInset(edge: .bottom) {
+            .overlay(alignment: .bottom) {
                 VStack(spacing: 0) {
                     Button(action: {
                         onboardingManager.nextScreen()
                     }) {
                         HStack(spacing: 8) {
                             Text(isGerman ? "Weiter" : "Continue")
-                                .font(.system(size: 18, weight: .semibold))
+                                .font(.onboarding(size: 18, weight: .semibold))
                             Image(systemName: "arrow.right")
-                                .font(.system(size: 16, weight: .semibold))
+                                .font(.onboarding(size: 16, weight: .semibold))
                         }
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
@@ -1971,7 +1990,7 @@ struct TopicShowcaseOnboardingView: View {
                     }
                     .padding(.horizontal, horizontalPadding)
                     .padding(.top, 10)
-                    .padding(.bottom, max(geometry.safeAreaInsets.bottom, 12))
+                    .padding(.bottom, loweredOnboardingBottomButtonPadding(for: geometry))
                 }
                 .background(
                     LinearGradient(
@@ -2226,13 +2245,13 @@ struct StepByStepOnboardingView: View {
                     VStack(alignment: .leading, spacing: 16) {
                         HStack(spacing: 12) {
                             Text(stepLabel)
-                                .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 14 : 16, weight: .medium))
                                 .foregroundColor(Color.onboardingGrayStrong)
 
                             Spacer()
 
                             Text("Onboarding")
-                                .font(.system(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold))
                                 .foregroundColor(Color.onboardingInk)
                                 .padding(.horizontal, 16)
                                 .padding(.vertical, 9)
@@ -2254,12 +2273,12 @@ struct StepByStepOnboardingView: View {
 
                         VStack(alignment: .leading, spacing: 8) {
                             Text(titleText)
-                                .font(.system(size: geometry.size.height < 700 ? 30 : 34, weight: .bold, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 30 : 34, weight: .bold))
                                 .foregroundColor(Color.onboardingInk)
                                 .lineLimit(2)
 
                             Text(subtitleText)
-                                .font(.system(size: geometry.size.height < 700 ? 17 : 19, weight: .medium, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 17 : 19, weight: .medium))
                                 .foregroundColor(Color.onboardingGrayStrong)
                                 .lineSpacing(2)
                         }
@@ -2267,18 +2286,18 @@ struct StepByStepOnboardingView: View {
 
                         VStack(alignment: .leading, spacing: 12) {
                             Text(activeStep.title)
-                                .font(.system(size: geometry.size.height < 700 ? 20 : 22, weight: .bold, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 20 : 22, weight: .bold))
                                 .foregroundColor(Color.onboardingInk)
                                 .lineLimit(2)
 
                             Text(activeStep.explanation)
-                                .font(.system(size: geometry.size.height < 700 ? 15 : 16, weight: .medium, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 15 : 16, weight: .medium))
                                 .foregroundColor(Color.onboardingGrayStrong)
                                 .lineSpacing(2)
 
                             VStack(alignment: .leading, spacing: 7) {
                                 Text(formulaTitle)
-                                    .font(.system(size: 13, weight: .semibold, design: .rounded))
+                                    .font(.onboarding(size: 13, weight: .semibold))
                                     .foregroundColor(Color.onboardingGrayStrong)
 
                                 LaTeXView(
@@ -2291,11 +2310,11 @@ struct StepByStepOnboardingView: View {
 
                             VStack(alignment: .leading, spacing: 6) {
                                 Text(simpleTitle)
-                                    .font(.system(size: 13, weight: .semibold, design: .rounded))
+                                    .font(.onboarding(size: 13, weight: .semibold))
                                     .foregroundColor(Color.onboardingGrayStrong)
 
                                 Text(activeStep.simpleExplanation)
-                                    .font(.system(size: geometry.size.height < 700 ? 14 : 15, weight: .medium, design: .rounded))
+                                    .font(.onboarding(size: geometry.size.height < 700 ? 14 : 15, weight: .medium))
                                     .foregroundColor(Color.onboardingInk)
                                     .lineSpacing(2)
                             }
@@ -2331,12 +2350,12 @@ struct StepByStepOnboardingView: View {
 
                         VStack(spacing: 6) {
                             Text(highlightTitle)
-                                .font(.system(size: geometry.size.height < 700 ? 17 : 18, weight: .semibold, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 17 : 18, weight: .semibold))
                                 .foregroundColor(Color.onboardingBlue)
                                 .multilineTextAlignment(.center)
 
                             Text(highlightSubtitle)
-                                .font(.system(size: geometry.size.height < 700 ? 13 : 14, weight: .medium, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 13 : 14, weight: .medium))
                                 .foregroundColor(Color.onboardingGrayStrong)
                                 .multilineTextAlignment(.center)
                         }
@@ -2349,16 +2368,16 @@ struct StepByStepOnboardingView: View {
                     .padding(.top, geometry.size.height < 700 ? 20 : 24)
                 }
             }
-            .safeAreaInset(edge: .bottom) {
+            .overlay(alignment: .bottom) {
                 VStack(spacing: 0) {
                     Button(action: {
                         onboardingManager.nextScreen()
                     }) {
                         HStack(spacing: 8) {
                             Text(isGerman ? "Weiter" : "Continue")
-                                .font(.system(size: 18, weight: .semibold))
+                                .font(.onboarding(size: 18, weight: .semibold))
                             Image(systemName: "arrow.right")
-                                .font(.system(size: 16, weight: .semibold))
+                                .font(.onboarding(size: 16, weight: .semibold))
                         }
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
@@ -2377,7 +2396,7 @@ struct StepByStepOnboardingView: View {
                     }
                     .padding(.horizontal, horizontalPadding)
                     .padding(.top, 10)
-                    .padding(.bottom, max(geometry.safeAreaInsets.bottom, 12))
+                    .padding(.bottom, loweredOnboardingBottomButtonPadding(for: geometry))
                 }
                 .background(
                     LinearGradient(
@@ -2453,6 +2472,25 @@ private struct DashedVerticalLine: Shape {
     }
 }
 
+private func loweredOnboardingBottomButtonPadding(for geometry: GeometryProxy) -> CGFloat {
+    guard UIDevice.current.userInterfaceIdiom == .phone else {
+        return max(geometry.safeAreaInsets.bottom, 12)
+    }
+
+    let displayBounds = UIScreen.main.bounds
+    let screenWidth = min(displayBounds.width, displayBounds.height)
+    let screenHeight = max(displayBounds.width, displayBounds.height)
+    let isIPhoneMaxDisplay =
+        (screenWidth >= 428 && screenHeight >= 926)
+        || (screenWidth >= 414 && screenHeight >= 896)
+
+    if isIPhoneMaxDisplay {
+        return 18
+    }
+
+    return 22
+}
+
 struct PersonalizedPlanOnboardingView: View {
     @EnvironmentObject var onboardingManager: OnboardingManager
     @ObservedObject private var settings = SettingsModel.shared
@@ -2503,19 +2541,6 @@ struct PersonalizedPlanOnboardingView: View {
             return 3
         default:
             return 2
-        }
-    }
-
-    private var simulationCount: Int {
-        switch daysUntilExam {
-        case ...10:
-            return 1
-        case ...28:
-            return 2
-        case ...56:
-            return 3
-        default:
-            return 4
         }
     }
 
@@ -2603,8 +2628,6 @@ struct PersonalizedPlanOnboardingView: View {
 
     private var phases: [PersonalizedPlanPhase] {
         let ranges = timelineRanges
-        let simulationsTitleDE = simulationCount == 1 ? "1 realistische Klausur-Simulation" : "\(simulationCount) realistische Klausur-Simulationen"
-        let simulationsTitleEN = simulationCount == 1 ? "1 realistic mock exam simulation" : "\(simulationCount) realistic mock exam simulations"
 
         return [
             PersonalizedPlanPhase(
@@ -2628,10 +2651,10 @@ struct PersonalizedPlanOnboardingView: View {
             PersonalizedPlanPhase(
                 startDay: ranges[2].0,
                 endDay: ranges[2].1,
-                titleDE: simulationsTitleDE,
-                titleEN: simulationsTitleEN,
-                detailDE: "Prüfungsnahe Simulationen unter realistischen Bedingungen.",
-                detailEN: "Exam-like simulations under realistic conditions.",
+                titleDE: "3 echte Klausuren",
+                titleEN: "3 real exams",
+                detailDE: "Bearbeite 3 echte Klausuren unter Prüfungsbedingungen.",
+                detailEN: "Work through 3 real exams under exam conditions.",
                 icon: "doc.text.magnifyingglass"
             )
         ]
@@ -2683,6 +2706,7 @@ struct PersonalizedPlanOnboardingView: View {
             let goalCardMaxWidth: CGFloat = min(geometry.size.width * 0.86, 340)
             let timelineCardMaxWidth: CGFloat = min(geometry.size.width * 0.8, 310)
             let timelineItemSpacing: CGFloat = 14
+            let startButtonBottomPadding = loweredOnboardingBottomButtonPadding(for: geometry)
 
             ZStack {
                 AnimatedBackground()
@@ -2697,13 +2721,13 @@ struct PersonalizedPlanOnboardingView: View {
                     VStack(alignment: .leading, spacing: 16) {
                         HStack(spacing: 12) {
                             Text(stepLabel)
-                                .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 14 : 16, weight: .medium))
                                 .foregroundColor(Color.onboardingGrayStrong)
 
                             Spacer()
 
                             Text("Onboarding")
-                                .font(.system(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold))
                                 .foregroundColor(Color.onboardingInk)
                                 .padding(.horizontal, 16)
                                 .padding(.vertical, 9)
@@ -2724,28 +2748,28 @@ struct PersonalizedPlanOnboardingView: View {
                         .padding(.bottom, 8)
 
                         Text(titleText)
-                            .font(.system(size: geometry.size.height < 700 ? 34 : 38, weight: .bold, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 34 : 38, weight: .bold))
                             .foregroundColor(Color.onboardingInk)
                             .lineLimit(2)
 
                         Text(subtitleText)
-                            .font(.system(size: geometry.size.height < 700 ? 17 : 19, weight: .medium, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 17 : 19, weight: .medium))
                             .foregroundColor(Color.onboardingGrayStrong)
                             .lineSpacing(2)
 
                         VStack(alignment: .leading, spacing: 8) {
                             HStack(spacing: 10) {
                                 Text("🎯")
-                                    .font(.system(size: 30))
+                                    .font(.onboarding(size: 30))
 
                                 Text(goalTitleText)
-                                    .font(.system(size: geometry.size.height < 700 ? 24 : 26, weight: .bold, design: .rounded))
+                                    .font(.onboarding(size: geometry.size.height < 700 ? 24 : 26, weight: .bold))
                                     .foregroundColor(Color.onboardingInk)
                                     .lineLimit(2)
                             }
 
                             Text(goalSubtitleText)
-                                .font(.system(size: geometry.size.height < 700 ? 15 : 16, weight: .medium, design: .rounded))
+                                .font(.onboarding(size: geometry.size.height < 700 ? 15 : 16, weight: .medium))
                                 .foregroundColor(Color.onboardingGrayStrong)
                         }
                         .padding(.horizontal, 16)
@@ -2764,7 +2788,7 @@ struct PersonalizedPlanOnboardingView: View {
                         .padding(.top, 2)
 
                         Text(timelineTitleText)
-                            .font(.system(size: geometry.size.height < 700 ? 28 : 30, weight: .bold, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 28 : 30, weight: .bold))
                             .foregroundColor(Color.onboardingInk)
                             .padding(.top, 6)
 
@@ -2780,23 +2804,23 @@ struct PersonalizedPlanOnboardingView: View {
 
                                     VStack(alignment: .leading, spacing: 10) {
                                         Text(dayRangeLabel(for: phase))
-                                            .font(.system(size: geometry.size.height < 700 ? 20 : 21, weight: .bold, design: .rounded))
+                                            .font(.onboarding(size: geometry.size.height < 700 ? 20 : 21, weight: .bold))
                                             .foregroundColor(Color.onboardingBlue)
 
                                         HStack(alignment: .top, spacing: 12) {
                                             Image(systemName: phase.icon)
-                                                .font(.system(size: 20, weight: .semibold))
+                                                .font(.onboarding(size: 20, weight: .semibold))
                                                 .foregroundColor(Color.onboardingBlue)
                                                 .frame(width: 30, height: 30)
 
                                             VStack(alignment: .leading, spacing: 6) {
                                                 Text(isGerman ? phase.titleDE : phase.titleEN)
-                                                    .font(.system(size: geometry.size.height < 700 ? 19 : 20, weight: .bold, design: .rounded))
+                                                    .font(.onboarding(size: geometry.size.height < 700 ? 19 : 20, weight: .bold))
                                                     .foregroundColor(Color.onboardingInk)
                                                     .fixedSize(horizontal: false, vertical: true)
 
                                                 Text(isGerman ? phase.detailDE : phase.detailEN)
-                                                    .font(.system(size: geometry.size.height < 700 ? 14 : 15, weight: .medium, design: .rounded))
+                                                    .font(.onboarding(size: geometry.size.height < 700 ? 14 : 15, weight: .medium))
                                                     .foregroundColor(Color.onboardingGrayStrong)
                                                     .lineSpacing(2)
                                                     .fixedSize(horizontal: false, vertical: true)
@@ -2840,13 +2864,13 @@ struct PersonalizedPlanOnboardingView: View {
                     .padding(.top, geometry.size.height < 700 ? 20 : 24)
                 }
             }
-            .safeAreaInset(edge: .bottom) {
+            .overlay(alignment: .bottom) {
                 VStack(spacing: 0) {
                     Button(action: {
                         onboardingManager.nextScreen()
                     }) {
                         Text(startButtonText)
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                            .font(.onboarding(size: 18, weight: .bold))
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 18)
@@ -2864,7 +2888,7 @@ struct PersonalizedPlanOnboardingView: View {
                     }
                     .padding(.horizontal, horizontalPadding)
                     .padding(.top, 10)
-                    .padding(.bottom, max(geometry.safeAreaInsets.bottom, 12))
+                    .padding(.bottom, startButtonBottomPadding)
                 }
                 .background(
                     LinearGradient(
@@ -3003,7 +3027,17 @@ struct PremiumTrialOfferOnboardingView: View {
 
     var body: some View {
         GeometryReader { geometry in
+            let displayBounds = UIScreen.main.bounds
+            let screenWidth = min(displayBounds.width, displayBounds.height)
+            let screenHeight = max(displayBounds.width, displayBounds.height)
+            let isIPhoneMaxDisplay = UIDevice.current.userInterfaceIdiom == .phone
+                && (
+                    (screenWidth >= 428 && screenHeight >= 926)
+                    || (screenWidth >= 414 && screenHeight >= 896)
+                )
+            let isStandardIPhoneDisplay = UIDevice.current.userInterfaceIdiom == .phone && !isIPhoneMaxDisplay
             let horizontalPadding: CGFloat = geometry.size.width < 400 ? 18 : 24
+            let buttonBottomPadding = loweredOnboardingBottomButtonPadding(for: geometry)
 
             ZStack {
                 AnimatedBackground()
@@ -3017,13 +3051,13 @@ struct PremiumTrialOfferOnboardingView: View {
                 VStack(spacing: 0) {
                     HStack(spacing: 12) {
                         Text(stepLabel)
-                            .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 14 : 16, weight: .medium))
                             .foregroundColor(Color.onboardingGrayStrong)
 
                         Spacer()
 
                         Text("Onboarding")
-                            .font(.system(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold))
                             .foregroundColor(Color.onboardingInk)
                             .padding(.horizontal, 16)
                             .padding(.vertical, 9)
@@ -3043,11 +3077,11 @@ struct PremiumTrialOfferOnboardingView: View {
                     )
                     .padding(.top, 16)
 
-                    Spacer(minLength: geometry.size.height < 700 ? 70 : 96)
+                    Spacer(minLength: geometry.size.height < 700 ? 36 : 52)
 
                     VStack(spacing: 24) {
                         Text(premiumBadgeText)
-                            .font(.system(size: geometry.size.height < 700 ? 14 : 15, weight: .bold, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 14 : 15, weight: .bold))
                             .foregroundColor(Color.onboardingBlue)
                             .padding(.horizontal, 16)
                             .padding(.vertical, 10)
@@ -3061,35 +3095,36 @@ struct PremiumTrialOfferOnboardingView: View {
                             )
 
                         titleText
-                            .font(.system(size: geometry.size.height < 700 ? 33 : 38, weight: .bold, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 33 : 38, weight: .bold))
                             .foregroundColor(Color.onboardingInk)
                             .multilineTextAlignment(.center)
                             .lineSpacing(3)
                             .frame(maxWidth: 320)
 
                         Text(subtitleText)
-                            .font(.system(size: geometry.size.height < 700 ? 16 : 18, weight: .medium, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 16 : 18, weight: .medium))
                             .foregroundColor(Color.onboardingGrayStrong)
                             .multilineTextAlignment(.center)
                             .lineSpacing(2)
                             .frame(maxWidth: 300)
                     }
                     .frame(maxWidth: .infinity)
+                    .offset(y: isStandardIPhoneDisplay ? -46 : 0)
 
                     Spacer()
                 }
                 .padding(.horizontal, horizontalPadding)
                 .padding(.top, geometry.size.height < 700 ? 20 : 24)
             }
-            .safeAreaInset(edge: .bottom) {
+            .overlay(alignment: .bottom) {
                 VStack(spacing: 12) {
                     HStack(spacing: 6) {
                         Image(systemName: "checkmark")
-                            .font(.system(size: 13, weight: .bold))
+                            .font(.onboarding(size: 13, weight: .bold))
                             .foregroundColor(Color.onboardingGrayStrong)
 
                         Text(footnoteText)
-                            .font(.system(size: 15, weight: .semibold, design: .rounded))
+                            .font(.onboarding(size: 15, weight: .semibold))
                             .foregroundColor(Color.onboardingGrayStrong)
                     }
 
@@ -3097,7 +3132,7 @@ struct PremiumTrialOfferOnboardingView: View {
                         onboardingManager.nextScreen()
                     }) {
                         Text(buttonText)
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                            .font(.onboarding(size: 18, weight: .bold))
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 18)
@@ -3113,7 +3148,7 @@ struct PremiumTrialOfferOnboardingView: View {
                                     .shadow(color: Color.onboardingBlue.opacity(0.24), radius: 10, x: 0, y: 5)
                             )
                     }
-                    .padding(.bottom, max(geometry.safeAreaInsets.bottom, 12))
+                    .padding(.bottom, buttonBottomPadding)
                 }
                 .padding(.horizontal, horizontalPadding)
                 .padding(.top, 10)
@@ -3196,6 +3231,15 @@ struct TrialReminderOnboardingView: View {
 
     var body: some View {
         GeometryReader { geometry in
+            let displayBounds = UIScreen.main.bounds
+            let screenWidth = min(displayBounds.width, displayBounds.height)
+            let screenHeight = max(displayBounds.width, displayBounds.height)
+            let isIPhoneMaxDisplay = UIDevice.current.userInterfaceIdiom == .phone
+                && (
+                    (screenWidth >= 428 && screenHeight >= 926)
+                    || (screenWidth >= 414 && screenHeight >= 896)
+                )
+            let isStandardIPhoneDisplay = UIDevice.current.userInterfaceIdiom == .phone && !isIPhoneMaxDisplay
             let horizontalPadding: CGFloat = geometry.size.width < 400 ? 18 : 24
 
             ZStack {
@@ -3210,13 +3254,13 @@ struct TrialReminderOnboardingView: View {
                 VStack(spacing: 0) {
                     HStack(spacing: 12) {
                         Text(stepLabel)
-                            .font(.system(size: geometry.size.height < 700 ? 14 : 16, weight: .medium, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 14 : 16, weight: .medium))
                             .foregroundColor(Color.onboardingGrayStrong)
 
                         Spacer()
 
                         Text("Onboarding")
-                            .font(.system(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 13 : 15, weight: .semibold))
                             .foregroundColor(Color.onboardingInk)
                             .padding(.horizontal, 16)
                             .padding(.vertical, 9)
@@ -3240,42 +3284,43 @@ struct TrialReminderOnboardingView: View {
 
                     VStack(spacing: 24) {
                         Text("🔔")
-                            .font(.system(size: geometry.size.height < 700 ? 82 : 94))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 82 : 94))
                             .rotationEffect(.degrees(animateBell ? 12 : -12), anchor: .top)
                             .scaleEffect(animateBell ? 1.05 : 0.94)
                             .offset(y: animateBell ? -4 : 4)
                             .animation(.easeInOut(duration: 0.9).repeatForever(autoreverses: true), value: animateBell)
 
                         titleText
-                            .font(.system(size: geometry.size.height < 700 ? 33 : 38, weight: .bold, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 33 : 38, weight: .bold))
                             .foregroundColor(Color.onboardingInk)
                             .multilineTextAlignment(.center)
                             .lineSpacing(3)
                             .frame(maxWidth: 320)
 
                         Text(subtitleText)
-                            .font(.system(size: geometry.size.height < 700 ? 16 : 18, weight: .medium, design: .rounded))
+                            .font(.onboarding(size: geometry.size.height < 700 ? 16 : 18, weight: .medium))
                             .foregroundColor(Color.onboardingGrayStrong)
                             .multilineTextAlignment(.center)
                             .lineSpacing(2)
                             .frame(maxWidth: 300)
                     }
                     .frame(maxWidth: .infinity)
+                    .offset(y: isStandardIPhoneDisplay ? -46 : 0)
 
                     Spacer()
                 }
                 .padding(.horizontal, horizontalPadding)
                 .padding(.top, geometry.size.height < 700 ? 20 : 24)
             }
-            .safeAreaInset(edge: .bottom) {
+            .overlay(alignment: .bottom) {
                 VStack(spacing: 12) {
                     HStack(spacing: 6) {
                         Image(systemName: "checkmark")
-                            .font(.system(size: 13, weight: .bold))
+                            .font(.onboarding(size: 13, weight: .bold))
                             .foregroundColor(Color.onboardingGrayStrong)
 
                         Text(footnoteText)
-                            .font(.system(size: 15, weight: .semibold, design: .rounded))
+                            .font(.onboarding(size: 15, weight: .semibold))
                             .foregroundColor(Color.onboardingGrayStrong)
                     }
 
@@ -3283,7 +3328,7 @@ struct TrialReminderOnboardingView: View {
                         onboardingManager.nextScreen()
                     }) {
                         Text(buttonText)
-                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                            .font(.onboarding(size: 18, weight: .bold))
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 18)
@@ -3299,7 +3344,7 @@ struct TrialReminderOnboardingView: View {
                                     .shadow(color: Color.onboardingBlue.opacity(0.24), radius: 10, x: 0, y: 5)
                             )
                     }
-                    .padding(.bottom, max(geometry.safeAreaInsets.bottom, 12))
+                    .padding(.bottom, loweredOnboardingBottomButtonPadding(for: geometry))
                 }
                 .padding(.horizontal, horizontalPadding)
                 .padding(.top, 10)
