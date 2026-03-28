@@ -2997,12 +2997,12 @@ struct PremiumTrialOfferOnboardingView: View {
     private var titleText: Text {
         if isGerman {
             return Text("Wir schenken dir ")
-                + Text("3 Tage").foregroundColor(Color.onboardingBlue)
+                + Text("3\u{00A0}Tage").foregroundColor(Color.onboardingBlue)
                 + Text(" Premiumzugang.")
         }
 
         return Text("We offer ")
-            + Text("3 days").foregroundColor(Color.onboardingBlue)
+            + Text("3\u{00A0}days").foregroundColor(Color.onboardingBlue)
             + Text(" of premium access, just for you")
     }
 
@@ -3205,12 +3205,12 @@ struct TrialReminderOnboardingView: View {
     private var titleText: Text {
         if isGerman {
             return Text("Wir erinnern dich ")
-                + Text("1 Tag").foregroundColor(Color.onboardingBlue)
+                + Text("1\u{202F}Tag").foregroundColor(Color.onboardingBlue)
                 + Text(" bevor dein Test endet")
         }
 
         return Text("We'll send you a reminder ")
-            + Text("1 day").foregroundColor(Color.onboardingBlue)
+            + Text("1\u{00A0}day").foregroundColor(Color.onboardingBlue)
             + Text(" before your trial ends")
     }
 
