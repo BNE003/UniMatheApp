@@ -1,143 +1,310 @@
-{    "id": "550e8400-e29b-41d4-a716-446655440011",
-    "topic": "Mengen und Abbildungen",
-    "steps": [
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440012",
-            "text": "Willkommen in der Mengenlehre! Hier beschäftigen wir uns mit Mengen, ihren Eigenschaften und Beziehungen. Lass uns mit einer einfachen Menge beginnen.",
-            "formula": "A = \\{1, 2, 3, 4, 5\\}",
-            "explanation": "Eine Menge ist eine Zusammenfassung von verschiedenen Elementen. Hier haben wir die Menge A, die die Zahlen 1 bis 5 enthält. Die geschweiften Klammern zeigen an, dass es sich um eine Menge handelt. Stell dir vor, du hast eine Schachtel mit verschiedenen Gegenständen - das ist wie eine Menge!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440013",
-            "text": "Die Mächtigkeit einer Menge gibt an, wie viele Elemente sie enthält.",
-            "formula": "|A| = 5",
-            "explanation": "Die Mächtigkeit der Menge A ist 5, da sie genau 5 Elemente enthält. Die senkrechten Striche | | bezeichnen die Mächtigkeit einer Menge. Es ist wie das Zählen der Gegenstände in deiner Schachtel!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440014",
-            "text": "Eine Teilmenge enthält nur Elemente, die auch in der ursprünglichen Menge enthalten sind.",
-            "formula": "B = \\{2, 4\\} \\subseteq A",
-            "explanation": "Die Menge B ist eine Teilmenge von A, da alle Elemente von B (2 und 4) auch in A enthalten sind. Das Symbol ⊆ bedeutet 'ist Teilmenge von'. Es ist wie eine kleinere Schachtel, die nur einige der Gegenstände aus der größeren Schachtel enthält!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440015",
-            "text": "Die Vereinigung zweier Mengen enthält alle Elemente, die in mindestens einer der Mengen vorkommen.",
-            "formula": "A \\cup B = \\{1, 2, 3, 4, 5\\}",
-            "explanation": "Die Vereinigung von A und B enthält alle Elemente, die in A oder B vorkommen. Da B eine Teilmenge von A ist, ist die Vereinigung gleich A. Es ist wie das Zusammenfügen zweier Schachteln - du behältst alle Gegenstände!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440016",
-            "text": "Die Potenzmenge einer Menge enthält alle möglichen Teilmengen.",
-            "formula": "\\mathcal{P}(A) = \\{\\emptyset, \\{1\\}, \\{2\\}, \\{3\\}, \\{4\\}, \\{5\\}, \\{1,2\\}, \\{1,3\\}, \\{1,4\\}, \\{1,5\\}, \\{2,3\\}, \\{2,4\\}, \\{2,5\\}, \\{3,4\\}, \\{3,5\\}, \\{4,5\\}, \\{1,2,3\\}, \\{1,2,4\\}, \\{1,2,5\\}, \\{1,3,4\\}, \\{1,3,5\\}, \\{1,4,5\\}, \\{2,3,4\\}, \\{2,3,5\\}, \\{2,4,5\\}, \\{3,4,5\\}, \\{1,2,3,4\\}, \\{1,2,3,5\\}, \\{1,2,4,5\\}, \\{1,3,4,5\\}, \\{2,3,4,5\\}, \\{1,2,3,4,5\\}\\}",
-            "explanation": "Die Potenzmenge von A enthält alle möglichen Teilmengen von A, einschließlich der leeren Menge und A selbst. Die Mächtigkeit der Potenzmenge ist 2^5 = 32, da es für jedes Element zwei Möglichkeiten gibt: es ist in der Teilmenge enthalten oder nicht. Es ist wie alle möglichen Kombinationen von Gegenständen, die du aus deiner Schachtel nehmen kannst!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440017",
-            "text": "Eine Abbildung ordnet jedem Element der Definitionsmenge genau ein Element der Zielmenge zu.",
-            "formula": "f: A \\rightarrow \\mathbb{N}, f(x) = x^2",
-            "explanation": "Diese Abbildung f ordnet jeder Zahl aus A ihr Quadrat zu. Zum Beispiel wird 2 auf 4 abgebildet, 3 auf 9, usw. Die Abbildung ist eindeutig, da jede Zahl genau ein Quadrat hat. Es ist wie eine Maschine, die aus jeder Zahl ihre Quadratzahl macht!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440018",
-            "text": "Das Bild einer Abbildung enthält alle Elemente, die als Funktionswerte auftreten.",
-            "formula": "f(A) = \\{1, 4, 9, 16, 25\\}",
-            "explanation": "Das Bild von f enthält alle Quadratzahlen der Elemente aus A. Diese Menge zeigt uns, welche Werte die Abbildung tatsächlich annimmt. Es ist wie die Sammlung aller Ergebnisse, die die Maschine produzieren kann!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440019",
-            "text": "Der Definitionsbereich einer Abbildung ist die Menge aller Elemente, für die die Abbildung definiert ist.",
-            "formula": "D_f = A = \\{1, 2, 3, 4, 5\\}",
-            "explanation": "Der Definitionsbereich enthält alle Elemente, die wir in die Abbildung einsetzen können. In unserem Fall ist es die gesamte Menge A. Es ist wie die Liste aller Gegenstände, die wir in unsere Maschine stecken können!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440020",
-            "text": "Eine Abbildung ist injektiv, wenn verschiedene Elemente auf verschiedene Bilder abgebildet werden.",
-            "formula": "f(x_1) = f(x_2) \\Rightarrow x_1 = x_2",
-            "explanation": "In unserer Abbildung f(x) = x² ist f injektiv, da verschiedene Zahlen verschiedene Quadrate haben. Es ist wie eine Maschine, die niemals zwei verschiedene Eingaben auf dasselbe Ergebnis abbildet!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440021",
-            "text": "Eine Abbildung ist surjektiv, wenn jedes Element der Zielmenge als Bild auftritt.",
-            "formula": "\\forall y \\in \\mathbb{N} \\exists x \\in A: f(x) = y",
-            "explanation": "Unsere Abbildung f(x) = x² ist nicht surjektiv auf ℕ, da nicht jede natürliche Zahl ein Quadrat ist. Es ist wie eine Maschine, die nicht alle möglichen Ergebnisse produzieren kann!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440022",
-            "text": "Eine Abbildung ist bijektiv, wenn sie injektiv und surjektiv ist.",
-            "formula": "f: A \\rightarrow f(A) \\text{ ist bijektiv}",
-            "explanation": "Wenn wir den Wertebereich auf das Bild einschränken, wird unsere Abbildung bijektiv. Es ist wie eine perfekte Maschine, die jede Eingabe auf ein eindeutiges Ergebnis abbildet und alle möglichen Ergebnisse erreicht!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440023",
-            "text": "Die Verkettung zweier Abbildungen ist wieder eine Abbildung.",
-            "formula": "(g \\circ f)(x) = g(f(x))",
-            "explanation": "Wenn wir zwei Abbildungen hintereinander ausführen, erhalten wir eine neue Abbildung. Es ist wie das Hintereinanderschalten zweier Maschinen - die Ausgabe der ersten wird zur Eingabe der zweiten!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440024",
-            "text": "Die Umkehrabbildung macht die Wirkung einer bijektiven Abbildung rückgängig.",
-            "formula": "f^{-1}(f(x)) = x",
-            "explanation": "Für unsere Abbildung f(x) = x² ist die Umkehrabbildung f^(-1)(x) = √x. Es ist wie eine Maschine, die den Prozess rückwärts laufen lässt!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440025",
-            "text": "Die Identitätsabbildung bildet jedes Element auf sich selbst ab.",
-            "formula": "\\text{id}_A: A \\rightarrow A, \\text{id}_A(x) = x",
-            "explanation": "Die Identitätsabbildung ist die einfachste Abbildung - sie lässt alles unverändert. Es ist wie eine Maschine, die einfach alles durchlässt, ohne etwas zu verändern!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440026",
-            "text": "Die leere Menge ist eine besondere Menge ohne Elemente.",
-            "formula": "\\emptyset = \\{\\}",
-            "explanation": "Die leere Menge ist die einzige Menge mit Mächtigkeit 0. Sie ist Teilmenge jeder Menge. Es ist wie eine leere Schachtel - sie enthält nichts, aber sie existiert!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440027",
-            "text": "Die Schnittmenge zweier Mengen enthält nur die gemeinsamen Elemente.",
-            "formula": "A \\cap B = \\{2, 4\\}",
-            "explanation": "Die Schnittmenge von A und B enthält nur die Elemente, die in beiden Mengen vorkommen. Es ist wie der gemeinsame Bereich zweier sich überlappender Kreise!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440028",
-            "text": "Die Differenzmenge enthält die Elemente, die nur in der ersten Menge vorkommen.",
-            "formula": "A \\setminus B = \\{1, 3, 5\\}",
-            "explanation": "Die Differenzmenge A \\ B enthält die Elemente von A, die nicht in B vorkommen. Es ist wie das Entfernen der gemeinsamen Elemente aus der ersten Menge!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440029",
-            "text": "Das kartesische Produkt zweier Mengen enthält alle möglichen Paare.",
-            "formula": "A \\times B = \\{(1,2), (1,4), (2,2), (2,4), (3,2), (3,4), (4,2), (4,4), (5,2), (5,4)\\}",
-            "explanation": "Das kartesische Produkt enthält alle möglichen Kombinationen von Elementen aus beiden Mengen. Es ist wie das Erstellen aller möglichen Paare aus den Elementen beider Mengen!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440030",
-            "text": "Eine Äquivalenzrelation teilt eine Menge in Äquivalenzklassen ein.",
-            "formula": "x \\sim y \\Leftrightarrow x \\equiv y \\pmod{2}",
-            "explanation": "Diese Äquivalenzrelation teilt die Menge A in zwei Klassen: die geraden und die ungeraden Zahlen. Es ist wie das Sortieren von Gegenständen nach bestimmten Kriterien!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440031",
-            "text": "Die Faktormenge enthält alle Äquivalenzklassen.",
-            "formula": "A/\\sim = \\{\\{1,3,5\\}, \\{2,4\\}\\}",
-            "explanation": "Die Faktormenge enthält die Mengen der geraden und ungeraden Zahlen. Es ist wie das Zusammenfassen ähnlicher Gegenstände in Gruppen!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440032",
-            "text": "Eine Ordnungsrelation vergleicht Elemente einer Menge.",
-            "formula": "x \\leq y \\Leftrightarrow x \\text{ ist kleiner oder gleich } y",
-            "explanation": "Die übliche Kleiner-gleich-Relation ist eine Ordnungsrelation. Sie erlaubt uns, Elemente zu vergleichen. Es ist wie das Sortieren von Gegenständen nach ihrer Größe!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440033",
-            "text": "Eine Wohlordnung ist eine totale Ordnung, in der jede nichtleere Teilmenge ein kleinstes Element hat.",
-            "formula": "\\forall B \\subseteq A, B \\neq \\emptyset \\exists b \\in B: b \\leq x \\forall x \\in B",
-            "explanation": "Die natürliche Ordnung auf A ist eine Wohlordnung. Jede nichtleere Teilmenge hat ein kleinstes Element. Es ist wie eine perfekte Sortierung, bei der wir immer das kleinste Element finden können!"
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440034",
-            "text": "Zum Schluss schauen wir uns an, wie Mengen und Abbildungen in der Informatik verwendet werden.",
-            "formula": "f: \\{0,1\\}^n \\rightarrow \\{0,1\\}",
-            "explanation": "Boolesche Funktionen sind Abbildungen von Bitfolgen auf einzelne Bits. Sie sind fundamental für die digitale Logik und Computerarchitektur. Es ist wie die Grundbausteine der digitalen Welt!"
-        }
-    ]
-} 
+{
+  "id": "550e8400-e29b-41d4-a716-446655440011",
+  "topic": "Mengen und Abbildungen",
+  "steps": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440012",
+      "section": "Kapitel 1 · Was ist eine Menge?",
+      "text": "Willkommen! Mengen und Abbildungen sind die Sprache, in der fast die gesamte Mathematik geschrieben ist. Vektorräume, Funktionen, Wahrscheinlichkeiten – überall stecken Mengen und Abbildungen dahinter.\n\nDiese Lektion setzt nichts voraus außer Schulmathematik. Wir gehen langsam vor und üben vor allem, Definitionen genau zu lesen.",
+      "explanation": "Unser Fahrplan:\n1. Was ist eine Menge? Schreibweisen und Zahlbereiche\n2. Teilmengen und Potenzmenge\n3. Mit Mengen rechnen: Schnitt, Vereinigung, Differenz, Komplement\n4. Paare und kartesisches Produkt\n5. Abbildungen: was sie sind und was nicht\n6. Injektiv, surjektiv, bijektiv\n7. Verkettung und Umkehrabbildung\n8. Relationen: Äquivalenz und Ordnung\n9. Ausblick und Rückblick",
+      "insight": "Ein Tipp für das ganze Studium: Lies jede Definition Wort für Wort. Kleine Wörter wie „jedes“, „genau ein“ und „mindestens ein“ entscheiden alles."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440013",
+      "section": "Kapitel 1 · Was ist eine Menge?",
+      "text": "Eine Menge ist eine Zusammenfassung von wohlunterschiedenen Objekten zu einem Ganzen. Die Objekte heißen Elemente der Menge.\n\nDas Wichtigste an einer Menge ist eine einzige Frage: Gehört ein Objekt dazu oder nicht?",
+      "formula": "\\begin{array}{c} A = \\{1, 2, 3\\} \\\\[6pt] 2 \\in A \\quad (\\text{„2 ist Element von } A\\text{“}) \\\\[2pt] 5 \\notin A \\quad (\\text{„5 ist kein Element von } A\\text{“}) \\end{array}",
+      "explanation": "Die geschweiften Klammern \\(\\{ \\; \\}\\) sind das Zeichen für „Menge“. Das Symbol \\(\\in\\) ist ein stilisiertes „e“ wie „Element“.\n\nDiese Definition geht auf Georg Cantor (1895) zurück. Sie ist bewusst informell. Für das Studium reicht sie völlig aus.\n\nElemente können alles Mögliche sein: Zahlen, Punkte, Funktionen – sogar andere Mengen.",
+      "insight": "Eine Menge ist vollständig dadurch festgelegt, WELCHE Elemente sie hat. Mehr Information steckt in ihr nicht."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440014",
+      "section": "Kapitel 1 · Was ist eine Menge?",
+      "text": "Daraus folgen zwei Regeln, die am Anfang oft überraschen: Reihenfolge und Wiederholungen spielen keine Rolle.",
+      "formula": "\\{1, 2, 3\\} = \\{3, 1, 2\\} = \\{1, 1, 2, 3, 3\\}",
+      "explanation": "Alle drei Schreibweisen beschreiben dieselbe Menge, denn bei allen lautet die Antwort auf „Gehört \\(x\\) dazu?“ gleich: ja für \\(1, 2, 3\\) und nein für alles andere.\n\nZwei Mengen \\(A\\) und \\(B\\) sind gleich, wenn sie genau dieselben Elemente haben:\n\\(A = B\\) bedeutet: Für jedes \\(x\\) gilt \\(x \\in A \\iff x \\in B\\).\n\nDie Anzahl der Elemente einer endlichen Menge heißt Mächtigkeit, geschrieben \\(|A|\\). Hier ist \\(|\\{1, 1, 2, 3, 3\\}| = 3\\), nicht \\(5\\).",
+      "insight": "Eine Menge ist wie eine Gästeliste: Es zählt nur, wer eingeladen ist – nicht in welcher Reihenfolge und nicht, wie oft jemand aufgeschrieben wurde."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440015",
+      "section": "Kapitel 1 · Was ist eine Menge?",
+      "text": "Es gibt zwei Arten, eine Menge aufzuschreiben. Die aufzählende Schreibweise listet die Elemente auf. Die beschreibende Schreibweise gibt eine Eigenschaft an, die genau die Elemente haben:",
+      "formula": "\\begin{aligned} \\{2, 4, 6, 8\\} &= \\{ x \\in \\mathbb{N} \\mid x \\text{ gerade und } x < 10 \\} \\\\[4pt] \\{1, 4, 9, 16, \\dots\\} &= \\{ n^2 \\mid n \\in \\mathbb{N} \\} \\end{aligned}",
+      "explanation": "Lies \\(\\{ x \\in \\mathbb{N} \\mid x \\text{ gerade und } x < 10 \\}\\) als: „die Menge aller natürlichen Zahlen \\(x\\), für die gilt: \\(x\\) ist gerade und kleiner als \\(10\\)“. Der senkrechte Strich bedeutet „für die gilt“. Manche schreiben dafür einen Doppelpunkt.\n\nDie zweite Zeile ist eine Variante: Man beschreibt, wie die Elemente gebildet werden. Hier sind es alle Quadratzahlen.\n\nUnendliche Mengen kann man nicht vollständig aufzählen. Die Pünktchen „…“ sind nur verständlich, wenn das Muster eindeutig ist – die beschreibende Form ist dann präziser.",
+      "insight": "Die beschreibende Schreibweise ist das eigentliche Arbeitspferd. Übe, sie laut in einem deutschen Satz vorzulesen."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440016",
+      "section": "Kapitel 1 · Was ist eine Menge?",
+      "text": "Einige Mengen braucht man ständig. Sie haben feste Namen:",
+      "formula": "\\begin{array}{ll} \\mathbb{N} = \\{1, 2, 3, \\dots\\} & \\text{natürliche Zahlen} \\\\ \\mathbb{N}_0 = \\{0, 1, 2, \\dots\\} & \\text{mit der Null} \\\\ \\mathbb{Z} = \\{\\dots, -2, -1, 0, 1, 2, \\dots\\} & \\text{ganze Zahlen} \\\\ \\mathbb{Q} = \\{ \\tfrac{p}{q} \\mid p \\in \\mathbb{Z},\\, q \\in \\mathbb{N} \\} & \\text{rationale Zahlen} \\\\ \\mathbb{R} & \\text{reelle Zahlen} \\end{array}",
+      "explanation": "Jeder Zahlbereich enthält den vorigen: \\(\\mathbb{N} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R}\\).\n\nVorsicht: Ob \\(0 \\in \\mathbb{N}\\) gilt, ist reine Konvention – Bücher und Vorlesungen machen es unterschiedlich. In dieser Lektion ist \\(\\mathbb{N} = \\{1, 2, 3, \\dots\\}\\). Schau in deiner Vorlesung nach, welche Konvention gilt.\n\nBeispiele: \\(-3 \\in \\mathbb{Z}\\), aber \\(-3 \\notin \\mathbb{N}\\). \\(\\frac{1}{2} \\in \\mathbb{Q}\\), aber \\(\\frac{1}{2} \\notin \\mathbb{Z}\\). \\(\\sqrt{2} \\in \\mathbb{R}\\), aber \\(\\sqrt{2} \\notin \\mathbb{Q}\\).",
+      "insight": "Bei jeder Aufgabe zuerst fragen: In welcher Menge lebt die Variable? Die Antwort ändert oft das Ergebnis."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440017",
+      "section": "Kapitel 1 · Was ist eine Menge?",
+      "text": "Eine besondere Menge ist die leere Menge: die Menge ohne jedes Element.",
+      "formula": "\\emptyset = \\{\\,\\}, \\qquad |\\emptyset| = 0",
+      "explanation": "Es gibt nur eine einzige leere Menge, denn zwei Mengen ohne Elemente haben „dieselben Elemente“ (nämlich keine) und sind daher gleich.\n\nDie leere Menge taucht ganz natürlich auf, z. B. als Lösungsmenge einer unlösbaren Gleichung:\n\\(\\{ x \\in \\mathbb{R} \\mid x^2 = -1 \\} = \\emptyset\\).\n\nTypischer Fehler: \\(\\emptyset\\) und \\(\\{\\emptyset\\}\\) verwechseln. \\(\\{\\emptyset\\}\\) ist eine Menge mit GENAU EINEM Element – dieses Element ist die leere Menge. Also \\(|\\{\\emptyset\\}| = 1\\).",
+      "insight": "Bild dazu: \\(\\emptyset\\) ist eine leere Schachtel. \\(\\{\\emptyset\\}\\) ist eine Schachtel, in der eine leere Schachtel liegt – sie ist nicht leer!"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440018",
+      "section": "Kapitel 2 · Teilmengen und Potenzmenge",
+      "text": "\\(A\\) heißt Teilmenge von \\(B\\), wenn jedes Element von \\(A\\) auch in \\(B\\) liegt.",
+      "formula": "A \\subseteq B \\quad :\\iff \\quad \\text{für jedes } x \\in A \\text{ gilt } x \\in B",
+      "explanation": "Das Zeichen \\(:\\iff\\) bedeutet „ist definiert als“.\n\nBeispiele:\n• \\(\\{2, 4\\} \\subseteq \\{1, 2, 3, 4, 5\\}\\) ✓\n• \\(\\{2, 6\\} \\not\\subseteq \\{1, 2, 3, 4, 5\\}\\), denn \\(6\\) liegt nicht in der rechten Menge. Ein einziges Gegenbeispiel genügt.\n• \\(A \\subseteq A\\) für jede Menge \\(A\\).\n• \\(\\emptyset \\subseteq A\\) für jede Menge \\(A\\): Es gibt kein Element in \\(\\emptyset\\), das die Bedingung verletzen könnte.\n\nGilt \\(A \\subseteq B\\) und \\(A \\neq B\\), heißt \\(A\\) echte Teilmenge, geschrieben \\(A \\subsetneq B\\).",
+      "insight": "Um \\(A \\subseteq B\\) zu WIDERLEGEN, reicht ein einziges Element von \\(A\\), das nicht in \\(B\\) liegt."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440019",
+      "section": "Kapitel 2 · Teilmengen und Potenzmenge",
+      "text": "Ein klassischer Stolperstein: \\(\\in\\) und \\(\\subseteq\\) verwechseln. \\(\\in\\) verbindet ein Element mit einer Menge, \\(\\subseteq\\) verbindet zwei Mengen.",
+      "formula": "\\begin{array}{ll} 2 \\in \\{1, 2, 3\\} & \\checkmark \\\\ \\{2\\} \\subseteq \\{1, 2, 3\\} & \\checkmark \\\\ \\{2\\} \\in \\{1, 2, 3\\} & \\text{falsch} \\\\ 2 \\subseteq \\{1, 2, 3\\} & \\text{falsch} \\end{array}",
+      "explanation": "Zeile 1: \\(2\\) ist ein Element. Zeile 2: \\(\\{2\\}\\) ist eine Menge, deren einziges Element in \\(\\{1, 2, 3\\}\\) liegt.\n\nZeile 3 ist falsch: Die Elemente von \\(\\{1, 2, 3\\}\\) sind die Zahlen \\(1\\), \\(2\\) und \\(3\\). Die Menge \\(\\{2\\}\\) ist keine dieser drei Zahlen. Zeile 4 ist falsch, weil \\(2\\) keine Menge ist.\n\nBei Mengen von Mengen kann beides gleichzeitig vorkommen. Sei \\(M = \\{1, \\{1\\}\\}\\). Dann gilt:\n• \\(1 \\in M\\) und \\(\\{1\\} \\in M\\) – beides sind Elemente von \\(M\\).\n• \\(\\{1\\} \\subseteq M\\), weil das einzige Element \\(1\\) von \\(\\{1\\}\\) in \\(M\\) liegt.",
+      "insight": "Frage dich vor jedem Symbol: Steht links ein Element oder eine Menge? Element → \\(\\in\\). Menge → \\(\\subseteq\\)."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440020",
+      "section": "Kapitel 2 · Teilmengen und Potenzmenge",
+      "text": "Wie beweist man, dass zwei Mengen gleich sind? Fast immer mit der doppelten Inklusion: Man zeigt beide Richtungen einzeln.",
+      "formula": "A = B \\iff A \\subseteq B \\;\\text{ und }\\; B \\subseteq A",
+      "explanation": "Beispiel: Zeige \\(\\{ x \\in \\mathbb{R} \\mid x^2 = x \\} = \\{0, 1\\}\\).\n\n„\\(\\subseteq\\)“: Sei \\(x \\in \\mathbb{R}\\) mit \\(x^2 = x\\). Dann ist \\(x^2 - x = x(x - 1) = 0\\), also \\(x = 0\\) oder \\(x = 1\\). Damit \\(x \\in \\{0, 1\\}\\).\n\n„\\(\\supseteq\\)“: Es ist \\(0^2 = 0\\) und \\(1^2 = 1\\). Also liegen \\(0\\) und \\(1\\) in der linken Menge.\n\nBeide Inklusionen gelten, also sind die Mengen gleich. ∎",
+      "insight": "Das Beweismuster „Sei \\(x \\in A\\) beliebig. … Also \\(x \\in B\\).“ wirst du in jeder Vorlesung hundertfach sehen. Es ist die Definition von \\(\\subseteq\\) in Aktion."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440021",
+      "section": "Kapitel 2 · Teilmengen und Potenzmenge",
+      "text": "Die Potenzmenge \\(\\mathcal{P}(A)\\) ist die Menge ALLER Teilmengen von \\(A\\). Ihre Elemente sind also selbst Mengen.",
+      "visual": "powerSet",
+      "formula": "\\begin{aligned} \\mathcal{P}(\\{1, 2, 3\\}) = \\{ &\\emptyset, \\\\ &\\{1\\}, \\{2\\}, \\{3\\}, \\\\ &\\{1,2\\}, \\{1,3\\}, \\{2,3\\}, \\\\ &\\{1,2,3\\} \\; \\} \\end{aligned}",
+      "explanation": "Die Animation baut die Teilmengen nach ihrer Größe auf: erst keine, dann eins, zwei und drei Elemente.\n\nVergiss nie die beiden „Randfälle“: \\(\\emptyset \\in \\mathcal{P}(A)\\) und \\(A \\in \\mathcal{P}(A)\\).\n\nNoch ein kleines Beispiel: \\(\\mathcal{P}(\\emptyset) = \\{\\emptyset\\}\\). Die leere Menge hat genau eine Teilmenge, nämlich sich selbst.",
+      "insight": "Für Mengen gilt: \\(B \\subseteq A\\) genau dann, wenn \\(B \\in \\mathcal{P}(A)\\). Die Potenzmenge macht aus „Teilmenge sein“ ein „Element sein“."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440022",
+      "section": "Kapitel 2 · Teilmengen und Potenzmenge",
+      "text": "Warum hat \\(\\{1, 2, 3\\}\\) genau \\(8\\) Teilmengen? Statt alle aufzuzählen, gibt es ein schönes Argument: Für jedes Element entscheidet man unabhängig „rein“ oder „raus“.",
+      "formula": "\\begin{array}{c} |A| = n \\\\[4pt] \\Downarrow \\\\[2pt] |\\mathcal{P}(A)| = \\underbrace{2 \\cdot 2 \\cdots 2}_{n \\text{ Entscheidungen}} = 2^n \\end{array}",
+      "explanation": "Für \\(A = \\{1, 2, 3\\}\\): Ist \\(1\\) dabei? (2 Möglichkeiten) Ist \\(2\\) dabei? (2) Ist \\(3\\) dabei? (2). Jede Kombination von Antworten liefert genau eine Teilmenge, z. B. „ja, nein, ja“ ergibt \\(\\{1, 3\\}\\) und „nein, nein, nein“ ergibt \\(\\emptyset\\).\n\nZusammen \\(2 \\cdot 2 \\cdot 2 = 8\\) Teilmengen.\n\nDaher kommt auch der Name „Potenzmenge“ und die Schreibweise \\(2^A\\), die man manchmal sieht.",
+      "insight": "Abzählen durch „unabhängige Entscheidungen“ ist eine der wichtigsten Ideen der Kombinatorik. Sie begegnet dir hier zum ersten Mal."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440023",
+      "section": "Kapitel 3 · Mit Mengen rechnen",
+      "text": "Mit Mengen kann man rechnen wie mit Zahlen. Die Rechenarten entsprechen genau den logischen Verknüpfungen „und“, „oder“ und „nicht“:",
+      "visual": "vennOperations",
+      "formula": "\\begin{aligned} A \\cap B &= \\{ x \\mid x \\in A \\text{ und } x \\in B \\} \\\\ A \\cup B &= \\{ x \\mid x \\in A \\text{ oder } x \\in B \\} \\\\ A \\setminus B &= \\{ x \\mid x \\in A \\text{ und } x \\notin B \\} \\end{aligned}",
+      "explanation": "\\(A \\cap B\\) heißt Schnitt („A geschnitten B“), \\(A \\cup B\\) heißt Vereinigung, \\(A \\setminus B\\) heißt Differenz („A ohne B“).\n\nMerkhilfe: \\(\\cup\\) sieht aus wie ein offenes Gefäß, in das alles hineinfällt. \\(\\cap\\) ist umgedreht und lässt nur das Gemeinsame übrig.\n\nIm Beispiel der Animation mit \\(A = \\{1, 2, 3, 4\\}\\) und \\(B = \\{3, 4, 5, 6\\}\\):\n\\(A \\cap B = \\{3, 4\\}\\), \\(A \\cup B = \\{1, 2, 3, 4, 5, 6\\}\\), \\(A \\setminus B = \\{1, 2\\}\\), \\(B \\setminus A = \\{5, 6\\}\\).\n\nGilt \\(A \\cap B = \\emptyset\\), heißen \\(A\\) und \\(B\\) disjunkt.",
+      "insight": "Das mathematische „oder“ ist immer einschließend: \\(x \\in A \\cup B\\) gilt auch dann, wenn \\(x\\) in beiden Mengen liegt."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440024",
+      "section": "Kapitel 3 · Mit Mengen rechnen",
+      "text": "Arbeitet man innerhalb einer festen Grundmenge \\(U\\) (z. B. \\(U = \\mathbb{R}\\)), kann man das Komplement bilden: alles in \\(U\\), was nicht in \\(A\\) liegt.",
+      "formula": "A^c = U \\setminus A = \\{ x \\in U \\mid x \\notin A \\}",
+      "explanation": "Beispiel: \\(U = \\mathbb{R}\\) und \\(A = \\{ x \\in \\mathbb{R} \\mid x > 0 \\}\\). Dann ist \\(A^c = \\{ x \\in \\mathbb{R} \\mid x \\le 0 \\}\\).\n\nAchtung: Das Komplement von „\\(x > 0\\)“ ist „\\(x \\le 0\\)“ und nicht „\\(x < 0\\)“! Die Null gehört dazu, weil sie nicht positiv ist.\n\nDas Komplement hängt immer von der Grundmenge ab. Mit \\(U = \\mathbb{N}\\) wäre das Komplement von \\(\\{2, 4, 6, \\dots\\}\\) die Menge \\(\\{1, 3, 5, \\dots\\}\\). Mit \\(U = \\mathbb{Z}\\) gehören auch \\(0, -1, -2, \\dots\\) zu den Elementen, die übrig bleiben.",
+      "insight": "Bevor du \\(A^c\\) hinschreibst, kläre: Was ist die Grundmenge? Ohne sie ist das Komplement nicht definiert."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440025",
+      "section": "Kapitel 3 · Mit Mengen rechnen",
+      "text": "Für Schnitt und Vereinigung gelten Rechenregeln, die du von Zahlen kennst – mit einer Besonderheit: Es gibt ZWEI Distributivgesetze.",
+      "formula": "\\begin{aligned} A \\cap B &= B \\cap A, \\quad A \\cup B = B \\cup A \\\\ (A \\cap B) \\cap C &= A \\cap (B \\cap C) \\\\ A \\cap (B \\cup C) &= (A \\cap B) \\cup (A \\cap C) \\\\ A \\cup (B \\cap C) &= (A \\cup B) \\cap (A \\cup C) \\end{aligned}",
+      "explanation": "Zeile 1: kommutativ. Zeile 2: assoziativ (genauso für \\(\\cup\\)) – deshalb darf man \\(A \\cap B \\cap C\\) ohne Klammern schreiben.\n\nZeilen 3 und 4: Distributivgesetze. Bei Zahlen gilt nur \\(a \\cdot (b + c) = ab + ac\\), aber nicht \\(a + bc = (a + b)(a + c)\\). Bei Mengen gelten beide Versionen!\n\nBeweis von Zeile 3, elementweise:\n\\(x \\in A \\cap (B \\cup C)\\)\n⇔ \\(x \\in A\\) und (\\(x \\in B\\) oder \\(x \\in C\\))\n⇔ (\\(x \\in A\\) und \\(x \\in B\\)) oder (\\(x \\in A\\) und \\(x \\in C\\))\n⇔ \\(x \\in (A \\cap B) \\cup (A \\cap C)\\). ∎",
+      "insight": "Jede Mengenregel ist eine Logikregel in Verkleidung: \\(\\cap\\) ist „und“, \\(\\cup\\) ist „oder“, Komplement ist „nicht“. So beweist man sie auch."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440026",
+      "section": "Kapitel 3 · Mit Mengen rechnen",
+      "text": "Die wichtigsten Regeln für Komplemente sind die Gesetze von De Morgan: Beim Komplementbilden werden \\(\\cup\\) und \\(\\cap\\) vertauscht.",
+      "visual": "deMorgan",
+      "formula": "\\begin{aligned} (A \\cup B)^c &= A^c \\cap B^c \\\\ (A \\cap B)^c &= A^c \\cup B^c \\end{aligned}",
+      "explanation": "In Worten: „Nicht in A oder B“ heißt „weder in A noch in B“, also „nicht in A UND nicht in B“.\n\nBeweis der ersten Regel:\n\\(x \\in (A \\cup B)^c\\)\n⇔ nicht (\\(x \\in A\\) oder \\(x \\in B\\))\n⇔ \\(x \\notin A\\) und \\(x \\notin B\\)\n⇔ \\(x \\in A^c \\cap B^c\\). ∎\n\nBeispiel aus dem Alltag: „Ich trinke weder Kaffee noch Tee“ bedeutet „Ich trinke keinen Kaffee UND keinen Tee“.",
+      "insight": "Ein Venn-Diagramm macht eine Regel glaubhaft, ist aber KEIN Beweis. Es zeigt nur eine bestimmte Lage der Mengen. Beweise führt man elementweise wie oben."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440027",
+      "section": "Kapitel 4 · Paare und kartesisches Produkt",
+      "text": "Bei Mengen spielt die Reihenfolge keine Rolle. Oft braucht man aber genau das: eine Reihenfolge. Dafür gibt es geordnete Paare.",
+      "formula": "\\begin{array}{c} \\{1, 2\\} = \\{2, 1\\} \\qquad \\text{aber} \\qquad (1, 2) \\neq (2, 1) \\\\[6pt] (a, b) = (c, d) \\iff a = c \\text{ und } b = d \\end{array}",
+      "explanation": "Ein Paar \\((a, b)\\) hat eine erste und eine zweite Komponente. Zwei Paare sind nur gleich, wenn sie in BEIDEN Komponenten übereinstimmen.\n\nAußerdem darf bei Paaren eine Komponente doppelt vorkommen: \\((3, 3)\\) ist ein sinnvolles Paar, während \\(\\{3, 3\\} = \\{3\\}\\) nur ein Element hat.\n\nBeispiel: Punkte in der Ebene. Der Punkt \\((1, 2)\\) liegt woanders als \\((2, 1)\\).",
+      "insight": "Runde Klammern: Reihenfolge zählt. Geschweifte Klammern: Reihenfolge egal. Diese Unterscheidung ist in Klausuren oft Punkte wert."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440028",
+      "section": "Kapitel 4 · Paare und kartesisches Produkt",
+      "text": "Das kartesische Produkt \\(A \\times B\\) ist die Menge aller Paare, deren erste Komponente aus \\(A\\) und deren zweite aus \\(B\\) stammt.",
+      "visual": "cartesianProduct",
+      "formula": "\\begin{aligned} A \\times B &= \\{ (a, b) \\mid a \\in A,\\ b \\in B \\} \\\\[4pt] \\{1, 2, 3\\} \\times \\{1, 2\\} &= \\{ (1,1), (1,2), (2,1), \\\\ &\\qquad\\; (2,2), (3,1), (3,2) \\} \\end{aligned}",
+      "explanation": "Man kombiniert jedes Element von \\(A\\) mit jedem Element von \\(B\\). Deshalb gilt für endliche Mengen:\n\\(|A \\times B| = |A| \\cdot |B|\\), hier \\(3 \\cdot 2 = 6\\).\n\nIm Allgemeinen ist \\(A \\times B \\neq B \\times A\\), denn z. B. \\((3, 1) \\in \\{1, 2, 3\\} \\times \\{1, 2\\}\\), aber \\((3, 1) \\notin \\{1, 2\\} \\times \\{1, 2, 3\\}\\).\n\nDas bekannteste Beispiel: \\(\\mathbb{R} \\times \\mathbb{R} = \\mathbb{R}^2\\), die Ebene. Daher kommt der Name – René Descartes (lateinisch Cartesius) hat die Koordinaten eingeführt.",
+      "insight": "Der letzte Schritt der Animation ist der Schlüssel zum nächsten Kapitel: Eine Abbildung ist eine besondere Teilmenge von \\(A \\times B\\)."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440029",
+      "section": "Kapitel 5 · Abbildungen",
+      "text": "Jetzt zum zweiten großen Thema. Eine Abbildung (oder Funktion) \\(f\\) von \\(A\\) nach \\(B\\) ordnet JEDEM Element von \\(A\\) GENAU EIN Element von \\(B\\) zu.",
+      "formula": "f\\colon A \\to B, \\qquad x \\mapsto f(x)",
+      "explanation": "Zu einer Abbildung gehören drei Dinge:\n• die Definitionsmenge \\(A\\) (woher die Eingaben kommen),\n• die Zielmenge \\(B\\) (wo die Ausgaben landen dürfen),\n• die Zuordnungsvorschrift \\(x \\mapsto f(x)\\).\n\nDie Pfeile unterscheiden sich: \\(\\to\\) steht zwischen Mengen, \\(\\mapsto\\) (mit Strich) zwischen Elementen.\n\nBeispiel: \\(f\\colon \\mathbb{R} \\to \\mathbb{R}\\), \\(x \\mapsto x^2\\). Lies: „\\(f\\) geht von \\(\\mathbb{R}\\) nach \\(\\mathbb{R}\\) und bildet \\(x\\) auf \\(x^2\\) ab.“",
+      "insight": "Stell dir eine Abbildung als Maschine vor: Jede erlaubte Eingabe liefert ein Ergebnis – immer dasselbe, und immer genau eines."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440030",
+      "section": "Kapitel 5 · Abbildungen",
+      "text": "Die zwei Bedingungen „jedes“ und „genau ein“ prüft man am besten im Pfeildiagramm: Von jedem Element links muss genau ein Pfeil ausgehen.",
+      "visual": "mapCheck",
+      "formula": "\\begin{array}{l} \\text{Von jedem } x \\in A \\text{ geht} \\\\ \\text{genau ein Pfeil aus.} \\end{array}",
+      "explanation": "Was rechts passiert, ist bei einer Abbildung völlig egal: Ein Element von \\(B\\) darf von keinem, einem oder vielen Pfeilen getroffen werden.\n\nZwei Nicht-Beispiele mit Formeln:\n• \\(f\\colon \\mathbb{R} \\to \\mathbb{R}\\), \\(x \\mapsto \\frac{1}{x}\\) ist keine Abbildung, weil \\(x = 0\\) keinen Wert bekommt. Repariert: Definitionsmenge \\(\\mathbb{R} \\setminus \\{0\\}\\).\n• „\\(x \\mapsto\\) die Zahl \\(y\\) mit \\(y^2 = x\\)“ ist auf \\([0, \\infty)\\) keine Abbildung, weil z. B. \\(4\\) zwei Kandidaten hat: \\(2\\) und \\(-2\\). Erst die Festlegung „\\(y \\ge 0\\)“ macht daraus die Wurzelfunktion.",
+      "insight": "Links: jedes Element genau ein Pfeil. Rechts: keine Vorschrift. Diese Asymmetrie ist der Kern des Abbildungsbegriffs."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440031",
+      "section": "Kapitel 5 · Abbildungen",
+      "text": "Zwei Abbildungen sind nur gleich, wenn Definitionsmenge, Zielmenge UND Zuordnung übereinstimmen. Dieselbe Formel kann also verschiedene Abbildungen beschreiben:",
+      "formula": "\\begin{aligned} f_1&\\colon \\mathbb{R} \\to \\mathbb{R}, & x &\\mapsto x^2 \\\\ f_2&\\colon \\mathbb{R} \\to [0, \\infty), & x &\\mapsto x^2 \\\\ f_3&\\colon [0, \\infty) \\to [0, \\infty), & x &\\mapsto x^2 \\end{aligned}",
+      "explanation": "Das ist keine Pedanterie. In Kapitel 6 werden wir sehen: \\(f_1\\), \\(f_2\\) und \\(f_3\\) haben ganz unterschiedliche Eigenschaften. Nur \\(f_3\\) ist umkehrbar.\n\nFormal kann man eine Abbildung auch über ihren Graphen beschreiben:\n\\(\\Gamma_f = \\{ (x, f(x)) \\mid x \\in A \\} \\subseteq A \\times B\\).\n„Genau ein Pfeil pro \\(x\\)“ heißt dann: Zu jedem \\(x \\in A\\) gibt es genau ein Paar mit erster Komponente \\(x\\) – genau das hat die Animation zum kartesischen Produkt gezeigt.",
+      "insight": "Eine Abbildung ist mehr als eine Formel. Gib immer \\(f\\colon A \\to B\\) mit an."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440032",
+      "section": "Kapitel 5 · Abbildungen",
+      "text": "Zwei Begriffe beschreiben, wohin Mengen unter \\(f\\) wandern. Das Bild einer Teilmenge \\(A' \\subseteq A\\) und das Urbild einer Teilmenge \\(B' \\subseteq B\\):",
+      "visual": "preimage",
+      "formula": "\\begin{aligned} f(A') &= \\{ f(x) \\mid x \\in A' \\} \\subseteq B \\\\ f^{-1}(B') &= \\{ x \\in A \\mid f(x) \\in B' \\} \\subseteq A \\end{aligned}",
+      "explanation": "Bild: Man startet in \\(A'\\) und sammelt alle Ergebnisse. \\(f(A)\\), das Bild der ganzen Definitionsmenge, nennt man auch kurz „das Bild von \\(f\\)“.\n\nUrbild: Man startet in \\(B'\\) und sucht alle \\(x\\), die dort landen.\n\nBeispiel mit \\(f\\colon \\mathbb{R} \\to \\mathbb{R}\\), \\(x \\mapsto x^2\\):\n• \\(f(\\{-2, 1, 2\\}) = \\{1, 4\\}\\)\n• \\(f^{-1}(\\{4\\}) = \\{-2, 2\\}\\)\n• \\(f^{-1}(\\{-1\\}) = \\emptyset\\)\n• \\(f(\\mathbb{R}) = [0, \\infty)\\)",
+      "insight": "Typischer Fehler: Das Urbild \\(f^{-1}(B')\\) setzt KEINE Umkehrabbildung voraus. Es ist immer definiert und ist eine Menge – auch für \\(x \\mapsto x^2\\)."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440033",
+      "section": "Kapitel 6 · Injektiv, surjektiv, bijektiv",
+      "text": "Jetzt schauen wir auf die rechte Seite. Wie oft wird jedes Element von \\(B\\) getroffen? Daraus ergeben sich drei zentrale Eigenschaften:",
+      "visual": "injSurj",
+      "formula": "\\begin{array}{l} \\textbf{injektiv:} \\text{ jedes } y \\in B \\text{ wird} \\\\ \\qquad \\text{höchstens einmal getroffen} \\\\[6pt] \\textbf{surjektiv:} \\text{ jedes } y \\in B \\text{ wird} \\\\ \\qquad \\text{mindestens einmal getroffen} \\\\[6pt] \\textbf{bijektiv:} \\text{ jedes } y \\in B \\text{ wird} \\\\ \\qquad \\text{genau einmal getroffen} \\end{array}",
+      "explanation": "Bijektiv heißt also: injektiv UND surjektiv.\n\nAlle vier Kombinationen kommen vor. Die Animation zeigt je ein Beispiel.\n\nMerkhilfe: Injektiv = „keine Kollisionen“, surjektiv = „nichts bleibt übrig“, bijektiv = „perfekte Paarung“.",
+      "insight": "Für endliche Mengen folgt sofort: Ist \\(f\\colon A \\to B\\) injektiv, dann \\(|A| \\le |B|\\). Ist \\(f\\) surjektiv, dann \\(|A| \\ge |B|\\). Ist \\(f\\) bijektiv, dann \\(|A| = |B|\\)."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440034",
+      "section": "Kapitel 6 · Injektiv, surjektiv, bijektiv",
+      "text": "Für Beweise braucht man die Definitionen als Formeln. Bei der Injektivität benutzt man fast immer die zweite, gleichwertige Form:",
+      "formula": "\\begin{array}{c} f \\text{ injektiv} \\\\[4pt] :\\iff \\text{aus } x_1 \\neq x_2 \\text{ folgt } f(x_1) \\neq f(x_2) \\\\[4pt] \\iff \\text{aus } f(x_1) = f(x_2) \\text{ folgt } x_1 = x_2 \\end{array}",
+      "explanation": "Die zweite Zeile ist die Kontraposition der ersten (aus „wenn P, dann Q“ wird „wenn nicht Q, dann nicht P“). Sie ist bequemer, weil man mit einer Gleichung rechnen kann.\n\nBeispiel: \\(f\\colon \\mathbb{R} \\to \\mathbb{R}\\), \\(f(x) = 2x + 3\\) ist injektiv.\nBeweis: Seien \\(x_1, x_2 \\in \\mathbb{R}\\) mit \\(f(x_1) = f(x_2)\\). Dann\n\\(2x_1 + 3 = 2x_2 + 3\\), also \\(2x_1 = 2x_2\\), also \\(x_1 = x_2\\). ∎",
+      "insight": "Injektivität WIDERLEGEN geht mit einem einzigen Gegenbeispiel: zwei verschiedene Eingaben mit gleichem Ergebnis."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440035",
+      "section": "Kapitel 6 · Injektiv, surjektiv, bijektiv",
+      "text": "Surjektivität bedeutet: Jede Gleichung \\(f(x) = y\\) mit \\(y \\in B\\) hat eine Lösung \\(x \\in A\\). Beweisen heißt also: nach \\(x\\) auflösen und prüfen, ob die Lösung in \\(A\\) liegt.",
+      "formula": "\\begin{array}{c} f \\text{ surjektiv} \\\\[4pt] :\\iff \\text{zu jedem } y \\in B \\text{ gibt es} \\\\ \\text{ein } x \\in A \\text{ mit } f(x) = y \\end{array}",
+      "explanation": "Beispiel: \\(f\\colon \\mathbb{R} \\to \\mathbb{R}\\), \\(f(x) = 2x + 3\\) ist surjektiv.\nBeweis: Sei \\(y \\in \\mathbb{R}\\) beliebig. Wir suchen \\(x\\) mit \\(2x + 3 = y\\). Auflösen ergibt \\(x = \\frac{y - 3}{2}\\). Diese Zahl liegt in \\(\\mathbb{R}\\), und tatsächlich ist \\(f\\left(\\frac{y - 3}{2}\\right) = (y - 3) + 3 = y\\). ∎\n\nZusammen mit dem vorigen Schritt: \\(f\\) ist bijektiv.\n\nAchtung bei der Reihenfolge: ERST \\(y\\) beliebig wählen, DANN das passende \\(x\\) angeben. Das \\(x\\) darf von \\(y\\) abhängen.",
+      "insight": "Die Probe \\(f(x) = y\\) gehört in jeden Surjektivitätsbeweis. Beim Auflösen kann man sonst unbemerkt durch \\(0\\) teilen oder die Definitionsmenge verlassen."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440036",
+      "section": "Kapitel 6 · Injektiv, surjektiv, bijektiv",
+      "text": "Zurück zu den drei Abbildungen mit der Formel \\(x \\mapsto x^2\\). An ihnen sieht man, wie Definitions- und Zielmenge die Eigenschaften bestimmen:",
+      "formula": "\\begin{array}{lcc} & \\text{injektiv} & \\text{surjektiv} \\\\ f_1\\colon \\mathbb{R} \\to \\mathbb{R} & \\times & \\times \\\\ f_2\\colon \\mathbb{R} \\to [0, \\infty) & \\times & \\checkmark \\\\ f_3\\colon [0, \\infty) \\to [0, \\infty) & \\checkmark & \\checkmark \\end{array}",
+      "explanation": "\\(f_1\\) nicht injektiv: \\(f_1(-1) = 1 = f_1(1)\\), aber \\(-1 \\neq 1\\).\n\\(f_1\\) nicht surjektiv: \\(y = -1\\) wird nie getroffen, denn \\(x^2 \\ge 0\\).\n\n\\(f_2\\): Die Zielmenge ist genau das Bild – deshalb surjektiv. Für \\(y \\ge 0\\) ist \\(x = \\sqrt{y}\\) eine Lösung. Injektiv ist \\(f_2\\) immer noch nicht (wieder \\(-1\\) und \\(1\\)).\n\n\\(f_3\\): Jetzt fehlen die negativen Eingaben. Aus \\(x_1^2 = x_2^2\\) mit \\(x_1, x_2 \\ge 0\\) folgt \\(x_1 = x_2\\). Also injektiv und damit bijektiv.",
+      "insight": "Zielmenge verkleinern (auf das Bild) macht surjektiv. Definitionsmenge verkleinern kann injektiv machen. So „repariert“ man Funktionen, um sie umkehren zu können."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440037",
+      "section": "Kapitel 6 · Injektiv, surjektiv, bijektiv",
+      "text": "Für endliche Mengen gleicher Größe gibt es eine starke Abkürzung – und eine Folgerung mit eigenem Namen:",
+      "formula": "\\begin{array}{c} \\text{Ist } |A| = |B| \\text{ endlich, so gilt:} \\\\ f \\text{ injektiv} \\iff f \\text{ surjektiv} \\\\[10pt] \\text{Ist } |A| > |B|, \\text{ so ist} \\\\ f\\colon A \\to B \\text{ nicht injektiv.} \\end{array}",
+      "explanation": "Erste Zeile, Idee: Bei \\(n\\) Elementen links und \\(n\\) rechts gehen \\(n\\) Pfeile los. Kollidieren keine zwei (injektiv), treffen sie \\(n\\) verschiedene Ziele – also alle (surjektiv). Und umgekehrt.\n\nZweite Zeile: das Schubfachprinzip. Verteilt man mehr Gegenstände als Schubfächer, landen in einem Fach mindestens zwei.\n\nAnwendung: Unter \\(13\\) Personen haben zwei im selben Monat Geburtstag. Die Abbildung „Person ↦ Geburtsmonat“ geht von einer 13-elementigen in eine 12-elementige Menge und kann daher nicht injektiv sein.",
+      "insight": "Vorsicht: Bei unendlichen Mengen gilt die erste Zeile NICHT. \\(\\mathbb{N} \\to \\mathbb{N}\\), \\(n \\mapsto n + 1\\) ist injektiv, aber nicht surjektiv – die \\(1\\) wird nie getroffen."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440038",
+      "section": "Kapitel 7 · Verkettung und Umkehrabbildung",
+      "text": "Abbildungen kann man hintereinander ausführen, wenn die Zielmenge der ersten zur Definitionsmenge der zweiten passt. Das Ergebnis heißt Verkettung oder Komposition:",
+      "visual": "composition",
+      "formula": "\\begin{array}{c} f\\colon A \\to B, \\quad g\\colon B \\to C \\\\[4pt] \\Downarrow \\\\[2pt] g \\circ f\\colon A \\to C, \\quad (g \\circ f)(x) = g(f(x)) \\end{array}",
+      "explanation": "Lies \\(g \\circ f\\) als „g nach f“. Achtung: Obwohl \\(g\\) links steht, wird \\(f\\) ZUERST angewendet. Das sieht man an \\(g(f(x))\\): Erst wird \\(f(x)\\) berechnet, dann \\(g\\) darauf angewendet.\n\nBeispiel: \\(f(x) = x + 1\\) und \\(g(x) = x^2\\), beide \\(\\mathbb{R} \\to \\mathbb{R}\\).\n\\((g \\circ f)(x) = g(x + 1)\\), also \\((x + 1)^2\\)\n\\((f \\circ g)(x) = f(x^2)\\), also \\(x^2 + 1\\)",
+      "insight": "Im Allgemeinen ist \\(g \\circ f \\neq f \\circ g\\): Bei \\(x = 1\\) ergibt das \\(4\\) bzw. \\(2\\). Die Reihenfolge zählt – wie beim Anziehen von Socken und Schuhen."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440039",
+      "section": "Kapitel 7 · Verkettung und Umkehrabbildung",
+      "text": "Die Verkettung hat zwei angenehme Eigenschaften: Sie ist assoziativ, und es gibt ein „neutrales Element“, die Identität.",
+      "formula": "\\begin{array}{c} h \\circ (g \\circ f) = (h \\circ g) \\circ f \\\\[6pt] \\mathrm{id}_A\\colon A \\to A,\\; x \\mapsto x, \\qquad f \\circ \\mathrm{id}_A = f = \\mathrm{id}_B \\circ f \\end{array}",
+      "explanation": "Assoziativ: Beide Seiten bilden \\(x\\) auf \\(h(g(f(x)))\\) ab. Man kann also Klammern weglassen und \\(h \\circ g \\circ f\\) schreiben.\n\nDie Identität lässt alles, wie es ist. Sie spielt für die Verkettung dieselbe Rolle wie die \\(1\\) für die Multiplikation.\n\nAuch Eigenschaften vererben sich: Sind \\(f\\) und \\(g\\) injektiv, ist \\(g \\circ f\\) injektiv. Dasselbe gilt für surjektiv und damit auch für bijektiv.",
+      "insight": "Die Matrixmultiplikation aus der Linearen Algebra ist genau eine Verkettung von Abbildungen. Daher ist auch sie assoziativ, aber nicht kommutativ."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440040",
+      "section": "Kapitel 7 · Verkettung und Umkehrabbildung",
+      "text": "Eine Abbildung \\(f\\colon A \\to B\\) heißt umkehrbar, wenn es eine Abbildung \\(g\\colon B \\to A\\) gibt, die \\(f\\) in beide Richtungen rückgängig macht. Sie heißt Umkehrabbildung \\(f^{-1}\\).",
+      "visual": "inverseMap",
+      "formula": "f^{-1} \\circ f = \\mathrm{id}_A \\quad \\text{und} \\quad f \\circ f^{-1} = \\mathrm{id}_B",
+      "explanation": "Zentraler Satz: \\(f\\) ist genau dann umkehrbar, wenn \\(f\\) bijektiv ist.\n\nWarum, sieht man in der Animation: Dreht man alle Pfeile um, entsteht nur dann wieder eine Abbildung, wenn jedes Element von \\(B\\) genau einen Pfeil bekommt hat. „Mindestens einen“ ist Surjektivität, „höchstens einen“ ist Injektivität.\n\nDie Umkehrabbildung ist dann eindeutig: \\(f^{-1}(y)\\) ist das einzige \\(x\\) mit \\(f(x) = y\\).",
+      "insight": "Typischer Fehler: \\(f^{-1}(x)\\) mit \\(\\frac{1}{f(x)}\\) verwechseln. Für \\(f(x) = 2x\\) ist \\(f^{-1}(x) = \\frac{x}{2}\\), aber \\(\\frac{1}{f(x)} = \\frac{1}{2x}\\)."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440041",
+      "section": "Kapitel 7 · Verkettung und Umkehrabbildung",
+      "text": "Umkehrabbildung konkret berechnen: Gleichung \\(y = f(x)\\) nach \\(x\\) auflösen. Für \\(f\\colon \\mathbb{R} \\to \\mathbb{R}\\), \\(f(x) = 2x + 3\\):",
+      "formula": "\\begin{aligned} y = 2x + 3 \\;&\\Longleftrightarrow\\; x = \\frac{y - 3}{2} \\\\[4pt] f^{-1}\\colon \\mathbb{R} \\to \\mathbb{R}, \\;\\; f^{-1}(y) &= \\frac{y - 3}{2} \\end{aligned}",
+      "explanation": "Probe in beide Richtungen:\n\\(f^{-1}(f(x)) = \\frac{(2x + 3) - 3}{2} = x\\) ✓\n\\(f(f^{-1}(y)) = 2 \\cdot \\frac{y - 3}{2} + 3 = y\\) ✓\n\nEin zweites Beispiel: Die Funktion \\(f_3\\colon [0, \\infty) \\to [0, \\infty)\\), \\(x \\mapsto x^2\\) aus Kapitel 6 ist bijektiv. Ihre Umkehrabbildung ist die Wurzelfunktion \\(y \\mapsto \\sqrt{y}\\). Für \\(f_1\\colon \\mathbb{R} \\to \\mathbb{R}\\) gibt es dagegen keine Umkehrabbildung – \\(\\sqrt{(-2)^2} = 2 \\neq -2\\).",
+      "insight": "Die Wurzel ist die Umkehrung des Quadrierens nur auf \\([0, \\infty)\\). Deshalb gilt \\(\\sqrt{x^2} = |x|\\) und nicht \\(x\\)."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440042",
+      "section": "Kapitel 7 · Verkettung und Umkehrabbildung",
+      "text": "Und die Umkehrung einer Verkettung? Hier dreht sich die Reihenfolge um:",
+      "formula": "(g \\circ f)^{-1} = f^{-1} \\circ g^{-1}",
+      "explanation": "Begründung: In \\(f^{-1} \\circ g^{-1} \\circ g \\circ f\\) heben sich in der Mitte \\(g^{-1} \\circ g = \\mathrm{id}_B\\) weg. Übrig bleibt \\(f^{-1} \\circ f = \\mathrm{id}_A\\). Die andere Richtung geht genauso.\n\nAlltagsbild: Morgens ziehst du erst Socken (\\(f\\)), dann Schuhe (\\(g\\)) an. Abends machst du es rückgängig: erst die Schuhe aus (\\(g^{-1}\\)), dann die Socken (\\(f^{-1}\\)).\n\nBeispiel: \\(f(x) = x + 1\\), \\(g(x) = 2x\\). Dann ist \\((g \\circ f)(x) = 2x + 2\\). Erst \\(g\\) umkehren: \\(g^{-1}(y) = \\frac{y}{2}\\). Dann \\(f\\) umkehren: \\(f^{-1}(z) = z - 1\\). Zusammen \\((g \\circ f)^{-1}(y) = \\frac{y}{2} - 1\\).\nProbe: \\(2\\left(\\frac{y}{2} - 1\\right) + 2 = y\\) ✓",
+      "insight": "Dieselbe Regel gilt später für Matrizen: \\((AB)^{-1} = B^{-1}A^{-1}\\)."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440043",
+      "section": "Kapitel 8 · Relationen",
+      "text": "Eine Relation auf einer Menge \\(A\\) beschreibt, welche Elemente „miteinander in Beziehung stehen“. Formal ist sie einfach eine Teilmenge \\(R \\subseteq A \\times A\\); man schreibt \\(a \\sim b\\) statt \\((a, b) \\in R\\).",
+      "formula": "\\begin{array}{ll} \\text{reflexiv:} & a \\sim a \\text{ für alle } a \\\\ \\text{symmetrisch:} & a \\sim b \\implies b \\sim a \\\\ \\text{transitiv:} & a \\sim b \\text{ und } b \\sim c \\implies a \\sim c \\end{array}",
+      "explanation": "Eine Relation mit allen drei Eigenschaften heißt Äquivalenzrelation. Sie beschreibt „Gleichheit in einer bestimmten Hinsicht“.\n\nBeispiele:\n• „hat denselben Geburtstag wie“ auf der Menge aller Menschen: Äquivalenzrelation.\n• „\\(\\le\\)“ auf \\(\\mathbb{R}\\): reflexiv und transitiv, aber nicht symmetrisch (\\(1 \\le 2\\), aber nicht \\(2 \\le 1\\)).\n• „ist befreundet mit“: symmetrisch, aber meist nicht transitiv.",
+      "insight": "Auch Abbildungen sind Relationen – nämlich solche zwischen \\(A\\) und \\(B\\), bei denen jedes \\(a\\) in genau einem Paar vorkommt."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440044",
+      "section": "Kapitel 8 · Relationen",
+      "text": "Das wichtigste Beispiel: Zwei ganze Zahlen heißen kongruent modulo 3, wenn sie beim Teilen durch 3 denselben Rest lassen – gleichwertig: wenn ihre Differenz durch 3 teilbar ist.",
+      "visual": "modClasses",
+      "formula": "a \\equiv b \\pmod 3 \\quad :\\iff \\quad 3 \\mid (a - b)",
+      "explanation": "Prüfen der drei Eigenschaften:\n• reflexiv: \\(a - a = 0\\) ist durch \\(3\\) teilbar.\n• symmetrisch: Ist \\(a - b = 3k\\), dann \\(b - a = 3 \\cdot (-k)\\).\n• transitiv: Aus \\(a - b = 3k\\) und \\(b - c = 3m\\) folgt \\(a - c = 3(k + m)\\).\n\nDie Menge aller zu \\(a\\) äquivalenten Elemente heißt Äquivalenzklasse \\([a]\\). Hier, auf ganz \\(\\mathbb{Z}\\):\n\\([0] = \\{\\dots, -3, 0, 3, 6, \\dots\\}\\), \\([1] = \\{\\dots, -2, 1, 4, 7, \\dots\\}\\), \\([2] = \\{\\dots, -1, 2, 5, 8, \\dots\\}\\).\n\nBeachte: \\([0] = [3] = [6]\\) – jedes Element einer Klasse kann sie vertreten.",
+      "insight": "Die Uhr rechnet modulo 12: 5 Stunden nach 9 Uhr ist 2 Uhr. Gleichheit modulo \\(n\\) ist überall dort, wo Dinge sich periodisch wiederholen."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440045",
+      "section": "Kapitel 8 · Relationen",
+      "text": "Was die Animation gezeigt hat, gilt allgemein: Die Äquivalenzklassen einer Äquivalenzrelation zerlegen die Menge in disjunkte, nichtleere Teile.",
+      "formula": "\\begin{array}{l} 1.\\;\\; a \\in [a] \\text{ für jedes } a \\in A \\\\[6pt] 2.\\;\\; [a] = [b] \\;\\text{ oder }\\; [a] \\cap [b] = \\emptyset \\end{array}",
+      "explanation": "Zeile 1 heißt: Keine Klasse ist leer, und jedes Element gehört zu einer Klasse (keine Lücke). Sie folgt aus der Reflexivität.\n\nZeile 2 heißt: Zwei Klassen sind entweder gleich oder überlappen gar nicht. Sie folgt aus Symmetrie und Transitivität: Haben zwei Klassen ein gemeinsames Element \\(c\\), dann gilt \\(a \\sim c \\sim b\\), also \\(a \\sim b\\), und die Klassen sind gleich.\n\nDie Menge aller Klassen heißt Quotientenmenge \\(A/\\!\\sim\\). Modulo 3 ist \\(\\mathbb{Z}/3\\mathbb{Z} = \\{[0], [1], [2]\\}\\) – eine Menge mit nur drei Elementen, mit der man sogar rechnen kann (siehe Lektionen „Gruppen“ und „Ringe“).",
+      "insight": "Äquivalenzrelation und Zerlegung sind zwei Seiten derselben Medaille: Jede Zerlegung einer Menge in Teile liefert die Relation „liegt im selben Teil wie“."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440046",
+      "section": "Kapitel 8 · Relationen",
+      "text": "Neben Äquivalenzrelationen gibt es Ordnungsrelationen. Statt Symmetrie fordert man das Gegenteil, die Antisymmetrie:",
+      "formula": "\\begin{array}{ll} \\text{reflexiv:} & a \\preceq a \\\\ \\text{antisymmetrisch:} & a \\preceq b \\text{ und } b \\preceq a \\implies a = b \\\\ \\text{transitiv:} & a \\preceq b \\text{ und } b \\preceq c \\implies a \\preceq c \\end{array}",
+      "explanation": "Beispiele:\n• \\(\\le\\) auf \\(\\mathbb{R}\\) ist eine Ordnung. Zusätzlich sind je zwei Zahlen vergleichbar (\\(a \\le b\\) oder \\(b \\le a\\)). So eine Ordnung heißt total.\n• \\(\\subseteq\\) auf der Potenzmenge \\(\\mathcal{P}(A)\\) ist eine Ordnung, aber NICHT total: \\(\\{1\\}\\) und \\(\\{2\\}\\) sind nicht vergleichbar. Das Diagramm zur Potenzmenge aus Kapitel 2 zeigt genau diese Ordnung.\n• „teilt“ auf \\(\\mathbb{N}\\): \\(3 \\mid 6\\) und \\(6 \\mid 12\\), also \\(3 \\mid 12\\). Auch das ist eine nicht totale Ordnung.\n\nDie Antisymmetrie ist der Grund, warum man Gleichheit von Mengen mit doppelter Inklusion beweisen kann.",
+      "insight": "Äquivalenz: „gleich in einer Hinsicht“. Ordnung: „kleiner oder gleich in einer Hinsicht“. Die beiden Relationstypen unterscheiden sich nur in der zweiten Eigenschaft."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440047",
+      "section": "Kapitel 9 · Ausblick und Rückblick",
+      "text": "Ausblick: Mit Bijektionen kann man auch unendliche Mengen „zählen“. Zwei Mengen heißen gleichmächtig, wenn es eine Bijektion zwischen ihnen gibt.",
+      "formula": "\\mathbb{N} \\to \\{2, 4, 6, \\dots\\}, \\quad n \\mapsto 2n \\quad \\text{ist bijektiv}",
+      "explanation": "Überraschung: Es gibt „genauso viele“ gerade Zahlen wie natürliche Zahlen – obwohl die geraden Zahlen eine echte Teilmenge sind. Für unendliche Mengen versagt die Intuition „ein Teil ist kleiner als das Ganze“.\n\nMengen, die gleichmächtig zu \\(\\mathbb{N}\\) sind, heißen abzählbar. Auch \\(\\mathbb{Z}\\) und sogar \\(\\mathbb{Q}\\) sind abzählbar.\n\nCantor hat aber gezeigt: \\(\\mathbb{R}\\) ist NICHT abzählbar. Es gibt also verschiedene Stufen von Unendlich. Und für jede Menge \\(A\\) ist \\(\\mathcal{P}(A)\\) echt mächtiger als \\(A\\) – auch das ist ein Satz von Cantor.",
+      "insight": "Für endliche Mengen ist „gleich viele Elemente“ dasselbe wie „es gibt eine Bijektion“. Die zweite Formulierung funktioniert auch im Unendlichen – deshalb ist sie die Definition."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440048",
+      "section": "Kapitel 9 · Ausblick und Rückblick",
+      "text": "Schau zurück, wie die Begriffe auseinander hervorgegangen sind:",
+      "explanation": "1. Menge: Es zählt nur, welche Elemente dazugehören. \\(\\{1, 2\\} = \\{2, 1\\}\\), \\(\\emptyset \\neq \\{\\emptyset\\}\\).\n\n2. \\(A \\subseteq B\\): jedes Element von \\(A\\) liegt in \\(B\\). Gleichheit durch doppelte Inklusion. \\(|\\mathcal{P}(A)| = 2^{|A|}\\).\n\n3. \\(\\cap\\) = und, \\(\\cup\\) = oder, Komplement = nicht. De Morgan: \\((A \\cup B)^c = A^c \\cap B^c\\).\n\n4. Paare: Reihenfolge zählt. \\(|A \\times B| = |A| \\cdot |B|\\).\n\n5. Abbildung: JEDEM \\(x\\) GENAU EIN \\(f(x)\\). Definitionsmenge und Zielmenge gehören dazu. Bild und Urbild.\n\n6. Injektiv: höchstens einmal getroffen. Surjektiv: mindestens einmal. Bijektiv: genau einmal.\n\n7. \\(g \\circ f\\): erst \\(f\\), dann \\(g\\). Umkehrbar ⇔ bijektiv. \\((g \\circ f)^{-1} = f^{-1} \\circ g^{-1}\\).\n\n8. Äquivalenzrelation: reflexiv, symmetrisch, transitiv → Zerlegung in Klassen. Ordnung: antisymmetrisch statt symmetrisch.\n\n9. Ausblick: Bijektionen vergleichen auch unendliche Mengen.",
+      "insight": "Glückwunsch! Mit diesen Begriffen kannst du die Definitionen jeder weiteren Vorlesung lesen. Weiter geht es mit „Logik“, „Vollständige Induktion“ oder direkt mit „Vektorräume“."
+    }
+  ]
+}

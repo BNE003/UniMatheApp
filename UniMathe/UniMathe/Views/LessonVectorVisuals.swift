@@ -108,6 +108,101 @@ struct LessonVisualView: View {
             sample: CGPoint(x: 0, y: 1)
         )
         case "powerIteration": PowerIterationVisual()
+        case "vennOperations": VennOperationsVisual()
+        case "deMorgan": DeMorganVisual()
+        case "powerSet": PowerSetVisual()
+        case "cartesianProduct": CartesianProductVisual()
+        case "modClasses": ModClassesVisual()
+        case "mapCheck": ArrowDiagramVisual(
+            columns: [["1", "2", "3"], ["a", "b", "c", "d"]],
+            names: ["A", "B"],
+            frames: [
+                DiagramFrame(arrows: [.init(fromColumn: 0, from: 0, toColumn: 1, to: 1), .init(fromColumn: 0, from: 1, toColumn: 1, to: 0), .init(fromColumn: 0, from: 2, toColumn: 1, to: 3)],
+                             marks: [.init(column: 0, index: 0, color: .green), .init(column: 0, index: 1, color: .green), .init(column: 0, index: 2, color: .green)],
+                             caption: "Jedes Element von A hat GENAU EINEN Pfeil: eine Abbildung. Dass c nichts abbekommt, ist erlaubt."),
+                DiagramFrame(arrows: [.init(fromColumn: 0, from: 0, toColumn: 1, to: 1), .init(fromColumn: 0, from: 1, toColumn: 1, to: 0)],
+                             marks: [.init(column: 0, index: 2, color: .red)],
+                             caption: "3 hat keinen Pfeil: KEINE Abbildung. Jedem Element von A muss etwas zugeordnet werden."),
+                DiagramFrame(arrows: [.init(fromColumn: 0, from: 0, toColumn: 1, to: 1), .init(fromColumn: 0, from: 0, toColumn: 1, to: 2), .init(fromColumn: 0, from: 1, toColumn: 1, to: 0), .init(fromColumn: 0, from: 2, toColumn: 1, to: 3)],
+                             marks: [.init(column: 0, index: 0, color: .red)],
+                             caption: "1 hat zwei Pfeile: KEINE Abbildung. Der Wert f(1) muss eindeutig sein."),
+                DiagramFrame(arrows: [.init(fromColumn: 0, from: 0, toColumn: 1, to: 1), .init(fromColumn: 0, from: 1, toColumn: 1, to: 1), .init(fromColumn: 0, from: 2, toColumn: 1, to: 1)],
+                             marks: [.init(column: 1, index: 1, color: .green)],
+                             caption: "Alle drei Pfeile treffen b: Das IST eine Abbildung (eine konstante). Bei B dürfen beliebig viele Pfeile ankommen – auch keiner.")
+            ]
+        )
+        case "injSurj": ArrowDiagramVisual(
+            columns: [["1", "2", "3"], ["a", "b", "c"]],
+            names: ["A", "B"],
+            frames: [
+                DiagramFrame(columns: [["1", "2", "3"], ["a", "b", "c", "d"]],
+                             arrows: [.init(fromColumn: 0, from: 0, toColumn: 1, to: 0), .init(fromColumn: 0, from: 1, toColumn: 1, to: 1), .init(fromColumn: 0, from: 2, toColumn: 1, to: 3)],
+                             marks: [.init(column: 1, index: 2, color: .orange)],
+                             caption: "Injektiv, nicht surjektiv: Kein Element von B wird doppelt getroffen – aber c wird gar nicht getroffen."),
+                DiagramFrame(columns: [["1", "2", "3", "4"], ["a", "b", "c"]],
+                             arrows: [.init(fromColumn: 0, from: 0, toColumn: 1, to: 0), .init(fromColumn: 0, from: 1, toColumn: 1, to: 1), .init(fromColumn: 0, from: 2, toColumn: 1, to: 2), .init(fromColumn: 0, from: 3, toColumn: 1, to: 2)],
+                             marks: [.init(column: 1, index: 2, color: .orange)],
+                             caption: "Surjektiv, nicht injektiv: Jedes Element von B wird getroffen – aber c doppelt (von 3 und 4)."),
+                DiagramFrame(arrows: [.init(fromColumn: 0, from: 0, toColumn: 1, to: 1), .init(fromColumn: 0, from: 1, toColumn: 1, to: 2), .init(fromColumn: 0, from: 2, toColumn: 1, to: 0)],
+                             marks: [.init(column: 1, index: 0, color: .green), .init(column: 1, index: 1, color: .green), .init(column: 1, index: 2, color: .green)],
+                             caption: "Bijektiv: Jedes Element von B wird GENAU EINMAL getroffen. Die Elemente von A und B sind perfekt gepaart."),
+                DiagramFrame(arrows: [.init(fromColumn: 0, from: 0, toColumn: 1, to: 0), .init(fromColumn: 0, from: 1, toColumn: 1, to: 0), .init(fromColumn: 0, from: 2, toColumn: 1, to: 2)],
+                             marks: [.init(column: 1, index: 0, color: .red), .init(column: 1, index: 1, color: .orange)],
+                             caption: "Weder noch: a wird doppelt getroffen (nicht injektiv), b gar nicht (nicht surjektiv). Es ist trotzdem eine Abbildung!")
+            ]
+        )
+        case "preimage": ArrowDiagramVisual(
+            columns: [["1", "2", "3", "4"], ["a", "b", "c", "d"]],
+            names: ["A", "B"],
+            frames: {
+                let f: [DiagramArrow] = [.init(fromColumn: 0, from: 0, toColumn: 1, to: 0), .init(fromColumn: 0, from: 1, toColumn: 1, to: 1), .init(fromColumn: 0, from: 2, toColumn: 1, to: 0), .init(fromColumn: 0, from: 3, toColumn: 1, to: 2)]
+                return [
+                    DiagramFrame(arrows: f, caption: "f: A → B mit f(1) = a, f(2) = b, f(3) = a, f(4) = c."),
+                    DiagramFrame(arrows: f, marks: [.init(column: 0, index: 0, color: .green), .init(column: 0, index: 1, color: .green), .init(column: 1, index: 0, color: .green), .init(column: 1, index: 1, color: .green)],
+                                 caption: "Bild: f({1, 2}) = {a, b}. Man startet LINKS und folgt den Pfeilen."),
+                    DiagramFrame(arrows: f, marks: [.init(column: 1, index: 0, color: .purple), .init(column: 0, index: 0, color: .purple), .init(column: 0, index: 2, color: .purple)],
+                                 caption: "Urbild: f⁻¹({a}) = {1, 3}. Man startet RECHTS und sucht alle Pfeile, die dort ankommen."),
+                    DiagramFrame(arrows: f, marks: [.init(column: 1, index: 3, color: .purple)],
+                                 caption: "f⁻¹({d}) = ∅, denn kein Pfeil kommt bei d an. Das Urbild existiert IMMER – auch wenn f gar nicht umkehrbar ist.")
+                ]
+            }()
+        )
+        case "composition": ArrowDiagramVisual(
+            columns: [["1", "2", "3"], ["a", "b", "c"], ["x", "y"]],
+            names: ["A", "B", "C"],
+            frames: {
+                let f: [DiagramArrow] = [.init(fromColumn: 0, from: 0, toColumn: 1, to: 0), .init(fromColumn: 0, from: 1, toColumn: 1, to: 2), .init(fromColumn: 0, from: 2, toColumn: 1, to: 1)]
+                let g: [DiagramArrow] = [.init(fromColumn: 1, from: 0, toColumn: 2, to: 1, color: .orange), .init(fromColumn: 1, from: 1, toColumn: 2, to: 0, color: .orange), .init(fromColumn: 1, from: 2, toColumn: 2, to: 1, color: .orange)]
+                return [
+                    DiagramFrame(arrows: f, caption: "Erst f: A → B (blau): 1 ↦ a, 2 ↦ c, 3 ↦ b."),
+                    DiagramFrame(arrows: f + g, caption: "Dann g: B → C (orange): a ↦ y, b ↦ x, c ↦ y. Die Ziele von f sind die Startpunkte von g."),
+                    DiagramFrame(arrows: [.init(fromColumn: 0, from: 0, toColumn: 1, to: 0, color: .green), .init(fromColumn: 1, from: 0, toColumn: 2, to: 1, color: .green)],
+                                 marks: [.init(column: 0, index: 0, color: .green), .init(column: 2, index: 1, color: .green)],
+                                 dimmedArrows: f + g,
+                                 caption: "Pfad für 1: erst zu f(1) = a, dann zu g(a) = y. Also (g ∘ f)(1) = g(f(1)) = y."),
+                    DiagramFrame(arrows: [.init(fromColumn: 0, from: 0, toColumn: 2, to: 1, color: .green), .init(fromColumn: 0, from: 1, toColumn: 2, to: 1, color: .green), .init(fromColumn: 0, from: 2, toColumn: 2, to: 0, color: .green)],
+                                 dimmedArrows: f + g,
+                                 caption: "g ∘ f: A → C fasst beide Schritte zusammen: 1 ↦ y, 2 ↦ y, 3 ↦ x. Man liest „g nach f“ – f wird zuerst angewendet.")
+                ]
+            }()
+        )
+        case "inverseMap": ArrowDiagramVisual(
+            columns: [["1", "2", "3"], ["a", "b", "c"]],
+            names: ["A", "B"],
+            frames: {
+                let f: [DiagramArrow] = [.init(fromColumn: 0, from: 0, toColumn: 1, to: 1), .init(fromColumn: 0, from: 1, toColumn: 1, to: 2), .init(fromColumn: 0, from: 2, toColumn: 1, to: 0)]
+                let back: [DiagramArrow] = [.init(fromColumn: 1, from: 1, toColumn: 0, to: 0, color: .green), .init(fromColumn: 1, from: 2, toColumn: 0, to: 1, color: .green), .init(fromColumn: 1, from: 0, toColumn: 0, to: 2, color: .green)]
+                let h: [DiagramArrow] = [.init(fromColumn: 0, from: 0, toColumn: 1, to: 0), .init(fromColumn: 0, from: 1, toColumn: 1, to: 0), .init(fromColumn: 0, from: 2, toColumn: 1, to: 1)]
+                let hBack: [DiagramArrow] = [.init(fromColumn: 1, from: 0, toColumn: 0, to: 0, color: .red), .init(fromColumn: 1, from: 0, toColumn: 0, to: 1, color: .red), .init(fromColumn: 1, from: 1, toColumn: 0, to: 2, color: .red)]
+                return [
+                    DiagramFrame(arrows: f, caption: "f ist bijektiv: 1 ↦ b, 2 ↦ c, 3 ↦ a. Jedes Element von B wird genau einmal getroffen."),
+                    DiagramFrame(arrows: back, dimmedArrows: f, caption: "Alle Pfeile umdrehen (grün) ergibt wieder eine Abbildung: f⁻¹: B → A mit f⁻¹(a) = 3, f⁻¹(b) = 1, f⁻¹(c) = 2."),
+                    DiagramFrame(arrows: h, caption: "Jetzt ein nicht bijektives h: 1 ↦ a, 2 ↦ a, 3 ↦ b."),
+                    DiagramFrame(arrows: hBack, marks: [.init(column: 1, index: 0, color: .red), .init(column: 1, index: 2, color: .red)], dimmedArrows: h,
+                                 caption: "Umgedreht hätte a zwei Pfeile und c keinen – das ist keine Abbildung. Eine Umkehrabbildung gibt es nur für bijektive Abbildungen.")
+                ]
+            }()
+        )
         default: EmptyView()
         }
     }
@@ -308,14 +403,24 @@ private struct Dot: View {
 private struct AnimatedFigure<Content: View>: View {
     let window: PlaneWindow
     let captions: [String]
+    let showGrid: Bool
+    let aspectRatio: CGFloat
     let content: (Int, CGSize) -> Content
 
     @State private var phase = 0
     @State private var runID = 0
 
-    init(window: PlaneWindow, captions: [String], @ViewBuilder content: @escaping (Int, CGSize) -> Content) {
+    init(
+        window: PlaneWindow,
+        captions: [String],
+        showGrid: Bool = true,
+        aspectRatio: CGFloat = 1,
+        @ViewBuilder content: @escaping (Int, CGSize) -> Content
+    ) {
         self.window = window
         self.captions = captions
+        self.showGrid = showGrid
+        self.aspectRatio = aspectRatio
         self.content = content
     }
 
@@ -323,12 +428,14 @@ private struct AnimatedFigure<Content: View>: View {
         VStack(alignment: .leading, spacing: 10) {
             GeometryReader { geo in
                 ZStack {
-                    CoordinateGrid(window: window)
+                    if showGrid {
+                        CoordinateGrid(window: window)
+                    }
                     content(phase, geo.size)
                 }
                 .frame(width: geo.size.width, height: geo.size.height)
             }
-            .aspectRatio(1, contentMode: .fit)
+            .aspectRatio(aspectRatio, contentMode: .fit)
             .clipShape(RoundedRectangle(cornerRadius: 12))
 
             HStack(spacing: 4) {
@@ -1220,6 +1327,399 @@ private struct PowerIterationVisual: View {
 
             let current = scaled(iterates[min(phase, iterates.count - 1)])
             MathLabel(text: ["x", "A·x", "A²·x", "A³·x"][min(phase, 3)], at: current, color: VisualColor.first, window: window, size: size, offset: CGSize(width: 22, height: 8))
+        }
+    }
+}
+
+// MARK: - Mengen und Abbildungen: Animationen
+
+/// Zeichenfläche ohne Gitter im Seitenverhältnis 1,4 : 1 (Koordinaten 0…14 × 0…10).
+private let setWindow = PlaneWindow(xMin: 0, xMax: 14, yMin: 0, yMax: 10)
+private let setAspect: CGFloat = 1.4
+
+private func setScale(_ size: CGSize) -> CGFloat { size.width / 14 }
+
+private func circlePath(center: CGPoint, radius: CGFloat, size: CGSize) -> Path {
+    let c = setWindow.point(center, in: size)
+    let r = radius * setScale(size)
+    return Path(ellipseIn: CGRect(x: c.x - r, y: c.y - r, width: 2 * r, height: 2 * r))
+}
+
+private func rectPath(from a: CGPoint, to b: CGPoint, size: CGSize) -> Path {
+    let p = setWindow.point(a, in: size)
+    let q = setWindow.point(b, in: size)
+    return Path(roundedRect: CGRect(x: min(p.x, q.x), y: min(p.y, q.y), width: abs(q.x - p.x), height: abs(q.y - p.y)), cornerRadius: 10)
+}
+
+/// Kleiner Text an einer Stelle der Zeichenfläche (Mengen-Koordinaten).
+private struct SetText: View {
+    let text: String
+    let at: CGPoint
+    let size: CGSize
+    var color: Color = .primary
+    var fontSize: CGFloat = 15
+    var weight: Font.Weight = .semibold
+    var italic = false
+
+    var body: some View {
+        Group {
+            if italic {
+                Text(text).font(.system(size: fontSize, weight: weight, design: .serif)).italic()
+            } else {
+                Text(text).font(.system(size: fontSize, weight: weight, design: .rounded))
+            }
+        }
+        .foregroundColor(color)
+        .position(setWindow.point(at, in: size))
+    }
+}
+
+// MARK: - 20. Mengenoperationen im Venn-Diagramm
+
+private struct VennOperationsVisual: View {
+    private let centerA = CGPoint(x: 5.3, y: 5)
+    private let centerB = CGPoint(x: 8.7, y: 5)
+    private let radius: CGFloat = 3.2
+
+    /// Element, Position, Teilbereich (A nur, beide, B nur, außen).
+    private let elements: [(String, CGPoint)] = [
+        ("1", CGPoint(x: 3.6, y: 6.2)), ("2", CGPoint(x: 3.8, y: 3.8)),
+        ("3", CGPoint(x: 7, y: 6.1)), ("4", CGPoint(x: 7, y: 3.9)),
+        ("5", CGPoint(x: 10.2, y: 6.2)), ("6", CGPoint(x: 10.4, y: 3.8)),
+        ("7", CGPoint(x: 1.3, y: 1.3)), ("8", CGPoint(x: 12.7, y: 8.7))
+    ]
+
+    private let highlighted: [Set<String>] = [
+        [], ["3", "4"], ["1", "2", "3", "4", "5", "6"], ["1", "2"], ["5", "6"], ["5", "6", "7", "8"]
+    ]
+
+    var body: some View {
+        AnimatedFigure(window: setWindow, captions: [
+            "Grundmenge U = {1, …, 8}, darin A = {1, 2, 3, 4} (links) und B = {3, 4, 5, 6} (rechts).",
+            "A ∩ B = {3, 4}: alles, was in A UND in B liegt – die Überlappung.",
+            "A ∪ B = {1, 2, 3, 4, 5, 6}: alles, was in A ODER in B liegt. „Oder“ schließt „beides“ ein.",
+            "A \\ B = {1, 2}: in A, aber nicht in B. Man nimmt A und schneidet die Überlappung weg.",
+            "B \\ A = {5, 6} – etwas anderes als A \\ B! Die Differenz hängt von der Reihenfolge ab.",
+            "Komplement Aᶜ = U \\ A = {5, 6, 7, 8}: alles in der Grundmenge außerhalb von A."
+        ], showGrid: false, aspectRatio: setAspect) { phase, size in
+            let a = circlePath(center: centerA, radius: radius, size: size)
+            let b = circlePath(center: centerB, radius: radius, size: size)
+            let u = rectPath(from: CGPoint(x: 0.4, y: 0.4), to: CGPoint(x: 13.6, y: 9.6), size: size)
+            let regions: [Path] = [
+                Path(), a.intersection(b), a.union(b), a.subtracting(b), b.subtracting(a), u.subtracting(a)
+            ]
+            let marked = highlighted[min(phase, highlighted.count - 1)]
+
+            u.stroke(Color.secondary.opacity(0.5), lineWidth: 1.5)
+            SetText(text: "U", at: CGPoint(x: 1.1, y: 9), size: size, color: .secondary, italic: true)
+
+            ForEach(1..<regions.count, id: \.self) { k in
+                regions[k]
+                    .fill(VisualColor.result.opacity(0.32))
+                    .opacity(show(phase == k))
+            }
+
+            a.stroke(VisualColor.first, lineWidth: 2.5)
+            b.stroke(VisualColor.second, lineWidth: 2.5)
+            SetText(text: "A", at: CGPoint(x: 3.2, y: 8.6), size: size, color: VisualColor.first, fontSize: 18, italic: true)
+            SetText(text: "B", at: CGPoint(x: 10.8, y: 8.6), size: size, color: VisualColor.second, fontSize: 18, italic: true)
+
+            ForEach(elements.indices, id: \.self) { i in
+                let isMarked = marked.contains(elements[i].0)
+                SetText(
+                    text: elements[i].0,
+                    at: elements[i].1,
+                    size: size,
+                    color: isMarked ? Color.primary : Color.secondary,
+                    fontSize: isMarked ? 19 : 15,
+                    weight: isMarked ? .bold : .regular
+                )
+            }
+        }
+    }
+}
+
+// MARK: - 21. De Morgan: (A ∪ B)ᶜ = Aᶜ ∩ Bᶜ
+
+private struct DeMorganVisual: View {
+    private let centerA = CGPoint(x: 5.3, y: 5)
+    private let centerB = CGPoint(x: 8.7, y: 5)
+
+    var body: some View {
+        AnimatedFigure(window: setWindow, captions: [
+            "Linke Seite, Schritt 1: A ∪ B einfärben.",
+            "Linke Seite, Schritt 2: (A ∪ B)ᶜ ist alles AUSSERHALB davon (grün).",
+            "Rechte Seite, Schritt 1: Aᶜ – alles außerhalb von A (blau schraffiert gedacht).",
+            "Rechte Seite, Schritt 2: dazu Bᶜ – alles außerhalb von B (orange). Wo sich beide Farben überlagern, liegt Aᶜ ∩ Bᶜ.",
+            "Aᶜ ∩ Bᶜ (grün) ist genau dieselbe Fläche wie (A ∪ B)ᶜ: „nicht in A oder B“ heißt „nicht in A und nicht in B“."
+        ], showGrid: false, aspectRatio: setAspect) { phase, size in
+            let a = circlePath(center: centerA, radius: 3.2, size: size)
+            let b = circlePath(center: centerB, radius: 3.2, size: size)
+            let u = rectPath(from: CGPoint(x: 0.4, y: 0.4), to: CGPoint(x: 13.6, y: 9.6), size: size)
+            let outside = u.subtracting(a.union(b))
+
+            a.union(b).fill(VisualColor.extra.opacity(0.28)).opacity(show(phase == 0))
+            outside.fill(VisualColor.result.opacity(0.4)).opacity(show(phase == 1 || phase == 4))
+            u.subtracting(a).fill(VisualColor.first.opacity(0.22)).opacity(show(phase == 2 || phase == 3))
+            u.subtracting(b).fill(VisualColor.second.opacity(0.22)).opacity(show(phase == 3))
+
+            u.stroke(Color.secondary.opacity(0.5), lineWidth: 1.5)
+            a.stroke(VisualColor.first, lineWidth: 2.5)
+            b.stroke(VisualColor.second, lineWidth: 2.5)
+            SetText(text: "U", at: CGPoint(x: 1.1, y: 9), size: size, color: .secondary, italic: true)
+            SetText(text: "A", at: CGPoint(x: 4, y: 5), size: size, color: VisualColor.first, fontSize: 18, italic: true)
+            SetText(text: "B", at: CGPoint(x: 10, y: 5), size: size, color: VisualColor.second, fontSize: 18, italic: true)
+        }
+    }
+}
+
+// MARK: - 22. Potenzmenge als Diagramm
+
+private struct PowerSetVisual: View {
+    private let nodes: [(String, CGPoint, Int)] = [
+        ("∅", CGPoint(x: 7, y: 1.2), 0),
+        ("{1}", CGPoint(x: 2.8, y: 4), 1), ("{2}", CGPoint(x: 7, y: 4), 1), ("{3}", CGPoint(x: 11.2, y: 4), 1),
+        ("{1, 2}", CGPoint(x: 2.8, y: 6.6), 2), ("{1, 3}", CGPoint(x: 7, y: 6.6), 2), ("{2, 3}", CGPoint(x: 11.2, y: 6.6), 2),
+        ("{1, 2, 3}", CGPoint(x: 7, y: 9.0), 3)
+    ]
+    /// Kanten: kleinere Menge ⊆ größere Menge, die genau ein Element mehr hat.
+    private let edges: [(Int, Int)] = [
+        (0, 1), (0, 2), (0, 3),
+        (1, 4), (1, 5), (2, 4), (2, 6), (3, 5), (3, 6),
+        (4, 7), (5, 7), (6, 7)
+    ]
+
+    var body: some View {
+        AnimatedFigure(window: setWindow, captions: [
+            "A = {1, 2, 3}. Die kleinste Teilmenge ist ∅ – man wählt einfach kein Element aus.",
+            "Teilmengen mit genau einem Element: {1}, {2}, {3}. Linien bedeuten „⊆“.",
+            "Teilmengen mit zwei Elementen: wieder drei Stück.",
+            "Und A selbst. Zusammen 1 + 3 + 3 + 1 = 8 = 2³ Teilmengen. Diese 8 Mengen sind die Elemente von 𝒫(A)."
+        ], showGrid: false, aspectRatio: setAspect) { phase, size in
+            ForEach(edges.indices, id: \.self) { e in
+                let from = nodes[edges[e].0]
+                let to = nodes[edges[e].1]
+                Path { p in
+                    p.move(to: setWindow.point(CGPoint(x: from.1.x, y: from.1.y + 0.45), in: size))
+                    p.addLine(to: setWindow.point(CGPoint(x: to.1.x, y: to.1.y - 0.45), in: size))
+                }
+                .stroke(Color.secondary.opacity(0.45), lineWidth: 1.2)
+                .opacity(show(to.2 <= phase))
+            }
+
+            ForEach(nodes.indices, id: \.self) { i in
+                let node = nodes[i]
+                Text(node.0)
+                    .font(.system(size: 14, weight: .semibold, design: .rounded))
+                    .foregroundColor(.primary)
+                    .padding(.horizontal, 7)
+                    .padding(.vertical, 3)
+                    .background(Capsule().fill(VisualColor.first.opacity(node.2 == 3 ? 0.3 : 0.14)))
+                    .overlay(Capsule().stroke(VisualColor.first.opacity(0.6), lineWidth: 1))
+                    .position(setWindow.point(node.1, in: size))
+                    .opacity(show(node.2 <= phase))
+            }
+        }
+    }
+}
+
+// MARK: - 23. Kartesisches Produkt und Graph einer Abbildung
+
+private struct CartesianProductVisual: View {
+    let window = PlaneWindow(xMin: -0.8, xMax: 3.8, yMin: -0.8, yMax: 3.8)
+    private let graph: Set<String> = ["1,2", "2,1", "3,2"]
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "A = {1, 2, 3} auf der x-Achse, B = {1, 2} auf der y-Achse.",
+            "A × B: jedes a ∈ A mit jedem b ∈ B kombiniert – 3 · 2 = 6 Paare, also 6 Punkte.",
+            "(1, 2) und (2, 1) sind verschiedene Punkte: Bei Paaren zählt die Reihenfolge.",
+            "Die Abbildung f: A → B mit f(1) = 2, f(2) = 1, f(3) = 2 als Punktmenge: In jeder Spalte liegt GENAU EIN Punkt. Das ist der Graph von f – eine Teilmenge von A × B."
+        ]) { phase, size in
+            ForEach(1...3, id: \.self) { x in
+                MathLabel(text: "\(x)", at: CGPoint(x: CGFloat(x), y: 0), color: VisualColor.first, window: window, size: size, offset: CGSize(width: 0, height: 14))
+            }
+            ForEach(1...2, id: \.self) { y in
+                MathLabel(text: "\(y)", at: CGPoint(x: 0, y: CGFloat(y)), color: VisualColor.second, window: window, size: size, offset: CGSize(width: -14, height: 0))
+            }
+
+            ForEach(1...3, id: \.self) { x in
+                ForEach(1...2, id: \.self) { y in
+                    let key = "\(x),\(y)"
+                    let inGraph = graph.contains(key)
+                    let special = phase == 2 && (key == "1,2" || key == "2,1")
+                    let color: Color = phase >= 3 ? (inGraph ? VisualColor.result : Color.secondary) : (special ? VisualColor.extra : VisualColor.first)
+                    Dot(at: CGPoint(x: CGFloat(x), y: CGFloat(y)), color: color, window: window, size: size)
+                        .opacity(phase == 0 ? 0 : (phase >= 3 && !inGraph ? 0.3 : 1))
+                        .scaleEffect(special || (phase >= 3 && inGraph) ? 1.5 : 1)
+                    MathLabel(text: "(\(x), \(y))", at: CGPoint(x: CGFloat(x), y: CGFloat(y)), color: color, window: window, size: size, offset: CGSize(width: 0, height: -18))
+                        .opacity(phase == 0 ? 0 : (phase >= 3 && !inGraph ? 0.25 : 1))
+                }
+            }
+        }
+    }
+}
+
+// MARK: - 24. Pfeildiagramme für Abbildungen
+
+struct DiagramArrow {
+    let fromColumn: Int
+    let from: Int
+    let toColumn: Int
+    let to: Int
+    var color: Color = .appAccentBlue
+}
+
+struct DiagramMark {
+    let column: Int
+    let index: Int
+    let color: Color
+}
+
+struct DiagramFrame {
+    var columns: [[String]]? = nil
+    let arrows: [DiagramArrow]
+    var marks: [DiagramMark] = []
+    var dimmedArrows: [DiagramArrow] = []
+    let caption: String
+}
+
+private struct DiagramArrowShape: Shape {
+    let from: CGPoint
+    let to: CGPoint
+
+    func path(in rect: CGRect) -> Path {
+        let a = setWindow.point(from, in: rect.size)
+        let b = setWindow.point(to, in: rect.size)
+        var p = Path()
+        p.move(to: a)
+        p.addLine(to: b)
+        let angle = atan2(b.y - a.y, b.x - a.x)
+        let head: CGFloat = 9
+        p.move(to: b)
+        p.addLine(to: CGPoint(x: b.x - head * cos(angle - .pi / 7), y: b.y - head * sin(angle - .pi / 7)))
+        p.move(to: b)
+        p.addLine(to: CGPoint(x: b.x - head * cos(angle + .pi / 7), y: b.y - head * sin(angle + .pi / 7)))
+        return p
+    }
+}
+
+private struct ArrowDiagramVisual: View {
+    let columns: [[String]]
+    let names: [String]
+    let frames: [DiagramFrame]
+
+    private func columnX(_ k: Int, of n: Int) -> CGFloat {
+        n == 2 ? (k == 0 ? 3.6 : 10.4) : 14 * (CGFloat(k) + 0.5) / CGFloat(n)
+    }
+
+    private func spacing(_ m: Int) -> CGFloat { min(1.55, 6.6 / CGFloat(max(m, 1))) }
+
+    private func position(column k: Int, index i: Int, in cols: [[String]]) -> CGPoint {
+        let m = cols[k].count
+        let sp = spacing(m)
+        return CGPoint(x: columnX(k, of: cols.count), y: 4.6 + CGFloat(m - 1) / 2 * sp - CGFloat(i) * sp)
+    }
+
+    private func arrowEnds(_ arrow: DiagramArrow, in cols: [[String]]) -> (CGPoint, CGPoint) {
+        let p = position(column: arrow.fromColumn, index: arrow.from, in: cols)
+        let q = position(column: arrow.toColumn, index: arrow.to, in: cols)
+        let dx = q.x - p.x, dy = q.y - p.y
+        let len = max(sqrt(dx * dx + dy * dy), 0.001)
+        return (CGPoint(x: p.x + 0.55 * dx / len, y: p.y + 0.55 * dy / len),
+                CGPoint(x: q.x - 0.6 * dx / len, y: q.y - 0.6 * dy / len))
+    }
+
+    var body: some View {
+        AnimatedFigure(window: setWindow, captions: frames.map(\.caption), showGrid: false, aspectRatio: setAspect) { phase, size in
+            let frame = frames[min(phase, frames.count - 1)]
+            let cols = frame.columns ?? columns
+
+            ZStack {
+                ForEach(cols.indices, id: \.self) { k in
+                    let m = cols[k].count
+                    let height = CGFloat(m) * spacing(m) + 0.9
+                    let center = setWindow.point(CGPoint(x: columnX(k, of: cols.count), y: 4.6), in: size)
+                    Ellipse()
+                        .stroke(Color.secondary.opacity(0.5), lineWidth: 1.5)
+                        .background(Ellipse().fill(Color.secondary.opacity(0.06)))
+                        .frame(width: 2.3 * setScale(size), height: height * setScale(size))
+                        .position(center)
+                    SetText(text: names[k], at: CGPoint(x: columnX(k, of: cols.count), y: 4.6 + height / 2 + 0.6), size: size, color: .secondary, fontSize: 17, italic: true)
+                }
+
+                ForEach(frame.dimmedArrows.indices, id: \.self) { i in
+                    let ends = arrowEnds(frame.dimmedArrows[i], in: cols)
+                    DiagramArrowShape(from: ends.0, to: ends.1)
+                        .stroke(frame.dimmedArrows[i].color.opacity(0.25), style: StrokeStyle(lineWidth: 2, lineCap: .round))
+                }
+
+                ForEach(frame.arrows.indices, id: \.self) { i in
+                    let ends = arrowEnds(frame.arrows[i], in: cols)
+                    DiagramArrowShape(from: ends.0, to: ends.1)
+                        .stroke(frame.arrows[i].color, style: StrokeStyle(lineWidth: 2.5, lineCap: .round))
+                }
+
+                ForEach(cols.indices, id: \.self) { k in
+                    ForEach(cols[k].indices, id: \.self) { i in
+                        let mark = frame.marks.first { $0.column == k && $0.index == i }
+                        Text(cols[k][i])
+                            .font(.system(size: 15, weight: .semibold, design: .rounded))
+                            .foregroundColor(.primary)
+                            .frame(width: 28, height: 28)
+                            .background(Circle().fill((mark?.color ?? Color.appSurfaceStrong).opacity(mark == nil ? 1 : 0.3)))
+                            .overlay(Circle().stroke(mark?.color ?? Color.secondary.opacity(0.4), lineWidth: mark == nil ? 1 : 2.5))
+                            .position(setWindow.point(position(column: k, index: i, in: cols), in: size))
+                    }
+                }
+            }
+            .id(phase)
+            .transition(.opacity)
+        }
+    }
+}
+
+// MARK: - 25. Äquivalenzklassen: Rest beim Teilen durch 3
+
+private struct ModClassesVisual: View {
+    private let colors: [Color] = [VisualColor.first, VisualColor.second, VisualColor.result]
+
+    private func position(_ n: Int, phase: Int) -> CGPoint {
+        if phase < 2 {
+            return CGPoint(x: 1.2 + CGFloat(n) * 1.45, y: 7.2)
+        }
+        let r = n % 3
+        let k = n / 3
+        return CGPoint(x: 2.6 + CGFloat(r) * 4.4, y: 4.9 - CGFloat(k) * 1.4)
+    }
+
+    var body: some View {
+        AnimatedFigure(window: setWindow, captions: [
+            "Die Zahlen 0 bis 8. Relation: a ∼ b, wenn a und b beim Teilen durch 3 denselben Rest lassen.",
+            "Wir färben nach dem Rest: Rest 0 blau, Rest 1 orange, Rest 2 grün. Gleiche Farbe heißt äquivalent.",
+            "Jede Farbe bildet eine Äquivalenzklasse: [0] = {0, 3, 6}, [1] = {1, 4, 7}, [2] = {2, 5, 8}.",
+            "Jede Zahl liegt in genau einer Klasse, und keine Klasse ist leer: Die Klassen zerlegen die Menge, ohne Überlappung und ohne Lücke."
+        ], showGrid: false, aspectRatio: setAspect) { phase, size in
+            ForEach(0..<3, id: \.self) { r in
+                RoundedRectangle(cornerRadius: 14)
+                    .stroke(colors[r], lineWidth: 2)
+                    .background(RoundedRectangle(cornerRadius: 14).fill(colors[r].opacity(phase >= 3 ? 0.14 : 0.06)))
+                    .frame(width: 3.4 * setScale(size), height: 5 * setScale(size))
+                    .position(setWindow.point(CGPoint(x: 2.6 + CGFloat(r) * 4.4, y: 3.5), in: size))
+                    .opacity(show(phase >= 2))
+                SetText(text: "[\(r)]", at: CGPoint(x: 2.6 + CGFloat(r) * 4.4, y: 0.6), size: size, color: colors[r], fontSize: 16)
+                    .opacity(show(phase >= 2))
+            }
+
+            ForEach(0..<9, id: \.self) { n in
+                let colored = phase >= 1
+                Text("\(n)")
+                    .font(.system(size: 16, weight: .bold, design: .rounded))
+                    .foregroundColor(colored ? .white : .primary)
+                    .frame(width: 30, height: 30)
+                    .background(Circle().fill(colored ? colors[n % 3] : Color.secondary.opacity(0.15)))
+                    .position(setWindow.point(position(n, phase: phase), in: size))
+            }
         }
     }
 }
