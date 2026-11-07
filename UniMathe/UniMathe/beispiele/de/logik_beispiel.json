@@ -1,179 +1,198 @@
-{    "id": "bb0e8400-e29b-41d4-a716-446655440061",
-    "topic": "Logik",
-    "steps": [
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440062",
-            "text": "Aussagenlogik beschreibt die Verknüpfung von Aussagen.",
-            "formula": "A \\land B, A \\lor B, \\neg A, A \\rightarrow B, A \\leftrightarrow B",
-            "explanation": "Aussagenlogik ist wie das Zusammensetzen von Bausteinen. Es ist wie das Bauen mit logischen LEGO-Steinen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440063",
-            "text": "Wahrheitstabellen zeigen alle möglichen Kombinationen.",
-            "formula": "\\begin{array}{|c|c|c|c|c|} A & B & A \\land B & A \\lor B & A \\rightarrow B \\\\ \\hline T & T & T & T & T \\\\ T & F & F & T & F \\\\ F & T & F & T & T \\\\ F & F & F & F & T \\end{array}",
-            "explanation": "Wahrheitstabellen sind wie ein Spickzettel für alle möglichen Fälle. Es ist wie eine vollständige Gebrauchsanleitung!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440064",
-            "text": "Tautologien sind immer wahre Aussagen.",
-            "formula": "A \\lor \\neg A, (A \\rightarrow B) \\leftrightarrow (\\neg B \\rightarrow \\neg A)",
-            "explanation": "Tautologien sind wie mathematische Gesetze. Es ist wie das Finden von ewigen Wahrheiten!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440065",
-            "text": "Kontradiktionen sind immer falsche Aussagen.",
-            "formula": "A \\land \\neg A, \\neg(A \\lor \\neg A)",
-            "explanation": "Kontradiktionen sind wie mathematische Unmöglichkeiten. Es ist wie das Finden von ewigen Falschheiten!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440066",
-            "text": "Prädikatenlogik erweitert die Aussagenlogik um Quantoren.",
-            "formula": "\\forall x \\in M: P(x), \\exists x \\in M: P(x)",
-            "explanation": "Prädikatenlogik ist wie die Aussagenlogik mit Superkräften. Es ist wie das Hinzufügen von Quantoren zu den Bausteinen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440067",
-            "text": "Die Negation von Quantoren folgt speziellen Regeln.",
-            "formula": "\\neg(\\forall x: P(x)) \\leftrightarrow \\exists x: \\neg P(x), \\neg(\\exists x: P(x)) \\leftrightarrow \\forall x: \\neg P(x)",
-            "explanation": "Die Negation von Quantoren ist wie das Umkehren von Aussagen. Es ist wie das Spiegeln von mathematischen Sätzen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440068",
-            "text": "Logische Äquivalenzen erlauben Umformungen.",
-            "formula": "A \\rightarrow B \\equiv \\neg A \\lor B, \\neg(A \\land B) \\equiv \\neg A \\lor \\neg B",
-            "explanation": "Logische Äquivalenzen sind wie mathematische Zaubertricks. Es ist wie das Umwandeln von Aussagen in andere Formen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440069",
-            "text": "Der Modus Ponens ist eine wichtige Schlussregel.",
-            "formula": "\\frac{A \\rightarrow B, A}{B}",
-            "explanation": "Der Modus Ponens ist wie ein mathematischer Dominostein. Es ist wie das Auslösen einer logischen Kette!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440070",
-            "text": "Der Modus Tollens ist die Umkehrung des Modus Ponens.",
-            "formula": "\\frac{A \\rightarrow B, \\neg B}{\\neg A}",
-            "explanation": "Der Modus Tollens ist wie ein mathematischer Rückwärtsgang. Es ist wie das Zurückverfolgen von logischen Schlüssen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440071",
-            "text": "Die Kontraposition ist eine wichtige Äquivalenz.",
-            "formula": "A \\rightarrow B \\equiv \\neg B \\rightarrow \\neg A",
-            "explanation": "Die Kontraposition ist wie ein mathematischer Spiegel. Es ist wie das Umkehren von Implikationen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440072",
-            "text": "Die De Morganschen Regeln beschreiben die Negation von Verknüpfungen.",
-            "formula": "\\neg(A \\land B) \\equiv \\neg A \\lor \\neg B, \\neg(A \\lor B) \\equiv \\neg A \\land \\neg B",
-            "explanation": "Die De Morganschen Regeln sind wie mathematische Transformationsregeln. Es ist wie das Umwandeln von UND in ODER und umgekehrt!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440073",
-            "text": "Die Distributivgesetze erlauben das Ausmultiplizieren.",
-            "formula": "A \\land (B \\lor C) \\equiv (A \\land B) \\lor (A \\land C), A \\lor (B \\land C) \\equiv (A \\lor B) \\land (A \\lor C)",
-            "explanation": "Die Distributivgesetze sind wie mathematische Ausmultiplizierregeln. Es ist wie das Verteilen von logischen Bausteinen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440074",
-            "text": "Die Assoziativgesetze erlauben das Umklammern.",
-            "formula": "A \\land (B \\land C) \\equiv (A \\land B) \\land C, A \\lor (B \\lor C) \\equiv (A \\lor B) \\lor C",
-            "explanation": "Die Assoziativgesetze sind wie mathematische Umklammerungsregeln. Es ist wie das Neuordnen von logischen Bausteinen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440075",
-            "text": "Die Kommutativgesetze erlauben das Vertauschen.",
-            "formula": "A \\land B \\equiv B \\land A, A \\lor B \\equiv B \\lor A",
-            "explanation": "Die Kommutativgesetze sind wie mathematische Vertauschungsregeln. Es ist wie das Neuordnen von logischen Bausteinen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440076",
-            "text": "Die Idempotenzgesetze beschreiben die Verdopplung.",
-            "formula": "A \\land A \\equiv A, A \\lor A \\equiv A",
-            "explanation": "Die Idempotenzgesetze sind wie mathematische Verdopplungsregeln. Es ist wie das Zusammenfassen von gleichen Bausteinen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440077",
-            "text": "Die Absorptionsgesetze beschreiben das Aufsaugen.",
-            "formula": "A \\land (A \\lor B) \\equiv A, A \\lor (A \\land B) \\equiv A",
-            "explanation": "Die Absorptionsgesetze sind wie mathematische Aufsaugregeln. Es ist wie das Vereinfachen von logischen Ausdrücken!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440078",
-            "text": "Die Neutralitätsgesetze beschreiben die Wirkung von T und F.",
-            "formula": "A \\land T \\equiv A, A \\lor F \\equiv A",
-            "explanation": "Die Neutralitätsgesetze sind wie mathematische Neutralitätsregeln. Es ist wie das Hinzufügen von neutralen Elementen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440079",
-            "text": "Die Komplementgesetze beschreiben die Wirkung von Negationen.",
-            "formula": "A \\land \\neg A \\equiv F, A \\lor \\neg A \\equiv T",
-            "explanation": "Die Komplementgesetze sind wie mathematische Komplementregeln. Es ist wie das Zusammenführen von Gegensätzen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440080",
-            "text": "Die Doppelnegation beschreibt die Wirkung von doppelten Negationen.",
-            "formula": "\\neg(\\neg A) \\equiv A",
-            "explanation": "Die Doppelnegation ist wie ein mathematischer Zaubertrick. Es ist wie das Aufheben von doppelten Verneinungen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440081",
-            "text": "Die Implikation kann in andere Operatoren umgewandelt werden.",
-            "formula": "A \\rightarrow B \\equiv \\neg A \\lor B \\equiv \\neg(A \\land \\neg B)",
-            "explanation": "Die Implikation ist wie ein vielseitiger mathematischer Baustein. Es ist wie das Umwandeln in verschiedene Formen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440082",
-            "text": "Die Äquivalenz kann in andere Operatoren umgewandelt werden.",
-            "formula": "A \\leftrightarrow B \\equiv (A \\rightarrow B) \\land (B \\rightarrow A) \\equiv (A \\land B) \\lor (\\neg A \\land \\neg B)",
-            "explanation": "Die Äquivalenz ist wie ein vielseitiger mathematischer Baustein. Es ist wie das Umwandeln in verschiedene Formen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440083",
-            "text": "Die Resolution ist eine wichtige Beweismethode.",
-            "formula": "\\frac{A \\lor B, \\neg A \\lor C}{B \\lor C}",
-            "explanation": "Die Resolution ist wie ein mathematischer Filter. Es ist wie das Herausfiltern von logischen Schlüssen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440084",
-            "text": "Die Konjunktive Normalform ist eine Standardform.",
-            "formula": "(A \\lor B) \\land (\\neg A \\lor C) \\land (B \\lor C)",
-            "explanation": "Die Konjunktive Normalform ist wie ein mathematischer Standard. Es ist wie das Bringen in eine einheitliche Form!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440085",
-            "text": "Die Disjunktive Normalform ist eine alternative Standardform.",
-            "formula": "(A \\land B) \\lor (\\neg A \\land C) \\lor (B \\land C)",
-            "explanation": "Die Disjunktive Normalform ist wie ein alternativer mathematischer Standard. Es ist wie das Bringen in eine andere einheitliche Form!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440086",
-            "text": "Die Horn-Form ist eine spezielle Form der Konjunktiven Normalform.",
-            "formula": "(\\neg A \\lor \\neg B \\lor C) \\land (\\neg D \\lor E) \\land F",
-            "explanation": "Die Horn-Form ist wie eine spezielle mathematische Form. Es ist wie das Bringen in eine besonders nützliche Form!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440087",
-            "text": "Die Resolution ist besonders effizient für Horn-Formeln.",
-            "formula": "\\text{Resolution ist linear in der Anzahl der Horn-Klauseln}",
-            "explanation": "Die Resolution für Horn-Formeln ist wie ein schneller mathematischer Algorithmus. Es ist wie das schnelle Lösen von speziellen Problemen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440088",
-            "text": "Die Unerfüllbarkeit kann durch Resolution bewiesen werden.",
-            "formula": "\\text{Wenn die leere Klausel ableitbar ist, ist die Formel unerfüllbar}",
-            "explanation": "Die Unerfüllbarkeit ist wie ein mathematischer Widerspruch. Es ist wie das Finden von logischen Unmöglichkeiten!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440089",
-            "text": "Die Erfüllbarkeit ist ein grundlegendes Problem der Logik.",
-            "formula": "\\text{SAT ist NP-vollständig}",
-            "explanation": "Die Erfüllbarkeit ist wie ein mathematisches Rätsel. Es ist wie das Finden von logischen Lösungen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440090",
-            "text": "Zum Schluss schauen wir uns an, wie Logik in der Informatik verwendet wird.",
-            "formula": "\\text{Logik ist die Grundlage der Programmierung und künstlichen Intelligenz}",
-            "explanation": "In der Informatik hilft uns Logik, Programme zu schreiben und KI-Systeme zu entwickeln. Es ist wie das Übersetzen mathematischer Konzepte in die Sprache der Computer!"
-        }
-    ]
-} 
+{
+  "id": "bb0e8400-e29b-41d4-a716-446655440061",
+  "topic": "Logik",
+  "steps": [
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440062",
+      "section": "Kapitel 1 · Aussagen",
+      "text": "Willkommen! Mathematik besteht aus Aussagen, die bewiesen werden. In dieser Lektion lernst du, wie man Aussagen verknüpft, verneint und daraus korrekt schließt.\n\nDas ist das Handwerkszeug für jeden Beweis, den du im Studium lesen oder schreiben wirst.",
+      "explanation": "Unser Fahrplan:\n1. Was ist eine Aussage?\n2. Junktoren: nicht, und, oder\n3. Implikation und Äquivalenz\n4. Mit Aussagen rechnen: Tautologien, De Morgan, Verneinen\n5. Quantoren: „für alle“ und „es gibt“\n6. Beweismethoden: direkt, Kontraposition, Widerspruch, Gegenbeispiel\n7. Ausblick und Rückblick",
+      "insight": "Logik ist keine neue Mathematik, sondern Präzision für das, was du ohnehin denkst. Ihr Ziel: Missverständnisse in Beweisen unmöglich machen."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440063",
+      "section": "Kapitel 1 · Aussagen",
+      "text": "Eine Aussage ist ein Satz, der entweder wahr oder falsch ist – nie beides und nie keines von beiden.",
+      "formula": "\\begin{array}{ll} \\text{„7 ist eine Primzahl.“} & \\text{wahre Aussage} \\\\ \\text{„}2 + 2 = 5\\text{.“} & \\text{falsche Aussage} \\\\ \\text{„Ist 7 prim?“} & \\text{keine Aussage} \\\\ \\text{„}x > 3\\text{.“} & \\text{keine Aussage} \\end{array}",
+      "explanation": "Auch falsche Aussagen sind Aussagen! Entscheidend ist nur, dass ein eindeutiger Wahrheitswert existiert.\n\nEine Frage oder ein Befehl hat keinen Wahrheitswert.\n\n„\\(x > 3\\)“ ist ebenfalls keine Aussage, solange man nicht weiß, was \\(x\\) ist. Man nennt so etwas eine Aussageform: Setzt man \\(x = 5\\) ein, entsteht eine wahre Aussage, bei \\(x = 1\\) eine falsche.\n\nDie Wahrheitswerte kürzen wir mit w (wahr) und f (falsch) ab. In manchen Büchern steht 1 und 0 oder T und F.",
+      "insight": "Eine Aussage muss nicht bekannt sein, um eine Aussage zu sein: „Jede gerade Zahl größer als 2 ist Summe zweier Primzahlen“ ist wahr oder falsch – man weiß es nur noch nicht (Goldbachsche Vermutung)."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440064",
+      "section": "Kapitel 1 · Aussagen",
+      "text": "Aussageformen werden durch Einsetzen oder durch Quantoren zu Aussagen. Wir schreiben \\(A(x)\\) für eine Aussageform mit der Variablen \\(x\\):",
+      "formula": "\\begin{aligned} A(x)&\\colon\\; x^2 = 4 \\\\ A(2)&\\colon\\; 2^2 = 4 \\quad \\text{wahr} \\\\ A(3)&\\colon\\; 3^2 = 4 \\quad \\text{falsch} \\end{aligned}",
+      "explanation": "Aussageformen tauchen überall auf: Gleichungen, Ungleichungen, Eigenschaften wie „\\(n\\) ist gerade“.\n\nDie Menge aller \\(x\\), für die \\(A(x)\\) wahr wird, ist die Lösungsmenge. Hier, mit \\(x \\in \\mathbb{R}\\): \\(\\{-2, 2\\}\\).\n\nIn Kapitel 5 kommen die Quantoren dazu: „für alle \\(x\\) gilt \\(A(x)\\)“ und „es gibt ein \\(x\\) mit \\(A(x)\\)“ sind wieder echte Aussagen.",
+      "insight": "Die Lektion „Vollständige Induktion“ arbeitet genau mit solchen Aussageformen \\(A(n)\\) – für jede natürliche Zahl \\(n\\) eine Aussage."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440065",
+      "section": "Kapitel 2 · Junktoren: nicht, und, oder",
+      "text": "Aus einfachen Aussagen baut man mit Junktoren zusammengesetzte Aussagen. Der einfachste ist die Negation (Verneinung): Sie dreht den Wahrheitswert um.",
+      "formula": "\\begin{array}{c|c} A & \\neg A \\\\ \\hline \\text{w} & \\text{f} \\\\ \\text{f} & \\text{w} \\end{array}",
+      "explanation": "Lies \\(\\neg A\\) als „nicht A“. Die Tabelle heißt Wahrheitstafel: Sie listet alle möglichen Wahrheitswerte auf.\n\nBeispiel: \\(A\\): „\\(7\\) ist gerade“ (falsch). \\(\\neg A\\): „\\(7\\) ist nicht gerade“ (wahr).\n\nVorsicht beim Verneinen in Worten: Das Gegenteil von „Alle Schwäne sind weiß“ ist NICHT „Alle Schwäne sind schwarz“, sondern „Nicht alle Schwäne sind weiß“ – also „Es gibt einen Schwan, der nicht weiß ist.“ Dazu mehr in Kapitel 5.",
+      "insight": "Die Verneinung muss genau dann wahr sein, wenn die Aussage falsch ist. Das „Gegenteil“ im Alltagssinn ist oft zu stark."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440066",
+      "section": "Kapitel 2 · Junktoren: nicht, und, oder",
+      "text": "„Und“ und „oder“ verbinden zwei Aussagen. Die Wahrheitstafeln legen genau fest, was gemeint ist:",
+      "formula": "\\begin{array}{cc|cc} A & B & A \\land B & A \\lor B \\\\ \\hline \\text{w} & \\text{w} & \\text{w} & \\text{w} \\\\ \\text{w} & \\text{f} & \\text{f} & \\text{w} \\\\ \\text{f} & \\text{w} & \\text{f} & \\text{w} \\\\ \\text{f} & \\text{f} & \\text{f} & \\text{f} \\end{array}",
+      "explanation": "\\(A \\land B\\) (Konjunktion, „A und B“) ist nur wahr, wenn BEIDE wahr sind.\n\n\\(A \\lor B\\) (Disjunktion, „A oder B“) ist wahr, wenn MINDESTENS EINE wahr ist – auch wenn beide wahr sind (erste Zeile).\n\nMerkhilfe: \\(\\lor\\) kommt vom lateinischen „vel“ (oder). \\(\\land\\) ist das umgedrehte Zeichen. Zu Mengen: \\(\\land\\) entspricht \\(\\cap\\), \\(\\lor\\) entspricht \\(\\cup\\).",
+      "insight": "Typischer Fehler: Das mathematische „oder“ als „entweder … oder“ lesen. „\\(n\\) ist durch 2 oder durch 3 teilbar“ ist für \\(n = 6\\) wahr!"
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440067",
+      "section": "Kapitel 2 · Junktoren: nicht, und, oder",
+      "text": "Wahrheitstafeln sind ein universelles Werkzeug: Man kann damit den Wahrheitswert jeder zusammengesetzten Aussage systematisch bestimmen. Beispiel: \\(\\neg A \\lor B\\).",
+      "formula": "\\begin{array}{cc|cc} A & B & \\neg A & \\neg A \\lor B \\\\ \\hline \\text{w} & \\text{w} & \\text{f} & \\text{w} \\\\ \\text{w} & \\text{f} & \\text{f} & \\text{f} \\\\ \\text{f} & \\text{w} & \\text{w} & \\text{w} \\\\ \\text{f} & \\text{f} & \\text{w} & \\text{w} \\end{array}",
+      "explanation": "Vorgehen: Für jede Kombination von Wahrheitswerten (bei zwei Aussagen \\(2 \\cdot 2 = 4\\) Zeilen) rechnet man von innen nach außen. Erst die Spalte \\(\\neg A\\), dann daraus \\(\\neg A \\lor B\\).\n\nBei \\(n\\) Grundaussagen hat die Tafel \\(2^n\\) Zeilen – genau wie die Potenzmenge einer \\(n\\)-elementigen Menge.\n\nMerk dir das Ergebnis: Es ist nur in Zeile 2 falsch. Wir treffen dieses Muster gleich wieder.",
+      "insight": "Wahrheitstafeln sind mühsam, aber narrensicher. Wenn du bei einer Umformung unsicher bist, rechne die Tafel."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440068",
+      "section": "Kapitel 3 · Implikation und Äquivalenz",
+      "text": "Die wichtigste Verknüpfung in der Mathematik ist die Implikation \\(A \\Rightarrow B\\): „Wenn A, dann B.“ Ihre Wahrheitstafel überrascht viele zunächst – die Animation erklärt sie Zeile für Zeile.",
+      "visual": "implicationTable",
+      "formula": "\\begin{array}{cc|c} A & B & A \\Rightarrow B \\\\ \\hline \\text{w} & \\text{w} & \\text{w} \\\\ \\text{w} & \\text{f} & \\text{f} \\\\ \\text{f} & \\text{w} & \\text{w} \\\\ \\text{f} & \\text{f} & \\text{w} \\end{array}",
+      "explanation": "\\(A\\) heißt Voraussetzung (Prämisse), \\(B\\) heißt Folgerung (Konklusion).\n\nDie Implikation ist nur falsch, wenn die Voraussetzung wahr und die Folgerung falsch ist. Vergleiche mit dem vorigen Schritt: \\(A \\Rightarrow B\\) hat genau dieselbe Tafel wie \\(\\neg A \\lor B\\).\n\nDie letzten beiden Zeilen haben einen Namen: „Ex falso quodlibet“ – aus Falschem folgt Beliebiges. Ist die Voraussetzung falsch, ist die Implikation automatisch wahr.",
+      "insight": "\\(A \\Rightarrow B\\) behauptet NICHT, dass \\(A\\) wahr ist. Es behauptet nur: Falls \\(A\\) wahr ist, dann auch \\(B\\)."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440069",
+      "section": "Kapitel 3 · Implikation und Äquivalenz",
+      "text": "Für \\(A \\Rightarrow B\\) gibt es viele gleichwertige Sprechweisen. Sie zu kennen hilft beim Lesen von Sätzen:",
+      "formula": "\\begin{array}{l} \\text{Wenn } A \\text{, dann } B. \\\\ \\text{Aus } A \\text{ folgt } B. \\\\ A \\text{ ist hinreichend für } B. \\\\ B \\text{ ist notwendig für } A. \\\\ A \\text{ nur dann, wenn } B. \\end{array}",
+      "explanation": "Beispiel: „Wenn \\(n\\) durch \\(4\\) teilbar ist, dann ist \\(n\\) gerade.“\n\n• Durch 4 teilbar zu sein ist HINREICHEND für gerade: Es reicht, das zu wissen.\n• Gerade zu sein ist NOTWENDIG für „durch 4 teilbar“: Ohne gerade geht es nicht.\n• Aber gerade ist nicht hinreichend: \\(6\\) ist gerade, aber nicht durch \\(4\\) teilbar.\n\nDie Formulierung „nur dann, wenn“ ist besonders tückisch: „\\(A\\) nur dann, wenn \\(B\\)“ heißt \\(A \\Rightarrow B\\) – nicht umgekehrt.",
+      "insight": "Merkhilfe: Das Hinreichende steht vor dem Pfeil, das Notwendige dahinter."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440070",
+      "section": "Kapitel 3 · Implikation und Äquivalenz",
+      "text": "Der häufigste Denkfehler mit Implikationen: der Umkehrschluss. Aus \\(A \\Rightarrow B\\) folgt NICHT \\(B \\Rightarrow A\\). Was dagegen immer gilt, ist die Kontraposition:",
+      "visual": "implicationSets",
+      "formula": "\\begin{aligned} A \\Rightarrow B \\quad &\\equiv \\quad \\neg B \\Rightarrow \\neg A \\quad \\text{(Kontraposition)} \\\\[4pt] A \\Rightarrow B \\quad &\\not\\equiv \\quad B \\Rightarrow A \\quad \\text{(Umkehrung)} \\end{aligned}",
+      "explanation": "Das Zeichen \\(\\equiv\\) bedeutet „logisch gleichwertig“: Beide Seiten haben dieselbe Wahrheitstafel.\n\nBeispiel: „Wenn es ein Quadrat ist, ist es ein Rechteck.“\n• Kontraposition: „Wenn es kein Rechteck ist, ist es kein Quadrat.“ – ebenfalls wahr.\n• Umkehrung: „Wenn es ein Rechteck ist, ist es ein Quadrat.“ – falsch.\n\nDie Animation zeigt den Grund: \\(A \\Rightarrow B\\) heißt, die Menge der \\(A\\)-Objekte liegt in der Menge der \\(B\\)-Objekte.",
+      "insight": "Kontraposition ist ein Beweiswerkzeug: Statt \\(A \\Rightarrow B\\) darf man immer \\(\\neg B \\Rightarrow \\neg A\\) zeigen. Das nutzen wir in Kapitel 6."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440071",
+      "section": "Kapitel 3 · Implikation und Äquivalenz",
+      "text": "Gilt die Implikation in beide Richtungen, spricht man von einer Äquivalenz: \\(A \\Leftrightarrow B\\), „A genau dann, wenn B“.",
+      "formula": "\\begin{array}{c} A \\Leftrightarrow B \\;\\equiv\\; (A \\Rightarrow B) \\land (B \\Rightarrow A) \\\\[8pt] \\begin{array}{cc|c} A & B & A \\Leftrightarrow B \\\\ \\hline \\text{w} & \\text{w} & \\text{w} \\\\ \\text{w} & \\text{f} & \\text{f} \\\\ \\text{f} & \\text{w} & \\text{f} \\\\ \\text{f} & \\text{f} & \\text{w} \\end{array} \\end{array}",
+      "explanation": "\\(A \\Leftrightarrow B\\) ist wahr, wenn \\(A\\) und \\(B\\) denselben Wahrheitswert haben.\n\nBeispiel: „\\(n\\) ist gerade \\(\\Leftrightarrow\\) \\(n^2\\) ist gerade“ (für \\(n \\in \\mathbb{Z}\\)). Beide Richtungen beweisen wir in Kapitel 6.\n\nIn Definitionen steht oft „heißt … wenn“, gemeint ist aber „genau dann, wenn“. Das ist eine Konvention.",
+      "insight": "Eine Äquivalenz beweist man fast immer in zwei getrennten Teilen: „⇒“ und „⇐“. Vergiss keine der beiden Richtungen."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440072",
+      "section": "Kapitel 3 · Implikation und Äquivalenz",
+      "text": "Ein Anwendungsfall, den du aus der Schule kennst: Beim Lösen von Gleichungen ist nicht jeder Umformungsschritt eine Äquivalenz. Quadrieren ist nur eine Implikation:",
+      "formula": "\\begin{aligned} x = \\sqrt{x + 2} \\;&\\Rightarrow\\; x^2 = x + 2 \\\\ &\\Leftrightarrow\\; x^2 - x - 2 = 0 \\\\ &\\Leftrightarrow\\; x = 2 \\;\\lor\\; x = -1 \\end{aligned}",
+      "explanation": "Der erste Pfeil ist nur „\\(\\Rightarrow\\)“: Aus \\(a = b\\) folgt \\(a^2 = b^2\\), aber nicht umgekehrt (\\((-1)^2 = 1^2\\)).\n\nDeshalb liefert die Rechnung nur Kandidaten. Die Probe entscheidet:\n• \\(x = 2\\): \\(\\sqrt{2 + 2} = 2\\) ✓\n• \\(x = -1\\): \\(\\sqrt{-1 + 2} = 1 \\neq -1\\) ✗\n\nDie Lösungsmenge ist \\(\\{2\\}\\). Die \\(-1\\) ist eine Scheinlösung, die beim Quadrieren hinzugekommen ist.",
+      "insight": "Steht in einer Rechnung irgendwo nur „\\(\\Rightarrow\\)“, ist die Probe Pflicht. Bei durchgehenden „\\(\\Leftrightarrow\\)“ ist sie nur eine Kontrolle."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440073",
+      "section": "Kapitel 4 · Mit Aussagen rechnen",
+      "text": "Manche Aussagen sind immer wahr, egal welche Wahrheitswerte ihre Bestandteile haben. Sie heißen Tautologien. Immer falsche Aussagen heißen Kontradiktionen.",
+      "formula": "\\begin{array}{c} A \\lor \\neg A \\quad \\text{ist immer wahr} \\\\[2pt] \\text{(Tautologie)} \\\\[10pt] A \\land \\neg A \\quad \\text{ist immer falsch} \\\\[2pt] \\text{(Kontradiktion)} \\end{array}",
+      "explanation": "\\(A \\lor \\neg A\\) heißt Satz vom ausgeschlossenen Dritten: Entweder \\(A\\) ist wahr oder seine Verneinung – ein Drittes gibt es nicht.\n\n\\(A \\land \\neg A\\) ist der Satz vom Widerspruch: Eine Aussage und ihr Gegenteil können nicht gleichzeitig wahr sein.\n\nZwei Aussagen \\(P\\) und \\(Q\\) sind genau dann logisch gleichwertig (\\(P \\equiv Q\\)), wenn \\(P \\Leftrightarrow Q\\) eine Tautologie ist.\n\nAuch die Kontraposition ist eine Tautologie: \\((A \\Rightarrow B) \\Leftrightarrow (\\neg B \\Rightarrow \\neg A)\\) ist in allen vier Zeilen wahr.",
+      "insight": "Tautologien sind die „Rechenregeln“ der Logik. Jeder Beweisschritt stützt sich letztlich auf eine von ihnen."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440074",
+      "section": "Kapitel 4 · Mit Aussagen rechnen",
+      "text": "Wie verneint man „und“ und „oder“? Mit den Regeln von De Morgan – dieselben, die du von Mengen kennst:",
+      "formula": "\\begin{aligned} \\neg(A \\land B) &\\equiv \\neg A \\lor \\neg B \\\\ \\neg(A \\lor B) &\\equiv \\neg A \\land \\neg B \\end{aligned}",
+      "explanation": "Beim Verneinen werden „und“ und „oder“ vertauscht.\n\nBeispiel: \\(A\\): „\\(n\\) ist gerade“, \\(B\\): „\\(n > 10\\)“.\n\\(\\neg(A \\land B)\\): „Es ist nicht so, dass \\(n\\) gerade und größer als \\(10\\) ist.“\n⇔ „\\(n\\) ist ungerade ODER \\(n \\le 10\\).“\n\nProbe mit \\(n = 4\\): gerade, aber nicht \\(> 10\\). Die linke Aussage ist wahr (nicht beides gilt), die rechte auch (\\(4 \\le 10\\)) ✓.\n\nWeitere Gesetze, die genauso funktionieren wie bei Mengen: kommutativ, assoziativ, distributiv, und \\(\\neg\\neg A \\equiv A\\).",
+      "insight": "Typischer Fehler: \\(\\neg(A \\land B)\\) als \\(\\neg A \\land \\neg B\\) verneinen. Für \\(n = 4\\) wäre das „ungerade und \\(\\le 10\\)“ – falsch."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440075",
+      "section": "Kapitel 4 · Mit Aussagen rechnen",
+      "text": "Besonders wichtig für Beweise: Wie verneint man eine Implikation? Die Implikation ist nur im Fall „A wahr, B falsch“ falsch – genau das ist ihre Verneinung:",
+      "formula": "\\begin{aligned} A \\Rightarrow B &\\equiv \\neg A \\lor B \\\\[4pt] \\neg(A \\Rightarrow B) &\\equiv A \\land \\neg B \\end{aligned}",
+      "explanation": "Die zweite Zeile folgt aus der ersten mit De Morgan: \\(\\neg(\\neg A \\lor B) \\equiv \\neg\\neg A \\land \\neg B \\equiv A \\land \\neg B\\).\n\nBeispiel: „Wenn \\(n\\) prim ist, dann ist \\(n\\) ungerade.“ Die Verneinung lautet: „\\(n\\) ist prim UND \\(n\\) ist gerade.“ Mit \\(n = 2\\) ist die Verneinung wahr – die ursprüngliche Behauptung also falsch.\n\nDie Verneinung einer Implikation ist KEINE Implikation, sondern ein „und“.",
+      "insight": "Typischer Fehler: \\(\\neg(A \\Rightarrow B)\\) als \\(A \\Rightarrow \\neg B\\) oder \\(\\neg A \\Rightarrow \\neg B\\) hinschreiben. Beides ist falsch. Richtig: \\(A \\land \\neg B\\)."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440076",
+      "section": "Kapitel 5 · Quantoren",
+      "text": "Mit Quantoren macht man aus einer Aussageform \\(A(x)\\) eine Aussage über viele \\(x\\) gleichzeitig.",
+      "formula": "\\begin{array}{c} \\forall x \\in M\\colon A(x) \\\\ \\text{„Für alle } x \\in M \\text{ gilt } A(x)\\text{.“} \\\\[10pt] \\exists x \\in M\\colon A(x) \\\\ \\text{„Es gibt ein } x \\in M \\text{ mit } A(x)\\text{.“} \\end{array}",
+      "explanation": "\\(\\forall\\) heißt Allquantor (umgedrehtes A wie „alle“), \\(\\exists\\) heißt Existenzquantor (umgedrehtes E wie „existiert“).\n\nBeispiele:\n• \\(\\forall x \\in \\mathbb{R}\\colon x^2 \\ge 0\\) – wahr.\n• \\(\\exists x \\in \\mathbb{R}\\colon x^2 = 2\\) – wahr (\\(x = \\sqrt{2}\\)).\n• \\(\\exists x \\in \\mathbb{Q}\\colon x^2 = 2\\) – falsch (\\(\\sqrt{2}\\) ist irrational).\n• \\(\\forall n \\in \\mathbb{N}\\colon n \\text{ ist prim}\\) – falsch (\\(n = 4\\)).\n\n„Es gibt“ meint immer „mindestens ein“. Für „genau ein“ schreibt man \\(\\exists!\\).",
+      "insight": "Die Menge \\(M\\) hinter dem Quantor ist Teil der Aussage. Wie das dritte Beispiel zeigt, kann ein Wechsel von \\(\\mathbb{R}\\) zu \\(\\mathbb{Q}\\) den Wahrheitswert umdrehen."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440077",
+      "section": "Kapitel 5 · Quantoren",
+      "text": "Wie widerlegt man eine Allaussage? Mit EINEM Gegenbeispiel. Und eine Existenzaussage? Indem man zeigt, dass es für ALLE \\(x\\) nicht klappt. Das steckt in den Verneinungsregeln:",
+      "formula": "\\begin{aligned} \\neg\\big(\\forall x\\colon A(x)\\big) &\\equiv \\exists x\\colon \\neg A(x) \\\\ \\neg\\big(\\exists x\\colon A(x)\\big) &\\equiv \\forall x\\colon \\neg A(x) \\end{aligned}",
+      "explanation": "Beim Verneinen wird \\(\\forall\\) zu \\(\\exists\\) und umgekehrt – und die Verneinung wandert nach innen.\n\nBeispiel: „Alle Schwäne sind weiß.“ Verneinung: „Es gibt einen Schwan, der nicht weiß ist.“ Ein einziger schwarzer Schwan genügt.\n\nBeispiel: „Es gibt eine reelle Zahl \\(x\\) mit \\(x^2 = -1\\).“ Verneinung: „Für alle reellen \\(x\\) ist \\(x^2 \\neq -1\\).“ – und das ist wahr.",
+      "insight": "Eine Allaussage kann man durch Beispiele NIE beweisen, nur widerlegen. Eine Existenzaussage beweist man durch ein einziges Beispiel."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440078",
+      "section": "Kapitel 5 · Quantoren",
+      "text": "Bei mehreren Quantoren kommt es auf die Reihenfolge an. Gleiche Quantoren darf man vertauschen, verschiedene nicht:",
+      "visual": "quantifierOrder",
+      "formula": "\\begin{aligned} \\forall x \\in \\mathbb{R}\\; \\exists y \\in \\mathbb{R}\\colon y > x \\quad &\\text{wahr} \\\\ \\exists y \\in \\mathbb{R}\\; \\forall x \\in \\mathbb{R}\\colon y > x \\quad &\\text{falsch} \\end{aligned}",
+      "explanation": "Erste Zeile: Zu jeder Zahl \\(x\\) gibt es eine größere – z. B. \\(y = x + 1\\). Das \\(y\\) darf von \\(x\\) abhängen.\n\nZweite Zeile: Es gäbe EINE Zahl \\(y\\), die größer ist als alle reellen Zahlen – auch größer als sich selbst. Unmöglich.\n\nAllgemein gilt: Aus \\(\\exists y \\,\\forall x\\) folgt \\(\\forall x \\,\\exists y\\) (der Generalschlüssel passt ja zu jedem Schloss). Die Umkehrung ist im Allgemeinen falsch.",
+      "insight": "Bei „∀x ∃y“ darf \\(y\\) von \\(x\\) abhängen. Bei „∃y ∀x“ muss ein und dasselbe \\(y\\) für alle \\(x\\) funktionieren."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440079",
+      "section": "Kapitel 5 · Quantoren",
+      "text": "Verschachtelte Aussagen verneint man Schritt für Schritt von außen nach innen. Ein Beispiel, das dir in der Analysis begegnen wird („die Folge \\((a_n)\\) konvergiert gegen 0“):",
+      "formula": "\\begin{aligned} &\\forall \\varepsilon > 0 \\;\\exists N \\in \\mathbb{N} \\;\\forall n \\ge N\\colon |a_n| < \\varepsilon \\\\[6pt] \\neg\\colon\\; &\\exists \\varepsilon > 0 \\;\\forall N \\in \\mathbb{N} \\;\\exists n \\ge N\\colon |a_n| \\ge \\varepsilon \\end{aligned}",
+      "explanation": "Rezept:\n1. Jeder Quantor wird umgedreht: \\(\\forall \\leftrightarrow \\exists\\).\n2. Die Bereiche hinter den Quantoren bleiben gleich: aus „\\(\\varepsilon > 0\\)“ wird NICHT „\\(\\varepsilon \\le 0\\)“.\n3. Die innere Aussage wird verneint: aus \\(|a_n| < \\varepsilon\\) wird \\(|a_n| \\ge \\varepsilon\\).\n\nGelesen: „Es gibt ein \\(\\varepsilon > 0\\), sodass für jedes \\(N\\) noch ein späteres Folgenglied mindestens \\(\\varepsilon\\) von \\(0\\) entfernt ist.“",
+      "insight": "Typischer Fehler: die Bedingung am Quantor mitverneinen. „\\(\\forall \\varepsilon > 0\\)“ wird zu „\\(\\exists \\varepsilon > 0\\)“ – die \\(> 0\\) bleibt stehen."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440080",
+      "section": "Kapitel 6 · Beweismethoden",
+      "text": "Jetzt setzen wir alles ein. Ein direkter Beweis von \\(A \\Rightarrow B\\): Man nimmt \\(A\\) als wahr an und folgert Schritt für Schritt \\(B\\).\n\nSatz: Ist \\(n\\) gerade, dann ist auch \\(n^2\\) gerade.",
+      "formula": "\\begin{aligned} n \\text{ gerade} \\;&\\Rightarrow\\; n = 2k \\text{ mit } k \\in \\mathbb{Z} \\\\ &\\Rightarrow\\; n^2 = 4k^2 = 2 \\cdot (2k^2) \\\\ &\\Rightarrow\\; n^2 \\text{ gerade} \\end{aligned}",
+      "explanation": "Der Schlüssel ist, die Definition auszuschreiben: „gerade“ heißt „ist das Doppelte einer ganzen Zahl“.\n\nDann rechnet man, bis die Definition für \\(n^2\\) dasteht: \\(n^2 = 2 \\cdot m\\) mit der ganzen Zahl \\(m = 2k^2\\).\n\nWichtig: \\(k\\) ist beliebig, nicht ein konkretes Beispiel. Beispiele wie \\(4^2 = 16\\) veranschaulichen, beweisen aber nichts.",
+      "insight": "Fast jeder einfache Beweis beginnt so: Voraussetzung hinschreiben, Definitionen einsetzen, rechnen, Definition des Ziels erkennen."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440081",
+      "section": "Kapitel 6 · Beweismethoden",
+      "text": "Die Umkehrung „Ist \\(n^2\\) gerade, dann ist \\(n\\) gerade“ ist direkt schwer zu zeigen – aus \\(n^2 = 2m\\) kommt man nicht gut an \\(n\\) heran. Hier hilft die Kontraposition: Wir zeigen „\\(n\\) ungerade ⇒ \\(n^2\\) ungerade“.",
+      "formula": "\\begin{aligned} n \\text{ ungerade} \\;&\\Rightarrow\\; n = 2k + 1 \\\\ &\\Rightarrow\\; n^2 = 4k^2 + 4k + 1 \\\\ &\\Rightarrow\\; n^2 = 2(2k^2 + 2k) + 1 \\\\ &\\Rightarrow\\; n^2 \\text{ ungerade} \\end{aligned}",
+      "explanation": "Weil \\(\\neg B \\Rightarrow \\neg A\\) gleichwertig zu \\(A \\Rightarrow B\\) ist, ist damit „\\(n^2\\) gerade ⇒ \\(n\\) gerade“ bewiesen.\n\nZusammen mit dem vorigen Schritt haben wir die Äquivalenz:\n\\(n\\) gerade \\(\\Leftrightarrow\\) \\(n^2\\) gerade.\n\nWann Kontraposition? Wenn die Verneinung der Folgerung eine handlichere Voraussetzung liefert als die ursprüngliche Voraussetzung.",
+      "insight": "Schreibe am Anfang eines solchen Beweises dazu: „Wir zeigen die Kontraposition.“ Dann weiß jeder Leser, was als Nächstes kommt."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440082",
+      "section": "Kapitel 6 · Beweismethoden",
+      "text": "Beim Widerspruchsbeweis nimmt man an, die Behauptung sei falsch, und leitet daraus etwas Unmögliches her. Der klassische Satz: \\(\\sqrt{2}\\) ist irrational.",
+      "formula": "\\begin{aligned} \\text{Annahme: } \\sqrt{2} &= \\tfrac{p}{q}, \\;\\; p, q \\text{ teilerfremd} \\\\ \\Rightarrow\\; p^2 &= 2q^2 \\;\\Rightarrow\\; p \\text{ gerade, } p = 2r \\\\ \\Rightarrow\\; 4r^2 &= 2q^2 \\;\\Rightarrow\\; q^2 = 2r^2 \\;\\Rightarrow\\; q \\text{ gerade} \\end{aligned}",
+      "explanation": "Schritt für Schritt:\n1. Wäre \\(\\sqrt{2}\\) rational, könnte man es als gekürzten Bruch \\(\\frac{p}{q}\\) schreiben.\n2. Quadrieren: \\(2 = \\frac{p^2}{q^2}\\), also \\(p^2 = 2q^2\\). Damit ist \\(p^2\\) gerade – und nach dem vorigen Schritt auch \\(p\\).\n3. Einsetzen von \\(p = 2r\\) zeigt: auch \\(q^2\\) und damit \\(q\\) ist gerade.\n4. Dann haben \\(p\\) und \\(q\\) den gemeinsamen Teiler \\(2\\) – Widerspruch zu „teilerfremd“!\n\nAlso war die Annahme falsch: \\(\\sqrt{2}\\) ist irrational. ∎",
+      "insight": "Logisch steckt dahinter: Folgt aus \\(\\neg B\\) eine Kontradiktion, dann ist \\(\\neg B\\) falsch, also \\(B\\) wahr. Der Beweis verwendet übrigens den vorigen Satz – Beweise bauen aufeinander auf."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440083",
+      "section": "Kapitel 6 · Beweismethoden",
+      "text": "Zum Schluss eine Warnung, die wichtiger ist als jede Methode: Beispiele beweisen keine Allaussage. Ein berühmtes Beispiel von Euler:",
+      "formula": "\\begin{array}{c} n^2 + n + 41 \\text{ ist prim für } n = 0, 1, 2, \\dots, 39 \\\\[6pt] \\text{aber: } 40^2 + 40 + 41 = 1681 = 41 \\cdot 41 \\end{array}",
+      "explanation": "Vierzig richtige Beispiele hintereinander – und trotzdem ist die Aussage „für alle \\(n \\in \\mathbb{N}_0\\) ist \\(n^2 + n + 41\\) prim“ falsch.\n\nFür Allaussagen gilt also:\n• Beweisen: mit einem allgemeinen Argument für beliebiges \\(x\\).\n• Widerlegen: mit einem einzigen Gegenbeispiel.\n\nFür Aussagen über alle natürlichen Zahlen gibt es eine eigene, mächtige Beweismethode: die vollständige Induktion. Sie ist Thema der nächsten Lektion.",
+      "insight": "Beispiele sind trotzdem wertvoll: Sie helfen, eine Vermutung zu finden und einen Beweis zu verstehen. Sie ersetzen ihn nur nicht."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440084",
+      "section": "Kapitel 7 · Ausblick und Rückblick",
+      "text": "Ausblick: Wo geht es weiter?",
+      "explanation": "• Normalformen: Jede aussagenlogische Formel lässt sich als „oder“ von „und“-Blöcken (disjunktive Normalform) oder als „und“ von „oder“-Blöcken (konjunktive Normalform) schreiben. Das braucht man in der Informatik, z. B. beim Schaltungsentwurf.\n\n• Erfüllbarkeit (SAT): Gibt es eine Belegung, die eine Formel wahr macht? Mit der Wahrheitstafel ist das immer entscheidbar, braucht aber \\(2^n\\) Zeilen. Ob es grundsätzlich schneller geht, ist eine der großen offenen Fragen der Informatik (P = NP?).\n\n• Prädikatenlogik und Mengenlehre: Die gesamte Mathematik lässt sich aus wenigen Axiomen mit Quantoren aufbauen. Gödel hat gezeigt, dass es dabei immer wahre, aber unbeweisbare Aussagen gibt.",
+      "insight": "Für dein Studium zählt vor allem: sauber verneinen, Quantoren in der richtigen Reihenfolge lesen und die passende Beweismethode wählen."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440085",
+      "section": "Kapitel 7 · Ausblick und Rückblick",
+      "text": "Schau zurück, wie die Begriffe auseinander hervorgegangen sind:",
+      "explanation": "1. Aussage: wahr oder falsch. Aussageform \\(A(x)\\): wird durch Einsetzen zur Aussage.\n\n2. \\(\\neg\\), \\(\\land\\), \\(\\lor\\) – mit Wahrheitstafeln. Das „oder“ ist einschließend.\n\n3. \\(A \\Rightarrow B\\) ist nur falsch, wenn \\(A\\) wahr und \\(B\\) falsch. Kontraposition ja, Umkehrschluss nein. \\(A \\Leftrightarrow B\\): beide Richtungen.\n\n4. Tautologien, De Morgan, \\(\\neg(A \\Rightarrow B) \\equiv A \\land \\neg B\\).\n\n5. \\(\\forall\\) und \\(\\exists\\): beim Verneinen tauschen. Reihenfolge verschiedener Quantoren zählt.\n\n6. Beweise: direkt, durch Kontraposition, durch Widerspruch. Allaussagen widerlegt man mit einem Gegenbeispiel – beweisen kann man sie mit Beispielen nie.",
+      "insight": "Glückwunsch! Weiter geht es mit „Vollständige Induktion“ – dort wendest du die Logik gleich auf unendlich viele Aussagen an."
+    }
+  ]
+}

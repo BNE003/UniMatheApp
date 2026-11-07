@@ -1,179 +1,182 @@
-{    "id": "cc0e8400-e29b-41d4-a716-446655440061",
-    "topic": "Vollständige Induktion",
-    "steps": [
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440062",
-            "text": "Die vollständige Induktion besteht aus zwei Schritten.",
-            "formula": "\\text{1. Induktionsanfang: } A(1) \\text{ ist wahr} \\\\ \\text{2. Induktionsschritt: } A(n) \\rightarrow A(n+1)",
-            "explanation": "Die vollständige Induktion ist wie das Besteigen einer Leiter. Es ist wie das Beweisen Schritt für Schritt!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440063",
-            "text": "Der Induktionsanfang beweist die Aussage für n=1.",
-            "formula": "A(1): \\text{ Die Aussage für n=1}",
-            "explanation": "Der Induktionsanfang ist wie der erste Schritt auf der Leiter. Es ist wie das Finden des Ausgangspunkts!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440064",
-            "text": "Der Induktionsschritt beweist die Implikation.",
-            "formula": "A(n) \\rightarrow A(n+1): \\text{ Wenn A(n) gilt, dann gilt auch A(n+1)}",
-            "explanation": "Der Induktionsschritt ist wie das Weitersteigen auf der Leiter. Es ist wie das Beweisen des nächsten Schritts!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440065",
-            "text": "Die Induktionsvoraussetzung ist die Annahme A(n).",
-            "formula": "\\text{Induktionsvoraussetzung: } A(n) \\text{ ist wahr}",
-            "explanation": "Die Induktionsvoraussetzung ist wie das Vertrauen in den vorherigen Schritt. Es ist wie das Nutzen des bereits Bewiesenen!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440066",
-            "text": "Die Induktionsbehauptung ist die zu zeigende Aussage A(n+1).",
-            "formula": "\\text{Induktionsbehauptung: } A(n+1) \\text{ ist zu zeigen}",
-            "explanation": "Die Induktionsbehauptung ist wie das Ziel des nächsten Schritts. Es ist wie das Formulieren des nächsten Beweises!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440067",
-            "text": "Die Summe der ersten n natürlichen Zahlen.",
-            "formula": "\\sum_{k=1}^n k = \\frac{n(n+1)}{2}",
-            "explanation": "Die Summenformel ist wie ein mathematischer Zaubertrick. Es ist wie das Finden einer eleganten Lösung!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440068",
-            "text": "Der Induktionsanfang für die Summenformel.",
-            "formula": "n=1: \\sum_{k=1}^1 k = 1 = \\frac{1 \\cdot 2}{2}",
-            "explanation": "Der Induktionsanfang ist wie das Testen der Formel. Es ist wie das Überprüfen des ersten Falls!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440069",
-            "text": "Der Induktionsschritt für die Summenformel.",
-            "formula": "\\sum_{k=1}^{n+1} k = \\sum_{k=1}^n k + (n+1) = \\frac{n(n+1)}{2} + (n+1) = \\frac{(n+1)(n+2)}{2}",
-            "explanation": "Der Induktionsschritt ist wie das Verlängern der Formel. Es ist wie das Erweitern des Beweises!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440070",
-            "text": "Die Summe der ersten n Quadratzahlen.",
-            "formula": "\\sum_{k=1}^n k^2 = \\frac{n(n+1)(2n+1)}{6}",
-            "explanation": "Die Quadratsummenformel ist wie ein weiterer mathematischer Zaubertrick. Es ist wie das Finden einer komplexeren Lösung!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440071",
-            "text": "Der Induktionsanfang für die Quadratsummenformel.",
-            "formula": "n=1: \\sum_{k=1}^1 k^2 = 1 = \\frac{1 \\cdot 2 \\cdot 3}{6}",
-            "explanation": "Der Induktionsanfang ist wie das Testen der komplexeren Formel. Es ist wie das Überprüfen des ersten Falls!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440072",
-            "text": "Der Induktionsschritt für die Quadratsummenformel.",
-            "formula": "\\sum_{k=1}^{n+1} k^2 = \\sum_{k=1}^n k^2 + (n+1)^2 = \\frac{n(n+1)(2n+1)}{6} + (n+1)^2 = \\frac{(n+1)(n+2)(2n+3)}{6}",
-            "explanation": "Der Induktionsschritt ist wie das Verlängern der komplexeren Formel. Es ist wie das Erweitern des komplexeren Beweises!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440073",
-            "text": "Die Summe der ersten n Kubikzahlen.",
-            "formula": "\\sum_{k=1}^n k^3 = \\left(\\frac{n(n+1)}{2}\\right)^2",
-            "explanation": "Die Kubiksummenformel ist wie ein besonders eleganter mathematischer Zaubertrick. Es ist wie das Finden einer besonders schönen Lösung!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440074",
-            "text": "Der Induktionsanfang für die Kubiksummenformel.",
-            "formula": "n=1: \\sum_{k=1}^1 k^3 = 1 = \\left(\\frac{1 \\cdot 2}{2}\\right)^2",
-            "explanation": "Der Induktionsanfang ist wie das Testen der eleganten Formel. Es ist wie das Überprüfen des ersten Falls!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440075",
-            "text": "Der Induktionsschritt für die Kubiksummenformel.",
-            "formula": "\\sum_{k=1}^{n+1} k^3 = \\sum_{k=1}^n k^3 + (n+1)^3 = \\left(\\frac{n(n+1)}{2}\\right)^2 + (n+1)^3 = \\left(\\frac{(n+1)(n+2)}{2}\\right)^2",
-            "explanation": "Der Induktionsschritt ist wie das Verlängern der eleganten Formel. Es ist wie das Erweitern des eleganten Beweises!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440076",
-            "text": "Die geometrische Summe.",
-            "formula": "\\sum_{k=0}^n q^k = \\frac{1-q^{n+1}}{1-q} \\text{ für } q \\neq 1",
-            "explanation": "Die geometrische Summe ist wie ein mathematischer Zaubertrick für Potenzen. Es ist wie das Finden einer eleganten Lösung für Potenzsummen!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440077",
-            "text": "Der Induktionsanfang für die geometrische Summe.",
-            "formula": "n=0: \\sum_{k=0}^0 q^k = 1 = \\frac{1-q^1}{1-q}",
-            "explanation": "Der Induktionsanfang ist wie das Testen der Potenzsummenformel. Es ist wie das Überprüfen des ersten Falls!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440078",
-            "text": "Der Induktionsschritt für die geometrische Summe.",
-            "formula": "\\sum_{k=0}^{n+1} q^k = \\sum_{k=0}^n q^k + q^{n+1} = \\frac{1-q^{n+1}}{1-q} + q^{n+1} = \\frac{1-q^{n+2}}{1-q}",
-            "explanation": "Der Induktionsschritt ist wie das Verlängern der Potenzsummenformel. Es ist wie das Erweitern des Potenzsummenbeweises!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440079",
-            "text": "Die Binomialkoeffizienten.",
-            "formula": "\\sum_{k=0}^n \\binom{n}{k} = 2^n",
-            "explanation": "Die Summe der Binomialkoeffizienten ist wie ein mathematischer Zaubertrick für Kombinationen. Es ist wie das Finden einer eleganten Lösung für Kombinationssummen!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440080",
-            "text": "Der Induktionsanfang für die Binomialkoeffizienten.",
-            "formula": "n=0: \\sum_{k=0}^0 \\binom{0}{k} = 1 = 2^0",
-            "explanation": "Der Induktionsanfang ist wie das Testen der Kombinationssummenformel. Es ist wie das Überprüfen des ersten Falls!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440081",
-            "text": "Der Induktionsschritt für die Binomialkoeffizienten.",
-            "formula": "\\sum_{k=0}^{n+1} \\binom{n+1}{k} = \\sum_{k=0}^n \\binom{n}{k} + \\sum_{k=0}^n \\binom{n}{k-1} = 2^n + 2^n = 2^{n+1}",
-            "explanation": "Der Induktionsschritt ist wie das Verlängern der Kombinationssummenformel. Es ist wie das Erweitern des Kombinationssummenbeweises!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440082",
-            "text": "Die Fibonacci-Zahlen.",
-            "formula": "F_{n+2} = F_{n+1} + F_n \\text{ mit } F_0 = 0, F_1 = 1",
-            "explanation": "Die Fibonacci-Zahlen sind wie ein mathematischer Zaubertrick für Rekursionen. Es ist wie das Finden einer eleganten Lösung für rekursive Folgen!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440083",
-            "text": "Der Induktionsanfang für die Fibonacci-Zahlen.",
-            "formula": "n=0: F_2 = F_1 + F_0 = 1 + 0 = 1",
-            "explanation": "Der Induktionsanfang ist wie das Testen der rekursiven Formel. Es ist wie das Überprüfen des ersten Falls!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440084",
-            "text": "Der Induktionsschritt für die Fibonacci-Zahlen.",
-            "formula": "F_{n+3} = F_{n+2} + F_{n+1} = (F_{n+1} + F_n) + F_{n+1} = 2F_{n+1} + F_n",
-            "explanation": "Der Induktionsschritt ist wie das Verlängern der rekursiven Formel. Es ist wie das Erweitern des rekursiven Beweises!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440085",
-            "text": "Die Potenzmenge einer n-elementigen Menge.",
-            "formula": "|\\mathcal{P}(M)| = 2^n \\text{ für } |M| = n",
-            "explanation": "Die Potenzmengenformel ist wie ein mathematischer Zaubertrick für Mengen. Es ist wie das Finden einer eleganten Lösung für Mengenoperationen!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440086",
-            "text": "Der Induktionsanfang für die Potenzmengenformel.",
-            "formula": "n=0: |\\mathcal{P}(\\emptyset)| = 1 = 2^0",
-            "explanation": "Der Induktionsanfang ist wie das Testen der Mengenformel. Es ist wie das Überprüfen des ersten Falls!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440087",
-            "text": "Der Induktionsschritt für die Potenzmengenformel.",
-            "formula": "|\\mathcal{P}(M \\cup \\{x\\})| = 2|\\mathcal{P}(M)| = 2 \\cdot 2^n = 2^{n+1}",
-            "explanation": "Der Induktionsschritt ist wie das Verlängern der Mengenformel. Es ist wie das Erweitern des Mengenbeweises!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440088",
-            "text": "Die Anzahl der Teilmengen mit k Elementen.",
-            "formula": "\\sum_{k=0}^n \\binom{n}{k} = 2^n",
-            "explanation": "Die Teilmengenformel ist wie ein mathematischer Zaubertrick für Kombinationen. Es ist wie das Finden einer eleganten Lösung für Teilmengen!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440089",
-            "text": "Der Induktionsanfang für die Teilmengenformel.",
-            "formula": "n=0: \\sum_{k=0}^0 \\binom{0}{k} = 1 = 2^0",
-            "explanation": "Der Induktionsanfang ist wie das Testen der Teilmengenformel. Es ist wie das Überprüfen des ersten Falls!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440090",
-            "text": "Zum Schluss schauen wir uns an, wie vollständige Induktion in der Mathematik verwendet wird.",
-            "formula": "\\text{Vollständige Induktion ist ein mächtiges Werkzeug für Beweise über natürliche Zahlen}",
-            "explanation": "In der Mathematik hilft uns vollständige Induktion, Aussagen für alle natürlichen Zahlen zu beweisen. Es ist wie das Übersetzen mathematischer Konzepte in die Sprache der Beweise!"
-        }
-    ]
-} 
+{
+  "id": "cc0e8400-e29b-41d4-a716-446655440061",
+  "topic": "Vollständige Induktion",
+  "steps": [
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440062",
+      "section": "Kapitel 1 · Die Idee",
+      "text": "Willkommen! Viele Sätze der Mathematik gelten für ALLE natürlichen Zahlen: Summenformeln, Ungleichungen, Teilbarkeitsregeln. Wie beweist man unendlich viele Aussagen auf einmal?\n\nDie Antwort ist die vollständige Induktion – eine der wichtigsten Beweismethoden überhaupt.",
+      "explanation": "Unser Fahrplan:\n1. Die Idee: der Dominoeffekt\n2. Der Aufbau: Anfang, Voraussetzung, Schritt\n3. Summenformeln\n4. Ungleichungen\n5. Teilbarkeit\n6. Varianten: anderer Startwert, starke Induktion\n7. Typische Fehler – mit einem berühmten Trugschluss\n8. Rückblick",
+      "insight": "Du brauchst nur das Summenzeichen und ein wenig Termumformung. Aus der Lektion „Logik“ hilft dir der Begriff der Aussageform \\(A(n)\\)."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440063",
+      "section": "Kapitel 1 · Die Idee",
+      "text": "Warum reicht Ausprobieren nicht? Betrachte die Summe der ersten ungeraden Zahlen:",
+      "formula": "\\begin{aligned} 1 &= 1 \\\\ 1 + 3 &= 4 \\\\ 1 + 3 + 5 &= 9 \\\\ 1 + 3 + 5 + 7 &= 16 \\end{aligned}",
+      "explanation": "Es entstehen die Quadratzahlen \\(1, 4, 9, 16\\). Die Vermutung liegt nahe:\n\\(1 + 3 + 5 + \\dots + (2n - 1) = n^2\\) für alle \\(n \\in \\mathbb{N}\\).\n\nAber vier Beispiele sind kein Beweis. Dass Muster täuschen können, zeigt Eulers Beispiel aus der Logik-Lektion: \\(n^2 + n + 41\\) ist für \\(n = 0, \\dots, 39\\) prim – und für \\(n = 40\\) nicht.\n\nWir brauchen ein Argument, das ALLE \\(n\\) auf einmal erfasst. Diese Vermutung beweisen wir in Kapitel 3.",
+      "insight": "Beispiele helfen, eine Vermutung zu finden. Die Induktion hilft, sie zu beweisen."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440064",
+      "section": "Kapitel 1 · Die Idee",
+      "text": "Die Idee ist der Dominoeffekt: Wenn der erste Stein fällt und jeder Stein seinen Nachfolger umwirft, fallen alle.",
+      "visual": "dominoes",
+      "formula": "\\begin{array}{c} A(1) \\text{ ist wahr} \\\\[4pt] \\text{und} \\\\[4pt] A(n) \\Rightarrow A(n + 1) \\text{ für jedes } n \\in \\mathbb{N} \\\\[4pt] \\Downarrow \\\\[2pt] A(n) \\text{ ist wahr für alle } n \\in \\mathbb{N} \\end{array}",
+      "explanation": "\\(A(n)\\) ist eine Aussage, die von \\(n\\) abhängt, z. B. „\\(1 + 3 + \\dots + (2n - 1) = n^2\\)“.\n\nMan zeigt zwei Dinge:\n1. Induktionsanfang: \\(A(1)\\) ist wahr – der erste Stein fällt.\n2. Induktionsschritt: Für jedes \\(n\\) gilt: Wenn \\(A(n)\\) wahr ist, dann auch \\(A(n + 1)\\) – jeder Stein reißt den nächsten mit.\n\nDann folgt: \\(A(1)\\) wahr, also \\(A(2)\\), also \\(A(3)\\), und so weiter – ohne Ende.\n\nDie letzten beiden Phasen der Animation zeigen: Beide Teile sind unverzichtbar.",
+      "insight": "Im Induktionsschritt wird NICHT bewiesen, dass \\(A(n)\\) wahr ist. Bewiesen wird nur die Implikation „wenn \\(A(n)\\), dann \\(A(n + 1)\\)“."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440065",
+      "section": "Kapitel 2 · Der Aufbau eines Induktionsbeweises",
+      "text": "Ein Induktionsbeweis hat immer dieselbe Struktur. Schreib sie jedes Mal vollständig auf – das macht Beweise lesbar und vermeidet Fehler:",
+      "formula": "\\begin{array}{ll} \\textbf{IA} & \\text{zeige } A(1) \\\\[4pt] \\textbf{IV} & A(n) \\text{ gelte für ein } n \\\\[4pt] \\textbf{IB} & \\text{zu zeigen: } A(n+1) \\\\[4pt] \\textbf{IS} & \\text{beweise IB mit der IV} \\end{array}",
+      "explanation": "IA heißt Induktionsanfang, IV Induktionsvoraussetzung, IB Induktionsbehauptung und IS Induktionsschritt.\n\nIA: Meist eine kurze Rechnung durch Einsetzen.\n\nIV: Man nimmt an, die Aussage sei für EIN beliebiges, festes \\(n\\) schon gezeigt. Das ist keine Annahme über alle \\(n\\)!\n\nIB: Man schreibt hin, was zu zeigen ist – einfach \\(n\\) durch \\(n + 1\\) ersetzen. Das klärt das Ziel.\n\nIS: Der eigentliche Beweis. Die entscheidende Stelle ist, an der man die IV einsetzt. Markiere sie, z. B. mit „\\(\\overset{\\text{IV}}{=}\\)“.",
+      "insight": "Der häufigste Grund für einen gescheiterten Induktionsbeweis: Die IV wird nie benutzt. Dann war es auch keine Induktion."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440066",
+      "section": "Kapitel 2 · Der Aufbau eines Induktionsbeweises",
+      "text": "Das erste vollständige Beispiel: die Gaußsche Summenformel. Erst die Anschauung, warum sie stimmt:",
+      "visual": "gaussSum",
+      "formula": "\\sum_{k=1}^{n} k = 1 + 2 + \\dots + n = \\frac{n(n+1)}{2}",
+      "explanation": "Zur Schreibweise: \\(\\sum_{k=1}^{n} k\\) bedeutet „setze für \\(k\\) nacheinander \\(1, 2, \\dots, n\\) ein und addiere alles“.\n\nDie Treppe in der Animation liefert die Formel: Zwei Treppen ergeben ein Rechteck aus \\(n \\cdot (n + 1)\\) Kästchen.\n\nDie letzte Phase zeigt bereits die Idee des Induktionsschritts: Die Summe bis \\(n + 1\\) ist die Summe bis \\(n\\) plus eine neue Spalte der Höhe \\(n + 1\\):\n\\(\\sum_{k=1}^{n+1} k = \\left(\\sum_{k=1}^{n} k\\right) + (n + 1)\\).",
+      "insight": "Diese Zerlegung „Summe bis \\(n + 1\\) = Summe bis \\(n\\) + letzter Summand“ ist der Standardtrick bei JEDER Summenformel."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440067",
+      "section": "Kapitel 2 · Der Aufbau eines Induktionsbeweises",
+      "text": "Jetzt der Beweis, vollständig aufgeschrieben. Induktionsanfang und Induktionsbehauptung:",
+      "formula": "\\begin{aligned} \\textbf{IA } (n = 1)\\colon\\;& \\sum_{k=1}^{1} k = 1 = \\frac{1 \\cdot 2}{2} \\;\\checkmark \\\\[8pt] \\textbf{IV}\\colon\\;& \\sum_{k=1}^{n} k = \\frac{n(n+1)}{2} \\text{ für ein } n \\in \\mathbb{N} \\\\[8pt] \\textbf{IB}\\colon\\;& \\sum_{k=1}^{n+1} k = \\frac{(n+1)(n+2)}{2} \\end{aligned}",
+      "explanation": "Im IA rechnet man BEIDE Seiten aus und vergleicht. Die linke Seite ist eine Summe mit nur einem Summanden, die rechte Seite ist \\(\\frac{1 \\cdot 2}{2} = 1\\).\n\nDie IB entsteht, indem man in der Formel überall \\(n\\) durch \\(n + 1\\) ersetzt: Aus \\(\\frac{n(n+1)}{2}\\) wird \\(\\frac{(n+1)((n+1)+1)}{2} = \\frac{(n+1)(n+2)}{2}\\).\n\nTipp: Die IB vorher hinzuschreiben ist keine Formalität. Sie sagt dir, wo deine Rechnung im IS ankommen muss.",
+      "insight": "Klammern beim Ersetzen nicht vergessen! Aus \\(n^2\\) wird \\((n + 1)^2\\), nicht \\(n + 1^2\\)."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440068",
+      "section": "Kapitel 2 · Der Aufbau eines Induktionsbeweises",
+      "text": "Der Induktionsschritt: Wir beginnen mit der linken Seite der IB und arbeiten uns zur rechten Seite vor.",
+      "formula": "\\begin{aligned} \\sum_{k=1}^{n+1} k &= \\sum_{k=1}^{n} k + (n + 1) \\\\ &\\overset{\\text{IV}}{=} \\frac{n(n+1)}{2} + (n + 1) \\\\ &= \\frac{n(n+1)}{2} + \\frac{2(n+1)}{2} \\\\ &= \\frac{(n+1)(n+2)}{2} \\end{aligned}",
+      "explanation": "Zeile 1: Den letzten Summanden abspalten – das ist die neue Spalte der Treppe.\n\nZeile 2: Hier wird die IV benutzt. Die Summe bis \\(n\\) ersetzen wir durch die Formel, die für dieses \\(n\\) ja schon gilt.\n\nZeile 3: Auf einen Nenner bringen.\n\nZeile 4: Im Zähler steht \\(n(n + 1) + 2(n + 1)\\). Ausklammern von \\((n + 1)\\) ergibt \\((n + 1)(n + 2)\\).\n\nDas ist genau die IB. Mit IA und IS gilt die Formel für alle \\(n \\in \\mathbb{N}\\). ∎",
+      "insight": "Tipp beim Umformen: Nicht ausmultiplizieren, sondern den gemeinsamen Faktor \\((n + 1)\\) ausklammern. Das Ziel enthält ihn ja auch."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440069",
+      "section": "Kapitel 3 · Summenformeln",
+      "text": "Jetzt beweisen wir die Vermutung aus Kapitel 1: Die Summe der ersten \\(n\\) ungeraden Zahlen ist \\(n^2\\).",
+      "formula": "\\begin{aligned} &\\sum_{k=1}^{n} (2k - 1) = n^2 \\\\[8pt] \\textbf{IA}\\colon\\;& 2 \\cdot 1 - 1 = 1 = 1^2 \\;\\checkmark \\\\[4pt] \\textbf{IS}\\colon\\;& \\sum_{k=1}^{n+1} (2k - 1) \\\\ &= \\sum_{k=1}^{n} (2k - 1) + (2n + 1) \\\\ &\\overset{\\text{IV}}{=} n^2 + 2n + 1 = (n + 1)^2 \\;\\checkmark \\end{aligned}",
+      "explanation": "Der letzte Summand ist \\(2(n + 1) - 1 = 2n + 1\\) – die \\((n + 1)\\)-te ungerade Zahl.\n\nMit der IV wird aus der Summe bis \\(n\\) einfach \\(n^2\\). Dann erkennt man die binomische Formel \\(n^2 + 2n + 1 = (n + 1)^2\\) – genau die IB.\n\nAnschaulich: Ein Quadrat aus \\(n \\times n\\) Punkten wächst zum \\((n + 1) \\times (n + 1)\\)-Quadrat, indem man einen Winkel aus \\(2n + 1\\) Punkten anlegt.",
+      "insight": "Viele Induktionsschritte enden so: Man formt um, bis man die rechte Seite der IB „wiedererkennt“. Binomische Formeln und Ausklammern sind die wichtigsten Werkzeuge."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440070",
+      "section": "Kapitel 3 · Summenformeln",
+      "text": "Etwas anspruchsvoller: die Summe der Quadratzahlen. Hier muss man beim Umformen geschickt vorgehen.",
+      "formula": "\\begin{aligned} &\\sum_{k=1}^{n} k^2 = \\frac{n(n+1)(2n+1)}{6} \\\\[8pt] \\textbf{IA}\\colon\\;& 1^2 = 1 = \\frac{1 \\cdot 2 \\cdot 3}{6} \\;\\checkmark \\\\[4pt] \\textbf{IB}\\colon\\;& \\sum_{k=1}^{n+1} k^2 = \\frac{(n+1)(n+2)(2n+3)}{6} \\end{aligned}",
+      "explanation": "Die IB entsteht wieder durch Ersetzen von \\(n\\) durch \\(n + 1\\):\nAus \\(n + 1\\) wird \\((n + 1) + 1 = n + 2\\), und aus \\(2n + 1\\) wird \\(2(n + 1) + 1 = 2n + 3\\).\n\nProbe für \\(n = 2\\): \\(1 + 4 = 5\\) und \\(\\frac{2 \\cdot 3 \\cdot 5}{6} = 5\\) ✓. Solche Proben lohnen sich, bevor man Zeit in einen Beweis steckt.",
+      "insight": "Das Ziel enthält den Faktor \\((n + 1)\\). Daraus folgt die Strategie für den Schritt: \\((n + 1)\\) möglichst früh ausklammern."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440071",
+      "section": "Kapitel 3 · Summenformeln",
+      "text": "Der Induktionsschritt für die Quadratsumme:",
+      "formula": "\\begin{aligned} \\sum_{k=1}^{n+1} k^2 &= \\sum_{k=1}^{n} k^2 + (n+1)^2 \\\\ &\\overset{\\text{IV}}{=} \\frac{n(n+1)(2n+1)}{6} + \\frac{6(n+1)^2}{6} \\\\ &= \\frac{(n+1)\\big(n(2n+1) + 6(n+1)\\big)}{6} \\\\ &= \\frac{(n+1)(2n^2 + 7n + 6)}{6} \\\\ &= \\frac{(n+1)(n+2)(2n+3)}{6} \\end{aligned}",
+      "explanation": "Zeile 3: \\((n + 1)\\) aus beiden Summanden ausklammern.\n\nZeile 4: Die große Klammer ausrechnen. \\(n(2n + 1) = 2n^2 + n\\) und \\(6(n + 1) = 6n + 6\\), zusammen \\(2n^2 + 7n + 6\\).\n\nZeile 5: Dieses Polynom faktorisieren. Weil wir das Ziel kennen, müssen wir nur prüfen:\n\\((n + 2)(2n + 3) = 2n^2 + 7n + 6\\) ✓ (ausmultiplizieren: \\(2n^2 + 3n + 4n + 6\\))\n\nDas ist die IB. ∎",
+      "insight": "Faktorisieren ist schwer, Ausmultiplizieren ist leicht. Wenn du das Ziel kennst, multipliziere das Ziel aus und vergleiche – statt blind zu faktorisieren."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440072",
+      "section": "Kapitel 3 · Summenformeln",
+      "text": "Eine Formel, die du in der Analysis ständig brauchst: die geometrische Summe. Für eine Zahl \\(q \\neq 1\\) gilt:",
+      "formula": "\\begin{aligned} &\\sum_{k=0}^{n} q^k = \\frac{q^{n+1} - 1}{q - 1} \\\\[8pt] \\textbf{IA } (n = 0)\\colon\\;& q^0 = 1 = \\frac{q - 1}{q - 1} \\;\\checkmark \\\\[4pt] \\textbf{IS}\\colon\\;& \\sum_{k=0}^{n+1} q^k \\overset{\\text{IV}}{=} \\frac{q^{n+1} - 1}{q - 1} + q^{n+1} \\\\ &= \\frac{q^{n+1} - 1 + q^{n+2} - q^{n+1}}{q - 1} \\\\ &= \\frac{q^{n+2} - 1}{q - 1} \\end{aligned}",
+      "explanation": "Hier beginnt die Summe bei \\(k = 0\\), deshalb beginnt auch die Induktion bei \\(n = 0\\). Der IA ist erlaubt, weil \\(q \\neq 1\\) – sonst würde man durch \\(0\\) teilen.\n\nIm IS: Summe bis \\(n + 1\\) = Summe bis \\(n\\) (mit IV ersetzt) + \\(q^{n+1}\\). Dann \\(q^{n+1}\\) auf den Nenner \\(q - 1\\) bringen: \\(q^{n+1} = \\frac{q^{n+2} - q^{n+1}}{q - 1}\\). Die Terme \\(\\pm q^{n+1}\\) heben sich weg.\n\nBeispiel: \\(1 + 2 + 4 + 8 = \\frac{2^4 - 1}{2 - 1} = 15\\) ✓",
+      "insight": "Der Startwert der Induktion richtet sich nach der Aussage. Gilt sie ab \\(n = 0\\), beginnt man bei \\(0\\)."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440073",
+      "section": "Kapitel 4 · Ungleichungen",
+      "text": "Induktion funktioniert auch für Ungleichungen. Dann wird der Schritt eine Abschätzung statt einer Gleichungskette. Behauptung:",
+      "formula": "2^n > n^2 \\quad \\text{für alle } n \\ge 5",
+      "explanation": "Erst ausprobieren:\n\\(n = 1\\): \\(2 > 1\\) ✓\n\\(n = 2\\): \\(4 > 4\\) ✗ (Gleichheit)\n\\(n = 3\\): \\(8 > 9\\) ✗\n\\(n = 4\\): \\(16 > 16\\) ✗\n\\(n = 5\\): \\(32 > 25\\) ✓\n\\(n = 6\\): \\(64 > 36\\) ✓\n\nDie Aussage gilt also nicht für alle \\(n\\), sondern erst ab \\(n = 5\\). Deshalb beginnt die Induktion bei \\(n_0 = 5\\).",
+      "insight": "Gilt eine Aussage erst ab einem Startwert \\(n_0\\), ist der IA \\(A(n_0)\\), und die IV darf \\(n \\ge n_0\\) benutzen. Der Dominoeffekt beginnt einfach beim Stein \\(n_0\\)."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440074",
+      "section": "Kapitel 4 · Ungleichungen",
+      "text": "Der Induktionsschritt für \\(2^n > n^2\\). Die IV lautet: \\(2^n > n^2\\) für ein \\(n \\ge 5\\).",
+      "formula": "\\begin{aligned} 2^{n+1} &= 2 \\cdot 2^n \\\\ &\\overset{\\text{IV}}{>} 2n^2 \\\\ &= n^2 + n^2 \\\\ &\\overset{(*)}{\\ge} n^2 + 2n + 1 = (n+1)^2 \\end{aligned}",
+      "explanation": "Zeile 2: Mit der IV \\(2^n > n^2\\), multipliziert mit \\(2\\).\n\nZeile 4: Hier braucht man eine Hilfsungleichung \\((*)\\): \\(n^2 \\ge 2n + 1\\).\nSie gilt für \\(n \\ge 3\\): Es ist \\(n^2 - 2n - 1 = (n - 1)^2 - 2\\), und für \\(n \\ge 3\\) ist \\((n - 1)^2 \\ge 4 > 2\\).\nDa wir \\(n \\ge 5\\) voraussetzen, ist sie erfüllt.\n\nZusammen: \\(2^{n+1} > (n + 1)^2\\) – das ist die IB. ∎",
+      "insight": "Bei Ungleichungen sucht man eine Kette \\(\\text{links} > \\dots \\ge \\text{rechts}\\). Oft braucht man dazwischen eine kleine Zusatzabschätzung, die man getrennt begründet."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440075",
+      "section": "Kapitel 4 · Ungleichungen",
+      "text": "Eine der nützlichsten Ungleichungen der Analysis ist die Bernoulli-Ungleichung. Für jede reelle Zahl \\(x \\ge -1\\) und jedes \\(n \\in \\mathbb{N}\\) gilt:",
+      "formula": "\\begin{aligned} &(1 + x)^n \\ge 1 + nx \\\\[8pt] \\textbf{IA}\\colon\\;& (1 + x)^1 = 1 + 1 \\cdot x \\;\\checkmark \\\\[4pt] \\textbf{IS}\\colon\\;& (1 + x)^{n+1} = (1 + x)^n (1 + x) \\\\ &\\overset{\\text{IV}}{\\ge} (1 + nx)(1 + x) \\\\ &= 1 + (n+1)x + nx^2 \\\\ &\\ge 1 + (n + 1)x \\end{aligned}",
+      "explanation": "Wo wird \\(x \\ge -1\\) gebraucht? In Zeile 2 des IS! Wir multiplizieren die IV \\((1 + x)^n \\ge 1 + nx\\) mit \\((1 + x)\\). Das erhält das \\(\\ge\\) nur, wenn \\(1 + x \\ge 0\\) ist. Bei einem negativen Faktor würde sich das Ungleichheitszeichen umdrehen.\n\nLetzte Zeile: \\(nx^2 \\ge 0\\), also darf man es weglassen.\n\nBeispiel: \\(1{,}01^{100} \\ge 1 + 100 \\cdot 0{,}01 = 2\\). (Tatsächlich ist \\(1{,}01^{100} \\approx 2{,}70\\).)",
+      "insight": "Prüfe bei jedem Beweis: Wo wird welche Voraussetzung benutzt? Wird eine nie gebraucht, stimmt etwas nicht – oder der Satz gilt allgemeiner."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440076",
+      "section": "Kapitel 5 · Teilbarkeit",
+      "text": "Dritter Typ: Teilbarkeit. Behauptung: Für alle \\(n \\in \\mathbb{N}_0\\) ist \\(7^n - 1\\) durch \\(6\\) teilbar.",
+      "formula": "\\begin{aligned} \\textbf{IA } (n = 0)\\colon\\;& 7^0 - 1 = 0 = 6 \\cdot 0 \\;\\checkmark \\\\[6pt] \\textbf{IV}\\colon\\;& 7^n - 1 = 6m \\text{ mit } m \\in \\mathbb{Z} \\\\[6pt] \\textbf{IS}\\colon\\;& 7^{n+1} - 1 = 7 \\cdot 7^n - 7 + 6 \\\\ &= 7(7^n - 1) + 6 \\\\ &\\overset{\\text{IV}}{=} 7 \\cdot 6m + 6 = 6(7m + 1) \\end{aligned}",
+      "explanation": "„\\(6\\) teilt \\(a\\)“ heißt: \\(a = 6 \\cdot m\\) für eine ganze Zahl \\(m\\). Das schreibt man in die IV – dann kann man damit rechnen.\n\nDer Trick im IS: Man will den Ausdruck aus der IV, \\(7^n - 1\\), sichtbar machen. Dazu schreibt man \\(-1 = -7 + 6\\) und klammert \\(7\\) aus.\n\nAm Ende steht \\(6 \\cdot (\\text{ganze Zahl})\\), also ist \\(7^{n+1} - 1\\) durch \\(6\\) teilbar. ∎\n\nKontrolle: \\(7^2 - 1 = 48 = 6 \\cdot 8\\) ✓",
+      "insight": "Rezept für Teilbarkeit: Im Ausdruck für \\(n + 1\\) den Ausdruck für \\(n\\) „künstlich erzeugen“ (Null addieren, Faktor ausklammern), dann IV einsetzen."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440077",
+      "section": "Kapitel 5 · Teilbarkeit",
+      "text": "Noch ein Teilbarkeitsbeispiel, bei dem im Schritt eine kleine Zusatzüberlegung nötig ist: \\(n^3 - n\\) ist für alle \\(n \\in \\mathbb{N}\\) durch \\(6\\) teilbar.",
+      "formula": "\\begin{aligned} \\textbf{IA}\\colon\\;& 1^3 - 1 = 0 \\;\\checkmark \\\\[6pt] \\textbf{IS}\\colon\\;& (n+1)^3 - (n+1) \\\\ &= n^3 + 3n^2 + 3n + 1 - n - 1 \\\\ &= (n^3 - n) + 3n(n + 1) \\end{aligned}",
+      "explanation": "Ausmultiplizieren und so umsortieren, dass \\(n^3 - n\\) wieder auftaucht – das ist der Teil, über den die IV etwas sagt.\n\nErster Summand: durch \\(6\\) teilbar nach IV.\n\nZweiter Summand: \\(3n(n + 1)\\). Von zwei aufeinanderfolgenden Zahlen \\(n\\), \\(n + 1\\) ist immer eine gerade. Also ist \\(n(n + 1)\\) gerade und \\(3n(n + 1)\\) durch \\(3 \\cdot 2 = 6\\) teilbar.\n\nEine Summe zweier durch \\(6\\) teilbarer Zahlen ist durch \\(6\\) teilbar. ∎",
+      "insight": "Induktion ist nicht immer der kürzeste Weg: Direkt gilt \\(n^3 - n = (n - 1)n(n + 1)\\) – ein Produkt dreier aufeinanderfolgender Zahlen, also durch \\(2\\) und durch \\(3\\) teilbar. Gut, beide Wege zu kennen!"
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440078",
+      "section": "Kapitel 6 · Varianten der Induktion",
+      "text": "Manchmal reicht es nicht, nur auf \\(A(n)\\) zurückzugreifen. Bei der starken Induktion darf man im Schritt ALLE vorherigen Aussagen benutzen:",
+      "formula": "\\begin{array}{c} A(n_0) \\text{ gilt, und} \\\\[2pt] \\big(A(n_0), \\dots, A(n) \\text{ gelten}\\big) \\Rightarrow A(n + 1) \\\\[4pt] \\Downarrow \\\\[2pt] A(n) \\text{ gilt für alle } n \\ge n_0 \\end{array}",
+      "explanation": "Klassisches Beispiel: Jede natürliche Zahl \\(n \\ge 2\\) ist ein Produkt von Primzahlen.\n\nIA: \\(2\\) ist selbst prim ✓.\n\nIS: Die Aussage gelte für alle Zahlen von \\(2\\) bis \\(n\\). Betrachte \\(n + 1\\).\n• Ist \\(n + 1\\) prim, sind wir fertig.\n• Sonst ist \\(n + 1 = a \\cdot b\\) mit \\(2 \\le a, b \\le n\\). Nach IV sind \\(a\\) und \\(b\\) Produkte von Primzahlen – also auch \\(a \\cdot b\\). ∎\n\nMit der normalen Induktion ginge das nicht: Über \\(a\\) und \\(b\\) wissen wir nur, dass sie kleiner als \\(n + 1\\) sind – nicht, dass eine von ihnen gleich \\(n\\) ist.",
+      "insight": "Im Domino-Bild: Stein \\(n + 1\\) fällt, weil IRGENDWELCHE früheren Steine gefallen sind – nicht unbedingt sein direkter Vorgänger."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440079",
+      "section": "Kapitel 6 · Varianten der Induktion",
+      "text": "Induktion passt besonders gut zu rekursiv definierten Folgen. Die Fibonacci-Zahlen sind definiert durch \\(F_1 = F_2 = 1\\) und \\(F_{n+2} = F_{n+1} + F_n\\):",
+      "formula": "\\begin{aligned} &F_1 + F_2 + \\dots + F_n = F_{n+2} - 1 \\\\[8pt] \\textbf{IA}\\colon\\;& F_1 = 1 = 2 - 1 = F_3 - 1 \\;\\checkmark \\\\[4pt] \\textbf{IS}\\colon\\;& \\sum_{k=1}^{n+1} F_k \\overset{\\text{IV}}{=} F_{n+2} - 1 + F_{n+1} \\\\ &= F_{n+3} - 1 \\;\\checkmark \\end{aligned}",
+      "explanation": "Die Folge beginnt mit \\(1, 1, 2, 3, 5, 8, 13, \\dots\\)\n\nProbe für \\(n = 4\\): \\(1 + 1 + 2 + 3 = 7\\) und \\(F_6 - 1 = 8 - 1 = 7\\) ✓\n\nIm IS wird erst die IV benutzt und dann die Rekursionsformel: \\(F_{n+2} + F_{n+1} = F_{n+3}\\).\n\nDas zeigt die Stärke der Induktion: Die Definition der Folge ist selbst ein Induktionsschritt, deshalb passen die Beweise so gut dazu.",
+      "insight": "Bei rekursiven Folgen wird die Rekursionsformel im Induktionsschritt benutzt – fast immer zusammen mit der IV."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440080",
+      "section": "Kapitel 7 · Typische Fehler",
+      "text": "Fehler 1: den Induktionsanfang vergessen. Hier ein „Beweis“, dass \\(n = n + 1\\) für alle \\(n\\) gilt:",
+      "formula": "\\begin{aligned} \\textbf{IV}\\colon\\;& n = n + 1 \\\\ \\textbf{IS}\\colon\\;& n + 1 \\overset{\\text{IV}}{=} (n + 1) + 1 \\quad \\checkmark \\end{aligned}",
+      "explanation": "Der Schritt ist korrekt: Addiert man auf beiden Seiten der IV \\(1\\), erhält man genau die IB.\n\nTrotzdem ist die Aussage offensichtlich falsch. Der Grund: Es gibt kein \\(n\\), für das \\(n = n + 1\\) gilt. Der IA scheitert, der erste Domino fällt nie.\n\nDas ist die vorletzte Phase der Domino-Animation: Ein korrekter Schritt allein beweist gar nichts.",
+      "insight": "Der IA ist meist einfach – aber er ist nie überflüssig. Ohne ihn kann man jeden Unsinn „beweisen“."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440081",
+      "section": "Kapitel 7 · Typische Fehler",
+      "text": "Fehler 2: Ein Schritt, der nicht für ALLE \\(n\\) funktioniert. Der berühmte Trugschluss „Alle Pferde haben dieselbe Farbe“:",
+      "formula": "\\begin{array}{c} A(n)\\colon \\text{ In jeder Gruppe von } n \\text{ Pferden} \\\\ \\text{haben alle dieselbe Farbe.} \\end{array}",
+      "explanation": "„IA“: Eine Gruppe aus \\(1\\) Pferd hat natürlich nur eine Farbe ✓.\n\n„IS“: Nimm \\(n + 1\\) Pferde. Lass das letzte weg: Die ersten \\(n\\) haben nach IV eine Farbe. Lass das erste weg: Die letzten \\(n\\) haben auch eine Farbe. Die Pferde in der Mitte gehören zu beiden Gruppen – also haben alle dieselbe Farbe.\n\nWo ist der Fehler? Beim Schritt von \\(n = 1\\) zu \\(n + 1 = 2\\)! Bei zwei Pferden besteht die erste Gruppe nur aus Pferd 1, die zweite nur aus Pferd 2. Es gibt keine Pferde „in der Mitte“, die beide Gruppen verbinden.\n\nDer Schritt funktioniert für \\(n \\ge 2\\), aber nicht für \\(n = 1\\). Die Kette reißt gleich nach dem ersten Stein – wie die Lücke in der letzten Phase der Domino-Animation.",
+      "insight": "Prüfe den Induktionsschritt immer für das kleinste \\(n\\), für das er gelten muss. Argumente wie „die Pferde in der Mitte“ setzen oft stillschweigend ein großes \\(n\\) voraus."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440082",
+      "section": "Kapitel 7 · Typische Fehler",
+      "text": "Fehler 3: den Zirkelschluss. Im Induktionsschritt darf man die Behauptung \\(A(n + 1)\\) nicht schon benutzen.",
+      "formula": "\\begin{array}{ll} \\text{falsch:} & A(n+1) \\Rightarrow \\dots \\Rightarrow \\text{„}0 = 0\\text{“} \\\\[4pt] \\text{richtig:} & A(n) \\Rightarrow \\dots \\Rightarrow A(n+1) \\end{array}",
+      "explanation": "Ein häufiges Muster in Klausuren: Man schreibt die IB als Gleichung hin, formt beide Seiten um, bis „\\(0 = 0\\)“ dasteht, und hält das für einen Beweis.\n\nDas ist nur zulässig, wenn JEDER Umformungsschritt eine Äquivalenz ist – dann kann man die Kette rückwärts lesen. Sicherer ist der Weg aus Kapitel 2: Mit EINER Seite der IB beginnen und bis zur anderen Seite umformen.\n\nEbenso falsch: als IV „\\(A(n)\\) gilt für alle \\(n\\)“ schreiben. Dann setzt man voraus, was man beweisen will. Richtig ist „für ein (beliebiges, festes) \\(n\\)“.",
+      "insight": "Gute Kontrollfrage: Lies deinen Induktionsschritt von oben nach unten. Folgt jede Zeile aus der vorherigen – und steht die IB erst am Ende?"
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440083",
+      "section": "Kapitel 8 · Rückblick",
+      "text": "Schau zurück, wie die Begriffe auseinander hervorgegangen sind:",
+      "explanation": "1. Beispiele beweisen keine Allaussage. Dominoeffekt: erster Stein fällt + jeder reißt den nächsten mit.\n\n2. Aufbau: IA, IV (für EIN \\(n\\)), IB (ersetze \\(n\\) durch \\(n + 1\\)), IS (mit IV!). Gauß: \\(\\sum_{k=1}^{n} k = \\frac{n(n+1)}{2}\\).\n\n3. Summen: letzten Summanden abspalten, IV einsetzen, auf das Ziel hin umformen. Ungerade Zahlen, Quadratsumme, geometrische Summe.\n\n4. Ungleichungen: Abschätzungsketten, eventuell Startwert \\(n_0 > 1\\). Bernoulli: \\((1 + x)^n \\ge 1 + nx\\) für \\(x \\ge -1\\).\n\n5. Teilbarkeit: Ausdruck aus der IV künstlich erzeugen.\n\n6. Starke Induktion (alle Vorgänger dürfen benutzt werden) und rekursive Folgen.\n\n7. Fehler: IA vergessen, Schritt gilt nicht für kleine \\(n\\), Zirkelschluss.",
+      "insight": "Glückwunsch! Induktion wirst du überall wiedersehen: bei Folgen und Reihen, in der Linearen Algebra (z. B. Determinanten von \\(n \\times n\\)-Matrizen) und in der Informatik bei Algorithmen und Rekursion."
+    }
+  ]
+}

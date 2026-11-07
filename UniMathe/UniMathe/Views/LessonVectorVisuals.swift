@@ -113,6 +113,25 @@ struct LessonVisualView: View {
         case "powerSet": PowerSetVisual()
         case "cartesianProduct": CartesianProductVisual()
         case "modClasses": ModClassesVisual()
+        case "implicationTable": ImplicationTableVisual()
+        case "implicationSets": ImplicationSetsVisual()
+        case "dominoes": DominoVisual()
+        case "gaussSum": GaussSumVisual()
+        case "quantifierOrder": ArrowDiagramVisual(
+            columns: [["1", "2", "3"], ["a", "b", "c"]],
+            names: ["Schlösser", "Schlüssel"],
+            frames: [
+                DiagramFrame(arrows: [], caption: "Drei Schlösser 1, 2, 3 und drei Schlüssel a, b, c. Ein Pfeil heißt: Der Schlüssel passt."),
+                DiagramFrame(arrows: [.init(fromColumn: 0, from: 0, toColumn: 1, to: 0), .init(fromColumn: 0, from: 1, toColumn: 1, to: 1), .init(fromColumn: 0, from: 2, toColumn: 1, to: 2)],
+                             caption: "∀ Schloss ∃ Schlüssel: „Zu jedem Schloss gibt es einen passenden Schlüssel.“ Wahr – aber jedes Schloss hat einen ANDEREN."),
+                DiagramFrame(arrows: [.init(fromColumn: 0, from: 0, toColumn: 1, to: 1), .init(fromColumn: 0, from: 1, toColumn: 1, to: 1), .init(fromColumn: 0, from: 2, toColumn: 1, to: 1)],
+                             marks: [.init(column: 1, index: 1, color: .green)],
+                             caption: "∃ Schlüssel ∀ Schloss: „Es gibt EINEN Schlüssel, der zu allen Schlössern passt“ – ein Generalschlüssel. Das ist eine viel stärkere Aussage."),
+                DiagramFrame(arrows: [.init(fromColumn: 0, from: 0, toColumn: 1, to: 0), .init(fromColumn: 0, from: 1, toColumn: 1, to: 1), .init(fromColumn: 0, from: 2, toColumn: 1, to: 2)],
+                             marks: [.init(column: 1, index: 0, color: .red), .init(column: 1, index: 1, color: .red), .init(column: 1, index: 2, color: .red)],
+                             caption: "In der Situation von vorhin gilt ∀∃, aber nicht ∃∀: Kein Schlüssel passt überall. Die Reihenfolge der Quantoren ändert die Bedeutung!")
+            ]
+        )
         case "mapCheck": ArrowDiagramVisual(
             columns: [["1", "2", "3"], ["a", "b", "c", "d"]],
             names: ["A", "B"],
@@ -1720,6 +1739,231 @@ private struct ModClassesVisual: View {
                     .background(Circle().fill(colored ? colors[n % 3] : Color.secondary.opacity(0.15)))
                     .position(setWindow.point(position(n, phase: phase), in: size))
             }
+        }
+    }
+}
+
+// MARK: - Logik: Animationen
+
+// MARK: - 26. Wahrheitstafel der Implikation
+
+private struct ImplicationTableVisual: View {
+    private let rows: [(String, String, String)] = [("w", "w", "w"), ("w", "f", "f"), ("f", "w", "w"), ("f", "f", "w")]
+    private let columnX: [CGFloat] = [2.8, 6.2, 10.6]
+    private let rowY: [CGFloat] = [6.7, 5.0, 3.3, 1.6]
+
+    /// Welche Ergebniszeilen in welcher Phase sichtbar sind und welche hervorgehoben werden.
+    private func visible(_ row: Int, phase: Int) -> Bool {
+        switch phase {
+        case 0: return false
+        case 1: return row == 0
+        case 2: return row <= 1
+        default: return true
+        }
+    }
+
+    private func highlighted(_ row: Int, phase: Int) -> Bool {
+        switch phase {
+        case 1: return row == 0
+        case 2: return row == 1
+        case 3: return row >= 2
+        default: return false
+        }
+    }
+
+    var body: some View {
+        AnimatedFigure(window: setWindow, captions: [
+            "A: „Es regnet.“ B: „Die Straße ist nass.“ A ⇒ B ist ein Versprechen: „Wenn es regnet, ist die Straße nass.“",
+            "Es regnet und die Straße ist nass: Das Versprechen wurde gehalten – A ⇒ B ist wahr.",
+            "Es regnet, aber die Straße ist trocken: Das Versprechen ist gebrochen – A ⇒ B ist falsch. Das ist der EINZIGE falsche Fall.",
+            "Es regnet nicht: Dann hat das Versprechen gar nichts behauptet. Ob die Straße nass ist (Rasensprenger) oder nicht – gebrochen wurde es nicht. Also wahr.",
+            "Ergebnis: A ⇒ B ist nur falsch, wenn A wahr und B falsch ist."
+        ], showGrid: false, aspectRatio: setAspect) { phase, size in
+            let scale = setScale(size)
+
+            ForEach(0..<4, id: \.self) { r in
+                RoundedRectangle(cornerRadius: 8)
+                    .fill((r == 1 ? VisualColor.warning : VisualColor.result).opacity(0.2))
+                    .frame(width: 12.4 * scale, height: 1.4 * scale)
+                    .position(setWindow.point(CGPoint(x: 6.7, y: rowY[r]), in: size))
+                    .opacity(show(highlighted(r, phase: phase)))
+            }
+
+            Path { p in
+                p.move(to: setWindow.point(CGPoint(x: 0.5, y: 7.75), in: size))
+                p.addLine(to: setWindow.point(CGPoint(x: 12.9, y: 7.75), in: size))
+                p.move(to: setWindow.point(CGPoint(x: 8.4, y: 9.4), in: size))
+                p.addLine(to: setWindow.point(CGPoint(x: 8.4, y: 0.7), in: size))
+            }
+            .stroke(Color.secondary.opacity(0.5), lineWidth: 1.5)
+
+            SetText(text: "A", at: CGPoint(x: columnX[0], y: 8.6), size: size, color: VisualColor.first, fontSize: 19, italic: true)
+            SetText(text: "B", at: CGPoint(x: columnX[1], y: 8.6), size: size, color: VisualColor.second, fontSize: 19, italic: true)
+            SetText(text: "A ⇒ B", at: CGPoint(x: columnX[2], y: 8.6), size: size, color: .primary, fontSize: 19, italic: true)
+
+            ForEach(0..<4, id: \.self) { r in
+                SetText(text: rows[r].0, at: CGPoint(x: columnX[0], y: rowY[r]), size: size, fontSize: 18)
+                SetText(text: rows[r].1, at: CGPoint(x: columnX[1], y: rowY[r]), size: size, fontSize: 18)
+                SetText(
+                    text: rows[r].2,
+                    at: CGPoint(x: columnX[2], y: rowY[r]),
+                    size: size,
+                    color: rows[r].2 == "f" ? VisualColor.warning : VisualColor.result,
+                    fontSize: 20,
+                    weight: .bold
+                )
+                .opacity(show(visible(r, phase: phase)))
+            }
+        }
+    }
+}
+
+// MARK: - 27. Implikation als Teilmenge: Kontraposition und Umkehrschluss
+
+private struct ImplicationSetsVisual: View {
+    var body: some View {
+        AnimatedFigure(window: setWindow, captions: [
+            "A ⇒ B mit A: „ist ein Quadrat“, B: „ist ein Rechteck“. Jedes Quadrat ist ein Rechteck – die Menge der Quadrate liegt IN der Menge der Rechtecke.",
+            "Ein Quadrat (Punkt in A) liegt automatisch auch in B. Das ist die Implikation selbst.",
+            "Ein Dreieck liegt außerhalb von B – und damit auch außerhalb von A. Das ist die Kontraposition: ¬B ⇒ ¬A. Sie ist gleichwertig zu A ⇒ B.",
+            "Ein 2×3-Rechteck liegt in B, aber nicht in A. Also folgt aus B NICHT A (Umkehrschluss falsch) und aus ¬A NICHT ¬B."
+        ], showGrid: false, aspectRatio: setAspect) { phase, size in
+            let outer = circlePath(center: CGPoint(x: 7.4, y: 5), radius: 4.3, size: size)
+            let inner = circlePath(center: CGPoint(x: 6.2, y: 5), radius: 2.0, size: size)
+
+            outer.fill(VisualColor.second.opacity(0.1))
+            outer.stroke(VisualColor.second, lineWidth: 2.5)
+            inner.fill(VisualColor.first.opacity(0.18))
+            inner.stroke(VisualColor.first, lineWidth: 2.5)
+            SetText(text: "B: Rechtecke", at: CGPoint(x: 7.4, y: 8.6), size: size, color: VisualColor.second, fontSize: 15)
+            SetText(text: "A: Quadrate", at: CGPoint(x: 6.2, y: 6.3), size: size, color: VisualColor.first, fontSize: 14)
+
+            Group {
+                Rectangle().fill(VisualColor.first).frame(width: 18, height: 18)
+                    .position(setWindow.point(CGPoint(x: 6.2, y: 4.4), in: size))
+                    .opacity(show(phase >= 1))
+                Path { p in
+                    let a = setWindow.point(CGPoint(x: 1.6, y: 2.0), in: size)
+                    p.move(to: CGPoint(x: a.x, y: a.y - 12))
+                    p.addLine(to: CGPoint(x: a.x - 11, y: a.y + 9))
+                    p.addLine(to: CGPoint(x: a.x + 11, y: a.y + 9))
+                    p.closeSubpath()
+                }
+                .fill(VisualColor.warning)
+                .opacity(show(phase >= 2))
+                Rectangle().fill(VisualColor.result).frame(width: 30, height: 20)
+                    .position(setWindow.point(CGPoint(x: 9.9, y: 4.6), in: size))
+                    .opacity(show(phase >= 3))
+            }
+        }
+    }
+}
+
+// MARK: - Vollständige Induktion: Animationen
+
+// MARK: - 28. Dominoeffekt
+
+private struct DominoVisual: View {
+    private let count = 10
+
+    private func x(_ i: Int, phase: Int) -> CGFloat {
+        1.0 + CGFloat(i) * 1.25 + (phase == 5 && i >= 5 ? 1.0 : 0)
+    }
+
+    private func fallen(_ i: Int, phase: Int) -> Bool {
+        switch phase {
+        case 1, 2: return i == 0
+        case 3: return true
+        case 5: return i < 5
+        default: return false
+        }
+    }
+
+    var body: some View {
+        AnimatedFigure(window: setWindow, captions: [
+            "Unendlich viele Dominosteine stehen in einer Reihe. Stein n steht für die Aussage A(n).",
+            "Induktionsanfang: Der erste Stein fällt um. Das heißt: A(1) ist wahr.",
+            "Induktionsschritt: Die Steine stehen so, dass JEDER Stein k beim Umfallen den Stein k + 1 mitreißt. Das heißt: Aus A(k) folgt A(k + 1).",
+            "Beides zusammen: Alle Steine fallen, einer nach dem anderen. A(n) gilt für alle n.",
+            "Ohne Induktionsanfang fällt gar nichts – obwohl jeder Stein den nächsten umwerfen WÜRDE.",
+            "Ohne gültigen Schritt reißt die Kette ab: Hier ist die Lücke nach Stein 5 zu groß. Ab Stein 6 bleibt alles stehen."
+        ], showGrid: false, aspectRatio: setAspect) { phase, size in
+            let scale = setScale(size)
+
+            Path { p in
+                p.move(to: setWindow.point(CGPoint(x: 0.2, y: 2.4), in: size))
+                p.addLine(to: setWindow.point(CGPoint(x: 13.8, y: 2.4), in: size))
+            }
+            .stroke(Color.secondary.opacity(0.5), lineWidth: 2)
+
+            ForEach(0..<count, id: \.self) { i in
+                let isPair = phase == 2 && (i == 3 || i == 4)
+                let color = isPair ? VisualColor.second : (fallen(i, phase: phase) ? VisualColor.result : VisualColor.first)
+                RoundedRectangle(cornerRadius: 3)
+                    .fill(color)
+                    .frame(width: 0.38 * scale, height: 3.0 * scale)
+                    .rotationEffect(.degrees(fallen(i, phase: phase) ? 62 : 0), anchor: .bottomTrailing)
+                    .animation(.easeIn(duration: 0.3).delay(phase == 3 ? Double(i) * 0.18 : 0), value: phase)
+                    .position(setWindow.point(CGPoint(x: x(i, phase: phase), y: 3.9), in: size))
+                SetText(text: i == count - 1 ? "…" : "\(i + 1)", at: CGPoint(x: x(i, phase: phase), y: 1.6), size: size, color: .secondary, fontSize: 14)
+            }
+
+            SetText(text: "k", at: CGPoint(x: x(3, phase: phase), y: 6.6), size: size, color: VisualColor.second, fontSize: 17, italic: true)
+                .opacity(show(phase == 2))
+            SetText(text: "k + 1", at: CGPoint(x: x(4, phase: phase) + 0.4, y: 6.6), size: size, color: VisualColor.second, fontSize: 17, italic: true)
+                .opacity(show(phase == 2))
+            SetText(text: "Lücke!", at: CGPoint(x: x(5, phase: phase) - 0.9, y: 6.4), size: size, color: VisualColor.warning, fontSize: 16)
+                .opacity(show(phase == 5))
+        }
+    }
+}
+
+// MARK: - 29. Gaußsche Summenformel als Treppe
+
+private struct GaussSumVisual: View {
+    let window = PlaneWindow(xMin: -0.5, xMax: 5.7, yMin: -0.5, yMax: 5.7)
+
+    private func cells(_ columns: [(Int, Int, Int)], size: CGSize) -> Path {
+        Path { p in
+            for (column, from, to) in columns {
+                for row in from..<to {
+                    let a = window.point(CGPoint(x: CGFloat(column), y: CGFloat(row + 1)), in: size)
+                    let b = window.point(CGPoint(x: CGFloat(column + 1), y: CGFloat(row)), in: size)
+                    p.addRect(CGRect(x: a.x + 1.5, y: a.y + 1.5, width: b.x - a.x - 3, height: b.y - a.y - 3))
+                }
+            }
+        }
+    }
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "1 + 2 + 3 + 4 als Treppe: Spalte k hat k Kästchen.",
+            "Eine zweite Treppe, auf den Kopf gestellt, passt genau in die Lücke darüber.",
+            "Zusammen ergeben beide ein Rechteck aus 4 · 5 = 20 Kästchen. Eine Treppe hat also 20 / 2 = 10. Allgemein: 1 + 2 + … + n = n(n + 1)/2.",
+            "So sieht der Induktionsschritt aus: Von n = 4 zu n = 5 kommt genau eine neue Spalte mit 5 Kästchen dazu. Also S(5) = S(4) + 5 = 15."
+        ]) { phase, size in
+            cells([(0, 0, 1), (1, 0, 2), (2, 0, 3), (3, 0, 4)], size: size)
+                .fill(VisualColor.first.opacity(0.75))
+            cells([(0, 1, 5), (1, 2, 5), (2, 3, 5), (3, 4, 5)], size: size)
+                .fill(VisualColor.second.opacity(0.7))
+                .opacity(show(phase == 1 || phase == 2))
+            cells([(4, 0, 5)], size: size)
+                .fill(VisualColor.result.opacity(0.8))
+                .opacity(show(phase == 3))
+
+            Path { p in
+                let a = window.point(CGPoint(x: 0, y: 5), in: size)
+                let b = window.point(CGPoint(x: 4, y: 0), in: size)
+                p.addRect(CGRect(x: a.x, y: a.y, width: b.x - a.x, height: b.y - a.y))
+            }
+            .stroke(VisualColor.extra, lineWidth: 3)
+            .opacity(show(phase == 2))
+
+            MathLabel(text: "n = 4", at: CGPoint(x: 2, y: 0), color: VisualColor.first, window: window, size: size, offset: CGSize(width: 0, height: 14))
+            MathLabel(text: "n + 1 = 5", at: CGPoint(x: 0, y: 2.5), color: VisualColor.extra, window: window, size: size, offset: CGSize(width: -2, height: 0))
+                .opacity(show(phase == 2))
+            MathLabel(text: "+5", at: CGPoint(x: 4.5, y: 5), color: VisualColor.result, window: window, size: size, offset: CGSize(width: 0, height: -14))
+                .opacity(show(phase == 3))
         }
     }
 }
