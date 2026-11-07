@@ -4,6 +4,8 @@ import WebKit
 struct LaTeXView: UIViewRepresentable {
     let content: String
     @Binding var height: CGFloat
+    /// false: Das WebView scrollt selbst nicht, Wischgesten gehen an die umgebende ScrollView.
+    var isScrollEnabled: Bool = true
 
     private static let sharedProcessPool = WKProcessPool()
     private static func makeConfiguration(coordinator: Coordinator) -> WKWebViewConfiguration {
@@ -25,7 +27,7 @@ struct LaTeXView: UIViewRepresentable {
         webView.backgroundColor = .clear
         webView.navigationDelegate = context.coordinator
         // Allow horizontal scrolling inside overflow elements; prevent rubber-banding
-        webView.scrollView.isScrollEnabled = true
+        webView.scrollView.isScrollEnabled = isScrollEnabled
         webView.scrollView.bounces = false
         
         return webView
@@ -71,8 +73,8 @@ struct LaTeXView: UIViewRepresentable {
             <script>
                 MathJax = {
                     tex: {
-                        inlineMath: [['$', '$'], ['\\(', '\\)']],
-                        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                        inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
+                        displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']],
                         processEscapes: true,
                         processEnvironments: true,
                         packages: ['base', 'ams', 'noerrors', 'noundefined']

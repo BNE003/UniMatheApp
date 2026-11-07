@@ -1,155 +1,363 @@
-{    "id": "cc0e8400-e29b-41d4-a716-446655440000",
-    "topic": "Vektorräume",
-    "steps": [
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440001",
-            "text": "Ein Vektorraum ist eine Menge V mit einer Addition und einer Skalarmultiplikation, die bestimmte Eigenschaften erfüllen.",
-            "formula": "\\begin{align*} \\vec{v} + \\vec{w} &\\in V \\\\ \\alpha \\cdot \\vec{v} &\\in V \\end{align*}",
-            "explanation": "Die Addition zweier Vektoren und die Multiplikation eines Vektors mit einem Skalar müssen wieder einen Vektor aus V ergeben. Stell dir vor, du hast eine Schachtel mit Pfeilen - wenn du zwei Pfeile kombinierst oder einen Pfeil verlängerst, musst du immer noch einen Pfeil aus der Schachtel bekommen!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440002",
-            "text": "Die Addition muss kommutativ und assoziativ sein, und es muss ein neutrales Element (Nullvektor) existieren.",
-            "formula": "\\begin{align*} \\vec{v} + \\vec{w} &= \\vec{w} + \\vec{v} \\\\ (\\vec{v} + \\vec{w}) + \\vec{u} &= \\vec{v} + (\\vec{w} + \\vec{u}) \\\\ \\vec{v} + \\vec{0} &= \\vec{v} \\end{align*}",
-            "explanation": "Diese Eigenschaften stellen sicher, dass die Addition von Vektoren sich wie die gewöhnliche Addition verhält. Es ist wie beim Bauen mit Bausteinen: Die Reihenfolge, in der du sie zusammenfügst, spielt keine Rolle, und wenn du nichts hinzufügst, bleibt alles wie es ist!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440003",
-            "text": "Die Skalarmultiplikation muss distributiv sein und mit der Addition verträglich sein.",
-            "formula": "\\begin{align*} \\alpha(\\vec{v} + \\vec{w}) &= \\alpha\\vec{v} + \\alpha\\vec{w} \\\\ (\\alpha + \\beta)\\vec{v} &= \\alpha\\vec{v} + \\beta\\vec{v} \\end{align*}",
-            "explanation": "Diese Eigenschaften stellen sicher, dass die Skalarmultiplikation sich natürlich mit der Addition verhält. Es ist wie beim Strecken eines Gummibands: Wenn du zwei Bänder zusammenfügst und dann streckst, ist das dasselbe, als wenn du sie einzeln streckst und dann zusammenfügst!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440004",
-            "text": "Ein wichtiges Beispiel ist der ℝⁿ, der Vektorraum der n-Tupel reeller Zahlen.",
-            "formula": "\\mathbb{R}^n = \\{(x_1, x_2, ..., x_n) \\mid x_i \\in \\mathbb{R}\\}",
-            "explanation": "Der ℝⁿ ist der Standardvektorraum, in dem die Vektoren als n-Tupel reeller Zahlen dargestellt werden. Im ℝ² können wir uns das als Punkte in der Ebene vorstellen, im ℝ³ als Punkte im Raum. Jeder Punkt hat seine eigenen Koordinaten!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440005",
-            "text": "Ein weiteres Beispiel ist der Vektorraum der Polynome vom Grad ≤ n.",
-            "formula": "P_n = \\{a_0 + a_1x + a_2x^2 + ... + a_nx^n \\mid a_i \\in \\mathbb{R}\\}",
-            "explanation": "Die Polynome bilden einen Vektorraum, da sie addiert und mit Skalaren multipliziert werden können. Stell dir vor, du hast verschiedene Funktionen, die du wie Vektoren behandeln kannst - du kannst sie addieren und strecken!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440006",
-            "text": "Ein Untervektorraum ist eine Teilmenge eines Vektorraums, die selbst ein Vektorraum ist.",
-            "formula": "U \\subseteq V \\text{ ist Untervektorraum} \\Leftrightarrow \\begin{cases} \\vec{0} \\in U \\\\ \\vec{u} + \\vec{v} \\in U \\\\ \\alpha\\vec{u} \\in U \\end{cases}",
-            "explanation": "Ein Untervektorraum muss den Nullvektor enthalten und abgeschlossen sein unter Addition und Skalarmultiplikation. Es ist wie ein kleiner Raum innerhalb eines größeren Raums - alles, was du darin machst, bleibt in diesem Raum!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440007",
-            "text": "Die lineare Hülle einer Menge von Vektoren ist der kleinste Untervektorraum, der diese Vektoren enthält.",
-            "formula": "\\text{span}(\\{\\vec{v}_1, ..., \\vec{v}_n\\}) = \\{\\sum_{i=1}^n \\alpha_i\\vec{v}_i \\mid \\alpha_i \\in \\mathbb{R}\\}",
-            "explanation": "Die lineare Hülle enthält alle möglichen Linearkombinationen der gegebenen Vektoren. Es ist wie ein Netz, das von den Vektoren aufgespannt wird - jeder Punkt im Netz kann durch Kombination der Grundvektoren erreicht werden!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440008",
-            "text": "Eine Basis eines Vektorraums ist eine linear unabhängige Menge von Vektoren, die den ganzen Raum aufspannt.",
-            "formula": "B = \\{\\vec{b}_1, ..., \\vec{b}_n\\} \\text{ ist Basis} \\Leftrightarrow \\begin{cases} B \\text{ linear unabhängig} \\\\ \\text{span}(B) = V \\end{cases}",
-            "explanation": "Eine Basis ist wie ein Koordinatensystem - jeder Vektor kann eindeutig als Linearkombination der Basisvektoren dargestellt werden. Es ist wie ein Baukasten, aus dem du jeden Vektor bauen kannst!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440009",
-            "text": "Die Dimension eines Vektorraums ist die Anzahl der Vektoren in einer Basis.",
-            "formula": "\\dim V = |B|",
-            "explanation": "Die Dimension gibt uns die Anzahl der unabhängigen Richtungen im Vektorraum. Im ℝ² haben wir zwei Dimensionen (x und y), im ℝ³ drei (x, y und z). Es ist wie die Anzahl der Achsen in unserem Koordinatensystem!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440010",
-            "text": "Ein Skalarprodukt ist eine Abbildung, die zwei Vektoren eine reelle Zahl zuordnet.",
-            "formula": "\\langle \\vec{v}, \\vec{w} \\rangle = \\sum_{i=1}^n v_i w_i",
-            "explanation": "Das Skalarprodukt misst die Ähnlichkeit zweier Vektoren. Es ist wie ein Maß für die Übereinstimmung der Richtungen - wenn die Vektoren parallel sind, ist das Skalarprodukt maximal!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440011",
-            "text": "Die Norm eines Vektors ist seine Länge, definiert über das Skalarprodukt.",
-            "formula": "\\|\\vec{v}\\| = \\sqrt{\\langle \\vec{v}, \\vec{v} \\rangle}",
-            "explanation": "Die Norm gibt uns die Länge eines Vektors. Im ℝ² ist das der Abstand vom Ursprung zum Punkt. Es ist wie ein Maßband, das die Entfernung misst!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440012",
-            "text": "Zwei Vektoren sind orthogonal, wenn ihr Skalarprodukt null ist.",
-            "formula": "\\vec{v} \\perp \\vec{w} \\Leftrightarrow \\langle \\vec{v}, \\vec{w} \\rangle = 0",
-            "explanation": "Orthogonale Vektoren stehen senkrecht aufeinander. Im ℝ² sind die x- und y-Achse orthogonal. Es ist wie zwei Straßen, die sich im rechten Winkel kreuzen!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440013",
-            "text": "Eine Orthonormalbasis ist eine Basis aus paarweise orthogonalen Vektoren der Länge 1.",
-            "formula": "\\langle \\vec{b}_i, \\vec{b}_j \\rangle = \\delta_{ij}",
-            "explanation": "Eine Orthonormalbasis ist besonders praktisch, da die Vektoren senkrecht aufeinander stehen und die Länge 1 haben. Es ist wie ein perfektes Koordinatensystem, in dem alle Achsen gleich lang sind!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440014",
-            "text": "Der Vektorraum der stetigen Funktionen auf einem Intervall ist ein wichtiges Beispiel.",
-            "formula": "C[a,b] = \\{f: [a,b] \\rightarrow \\mathbb{R} \\mid f \\text{ stetig}\\}",
-            "explanation": "Die stetigen Funktionen bilden einen Vektorraum, da sie addiert und mit Skalaren multipliziert werden können. Es ist wie ein Raum voller Kurven, die du beliebig kombinieren kannst!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440015",
-            "text": "Der Vektorraum der Matrizen ist ein weiteres wichtiges Beispiel.",
-            "formula": "M_{m,n} = \\{A \\mid A \\text{ ist } m \\times n \\text{ Matrix}\\}",
-            "explanation": "Die Matrizen bilden einen Vektorraum, da sie addiert und mit Skalaren multipliziert werden können. Es ist wie ein Raum voller Tabellen, die du beliebig kombinieren kannst!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440016",
-            "text": "Die direkte Summe zweier Vektorräume ist ein neuer Vektorraum.",
-            "formula": "V \\oplus W = \\{(v,w) \\mid v \\in V, w \\in W\\}",
-            "explanation": "Die direkte Summe kombiniert zwei Vektorräume zu einem größeren. Es ist wie zwei Räume, die nebeneinander gestellt werden - jeder Vektor besteht aus einem Teil aus jedem Raum!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440017",
-            "text": "Der Quotientenvektorraum entsteht durch Identifizierung von Vektoren.",
-            "formula": "V/U = \\{[v] \\mid v \\in V\\}",
-            "explanation": "Der Quotientenvektorraum entsteht, wenn wir Vektoren, die sich nur um einen Vektor aus U unterscheiden, als gleich betrachten. Es ist wie ein Raum, in dem bestimmte Unterschiede ignoriert werden!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440018",
-            "text": "Ein Vektorraum kann auch über einem endlichen Körper definiert werden.",
-            "formula": "\\mathbb{F}_p^n = \\{(x_1, ..., x_n) \\mid x_i \\in \\mathbb{F}_p\\}",
-            "explanation": "Vektorräume über endlichen Körpern sind wichtig in der Kodierungstheorie. Es ist wie ein Raum, in dem wir nur mit einer endlichen Anzahl von Zahlen arbeiten!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440019",
-            "text": "Die Dimension eines Untervektorraums kann nicht größer sein als die des umgebenden Raums.",
-            "formula": "U \\subseteq V \\Rightarrow \\dim U \\leq \\dim V",
-            "explanation": "Ein Untervektorraum kann nicht mehr unabhängige Richtungen haben als der umgebende Raum. Es ist wie ein Raum innerhalb eines Raums - er kann nicht größer sein als der äußere Raum!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440020",
-            "text": "Die Summe zweier Untervektorräume ist wieder ein Untervektorraum.",
-            "formula": "U + W = \\{u + w \\mid u \\in U, w \\in W\\}",
-            "explanation": "Die Summe enthält alle möglichen Summen von Vektoren aus U und W. Es ist wie das Zusammenfügen zweier Räume - jeder Punkt kann als Summe von Punkten aus beiden Räumen dargestellt werden!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440021",
-            "text": "Der Durchschnitt zweier Untervektorräume ist wieder ein Untervektorraum.",
-            "formula": "U \\cap W = \\{v \\mid v \\in U \\text{ und } v \\in W\\}",
-            "explanation": "Der Durchschnitt enthält alle Vektoren, die in beiden Untervektorräumen liegen. Es ist wie der gemeinsame Bereich zweier sich schneidender Räume!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440022",
-            "text": "Die Dimension der Summe zweier Untervektorräume erfüllt die Dimensionsformel.",
-            "formula": "\\dim(U + W) = \\dim U + \\dim W - \\dim(U \\cap W)",
-            "explanation": "Diese Formel verbindet die Dimensionen von Summe, Durchschnitt und einzelnen Untervektorräumen. Es ist wie ein Puzzle: Die Teile müssen zusammenpassen!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440023",
-            "text": "Ein Vektorraum kann auch als Modul über einem Ring definiert werden.",
-            "formula": "M \\text{ ist } R\\text{-Modul} \\Leftrightarrow \\begin{cases} M \\text{ ist abelsche Gruppe} \\\\ r \\cdot m \\in M \\end{cases}",
-            "explanation": "Module verallgemeinern Vektorräume, indem sie Skalare aus einem Ring statt aus einem Körper erlauben. Es ist wie ein Vektorraum, in dem wir mit mehr Arten von Zahlen arbeiten können!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440024",
-            "text": "Die Tensorprodukte von Vektorräumen sind wichtig in der multilinearen Algebra.",
-            "formula": "V \\otimes W = \\{\\sum v_i \\otimes w_i \\mid v_i \\in V, w_i \\in W\\}",
-            "explanation": "Das Tensorprodukt kombiniert Vektorräume zu einem größeren Raum. Es ist wie ein Produktraum, in dem wir Vektoren aus verschiedenen Räumen multiplizieren können!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440025",
-            "text": "Zum Schluss schauen wir uns an, wie Vektorräume in der Quantenmechanik verwendet werden.",
-            "formula": "\\mathcal{H} = \\{\\sum c_i |\\psi_i\\rangle \\mid c_i \\in \\mathbb{C}\\}",
-            "explanation": "In der Quantenmechanik werden Zustände als Vektoren in einem komplexen Vektorraum dargestellt. Es ist wie ein Raum voller Möglichkeiten, in dem jeder Vektor einen möglichen Zustand des Systems beschreibt!"
-        }
-    ]
-} 
+{
+  "id": "cc0e8400-e29b-41d4-a716-446655440000",
+  "topic": "Vektorräume",
+  "steps": [
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440001",
+      "section": "Kapitel 1 · Die Grundidee",
+      "text": "Willkommen! In dieser Lektion bauen wir Vektorräume Schritt für Schritt auf – ohne Vorwissen vorauszusetzen.\n\nWir starten mit Pfeilen in der Ebene, die du dir vorstellen kannst. Daraus entwickeln wir nach und nach die mathematischen Begriffe, die du in der Vorlesung und in der Klausur brauchst.\n\nJedes Kapitel beantwortet eine Frage – und am Ende jedes Kapitels steht die nächste Frage, die sich ganz natürlich ergibt.",
+      "explanation": "Unser Fahrplan:\n1. Was haben Pfeile, Polynome und Matrizen gemeinsam?\n2. Welche Regeln machen daraus einen Vektorraum?\n3. Wann ist eine Teilmenge selbst wieder ein Vektorraum?\n4.–5. Was kann man aus wenigen Vektoren alles „bauen“?\n6. Wann ist ein Vektor überflüssig?\n7.–8. Wie viele Vektoren braucht man – und was ist Dimension?\n9. Wie kombiniert man Untervektorräume?",
+      "insight": "Tipp: Nimm dir für jeden Schritt Zeit. Wenn du eine Rechnung siehst, rechne sie kurz im Kopf oder auf Papier mit."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440002",
+      "section": "Kapitel 1 · Die Grundidee",
+      "text": "Fangen wir ganz konkret an: mit Pfeilen in der Ebene \\(\\mathbb{R}^2\\).\n\nEin Vektor wie \\(v = (2, 1)\\) bedeutet: 2 Schritte nach rechts, 1 Schritt nach oben. Mit solchen Pfeilen kann man genau zwei Dinge tun:\n\n• Addieren: Pfeile aneinanderhängen.\n• Skalieren: einen Pfeil mit einer Zahl strecken, stauchen oder umdrehen.\n\nSchau dir an, was dabei geometrisch passiert:",
+      "visual": "vectorAddition",
+      "formula": "\\begin{align*} \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix} + \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} &= \\begin{pmatrix} 3 \\\\ 3 \\end{pmatrix} \\\\ 2 \\cdot \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix} &= \\begin{pmatrix} 4 \\\\ 2 \\end{pmatrix} \\end{align*}",
+      "explanation": "Geometrisch hängen wir Pfeile aneinander. Rechnerisch addieren wir einfach Eintrag für Eintrag (komponentenweise): \\(2 + 1 = 3\\) und \\(1 + 2 = 3\\).\n\nBeim Skalieren wird jeder Eintrag mit der Zahl multipliziert: \\(2 \\cdot 2 = 4\\) und \\(2 \\cdot 1 = 2\\). Eine Zahl, mit der wir skalieren, heißt Skalar (von „Skala“ – sie verändert die Größe). Ein negativer Skalar dreht den Pfeil zusätzlich um.",
+      "insight": "Zwei Operationen sind alles, was wir brauchen: Vektoren addieren und Vektoren mit Skalaren multiplizieren."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440003",
+      "section": "Kapitel 1 · Die Grundidee",
+      "text": "Jetzt kommt die Idee, auf der die ganze Lineare Algebra aufbaut.\n\nNimm Polynome, zum Beispiel \\(p(x) = 1 + 2x\\) und \\(q(x) = 3 - x\\). Auch die kann man addieren und mit Zahlen multiplizieren – und das Ergebnis ist wieder ein Polynom. Vergleiche das mit den Pfeilen:",
+      "formula": "\\begin{align*} (1 + 2x) + (3 - x) &= 4 + x \\\\ 2 \\cdot (1 + 2x) &= 2 + 4x \\end{align*}",
+      "explanation": "Schreibe die Koeffizienten als Liste: \\(1 + 2x\\) entspricht \\((1, 2)\\), und \\(3 - x\\) entspricht \\((3, -1)\\). Dann steht da\n\\((1, 2) + (3, -1) = (4, 1)\\) und \\(2 \\cdot (1, 2) = (2, 4)\\)\n– exakt dieselbe Rechnung wie bei Pfeilen!\n\nDas Gleiche klappt bei Matrizen und sogar bei Funktionen: \\((f + g)(x) = f(x) + g(x)\\).\n\nMathematiker haben deshalb aufgehört zu fragen „Was IST ein Vektor?“ und fragen stattdessen: „Was kann man mit ihm TUN?“",
+      "insight": "Ein Vektor ist nicht unbedingt ein Pfeil. Ein Vektor ist ein Element einer Menge, in der man sinnvoll addieren und skalieren kann."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440004",
+      "section": "Kapitel 1 · Die Grundidee",
+      "text": "Was heißt hier „sinnvoll“? Wenn du mit Pfeilen rechnest, benutzt du ständig Rechenregeln, ohne darüber nachzudenken:\n\n• Die Reihenfolge beim Addieren ist egal: \\(v + w = w + v\\).\n• Man darf ausklammern: \\(2v + 2w = 2(v + w)\\).\n• Es gibt einen Nullvektor, der nichts verändert: \\(v + 0 = v\\).\n\nGenau diese Regeln wollen wir auch für Polynome, Matrizen und Funktionen benutzen dürfen. Also schreiben wir sie einmal sauber auf. Jede Menge, in der diese Regeln gelten, nennen wir Vektorraum.",
+      "explanation": "Der Vorteil: Alles, was wir einmal nur mit diesen Regeln beweisen, gilt danach automatisch für Pfeile, Polynome, Matrizen, Funktionen – für jeden Vektorraum. Wir müssen nichts doppelt beweisen.",
+      "insight": "Ein Vektorraum ist ein „Spielfeld“ mit festen Rechenregeln. Die Regeln heißen Axiome – die schauen wir uns jetzt genau an."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440005",
+      "section": "Kapitel 2 · Was ist ein Vektorraum?",
+      "text": "Für die Definition brauchen wir zwei Zutaten:\n\n• eine Menge \\(V\\) – ihre Elemente nennen wir Vektoren,\n• einen Körper \\(K\\) – seine Elemente sind die Skalare, also die Zahlen, mit denen wir strecken. Meist ist \\(K = \\mathbb{R}\\) oder \\(K = \\mathbb{C}\\).\n\nDazu kommen zwei Abbildungen: die Addition und die Skalarmultiplikation.",
+      "formula": "\\begin{align*} + &: V \\times V \\to V \\\\ \\cdot &: K \\times V \\to V \\end{align*}",
+      "explanation": "Lies die erste Zeile so: Die Addition nimmt zwei Vektoren \\(v, w \\in V\\) und liefert einen Vektor \\(v + w\\) – und zwar wieder einen aus \\(V\\).\n\nDie zweite Zeile: Die Skalarmultiplikation nimmt einen Skalar \\(\\lambda \\in K\\) und einen Vektor \\(v \\in V\\) und liefert wieder einen Vektor \\(\\lambda \\cdot v \\in V\\).\n\nDas „\\(\\to V\\)“ ist wichtig: Man kann \\(V\\) durch Rechnen nicht verlassen. Man sagt, \\(V\\) ist abgeschlossen unter Addition und Skalarmultiplikation.",
+      "insight": "Warum ein Körper? Weil wir durch Skalare \\(\\lambda \\neq 0\\) teilen wollen. Das wird später bei der linearen Unabhängigkeit entscheidend."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440006",
+      "section": "Kapitel 2 · Was ist ein Vektorraum?",
+      "text": "Nun die Rechenregeln. Zuerst vier Regeln für die Addition. Für alle \\(u, v, w \\in V\\) soll gelten:",
+      "formula": "\\begin{align*} &\\text{(A1)}\\; (u + v) + w = u + (v + w) \\\\ &\\text{(A2)}\\; u + v = v + u \\\\ &\\text{(A3)}\\; \\exists\\, 0 \\in V\\ \\forall v:\\ v + 0 = v \\\\ &\\text{(A4)}\\; \\forall v\\ \\exists\\, {-v}:\\ v + (-v) = 0 \\end{align*}",
+      "explanation": "In normaler Sprache:\n(A1) Assoziativität: Bei mehreren Summanden ist egal, wo die Klammern stehen.\n(A2) Kommutativität: Die Reihenfolge ist egal.\n(A3) Es gibt einen Nullvektor, der beim Addieren nichts verändert.\n(A4) Zu jedem Vektor gibt es einen Gegenvektor, der ihn „aufhebt“.\n\nIm \\(\\mathbb{R}^2\\) ist der Nullvektor \\((0, 0)\\), und der Gegenvektor von \\((2, 1)\\) ist \\((-2, -1)\\).",
+      "insight": "Wer Gruppen kennt: (A1)–(A4) sagen genau, dass \\((V, +)\\) eine abelsche Gruppe ist."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440007",
+      "section": "Kapitel 2 · Was ist ein Vektorraum?",
+      "text": "Dann vier Regeln, die die Skalarmultiplikation mit der Addition verbinden. Für alle \\(\\lambda, \\mu \\in K\\) und \\(u, v \\in V\\) soll gelten:",
+      "formula": "\\begin{align*} &\\text{(S1)}\\; \\lambda (u + v) = \\lambda u + \\lambda v \\\\ &\\text{(S2)}\\; (\\lambda + \\mu) v = \\lambda v + \\mu v \\\\ &\\text{(S3)}\\; (\\lambda \\mu) v = \\lambda (\\mu v) \\\\ &\\text{(S4)}\\; 1 \\cdot v = v \\end{align*}",
+      "explanation": "In normaler Sprache:\n(S1) Erst addieren, dann strecken = erst strecken, dann addieren. (Ein ganzes Pfeil-Dreieck wird gleichmäßig vergrößert.)\n(S2) Man darf Skalare zusammenfassen: \\(2v + 3v = 5v\\).\n(S3) Erst mit 3, dann mit 2 strecken = gleich mit 6 strecken: \\(2(3v) = 6v\\).\n(S4) Mit 1 strecken ändert nichts.\n\nBeachte: In (S2) steht links die Addition in \\(K\\) (zwei Zahlen), rechts die Addition in \\(V\\) (zwei Vektoren). Das sind zwei verschiedene Operationen, die nur dasselbe Zeichen benutzen.",
+      "insight": "Definition: Eine Menge \\(V\\) mit Addition und Skalarmultiplikation über einem Körper \\(K\\) heißt \\(K\\)-Vektorraum, wenn alle acht Axiome (A1)–(A4) und (S1)–(S4) gelten."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440008",
+      "section": "Kapitel 2 · Was ist ein Vektorraum?",
+      "text": "Vielleicht denkst du: „\\(1 \\cdot v = v\\) – das ist doch selbstverständlich. Warum muss man das extra fordern?“\n\nTesten wir es. Wir nehmen \\(V = \\mathbb{R}^2\\) mit der normalen Addition, aber einer seltsamen Skalarmultiplikation \\(\\odot\\), die den zweiten Eintrag einfach löscht:",
+      "formula": "\\lambda \\odot \\begin{pmatrix} x \\\\ y \\end{pmatrix} := \\begin{pmatrix} \\lambda x \\\\ 0 \\end{pmatrix}",
+      "explanation": "Prüfe selbst: (S1), (S2) und (S3) gelten trotzdem! Zum Beispiel (S3):\n\\((\\lambda\\mu) \\odot (x, y) = (\\lambda\\mu x, 0)\\)\nund\n\\(\\lambda \\odot (\\mu \\odot (x, y)) = \\lambda \\odot (\\mu x, 0) = (\\lambda\\mu x, 0)\\). Gleich.\n\nAber (S4) scheitert: \\(1 \\odot (0, 1) = (0, 0) \\neq (0, 1)\\).\n\nDie Folge wäre absurd: Der Vektor \\((0, 1)\\) würde bei jeder Skalierung zur Null – nicht einmal er selbst wäre ein Vielfaches von sich. Mit so einer Struktur könnte man keine vernünftige Geometrie betreiben.",
+      "insight": "Die Axiome sind keine Dekoration. Jedes einzelne schließt eine „kaputte“ Struktur aus. Deshalb musst du in Beweisen auch jedes einzelne prüfen."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440009",
+      "section": "Kapitel 2 · Was ist ein Vektorraum?",
+      "text": "Jetzt siehst du, warum die Axiome so mächtig sind. Wir beweisen eine Regel, die im \\(\\mathbb{R}^2\\) offensichtlich ist – aber diesmal NUR mit den Axiomen. Dann gilt sie in jedem Vektorraum.\n\nBehauptung: \\(0 \\cdot v = 0\\) (links die Zahl 0, rechts der Nullvektor).\n\nErster Trick: Die Zahl 0 ist \\(0 + 0\\). Mit (S2) folgt\n\\(0 \\cdot v = (0 + 0) \\cdot v = 0 \\cdot v + 0 \\cdot v\\).\n\nZur Abkürzung nennen wir \\(w := 0 \\cdot v\\). Wir wissen also: \\(w = w + w\\). Jetzt „ziehen wir auf beiden Seiten \\(w\\) ab“ – aber sauber, Schritt für Schritt, nur mit Axiomen:",
+      "formula": "\\begin{align*} 0 &= w + (-w) && \\text{(A4)} \\\\ &= (w + w) + (-w) && (w = w + w) \\\\ &= w + \\big(w + (-w)\\big) && \\text{(A1)} \\\\ &= w + 0 && \\text{(A4)} \\\\ &= w && \\text{(A3)} \\end{align*}",
+      "explanation": "Jede Zeile benutzt genau ein Axiom – nichts anderes. Genau so sieht ein sauberer Beweis in der Vorlesung aus. Ergebnis: \\(w = 0 \\cdot v = 0\\).\n\nMit demselben Trick zeigt man \\((-1) \\cdot v = -v\\):\n\\(v + (-1) \\cdot v = 1 \\cdot v + (-1) \\cdot v = (1 + (-1)) \\cdot v = 0 \\cdot v = 0\\).\nAlso hebt \\((-1) \\cdot v\\) den Vektor \\(v\\) auf – ist also sein Gegenvektor.",
+      "insight": "Merke: \\(0 \\cdot v = 0\\) und \\((-1) \\cdot v = -v\\) gelten in JEDEM Vektorraum. Die zweite Regel brauchen wir gleich bei den Untervektorräumen."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440010",
+      "section": "Kapitel 2 · Was ist ein Vektorraum?",
+      "text": "Mit den Axiomen im Kopf können wir jetzt überall Vektorräume entdecken. Hier die wichtigsten Beispiele – jeweils mit „komponentenweiser“ Addition und Skalarmultiplikation:",
+      "formula": "\\begin{align*} K^n &= \\{(x_1, \\dots, x_n) \\mid x_i \\in K\\} \\\\ P_n &= \\{a_0 + a_1 x + \\dots + a_n x^n\\} \\\\ K^{m \\times n} &= \\{m \\times n\\text{-Matrizen}\\} \\\\ C[a,b] &= \\{f\\!: [a,b] \\to \\mathbb{R} \\text{ stetig}\\} \\end{align*}",
+      "explanation": "Ein guter Test, ob du ein Beispiel verstanden hast: Was ist dort der Nullvektor?\n\n• In \\(K^n\\): \\((0, \\dots, 0)\\).\n• In \\(P_n\\) (Polynome vom Grad höchstens \\(n\\) mit Koeffizienten \\(a_i \\in K\\)): das Nullpolynom, bei dem alle Koeffizienten 0 sind.\n• Im Matrizenraum \\(K^{m \\times n}\\): die Nullmatrix.\n• In \\(C[a, b]\\): die Nullfunktion \\(f(x) = 0\\).\n\nAuch exotische Körper sind erlaubt: \\(\\mathbb{F}_2^n\\), also Listen aus 0 und 1 mit \\(1 + 1 = 0\\), ist ein Vektorraum über \\(\\mathbb{F}_2\\) – die Grundlage fehlerkorrigierender Codes.",
+      "insight": "Die Summe zweier stetiger Funktionen ist stetig, ein Vielfaches auch – deshalb bleibt man in \\(C[a, b]\\). Die Abgeschlossenheit ist immer der erste Punkt, den man prüft."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440011",
+      "section": "Kapitel 2 · Was ist ein Vektorraum?",
+      "text": "Genauso wichtig: Wann ist etwas KEIN Vektorraum? Zwei klassische Fallen.\n\nFalle 1: „Alle Polynome vom Grad genau 2“. Sieht harmlos aus – aber addiere \\(x^2\\) und \\(-x^2 + x\\):",
+      "formula": "x^2 + (-x^2 + x) = x",
+      "explanation": "Beide Summanden haben Grad genau 2, die Summe \\(x\\) hat Grad 1. Wir sind aus der Menge herausgefallen – die Addition ist nicht abgeschlossen. Außerdem fehlt das Nullpolynom. (Darum nimmt man \\(P_n\\) = Grad HÖCHSTENS \\(n\\).)\n\nFalle 2: \\(\\mathbb{Z}^2\\) (Paare ganzer Zahlen) als Vektorraum über \\(\\mathbb{R}\\). Addieren klappt, aber \\(\\tfrac{1}{2} \\cdot (1, 0) = (\\tfrac{1}{2}, 0)\\) liegt nicht in \\(\\mathbb{Z}^2\\). Die Skalarmultiplikation führt hinaus.\n\nBeide Male lag die Menge in einem bekannten Vektorraum (\\(P_2\\) bzw. \\(\\mathbb{R}^2\\)) – sie war nur eine Teilmenge davon.",
+      "insight": "Das führt zur nächsten Frage: Wenn eine Teilmenge eines Vektorraums gegeben ist – wie prüft man schnell, ob sie selbst ein Vektorraum ist?"
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440012",
+      "section": "Kapitel 3 · Untervektorräume",
+      "text": "Wir kennen den \\(\\mathbb{R}^3\\). Oft interessieren uns aber nur bestimmte Vektoren darin – zum Beispiel alle Vektoren, die auf einer Ebene liegen:\n\n\\(E = \\{ (x, y, z) \\in \\mathbb{R}^3 \\mid z = x + y \\}\\)\n\nDie Frage: Ist \\(E\\) selbst wieder ein Vektorraum?\n\nMüssen wir dafür alle acht Axiome neu prüfen? Nein – und das ist der Trick dieses Kapitels.",
+      "explanation": "Regeln wie \\(u + v = v + u\\) gelten für ALLE Vektoren im \\(\\mathbb{R}^3\\). Dann gelten sie natürlich auch für die Vektoren, die zufällig in \\(E\\) liegen. Die Rechenregeln werden „vererbt“.\n\nDas Einzige, was schiefgehen kann: Wir rechnen mit zwei Vektoren aus \\(E\\) und das Ergebnis liegt plötzlich außerhalb von \\(E\\). Dann wären Addition oder Skalarmultiplikation keine Abbildungen „nach \\(E\\)“ mehr.",
+      "insight": "Bei einer Teilmenge eines Vektorraums muss man nur prüfen, ob man durch Rechnen drinbleibt – plus eine Kleinigkeit zum Nullvektor."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440013",
+      "section": "Kapitel 3 · Untervektorräume",
+      "text": "Schauen wir uns das geometrisch im \\(\\mathbb{R}^2\\) an. Wir vergleichen zwei Geraden mit derselben Richtung: eine durch den Ursprung und eine verschobene.",
+      "visual": "subspaceClosure",
+      "explanation": "Bei der Geraden \\(U\\) durch den Ursprung bleiben Summen und Vielfache immer auf der Geraden. Bei der verschobenen Geraden \\(G\\) landet schon \\(p + q\\) daneben.\n\nUnd noch etwas siehst du: \\(G\\) enthält den Ursprung, also den Nullvektor, gar nicht. Das ist kein Zufall. Wäre \\(G\\) abgeschlossen unter Skalarmultiplikation, dann müsste \\(0 \\cdot p = 0\\) in \\(G\\) liegen – erinnerst du dich an \\(0 \\cdot v = 0\\) aus Kapitel 2?",
+      "insight": "Geraden und Ebenen durch den Ursprung sind „Räume im Raum“. Verschobene Geraden und Ebenen sind es nicht."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440014",
+      "section": "Kapitel 3 · Untervektorräume",
+      "text": "Jetzt formulieren wir das präzise. Eine Teilmenge \\(U \\subseteq V\\) eines \\(K\\)-Vektorraums \\(V\\) heißt Untervektorraum (kurz: Unterraum oder UVR), wenn gilt:",
+      "formula": "\\begin{align*} &\\text{(U1)}\\; 0 \\in U \\\\ &\\text{(U2)}\\; u, w \\in U \\Rightarrow u + w \\in U \\\\ &\\text{(U3)}\\; \\lambda \\in K,\\, u \\in U \\Rightarrow \\lambda u \\in U \\end{align*}",
+      "explanation": "(U2) und (U3) sind genau die Abgeschlossenheit aus der Animation: Rechnen führt nicht aus \\(U\\) heraus.\n\nWarum (U1)? Ohne (U1) wäre die leere Menge \\(\\emptyset\\) ein Untervektorraum, denn für sie sind (U2) und (U3) trivial erfüllt (es gibt nichts zu prüfen). Ein Vektorraum braucht aber einen Nullvektor (A3).\n\nUnd die Gegenvektoren aus (A4)? Die bekommen wir geschenkt: Ist \\(u \\in U\\), dann ist nach (U3) auch \\((-1) \\cdot u \\in U\\) – und das ist genau \\(-u\\).",
+      "insight": "Satz: Erfüllt \\(U\\) die Bedingungen (U1)–(U3), dann ist \\(U\\) mit den eingeschränkten Operationen selbst ein \\(K\\)-Vektorraum."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440015",
+      "section": "Kapitel 3 · Untervektorräume",
+      "text": "Wir prüfen jetzt die Ebene \\(E = \\{ (x, y, z) \\in \\mathbb{R}^3 \\mid x + y - z = 0 \\}\\) vollständig – genau so, wie es in einer Klausur aussehen sollte.\n\nSeien \\(u = (x_1, y_1, z_1)\\) und \\(w = (x_2, y_2, z_2)\\) in \\(E\\). Das heißt:\n\\(x_1 + y_1 - z_1 = 0\\) und \\(x_2 + y_2 - z_2 = 0\\).\nSei außerdem \\(\\lambda \\in \\mathbb{R}\\).",
+      "formula": "\\begin{align*} &\\text{(U1)}\\; 0 + 0 - 0 = 0 \\\\[6pt] &\\text{(U2)}\\; (x_1 + x_2) + (y_1 + y_2) - (z_1 + z_2) \\\\ &= (x_1 + y_1 - z_1) + (x_2 + y_2 - z_2) \\\\ &= 0 + 0 = 0 \\\\[6pt] &\\text{(U3)}\\; \\lambda x_1 + \\lambda y_1 - \\lambda z_1 \\\\ &= \\lambda (x_1 + y_1 - z_1) = \\lambda \\cdot 0 = 0 \\end{align*}",
+      "explanation": "Der Trick bei (U2): Die Komponenten von \\(u + w\\) sind \\(x_1 + x_2\\), \\(y_1 + y_2\\) und \\(z_1 + z_2\\). Wir setzen sie in die Bedingung ein und sortieren um – dann tauchen genau die beiden Bedingungen von \\(u\\) und \\(w\\) auf, die jeweils 0 sind.\n\nBei (U3) klammern wir \\(\\lambda\\) aus. Damit ist bewiesen: \\(E\\) ist ein Untervektorraum des \\(\\mathbb{R}^3\\) – also selbst ein Vektorraum.",
+      "insight": "Schema für die Klausur: allgemeine Elemente hinschreiben, Bedingung als Voraussetzung notieren, für die Summe bzw. das Vielfache einsetzen, umformen bis zur Voraussetzung."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440016",
+      "section": "Kapitel 3 · Untervektorräume",
+      "text": "Ebenso wichtig sind Gegenbeispiele. Jede der drei Bedingungen kann einzeln scheitern. Schau dir diese drei Mengen an:",
+      "formula": "\\begin{align*} G &= \\{(x,y,z) \\mid x + y - z = 1\\} \\\\ Q &= \\{(x,y) \\mid x \\ge 0,\\ y \\ge 0\\} \\\\ A &= \\{(x,y) \\mid x \\cdot y = 0\\} \\end{align*}",
+      "explanation": "• \\(G\\) – (U1) scheitert: \\(0 + 0 - 0 = 0 \\neq 1\\), also \\(0 \\notin G\\). Das ist die verschobene Ebene.\n\n• \\(Q\\) (erster Quadrant) – (U3) scheitert: Summen bleiben in \\(Q\\), aber \\((-1) \\cdot (1, 1) = (-1, -1) \\notin Q\\).\n\n• \\(A\\) (die beiden Koordinatenachsen) – (U2) scheitert: Vielfache bleiben auf ihrer Achse, aber \\((1, 0) + (0, 1) = (1, 1)\\), und \\(1 \\cdot 1 = 1 \\neq 0\\). Also \\((1, 1) \\notin A\\).\n\nEin konkretes Gegenbeispiel mit Zahlen ist immer ein vollständiger Beweis dafür, dass etwas KEIN Untervektorraum ist.",
+      "insight": "Schnelltest: Liegt der Nullvektor nicht in \\(U\\), bist du sofort fertig – kein Untervektorraum. Liegt er drin, beweist das allein aber noch nichts (siehe \\(Q\\) und \\(A\\))."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440017",
+      "section": "Kapitel 3 · Untervektorräume",
+      "text": "Jetzt ein abstrakteres Beispiel auf Klausurniveau. Im Polynomraum \\(P_2\\) betrachten wir:\n\n\\(U = \\{ p \\in P_2 \\mid p(1) = 0 \\}\\)\n\nAlso alle Polynome vom Grad höchstens 2, die bei \\(x = 1\\) eine Nullstelle haben, zum Beispiel \\(x - 1\\) oder \\(x^2 - 1\\). Hier gibt es keine Pfeile mehr – aber das Prüfschema ist genau dasselbe.",
+      "formula": "\\begin{align*} &\\text{(U1)}\\; 0(1) = 0 \\\\ &\\text{(U2)}\\; (p + q)(1) = p(1) + q(1) = 0 \\\\ &\\text{(U3)}\\; (\\lambda p)(1) = \\lambda \\cdot p(1) = 0 \\end{align*}",
+      "explanation": "Bei (U1) ist \\(0\\) das Nullpolynom; es hat überall den Wert 0. Bei (U2) und (U3) benutzen wir \\(p(1) = 0\\) und \\(q(1) = 0\\). Also ist \\(U\\) ein Untervektorraum von \\(P_2\\).\n\nÄndern wir die Bedingung zu \\(p(1) = 1\\), ist es vorbei: Das Nullpolynom hat den Wert \\(0 \\neq 1\\). Außerdem wäre \\((p + q)(1) = 1 + 1 = 2\\).",
+      "insight": "Faustregel: Bedingungen der Form „lineare Gleichung \\(= 0\\)“ liefern Untervektorräume. „\\(= 1\\)“, Ungleichungen (\\(\\ge\\)) und Produkte (\\(x \\cdot y\\)) sind typische Warnsignale."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440018",
+      "section": "Kapitel 4 · Linearkombinationen",
+      "text": "Die Ebene \\(E\\) aus Kapitel 3 ist ein Vektorraum – aber sie enthält unendlich viele Vektoren. Wie kann man so etwas übersichtlich beschreiben?\n\nDie Idee: Wir suchen wenige „Bausteine“, aus denen sich alle anderen Vektoren bauen lassen. Bauen dürfen wir mit unseren zwei Operationen: skalieren und addieren.\n\nEin Test im \\(\\mathbb{R}^2\\): Kann man \\(w = (4, 5)\\) aus \\(v_1 = (2, 1)\\) und \\(v_2 = (1, 2)\\) bauen?",
+      "visual": "linearCombination",
+      "explanation": "In der Animation siehst du die Lösung: Man nimmt \\(v_1\\) einmal und \\(v_2\\) zweimal und hängt die Pfeile aneinander. Aber wie findet man die Zahlen 1 und 2, wenn man sie nicht sieht? Das rechnen wir im nächsten Schritt.",
+      "insight": "Bauen = erst jeden Baustein skalieren, dann alles addieren."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440019",
+      "section": "Kapitel 4 · Linearkombinationen",
+      "text": "Wir suchen Zahlen \\(a\\) und \\(b\\) mit \\(a \\cdot v_1 + b \\cdot v_2 = w\\). Wir schreiben das komponentenweise aus – jede Zeile ist eine Gleichung:",
+      "formula": "\\begin{align*} a \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix} + b \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} &= \\begin{pmatrix} 4 \\\\ 5 \\end{pmatrix} \\\\ \\iff \\quad 2a + b &= 4 \\\\ a + 2b &= 5 \\end{align*}",
+      "explanation": "Lösen, ohne Sprünge:\n1. Aus der ersten Gleichung: \\(b = 4 - 2a\\).\n2. In die zweite einsetzen: \\(a + 2(4 - 2a) = 5\\).\n3. Ausmultiplizieren: \\(a + 8 - 4a = 5\\), also \\(-3a = -3\\), also \\(a = 1\\).\n4. Zurück einsetzen: \\(b = 4 - 2 \\cdot 1 = 2\\).\n\nProbe: \\(1 \\cdot (2, 1) + 2 \\cdot (1, 2) = (2, 1) + (2, 4) = (4, 5)\\) ✓\n\nDie Zahlen \\(a = 1\\) und \\(b = 2\\) sind die „Bauanleitung“ für \\(w\\). Man nennt sie Koeffizienten.",
+      "insight": "Die Frage „Kann ich \\(w\\) aus \\(v_1, \\dots, v_n\\) bauen?“ ist immer ein lineares Gleichungssystem für die Koeffizienten."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440020",
+      "section": "Kapitel 4 · Linearkombinationen",
+      "text": "Jetzt geben wir dem Bauen einen Namen. Seien \\(v_1, \\dots, v_n\\) Vektoren in \\(V\\) und \\(\\lambda_1, \\dots, \\lambda_n \\in K\\). Jeder Vektor der Form",
+      "formula": "\\sum_{i=1}^{n} \\lambda_i v_i = \\lambda_1 v_1 + \\dots + \\lambda_n v_n",
+      "explanation": "heißt Linearkombination von \\(v_1, \\dots, v_n\\). „Linear“, weil nur skaliert und addiert wird – keine Produkte von Vektoren, keine Quadrate.\n\nBeispiel in \\(P_2\\): \\(3 + 2x - x^2 = 3 \\cdot 1 + 2 \\cdot x + (-1) \\cdot x^2\\) ist eine Linearkombination der Bausteine \\(1\\), \\(x\\) und \\(x^2\\).\n\nWichtig: Eine Linearkombination hat immer nur endlich viele Summanden.",
+      "insight": "Linearkombination = Ergebnis einer Bauanleitung: jeden Baustein mit einem Skalar multiplizieren, dann alles addieren."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440021",
+      "section": "Kapitel 4 · Linearkombinationen",
+      "text": "Nicht jeder Vektor lässt sich aus beliebigen Bausteinen bauen. Im \\(\\mathbb{R}^3\\) nehmen wir die Bausteine \\(v_1 = (1, 0, 1)\\) und \\(v_2 = (0, 1, 1)\\). Eine allgemeine Linearkombination sieht so aus:",
+      "formula": "a \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix} + b \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} a \\\\ b \\\\ a + b \\end{pmatrix}",
+      "explanation": "Jetzt sieht man sofort, was erreichbar ist: Der dritte Eintrag ist IMMER die Summe der ersten beiden.\n\n• \\((1, 2, 3)\\): \\(a = 1\\), \\(b = 2\\), und \\(1 + 2 = 3\\) ✓ Erreichbar.\n• \\((1, 1, 1)\\): \\(a = 1\\), \\(b = 1\\), aber \\(1 + 1 = 2 \\neq 1\\). Nicht erreichbar – egal wie wir \\(a\\) und \\(b\\) wählen.\n\nFällt dir etwas auf? Erreichbar sind genau die Vektoren mit \\(z = x + y\\) – das ist unsere Ebene \\(E\\) aus Kapitel 3!",
+      "insight": "Damit stellt sich die nächste Frage: Welche Vektoren sind aus gegebenen Bausteinen überhaupt erreichbar? Diese Menge bekommt einen eigenen Namen."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440022",
+      "section": "Kapitel 5 · Spann und Erzeugendensystem",
+      "text": "Sehen wir uns an, wie die Menge der erreichbaren Vektoren wächst, wenn wir Bausteine hinzufügen:",
+      "visual": "spanGrowth",
+      "explanation": "Mit einem Baustein \\(v_1 \\neq 0\\) erreichen wir nur die Vielfachen \\(\\lambda v_1\\) – eine Gerade durch den Ursprung.\n\nEin zweiter Baustein, der NICHT auf dieser Geraden liegt, bringt eine neue Richtung. Mit \\(\\lambda v_1 + \\mu v_2\\) erreichen wir die ganze Ebene.\n\nIm vorigen Kapitel haben wir sogar ausgerechnet, wie man \\((4, 5)\\) konkret erreicht: \\(\\lambda = 1\\), \\(\\mu = 2\\).",
+      "insight": "Jeder neue Baustein mit einer wirklich neuen Richtung vergrößert die Menge der erreichbaren Vektoren um eine „Dimension“ – dieses Wort machen wir in Kapitel 8 präzise."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440023",
+      "section": "Kapitel 5 · Spann und Erzeugendensystem",
+      "text": "Definition: Die Menge aller Linearkombinationen von \\(v_1, \\dots, v_n\\) heißt Spann (oder lineare Hülle) von \\(v_1, \\dots, v_n\\):",
+      "formula": "\\begin{align*} &\\operatorname{span}(v_1, \\dots, v_n) \\\\ &= \\Big\\{ \\sum_{i=1}^{n} \\lambda_i v_i \\;\\Big|\\; \\lambda_i \\in K \\Big\\} \\end{align*}",
+      "explanation": "Lies das als: „alles, was man aus \\(v_1, \\dots, v_n\\) bauen kann“. Man setzt außerdem \\(\\operatorname{span}(\\emptyset) = \\{0\\}\\).\n\nJetzt schließt sich ein Kreis zu Kapitel 3: Der Spann ist IMMER ein Untervektorraum. Der Beweis ist kurz:\n(U1) \\(0 = 0 \\cdot v_1 + \\dots + 0 \\cdot v_n\\).\n(U2) \\(\\sum \\lambda_i v_i + \\sum \\mu_i v_i = \\sum (\\lambda_i + \\mu_i) v_i\\) – die Bauanleitungen werden einfach addiert.\n(U3) \\(\\alpha \\sum \\lambda_i v_i = \\sum (\\alpha\\lambda_i) v_i\\).\n\nMehr noch: \\(\\operatorname{span}(v_1, \\dots, v_n)\\) ist der kleinste Untervektorraum, der \\(v_1, \\dots, v_n\\) enthält. Jeder Untervektorraum, der die \\(v_i\\) enthält, muss wegen (U2) und (U3) auch alle ihre Linearkombinationen enthalten.",
+      "insight": "Spann = „alles, was man bauen kann“. Und das ist automatisch ein Untervektorraum."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440024",
+      "section": "Kapitel 5 · Spann und Erzeugendensystem",
+      "text": "Zurück zur Ebene \\(E = \\{ (x, y, z) \\mid z = x + y \\}\\). Wir zeigen sauber:\n\\(E = \\operatorname{span}\\big((1, 0, 1), (0, 1, 1)\\big)\\).\nBei einer Mengengleichheit zeigt man beide Inklusionen.",
+      "formula": "\\begin{pmatrix} x \\\\ y \\\\ x + y \\end{pmatrix} = x \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix} + y \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}",
+      "explanation": "„\\(\\subseteq\\)“: Jeder Vektor in \\(E\\) hat die Form \\((x, y, x + y)\\) – und den können wir wie oben direkt als Linearkombination hinschreiben. Die Koeffizienten sind einfach \\(x\\) und \\(y\\).\n\n„\\(\\supseteq\\)“: Jede Linearkombination hat die Form \\((a, b, a + b)\\) (Kapitel 4), erfüllt also \\(z = x + y\\) und liegt in \\(E\\).\n\nErgebnis: Die zwei Vektoren \\((1, 0, 1)\\) und \\((0, 1, 1)\\) erzeugen die ganze Ebene \\(E\\). Unendlich viele Vektoren – beschrieben durch zwei Bausteine.",
+      "insight": "Definition: Gilt \\(\\operatorname{span}(v_1, \\dots, v_n) = V\\), heißt \\(\\{v_1, \\dots, v_n\\}\\) Erzeugendensystem von \\(V\\). Jeder Vektor in \\(V\\) ist dann aus den \\(v_i\\) baubar."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440025",
+      "section": "Kapitel 5 · Spann und Erzeugendensystem",
+      "text": "Ist \\(\\{v_1, v_2\\}\\) mit \\(v_1 = (2, 1)\\) und \\(v_2 = (1, 2)\\) ein Erzeugendensystem des \\(\\mathbb{R}^2\\)?\n\nDafür reicht kein einzelnes Beispiel – wir müssen ein BELIEBIGES \\((x, y)\\) erreichen. Wir lösen also das Gleichungssystem allgemein:",
+      "formula": "\\begin{align*} 2a + b &= x \\\\ a + 2b &= y \\\\[6pt] \\Longrightarrow\\quad a &= \\tfrac{2x - y}{3} \\\\ b &= \\tfrac{2y - x}{3} \\end{align*}",
+      "explanation": "So kommt man darauf: Die zweite Gleichung mal 2 ergibt \\(2a + 4b = 2y\\). Davon die erste abziehen: \\(3b = 2y - x\\), also \\(b = \\tfrac{2y - x}{3}\\). Dann \\(a = y - 2b = \\tfrac{2x - y}{3}\\).\n\nFür jedes \\((x, y)\\) gibt es also passende Koeffizienten. Damit ist \\(\\operatorname{span}(v_1, v_2) = \\mathbb{R}^2\\).\n\nKontrolle mit \\(w = (4, 5)\\): \\(a = \\tfrac{8 - 5}{3} = 1\\) und \\(b = \\tfrac{10 - 4}{3} = 2\\). Genau die Bauanleitung von vorhin ✓",
+      "insight": "Nächste Frage: Was passiert, wenn wir noch \\(v_3 = (3, 3)\\) dazunehmen? Der Spann bleibt \\(\\mathbb{R}^2\\) – mehr als alles geht nicht. Hat \\(v_3\\) dann überhaupt etwas gebracht?"
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440026",
+      "section": "Kapitel 6 · Lineare Unabhängigkeit",
+      "text": "Wir nehmen zu \\(v_1 = (2, 1)\\) und \\(v_2 = (1, 2)\\) noch \\(v_3 = (3, 3)\\) dazu. Schau, was passiert:",
+      "visual": "linearDependence",
+      "explanation": "\\(v_3\\) lässt sich aus \\(v_1\\) und \\(v_2\\) bauen: \\(v_3 = v_1 + v_2\\). Er ist also überflüssig – jede Linearkombination, die \\(v_3\\) benutzt, kann man auch ohne \\(v_3\\) schreiben, indem man \\(v_3\\) durch \\(v_1 + v_2\\) ersetzt.\n\nSolche Vektorfamilien nennen wir linear abhängig: Mindestens ein Vektor lässt sich aus den anderen nachbauen.",
+      "insight": "Lineare Abhängigkeit heißt: Es gibt Redundanz – mindestens ein Vektor bringt keine neue Richtung."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440027",
+      "section": "Kapitel 6 · Lineare Unabhängigkeit",
+      "text": "Wie prüft man Abhängigkeit, wenn man nicht weiß, WELCHER Vektor überflüssig ist? Der Trick: Wir bringen alles auf eine Seite.",
+      "formula": "\\begin{align*} &v_3 = v_1 + v_2 \\\\ \\iff\\; &1 \\cdot v_1 + 1 \\cdot v_2 + (-1) \\cdot v_3 = 0 \\end{align*}",
+      "explanation": "Jetzt steht da eine Linearkombination, die den Nullvektor ergibt – und deren Koeffizienten \\((1, 1, -1)\\) nicht alle 0 sind.\n\nDas funktioniert auch umgekehrt. Angenommen, \\(\\lambda_1 v_1 + \\dots + \\lambda_n v_n = 0\\) und ein Koeffizient \\(\\lambda_k\\) ist nicht 0. Dann können wir nach \\(v_k\\) auflösen – wir teilen durch \\(\\lambda_k\\) (deshalb brauchen wir einen Körper!):\n\n\\(v_k = -\\tfrac{1}{\\lambda_k} \\sum_{i \\neq k} \\lambda_i v_i\\)\n\nAlso ist \\(v_k\\) aus den anderen baubar.\n\nDie Nullgleichung ist symmetrisch: Kein Vektor wird bevorzugt. Wir müssen nicht raten, welcher Vektor überflüssig ist – die Rechnung findet es für uns.",
+      "insight": "„Ein Vektor ist aus den anderen baubar“ \\(\\iff\\) „Es gibt eine Linearkombination \\(= 0\\), bei der nicht alle Koeffizienten 0 sind.“"
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440028",
+      "section": "Kapitel 6 · Lineare Unabhängigkeit",
+      "text": "Eine Kombination ergibt immer den Nullvektor: alle Koeffizienten 0 wählen, also \\(0 \\cdot v_1 + \\dots + 0 \\cdot v_n = 0\\). Diese triviale Lösung sagt nichts aus – sie existiert für jede Vektorfamilie.\n\nInteressant ist also nur, ob es AUSSER ihr noch weitere gibt. Daraus wird die Definition:",
+      "formula": "\\begin{align*} &v_1, \\dots, v_n \\text{ linear unabhängig} \\\\ :\\iff\\; &\\lambda_1 v_1 + \\dots + \\lambda_n v_n = 0 \\\\ &\\Rightarrow\\; \\lambda_1 = \\dots = \\lambda_n = 0 \\end{align*}",
+      "explanation": "In Worten: Die einzige Möglichkeit, aus \\(v_1, \\dots, v_n\\) den Nullvektor zu bauen, ist „von jedem Vektor nichts nehmen“.\n\nNach dem vorigen Schritt heißt das genau: Keiner der Vektoren lässt sich aus den anderen nachbauen. Jeder bringt eine echte neue Richtung.\n\nGibt es dagegen eine nichttriviale Lösung (nicht alle \\(\\lambda_i = 0\\)), heißen die Vektoren linear abhängig.",
+      "insight": "Unabhängig = nur die triviale Lösung. Abhängig = es gibt eine nichttriviale Lösung."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440029",
+      "section": "Kapitel 6 · Lineare Unabhängigkeit",
+      "text": "Jetzt rechnen wir mit unserem bekannten Paar \\(v_1 = (2, 1)\\), \\(v_2 = (1, 2)\\). Wir setzen eine Linearkombination gleich null und fragen: Welche \\(a, b\\) sind möglich?",
+      "formula": "\\begin{align*} a \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix} + b \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} &= \\begin{pmatrix} 0 \\\\ 0 \\end{pmatrix} \\\\ \\iff \\quad 2a + b &= 0 \\\\ a + 2b &= 0 \\end{align*}",
+      "explanation": "1. Erste Gleichung: \\(b = -2a\\).\n2. Einsetzen in die zweite: \\(a + 2(-2a) = -3a = 0\\), also \\(a = 0\\).\n3. Damit \\(b = -2 \\cdot 0 = 0\\).\n\nEs gibt NUR die triviale Lösung. Also sind \\(v_1\\) und \\(v_2\\) linear unabhängig.\n\nFür \\(v_1, v_2, v_3\\) mit \\(v_3 = (3, 3)\\) dagegen kennen wir eine nichttriviale Lösung: \\(1 \\cdot v_1 + 1 \\cdot v_2 + (-1) \\cdot v_3 = 0\\). Also linear abhängig.",
+      "insight": "Klausurschema: Linearkombination \\(= 0\\) ansetzen, LGS aufstellen, zeigen dass nur \\(\\lambda_i = 0\\) möglich ist (unabhängig) oder eine konkrete Lösung \\(\\neq 0\\) angeben (abhängig)."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440030",
+      "section": "Kapitel 6 · Lineare Unabhängigkeit",
+      "text": "Jetzt im \\(\\mathbb{R}^3\\) auf Klausurniveau. Sind \\((1, 0, 1)\\), \\((0, 1, 1)\\) und \\((1, 1, 0)\\) linear unabhängig?",
+      "formula": "\\begin{align*} a \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix} + b \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix} + c \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} = 0 \\\\ \\iff \\quad a + c = 0, \\quad b + c = 0, \\quad a + b = 0 \\end{align*}",
+      "explanation": "1. Aus Zeile 1: \\(a = -c\\). Aus Zeile 2: \\(b = -c\\).\n2. In Zeile 3: \\((-c) + (-c) = -2c = 0\\), also \\(c = 0\\).\n3. Damit \\(a = 0\\) und \\(b = 0\\). Nur die triviale Lösung → linear unabhängig ✓\n\nVergleich: Ersetzen wir den dritten Vektor durch \\((1, 1, 2)\\), wird Zeile 3 zu \\(a + b + 2c = 0\\). Mit \\(a = b = -c\\) steht dort \\(-2c + 2c = 0\\) – das gilt für JEDES \\(c\\)! Mit \\(c = 1\\) ist \\(a = b = -1\\):\n\\(-(1, 0, 1) - (0, 1, 1) + (1, 1, 2) = (0, 0, 0)\\).\nNichttrivial → linear abhängig.\n\nUnd geometrisch? \\((1, 1, 2)\\) erfüllt \\(z = x + y\\) – er liegt in der Ebene \\(E\\), die von den ersten beiden schon aufgespannt wird. Keine neue Richtung!",
+      "insight": "Wird eine Gleichung im LGS „automatisch“ wahr (\\(0 = 0\\)), bleibt ein Koeffizient frei wählbar – dann gibt es nichttriviale Lösungen."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440031",
+      "section": "Kapitel 6 · Lineare Unabhängigkeit",
+      "text": "Dasselbe funktioniert in Polynomräumen. Sind \\(1\\), \\(1 + x\\) und \\(1 + x + x^2\\) in \\(P_2\\) linear unabhängig? Wir setzen an und sortieren nach Potenzen von \\(x\\):",
+      "formula": "\\begin{align*} &a \\cdot 1 + b\\,(1 + x) + c\\,(1 + x + x^2) = 0 \\\\ \\iff\\; &(a + b + c) + (b + c)\\,x + c\\,x^2 = 0 \\end{align*}",
+      "explanation": "Rechts steht das Nullpolynom. Ein Polynom ist genau dann das Nullpolynom, wenn ALLE Koeffizienten 0 sind (Koeffizientenvergleich). Also:\n\n• bei \\(x^2\\): \\(c = 0\\)\n• bei \\(x\\): \\(b + c = 0\\), also \\(b = 0\\)\n• konstant: \\(a + b + c = 0\\), also \\(a = 0\\)\n\nNur die triviale Lösung → linear unabhängig. Diese drei Polynome begegnen uns bei der Basis wieder.",
+      "insight": "In Polynomräumen ersetzt der Koeffizientenvergleich das komponentenweise Vergleichen."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440032",
+      "section": "Kapitel 6 · Lineare Unabhängigkeit",
+      "text": "Typische Fehler – hier verlieren viele in der Klausur Punkte:",
+      "explanation": "1. „Keine zwei Vektoren sind parallel, also unabhängig.“ Falsch! \\((2, 1)\\), \\((1, 2)\\), \\((3, 3)\\) sind paarweise nicht parallel, aber zusammen abhängig. Paarweise prüfen reicht bei drei oder mehr Vektoren nicht.\n\n2. Enthält eine Familie den Nullvektor, ist sie immer abhängig: \\(1 \\cdot 0 = 0\\) ist eine nichttriviale Lösung.\n\n3. Nur bei ZWEI Vektoren gilt: abhängig \\(\\iff\\) einer ist ein Vielfaches des anderen.\n\n4. „Ich habe die Lösung \\(\\lambda_i = 0\\) gefunden, also unabhängig.“ Falsch – die triviale Lösung gibt es immer. Du musst zeigen, dass es KEINE andere gibt.",
+      "insight": "Nächste Frage: Ein Erzeugendensystem kann alles bauen. Eine unabhängige Familie hat keine Redundanz. Was, wenn beides gleichzeitig gilt?"
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440033",
+      "section": "Kapitel 7 · Basis",
+      "text": "Wir haben zwei Wünsche an eine Familie von Bausteinen:\n\n• Genug Vektoren, um ALLES zu bauen (Erzeugendensystem).\n• Keinen Vektor zu viel (linear unabhängig).\n\nDie beiden ziehen in entgegengesetzte Richtungen: Mehr Vektoren erzeugen leichter alles, sind aber eher abhängig. Weniger Vektoren sind eher unabhängig, erzeugen aber vielleicht nicht alles. Der perfekte Mittelweg hat einen Namen:",
+      "formula": "\\begin{align*} &B \\text{ ist Basis von } V \\;:\\iff \\\\ &\\text{(1) } \\operatorname{span}(B) = V \\\\ &\\text{(2) } B \\text{ linear unabhängig} \\end{align*}",
+      "explanation": "(1) heißt: genug Vektoren. (2) heißt: keiner zu viel.\n\nUnser Beispiel: \\(\\{(2, 1), (1, 2)\\}\\) ist eine Basis des \\(\\mathbb{R}^2\\). Erzeugend haben wir in Kapitel 5 gezeigt, unabhängig in Kapitel 6.\n\n\\(\\{(2, 1), (1, 2), (3, 3)\\}\\) ist KEINE Basis – erzeugend schon, aber abhängig (einer zu viel).\n\\(\\{(2, 1)\\}\\) ist auch keine Basis – unabhängig, aber nur eine Gerade (zu wenig).",
+      "insight": "Basis = minimales Erzeugendensystem = maximale unabhängige Familie. Weglassen zerstört das Erzeugen, Hinzufügen zerstört die Unabhängigkeit."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440034",
+      "section": "Kapitel 7 · Basis",
+      "text": "Warum ist eine Basis so wertvoll? Weil sie jedem Vektor EINDEUTIGE Koordinaten gibt.\n\nSatz: \\(B = \\{b_1, \\dots, b_n\\}\\) ist genau dann eine Basis, wenn sich jeder Vektor \\(v \\in V\\) auf genau eine Weise als Linearkombination der \\(b_i\\) schreiben lässt.\n\nDass es mindestens eine Darstellung gibt, liefert das Erzeugen. Für die Eindeutigkeit nehmen wir an, es gäbe zwei:",
+      "formula": "\\begin{align*} &v = \\sum_{i=1}^n a_i b_i = \\sum_{i=1}^n c_i b_i \\\\ \\Longrightarrow\\; &\\sum_{i=1}^n (a_i - c_i)\\, b_i = 0 \\\\ \\Longrightarrow\\; &a_i = c_i \\text{ für alle } i \\end{align*}",
+      "explanation": "Wir ziehen die beiden Darstellungen voneinander ab und erhalten eine Linearkombination, die 0 ergibt. Wegen der linearen Unabhängigkeit müssen alle Koeffizienten \\(a_i - c_i\\) null sein. Also \\(a_i = c_i\\) – die beiden Darstellungen waren in Wahrheit dieselbe.\n\nJetzt siehst du, wofür die beiden Bedingungen da sind:\n• „genug“ (erzeugend) ⇒ jeder Vektor HAT eine Darstellung,\n• „keiner zu viel“ (unabhängig) ⇒ diese Darstellung ist EINDEUTIG.",
+      "insight": "Die eindeutigen Koeffizienten \\((a_1, \\dots, a_n)\\) heißen Koordinaten von \\(v\\) bezüglich \\(B\\). Eine Basis ist ein Koordinatensystem."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440035",
+      "section": "Kapitel 7 · Basis",
+      "text": "Sehen wir uns an, was „Koordinaten bezüglich einer Basis“ geometrisch bedeutet:",
+      "visual": "basisCoordinates",
+      "formula": "\\begin{align*} w &= 4 \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} + 5 \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix} \\\\ &= 1 \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix} + 2 \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} \\end{align*}",
+      "explanation": "Der Vektor \\(w\\) selbst ändert sich nicht. Was sich ändert, ist die Beschreibung durch Zahlen:\n\n• Bezüglich der Standardbasis \\(e_1 = (1, 0)\\), \\(e_2 = (0, 1)\\) hat \\(w\\) die Koordinaten \\((4, 5)\\).\n• Bezüglich \\(B = \\big((2, 1), (1, 2)\\big)\\) hat \\(w\\) die Koordinaten \\((1, 2)\\).\n\nDie „normalen“ Einträge eines Vektors im \\(\\mathbb{R}^n\\) sind also einfach seine Koordinaten bezüglich der Standardbasis.",
+      "insight": "Gleicher Vektor, verschiedene Basen ⇒ verschiedene Koordinaten. Diese Idee brauchst du später beim Basiswechsel und bei Darstellungsmatrizen."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440036",
+      "section": "Kapitel 7 · Basis",
+      "text": "Jeder der Vektorräume aus Kapitel 2 hat eine besonders natürliche Basis, die Standardbasis:",
+      "formula": "\\begin{align*} K^n:&\\quad e_1, e_2, \\dots, e_n \\\\ P_n:&\\quad 1,\\ x,\\ x^2,\\ \\dots,\\ x^n \\\\ K^{2 \\times 2}:&\\quad E_{11}, E_{12}, E_{21}, E_{22} \\\\[4pt] \\text{z. B. } E_{12} &= \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix} \\end{align*}",
+      "explanation": "Dabei ist \\(e_i\\) der Vektor mit einer 1 an Stelle \\(i\\) und sonst Nullen, und \\(E_{ij}\\) die Matrix mit einer 1 in Zeile \\(i\\), Spalte \\(j\\) und sonst Nullen.\n\nWarum ist \\(\\{1, x, x^2\\}\\) eine Basis von \\(P_2\\)?\n• Erzeugend: Jedes \\(p = a_0 + a_1 x + a_2 x^2\\) IST bereits eine Linearkombination von \\(1, x, x^2\\).\n• Unabhängig: \\(a_0 + a_1 x + a_2 x^2 = 0\\) (Nullpolynom) heißt nach Koeffizientenvergleich \\(a_0 = a_1 = a_2 = 0\\).\n\nBei Standardbasen sind die Koordinaten genau die Einträge bzw. Koeffizienten, die man ohnehin hinschreibt. Deshalb sind sie so bequem.",
+      "insight": "Standardbasen sind nicht die einzigen Basen – aber die, bei denen die Koordinaten „von selbst“ dastehen."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440037",
+      "section": "Kapitel 7 · Basis",
+      "text": "Klausuraufgabe: Zeige, dass \\(B = \\{1,\\ 1 + x,\\ 1 + x + x^2\\}\\) eine Basis von \\(P_2\\) ist, und bestimme die Koordinaten von \\(p = 2 + 3x + x^2\\) bezüglich \\(B\\).\n\nUnabhängigkeit haben wir in Kapitel 6 schon gezeigt. Fehlt: Erzeugen. Wir nehmen ein beliebiges \\(q = \\alpha + \\beta x + \\gamma x^2\\) und suchen \\(a, b, c\\):",
+      "formula": "\\begin{align*} &a + b(1 + x) + c(1 + x + x^2) \\\\ &= (a + b + c) + (b + c)\\,x + c\\,x^2 \\\\ &\\overset{!}{=} \\alpha + \\beta x + \\gamma x^2 \\\\[6pt] \\Longrightarrow\\; &c = \\gamma,\\ b = \\beta - \\gamma,\\ a = \\alpha - \\beta \\end{align*}",
+      "explanation": "Koeffizientenvergleich von oben nach unten:\n• bei \\(x^2\\): \\(c = \\gamma\\)\n• bei \\(x\\): \\(b + c = \\beta\\), also \\(b = \\beta - \\gamma\\)\n• konstant: \\(a + b + c = \\alpha\\), also \\(a = \\alpha - b - c = \\alpha - \\beta\\)\n\nFür jedes \\(q\\) existiert also eine Lösung → \\(B\\) ist erzeugend → \\(B\\) ist eine Basis.\n\nFür \\(p = 2 + 3x + x^2\\) (\\(\\alpha = 2\\), \\(\\beta = 3\\), \\(\\gamma = 1\\)): \\(c = 1\\), \\(b = 2\\), \\(a = -1\\).\nProbe: \\(-1 + 2(1 + x) + (1 + x + x^2) = 2 + 3x + x^2\\) ✓\n\nDie Koordinaten von \\(p\\) bezüglich \\(B\\) sind \\((-1, 2, 1)\\). Bezüglich der Standardbasis wären es \\((2, 3, 1)\\).",
+      "insight": "Nächste Frage: Im \\(\\mathbb{R}^2\\) hatten \\(\\{e_1, e_2\\}\\) und \\(\\{(2, 1), (1, 2)\\}\\) beide 2 Elemente, in \\(P_2\\) hatten zwei verschiedene Basen beide 3. Zufall?"
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440038",
+      "section": "Kapitel 8 · Dimension",
+      "text": "Kein Zufall! Der zentrale Satz dieses Themas:\n\nIst \\(V\\) von endlich vielen Vektoren erzeugt, dann haben ALLE Basen von \\(V\\) gleich viele Elemente.\n\nDie Idee hinter dem Beweis ist ein Hilfssatz, der intuitiv gut verständlich ist:",
+      "formula": "\\begin{align*} &V = \\operatorname{span}(v_1, \\dots, v_n) \\\\ \\Longrightarrow\\; &\\text{je } n + 1 \\text{ Vektoren in } V \\\\ &\\text{sind linear abhängig} \\end{align*}",
+      "explanation": "Intuition: Mit \\(n\\) Bausteinen gibt es höchstens \\(n\\) „unabhängige Richtungen“. Ein \\((n+1)\\)-ter Vektor kann keine wirklich neue Richtung mehr bringen. (Bewiesen wird das mit dem Austauschsatz von Steinitz.)\n\nDaraus folgt der Satz sofort: Sind \\(B\\) und \\(B'\\) zwei Basen, dann ist \\(B\\) erzeugend und \\(B'\\) unabhängig – also hat \\(B'\\) höchstens so viele Elemente wie \\(B\\). Mit vertauschten Rollen: \\(B\\) hat höchstens so viele wie \\(B'\\). Also gleich viele.",
+      "insight": "Definition: Die gemeinsame Anzahl der Elemente einer Basis heißt Dimension, geschrieben \\(\\dim V\\). Für den Nullraum gilt \\(\\dim \\{0\\} = 0\\) (die leere Menge ist seine Basis)."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440039",
+      "section": "Kapitel 8 · Dimension",
+      "text": "Jetzt können wir Dimensionen einfach ablesen, indem wir die Elemente einer Basis zählen:",
+      "formula": "\\begin{align*} \\dim K^n &= n & \\dim P_n &= n + 1 \\\\ \\dim K^{m \\times n} &= mn & \\dim E &= 2 \\end{align*}",
+      "explanation": "Achtung bei zwei Klassikern:\n\n• \\(\\dim P_n = n + 1\\), nicht \\(n\\)! Die Basis \\(1, x, \\dots, x^n\\) hat \\(n + 1\\) Elemente – die Konstante \\(1\\) zählt mit.\n\n• Die Ebene \\(E\\) im \\(\\mathbb{R}^3\\) hat Dimension 2, obwohl ihre Vektoren drei Einträge haben. Die Dimension zählt Richtungen (Basisvektoren), nicht Einträge.\n\nEin Beispiel zum Selbst-Ausrechnen: \\(U = \\{ p \\in P_2 \\mid p(1) = 0 \\}\\) aus Kapitel 3. Für \\(p = a + bx + cx^2\\) heißt \\(p(1) = 0\\) genau \\(a + b + c = 0\\), also \\(a = -b - c\\). Einsetzen:\n\\(p = b(x - 1) + c(x^2 - 1)\\).\nAlso erzeugen \\(x - 1\\) und \\(x^2 - 1\\) den Raum \\(U\\), und sie sind unabhängig (Koeffizientenvergleich bei \\(x^2\\) und \\(x\\)). Damit \\(\\dim U = 2\\).\n\nEs gibt auch Vektorräume ohne endliche Basis, z. B. alle Polynome oder \\(C[a, b]\\). Sie heißen unendlichdimensional.",
+      "insight": "Dimension = Anzahl der unabhängigen Richtungen = Anzahl der Basisvektoren."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440040",
+      "section": "Kapitel 8 · Dimension",
+      "text": "Die Dimension spart dir in Klausuren viel Arbeit. Sei \\(\\dim V = n\\). Dann gilt:",
+      "formula": "\\begin{align*} &\\text{mehr als } n \\text{ Vektoren} \\Rightarrow \\text{abhängig} \\\\ &\\text{weniger als } n \\Rightarrow \\text{nicht erzeugend} \\\\[6pt] &\\text{genau } n \\text{ Vektoren:} \\\\ &\\text{unabhängig} \\iff \\text{Basis} \\\\ &\\iff \\text{erzeugend} \\end{align*}",
+      "explanation": "Anwendung: In Kapitel 6 haben wir gezeigt, dass \\((1, 0, 1)\\), \\((0, 1, 1)\\), \\((1, 1, 0)\\) linear unabhängig sind. Es sind genau \\(3 = \\dim \\mathbb{R}^3\\) Vektoren – also sind sie automatisch eine Basis des \\(\\mathbb{R}^3\\). Das Erzeugen müssen wir nicht mehr extra nachrechnen!\n\nUnd vier Vektoren im \\(\\mathbb{R}^3\\)? Sofort abhängig, ohne jede Rechnung.\n\nZwei weitere wichtige Folgerungen:\n• Basisergänzungssatz: Jede linear unabhängige Familie lässt sich zu einer Basis ergänzen. Beispiel: Die Basis \\(\\{(1, 0, 1), (0, 1, 1)\\}\\) von \\(E\\) wird durch \\((0, 0, 1)\\) zu einer Basis des \\(\\mathbb{R}^3\\).\n• Ist \\(U\\) ein Untervektorraum von \\(V\\) (\\(V\\) endlichdimensional), gilt \\(\\dim U \\le \\dim V\\), und bei Gleichheit ist \\(U = V\\).",
+      "insight": "Kennst du die Dimension, musst du bei \\(n\\) Vektoren nur EINE der beiden Basis-Eigenschaften prüfen – meist die Unabhängigkeit."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440041",
+      "section": "Kapitel 9 · Untervektorräume kombinieren",
+      "text": "Zum Schluss: Was passiert, wenn wir zwei Untervektorräume \\(U\\) und \\(W\\) von \\(V\\) kombinieren?\n\nDer Schnitt \\(U \\cap W\\) ist wieder ein Untervektorraum: Liegen \\(u\\) und \\(w\\) in beiden, dann liegen \\(u + w\\) und \\(\\lambda u\\) auch in beiden.\n\nDie Vereinigung \\(U \\cup W\\) dagegen meistens NICHT. Erinnere dich an die Koordinatenachsen aus Kapitel 3: Jede Achse ist ein Untervektorraum, aber ihre Vereinigung nicht – denn \\((1, 0) + (0, 1) = (1, 1)\\) liegt auf keiner Achse.\n\nDeshalb benutzt man statt der Vereinigung die Summe:",
+      "formula": "\\begin{align*} U + W &= \\{\\, u + w \\mid u \\in U,\\ w \\in W \\,\\} \\\\ &= \\operatorname{span}(U \\cup W) \\end{align*}",
+      "explanation": "\\(U + W\\) enthält alles, was man aus Vektoren von \\(U\\) und \\(W\\) bauen kann. Es ist der kleinste Untervektorraum, der \\(U\\) und \\(W\\) enthält – genau wie der Spann der kleinste Untervektorraum war, der gegebene Vektoren enthält.\n\nBei den Achsen: \\(x\\)-Achse \\(+\\) \\(y\\)-Achse \\(= \\mathbb{R}^2\\).",
+      "insight": "Schnitt: ja, Untervektorraum. Vereinigung: meistens nein. Summe: der richtige Ersatz für die Vereinigung."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440042",
+      "section": "Kapitel 9 · Untervektorräume kombinieren",
+      "text": "Für die Dimension gibt es eine schöne Formel. Wir testen sie mit \\(E = \\{ z = x + y \\}\\) und der \\(xy\\)-Ebene \\(W = \\{ z = 0 \\}\\) im \\(\\mathbb{R}^3\\).\n\nSchnitt berechnen: Ein Vektor liegt in beiden, wenn \\(z = 0\\) und \\(z = x + y\\), also \\(x + y = 0\\). Das sind die Vektoren \\(t \\cdot (1, -1, 0)\\) – eine Gerade. Also \\(\\dim(E \\cap W) = 1\\).",
+      "formula": "\\begin{align*} &\\dim(U + W) \\\\ &= \\dim U + \\dim W - \\dim(U \\cap W) \\\\[6pt] &\\dim(E + W) = 2 + 2 - 1 = 3 \\end{align*}",
+      "explanation": "Warum minus den Schnitt? Wenn wir die Basen von \\(U\\) und \\(W\\) einfach zusammenwerfen, zählen wir die Richtungen im Schnitt doppelt. Das ist dieselbe Idee wie beim Zählen: \\(|A \\cup B| = |A| + |B| - |A \\cap B|\\).\n\nErgebnis: \\(\\dim(E + W) = 3 = \\dim \\mathbb{R}^3\\), also \\(E + W = \\mathbb{R}^3\\) (Kapitel 8: gleiche Dimension ⇒ gleicher Raum).\n\nBonus-Erkenntnis: Für zwei verschiedene Ebenen \\(U \\neq W\\) durch 0 im \\(\\mathbb{R}^3\\) gilt \\(\\dim(U + W) = 3\\) (größer als 2, höchstens 3). Also \\(\\dim(U \\cap W) = 2 + 2 - 3 = 1\\). Zwei verschiedene Ebenen durch den Ursprung schneiden sich IMMER in einer Geraden – die Formel beweist es.",
+      "insight": "Dimensionsformel (für endlichdimensionale \\(U, W\\)): \\(\\dim(U + W) = \\dim U + \\dim W - \\dim(U \\cap W)\\)."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440043",
+      "section": "Kapitel 9 · Untervektorräume kombinieren",
+      "text": "Ein besonders wichtiger Spezialfall: Der Schnitt ist nur der Nullvektor, also \\(U \\cap W = \\{0\\}\\). Dann schreibt man \\(U \\oplus W\\) und spricht von einer direkten Summe.\n\nBeispiel: \\(E\\) und die \\(z\\)-Achse \\(Z = \\operatorname{span}\\big((0, 0, 1)\\big)\\). Ein Vektor \\((0, 0, t)\\) aus \\(Z\\) liegt in \\(E\\), wenn \\(t = 0 + 0\\), also \\(t = 0\\). Der Schnitt ist \\(\\{0\\}\\).",
+      "formula": "\\begin{align*} &\\mathbb{R}^3 = E \\oplus Z \\\\[4pt] &\\begin{pmatrix} 1 \\\\ 2 \\\\ 5 \\end{pmatrix} = \\underbrace{\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}}_{\\in E} + \\underbrace{\\begin{pmatrix} 0 \\\\ 0 \\\\ 2 \\end{pmatrix}}_{\\in Z} \\end{align*}",
+      "explanation": "Die Dimensionsformel liefert \\(\\dim(E + Z) = 2 + 1 - 0 = 3\\), also \\(E + Z = \\mathbb{R}^3\\).\n\nDas Besondere an der direkten Summe: Die Zerlegung \\(v = u + w\\) ist EINDEUTIG. Das ist dasselbe Argument wie bei der Basis: Aus \\(u + w = u' + w'\\) folgt \\(u - u' = w' - w\\). Die linke Seite liegt in \\(U\\), die rechte in \\(W\\) – also liegt beides im Schnitt \\(\\{0\\}\\).\n\nZur Zerlegung von \\((1, 2, 5)\\): Den \\(E\\)-Anteil wählen wir so, dass \\(z = x + y\\) gilt, also \\((1, 2, 3)\\). Der Rest \\((0, 0, 2)\\) liegt auf der \\(z\\)-Achse.",
+      "insight": "Direkte Summe = Summe mit Schnitt \\(\\{0\\}\\) = jeder Vektor zerfällt eindeutig in einen \\(U\\)-Anteil und einen \\(W\\)-Anteil."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440044",
+      "section": "Kapitel 10 · Rückblick und Ausblick",
+      "text": "Schau zurück, wie sich ein Begriff aus dem anderen ergeben hat:",
+      "explanation": "1. Pfeile, Polynome, Matrizen kann man addieren und skalieren → Vektorraum = Menge mit diesen Operationen und acht Axiomen.\n\n2. Teilmengen erben die Regeln → Untervektorraum: nur \\(0 \\in U\\) und Abgeschlossenheit prüfen.\n\n3. Unendlich viele Vektoren aus wenigen bauen → Linearkombination.\n\n4. Alles, was man bauen kann → Spann; erreicht er alles, haben wir ein Erzeugendensystem.\n\n5. Überflüssige Bausteine erkennen → lineare (Un)abhängigkeit über die Nullgleichung.\n\n6. Genug, aber keiner zu viel → Basis = eindeutige Koordinaten.\n\n7. Alle Basen gleich groß → Dimension.\n\n8. Räume kombinieren → Schnitt, Summe, Dimensionsformel, direkte Summe.",
+      "insight": "Wenn du jeden Pfeil in dieser Kette erklären kannst – WARUM der nächste Begriff gebraucht wird – hast du Vektorräume wirklich verstanden."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440045",
+      "section": "Kapitel 10 · Rückblick und Ausblick",
+      "text": "Ausblick: Was ein Vektorraum NICHT kennt.\n\nIn den Axiomen kommen keine Längen und keine Winkel vor. Ob zwei Vektoren senkrecht stehen, kann ein reiner Vektorraum gar nicht sagen. Dafür braucht man zusätzliche Struktur – ein Skalarprodukt. Im \\(\\mathbb{R}^n\\) ist das Standardskalarprodukt:",
+      "formula": "\\begin{align*} \\langle v, w \\rangle &= \\sum_{i=1}^n v_i w_i \\\\ \\|v\\| &= \\sqrt{\\langle v, v \\rangle} \\\\ v \\perp w \\;&:\\iff\\; \\langle v, w \\rangle = 0 \\end{align*}",
+      "explanation": "Mit unseren Vektoren:\n• \\(\\langle (2, 1), (1, 2) \\rangle = 2 \\cdot 1 + 1 \\cdot 2 = 4 \\neq 0\\), also stehen sie nicht senkrecht.\n• \\(\\|(2, 1)\\| = \\sqrt{4 + 1} = \\sqrt{5}\\) ist die Länge von \\(v_1\\).\n• \\(\\langle (1, 2), (-2, 1) \\rangle = -2 + 2 = 0\\), diese beiden stehen senkrecht.\n\nEine Basis aus paarweise senkrechten Vektoren der Länge 1 heißt Orthonormalbasis (z. B. die Standardbasis). Darauf bauen euklidische Räume, Orthogonalprojektionen und das Gram-Schmidt-Verfahren auf.\n\nWeitere Begriffe, die direkt auf dieser Lektion aufbauen: lineare Abbildungen (strukturerhaltende Abbildungen zwischen Vektorräumen – das nächste Thema), Quotientenräume \\(V/U\\), Tensorprodukte und – in der Physik – die Zustandsräume der Quantenmechanik, die komplexe Vektorräume mit Skalarprodukt sind.",
+      "insight": "Glückwunsch – du hast die komplette Grundlage der Linearen Algebra durchgearbeitet. Als Nächstes lohnt sich das Thema „Lineare Abbildungen“."
+    }
+  ]
+}
