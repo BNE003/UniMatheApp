@@ -1,104 +1,168 @@
 {
-    "id": "770e8400-e29b-41d4-a716-446655440000",
-    "title": "Einführung in komplexe Zahlen",
-    "description": "Lass uns die grundlegenden Konzepte der komplexen Zahlen Schritt für Schritt erkunden.",
-    "topic": "Komplexe Zahlen",
-    "steps": [
-        {
-            "id": "770e8400-e29b-41d4-a716-446655440001",
-            "text": "Eine komplexe Zahl z besteht aus einem Realteil a und einem Imaginärteil b, wobei i die imaginäre Einheit ist.",
-            "formula": "z = a + bi \\quad \\text{mit} \\quad a,b \\in \\mathbb{R} \\quad \\text{und} \\quad i^2 = -1",
-            "explanation": "Die imaginäre Einheit i ist definiert als die Lösung der Gleichung x² = -1."
-        },
-        {
-            "id": "770e8400-e29b-41d4-a716-446655440002",
-            "text": "Die Addition zweier komplexer Zahlen erfolgt komponentenweise.",
-            "formula": "(a + bi) + (c + di) = (a + c) + (b + d)i",
-            "explanation": "Realteil und Imaginärteil werden jeweils separat addiert."
-        },
-        {
-            "id": "770e8400-e29b-41d4-a716-446655440003",
-            "text": "Die Multiplikation zweier komplexer Zahlen erfolgt durch Ausmultiplizieren und Nutzen von i² = -1.",
-            "formula": "(a + bi) \\cdot (c + di) = (ac - bd) + (ad + bc)i",
-            "explanation": "Die Formel ergibt sich durch Ausmultiplizieren und Zusammenfassen der Terme."
-        },
-        {
-            "id": "770e8400-e29b-41d4-a716-446655440004",
-            "text": "Jede komplexe Zahl z = a + bi hat eine konjugiert komplexe Zahl z* = a - bi.",
-            "formula": "z = a + bi \\quad \\Rightarrow \\quad z^* = a - bi",
-            "explanation": "Die konjugiert komplexe Zahl entsteht durch Vorzeichenwechsel des Imaginärteils."
-        },
-        {
-            "id": "770e8400-e29b-41d4-a716-446655440005",
-            "text": "Der Betrag einer komplexen Zahl z = a + bi ist definiert als |z| = √(a² + b²).",
-            "formula": "|z| = \\sqrt{a^2 + b^2} = \\sqrt{z \\cdot z^*}",
-            "explanation": "Der Betrag gibt den Abstand der Zahl vom Ursprung in der komplexen Ebene an."
-        },
-        {
-            "id": "770e8400-e29b-41d4-a716-446655440006",
-            "text": "Komplexe Zahlen können in der Gaußschen Zahlenebene dargestellt werden.",
-            "formula": "z = a + bi \\quad \\Leftrightarrow \\quad (a,b) \\in \\mathbb{R}^2",
-            "explanation": "Die x-Achse repräsentiert den Realteil, die y-Achse den Imaginärteil."
-        },
-        {
-            "id": "770e8400-e29b-41d4-a716-446655440007",
-            "text": "Das Argument einer komplexen Zahl ist der Winkel zur positiven reellen Achse.",
-            "formula": "\\arg(z) = \\arctan\\left(\\frac{b}{a}\\right)",
-            "explanation": "Das Argument bestimmt die Richtung der komplexen Zahl in der Gaußschen Zahlenebene."
-        },
-        {
-            "id": "770e8400-e29b-41d4-a716-446655440008",
-            "text": "Die Polardarstellung einer komplexen Zahl verwendet den Betrag und das Argument.",
-            "formula": "z = |z| (\\cos(\\varphi) + i \\sin(\\varphi))",
-            "explanation": "Die Polardarstellung ist besonders nützlich bei Multiplikation und Division komplexer Zahlen."
-        },
-        {
-            "id": "770e8400-e29b-41d4-a716-446655440009",
-            "text": "Die Eulersche Formel verbindet die trigonometrische und exponentielle Darstellung komplexer Zahlen.",
-            "formula": "e^{i\\varphi} = \\cos(\\varphi) + i \\sin(\\varphi)",
-            "explanation": "Dies führt zur Exponentialdarstellung: z = |z| \\cdot e^{i\\varphi}."
-        },
-        {
-            "id": "770e8400-e29b-41d4-a716-446655440010",
-            "text": "Die Multiplikation komplexer Zahlen in Polarform ist einfacher.",
-            "formula": "z_1 \\cdot z_2 = |z_1| \\cdot |z_2| \\cdot e^{i(\\varphi_1 + \\varphi_2)}",
-            "explanation": "Beträge werden multipliziert, Winkel werden addiert."
-        },
-        {
-            "id": "770e8400-e29b-41d4-a716-446655440011",
-            "text": "Die Division komplexer Zahlen in Polarform erfolgt ebenfalls durch Betragsteilung und Winkelabzug.",
-            "formula": "\\frac{z_1}{z_2} = \\frac{|z_1|}{|z_2|} \\cdot e^{i(\\varphi_1 - \\varphi_2)}",
-            "explanation": "Beträge werden dividiert, Winkel werden subtrahiert."
-        },
-        {
-            "id": "770e8400-e29b-41d4-a716-446655440012",
-            "text": "Die n-te Wurzel einer komplexen Zahl ergibt n verschiedene Lösungen.",
-            "formula": "z_k = \\sqrt[n]{|z|} \\cdot e^{i(\\frac{\\varphi + 2k\\pi}{n})} \\quad \\text{für} \\quad k=0,1,...,n-1",
-            "explanation": "Die Lösungen sind gleichmäßig auf einem Kreis in der Gaußschen Zahlenebene verteilt."
-        },
-        {
-            "id": "770e8400-e29b-41d4-a716-446655440013",
-            "text": "Die komplexe Konjugation einer Zahl z spiegelt die Zahl an der reellen Achse.",
-            "formula": "\\overline{z} = a - bi",
-            "explanation": "Die konjugiert komplexe Zahl hat den gleichen Realteil, aber den negativen Imaginärteil."
-        },
-        {
-            "id": "770e8400-e29b-41d4-a716-446655440014",
-            "text": "Das Produkt einer Zahl mit ihrer konjugierten Zahl ergibt das Quadrat des Betrags.",
-            "formula": "z \\cdot \\overline{z} = |z|^2",
-            "explanation": "Dies resultiert aus der Definition des Betrags und der Konjugation."
-        },
-        {
-            "id": "770e8400-e29b-41d4-a716-446655440015",
-            "text": "Komplexe Exponentialfunktionen haben eine Periodizität von 2π.",
-            "formula": "e^{i(\\varphi + 2\\pi)} = e^{i\\varphi}",
-            "explanation": "Dies bedeutet, dass sich die komplexe Ebene bei einem Umlauf um 2π wiederholt."
-        },
-        {
-            "id": "770e8400-e29b-41d4-a716-446655440016",
-            "text": "Die komplexe Zahl z = 0 hat keine definierte Phase.",
-            "formula": "\\arg(0) \\text{ ist undefiniert}",
-            "explanation": "Da der Betrag 0 ist, kann kein Winkel definiert werden."
-        }
-    ]
-} 
+  "id": "770e8400-e29b-41d4-a716-446655440000",
+  "topic": "Komplexe Zahlen",
+  "title": "Einführung in komplexe Zahlen",
+  "description": "Lass uns die grundlegenden Konzepte der komplexen Zahlen Schritt für Schritt erkunden.",
+  "steps": [
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440001",
+      "section": "Kapitel 1 · Warum neue Zahlen?",
+      "text": "Willkommen! Komplexe Zahlen haben einen merkwürdigen Ruf: „imaginär“, also eingebildet. Tatsächlich sind sie so real wie negative Zahlen – und sie machen Drehungen, Schwingungen und Polynomgleichungen erstaunlich einfach.",
+      "explanation": "Unser Fahrplan:\n1. Warum man neue Zahlen braucht\n2. Rechnen mit \\(a + bi\\) – algebraisch und geometrisch\n3. Konjugation, Betrag und Division\n4. Polarform: Multiplizieren heißt Drehen und Strecken\n5. Potenzen und Wurzeln, Einheitswurzeln\n6. Polynome, Fundamentalsatz und typische Fehler\n7. Ausblick und Rückblick",
+      "insight": "Die wichtigste Idee vorweg: Eine komplexe Zahl ist ein Punkt in der Ebene. Rechnen mit ihr ist Geometrie."
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440002",
+      "section": "Kapitel 1 · Warum neue Zahlen?",
+      "text": "Die Gleichung \\(x^2 = -1\\) hat keine reelle Lösung, denn Quadrate sind nie negativ. Ist das ein Problem? Zunächst nicht – man sagt einfach „unlösbar“. Aber im 16. Jahrhundert stieß man auf einen echten Widerspruch:",
+      "formula": "\\begin{array}{c} x^3 = 15x + 4 \\quad \\text{hat die Lösung } x = 4 \\\\[8pt] \\text{Cardanos Formel liefert:} \\\\[2pt] x = \\sqrt[3]{2 + \\sqrt{-121}} + \\sqrt[3]{2 - \\sqrt{-121}} \\end{array}",
+      "explanation": "Probe: \\(4^3 = 64 = 15 \\cdot 4 + 4\\) ✓. Es gibt also eine ganz gewöhnliche reelle Lösung.\n\nDie Lösungsformel für kubische Gleichungen führt aber durch \\(\\sqrt{-121}\\) – eine „unmögliche“ Zahl. Rafael Bombelli (1572) rechnete trotzdem mutig damit weiter, als gäbe es \\(\\sqrt{-1}\\), und erhielt am Ende genau \\(x = 4\\).\n\nDie Lehre: Selbst um REELLE Lösungen zu finden, muss man manchmal durch die komplexen Zahlen hindurch.",
+      "insight": "Neue Zahlen werden nicht erfunden, weil man es kann, sondern weil man sie braucht. Genauso entstanden die negativen Zahlen und die Brüche."
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440003",
+      "section": "Kapitel 1 · Warum neue Zahlen?",
+      "text": "Wir führen eine neue Zahl \\(i\\) ein, die imaginäre Einheit, mit einer einzigen Eigenschaft: \\(i^2 = -1\\). Eine komplexe Zahl hat dann die Form:",
+      "formula": "\\begin{array}{c} z = a + bi \\quad \\text{mit } a, b \\in \\mathbb{R} \\\\[6pt] \\operatorname{Re}(z) = a \\;\\; \\text{(Realteil)} \\\\ \\operatorname{Im}(z) = b \\;\\; \\text{(Imaginärteil)} \\end{array}",
+      "explanation": "Beispiele: \\(3 + 2i\\), \\(-1 + i\\), \\(5\\) (mit \\(b = 0\\), eine reelle Zahl), \\(4i\\) (mit \\(a = 0\\), „rein imaginär“).\n\nVorsicht: Der Imaginärteil ist die REELLE Zahl \\(b\\), nicht \\(bi\\). Für \\(z = 3 + 2i\\) ist \\(\\operatorname{Im}(z) = 2\\).\n\nZwei komplexe Zahlen sind genau dann gleich, wenn Real- und Imaginärteil übereinstimmen. Jede Gleichung zwischen komplexen Zahlen sind also eigentlich ZWEI reelle Gleichungen.\n\nDie Menge aller komplexen Zahlen heißt \\(\\mathbb{C}\\). Sie enthält \\(\\mathbb{R}\\) als die Zahlen mit \\(b = 0\\).",
+      "insight": "Formal kann man \\(\\mathbb{C}\\) auch ohne „geheimnisvolles“ \\(i\\) definieren: als \\(\\mathbb{R}^2\\) mit einer besonderen Multiplikation. Das \\(i\\) ist dann einfach der Punkt \\((0, 1)\\)."
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440004",
+      "section": "Kapitel 2 · Rechnen mit a + bi",
+      "text": "Eine komplexe Zahl \\(a + bi\\) stellt man als Punkt \\((a, b)\\) in der Ebene dar – der Gaußschen Zahlenebene. Addieren heißt dann: Vektoren addieren.",
+      "visual": "complexOperations",
+      "formula": "(a + bi) + (c + di) = (a + c) + (b + d)i",
+      "explanation": "Real- und Imaginärteile werden getrennt addiert – genau wie die Koordinaten von Vektoren.\n\nBeispiel: \\((2 + i) + (1 + 2i) = 3 + 3i\\).\n\nDie Animation zeigt außerdem schon zwei Dinge, die wir gleich genauer anschauen: das Konjugieren (Spiegeln) und die Multiplikation mit \\(i\\) (Drehen um \\(90°\\)).",
+      "insight": "Waagerechte Achse = reelle Achse, senkrechte Achse = imaginäre Achse. Die reellen Zahlen sind eine Gerade in dieser Ebene."
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440005",
+      "section": "Kapitel 2 · Rechnen mit a + bi",
+      "text": "Multiplizieren funktioniert durch Ausmultiplizieren – mit der einzigen neuen Regel \\(i^2 = -1\\):",
+      "formula": "\\begin{aligned} (a + bi)(c + di) &= ac + adi + bci + bd\\,i^2 \\\\ &= (ac - bd) + (ad + bc)i \\\\[6pt] (2 + 3i)(1 - i) &= 2 - 2i + 3i - 3i^2 = 5 + i \\end{aligned}",
+      "explanation": "Die allgemeine Formel muss man nicht auswendig lernen. Einfach ausmultiplizieren wie bei Binomen, und jedes \\(i^2\\) durch \\(-1\\) ersetzen.\n\nIm Beispiel: \\(-3i^2 = -3 \\cdot (-1) = +3\\). Dann Realteile zusammenfassen: \\(2 + 3 = 5\\). Imaginärteile: \\(-2i + 3i = i\\).\n\nAlle bekannten Rechenregeln gelten weiter: kommutativ, assoziativ, distributiv. \\(\\mathbb{C}\\) ist ein Körper (siehe Lektion „Körper“).",
+      "insight": "Multiplikation mit \\(i\\): \\(i \\cdot (a + bi) = -b + ai\\). Der Punkt \\((a, b)\\) wandert nach \\((-b, a)\\) – das ist eine Drehung um \\(90°\\)!"
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440006",
+      "section": "Kapitel 2 · Rechnen mit a + bi",
+      "text": "Die Potenzen von \\(i\\) wiederholen sich mit Periode 4:",
+      "formula": "\\begin{array}{c} i^1 = i, \\quad i^2 = -1, \\quad i^3 = -i, \\quad i^4 = 1, \\quad i^5 = i, \\dots \\\\[6pt] i^{2026} = i^{4 \\cdot 506 + 2} = (i^4)^{506} \\cdot i^2 = -1 \\end{array}",
+      "explanation": "Geometrisch: Jede Multiplikation mit \\(i\\) dreht um \\(90°\\). Nach vier Drehungen ist man wieder am Start.\n\nRezept: Den Exponenten durch 4 teilen, nur der Rest zählt. \\(2026 = 4 \\cdot 506 + 2\\), Rest \\(2\\), also \\(i^{2026} = i^2 = -1\\).\n\nAuch negative Exponenten: \\(i^{-1} = \\frac{1}{i} = -i\\), denn \\(i \\cdot (-i) = -i^2 = 1\\).",
+      "insight": "\\(\\frac{1}{i} = -i\\) überrascht viele. Kontrolliere es immer durch Multiplizieren: \\(i \\cdot (-i) = 1\\) ✓"
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440007",
+      "section": "Kapitel 3 · Konjugation, Betrag, Division",
+      "text": "Die konjugiert komplexe Zahl \\(\\bar{z}\\) entsteht durch Umdrehen des Vorzeichens beim Imaginärteil – geometrisch eine Spiegelung an der reellen Achse.",
+      "formula": "\\begin{aligned} z = a + bi \\;&\\Longrightarrow\\; \\bar{z} = a - bi \\\\[4pt] z \\cdot \\bar{z} &= (a + bi)(a - bi) = a^2 + b^2 \\end{aligned}",
+      "explanation": "Das Produkt \\(z \\bar{z}\\) ist immer reell und \\(\\ge 0\\) – die dritte binomische Formel mit \\(i^2 = -1\\): \\(a^2 - (bi)^2 = a^2 + b^2\\).\n\nWeitere Regeln:\n• \\(\\overline{z + w} = \\bar{z} + \\bar{w}\\) und \\(\\overline{z \\cdot w} = \\bar{z} \\cdot \\bar{w}\\)\n• \\(z + \\bar{z} = 2\\operatorname{Re}(z)\\)\n• \\(z\\) ist genau dann reell, wenn \\(z = \\bar{z}\\).",
+      "insight": "Konjugieren ist ein Körperhomomorphismus von \\(\\mathbb{C}\\) auf sich – eine Symmetrie, die \\(\\mathbb{R}\\) festlässt. Unter allen solchen Symmetrien ist sie die einzige außer der Identität, denn \\(i\\) muss wieder auf eine Lösung von \\(x^2 = -1\\) gehen, also auf \\(i\\) oder \\(-i\\)."
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440008",
+      "section": "Kapitel 3 · Konjugation, Betrag, Division",
+      "text": "Der Betrag \\(|z|\\) ist der Abstand des Punktes \\(z\\) vom Nullpunkt – nach Pythagoras:",
+      "formula": "|z| = \\sqrt{a^2 + b^2} = \\sqrt{z \\bar{z}}, \\qquad |3 + 4i| = \\sqrt{9 + 16} = 5",
+      "explanation": "Für reelle Zahlen (\\(b = 0\\)) ist das der bekannte Betrag \\(|a|\\).\n\nWichtige Regeln:\n• \\(|z \\cdot w| = |z| \\cdot |w|\\)\n• \\(|z + w| \\le |z| + |w|\\) (Dreiecksungleichung: Eine Dreiecksseite ist nie länger als die beiden anderen zusammen)\n• \\(|z - w|\\) ist der Abstand der Punkte \\(z\\) und \\(w\\).\n\nBeispiel: Alle \\(z\\) mit \\(|z - 1| = 2\\) bilden einen Kreis um \\(1\\) mit Radius \\(2\\).",
+      "insight": "Typischer Fehler: \\(|z|^2 = z^2\\). Richtig ist \\(|z|^2 = z \\bar{z}\\). Für \\(z = i\\): \\(|i|^2 = 1\\), aber \\(i^2 = -1\\)."
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440009",
+      "section": "Kapitel 3 · Konjugation, Betrag, Division",
+      "text": "Wie teilt man durch eine komplexe Zahl? Man erweitert mit dem Konjugierten des Nenners. Dann wird der Nenner reell:",
+      "formula": "\\frac{5 + i}{1 - i} = \\frac{(5 + i)(1 + i)}{(1 - i)(1 + i)} = \\frac{5 + 5i + i + i^2}{1 + 1} = \\frac{4 + 6i}{2} = 2 + 3i",
+      "explanation": "Probe: \\((2 + 3i)(1 - i) = 5 + i\\) – genau das Beispiel aus Kapitel 2 ✓\n\nAllgemein: \\(\\frac{1}{z} = \\frac{\\bar{z}}{|z|^2}\\) für \\(z \\neq 0\\).\n\nDas ist derselbe Trick wie beim Rationalmachen von Nennern mit Wurzeln (\\(\\frac{1}{\\sqrt{3} - 1}\\)) aus der Lektion „Binomische Formeln“.",
+      "insight": "Ziel jeder Division: einen Ausdruck der Form \\(a + bi\\) erhalten. Ein \\(i\\) im Nenner ist noch nicht fertig."
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440010",
+      "section": "Kapitel 4 · Polarform: Länge und Winkel",
+      "text": "Jetzt kommt die eigentliche Stärke der komplexen Zahlen. Statt durch \\((a, b)\\) kann man einen Punkt auch durch Länge und Winkel beschreiben – die Polarform:",
+      "formula": "\\begin{array}{c} z = r(\\cos\\varphi + i \\sin\\varphi) \\\\[6pt] r = |z| \\;\\; \\text{(Länge)}, \\qquad \\varphi = \\arg(z) \\;\\; \\text{(Winkel)} \\end{array}",
+      "explanation": "Der Winkel \\(\\varphi\\) wird von der positiven reellen Achse aus gegen den Uhrzeigersinn gemessen.\n\nUmrechnung von Polar- in Normalform: \\(a = r\\cos\\varphi\\), \\(b = r\\sin\\varphi\\).\n\nBeispiele:\n• \\(1 + i = \\sqrt{2}\\,(\\cos 45° + i \\sin 45°)\\)\n• \\(i = 1 \\cdot (\\cos 90° + i \\sin 90°)\\)\n• \\(-2 = 2\\,(\\cos 180° + i \\sin 180°)\\)\n\nDer Winkel ist nur bis auf Vielfache von \\(360°\\) bestimmt. Meist wählt man ihn in \\((-180°, 180°]\\) oder \\([0°, 360°)\\). Für \\(z = 0\\) ist kein Winkel definiert.",
+      "insight": "Normalform \\(a + bi\\) ist praktisch zum Addieren. Polarform ist praktisch zum Multiplizieren. Man wechselt je nach Aufgabe."
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440011",
+      "section": "Kapitel 4 · Polarform: Länge und Winkel",
+      "text": "Vorsicht beim Berechnen des Winkels: Die Formel \\(\\varphi = \\arctan\\frac{b}{a}\\) liefert nur Winkel zwischen \\(-90°\\) und \\(90°\\) – sie kennt den Quadranten nicht.",
+      "formula": "\\begin{aligned} z = 1 + i\\colon\\; &\\arctan\\tfrac{1}{1} = 45° \\quad \\checkmark \\\\ z = -1 - i\\colon\\; &\\arctan\\tfrac{-1}{-1} = 45° \\quad \\text{falsch! Richtig: } 225° \\end{aligned}",
+      "explanation": "\\(-1 - i\\) liegt links unten (3. Quadrant), \\(1 + i\\) rechts oben. Beide haben denselben Quotienten \\(\\frac{b}{a} = 1\\).\n\nRezept:\n1. Skizze machen – in welchem Quadranten liegt \\(z\\)?\n2. Ist \\(a > 0\\): \\(\\varphi = \\arctan\\frac{b}{a}\\).\n3. Ist \\(a < 0\\): \\(\\varphi = \\arctan\\frac{b}{a} + 180°\\).\n4. Ist \\(a = 0\\): \\(\\varphi = 90°\\) für \\(b > 0\\), \\(\\varphi = -90°\\) für \\(b < 0\\).\n\nFür \\(-1 - i\\): \\(45° + 180° = 225°\\) (oder gleichwertig \\(-135°\\)).",
+      "insight": "Eine Skizze in der Zahlenebene kostet fünf Sekunden und verhindert den häufigsten Fehler bei der Polarform."
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440012",
+      "section": "Kapitel 4 · Polarform: Länge und Winkel",
+      "text": "Und jetzt das Herzstück: Beim Multiplizieren werden die Beträge multipliziert und die Winkel ADDIERT.",
+      "visual": "complexMultiplication",
+      "formula": "\\begin{aligned} z_1 &= r_1(\\cos\\varphi_1 + i\\sin\\varphi_1) \\\\ z_2 &= r_2(\\cos\\varphi_2 + i\\sin\\varphi_2) \\\\[4pt] z_1 z_2 &= r_1 r_2 \\big(\\cos(\\varphi_1 + \\varphi_2) \\\\ &\\qquad + i\\sin(\\varphi_1 + \\varphi_2)\\big) \\end{aligned}",
+      "explanation": "Beweis durch Ausmultiplizieren:\nDer Realteil von \\((\\cos\\varphi_1 + i\\sin\\varphi_1)(\\cos\\varphi_2 + i\\sin\\varphi_2)\\) ist\n\\(\\cos\\varphi_1\\cos\\varphi_2 - \\sin\\varphi_1\\sin\\varphi_2 = \\cos(\\varphi_1 + \\varphi_2)\\),\nder Imaginärteil ist\n\\(\\sin\\varphi_1\\cos\\varphi_2 + \\cos\\varphi_1\\sin\\varphi_2 = \\sin(\\varphi_1 + \\varphi_2)\\).\nDas sind genau die Additionstheoreme. ∎\n\nGeometrisch: Multiplizieren mit \\(z\\) heißt drehen um \\(\\arg z\\) und strecken um \\(|z|\\).\n\nDivision entsprechend: Beträge teilen, Winkel subtrahieren.",
+      "insight": "Damit wird klar, warum \\(i \\cdot z\\) eine Drehung um \\(90°\\) ist: \\(|i| = 1\\) und \\(\\arg i = 90°\\)."
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440013",
+      "section": "Kapitel 4 · Polarform: Länge und Winkel",
+      "text": "Eine sehr kompakte Schreibweise liefert die Eulersche Formel. Sie verbindet Exponentialfunktion und Trigonometrie:",
+      "formula": "\\begin{array}{c} e^{i\\varphi} = \\cos\\varphi + i\\sin\\varphi \\\\[6pt] z = r\\,e^{i\\varphi}, \\qquad z_1 z_2 = r_1 r_2\\, e^{i(\\varphi_1 + \\varphi_2)} \\end{array}",
+      "explanation": "Hier rechnet man mit Winkeln im Bogenmaß: \\(180° = \\pi\\), \\(90° = \\frac{\\pi}{2}\\).\n\nWarum „\\(e\\) hoch“? Weil die Regel \\(e^{i\\varphi_1} \\cdot e^{i\\varphi_2} = e^{i(\\varphi_1 + \\varphi_2)}\\) genau dem Potenzgesetz \\(e^x e^y = e^{x+y}\\) entspricht – Winkel addieren sich wie Exponenten. (Ein Beweis gelingt mit Potenzreihen in der Analysis.)\n\nSetzt man \\(\\varphi = \\pi\\) ein, erhält man eine der berühmtesten Formeln der Mathematik:\n\\(e^{i\\pi} = -1\\), also \\(e^{i\\pi} + 1 = 0\\).\nSie verbindet die fünf wichtigsten Zahlen \\(0, 1, \\pi, e, i\\).",
+      "insight": "\\(e^{i\\varphi}\\) ist immer ein Punkt auf dem Einheitskreis, denn \\(|e^{i\\varphi}| = \\sqrt{\\cos^2\\varphi + \\sin^2\\varphi} = 1\\)."
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440014",
+      "section": "Kapitel 5 · Potenzen und Wurzeln",
+      "text": "Aus der Multiplikationsregel folgt sofort die Formel von de Moivre: Beim Potenzieren wird der Betrag potenziert und der Winkel vervielfacht.",
+      "formula": "\\begin{aligned} z^n &= r^n \\big(\\cos(n\\varphi) + i\\sin(n\\varphi)\\big) = r^n e^{in\\varphi} \\\\[6pt] (1 + i)^8 &= (\\sqrt{2})^8 \\big(\\cos 360° + i \\sin 360°\\big) = 16 \\end{aligned}",
+      "explanation": "Für \\((1 + i)^8\\): \\(r = \\sqrt{2}\\), \\(\\varphi = 45°\\). Dann \\(r^8 = 2^4 = 16\\) und \\(8 \\cdot 45° = 360°\\).\n\nMit der Normalform müsste man siebenmal ausmultiplizieren! (Kontrolle auf diesem Weg: \\((1 + i)^2 = 2i\\), also \\((1 + i)^8 = (2i)^4 = 16 i^4 = 16\\) ✓)\n\nNebenbei liefert de Moivre Formeln wie \\(\\cos 2\\varphi = \\cos^2\\varphi - \\sin^2\\varphi\\) – einfach \\(n = 2\\) setzen und Realteile vergleichen.",
+      "insight": "Faustregel: Hohe Potenzen immer in Polarform berechnen."
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440015",
+      "section": "Kapitel 5 · Potenzen und Wurzeln",
+      "text": "Umgekehrt: Welche \\(z\\) erfüllen \\(z^n = 1\\)? Diese Zahlen heißen \\(n\\)-te Einheitswurzeln. Es gibt genau \\(n\\) Stück:",
+      "visual": "rootsOfUnity",
+      "formula": "\\begin{array}{c} z^n = 1 \\iff z = e^{2\\pi i k / n} \\\\[4pt] = \\cos\\tfrac{2\\pi k}{n} + i\\sin\\tfrac{2\\pi k}{n}, \\quad k = 0, \\dots, n - 1 \\end{array}",
+      "explanation": "Herleitung mit Polarform: Aus \\(|z|^n = 1\\) folgt \\(|z| = 1\\). Aus \\(n\\varphi = 0°\\) „bis auf Vielfache von \\(360°\\)“ folgt \\(\\varphi = \\frac{360° \\cdot k}{n}\\).\n\nFür \\(n = 3\\): \\(z = 1\\), \\(z = -\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i\\), \\(z = -\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i\\).\nProbe für die zweite: Winkel \\(120°\\), und \\(3 \\cdot 120° = 360°\\) ✓\n\nIm Reellen hat \\(z^3 = 1\\) nur die Lösung \\(1\\). Im Komplexen gibt es drei – ein regelmäßiges Dreieck auf dem Einheitskreis.",
+      "insight": "Genauso hat \\(z^n = w\\) für jedes \\(w \\neq 0\\) genau \\(n\\) Lösungen: Betrag \\(\\sqrt[n]{|w|}\\), Winkel \\(\\frac{\\arg w + 360° k}{n}\\)."
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440016",
+      "section": "Kapitel 6 · Polynome und typische Fehler",
+      "text": "In \\(\\mathbb{C}\\) ist jede quadratische Gleichung lösbar. Die bekannte Formel funktioniert weiter – eine negative Diskriminante ist kein Problem mehr.",
+      "formula": "\\begin{aligned} z^2 + 2z + 5 &= 0 \\\\ z &= -1 \\pm \\sqrt{1 - 5} = -1 \\pm \\sqrt{-4} = -1 \\pm 2i \\end{aligned}",
+      "explanation": "\\(\\sqrt{-4}\\) meint hier eine Zahl, deren Quadrat \\(-4\\) ist: \\((2i)^2 = -4\\) ✓\n\nProbe für \\(z = -1 + 2i\\):\n\\(z^2 = 1 - 4i + 4i^2 = -3 - 4i\\)\n\\(z^2 + 2z + 5\\) \\(= -3 - 4i - 2 + 4i + 5\\) \\(= 0\\) ✓\n\nDie beiden Lösungen sind zueinander konjugiert: \\(-1 + 2i\\) und \\(-1 - 2i\\). Das ist kein Zufall: Hat ein Polynom reelle Koeffizienten und ist \\(z\\) eine Nullstelle, dann auch \\(\\bar{z}\\).",
+      "insight": "In der Lektion „Eigenwerte“ hatte die Drehmatrix keine reellen Eigenwerte. Mit komplexen Zahlen findet man sie: \\(\\lambda = \\pm i\\)."
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440017",
+      "section": "Kapitel 6 · Polynome und typische Fehler",
+      "text": "Die komplexen Zahlen sind „vollständig“, was Gleichungen angeht. Das besagt der Fundamentalsatz der Algebra (Gauß, 1799):",
+      "formula": "\\begin{array}{c} \\text{Jedes Polynom vom Grad } n \\ge 1 \\\\ \\text{hat eine Nullstelle in } \\mathbb{C}. \\\\[6pt] \\Downarrow \\\\[2pt] p(z) = a_n (z - z_1) \\cdots (z - z_n) \\end{array}",
+      "explanation": "Mit Polynomdivision (Lektion „Ringe“) spaltet man eine Nullstelle nach der anderen ab. Jedes Polynom zerfällt in \\(\\mathbb{C}\\) also vollständig in Linearfaktoren – mit Vielfachheiten genau \\(n\\) Nullstellen.\n\nBeispiel: \\(z^4 - 1\\) \\(= (z - 1)(z + 1)(z - i)(z + i)\\).\n\nDas Erstaunliche: Man hat \\(\\mathbb{R}\\) nur um eine Lösung von EINER Gleichung (\\(z^2 = -1\\)) erweitert – und dadurch werden ALLE Polynomgleichungen lösbar, sogar solche mit komplexen Koeffizienten.",
+      "insight": "Deshalb rechnet man in der Linearen Algebra so gern über \\(\\mathbb{C}\\): Jede Matrix hat dort Eigenwerte."
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440018",
+      "section": "Kapitel 6 · Polynome und typische Fehler",
+      "text": "Typische Fehler mit komplexen Zahlen:",
+      "formula": "\\begin{array}{ll} \\sqrt{-1} \\cdot \\sqrt{-1} = 1 & \\text{falsch: } i \\cdot i = -1 \\\\ |z|^2 = z^2 & \\text{falsch: } z\\bar{z} \\\\ \\arg(-1 - i) = 45° & \\text{falsch: } 225° \\\\ z < w & \\text{nicht definiert} \\end{array}",
+      "explanation": "Zeile 1: Der Fehler steckt im Schritt \\(\\sqrt{-1} \\cdot \\sqrt{-1} = \\sqrt{(-1)(-1)}\\). Die Regel \\(\\sqrt{a}\\sqrt{b} = \\sqrt{ab}\\) gilt nur für \\(a, b \\ge 0\\). Für negative Zahlen ist „die“ Wurzel nicht eindeutig (sowohl \\(i\\) als auch \\(-i\\) quadrieren zu \\(-1\\)). Schreibe deshalb immer \\(i\\) statt \\(\\sqrt{-1}\\).\n\nZeile 4: \\(\\mathbb{C}\\) lässt sich nicht anordnen (Lektion „Körper“). Vergleichen kann man nur Beträge: \\(|z| < |w|\\).",
+      "insight": "Wurzelgesetze, die du für positive Zahlen kennst, gelten in \\(\\mathbb{C}\\) nicht. Rechne mit \\(i\\) und der Regel \\(i^2 = -1\\) – das ist immer sicher."
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440019",
+      "section": "Kapitel 7 · Ausblick und Rückblick",
+      "text": "Ausblick: Wo begegnen dir komplexe Zahlen wieder?",
+      "explanation": "• Schwingungen und Wellen: \\(e^{i\\omega t}\\) beschreibt eine Kreisbewegung, ihr Realteil eine Schwingung. Wechselstromrechnung in der Elektrotechnik nutzt genau das.\n\n• Differentialgleichungen: Die Lösungen von \\(y'' + y = 0\\) sind \\(\\cos t\\) und \\(\\sin t\\) – oder kompakt \\(e^{\\pm it}\\).\n\n• Fourier-Analyse: Jedes Signal wird in Schwingungen \\(e^{ikx}\\) zerlegt. Grundlage von MP3, JPEG und Bildgebung in der Medizin.\n\n• Quantenmechanik: Zustände sind komplexe Vektoren.\n\n• Funktionentheorie: Differenzierbare komplexe Funktionen haben erstaunliche Eigenschaften, mit denen man sogar reelle Integrale berechnet.",
+      "insight": "Merke: Die Exponentialfunktion mit imaginärem Exponenten ist eine Drehung. Dieser eine Satz erklärt die meisten Anwendungen."
+    },
+    {
+      "id": "770e8400-e29b-41d4-a716-446655440020",
+      "section": "Kapitel 7 · Ausblick und Rückblick",
+      "text": "Schau zurück, wie die Begriffe auseinander hervorgegangen sind:",
+      "explanation": "1. \\(i^2 = -1\\), \\(z = a + bi\\). Gebraucht schon für reelle Lösungen kubischer Gleichungen.\n\n2. Addieren wie Vektoren, multiplizieren durch Ausmultiplizieren. \\(i^n\\) hat Periode 4.\n\n3. \\(\\bar{z} = a - bi\\), \\(z\\bar{z} = |z|^2 = a^2 + b^2\\). Division: mit \\(\\bar{z}\\) erweitern.\n\n4. Polarform \\(z = r e^{i\\varphi}\\). Winkel mit Skizze bestimmen! Multiplizieren = Beträge mal, Winkel plus.\n\n5. de Moivre: \\(z^n = r^n e^{in\\varphi}\\). \\(z^n = 1\\) hat \\(n\\) Lösungen – ein regelmäßiges \\(n\\)-Eck.\n\n6. Quadratische Gleichungen immer lösbar, Fundamentalsatz der Algebra. Keine Wurzelgesetze für negative Zahlen, keine Anordnung.",
+      "insight": "Glückwunsch! Damit hast du alle Grundlagen der höheren Mathematik durchgearbeitet – von Mengen und Logik bis zu komplexen Zahlen."
+    }
+  ]
+}

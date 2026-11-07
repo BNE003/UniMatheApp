@@ -1,179 +1,157 @@
-{    "id": "ee0e8400-e29b-41d4-a716-446655440061",
-    "topic": "Gruppen",
-    "steps": [
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440062",
-            "text": "Eine Gruppe ist eine Menge mit einer Verknüpfung, die bestimmte Eigenschaften erfüllt.",
-            "formula": "(G, \\circ) \\text{ ist eine Gruppe, wenn:} \\\\ 1. \\text{ Assoziativität: } (a \\circ b) \\circ c = a \\circ (b \\circ c) \\\\ 2. \\text{ Neutrales Element: } \\exists e \\in G: e \\circ a = a \\circ e = a \\\\ 3. \\text{ Inverse Elemente: } \\forall a \\in G \\exists a^{-1} \\in G: a \\circ a^{-1} = a^{-1} \\circ a = e",
-            "explanation": "Eine Gruppe ist wie ein mathematisches Team. Es ist wie das Zusammenspiel von Elementen mit bestimmten Regeln!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440063",
-            "text": "Eine abelsche Gruppe erfüllt zusätzlich das Kommutativgesetz.",
-            "formula": "a \\circ b = b \\circ a \\text{ für alle } a,b \\in G",
-            "explanation": "Eine abelsche Gruppe ist wie ein besonders harmonisches Team. Es ist wie das Zusammenspiel von Elementen, bei dem die Reihenfolge keine Rolle spielt!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440064",
-            "text": "Die Ordnung einer Gruppe ist die Anzahl ihrer Elemente.",
-            "formula": "|G| = \\text{Anzahl der Elemente in } G",
-            "explanation": "Die Ordnung ist wie die Größe des Teams. Es ist wie das Zählen der Mitglieder!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440065",
-            "text": "Die Ordnung eines Elements ist die kleinste positive Potenz, die das neutrale Element ergibt.",
-            "formula": "\\text{ord}(a) = \\min\\{n \\in \\mathbb{N} \\mid a^n = e\\}",
-            "explanation": "Die Elementordnung ist wie die Anzahl der Schritte bis zur Rückkehr zum Ausgangspunkt. Es ist wie das Messen von Zyklen!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440066",
-            "text": "Eine Untergruppe ist eine Teilmenge, die selbst eine Gruppe ist.",
-            "formula": "H \\subseteq G \\text{ ist Untergruppe, wenn:} \\\\ 1. e \\in H \\\\ 2. a,b \\in H \\Rightarrow a \\circ b \\in H \\\\ 3. a \\in H \\Rightarrow a^{-1} \\in H",
-            "explanation": "Eine Untergruppe ist wie ein Team innerhalb des Teams. Es ist wie das Finden einer kleineren, aber vollständigen Struktur!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440067",
-            "text": "Eine zyklische Gruppe wird von einem Element erzeugt.",
-            "formula": "G = \\langle a \\rangle = \\{a^n \\mid n \\in \\mathbb{Z}\\}",
-            "explanation": "Eine zyklische Gruppe ist wie ein Team, das von einem Mitglied angeführt wird. Es ist wie das Erzeugen aller Elemente durch Wiederholung!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440068",
-            "text": "Eine symmetrische Gruppe besteht aus allen Permutationen einer Menge.",
-            "formula": "S_n = \\{\\sigma: \\{1,\\ldots,n\\} \\rightarrow \\{1,\\ldots,n\\} \\mid \\sigma \\text{ bijektiv}\\}",
-            "explanation": "Eine symmetrische Gruppe ist wie ein Team von Umordnern. Es ist wie das systematische Vertauschen von Elementen!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440069",
-            "text": "Eine Diedergruppe beschreibt die Symmetrien eines regelmäßigen n-Ecks.",
-            "formula": "D_n = \\langle r,s \\mid r^n = s^2 = e, srs = r^{-1}\\rangle",
-            "explanation": "Eine Diedergruppe ist wie ein Team von Spiegelungen und Drehungen. Es ist wie das Beschreiben von geometrischen Symmetrien!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440070",
-            "text": "Ein Gruppenhomomorphismus ist eine strukturerhaltende Abbildung.",
-            "formula": "\\phi: G \\rightarrow H \\text{ mit } \\phi(a \\circ b) = \\phi(a) \\circ \\phi(b)",
-            "explanation": "Ein Homomorphismus ist wie ein Übersetzer zwischen Teams. Es ist wie das Übertragen von Strukturen!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440071",
-            "text": "Der Kern eines Homomorphismus ist die Menge der Elemente, die auf das neutrale Element abgebildet werden.",
-            "formula": "\\ker(\\phi) = \\{a \\in G \\mid \\phi(a) = e_H\\}",
-            "explanation": "Der Kern ist wie die Menge der Elemente, die keine Wirkung haben. Es ist wie das Finden der neutralen Elemente!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440072",
-            "text": "Das Bild eines Homomorphismus ist die Menge der Bildpunkte.",
-            "formula": "\\text{im}(\\phi) = \\{\\phi(a) \\mid a \\in G\\}",
-            "explanation": "Das Bild ist wie die Menge der Ergebnisse. Es ist wie das Sammeln aller möglichen Ausgänge!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440073",
-            "text": "Eine normale Untergruppe ist invariant unter Konjugation.",
-            "formula": "N \\trianglelefteq G \\Leftrightarrow gNg^{-1} \\subseteq N \\text{ für alle } g \\in G",
-            "explanation": "Eine normale Untergruppe ist wie ein besonders stabiles Team. Es ist wie das Finden einer unveränderlichen Struktur!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440074",
-            "text": "Eine Faktorgruppe entsteht durch Quotientenbildung nach einer normalen Untergruppe.",
-            "formula": "G/N = \\{gN \\mid g \\in G\\}",
-            "explanation": "Eine Faktorgruppe ist wie ein vereinfachtes Team. Es ist wie das Zusammenfassen von ähnlichen Elementen!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440075",
-            "text": "Der Satz von Lagrange beschreibt die Ordnung von Untergruppen.",
-            "formula": "|H| \\text{ teilt } |G| \\text{ für jede Untergruppe } H \\leq G",
-            "explanation": "Der Satz von Lagrange ist wie eine mathematische Regel für Teamgrößen. Es ist wie das Finden von Teilbarkeitsbeziehungen!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440076",
-            "text": "Eine p-Gruppe ist eine Gruppe, deren Ordnung eine Potenz von p ist.",
-            "formula": "|G| = p^n \\text{ für eine Primzahl } p",
-            "explanation": "Eine p-Gruppe ist wie ein Team mit einer speziellen Größe. Es ist wie das Finden von Gruppen mit Primzahlpotenzordnung!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440077",
-            "text": "Eine Sylow-Untergruppe ist eine maximale p-Untergruppe.",
-            "formula": "P \\leq G \\text{ mit } |P| = p^n \\text{ und } p^n \\text{ teilt } |G|",
-            "explanation": "Eine Sylow-Untergruppe ist wie eine maximale p-Gruppe. Es ist wie das Finden der größten möglichen p-Untergruppe!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440078",
-            "text": "Der Satz von Sylow beschreibt die Existenz und Anzahl von Sylow-Untergruppen.",
-            "formula": "\\text{Anzahl der Sylow-p-Untergruppen } \\equiv 1 \\pmod{p}",
-            "explanation": "Der Satz von Sylow ist wie eine mathematische Regel für p-Gruppen. Es ist wie das Finden von Existenz- und Anzahlaussagen!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440079",
-            "text": "Eine einfache Gruppe hat keine nicht-trivialen normalen Untergruppen.",
-            "formula": "N \\trianglelefteq G \\Rightarrow N = \\{e\\} \\text{ oder } N = G",
-            "explanation": "Eine einfache Gruppe ist wie ein unteilbares Team. Es ist wie das Finden von Gruppen ohne innere Struktur!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440080",
-            "text": "Eine auflösbare Gruppe kann durch abelsche Faktorgruppen aufgebaut werden.",
-            "formula": "G = G_0 \\trianglerighteq G_1 \\trianglerighteq \\cdots \\trianglerighteq G_n = \\{e\\}",
-            "explanation": "Eine auflösbare Gruppe ist wie ein Team, das sich in einfachere Teile zerlegen lässt. Es ist wie das schrittweise Vereinfachen!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440081",
-            "text": "Eine nilpotente Gruppe ist eine spezielle Art von auflösbarer Gruppe.",
-            "formula": "G = G_0 \\trianglerighteq G_1 \\trianglerighteq \\cdots \\trianglerighteq G_n = \\{e\\}",
-            "explanation": "Eine nilpotente Gruppe ist wie ein besonders strukturiertes Team. Es ist wie das Finden einer speziellen Art von Auflösbarkeit!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440082",
-            "text": "Eine freie Gruppe wird von einer Menge von Erzeugern erzeugt.",
-            "formula": "F(X) = \\langle X \\mid \\emptyset \\rangle",
-            "explanation": "Eine freie Gruppe ist wie ein Team ohne Einschränkungen. Es ist wie das Erzeugen von Elementen ohne zusätzliche Regeln!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440083",
-            "text": "Eine endlich erzeugte Gruppe wird von endlich vielen Elementen erzeugt.",
-            "formula": "G = \\langle g_1,\\ldots,g_n \\rangle",
-            "explanation": "Eine endlich erzeugte Gruppe ist wie ein Team mit endlich vielen Anführern. Es ist wie das Erzeugen durch eine begrenzte Anzahl von Elementen!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440084",
-            "text": "Eine torsionsfreie Gruppe hat nur Elemente unendlicher Ordnung.",
-            "formula": "\\text{ord}(g) = \\infty \\text{ für alle } g \\in G \\setminus \\{e\\}",
-            "explanation": "Eine torsionsfreie Gruppe ist wie ein Team ohne endliche Zyklen. Es ist wie das Finden von Gruppen ohne endliche Ordnungen!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440085",
-            "text": "Eine torsionsfreie abelsche Gruppe ist isomorph zu einer direkten Summe von Kopien von Z.",
-            "formula": "G \\cong \\bigoplus_{i \\in I} \\mathbb{Z}",
-            "explanation": "Eine torsionsfreie abelsche Gruppe ist wie eine Kombination von unendlichen zyklischen Gruppen. Es ist wie das Zusammenfügen von unendlichen Zyklen!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440086",
-            "text": "Eine endliche abelsche Gruppe ist isomorph zu einer direkten Summe von zyklischen Gruppen.",
-            "formula": "G \\cong \\bigoplus_{i=1}^n \\mathbb{Z}/p_i^{k_i}\\mathbb{Z}",
-            "explanation": "Eine endliche abelsche Gruppe ist wie eine Kombination von endlichen zyklischen Gruppen. Es ist wie das Zusammenfügen von endlichen Zyklen!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440087",
-            "text": "Eine p-Gruppe hat ein nicht-triviales Zentrum.",
-            "formula": "Z(G) \\neq \\{e\\} \\text{ für } |G| = p^n",
-            "explanation": "Eine p-Gruppe hat immer ein nicht-triviales Zentrum. Es ist wie das Finden von zentralen Elementen!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440088",
-            "text": "Eine endliche p-Gruppe ist nilpotent.",
-            "formula": "G \\text{ ist nilpotent für } |G| = p^n",
-            "explanation": "Eine endliche p-Gruppe ist immer nilpotent. Es ist wie das Finden einer speziellen Struktur!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440089",
-            "text": "Eine endliche Gruppe der Ordnung p² ist abelsch.",
-            "formula": "|G| = p^2 \\Rightarrow G \\text{ ist abelsch}",
-            "explanation": "Eine Gruppe der Ordnung p² ist immer abelsch. Es ist wie das Finden einer kommutativen Struktur!"
-        },
-        {
-            "id": "ee0e8400-e29b-41d4-a716-446655440090",
-            "text": "Zum Schluss schauen wir uns an, wie Gruppen in der Mathematik verwendet werden.",
-            "formula": "\\text{Gruppen sind fundamentale Strukturen in der Algebra}",
-            "explanation": "In der Mathematik helfen uns Gruppen, Symmetrien und Transformationen zu verstehen. Es ist wie das Übersetzen mathematischer Konzepte in die Sprache der Strukturen!"
-        }
-    ]
-} 
+{
+  "id": "ee0e8400-e29b-41d4-a716-446655440061",
+  "topic": "Gruppen",
+  "steps": [
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440062",
+      "section": "Kapitel 1 · Die gemeinsame Struktur",
+      "text": "Willkommen! Gruppen sind die erste „abstrakte Struktur“ des Studiums. Das klingt schwierig, ist aber eine einfache Idee: Ganz verschiedene Dinge verhalten sich beim Kombinieren gleich – also untersucht man dieses Verhalten nur einmal.",
+      "explanation": "Unser Fahrplan:\n1. Die gemeinsame Struktur hinter Zahlen, Uhren und Drehungen\n2. Die Definition und erste Folgerungen\n3. Zwei Beispiele zum Anfassen: die Uhr und das Dreieck\n4. Ordnung von Elementen, zyklische Gruppen\n5. Untergruppen und der Satz von Lagrange\n6. Homomorphismen: strukturerhaltende Abbildungen\n7. Ausblick und Rückblick",
+      "insight": "Du brauchst: Mengen und Abbildungen, ein wenig Rechnen mit Resten (Lektion „ggT“)."
+    },
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440063",
+      "section": "Kapitel 1 · Die gemeinsame Struktur",
+      "text": "Schau dir vier ganz verschiedene Situationen an. Was haben sie gemeinsam?",
+      "formula": "\\begin{array}{ll} (\\mathbb{Z}, +) & 3 + (-3) = 0 \\\\ (\\mathbb{Q} \\setminus \\{0\\}, \\cdot) & 3 \\cdot \\tfrac{1}{3} = 1 \\\\ \\text{Uhr} & 9 \\text{ Uhr} + 5 \\text{ Std.} = 2 \\text{ Uhr} \\\\ \\text{Drehungen} & 120° + 240° = 360° \\end{array}",
+      "explanation": "In allen vier Fällen gilt:\n• Man kann zwei Elemente zu einem dritten derselben Art kombinieren.\n• Klammern spielen keine Rolle: \\((a + b) + c = a + (b + c)\\).\n• Es gibt ein Element, das nichts verändert: \\(0\\), \\(1\\), „0 Stunden“, „Drehung um 0°“.\n• Jede Aktion lässt sich rückgängig machen: \\(-3\\), \\(\\frac{1}{3}\\), „7 Stunden weiter“, „Drehung um 240°“.\n\nGenau diese vier Eigenschaften machen eine Gruppe aus.",
+      "insight": "Abstraktion heißt: Was in allen Beispielen gleich ist, beweist man einmal – und es gilt dann in allen auf einmal."
+    },
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440064",
+      "section": "Kapitel 2 · Die Definition",
+      "text": "Erst brauchen wir den Begriff der Verknüpfung: eine Regel, die zwei Elementen einer Menge wieder ein Element DIESER Menge zuordnet.",
+      "formula": "\\circ\\colon G \\times G \\to G, \\quad (a, b) \\mapsto a \\circ b",
+      "explanation": "Formal ist eine Verknüpfung also eine Abbildung von \\(G \\times G\\) nach \\(G\\) (siehe „Mengen und Abbildungen“).\n\nEntscheidend ist das Ziel \\(G\\): Das Ergebnis muss wieder in \\(G\\) liegen. Man sagt, \\(G\\) ist abgeschlossen unter \\(\\circ\\).\n\nBeispiele:\n• \\(+\\) auf \\(\\mathbb{N}\\) ist eine Verknüpfung.\n• \\(-\\) auf \\(\\mathbb{N}\\) ist KEINE: \\(3 - 5 = -2 \\notin \\mathbb{N}\\).\n• \\(\\cdot\\) auf \\(\\{-1, 1\\}\\) ist eine Verknüpfung, \\(+\\) auf \\(\\{-1, 1\\}\\) nicht (\\(1 + 1 = 2\\)).\n\nDas Zeichen \\(\\circ\\) ist nur ein Platzhalter. In konkreten Gruppen steht dort \\(+\\), \\(\\cdot\\) oder die Verkettung von Abbildungen.",
+      "insight": "Abgeschlossenheit vergisst man leicht, weil sie bei \\(\\mathbb{Z}\\) selbstverständlich ist. Bei Teilmengen muss man sie immer prüfen."
+    },
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440065",
+      "section": "Kapitel 2 · Die Definition",
+      "text": "Jetzt die Definition. Eine Gruppe \\((G, \\circ)\\) ist eine Menge \\(G\\) mit einer Verknüpfung \\(\\circ\\), für die gilt:",
+      "formula": "\\begin{array}{ll} \\textbf{(G1)} & (a \\circ b) \\circ c = a \\circ (b \\circ c) \\\\[4pt] \\textbf{(G2)} & \\text{es gibt } e \\in G \\text{ mit } e \\circ a = a \\circ e = a \\\\[4pt] \\textbf{(G3)} & \\text{zu jedem } a \\text{ gibt es } a^{-1} \\text{ mit} \\\\ & a \\circ a^{-1} = a^{-1} \\circ a = e \\end{array}",
+      "explanation": "(G1) Assoziativgesetz: Klammern sind egal.\n(G2) Neutrales Element \\(e\\): verändert nichts.\n(G3) Inverses Element \\(a^{-1}\\): macht \\(a\\) rückgängig.\n\nIn (G2) muss DASSELBE \\(e\\) für alle \\(a\\) funktionieren. In (G3) darf das Inverse dagegen von \\(a\\) abhängen – natürlich, \\(-3\\) ist etwas anderes als \\(-5\\).\n\nSchreibweise: Bei \\(+\\) schreibt man \\(0\\) statt \\(e\\) und \\(-a\\) statt \\(a^{-1}\\). Bei \\(\\cdot\\) schreibt man \\(1\\) und \\(a^{-1}\\) oder \\(\\frac{1}{a}\\).",
+      "insight": "Kommutativität (\\(a \\circ b = b \\circ a\\)) gehört NICHT zur Definition! Gilt sie zusätzlich, heißt die Gruppe abelsch (nach Niels Henrik Abel)."
+    },
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440066",
+      "section": "Kapitel 2 · Die Definition",
+      "text": "Teste die Definition an Beispielen. Bei jedem „nein“ zeigt ein Gegenbeispiel, welches Axiom scheitert:",
+      "formula": "\\begin{array}{ll} (\\mathbb{Z}, +) & \\text{Gruppe} \\checkmark \\\\ (\\mathbb{N}, +) & \\text{nein: kein Inverses zu } 1 \\\\ (\\mathbb{Z}, \\cdot) & \\text{nein: kein Inverses zu } 2 \\\\ (\\mathbb{Q}, \\cdot) & \\text{nein: kein Inverses zu } 0 \\\\ (\\mathbb{Q} \\setminus \\{0\\}, \\cdot) & \\text{Gruppe} \\checkmark \\\\ (\\mathbb{Z}, -) & \\text{nein: nicht assoziativ} \\end{array}",
+      "explanation": "\\((\\mathbb{N}, +)\\): Es gibt nicht einmal ein neutrales Element in \\(\\mathbb{N} = \\{1, 2, \\dots\\}\\), und \\(1 + x = 0\\) hat keine Lösung in \\(\\mathbb{N}\\).\n\n\\((\\mathbb{Z}, \\cdot)\\): Das neutrale Element ist \\(1\\), aber \\(2 \\cdot x = 1\\) hat keine ganzzahlige Lösung.\n\n\\((\\mathbb{Q}, \\cdot)\\): Alles funktioniert – außer für die \\(0\\). Ein einziges Element ohne Inverses genügt, damit es keine Gruppe ist. Nimmt man die \\(0\\) heraus, wird es eine Gruppe.\n\n\\((\\mathbb{Z}, -)\\): \\((5 - 3) - 1 = 1\\), aber \\(5 - (3 - 1) = 3\\).",
+      "insight": "Gruppe zu sein ist eine Eigenschaft des PAARES (Menge, Verknüpfung). \\(\\mathbb{Z}\\) ist mit \\(+\\) eine Gruppe, mit \\(\\cdot\\) nicht."
+    },
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440067",
+      "section": "Kapitel 2 · Die Definition",
+      "text": "Erste Folgerungen aus den Axiomen. Sie gelten in JEDER Gruppe – man beweist sie einmal und kann sie immer benutzen:",
+      "formula": "\\begin{array}{ll} 1. & \\text{Das neutrale Element ist eindeutig.} \\\\ 2. & \\text{Jedes Inverse ist eindeutig.} \\\\ 3. & (a^{-1})^{-1} = a \\\\ 4. & (a \\circ b)^{-1} = b^{-1} \\circ a^{-1} \\\\ 5. & a \\circ x = a \\circ y \\Rightarrow x = y \\end{array}",
+      "explanation": "Beweis von 1: Sind \\(e\\) und \\(e'\\) beide neutral, dann \\(e = e \\circ e' = e'\\) (erst benutzt man, dass \\(e'\\) neutral ist, dann \\(e\\)). ∎\n\nBeweis von 4: \\((a \\circ b) \\circ (b^{-1} \\circ a^{-1})\\) \\(= a \\circ (b \\circ b^{-1}) \\circ a^{-1}\\) \\(= a \\circ e \\circ a^{-1}\\) \\(= e\\). ∎\n\nRegel 4 ist das „Socken-und-Schuhe-Prinzip“: In nicht-abelschen Gruppen dreht sich die Reihenfolge um.\n\nBeweis von 5 (Kürzungsregel): Verknüpfe beide Seiten von links mit \\(a^{-1}\\). ∎",
+      "insight": "Typischer Fehler: \\((a \\circ b)^{-1} = a^{-1} \\circ b^{-1}\\). Das stimmt nur in abelschen Gruppen."
+    },
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440068",
+      "section": "Kapitel 3 · Beispiele: Uhr und Dreieck",
+      "text": "Erstes Beispiel zum Anfassen: die Uhr. In \\(\\mathbb{Z}/12 = \\{0, 1, \\dots, 11\\}\\) rechnet man „modulo 12“: Nach 11 kommt wieder 0.",
+      "visual": "clockZ12",
+      "formula": "\\begin{aligned} 9 + 5 &= 14 = 12 + 2 \\;\\equiv\\; 2 \\\\ 5 + 7 &= 12 \\;\\equiv\\; 0 \\;\\Rightarrow\\; -5 = 7 \\end{aligned}",
+      "explanation": "\\((\\mathbb{Z}/12, +)\\) ist eine abelsche Gruppe:\n• Abgeschlossen: Das Ergebnis wird auf den Rest beim Teilen durch 12 reduziert und liegt wieder in \\(\\{0, \\dots, 11\\}\\).\n• Assoziativ: übernommen von der Addition in \\(\\mathbb{Z}\\).\n• Neutral: \\(0\\).\n• Invers: Zu \\(a\\) ist \\(12 - a\\) invers (und \\(0\\) zu sich selbst).\n\nGenauso ist \\(\\mathbb{Z}/n\\) für jedes \\(n \\ge 1\\) eine Gruppe mit \\(n\\) Elementen.",
+      "insight": "Achtung beim neutralen Element: In \\((\\mathbb{Z}/12, +)\\) ist es die \\(0\\), nicht die \\(1\\). Das neutrale Element hängt von der Verknüpfung ab."
+    },
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440069",
+      "section": "Kapitel 3 · Beispiele: Uhr und Dreieck",
+      "text": "Endliche Gruppen kann man komplett in einer Verknüpfungstafel aufschreiben. Für \\(\\mathbb{Z}/4\\):",
+      "formula": "\\begin{array}{c|cccc} + & 0 & 1 & 2 & 3 \\\\ \\hline 0 & 0 & 1 & 2 & 3 \\\\ 1 & 1 & 2 & 3 & 0 \\\\ 2 & 2 & 3 & 0 & 1 \\\\ 3 & 3 & 0 & 1 & 2 \\end{array}",
+      "explanation": "In der Zeile von \\(a\\) und der Spalte von \\(b\\) steht \\(a + b\\).\n\nAblesen:\n• Neutrales Element: die Zeile, die genau die Kopfzeile wiederholt – hier die von \\(0\\).\n• Inverse: Wo steht in Zeile \\(a\\) die \\(0\\)? Bei \\(1\\) in Spalte \\(3\\), also \\(-1 = 3\\).\n• Abelsch: Die Tafel ist symmetrisch zur Diagonale.\n\nAuffällig: In jeder Zeile und jeder Spalte kommt jedes Element genau einmal vor (wie beim Sudoku). Das gilt in JEDER Gruppe – es ist die Kürzungsregel: Aus \\(a \\circ x = a \\circ y\\) folgt \\(x = y\\), also stehen in Zeile \\(a\\) lauter verschiedene Einträge.",
+      "insight": "Steht in einer Tafel ein Element doppelt in einer Zeile, ist es keine Gruppe. Ein schneller Test!"
+    },
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440070",
+      "section": "Kapitel 3 · Beispiele: Uhr und Dreieck",
+      "text": "Zweites Beispiel: die Symmetrien eines gleichseitigen Dreiecks. Die Verknüpfung ist „hintereinander ausführen“ – und hier ist die Reihenfolge wichtig.",
+      "visual": "triangleSymmetries",
+      "formula": "\\begin{array}{c} D_3 = \\{ e, r, r^2, s, s \\circ r, s \\circ r^2 \\} \\\\[6pt] s \\circ r \\neq r \\circ s \\end{array}",
+      "explanation": "\\(r\\) dreht um \\(120°\\), \\(r^2 = r \\circ r\\) um \\(240°\\), \\(r^3 = e\\) ist die Drehung um \\(360°\\), also gar keine Bewegung. \\(s\\) spiegelt an der senkrechten Achse, und \\(s \\circ s = e\\).\n\nEs gibt genau 6 Symmetrien: 3 Drehungen (\\(e\\), \\(r\\), \\(r^2\\)) und 3 Spiegelungen (an den drei Achsen durch je eine Ecke).\n\nDie Animation zeigt: \\(s \\circ r\\) und \\(r \\circ s\\) liefern verschiedene Lagen. \\(D_3\\) ist die kleinste nicht-abelsche Gruppe.\n\nWie bei Abbildungen liest man \\(s \\circ r\\) als „erst \\(r\\), dann \\(s\\)“.",
+      "insight": "Symmetrien eines Objekts bilden immer eine Gruppe: Hintereinanderausführen ist assoziativ, „nichts tun“ ist neutral, und jede Bewegung lässt sich rückgängig machen."
+    },
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440071",
+      "section": "Kapitel 3 · Beispiele: Uhr und Dreieck",
+      "text": "Jede Symmetrie des Dreiecks vertauscht die Ecken 1, 2, 3. Man kann sie deshalb als Permutation schreiben: Oben steht die Ecke, unten, wohin sie wandert.",
+      "formula": "\\begin{aligned} r &= \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 3 & 1 \\end{pmatrix} & s &= \\begin{pmatrix} 1 & 2 & 3 \\\\ 1 & 3 & 2 \\end{pmatrix} \\\\[6pt] s \\circ r &= \\begin{pmatrix} 1 & 2 & 3 \\\\ 3 & 2 & 1 \\end{pmatrix} & r \\circ s &= \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 1 & 3 \\end{pmatrix} \\end{aligned}",
+      "explanation": "Die Positionen sind hier oben (1), links unten (2), rechts unten (3). \\(r\\) bringt die Ecke von Position 1 nach Position 2, von 2 nach 3 und von 3 nach 1. \\(s\\) lässt Position 1 fest und tauscht 2 und 3.\n\nBerechnung von \\(s \\circ r\\) (erst \\(r\\), dann \\(s\\)): \\(1 \\xrightarrow{r} 2 \\xrightarrow{s} 3\\), \\(2 \\xrightarrow{r} 3 \\xrightarrow{s} 2\\), \\(3 \\xrightarrow{r} 1 \\xrightarrow{s} 1\\).\n\nDie Menge aller Permutationen von \\(\\{1, \\dots, n\\}\\) heißt symmetrische Gruppe \\(S_n\\). Sie hat \\(n!\\) Elemente. Weil \\(3! = 6\\) ist, sind die Symmetrien des Dreiecks genau ALLE Permutationen der drei Ecken.",
+      "insight": "Permutationen sind bijektive Abbildungen einer Menge auf sich selbst. Die Verkettung zweier Bijektionen ist wieder bijektiv – deshalb ist \\(S_n\\) abgeschlossen."
+    },
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440072",
+      "section": "Kapitel 4 · Ordnung und zyklische Gruppen",
+      "text": "Verknüpft man ein Element immer wieder mit sich selbst, kommt man in endlichen Gruppen irgendwann zum neutralen Element zurück. Die Anzahl der Schritte heißt Ordnung des Elements.",
+      "formula": "\\operatorname{ord}(a) = \\text{kleinstes } n \\ge 1 \\text{ mit } \\underbrace{a \\circ a \\circ \\dots \\circ a}_{n\\text{-mal}} = e",
+      "explanation": "Beispiele in \\((\\mathbb{Z}/12, +)\\) (hier heißt „n-mal verknüpfen“ einfach „n-mal addieren“):\n• \\(\\operatorname{ord}(4) = 3\\): \\(4, 8, 12 \\equiv 0\\).\n• \\(\\operatorname{ord}(6) = 2\\): \\(6, 12 \\equiv 0\\).\n• \\(\\operatorname{ord}(5) = 12\\): \\(5, 10, 3, 8, 1, 6, 11, 4, 9, 2, 7, 0\\) – alle Elemente kommen vor!\n• \\(\\operatorname{ord}(0) = 1\\).\n\nIn \\(D_3\\): \\(\\operatorname{ord}(r) = 3\\), \\(\\operatorname{ord}(s) = 2\\).\n\nIn \\((\\mathbb{Z}, +)\\) hat jedes \\(a \\neq 0\\) unendliche Ordnung: \\(a + a + \\dots\\) wird nie \\(0\\).",
+      "insight": "Die Ordnung eines Elements (Anzahl Schritte bis \\(e\\)) und die Ordnung einer Gruppe (Anzahl der Elemente) sind verschiedene Begriffe – mit einem engen Zusammenhang, wie wir gleich sehen."
+    },
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440073",
+      "section": "Kapitel 4 · Ordnung und zyklische Gruppen",
+      "text": "Erreicht man durch wiederholtes Verknüpfen eines einzigen Elements ALLE Elemente, heißt die Gruppe zyklisch und das Element Erzeuger.",
+      "formula": "\\begin{array}{c} G = \\langle a \\rangle = \\{ a^k \\mid k \\in \\mathbb{Z} \\} \\\\[6pt] \\mathbb{Z}/12 = \\langle 1 \\rangle = \\langle 5 \\rangle = \\langle 7 \\rangle = \\langle 11 \\rangle \\end{array}",
+      "explanation": "Wann erzeugt \\(a\\) ganz \\(\\mathbb{Z}/12\\)? Genau dann, wenn \\(\\operatorname{ggT}(a, 12) = 1\\). Das sind \\(1, 5, 7, 11\\).\n\nBegründung: Die Vielfachen von \\(a\\) modulo 12 sind genau die Vielfachen von \\(\\operatorname{ggT}(a, 12)\\) (Lemma von Bézout aus der Lektion „ggT“). Die \\(1\\) wird also nur erreicht, wenn der ggT gleich \\(1\\) ist.\n\n\\((\\mathbb{Z}, +)\\) ist ebenfalls zyklisch: \\(\\mathbb{Z} = \\langle 1 \\rangle\\).\n\n\\(D_3\\) ist nicht zyklisch: Kein Element hat Ordnung 6. Eine zyklische Gruppe ist immer abelsch, denn \\(a^k \\circ a^m = a^{k+m} = a^m \\circ a^k\\).",
+      "insight": "Zyklische Gruppen sind die einfachsten Gruppen überhaupt: Bis auf Umbenennen gibt es für jede Größe \\(n\\) genau eine, nämlich \\(\\mathbb{Z}/n\\)."
+    },
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440074",
+      "section": "Kapitel 5 · Untergruppen und der Satz von Lagrange",
+      "text": "Eine Untergruppe ist eine Teilmenge \\(H \\subseteq G\\), die mit derselben Verknüpfung selbst eine Gruppe ist. Man prüft das mit einem kurzen Kriterium:",
+      "formula": "\\begin{array}{ll} H \\le G \\iff & 1.\\;\\; H \\neq \\emptyset \\\\ & 2.\\;\\; a, b \\in H \\Rightarrow a \\circ b \\in H \\\\ & 3.\\;\\; a \\in H \\Rightarrow a^{-1} \\in H \\end{array}",
+      "explanation": "Assoziativität muss man nicht prüfen – sie wird von \\(G\\) geerbt. Das neutrale Element liegt automatisch in \\(H\\): Nimm ein \\(a \\in H\\), dann liegt \\(a^{-1}\\) in \\(H\\) und damit auch \\(a \\circ a^{-1} = e\\).\n\nBeispiele:\n• Die geraden Zahlen \\(2\\mathbb{Z}\\) sind eine Untergruppe von \\((\\mathbb{Z}, +)\\).\n• Die ungeraden Zahlen nicht: \\(1 + 1 = 2\\) ist gerade (Bedingung 2 verletzt), und \\(0\\) fehlt.\n• \\(\\{0, 4, 8\\} \\le \\mathbb{Z}/12\\) (siehe letzte Phase der Uhr-Animation).\n• \\(\\{e, r, r^2\\} \\le D_3\\): die Drehungen. Die Spiegelungen allein bilden keine Untergruppe, denn \\(s \\circ s = e\\) ist keine Spiegelung.",
+      "insight": "Allgemein ist \\(\\langle a \\rangle\\) immer eine Untergruppe – die kleinste, die \\(a\\) enthält. Ihre Größe ist \\(\\operatorname{ord}(a)\\)."
+    },
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440075",
+      "section": "Kapitel 5 · Untergruppen und der Satz von Lagrange",
+      "text": "Der wichtigste Satz über endliche Gruppen ist der Satz von Lagrange. Er sagt, welche Größen Untergruppen überhaupt haben können:",
+      "formula": "\\begin{array}{c} H \\le G,\\; G \\text{ endlich} \\quad \\Longrightarrow \\quad |H| \\text{ teilt } |G| \\\\[6pt] \\text{Folgerung: } \\operatorname{ord}(a) \\text{ teilt } |G| \\end{array}",
+      "explanation": "Beweisidee: Man verschiebt \\(H\\) durch \\(G\\). Zu jedem \\(g \\in G\\) bildet man \\(g \\circ H = \\{g \\circ h \\mid h \\in H\\}\\) (eine „Nebenklasse“). Jede Nebenklasse hat genau \\(|H|\\) Elemente (Kürzungsregel), und zwei Nebenklassen sind entweder gleich oder disjunkt. Die Nebenklassen zerlegen also \\(G\\) in gleich große Stücke – wie die Äquivalenzklassen in „Mengen und Abbildungen“. Daher \\(|G| = (\\text{Anzahl}) \\cdot |H|\\).\n\nBeispiele:\n• \\(\\mathbb{Z}/12\\) kann nur Untergruppen der Größen \\(1, 2, 3, 4, 6, 12\\) haben – und hat tatsächlich zu jedem Teiler genau eine.\n• \\(D_3\\) hat 6 Elemente, also keine Untergruppe mit 4 oder 5 Elementen.",
+      "insight": "Folgerung: Eine Gruppe, deren Größe eine Primzahl \\(p\\) ist, hat nur die Untergruppen \\(\\{e\\}\\) und \\(G\\). Jedes \\(a \\neq e\\) hat daher die Ordnung \\(p\\) und erzeugt die ganze Gruppe – sie ist zyklisch."
+    },
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440076",
+      "section": "Kapitel 6 · Homomorphismen",
+      "text": "Wann sind zwei Gruppen „im Wesentlichen gleich“? Dafür braucht man Abbildungen, die die Verknüpfung respektieren. Sie heißen Homomorphismen:",
+      "formula": "\\varphi\\colon (G, \\circ) \\to (H, *) \\;\\text{ mit }\\; \\varphi(a \\circ b) = \\varphi(a) * \\varphi(b)",
+      "explanation": "In Worten: Erst verknüpfen, dann abbilden ergibt dasselbe wie erst abbilden, dann verknüpfen.\n\nBeispiele:\n• \\(\\exp\\colon (\\mathbb{R}, +) \\to (\\mathbb{R}_{>0}, \\cdot)\\), denn \\(e^{a + b} = e^a \\cdot e^b\\). Die Exponentialfunktion verwandelt Addition in Multiplikation!\n• \\(\\mathbb{Z} \\to \\mathbb{Z}/12\\), \\(a \\mapsto\\) Rest von \\(a\\) beim Teilen durch 12. Es ist egal, ob man erst addiert und dann reduziert oder umgekehrt.\n• Die Determinante, von den invertierbaren \\(n \\times n\\)-Matrizen nach \\((\\mathbb{R} \\setminus \\{0\\}, \\cdot)\\), denn \\(\\det(AB) = \\det A \\cdot \\det B\\).\n\nFolgerungen: \\(\\varphi(e_G) = e_H\\) und \\(\\varphi(a^{-1}) = \\varphi(a)^{-1}\\).",
+      "insight": "Den Begriff kennst du schon aus der Linearen Algebra: Lineare Abbildungen sind genau die Homomorphismen zwischen Vektorräumen."
+    },
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440077",
+      "section": "Kapitel 6 · Homomorphismen",
+      "text": "Der Kern eines Homomorphismus ist die Menge aller Elemente, die auf das neutrale Element abgebildet werden. Er misst, wie viel Information verloren geht:",
+      "formula": "\\begin{array}{c} \\ker \\varphi = \\{ a \\in G \\mid \\varphi(a) = e_H \\} \\\\[6pt] \\varphi \\text{ injektiv} \\iff \\ker \\varphi = \\{ e_G \\} \\end{array}",
+      "explanation": "Beispiel: Der Kern von \\(\\mathbb{Z} \\to \\mathbb{Z}/12\\) besteht aus allen Vielfachen von \\(12\\): \\(\\ker = 12\\mathbb{Z}\\). Die Abbildung ist nicht injektiv (\\(0\\) und \\(12\\) haben dasselbe Bild).\n\nBeweis der Äquivalenz „⇐“: Aus \\(\\varphi(a) = \\varphi(b)\\) folgt \\(\\varphi(a \\circ b^{-1}) = e_H\\), also \\(a \\circ b^{-1} \\in \\ker \\varphi = \\{e\\}\\), also \\(a = b\\). ∎\n\nEin bijektiver Homomorphismus heißt Isomorphismus. Isomorphe Gruppen sind „gleich bis auf Umbenennung“. Beispiele: \\(\\exp\\) (mit Umkehrung \\(\\ln\\)) und \\(D_3 \\cong S_3\\).",
+      "insight": "Für Injektivität muss man bei Homomorphismen nur EIN Element prüfen: Wird nur \\(e\\) auf \\(e\\) abgebildet? Das ist dieselbe Idee wie „Kern = {0}“ bei linearen Abbildungen."
+    },
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440078",
+      "section": "Kapitel 6 · Homomorphismen",
+      "text": "Typische Fehler beim Arbeiten mit Gruppen – damit du sie vermeidest:",
+      "formula": "\\begin{array}{l} \\text{1. Abgeschlossenheit vergessen} \\\\ \\text{2. Kommutativität annehmen} \\\\ \\text{3. neutrales Element verwechseln} \\\\ \\text{4. ein einziges Inverses fehlt} \\end{array}",
+      "explanation": "Beispiele zu den vier Fehlern:\n1. Die ungeraden Zahlen mit \\(+\\): \\(1 + 1 = 2\\) ist nicht ungerade – keine Verknüpfung.\n2. In \\(D_3\\) ist \\((r \\circ s)^{-1}\\) \\(= s^{-1} \\circ r^{-1} \\neq r^{-1} \\circ s^{-1}\\).\n3. In \\((\\mathbb{Z}/12, +)\\) ist das neutrale Element \\(0\\), nicht \\(1\\).\n4. \\((\\mathbb{Q}, \\cdot)\\) ist keine Gruppe, nur weil \\(0\\) kein Inverses hat.\n\nVor jeder Rechnung lohnt die Frage: Welche Menge, welche Verknüpfung, welches neutrale Element?\n\nUnd beim Beweisen: Benutze nur die drei Axiome und bereits bewiesene Folgerungen – keine Rechenregeln, die du „von Zahlen kennst“. Kommutativität, Division oder „Kürzen über Kreuz“ gibt es in einer allgemeinen Gruppe nicht.",
+      "insight": "In einer allgemeinen Gruppe darf man nur von EINER Seite kürzen: Aus \\(a \\circ x = y \\circ a\\) folgt NICHT \\(x = y\\)."
+    },
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440079",
+      "section": "Kapitel 7 · Ausblick und Rückblick",
+      "text": "Ausblick: Wo geht es weiter?",
+      "explanation": "• Normalteiler und Faktorgruppen: Mit „guten“ Untergruppen kann man rechnen wie mit \\(\\mathbb{Z}/n\\). Daraus entsteht der Homomorphiesatz.\n\n• Sylow-Sätze und Klassifikation: Welche Gruppen einer gegebenen Größe gibt es? Die endlichen einfachen Gruppen sind seit 2004 vollständig klassifiziert – eines der größten Projekte der Mathematik.\n\n• Galois-Theorie: Gruppen erklären, warum es für Gleichungen fünften Grades keine Lösungsformel mit Wurzeln gibt.\n\n• Anwendungen: Kryptographie auf elliptischen Kurven, Symmetrien in Physik und Chemie (Kristallgruppen), der Zauberwürfel (eine Gruppe mit etwa \\(4{,}3 \\cdot 10^{19}\\) Elementen).",
+      "insight": "Als Nächstes kommen „Ringe“: Strukturen mit ZWEI Verknüpfungen, + und ·, wie bei den ganzen Zahlen."
+    },
+    {
+      "id": "ee0e8400-e29b-41d4-a716-446655440080",
+      "section": "Kapitel 7 · Ausblick und Rückblick",
+      "text": "Schau zurück, wie die Begriffe auseinander hervorgegangen sind:",
+      "explanation": "1. Gemeinsame Struktur: kombinieren, Klammern egal, etwas Neutrales, alles umkehrbar.\n\n2. Gruppe: Verknüpfung (abgeschlossen!) mit (G1) assoziativ, (G2) neutrales Element, (G3) Inverse. Abelsch = zusätzlich kommutativ. Folgerungen: Eindeutigkeit, \\((ab)^{-1} = b^{-1}a^{-1}\\), Kürzungsregel.\n\n3. Beispiele: \\(\\mathbb{Z}/n\\) (Uhr), \\(D_3 \\cong S_3\\) (nicht abelsch), Verknüpfungstafeln.\n\n4. Ordnung \\(\\operatorname{ord}(a)\\). Zyklisch: von einem Element erzeugt. \\(\\mathbb{Z}/n = \\langle a \\rangle \\iff \\operatorname{ggT}(a, n) = 1\\).\n\n5. Untergruppen-Kriterium. Lagrange: \\(|H|\\) teilt \\(|G|\\).\n\n6. Homomorphismen erhalten die Verknüpfung. Kern trivial ⇔ injektiv. Isomorph = gleich bis auf Umbenennung.",
+      "insight": "Glückwunsch! Du hast die erste abstrakte Struktur der Algebra kennengelernt – und gesehen, dass hinter Uhren, Drehungen und Zahlen dieselbe Idee steckt."
+    }
+  ]
+}

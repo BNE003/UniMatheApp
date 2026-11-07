@@ -1,179 +1,140 @@
-{    "id": "ff0e8400-e29b-41d4-a716-446655440061",
-    "topic": "Ringe",
-    "steps": [
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440062",
-            "text": "Ein Ring ist eine Menge mit zwei Verknüpfungen, die bestimmte Eigenschaften erfüllen.",
-            "formula": "(R, +, \\cdot) \\text{ ist ein Ring, wenn:} \\\\ 1. (R, +) \\text{ ist eine abelsche Gruppe} \\\\ 2. \\text{ Assoziativität der Multiplikation: } (a \\cdot b) \\cdot c = a \\cdot (b \\cdot c) \\\\ 3. \\text{ Distributivität: } a \\cdot (b + c) = a \\cdot b + a \\cdot c, (a + b) \\cdot c = a \\cdot c + b \\cdot c",
-            "explanation": "Ein Ring ist wie ein mathematisches System mit Addition und Multiplikation. Es ist wie das Zusammenspiel von zwei verschiedenen Operationen!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440063",
-            "text": "Ein kommutativer Ring erfüllt das Kommutativgesetz der Multiplikation.",
-            "formula": "a \\cdot b = b \\cdot a \\text{ für alle } a,b \\in R",
-            "explanation": "Ein kommutativer Ring ist wie ein besonders harmonisches System. Es ist wie das Zusammenspiel von Operationen, bei dem die Reihenfolge keine Rolle spielt!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440064",
-            "text": "Ein Ring mit Eins hat ein neutrales Element der Multiplikation.",
-            "formula": "\\exists 1 \\in R: 1 \\cdot a = a \\cdot 1 = a \\text{ für alle } a \\in R",
-            "explanation": "Ein Ring mit Eins ist wie ein System mit einem besonderen Element. Es ist wie das Finden eines neutralen Elements für die Multiplikation!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440065",
-            "text": "Ein Integritätsbereich ist ein nullteilerfreier kommutativer Ring mit Eins.",
-            "formula": "a \\cdot b = 0 \\Rightarrow a = 0 \\text{ oder } b = 0",
-            "explanation": "Ein Integritätsbereich ist wie ein System ohne Nullteiler. Es ist wie das Finden einer Struktur ohne problematische Elemente!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440066",
-            "text": "Ein Hauptidealring ist ein Integritätsbereich, in dem jedes Ideal ein Hauptideal ist.",
-            "formula": "I \\trianglelefteq R \\Rightarrow I = (a) = \\{r \\cdot a \\mid r \\in R\\}",
-            "explanation": "Ein Hauptidealring ist wie ein System mit besonders einfachen Idealen. Es ist wie das Finden einer Struktur mit einfachen Teilen!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440067",
-            "text": "Ein euklidischer Ring ist ein Hauptidealring mit einer euklidischen Funktion.",
-            "formula": "\\exists \\delta: R \\setminus \\{0\\} \\rightarrow \\mathbb{N}_0: \\text{ für } a,b \\in R, b \\neq 0, \\exists q,r \\in R: a = q \\cdot b + r \\text{ mit } r = 0 \\text{ oder } \\delta(r) < \\delta(b)",
-            "explanation": "Ein euklidischer Ring ist wie ein System mit einer speziellen Messfunktion. Es ist wie das Finden einer Struktur mit einer Art von Größenordnung!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440068",
-            "text": "Ein faktorieller Ring ist ein Integritätsbereich mit eindeutiger Primfaktorzerlegung.",
-            "formula": "a = p_1^{k_1} \\cdots p_n^{k_n} = q_1^{l_1} \\cdots q_m^{l_m} \\Rightarrow n = m \\text{ und } p_i \\sim q_i",
-            "explanation": "Ein faktorieller Ring ist wie ein System mit eindeutiger Zerlegung. Es ist wie das Finden einer Struktur mit eindeutigen Bausteinen!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440069",
-            "text": "Ein Polynomring ist ein Ring von Polynomen über einem Ring.",
-            "formula": "R[X] = \\{\\sum_{i=0}^n a_i X^i \\mid n \\in \\mathbb{N}_0, a_i \\in R\\}",
-            "explanation": "Ein Polynomring ist wie ein System von Polynomen. Es ist wie das Finden einer Struktur für formale Ausdrücke!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440070",
-            "text": "Ein Ringhomomorphismus ist eine strukturerhaltende Abbildung.",
-            "formula": "\\phi: R \\rightarrow S \\text{ mit } \\phi(a + b) = \\phi(a) + \\phi(b), \\phi(a \\cdot b) = \\phi(a) \\cdot \\phi(b)",
-            "explanation": "Ein Ringhomomorphismus ist wie ein Übersetzer zwischen Systemen. Es ist wie das Übertragen von Strukturen!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440071",
-            "text": "Der Kern eines Ringhomomorphismus ist die Menge der Elemente, die auf Null abgebildet werden.",
-            "formula": "\\ker(\\phi) = \\{a \\in R \\mid \\phi(a) = 0\\}",
-            "explanation": "Der Kern ist wie die Menge der Elemente, die keine Wirkung haben. Es ist wie das Finden der neutralen Elemente!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440072",
-            "text": "Ein Ideal ist eine Teilmenge, die unter Addition und Multiplikation mit Ringelementen abgeschlossen ist.",
-            "formula": "I \\subseteq R \\text{ ist Ideal, wenn:} \\\\ 1. a,b \\in I \\Rightarrow a + b \\in I \\\\ 2. a \\in I, r \\in R \\Rightarrow r \\cdot a \\in I",
-            "explanation": "Ein Ideal ist wie ein spezieller Teil des Systems. Es ist wie das Finden einer stabilen Teilmenge!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440073",
-            "text": "Ein Hauptideal ist ein Ideal, das von einem Element erzeugt wird.",
-            "formula": "(a) = \\{r \\cdot a \\mid r \\in R\\}",
-            "explanation": "Ein Hauptideal ist wie ein einfaches Teil des Systems. Es ist wie das Finden einer einfach erzeugten Teilmenge!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440074",
-            "text": "Ein Faktorring entsteht durch Quotientenbildung nach einem Ideal.",
-            "formula": "R/I = \\{a + I \\mid a \\in R\\}",
-            "explanation": "Ein Faktorring ist wie ein vereinfachtes System. Es ist wie das Zusammenfassen von ähnlichen Elementen!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440075",
-            "text": "Ein maximales Ideal ist ein Ideal, das in keinem anderen Ideal außer dem Ring selbst enthalten ist.",
-            "formula": "I \\text{ maximal } \\Leftrightarrow I \\subsetneq J \\trianglelefteq R \\Rightarrow J = R",
-            "explanation": "Ein maximales Ideal ist wie ein größtmögliches Teil des Systems. Es ist wie das Finden einer maximalen Teilmenge!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440076",
-            "text": "Ein Primideal ist ein Ideal mit einer speziellen Eigenschaft.",
-            "formula": "a \\cdot b \\in P \\Rightarrow a \\in P \\text{ oder } b \\in P",
-            "explanation": "Ein Primideal ist wie ein spezielles Teil des Systems. Es ist wie das Finden einer primen Teilmenge!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440077",
-            "text": "Ein lokaler Ring hat genau ein maximales Ideal.",
-            "formula": "R \\text{ hat genau ein maximales Ideal } M",
-            "explanation": "Ein lokaler Ring ist wie ein System mit einem besonderen Teil. Es ist wie das Finden einer Struktur mit einem einzigen maximalen Ideal!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440078",
-            "text": "Ein noetherscher Ring erfüllt die aufsteigende Kettenbedingung für Ideale.",
-            "formula": "I_1 \\subseteq I_2 \\subseteq \\cdots \\Rightarrow \\exists n: I_n = I_{n+1} = \\cdots",
-            "explanation": "Ein noetherscher Ring ist wie ein System mit endlichen Ketten. Es ist wie das Finden einer Struktur mit endlichen Aufstiegen!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440079",
-            "text": "Ein artinscher Ring erfüllt die absteigende Kettenbedingung für Ideale.",
-            "formula": "I_1 \\supseteq I_2 \\supseteq \\cdots \\Rightarrow \\exists n: I_n = I_{n+1} = \\cdots",
-            "explanation": "Ein artinscher Ring ist wie ein System mit endlichen Abstiegen. Es ist wie das Finden einer Struktur mit endlichen Ketten!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440080",
-            "text": "Ein reduzierter Ring hat keine nilpotenten Elemente.",
-            "formula": "a^n = 0 \\Rightarrow a = 0",
-            "explanation": "Ein reduzierter Ring ist wie ein System ohne nilpotente Elemente. Es ist wie das Finden einer Struktur ohne problematische Elemente!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440081",
-            "text": "Ein regulärer Ring hat endliche globale Dimension.",
-            "formula": "\\text{gl.dim}(R) < \\infty",
-            "explanation": "Ein regulärer Ring ist wie ein System mit endlicher Dimension. Es ist wie das Finden einer Struktur mit endlicher Komplexität!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440082",
-            "text": "Ein Cohen-Macaulay-Ring erfüllt eine spezielle Bedingung für die Tiefe.",
-            "formula": "\\text{depth}(R) = \\dim(R)",
-            "explanation": "Ein Cohen-Macaulay-Ring ist wie ein System mit spezieller Tiefe. Es ist wie das Finden einer Struktur mit besonderer Dimension!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440083",
-            "text": "Ein Gorenstein-Ring ist ein Cohen-Macaulay-Ring mit endlicher injektiver Dimension.",
-            "formula": "\\text{inj.dim}(R) < \\infty",
-            "explanation": "Ein Gorenstein-Ring ist wie ein System mit endlicher injektiver Dimension. Es ist wie das Finden einer Struktur mit besonderer Eigenschaft!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440084",
-            "text": "Ein normaler Ring ist ein Integritätsbereich, der in seinem Quotientenkörper ganzabgeschlossen ist.",
-            "formula": "R = \\{a \\in K \\mid a \\text{ ist ganz über } R\\}",
-            "explanation": "Ein normaler Ring ist wie ein System, das in seinem Quotientenkörper ganzabgeschlossen ist. Es ist wie das Finden einer Struktur mit besonderer Abgeschlossenheit!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440085",
-            "text": "Ein Dedekind-Ring ist ein noetherscher, normaler, eindimensionaler Integritätsbereich.",
-            "formula": "R \\text{ ist Dedekind-Ring } \\Leftrightarrow \\text{ jedes Ideal ist Produkt von Primidealen}",
-            "explanation": "Ein Dedekind-Ring ist wie ein System mit eindeutiger Idealzerlegung. Es ist wie das Finden einer Struktur mit besonderer Zerlegung!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440086",
-            "text": "Ein Prüfer-Ring ist ein Integritätsbereich, in dem jedes endlich erzeugte Ideal invertierbar ist.",
-            "formula": "I \\text{ endlich erzeugt } \\Rightarrow I \\cdot I^{-1} = R",
-            "explanation": "Ein Prüfer-Ring ist wie ein System mit invertierbaren Idealen. Es ist wie das Finden einer Struktur mit besonderen Idealen!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440087",
-            "text": "Ein Bézout-Ring ist ein Integritätsbereich, in dem jedes endlich erzeugte Ideal ein Hauptideal ist.",
-            "formula": "I \\text{ endlich erzeugt } \\Rightarrow I \\text{ ist Hauptideal}",
-            "explanation": "Ein Bézout-Ring ist wie ein System mit Hauptidealen. Es ist wie das Finden einer Struktur mit einfachen Idealen!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440088",
-            "text": "Ein valuation Ring ist ein lokaler, ganzabgeschlossener Integritätsbereich.",
-            "formula": "R \\text{ ist valuation Ring } \\Leftrightarrow \\text{ für alle } a,b \\in K: a/b \\in R \\text{ oder } b/a \\in R",
-            "explanation": "Ein valuation Ring ist wie ein System mit besonderer Bewertung. Es ist wie das Finden einer Struktur mit spezieller Ordnung!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440089",
-            "text": "Ein Krull-Ring ist ein Integritätsbereich mit endlich vielen Primidealen der Höhe 1.",
-            "formula": "R \\text{ ist Krull-Ring } \\Leftrightarrow R = \\bigcap_{P \\in X^1(R)} R_P",
-            "explanation": "Ein Krull-Ring ist wie ein System mit endlich vielen Primidealen. Es ist wie das Finden einer Struktur mit besonderer Zerlegung!"
-        },
-        {
-            "id": "ff0e8400-e29b-41d4-a716-446655440090",
-            "text": "Zum Schluss schauen wir uns an, wie Ringe in der Mathematik verwendet werden.",
-            "formula": "\\text{Ringe sind fundamentale Strukturen in der Algebra}",
-            "explanation": "In der Mathematik helfen uns Ringe, Strukturen mit zwei Verknüpfungen zu verstehen. Es ist wie das Übersetzen mathematischer Konzepte in die Sprache der Systeme!"
-        }
-    ]
-} 
+{
+  "id": "ff0e8400-e29b-41d4-a716-446655440061",
+  "topic": "Ringe",
+  "steps": [
+    {
+      "id": "ff0e8400-e29b-41d4-a716-446655440062",
+      "section": "Kapitel 1 · Zwei Verknüpfungen",
+      "text": "Willkommen! In der Lektion „Gruppen“ hatte eine Struktur EINE Verknüpfung. Die ganzen Zahlen haben aber zwei: Addition und Multiplikation. Strukturen dieser Art heißen Ringe.",
+      "explanation": "Unser Fahrplan:\n1. Die Definition und Beispiele\n2. Rechenregeln, die aus den Axiomen folgen – inklusive „minus mal minus“\n3. Restklassenringe \\(\\mathbb{Z}/n\\) und Nullteiler\n4. Einheiten: Welche Elemente kann man invertieren?\n5. Polynomringe und Polynomdivision\n6. Homomorphismen, Neunerprobe und Teilbarkeitsregeln\n7. Ausblick und Rückblick",
+      "insight": "Prototyp für alles in dieser Lektion: \\((\\mathbb{Z}, +, \\cdot)\\). Frag dich bei jeder Definition, was sie für ganze Zahlen bedeutet."
+    },
+    {
+      "id": "ff0e8400-e29b-41d4-a716-446655440063",
+      "section": "Kapitel 1 · Zwei Verknüpfungen",
+      "text": "Ein Ring \\((R, +, \\cdot)\\) ist eine Menge mit zwei Verknüpfungen, die so zusammenarbeiten wie bei den ganzen Zahlen:",
+      "formula": "\\begin{array}{ll} \\textbf{(R1)} & (R, +) \\text{ ist eine abelsche Gruppe} \\\\[4pt] \\textbf{(R2)} & \\cdot \\text{ ist assoziativ, mit Einselement } 1 \\\\[4pt] \\textbf{(R3)} & a(b + c) = ab + ac \\\\ & (a + b)c = ac + bc \\end{array}",
+      "explanation": "(R1): Man kann addieren und subtrahieren. Das neutrale Element heißt \\(0\\), das Inverse \\(-a\\).\n\n(R2): Man kann multiplizieren. Inverse bezüglich \\(\\cdot\\) werden NICHT verlangt – dividieren kann man in einem Ring im Allgemeinen nicht.\n\n(R3): Distributivgesetze. Sie sind die einzige Verbindung zwischen \\(+\\) und \\(\\cdot\\) – und deshalb steckt in ihnen fast jede Rechenregel.\n\nGilt zusätzlich \\(ab = ba\\), heißt der Ring kommutativ. (Manche Bücher verlangen kein Einselement. Wir setzen es immer voraus.)",
+      "insight": "Merkhilfe: Ring = „Gruppe für Plus“ + „Multiplikation ohne Division“ + Distributivgesetz als Klebstoff."
+    },
+    {
+      "id": "ff0e8400-e29b-41d4-a716-446655440064",
+      "section": "Kapitel 1 · Zwei Verknüpfungen",
+      "text": "Ringe sind überall. Die wichtigsten Beispiele:",
+      "formula": "\\begin{array}{ll} \\mathbb{Z},\\; \\mathbb{Q},\\; \\mathbb{R} & \\text{die Zahlbereiche} \\\\ \\mathbb{Z}/n & \\text{Rechnen modulo } n \\\\ \\mathbb{R}[x] & \\text{Polynome mit reellen Koeffizienten} \\\\ \\mathbb{R}^{2 \\times 2} & \\text{Matrizen (nicht kommutativ!)} \\end{array}",
+      "explanation": "Nicht-Beispiele:\n• \\(\\mathbb{N}\\): keine additiven Inversen, (R1) scheitert.\n• Die geraden Zahlen \\(2\\mathbb{Z}\\): Addition und Multiplikation funktionieren, aber es gibt kein Einselement (\\(1 \\notin 2\\mathbb{Z}\\)).\n\nBei Matrizen gilt \\(AB \\neq BA\\) im Allgemeinen (siehe „Matrizen“). Sie sind das wichtigste Beispiel eines nicht-kommutativen Rings.\n\nAb jetzt meinen wir mit „Ring“ immer einen kommutativen Ring mit Eins, wenn nichts anderes gesagt wird.",
+      "insight": "\\(\\mathbb{Q}\\) und \\(\\mathbb{R}\\) sind Ringe mit einer Zusatzeigenschaft: Man kann durch alles außer \\(0\\) teilen. Solche Ringe heißen Körper – Thema der nächsten Lektion."
+    },
+    {
+      "id": "ff0e8400-e29b-41d4-a716-446655440065",
+      "section": "Kapitel 2 · Rechenregeln – warum minus mal minus plus ist",
+      "text": "Was folgt aus den Axiomen? Erstaunlich viel. Erste Regel: Null mal irgendwas ist null. In der Schule eine Selbstverständlichkeit – hier ein Satz mit Beweis.",
+      "formula": "\\begin{aligned} 0 \\cdot a &= (0 + 0) \\cdot a = 0 \\cdot a + 0 \\cdot a \\\\ \\Longrightarrow\\quad 0 &= 0 \\cdot a \\end{aligned}",
+      "explanation": "Schritt 1: \\(0 = 0 + 0\\), weil \\(0\\) das neutrale Element der Addition ist.\nSchritt 2: Distributivgesetz.\nSchritt 3: Auf beiden Seiten \\(-(0 \\cdot a)\\) addieren. Links bleibt \\(0\\), rechts \\(0 \\cdot a\\).\n\nDer Beweis benutzt nur die Axiome – also gilt \\(0 \\cdot a = 0\\) in JEDEM Ring: für Zahlen, Polynome, Matrizen, Restklassen.",
+      "insight": "Die Multiplikation mit \\(0\\) „weiß“ nichts von sich aus über \\(0\\). Erst das Distributivgesetz verbindet die beiden Verknüpfungen."
+    },
+    {
+      "id": "ff0e8400-e29b-41d4-a716-446655440066",
+      "section": "Kapitel 2 · Rechenregeln – warum minus mal minus plus ist",
+      "text": "Und jetzt die berühmte Frage: Warum ist minus mal minus plus? Auch das ist keine Vereinbarung, sondern folgt zwingend aus dem Distributivgesetz.",
+      "formula": "\\begin{aligned} (-a) b + a b &= (-a + a) b = 0 \\\\ \\Rightarrow\\quad (-a)b &= -(ab) \\\\[8pt] (-a)(-b) &= -\\big(a (-b)\\big) \\\\ &= -\\big(-(ab)\\big) = ab \\end{aligned}",
+      "explanation": "Erste Zeile: \\((-a)b\\) ergibt mit \\(ab\\) zusammen \\(0\\). Also ist \\((-a)b\\) das additive Inverse von \\(ab\\), und das heißt \\(-(ab)\\).\n\nZweite Zeile: Zweimal die erste Regel anwenden, dann \\(-(-x) = x\\) (in jeder Gruppe gilt \\((x^{-1})^{-1} = x\\)).\n\nInsbesondere: \\((-1) \\cdot (-1) = 1\\).\n\nWürde man „minus mal minus = minus“ festlegen, wäre das Distributivgesetz verletzt. Einerseits ist \\((-1) \\cdot (1 + (-1))\\) \\(= (-1) \\cdot 0\\) \\(= 0\\). Andererseits wäre ausmultipliziert \\((-1) \\cdot 1 + (-1)(-1)\\) \\(= -1 - 1\\) \\(= -2\\).",
+      "insight": "Viele Schulregeln sind keine Konventionen, sondern Folgerungen aus wenigen Axiomen. Genau das zeigt die abstrakte Algebra."
+    },
+    {
+      "id": "ff0e8400-e29b-41d4-a716-446655440067",
+      "section": "Kapitel 3 · Restklassenringe und Nullteiler",
+      "text": "Ein besonders wichtiges Beispiel: der Restklassenring \\(\\mathbb{Z}/n\\). Man rechnet mit Resten modulo \\(n\\) – addieren UND multiplizieren.",
+      "formula": "\\begin{array}{c|cccccc} \\cdot & 0 & 1 & 2 & 3 & 4 & 5 \\\\ \\hline 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\\ 1 & 0 & 1 & 2 & 3 & 4 & 5 \\\\ 2 & 0 & 2 & 4 & 0 & 2 & 4 \\\\ 3 & 0 & 3 & 0 & 3 & 0 & 3 \\\\ 4 & 0 & 4 & 2 & 0 & 4 & 2 \\\\ 5 & 0 & 5 & 4 & 3 & 2 & 1 \\end{array}",
+      "explanation": "Das ist die Multiplikationstafel von \\(\\mathbb{Z}/6\\). Beispiel: \\(4 \\cdot 5 = 20 = 3 \\cdot 6 + 2\\), also \\(4 \\cdot 5 = 2\\).\n\nDie Ringaxiome erbt \\(\\mathbb{Z}/n\\) von \\(\\mathbb{Z}\\): Es ist egal, ob man erst rechnet und dann den Rest nimmt oder erst die Reste nimmt und dann rechnet.\n\nFällt dir etwas auf? In den Zeilen von \\(2\\), \\(3\\) und \\(4\\) steht mehrfach die \\(0\\) – obwohl keiner der Faktoren \\(0\\) ist.",
+      "insight": "Anders als bei einer Gruppentafel kommen hier nicht in jeder Zeile alle Elemente vor. Die Multiplikation eines Rings ist eben keine Gruppenverknüpfung."
+    },
+    {
+      "id": "ff0e8400-e29b-41d4-a716-446655440068",
+      "section": "Kapitel 3 · Restklassenringe und Nullteiler",
+      "text": "Elemente \\(a \\neq 0\\), für die es ein \\(b \\neq 0\\) mit \\(ab = 0\\) gibt, heißen Nullteiler. In \\(\\mathbb{Z}/6\\) gibt es sie:",
+      "visual": "clockZ6",
+      "formula": "2 \\cdot 3 = 6 \\equiv 0, \\qquad 3 \\cdot 4 = 12 \\equiv 0 \\qquad \\text{in } \\mathbb{Z}/6",
+      "explanation": "Nullteiler zerstören eine Regel, die du seit der Schule benutzt: „Ein Produkt ist null, wenn ein Faktor null ist.“ In \\(\\mathbb{Z}/6\\) ist \\(2 \\cdot 3 = 0\\), aber weder \\(2\\) noch \\(3\\) ist \\(0\\).\n\nDamit funktioniert auch das Kürzen nicht mehr:\n\\(2 \\cdot 1 = 2\\) und \\(2 \\cdot 4 = 8 = 2\\), also \\(2 \\cdot 1 = 2 \\cdot 4\\) – aber \\(1 \\neq 4\\).\n\nWoher kommen die Nullteiler? Aus der Zerlegung \\(6 = 2 \\cdot 3\\). Ist \\(n = a \\cdot b\\) mit \\(1 < a, b < n\\), dann ist \\(a \\cdot b = n \\equiv 0\\) in \\(\\mathbb{Z}/n\\).",
+      "insight": "Typischer Fehler: Gleichungen wie \\(x^2 = x\\) in \\(\\mathbb{Z}/n\\) wie gewohnt lösen. In \\(\\mathbb{Z}/6\\) hat \\(x^2 = x\\) die vier Lösungen \\(0, 1, 3, 4\\) – nicht nur \\(0\\) und \\(1\\)."
+    },
+    {
+      "id": "ff0e8400-e29b-41d4-a716-446655440069",
+      "section": "Kapitel 3 · Restklassenringe und Nullteiler",
+      "text": "Ein Ring ohne Nullteiler (und mit \\(1 \\neq 0\\)) heißt Integritätsring. In ihm darf man kürzen:",
+      "formula": "\\begin{aligned} ab = ac,\\; a \\neq 0 \\;&\\Longrightarrow\\; a(b - c) = 0 \\\\ &\\Longrightarrow\\; b - c = 0 \\;\\Longrightarrow\\; b = c \\end{aligned}",
+      "explanation": "Der zweite Schritt benutzt genau die Nullteilerfreiheit: Ein Produkt ist nur dann \\(0\\), wenn ein Faktor \\(0\\) ist – und \\(a\\) ist es nicht.\n\nBeispiele für Integritätsringe: \\(\\mathbb{Z}\\), \\(\\mathbb{Q}\\), \\(\\mathbb{R}\\), \\(\\mathbb{R}[x]\\), \\(\\mathbb{Z}/p\\) für Primzahlen \\(p\\).\nKeine Integritätsringe: \\(\\mathbb{Z}/6\\), \\(\\mathbb{Z}/4\\) (wegen \\(2 \\cdot 2 = 0\\)), Matrizen (z. B. \\(\\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}^2\\) \\(= 0\\)).",
+      "insight": "„Kürzen“ ist in Ringen keine Division, sondern eine Folgerung aus der Nullteilerfreiheit. Wo es Nullteiler gibt, ist Kürzen verboten."
+    },
+    {
+      "id": "ff0e8400-e29b-41d4-a716-446655440070",
+      "section": "Kapitel 4 · Einheiten",
+      "text": "Welche Elemente haben ein multiplikatives Inverses? Sie heißen Einheiten, und sie bilden eine Gruppe \\(R^\\times\\).",
+      "formula": "\\begin{aligned} R^\\times &= \\{ a \\in R \\mid \\text{es gibt } b \\in R \\text{ mit } ab = 1 \\} \\\\[4pt] \\mathbb{Z}^\\times &= \\{ 1, -1 \\} \\\\ (\\mathbb{Z}/6)^\\times &= \\{ 1, 5 \\} \\\\ \\mathbb{Q}^\\times &= \\mathbb{Q} \\setminus \\{0\\} \\end{aligned}",
+      "explanation": "In \\(\\mathbb{Z}\\) sind nur \\(1\\) und \\(-1\\) invertierbar: \\(2 \\cdot x = 1\\) hat keine ganzzahlige Lösung.\n\nIn \\(\\mathbb{Z}/6\\): \\(5 \\cdot 5 = 25 = 1\\), also ist \\(5\\) sein eigenes Inverses. \\(2, 3, 4\\) sind Nullteiler – und ein Nullteiler kann nie eine Einheit sein. (Wäre \\(ab = 0\\) mit \\(b \\neq 0\\) und \\(a\\) invertierbar, folgte \\(b = a^{-1}ab = 0\\).)\n\n\\(R^\\times\\) ist mit \\(\\cdot\\) eine Gruppe: Produkte und Inverse von Einheiten sind wieder Einheiten.",
+      "insight": "In \\(\\mathbb{Z}/n\\) gilt sogar: Jedes Element ist entweder \\(0\\), eine Einheit oder ein Nullteiler. Ein Drittes gibt es nicht."
+    },
+    {
+      "id": "ff0e8400-e29b-41d4-a716-446655440071",
+      "section": "Kapitel 4 · Einheiten",
+      "text": "Wann ist ein Element von \\(\\mathbb{Z}/n\\) eine Einheit? Hier kommt der größte gemeinsame Teiler ins Spiel:",
+      "formula": "a \\in (\\mathbb{Z}/n)^\\times \\quad \\iff \\quad \\operatorname{ggT}(a, n) = 1",
+      "explanation": "„⇐“: Nach Bézout (Lektion „ggT“) gibt es \\(x, y\\) mit \\(xa + yn = 1\\). Modulo \\(n\\) fällt \\(yn\\) weg: \\(xa \\equiv 1\\). Also ist \\(x\\) das Inverse von \\(a\\).\n\n„⇒“: Ist \\(xa \\equiv 1\\), dann \\(xa = 1 + kn\\) für ein \\(k\\), also \\(xa - kn = 1\\). Jeder gemeinsame Teiler von \\(a\\) und \\(n\\) teilt dann \\(1\\).\n\nBeispiel: \\((\\mathbb{Z}/12)^\\times = \\{1, 5, 7, 11\\}\\) – genau die Zahlen, die mit \\(12\\) keinen gemeinsamen Teiler haben. Und tatsächlich: \\(5 \\cdot 5 = 25 = 1\\), \\(7 \\cdot 7 = 49 = 1\\), \\(11 \\cdot 11 = 121 = 1\\) in \\(\\mathbb{Z}/12\\).\n\nInverse berechnet man mit dem erweiterten euklidischen Algorithmus.",
+      "insight": "Folgerung: Ist \\(p\\) eine Primzahl, sind ALLE Elemente \\(1, \\dots, p - 1\\) Einheiten. Dann ist \\(\\mathbb{Z}/p\\) ein Körper – das zeigt die nächste Lektion im Detail."
+    },
+    {
+      "id": "ff0e8400-e29b-41d4-a716-446655440072",
+      "section": "Kapitel 5 · Polynomringe",
+      "text": "Ein Ring, der in der ganzen Mathematik auftaucht: der Polynomring \\(K[x]\\). Seine Elemente sind Polynome, und man rechnet mit ihnen wie mit Zahlen.",
+      "formula": "\\begin{aligned} f &= 2x^2 + 3, \\quad g = x - 1 \\\\ f + g &= 2x^2 + x + 2 \\\\ f \\cdot g &= 2x^3 - 2x^2 + 3x - 3 \\end{aligned}",
+      "explanation": "Ein Polynom ist \\(a_n x^n + \\dots + a_1 x + a_0\\) mit Koeffizienten aus einem Ring, hier \\(\\mathbb{R}\\). Der Grad ist der höchste Exponent mit Koeffizient \\(\\neq 0\\).\n\nDie Analogie zu \\(\\mathbb{Z}\\) ist eng:\n• Grad entspricht der Größe einer Zahl. In \\(\\mathbb{R}[x]\\) gilt \\(\\deg(fg) = \\deg f + \\deg g\\).\n• Daher ist \\(\\mathbb{R}[x]\\) nullteilerfrei: Zwei Polynome \\(\\neq 0\\) haben ein Produkt vom Grad \\(\\ge 0\\), also \\(\\neq 0\\).\n• Einheiten sind nur die konstanten Polynome \\(\\neq 0\\) – genau wie in \\(\\mathbb{Z}\\) nur \\(\\pm 1\\).",
+      "insight": "Ein Polynom ist ein formaler Ausdruck, nicht nur eine Funktion. Über \\(\\mathbb{Z}/2\\) sind \\(x^2 + x\\) und \\(0\\) verschiedene Polynome, obwohl beide für \\(x = 0\\) und \\(x = 1\\) den Wert \\(0\\) haben."
+    },
+    {
+      "id": "ff0e8400-e29b-41d4-a716-446655440073",
+      "section": "Kapitel 5 · Polynomringe",
+      "text": "Wie bei ganzen Zahlen gibt es eine Division mit Rest – die Polynomdivision. Beispiel: \\((x^3 - 6x^2 + 11x - 6) : (x - 1)\\).",
+      "formula": "\\begin{array}{ll} x^3 : x = x^2 & \\text{Rest: } -5x^2 + 11x - 6 \\\\ -5x^2 : x = -5x & \\text{Rest: } 6x - 6 \\\\ 6x : x = 6 & \\text{Rest: } 0 \\\\[8pt] \\multicolumn{2}{c}{x^3 - 6x^2 + 11x - 6 = (x - 1)(x^2 - 5x + 6)} \\end{array}",
+      "explanation": "In jedem Schritt teilt man den höchsten Term durch \\(x\\), multipliziert das Ergebnis mit \\((x - 1)\\) und zieht es ab. Beispiel erster Schritt: \\(x^2 \\cdot (x - 1) = x^3 - x^2\\), und \\(x^3 - 6x^2 + 11x - 6 - (x^3 - x^2)\\) \\(= -5x^2 + 11x - 6\\).\n\nDer Rest ist \\(0\\), also teilt \\((x - 1)\\) das Polynom. Weiter: \\(x^2 - 5x + 6 = (x - 2)(x - 3)\\), also insgesamt \\((x - 1)(x - 2)(x - 3)\\).\n\nAllgemeiner Satz: \\(f(a) = 0 \\iff (x - a) \\mid f\\). Eine Nullstelle liefert einen Linearfaktor. Hier: \\(f(1) = 1 - 6 + 11 - 6 = 0\\) ✓\n\nFolgerung: Ein Polynom vom Grad \\(n\\) hat höchstens \\(n\\) Nullstellen (in einem Integritätsring).",
+      "insight": "Weil es eine Division mit Rest gibt, funktioniert auch der euklidische Algorithmus für Polynome. Ringe mit dieser Eigenschaft heißen euklidische Ringe."
+    },
+    {
+      "id": "ff0e8400-e29b-41d4-a716-446655440074",
+      "section": "Kapitel 6 · Homomorphismen und Anwendungen",
+      "text": "Ringhomomorphismen sind Abbildungen, die Addition, Multiplikation und die Eins respektieren:",
+      "formula": "\\begin{aligned} \\varphi(a + b) &= \\varphi(a) + \\varphi(b) \\\\ \\varphi(ab) &= \\varphi(a)\\,\\varphi(b) \\\\ \\varphi(1) &= 1 \\end{aligned}",
+      "explanation": "Das wichtigste Beispiel: Reduktion modulo \\(n\\), also \\(\\mathbb{Z} \\to \\mathbb{Z}/n\\), \\(a \\mapsto a \\bmod n\\).\n\nDamit kann man Rechnungen in \\(\\mathbb{Z}\\) „im Kleinen“ kontrollieren: Ist \\(a \\cdot b = c\\) in \\(\\mathbb{Z}\\), dann gilt auch \\(\\varphi(a) \\cdot \\varphi(b) = \\varphi(c)\\) in \\(\\mathbb{Z}/n\\). Stimmt die zweite Gleichung nicht, ist die erste falsch.\n\nEin weiteres Beispiel: Einsetzen \\(\\mathbb{R}[x] \\to \\mathbb{R}\\), \\(f \\mapsto f(2)\\). Der Kern besteht aus allen Polynomen mit Nullstelle \\(2\\) – also allen Vielfachen von \\((x - 2)\\).",
+      "insight": "Ein Homomorphismus kann Information verlieren (nicht injektiv) – aber er macht nie aus einer richtigen Rechnung eine falsche."
+    },
+    {
+      "id": "ff0e8400-e29b-41d4-a716-446655440075",
+      "section": "Kapitel 6 · Homomorphismen und Anwendungen",
+      "text": "Eine Anwendung aus dem Alltag: die Neunerprobe. Weil \\(10 \\equiv 1\\) modulo \\(9\\) ist, hat jede Zahl modulo 9 denselben Rest wie ihre Quersumme.",
+      "formula": "\\begin{aligned} 1234 \\cdot 5678 &= 7\\,006\\,652 \\;? \\\\[4pt] 1234 &\\equiv 1 + 2 + 3 + 4 = 10 \\equiv 1 \\\\ 5678 &\\equiv 5 + 6 + 7 + 8 = 26 \\equiv 8 \\\\ 7\\,006\\,652 &\\equiv 7 + 6 + 6 + 5 + 2 = 26 \\equiv 8 \\end{aligned}",
+      "explanation": "Warum Quersumme? \\(1234\\) \\(= 1 \\cdot 10^3 + 2 \\cdot 10^2 + 3 \\cdot 10 + 4\\). Modulo 9 ist jede Zehnerpotenz \\(\\equiv 1\\), also bleibt \\(1 + 2 + 3 + 4\\).\n\nProbe: links \\(1 \\cdot 8 = 8\\), rechts \\(8\\) ✓. Die Rechnung besteht die Probe.\n\nVorsicht: Eine bestandene Probe beweist nicht, dass die Rechnung stimmt (Zahlendreher fallen nicht auf). Eine NICHT bestandene Probe beweist aber sicher einen Fehler.\n\nDieselbe Idee liefert die Teilbarkeitsregeln: \\(9 \\mid n \\iff 9 \\mid \\text{Quersumme}\\), ebenso für \\(3\\). Für \\(11\\) gilt \\(10 \\equiv -1\\), daher die alternierende Quersumme.",
+      "insight": "Die Teilbarkeitsregeln aus der Schule sind Rechnungen im Ring \\(\\mathbb{Z}/n\\). Jetzt weißt du, warum sie funktionieren."
+    },
+    {
+      "id": "ff0e8400-e29b-41d4-a716-446655440076",
+      "section": "Kapitel 6 · Homomorphismen und Anwendungen",
+      "text": "Typische Fehler beim Rechnen in Ringen:",
+      "formula": "\\begin{array}{ll} ab = 0 \\Rightarrow a = 0 \\lor b = 0 & \\text{nur in Integritätsringen} \\\\ ab = ac \\Rightarrow b = c & \\text{nur ohne Nullteiler, } a \\neq 0 \\\\ ab = ba & \\text{nur in kommutativen Ringen} \\\\ \\text{durch } a \\text{ teilen} & \\text{nur wenn } a \\text{ Einheit ist} \\end{array}",
+      "explanation": "Ein überraschendes Beispiel in die andere Richtung: In \\(\\mathbb{Z}/2\\) gilt \\((a + b)^2 = a^2 + b^2\\)! Denn \\(2ab = 0\\), weil \\(2 = 0\\) in \\(\\mathbb{Z}/2\\). Der „Schülerfehler“ ist dort richtig.\n\nRegel für die Praxis: Bevor du eine gewohnte Umformung benutzt, frag dich, welche Ringeigenschaft sie braucht.",
+      "insight": "Rechenregeln hängen vom Ring ab. Was in \\(\\mathbb{R}\\) selbstverständlich ist, kann in \\(\\mathbb{Z}/6\\) oder bei Matrizen falsch sein – und umgekehrt."
+    },
+    {
+      "id": "ff0e8400-e29b-41d4-a716-446655440077",
+      "section": "Kapitel 7 · Ausblick und Rückblick",
+      "text": "Ausblick: Wo geht es weiter?",
+      "explanation": "• Ideale: Teilmengen wie \\(n\\mathbb{Z}\\), die bei Multiplikation mit beliebigen Ringelementen erhalten bleiben. Sie verallgemeinern „Vielfache von \\(n\\)“. Mit ihnen konstruiert man Faktorringe \\(R/I\\) – so wie \\(\\mathbb{Z}/n\\) aus \\(\\mathbb{Z}\\).\n\n• Teilbarkeitstheorie: In welchen Ringen ist die Zerlegung in „Primelemente“ eindeutig? In \\(\\mathbb{Z}\\) und \\(K[x]\\) ja – in manchen Zahlbereichen überraschenderweise nicht, z. B. \\(6\\) \\(= 2 \\cdot 3\\) \\(= (1 + \\sqrt{-5})(1 - \\sqrt{-5})\\).\n\n• Algebraische Geometrie: Polynomringe in mehreren Variablen beschreiben Kurven und Flächen.\n\n• Kryptographie und Codierungstheorie: Rechnen in \\(\\mathbb{Z}/n\\) und in Polynomringen über endlichen Körpern.",
+      "insight": "Als Nächstes: „Körper“ – Ringe, in denen man durch alles außer \\(0\\) teilen kann."
+    },
+    {
+      "id": "ff0e8400-e29b-41d4-a716-446655440078",
+      "section": "Kapitel 7 · Ausblick und Rückblick",
+      "text": "Schau zurück, wie die Begriffe auseinander hervorgegangen sind:",
+      "explanation": "1. Ring: \\((R, +)\\) abelsche Gruppe, \\(\\cdot\\) assoziativ mit \\(1\\), Distributivgesetze. Beispiele: \\(\\mathbb{Z}\\), \\(\\mathbb{Z}/n\\), \\(\\mathbb{R}[x]\\), Matrizen.\n\n2. Aus den Axiomen: \\(0 \\cdot a = 0\\), \\((-a)b = -(ab)\\), \\((-a)(-b) = ab\\).\n\n3. \\(\\mathbb{Z}/n\\) und Nullteiler: \\(2 \\cdot 3 = 0\\) in \\(\\mathbb{Z}/6\\). Integritätsring = keine Nullteiler = Kürzen erlaubt.\n\n4. Einheiten \\(R^\\times\\) bilden eine Gruppe. \\(a \\in (\\mathbb{Z}/n)^\\times \\iff \\operatorname{ggT}(a, n) = 1\\).\n\n5. Polynomringe: Grad, Polynomdivision, Nullstelle ⇔ Linearfaktor.\n\n6. Homomorphismen: Reduktion modulo \\(n\\) → Neunerprobe und Teilbarkeitsregeln.",
+      "insight": "Glückwunsch! Du verstehst jetzt, warum Rechenregeln gelten – und wann sie versagen."
+    }
+  ]
+}

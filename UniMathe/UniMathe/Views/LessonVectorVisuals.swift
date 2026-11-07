@@ -117,6 +117,52 @@ struct LessonVisualView: View {
         case "implicationSets": ImplicationSetsVisual()
         case "dominoes": DominoVisual()
         case "gaussSum": GaussSumVisual()
+        case "binomialSquare": BinomialSquareVisual()
+        case "binomialDifference": BinomialDifferenceVisual()
+        case "euclidRectangle": EuclidRectangleVisual()
+        case "triangleSymmetries": TriangleSymmetryVisual()
+        case "complexOperations": ComplexOperationsVisual()
+        case "complexMultiplication": ComplexMultiplicationVisual()
+        case "rootsOfUnity": RootsOfUnityVisual()
+        case "clockZ12": ClockVisual(n: 12, frames: [
+            ClockFrame(caption: "ℤ/12: Rechnen auf der Uhr. Es gibt nur die Zahlen 0 bis 11; nach 11 kommt wieder 0."),
+            ClockFrame(arcs: [ClockArc(from: 9, steps: 5)], marks: [(9, .blue), (2, .green)], caption: "9 + 5: Von 9 aus 5 Schritte weiter landet man bei 2. Also 9 + 5 = 2 in ℤ/12 (denn 14 = 12 + 2)."),
+            ClockFrame(marks: [(0, .green)], caption: "Das neutrale Element ist 0: „0 Schritte weiter“ ändert nichts."),
+            ClockFrame(arcs: [ClockArc(from: 5, steps: 7, color: .orange)], marks: [(5, .blue), (0, .green)], caption: "Das Inverse von 5 ist 7: Von 5 aus 7 Schritte führen zurück zur 0. Also 5 + 7 = 0 und −5 = 7."),
+            ClockFrame(arcs: [ClockArc(from: 0, steps: 4, color: .purple), ClockArc(from: 4, steps: 4, color: .purple), ClockArc(from: 8, steps: 4, color: .purple)],
+                       marks: [(0, .purple), (4, .purple), (8, .purple)],
+                       caption: "Mit Schritten der Länge 4 erreicht man nur 0, 4, 8 – dann ist man wieder bei 0. {0, 4, 8} ist eine Untergruppe, und 4 hat die Ordnung 3.")
+        ])
+        case "clockZ6": ClockVisual(n: 6, frames: [
+            ClockFrame(caption: "ℤ/6 = {0, 1, 2, 3, 4, 5}. Multiplizieren heißt wiederholtes Addieren: 2 · 3 = 3 + 3."),
+            ClockFrame(arcs: [ClockArc(from: 0, steps: 3), ClockArc(from: 3, steps: 3)], marks: [(3, .orange), (0, .red)],
+                       caption: "2 · 3 = 3 + 3 = 6 = 0. Zwei Elemente ungleich 0 haben das Produkt 0: 2 und 3 sind Nullteiler."),
+            ClockFrame(arcs: [ClockArc(from: 0, steps: 2, color: .orange), ClockArc(from: 2, steps: 2, color: .orange), ClockArc(from: 4, steps: 2, color: .orange)],
+                       marks: [(0, .orange), (2, .orange), (4, .orange), (1, .red)],
+                       caption: "Die Vielfachen von 2 sind nur 0, 2, 4. Die 1 wird nie erreicht – es gibt kein x mit 2 · x = 1. Die 2 ist nicht invertierbar."),
+            ClockFrame(marks: [(5, .green), (1, .green)], caption: "Anders bei 5: 5 · 5 = 25 = 4 · 6 + 1, also 5 · 5 = 1. Die 5 ist invertierbar, denn ggT(5, 6) = 1.")
+        ])
+        case "clockF5": ClockVisual(n: 5, frames: [
+            ClockFrame(caption: "ℤ/5 = {0, 1, 2, 3, 4}. Gibt es auch hier Nullteiler?"),
+            ClockFrame(arcs: [ClockArc(from: 0, steps: 2, color: .orange), ClockArc(from: 2, steps: 2, color: .orange), ClockArc(from: 4, steps: 2, color: .orange), ClockArc(from: 1, steps: 2, color: .orange), ClockArc(from: 3, steps: 2, color: .orange)],
+                       marks: [(0, .orange), (2, .orange), (4, .orange), (1, .green), (3, .orange)],
+                       caption: "Vielfache von 2: 0, 2, 4, 1, 3 – ALLE Zahlen werden erreicht, auch die 1. Bei 2 · 3 = 6 = 1 landet man auf der 1: Also ist 3 das Inverse von 2."),
+            ClockFrame(marks: [(1, .green), (2, .green), (3, .green), (4, .green)],
+                       caption: "Weil 5 eine Primzahl ist, klappt das mit jeder Zahl ungleich 0: 1 · 1 = 1, 2 · 3 = 1, 4 · 4 = 1. ℤ/5 ist ein Körper.")
+        ])
+        case "fieldInverses": ArrowDiagramVisual(
+            columns: [["1", "2", "3", "4", "5", "6"], ["1", "2", "3", "4", "5", "6"]],
+            names: ["a", "a⁻¹"],
+            frames: [
+                DiagramFrame(arrows: [.init(fromColumn: 0, from: 0, toColumn: 1, to: 0), .init(fromColumn: 0, from: 1, toColumn: 1, to: 3), .init(fromColumn: 0, from: 2, toColumn: 1, to: 4),
+                                      .init(fromColumn: 0, from: 3, toColumn: 1, to: 1), .init(fromColumn: 0, from: 4, toColumn: 1, to: 2), .init(fromColumn: 0, from: 5, toColumn: 1, to: 5)],
+                             caption: "In 𝔽₇: Jedes a ≠ 0 hat genau ein Inverses. 2 · 4 = 8 = 1, 3 · 5 = 15 = 1, 6 · 6 = 36 = 1. Die Zuordnung a ↦ a⁻¹ ist sogar bijektiv."),
+                DiagramFrame(columns: [["1", "2", "3", "4", "5"], ["1", "2", "3", "4", "5"]],
+                             arrows: [.init(fromColumn: 0, from: 0, toColumn: 1, to: 0), .init(fromColumn: 0, from: 4, toColumn: 1, to: 4)],
+                             marks: [.init(column: 0, index: 1, color: .red), .init(column: 0, index: 2, color: .red), .init(column: 0, index: 3, color: .red)],
+                             caption: "In ℤ/6 dagegen haben nur 1 und 5 ein Inverses. 2, 3 und 4 haben einen gemeinsamen Teiler mit 6 – für sie gibt es keins.")
+            ]
+        )
         case "quantifierOrder": ArrowDiagramVisual(
             columns: [["1", "2", "3"], ["a", "b", "c"]],
             names: ["Schlösser", "Schlüssel"],
@@ -1964,6 +2010,435 @@ private struct GaussSumVisual: View {
                 .opacity(show(phase == 2))
             MathLabel(text: "+5", at: CGPoint(x: 4.5, y: 5), color: VisualColor.result, window: window, size: size, offset: CGSize(width: 0, height: -14))
                 .opacity(show(phase == 3))
+        }
+    }
+}
+
+// MARK: - Grundlagen: Binomische Formeln
+
+private func unitRect(_ x0: CGFloat, _ y0: CGFloat, _ x1: CGFloat, _ y1: CGFloat, window: PlaneWindow, size: CGSize) -> Path {
+    let a = window.point(CGPoint(x: x0, y: y1), in: size)
+    let b = window.point(CGPoint(x: x1, y: y0), in: size)
+    return Path(CGRect(x: a.x, y: a.y, width: b.x - a.x, height: b.y - a.y))
+}
+
+// MARK: - 30. (a + b)² als Fläche
+
+private struct BinomialSquareVisual: View {
+    let window = PlaneWindow(xMin: -0.8, xMax: 4.6, yMin: -0.8, yMax: 4.6)
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Ein Quadrat mit der Seitenlänge a + b (hier a = 3, b = 1). Seine Fläche ist (a + b)².",
+            "Unten links passt ein Quadrat a × a: Fläche a².",
+            "Zwei Rechtecke a × b: zusammen 2ab. Genau dieser „gemischte“ Teil wird beim Fehler (a + b)² = a² + b² vergessen.",
+            "Oben rechts bleibt ein kleines Quadrat b × b. Zusammen: (a + b)² = a² + 2ab + b². Hier: 16 = 9 + 6 + 1."
+        ]) { phase, size in
+            unitRect(0, 0, 3, 3, window: window, size: size).fill(VisualColor.first.opacity(0.45)).opacity(show(phase >= 1))
+            unitRect(3, 0, 4, 3, window: window, size: size).fill(VisualColor.second.opacity(0.5)).opacity(show(phase >= 2))
+            unitRect(0, 3, 3, 4, window: window, size: size).fill(VisualColor.second.opacity(0.5)).opacity(show(phase >= 2))
+            unitRect(3, 3, 4, 4, window: window, size: size).fill(VisualColor.result.opacity(0.55)).opacity(show(phase >= 3))
+            unitRect(0, 0, 4, 4, window: window, size: size).stroke(Color.primary.opacity(0.7), lineWidth: 2)
+
+            MathLabel(text: "a", at: CGPoint(x: 1.5, y: 0), color: VisualColor.first, window: window, size: size, offset: CGSize(width: 0, height: 14))
+            MathLabel(text: "b", at: CGPoint(x: 3.5, y: 0), color: VisualColor.second, window: window, size: size, offset: CGSize(width: 0, height: 14))
+            MathLabel(text: "a", at: CGPoint(x: 0, y: 1.5), color: VisualColor.first, window: window, size: size, offset: CGSize(width: -14, height: 0))
+            MathLabel(text: "b", at: CGPoint(x: 0, y: 3.5), color: VisualColor.second, window: window, size: size, offset: CGSize(width: -14, height: 0))
+
+            MathLabel(text: "a²", at: CGPoint(x: 1.5, y: 1.5), color: .primary, window: window, size: size, offset: .zero).opacity(show(phase >= 1))
+            MathLabel(text: "ab", at: CGPoint(x: 3.5, y: 1.5), color: .primary, window: window, size: size, offset: .zero).opacity(show(phase >= 2))
+            MathLabel(text: "ab", at: CGPoint(x: 1.5, y: 3.5), color: .primary, window: window, size: size, offset: .zero).opacity(show(phase >= 2))
+            MathLabel(text: "b²", at: CGPoint(x: 3.5, y: 3.5), color: .primary, window: window, size: size, offset: .zero).opacity(show(phase >= 3))
+        }
+    }
+}
+
+// MARK: - 31. a² − b² = (a + b)(a − b) durch Umlegen
+
+private struct BinomialDifferenceVisual: View {
+    let window = PlaneWindow(xMin: -0.8, xMax: 4.6, yMin: -0.8, yMax: 4.6)
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Ein Quadrat a × a (hier a = 3) hat die Fläche a².",
+            "Wir schneiden oben rechts ein Quadrat b × b weg (hier b = 1). Übrig bleibt eine L-Form mit der Fläche a² − b².",
+            "Die L-Form zerlegen wir: unten ein Rechteck a × (a − b), oben ein Streifen (a − b) × b.",
+            "Den Streifen drehen und rechts anlegen: Es entsteht ein Rechteck (a + b) × (a − b). Also a² − b² = (a + b)(a − b). Hier: 9 − 1 = 4 · 2."
+        ]) { phase, size in
+            let scale = size.width / (window.xMax - window.xMin)
+            unitRect(0, 0, 3, 3, window: window, size: size).fill(VisualColor.first.opacity(0.4)).opacity(show(phase == 0))
+            unitRect(0, 0, 3, 2, window: window, size: size).fill(VisualColor.first.opacity(0.45)).opacity(show(phase >= 1))
+            unitRect(2, 2, 3, 3, window: window, size: size)
+                .stroke(VisualColor.warning, style: StrokeStyle(lineWidth: 2, dash: [5, 4]))
+                .opacity(show(phase >= 1 && phase <= 2))
+
+            let stripCenter = phase >= 3 ? CGPoint(x: 3.5, y: 1) : CGPoint(x: 1, y: 2.5)
+            RoundedRectangle(cornerRadius: 2)
+                .fill(VisualColor.second.opacity(phase >= 2 ? 0.6 : 0.45))
+                .overlay(RoundedRectangle(cornerRadius: 2).stroke(phase >= 2 ? VisualColor.second : .clear, lineWidth: 2))
+                .frame(width: 2 * scale, height: 1 * scale)
+                .rotationEffect(.degrees(phase >= 3 ? 90 : 0))
+                .position(window.point(stripCenter, in: size))
+                .opacity(show(phase >= 1))
+
+            unitRect(0, 0, 4, 2, window: window, size: size)
+                .stroke(VisualColor.result, lineWidth: 3)
+                .opacity(show(phase >= 3))
+
+            MathLabel(text: "a", at: CGPoint(x: 1.5, y: 0), color: VisualColor.first, window: window, size: size, offset: CGSize(width: 0, height: 14)).opacity(show(phase <= 2))
+            MathLabel(text: "a + b", at: CGPoint(x: 2, y: 0), color: VisualColor.result, window: window, size: size, offset: CGSize(width: 0, height: 14)).opacity(show(phase >= 3))
+            MathLabel(text: "a − b", at: CGPoint(x: 0, y: 1), color: VisualColor.first, window: window, size: size, offset: CGSize(width: -22, height: 0)).opacity(show(phase >= 2))
+            MathLabel(text: "b²", at: CGPoint(x: 2.5, y: 2.5), color: VisualColor.warning, window: window, size: size, offset: .zero).opacity(show(phase == 1 || phase == 2))
+        }
+    }
+}
+
+// MARK: - 32. Euklidischer Algorithmus als Quadrat-Zerlegung
+
+private struct EuclidRectangleVisual: View {
+    let window = PlaneWindow(xMin: -0.6, xMax: 12.6, yMin: -2.2, yMax: 11.0)
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Ein Rechteck 12 × 9. Gesucht ist das größte Quadrat, mit dem man es lückenlos auslegen kann. Seine Seitenlänge ist ggT(12, 9).",
+            "Schneide das größte Quadrat ab, das hineinpasst: 9 × 9. Das ist der Schritt 12 = 1 · 9 + 3. Übrig bleibt ein Streifen 3 × 9.",
+            "Im Streifen passen genau drei Quadrate 3 × 3: 9 = 3 · 3 + 0. Der Rest ist 0 – der Algorithmus endet.",
+            "Mit 3 × 3-Quadraten lässt sich das ganze Rechteck auslegen, mit keinem größeren Quadrat. Also ggT(12, 9) = 3 – der letzte Rest ungleich 0."
+        ], showGrid: false) { phase, size in
+            unitRect(0, 0, 9, 9, window: window, size: size).fill(VisualColor.first.opacity(0.35)).opacity(show(phase >= 1))
+            ForEach(0..<3, id: \.self) { k in
+                unitRect(9, CGFloat(3 * k), 12, CGFloat(3 * k + 3), window: window, size: size)
+                    .fill(VisualColor.second.opacity(0.45))
+                    .opacity(show(phase >= 2))
+                unitRect(9, CGFloat(3 * k), 12, CGFloat(3 * k + 3), window: window, size: size)
+                    .stroke(VisualColor.second, lineWidth: 2)
+                    .opacity(show(phase >= 2))
+            }
+            Path { p in
+                for k in 1..<4 {
+                    let x = CGFloat(3 * k)
+                    p.move(to: window.point(CGPoint(x: x, y: 0), in: size))
+                    p.addLine(to: window.point(CGPoint(x: x, y: 9), in: size))
+                }
+                for k in 1..<3 {
+                    let y = CGFloat(3 * k)
+                    p.move(to: window.point(CGPoint(x: 0, y: y), in: size))
+                    p.addLine(to: window.point(CGPoint(x: 9, y: y), in: size))
+                }
+            }
+            .stroke(VisualColor.result, lineWidth: 2)
+            .opacity(show(phase >= 3))
+            unitRect(0, 0, 12, 9, window: window, size: size).stroke(Color.primary.opacity(0.7), lineWidth: 2)
+            unitRect(0, 0, 9, 9, window: window, size: size).stroke(VisualColor.first, lineWidth: 2.5).opacity(show(phase >= 1))
+
+            MathLabel(text: "12", at: CGPoint(x: 6, y: 0), color: .primary, window: window, size: size, offset: CGSize(width: 0, height: 14))
+            MathLabel(text: "9", at: CGPoint(x: 0, y: 4.5), color: .primary, window: window, size: size, offset: CGSize(width: -12, height: 0))
+            MathLabel(text: "9 × 9", at: CGPoint(x: 4.5, y: 4.5), color: VisualColor.first, window: window, size: size, offset: .zero).opacity(show(phase >= 1 && phase < 3))
+            MathLabel(text: "3", at: CGPoint(x: 10.5, y: 9), color: VisualColor.second, window: window, size: size, offset: CGSize(width: 0, height: -14)).opacity(show(phase >= 1))
+        }
+    }
+}
+
+// MARK: - Gruppen: Symmetrien des Dreiecks
+
+private struct TriangleSymmetryVisual: View {
+    let window = PlaneWindow(xMin: -1.6, xMax: 1.6, yMin: -1.6, yMax: 1.6)
+
+    /// Zustand: erst Drehung um `angle` (gegen den Uhrzeigersinn), dann evtl. Spiegelung an der senkrechten Achse.
+    private let states: [(Bool, Double)] = [(false, 0), (false, 120), (true, 120), (true, 0), (true, -120)]
+    private let captions = [
+        "Ein gleichseitiges Dreieck mit den Ecken 1, 2, 3. Eine Symmetrie bildet das Dreieck auf sich selbst ab – nur die Ecken tauschen die Plätze.",
+        "r: Drehung um 120° gegen den Uhrzeigersinn.",
+        "Danach s: Spiegelung an der senkrechten Achse. Ergebnis von „erst r, dann s“, also s ∘ r: oben 3, links 2, rechts 1.",
+        "Jetzt die andere Reihenfolge, von vorn: erst s …",
+        "… dann r. Ergebnis r ∘ s: oben 2, links 1, rechts 3. Grau: das Ergebnis von s ∘ r. Verschieden – die Gruppe ist nicht kommutativ!"
+    ]
+    private let colors: [Color] = [VisualColor.first, VisualColor.second, VisualColor.result]
+
+    private func vertex(_ k: Int, radius: CGFloat) -> CGPoint {
+        let theta = (90.0 + 120.0 * Double(k)) * Double.pi / 180.0
+        return CGPoint(x: radius * CGFloat(cos(theta)), y: radius * CGFloat(sin(theta)))
+    }
+
+    private func trianglePath(_ size: CGSize) -> Path {
+        var p = Path()
+        p.move(to: window.point(vertex(0, radius: 1.05), in: size))
+        p.addLine(to: window.point(vertex(1, radius: 1.05), in: size))
+        p.addLine(to: window.point(vertex(2, radius: 1.05), in: size))
+        p.closeSubpath()
+        return p
+    }
+
+    private func vertexLabel(_ k: Int, mirrored: Bool, angle: Double, size: CGSize) -> some View {
+        let diameter: CGFloat = 0.24 * size.width / 3.2
+        return Text("\(k + 1)")
+            .font(.system(size: 15, weight: .bold, design: .rounded))
+            .foregroundColor(.white)
+            .frame(width: diameter, height: diameter)
+            .background(Circle().fill(colors[k]))
+            .scaleEffect(x: mirrored ? -1 : 1)
+            .rotationEffect(.degrees(angle))
+            .position(window.point(vertex(k, radius: 1.05), in: size))
+    }
+
+    private func ghostLabel(_ k: Int, size: CGSize) -> some View {
+        Text(["3", "2", "1"][k])
+            .font(.system(size: 15, weight: .bold, design: .rounded))
+            .foregroundColor(.secondary.opacity(0.6))
+            .position(window.point(vertex(k, radius: 1.38), in: size))
+    }
+
+    private func figure(phase: Int, size: CGSize) -> some View {
+        let state = states[min(phase, states.count - 1)]
+        let mirrored = state.0
+        let angle = state.1
+        return ZStack {
+            trianglePath(size).fill(VisualColor.first.opacity(0.18))
+            trianglePath(size).stroke(VisualColor.first, lineWidth: 2.5)
+            ForEach(0..<3, id: \.self) { k in
+                vertexLabel(k, mirrored: mirrored, angle: angle, size: size)
+            }
+        }
+        .frame(width: size.width, height: size.height)
+        .rotationEffect(.degrees(-angle))
+        .scaleEffect(x: mirrored ? -1 : 1)
+    }
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: captions, showGrid: false) { phase, size in
+            Path { p in
+                p.move(to: window.point(CGPoint(x: 0, y: -1.5), in: size))
+                p.addLine(to: window.point(CGPoint(x: 0, y: 1.5), in: size))
+            }
+            .stroke(VisualColor.extra.opacity(0.6), style: StrokeStyle(lineWidth: 1.5, dash: [5, 4]))
+            MathLabel(text: "s", at: CGPoint(x: 0.12, y: 1.45), color: VisualColor.extra, window: window, size: size, offset: .zero)
+
+            ForEach(0..<3, id: \.self) { k in
+                ghostLabel(k, size: size).opacity(show(phase == 4))
+            }
+            figure(phase: phase, size: size)
+        }
+    }
+}
+
+// MARK: - Restklassen auf der Uhr
+
+struct ClockArc {
+    let from: Int
+    let steps: Int
+    var color: Color = .appAccentBlue
+}
+
+struct ClockFrame {
+    var arcs: [ClockArc] = []
+    var marks: [(Int, Color)] = []
+    let caption: String
+}
+
+private struct ClockVisual: View {
+    let n: Int
+    let frames: [ClockFrame]
+    let window = PlaneWindow(xMin: -1.5, xMax: 1.5, yMin: -1.5, yMax: 1.5)
+
+    /// Winkel (mathematisch) der Zahl k: 0 oben, im Uhrzeigersinn.
+    private func angle(_ k: Double) -> Double { (90 - 360 * k / Double(n)) * .pi / 180 }
+
+    private func point(_ k: Double, radius: CGFloat) -> CGPoint {
+        CGPoint(x: radius * CGFloat(cos(angle(k))), y: radius * CGFloat(sin(angle(k))))
+    }
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: frames.map(\.caption), showGrid: false) { phase, size in
+            let frame = frames[min(phase, frames.count - 1)]
+
+            Circle()
+                .stroke(Color.secondary.opacity(0.4), lineWidth: 2)
+                .frame(width: 2.0 * size.width / 3, height: 2.0 * size.width / 3)
+                .position(window.point(.zero, in: size))
+
+            ZStack {
+                ForEach(frame.arcs.indices, id: \.self) { i in
+                    let arc = frame.arcs[i]
+                    let radius: CGFloat = 0.72 - CGFloat(i % 3) * 0.06
+                    Path { p in
+                        let count = max(arc.steps * 12, 12)
+                        for t in 0...count {
+                            let k = Double(arc.from) + Double(arc.steps) * Double(t) / Double(count)
+                            let pt = window.point(point(k, radius: radius), in: size)
+                            if t == 0 { p.move(to: pt) } else { p.addLine(to: pt) }
+                        }
+                        let end = Double(arc.from + arc.steps)
+                        let tip = window.point(point(end, radius: radius), in: size)
+                        let before = window.point(point(end - 0.15, radius: radius), in: size)
+                        let a = atan2(tip.y - before.y, tip.x - before.x)
+                        p.move(to: tip)
+                        p.addLine(to: CGPoint(x: tip.x - 9 * cos(a - .pi / 7), y: tip.y - 9 * sin(a - .pi / 7)))
+                        p.move(to: tip)
+                        p.addLine(to: CGPoint(x: tip.x - 9 * cos(a + .pi / 7), y: tip.y - 9 * sin(a + .pi / 7)))
+                    }
+                    .stroke(arc.color, style: StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
+                }
+
+                ForEach(0..<n, id: \.self) { k in
+                    let mark = frame.marks.first { $0.0 == k }?.1
+                    Text("\(k)")
+                        .font(.system(size: 15, weight: .bold, design: .rounded))
+                        .foregroundColor(mark == nil ? .primary : .white)
+                        .frame(width: 30, height: 30)
+                        .background(Circle().fill(mark ?? Color.appSurfaceStrong))
+                        .overlay(Circle().stroke(mark ?? Color.secondary.opacity(0.5), lineWidth: 1.5))
+                        .position(window.point(point(Double(k), radius: 1.0), in: size))
+                }
+            }
+            .id(phase)
+            .transition(.opacity)
+        }
+    }
+}
+
+// MARK: - Komplexe Zahlen
+
+private struct ComplexOperationsVisual: View {
+    let window = PlaneWindow(xMin: -2, xMax: 4, yMin: -2, yMax: 4)
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "In der Gaußschen Zahlenebene ist z = 2 + i der Punkt (2, 1) und w = 1 + 2i der Punkt (1, 2). Waagerecht: Realteil, senkrecht: Imaginärteil.",
+            "Addition wie bei Vektoren: z + w = 3 + 3i. Man hängt w an die Spitze von z.",
+            "Konjugieren: z̄ = 2 − i ist das Spiegelbild von z an der reellen Achse.",
+            "Multiplikation mit i: i · z = 2i + i² = −1 + 2i. Das ist z, um 90° gegen den Uhrzeigersinn gedreht!"
+        ]) { phase, size in
+            let z = CGPoint(x: 2, y: 1)
+            let w = CGPoint(x: 1, y: 2)
+
+            Arrow(from: .zero, to: z, color: VisualColor.first, window: window, width: 3.5)
+            MathLabel(text: "z", at: z, color: VisualColor.first, window: window, size: size, offset: CGSize(width: 12, height: 6))
+            Arrow(from: .zero, to: w, color: VisualColor.second, window: window, width: 3.5)
+                .opacity(show(phase <= 1))
+            MathLabel(text: "w", at: w, color: VisualColor.second, window: window, size: size, offset: CGSize(width: -12, height: -6))
+                .opacity(show(phase <= 1))
+
+            Arrow(from: z, to: CGPoint(x: 3, y: 3), color: VisualColor.second, window: window, dashed: true)
+                .opacity(show(phase == 1))
+            Arrow(from: .zero, to: CGPoint(x: 3, y: 3), color: VisualColor.result, window: window, width: 3.5)
+                .opacity(show(phase == 1))
+            MathLabel(text: "z + w", at: CGPoint(x: 3, y: 3), color: VisualColor.result, window: window, size: size, offset: CGSize(width: 18, height: -10))
+                .opacity(show(phase == 1))
+
+            Arrow(from: .zero, to: CGPoint(x: 2, y: -1), color: VisualColor.extra, window: window, width: 3.5)
+                .opacity(show(phase == 2))
+            MathLabel(text: "z̄", at: CGPoint(x: 2, y: -1), color: VisualColor.extra, window: window, size: size, offset: CGSize(width: 12, height: 8))
+                .opacity(show(phase == 2))
+
+            Arrow(from: .zero, to: phase >= 3 ? CGPoint(x: -1, y: 2) : z, color: VisualColor.result, window: window, width: 3.5)
+                .opacity(show(phase >= 3))
+            MathLabel(text: "i·z", at: CGPoint(x: -1, y: 2), color: VisualColor.result, window: window, size: size, offset: CGSize(width: -12, height: -10))
+                .opacity(show(phase >= 3))
+        }
+    }
+}
+
+private struct AngleArcShape: Shape {
+    let from: Double
+    let to: Double
+    let radius: CGFloat
+    let window: PlaneWindow
+
+    func path(in rect: CGRect) -> Path {
+        var p = Path()
+        let count = 40
+        for t in 0...count {
+            let a = (from + (to - from) * Double(t) / Double(count)) * .pi / 180
+            let pt = window.point(CGPoint(x: radius * CGFloat(cos(a)), y: radius * CGFloat(sin(a))), in: rect.size)
+            if t == 0 { p.move(to: pt) } else { p.addLine(to: pt) }
+        }
+        return p
+    }
+}
+
+private struct ComplexMultiplicationVisual: View {
+    let window = PlaneWindow(xMin: -1.6, xMax: 3.0, yMin: -0.8, yMax: 3.8)
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "z = 1 + i hat den Betrag √2 und den Winkel 45°.",
+            "w = 1 + √3·i hat den Betrag 2 und den Winkel 60°.",
+            "Das Produkt z · w hat den Winkel 45° + 60° = 105° und den Betrag √2 · 2 = 2√2 ≈ 2,83. Winkel addieren sich, Beträge multiplizieren sich.",
+            "Zur Kontrolle algebraisch: (1 + i)(1 + √3 i) = (1 − √3) + (1 + √3) i ≈ −0,73 + 2,73 i – genau der grüne Punkt."
+        ]) { phase, size in
+            let z = CGPoint(x: 1, y: 1)
+            let w = CGPoint(x: 1, y: sqrt(3))
+            let zw = CGPoint(x: 1 - sqrt(3), y: 1 + sqrt(3))
+
+            AngleArcShape(from: 0, to: 45, radius: 0.45, window: window)
+                .stroke(VisualColor.first, lineWidth: 2)
+            Arrow(from: .zero, to: z, color: VisualColor.first, window: window, width: 3.5)
+            MathLabel(text: "z", at: z, color: VisualColor.first, window: window, size: size, offset: CGSize(width: 12, height: 4))
+
+            AngleArcShape(from: 0, to: 60, radius: 0.7, window: window)
+                .stroke(VisualColor.second, lineWidth: 2)
+                .opacity(show(phase >= 1))
+            Arrow(from: .zero, to: w, color: VisualColor.second, window: window, width: 3.5)
+                .opacity(show(phase >= 1))
+            MathLabel(text: "w", at: w, color: VisualColor.second, window: window, size: size, offset: CGSize(width: 12, height: -4))
+                .opacity(show(phase >= 1))
+
+            AngleArcShape(from: 0, to: 105, radius: 1.0, window: window)
+                .stroke(VisualColor.result, style: StrokeStyle(lineWidth: 2, dash: [4, 3]))
+                .opacity(show(phase >= 2))
+            Arrow(from: .zero, to: phase >= 2 ? zw : z, color: VisualColor.result, window: window, width: 3.5)
+                .opacity(show(phase >= 2))
+            MathLabel(text: "z·w", at: zw, color: VisualColor.result, window: window, size: size, offset: CGSize(width: -16, height: -10))
+                .opacity(show(phase >= 2))
+            Dot(at: zw, color: VisualColor.result, window: window, size: size)
+                .opacity(show(phase >= 3))
+        }
+    }
+}
+
+private struct RootsOfUnityVisual: View {
+    let window = PlaneWindow(xMin: -1.6, xMax: 1.6, yMin: -1.6, yMax: 1.6)
+
+    private func root(_ k: Int) -> CGPoint {
+        let a = Double(k) * .pi / 3
+        return CGPoint(x: cos(a), y: sin(a))
+    }
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Gesucht: alle Lösungen von z⁶ = 1. Der Einheitskreis enthält alle Zahlen mit Betrag 1.",
+            "ζ = cos 60° + i sin 60° = ½ + (√3/2) i. Sechsmal 60° ergibt 360°, also ζ⁶ = 1.",
+            "Die Potenzen ζ, ζ², …, ζ⁶ = 1 laufen in 60°-Schritten um den Kreis. Jede ist eine Lösung.",
+            "Die sechs Lösungen bilden ein regelmäßiges Sechseck. Allgemein hat zⁿ = 1 genau n Lösungen – die Ecken eines regelmäßigen n-Ecks."
+        ]) { phase, size in
+            let scale = size.width / (window.xMax - window.xMin)
+            Circle()
+                .stroke(VisualColor.first.opacity(0.5), lineWidth: 2)
+                .frame(width: 2 * scale, height: 2 * scale)
+                .position(window.point(.zero, in: size))
+
+            Path { p in
+                for k in 0...6 {
+                    let pt = window.point(root(k % 6), in: size)
+                    if k == 0 { p.move(to: pt) } else { p.addLine(to: pt) }
+                }
+            }
+            .stroke(VisualColor.result, lineWidth: 2.5)
+            .opacity(show(phase >= 3))
+
+            ForEach(0..<6, id: \.self) { k in
+                let visible = phase >= 2 || (phase == 1 && (k == 1 || k == 0))
+                Dot(at: root(k), color: k == 0 ? VisualColor.second : VisualColor.result, window: window, size: size)
+                    .opacity(show(visible))
+                MathLabel(text: k == 0 ? "1" : (k == 1 ? "ζ" : "ζ\(["", "", "²", "³", "⁴", "⁵"][k])"), at: root(k), color: VisualColor.result, window: window, size: size,
+                          offset: CGSize(width: root(k).x * 22, height: -root(k).y * 22))
+                    .opacity(show(visible))
+            }
+            AngleArcShape(from: 0, to: 60, radius: 0.35, window: window)
+                .stroke(VisualColor.second, lineWidth: 2)
+                .opacity(show(phase >= 1))
+            Arrow(from: .zero, to: root(1), color: VisualColor.second, window: window, width: 2.5)
+                .opacity(show(phase == 1))
         }
     }
 }

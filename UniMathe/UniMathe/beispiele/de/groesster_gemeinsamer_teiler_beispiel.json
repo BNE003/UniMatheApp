@@ -1,179 +1,148 @@
-{    "id": "dd0e8400-e29b-41d4-a716-446655440061",
-    "topic": "Größter gemeinsamer Teiler",
-    "steps": [
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440062",
-            "text": "Der größte gemeinsame Teiler (ggT) ist die größte Zahl, die zwei Zahlen teilt.",
-            "formula": "\\text{ggT}(a,b) = \\max\\{d \\in \\mathbb{N} \\mid d \\mid a \\text{ und } d \\mid b\\}",
-            "explanation": "Der ggT ist wie der größte gemeinsame Nenner. Es ist wie das Finden der größten Zahl, die in beide Zahlen passt!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440063",
-            "text": "Der euklidische Algorithmus berechnet den ggT.",
-            "formula": "\\text{ggT}(a,b) = \\text{ggT}(b,a \\bmod b) \\text{ für } b \\neq 0",
-            "explanation": "Der euklidische Algorithmus ist wie ein mathematischer Zaubertrick. Es ist wie das schrittweise Vereinfachen des Problems!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440064",
-            "text": "Der erweiterte euklidische Algorithmus findet auch Koeffizienten.",
-            "formula": "\\text{ggT}(a,b) = x \\cdot a + y \\cdot b",
-            "explanation": "Der erweiterte Algorithmus ist wie ein mathematischer Zaubertrick mit Bonus. Es ist wie das Finden von zusätzlichen Informationen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440065",
-            "text": "Zwei Zahlen sind teilerfremd, wenn ihr ggT 1 ist.",
-            "formula": "\\text{ggT}(a,b) = 1 \\Leftrightarrow a \\text{ und } b \\text{ sind teilerfremd}",
-            "explanation": "Teilerfremde Zahlen sind wie mathematische Fremde. Es ist wie das Finden von Zahlen ohne gemeinsame Teiler!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440066",
-            "text": "Das Lemma von Bézout beschreibt die Darstellung des ggT.",
-            "formula": "\\text{ggT}(a,b) = x \\cdot a + y \\cdot b \\text{ für } x,y \\in \\mathbb{Z}",
-            "explanation": "Das Lemma von Bézout ist wie ein mathematischer Zaubertrick. Es ist wie das Finden einer speziellen Darstellung!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440067",
-            "text": "Der ggT ist multiplikativ.",
-            "formula": "\\text{ggT}(a \\cdot c, b \\cdot c) = c \\cdot \\text{ggT}(a,b)",
-            "explanation": "Die Multiplikativität ist wie ein mathematischer Zaubertrick. Es ist wie das Vereinfachen von Produkten!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440068",
-            "text": "Der ggT ist kommutativ und assoziativ.",
-            "formula": "\\text{ggT}(a,b) = \\text{ggT}(b,a), \\text{ggT}(\\text{ggT}(a,b),c) = \\text{ggT}(a,\\text{ggT}(b,c))",
-            "explanation": "Kommutativität und Assoziativität sind wie mathematische Zaubertricks. Es ist wie das Neuordnen von Zahlen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440069",
-            "text": "Der ggT ist distributiv über das kgV.",
-            "formula": "\\text{ggT}(a,\\text{kgV}(b,c)) = \\text{kgV}(\\text{ggT}(a,b),\\text{ggT}(a,c))",
-            "explanation": "Die Distributivität ist wie ein mathematischer Zaubertrick. Es ist wie das Verteilen von Operationen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440070",
-            "text": "Der ggT kann durch Primfaktorzerlegung berechnet werden.",
-            "formula": "\\text{ggT}(a,b) = \\prod_p p^{\\min(v_p(a),v_p(b))}",
-            "explanation": "Die Primfaktorzerlegung ist wie ein mathematischer Zaubertrick. Es ist wie das Zerlegen in Bausteine!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440071",
-            "text": "Der ggT ist invariant unter Addition von Vielfachen.",
-            "formula": "\\text{ggT}(a,b) = \\text{ggT}(a,b+k \\cdot a) \\text{ für } k \\in \\mathbb{Z}",
-            "explanation": "Die Invarianz ist wie ein mathematischer Zaubertrick. Es ist wie das Hinzufügen von Vielfachen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440072",
-            "text": "Der ggT ist invariant unter Multiplikation mit Einheiten.",
-            "formula": "\\text{ggT}(a,b) = \\text{ggT}(a \\cdot u,b \\cdot u) \\text{ für } u \\in \\mathbb{Z}^*",
-            "explanation": "Die Invarianz unter Einheiten ist wie ein mathematischer Zaubertrick. Es ist wie das Multiplizieren mit Einheiten!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440073",
-            "text": "Der ggT ist invariant unter Division durch gemeinsame Teiler.",
-            "formula": "\\text{ggT}(a,b) = d \\cdot \\text{ggT}(\\frac{a}{d},\\frac{b}{d}) \\text{ für } d \\mid a,b",
-            "explanation": "Die Invarianz unter Division ist wie ein mathematischer Zaubertrick. Es ist wie das Teilen durch gemeinsame Teiler!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440074",
-            "text": "Der ggT ist invariant unter Subtraktion.",
-            "formula": "\\text{ggT}(a,b) = \\text{ggT}(a-b,b) \\text{ für } a > b",
-            "explanation": "Die Invarianz unter Subtraktion ist wie ein mathematischer Zaubertrick. Es ist wie das Subtrahieren von Zahlen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440075",
-            "text": "Der ggT ist invariant unter Addition.",
-            "formula": "\\text{ggT}(a,b) = \\text{ggT}(a+b,b) \\text{ für } a,b > 0",
-            "explanation": "Die Invarianz unter Addition ist wie ein mathematischer Zaubertrick. Es ist wie das Addieren von Zahlen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440076",
-            "text": "Der ggT ist invariant unter Modulo-Operationen.",
-            "formula": "\\text{ggT}(a,b) = \\text{ggT}(a \\bmod b,b) \\text{ für } b \\neq 0",
-            "explanation": "Die Invarianz unter Modulo ist wie ein mathematischer Zaubertrick. Es ist wie das Berechnen von Resten!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440077",
-            "text": "Der ggT ist invariant unter Potenzierung.",
-            "formula": "\\text{ggT}(a^n,b^n) = \\text{ggT}(a,b)^n \\text{ für } n \\in \\mathbb{N}",
-            "explanation": "Die Invarianz unter Potenzierung ist wie ein mathematischer Zaubertrick. Es ist wie das Potenzieren von Zahlen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440078",
-            "text": "Der ggT ist invariant unter Wurzelziehen.",
-            "formula": "\\text{ggT}(\\sqrt[n]{a},\\sqrt[n]{b}) = \\sqrt[n]{\\text{ggT}(a,b)} \\text{ für } n \\in \\mathbb{N}",
-            "explanation": "Die Invarianz unter Wurzelziehen ist wie ein mathematischer Zaubertrick. Es ist wie das Ziehen von Wurzeln!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440079",
-            "text": "Der ggT ist invariant unter Logarithmieren.",
-            "formula": "\\text{ggT}(\\log_a(b),\\log_a(c)) = \\log_a(\\text{ggT}(b,c)) \\text{ für } a > 1",
-            "explanation": "Die Invarianz unter Logarithmieren ist wie ein mathematischer Zaubertrick. Es ist wie das Logarithmieren von Zahlen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440080",
-            "text": "Der ggT ist invariant unter Exponentialfunktionen.",
-            "formula": "\\text{ggT}(e^a,e^b) = e^{\\text{ggT}(a,b)} \\text{ für } a,b \\in \\mathbb{R}",
-            "explanation": "Die Invarianz unter Exponentialfunktionen ist wie ein mathematischer Zaubertrick. Es ist wie das Exponentieren von Zahlen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440081",
-            "text": "Der ggT ist invariant unter trigonometrischen Funktionen.",
-            "formula": "\\text{ggT}(\\sin(a),\\sin(b)) = \\sin(\\text{ggT}(a,b)) \\text{ für } a,b \\in \\mathbb{R}",
-            "explanation": "Die Invarianz unter trigonometrischen Funktionen ist wie ein mathematischer Zaubertrick. Es ist wie das Anwenden von trigonometrischen Funktionen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440082",
-            "text": "Der ggT ist invariant unter hyperbolischen Funktionen.",
-            "formula": "\\text{ggT}(\\sinh(a),\\sinh(b)) = \\sinh(\\text{ggT}(a,b)) \\text{ für } a,b \\in \\mathbb{R}",
-            "explanation": "Die Invarianz unter hyperbolischen Funktionen ist wie ein mathematischer Zaubertrick. Es ist wie das Anwenden von hyperbolischen Funktionen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440083",
-            "text": "Der ggT ist invariant unter komplexen Funktionen.",
-            "formula": "\\text{ggT}(f(a),f(b)) = f(\\text{ggT}(a,b)) \\text{ für } f \\text{ analytisch}",
-            "explanation": "Die Invarianz unter komplexen Funktionen ist wie ein mathematischer Zaubertrick. Es ist wie das Anwenden von komplexen Funktionen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440084",
-            "text": "Der ggT ist invariant unter Matrixoperationen.",
-            "formula": "\\text{ggT}(\\det(A),\\det(B)) = \\det(\\text{ggT}(A,B)) \\text{ für } A,B \\text{ Matrizen}",
-            "explanation": "Die Invarianz unter Matrixoperationen ist wie ein mathematischer Zaubertrick. Es ist wie das Anwenden von Matrixoperationen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440085",
-            "text": "Der ggT ist invariant unter Vektoroperationen.",
-            "formula": "\\text{ggT}(\\|\\vec{a}\\|,\\|\\vec{b}\\|) = \\|\\text{ggT}(\\vec{a},\\vec{b})\\| \\text{ für } \\vec{a},\\vec{b} \\text{ Vektoren}",
-            "explanation": "Die Invarianz unter Vektoroperationen ist wie ein mathematischer Zaubertrick. Es ist wie das Anwenden von Vektoroperationen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440086",
-            "text": "Der ggT ist invariant unter Tensoroperationen.",
-            "formula": "\\text{ggT}(\\|T\\|,\\|S\\|) = \\|\\text{ggT}(T,S)\\| \\text{ für } T,S \\text{ Tensoren}",
-            "explanation": "Die Invarianz unter Tensoroperationen ist wie ein mathematischer Zaubertrick. Es ist wie das Anwenden von Tensoroperationen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440087",
-            "text": "Der ggT ist invariant unter Differentialoperationen.",
-            "formula": "\\text{ggT}(\\frac{d}{dx}f,\\frac{d}{dx}g) = \\frac{d}{dx}\\text{ggT}(f,g) \\text{ für } f,g \\text{ differenzierbar}",
-            "explanation": "Die Invarianz unter Differentialoperationen ist wie ein mathematischer Zaubertrick. Es ist wie das Anwenden von Differentialoperationen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440088",
-            "text": "Der ggT ist invariant unter Integraloperationen.",
-            "formula": "\\text{ggT}(\\int f,\\int g) = \\int \\text{ggT}(f,g) \\text{ für } f,g \\text{ integrierbar}",
-            "explanation": "Die Invarianz unter Integraloperationen ist wie ein mathematischer Zaubertrick. Es ist wie das Anwenden von Integraloperationen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440089",
-            "text": "Der ggT ist invariant unter Fourier-Transformationen.",
-            "formula": "\\text{ggT}(\\mathcal{F}(f),\\mathcal{F}(g)) = \\mathcal{F}(\\text{ggT}(f,g)) \\text{ für } f,g \\text{ Fourier-transformierbar}",
-            "explanation": "Die Invarianz unter Fourier-Transformationen ist wie ein mathematischer Zaubertrick. Es ist wie das Anwenden von Fourier-Transformationen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440090",
-            "text": "Zum Schluss schauen wir uns an, wie der ggT in der Mathematik verwendet wird.",
-            "formula": "\\text{Der ggT ist ein fundamentales Konzept der Zahlentheorie}",
-            "explanation": "In der Mathematik hilft uns der ggT, Zahlen zu analysieren und zu verstehen. Es ist wie das Übersetzen mathematischer Konzepte in die Sprache der Zahlen!"
-        }
-    ]
-} 
+{
+  "id": "dd0e8400-e29b-41d4-a716-446655440061",
+  "topic": "Größter gemeinsamer Teiler",
+  "steps": [
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440062",
+      "section": "Kapitel 1 · Teiler",
+      "text": "Willkommen! Der größte gemeinsame Teiler (ggT) wirkt wie Schulstoff – Brüche kürzen. Tatsächlich steckt dahinter einer der ältesten und wichtigsten Algorithmen der Mathematik, der heute jede verschlüsselte Internetverbindung absichert.",
+      "explanation": "Unser Fahrplan:\n1. Teiler und Teilbarkeit präzise\n2. ggT und kgV – über Primfaktoren\n3. Der euklidische Algorithmus: schnell, auch für riesige Zahlen\n4. Das Lemma von Bézout: ggT als Kombination\n5. Anwendungen: Brüche, Gleichungen, Inverse modulo \\(n\\)\n6. Ausblick und Rückblick",
+      "insight": "Roter Faden der Lektion: Statt Zahlen zu zerlegen (schwer), rechnen wir mit Resten (leicht)."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440063",
+      "section": "Kapitel 1 · Teiler",
+      "text": "Zuerst die genaue Definition von „teilt“. Für ganze Zahlen \\(a\\) und \\(b\\):",
+      "formula": "a \\mid b \\quad :\\iff \\quad \\text{es gibt ein } k \\in \\mathbb{Z} \\text{ mit } b = k \\cdot a",
+      "explanation": "Lies \\(a \\mid b\\) als „\\(a\\) teilt \\(b\\)“ oder „\\(b\\) ist ein Vielfaches von \\(a\\)“.\n\nBeispiele:\n• \\(3 \\mid 12\\), denn \\(12 = 4 \\cdot 3\\).\n• \\(5 \\nmid 12\\), denn \\(12\\) ist kein ganzzahliges Vielfaches von \\(5\\).\n• \\(-3 \\mid 12\\), denn \\(12 = (-4) \\cdot (-3)\\).\n• \\(7 \\mid 0\\), denn \\(0 = 0 \\cdot 7\\). Jede Zahl teilt \\(0\\).\n• \\(1 \\mid b\\) für jedes \\(b\\).\n\nVorsicht: \\(a \\mid b\\) ist eine AUSSAGE (wahr oder falsch), \\(\\frac{b}{a}\\) ist eine ZAHL. Nicht verwechseln!",
+      "insight": "Die Definition kommt ohne Division aus. Darum funktioniert sie auch dort, wo man nicht dividieren kann – in Ringen, wie du später sehen wirst."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440064",
+      "section": "Kapitel 1 · Teiler",
+      "text": "Aus der Definition folgen einfache, aber wichtige Regeln. Ein Beispiel mit Beweis:",
+      "formula": "\\begin{array}{c} d \\mid a \\;\\text{ und }\\; d \\mid b \\\\[4pt] \\Downarrow \\\\[2pt] d \\mid (xa + yb) \\;\\text{ für alle } x, y \\in \\mathbb{Z} \\end{array}",
+      "explanation": "Beweis: Aus \\(d \\mid a\\) und \\(d \\mid b\\) folgt \\(a = kd\\) und \\(b = md\\). Dann ist\n\\(xa + yb\\) \\(= xkd + ymd\\) \\(= (xk + ym) \\cdot d\\)\n– ein Vielfaches von \\(d\\). ∎\n\nInsbesondere teilt ein gemeinsamer Teiler auch die Summe \\(a + b\\) und die Differenz \\(a - b\\).\n\nBeispiel: \\(3 \\mid 12\\) und \\(3 \\mid 21\\), also \\(3 \\mid 21 - 12 = 9\\) und \\(3 \\mid 2 \\cdot 12 - 21 = 3\\).",
+      "insight": "Diese unscheinbare Regel ist der Schlüssel zum euklidischen Algorithmus in Kapitel 3."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440065",
+      "section": "Kapitel 2 · Der größte gemeinsame Teiler",
+      "text": "Der größte gemeinsame Teiler zweier Zahlen ist – wie der Name sagt – die größte Zahl, die beide teilt.",
+      "formula": "\\begin{aligned} T(12) &= \\{1, 2, 3, 4, 6, 12\\} \\\\ T(18) &= \\{1, 2, 3, 6, 9, 18\\} \\\\ T(12) \\cap T(18) &= \\{1, 2, 3, 6\\} \\;\\Rightarrow\\; \\operatorname{ggT}(12, 18) = 6 \\end{aligned}",
+      "explanation": "\\(T(n)\\) bezeichnet die Menge der positiven Teiler von \\(n\\). Die gemeinsamen Teiler bilden den Schnitt, und der ggT ist das größte Element davon.\n\nZwei Konventionen: Man betrachtet nur positive Teiler, und \\(\\operatorname{ggT}(a, 0) = |a|\\), weil jede Zahl \\(0\\) teilt.\n\nDiese Methode ist sicher, aber für große Zahlen viel zu mühsam: Man müsste alle Teiler kennen.",
+      "insight": "Gilt \\(\\operatorname{ggT}(a, b) = 1\\), heißen \\(a\\) und \\(b\\) teilerfremd. Das heißt NICHT, dass \\(a\\) und \\(b\\) Primzahlen sind: \\(\\operatorname{ggT}(8, 9) = 1\\)."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440066",
+      "section": "Kapitel 2 · Der größte gemeinsame Teiler",
+      "text": "Schneller geht es mit der Primfaktorzerlegung: Man nimmt jede Primzahl mit dem KLEINEREN Exponenten. Das kleinste gemeinsame Vielfache (kgV) bekommt man mit dem GRÖSSEREN Exponenten.",
+      "formula": "\\begin{aligned} 84 &= 2^2 \\cdot 3 \\cdot 7, \\qquad 90 = 2 \\cdot 3^2 \\cdot 5 \\\\[4pt] \\operatorname{ggT}(84, 90) &= 2^1 \\cdot 3^1 = 6 \\\\ \\operatorname{kgV}(84, 90) &= 2^2 \\cdot 3^2 \\cdot 5 \\cdot 7 = 1260 \\end{aligned}",
+      "explanation": "Warum der kleinere Exponent? Ein Teiler von \\(84\\) darf höchstens \\(2^2\\) enthalten, ein Teiler von \\(90\\) höchstens \\(2^1\\). Ein gemeinsamer Teiler also höchstens \\(2^1\\). Die \\(7\\) kommt in \\(90\\) nicht vor (Exponent \\(0\\)), also auch nicht im ggT.\n\nDa bei jeder Primzahl der kleinere Exponent in den ggT und der größere ins kgV geht, gilt:\n\\(\\operatorname{ggT}(a, b) \\cdot \\operatorname{kgV}(a, b) = a \\cdot b\\).\nProbe: \\(6 \\cdot 1260 = 7560 = 84 \\cdot 90\\) ✓\n\nAlltagsbeispiel kgV: Bus A fährt alle 12 Minuten, Bus B alle 18 Minuten. Fahren sie gleichzeitig ab, treffen sie sich nach \\(\\operatorname{kgV}(12, 18) = 36\\) Minuten wieder.",
+      "insight": "Problem: Große Zahlen in Primfaktoren zu zerlegen ist extrem aufwendig. Für Zahlen mit Hunderten Stellen kennt niemand ein schnelles Verfahren – darauf beruht sogar die Sicherheit von RSA."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440067",
+      "section": "Kapitel 3 · Der euklidische Algorithmus",
+      "text": "Der Durchbruch, schon bei Euklid (um 300 v. Chr.): Man muss keine Zahl zerlegen. Es genügt, mit Resten zu rechnen. Der Schlüssel ist dieser Satz:",
+      "formula": "a = q \\cdot b + r \\quad \\Longrightarrow \\quad \\operatorname{ggT}(a, b) = \\operatorname{ggT}(b, r)",
+      "explanation": "Hier ist \\(r\\) der Rest bei der Division von \\(a\\) durch \\(b\\), also \\(0 \\le r < b\\).\n\nBeweis: Wir zeigen, dass \\((a, b)\\) und \\((b, r)\\) GENAU dieselben gemeinsamen Teiler haben. Dann haben sie auch denselben größten.\n• Teilt \\(d\\) sowohl \\(a\\) als auch \\(b\\), dann teilt \\(d\\) auch \\(r = a - qb\\) (Regel aus Kapitel 1).\n• Teilt \\(d\\) sowohl \\(b\\) als auch \\(r\\), dann teilt \\(d\\) auch \\(a = qb + r\\). ∎\n\nBeispiel: \\(90 = 1 \\cdot 84 + 6\\), also \\(\\operatorname{ggT}(90, 84) = \\operatorname{ggT}(84, 6) = 6\\).",
+      "insight": "Der Satz ersetzt ein großes Problem durch ein kleineres mit derselben Lösung. Wiederholt man das, wird das Problem immer kleiner – bis es trivial ist."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440068",
+      "section": "Kapitel 3 · Der euklidische Algorithmus",
+      "text": "Geometrisch ist der euklidische Algorithmus ganz anschaulich: Man schneidet von einem Rechteck immer wieder das größte Quadrat ab.",
+      "visual": "euclidRectangle",
+      "formula": "\\begin{aligned} 12 &= 1 \\cdot 9 + 3 \\\\ 9 &= 3 \\cdot 3 + 0 \\end{aligned} \\qquad \\Longrightarrow \\qquad \\operatorname{ggT}(12, 9) = 3",
+      "explanation": "Eine Quadratseite \\(d\\) pflastert ein Rechteck \\(a \\times b\\) genau dann, wenn \\(d\\) beide Seiten teilt. Gesucht ist also das größte gemeinsame \\(d\\).\n\nSchneidet man ein Quadrat \\(b \\times b\\) ab, bleibt ein Rechteck \\(r \\times b\\) übrig. Ein Quadrat, das das Original pflastert, pflastert auch den Rest – und umgekehrt. Das ist genau der Satz aus dem vorigen Schritt.",
+      "insight": "Der ggT ist der letzte Rest ungleich 0. Der Rest 0 zeigt das Ende an, ist aber nicht das Ergebnis."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440069",
+      "section": "Kapitel 3 · Der euklidische Algorithmus",
+      "text": "Ein größeres Beispiel, wie man es in einer Klausur aufschreibt: \\(\\operatorname{ggT}(1071, 462)\\).",
+      "formula": "\\begin{aligned} 1071 &= 2 \\cdot 462 + 147 \\\\ 462 &= 3 \\cdot 147 + 21 \\\\ 147 &= 7 \\cdot 21 + 0 \\end{aligned} \\qquad \\Longrightarrow \\qquad \\operatorname{ggT}(1071, 462) = 21",
+      "explanation": "In jeder Zeile wandern Divisor und Rest eine Position nach links: Der Divisor wird zum neuen Dividenden, der Rest zum neuen Divisor.\n\nKontrolle mit Primfaktoren: \\(1071 = 3^2 \\cdot 7 \\cdot 17\\) und \\(462 = 2 \\cdot 3 \\cdot 7 \\cdot 11\\). Gemeinsam: \\(3 \\cdot 7 = 21\\) ✓\n\nDer Algorithmus brauchte drei Divisionen – ganz ohne Primfaktorzerlegung.",
+      "insight": "Typischer Fehler: am Ende die \\(0\\) oder den letzten Quotienten (hier \\(7\\)) als ggT angeben. Der ggT ist immer der letzte Divisor, also der letzte Rest ungleich \\(0\\)."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440070",
+      "section": "Kapitel 3 · Der euklidische Algorithmus",
+      "text": "Warum endet der Algorithmus immer, und wie schnell ist er?",
+      "formula": "b > r_1 > r_2 > r_3 > \\dots \\ge 0",
+      "explanation": "Die Reste werden in jedem Schritt echt kleiner und sind nie negativ. Eine solche Folge natürlicher Zahlen kann nicht unendlich lang sein – irgendwann kommt \\(0\\).\n\nNoch besser: Der Algorithmus ist sehr schnell. Nach je zwei Schritten ist der Rest höchstens halb so groß. Die Anzahl der Schritte wächst daher nur mit der Anzahl der STELLEN, nicht mit der Größe der Zahl (Satz von Lamé: höchstens etwa fünfmal so viele Schritte, wie die kleinere Zahl Dezimalstellen hat).\n\nZahlen mit 300 Stellen – für Primfaktorzerlegung hoffnungslos – erledigt der euklidische Algorithmus in ein paar Tausend Schritten, also in Sekundenbruchteilen.",
+      "insight": "Genau dieser Unterschied macht moderne Kryptographie möglich: ggT berechnen ist leicht, Faktorisieren ist schwer."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440071",
+      "section": "Kapitel 4 · Das Lemma von Bézout",
+      "text": "Ein überraschender Satz: Der ggT lässt sich immer als „ganzzahlige Mischung“ der beiden Zahlen schreiben.",
+      "formula": "\\begin{array}{c} \\textbf{Lemma von Bézout:} \\\\[4pt] \\text{Es gibt } x, y \\in \\mathbb{Z} \\text{ mit } \\operatorname{ggT}(a, b) = x \\cdot a + y \\cdot b \\end{array}",
+      "explanation": "Beispiel: \\(\\operatorname{ggT}(12, 18)\\) \\(= 6\\) \\(= (-1) \\cdot 12 + 1 \\cdot 18\\).\n\nDie Zahlen \\(x\\) und \\(y\\) heißen Bézout-Koeffizienten. Sie sind nicht eindeutig: Auch \\(6 = 2 \\cdot 12 + (-1) \\cdot 18\\) funktioniert.\n\nDer Satz ist nicht offensichtlich! Er sagt: Wenn man \\(a\\) und \\(b\\) beliebig oft addieren und subtrahieren darf, erreicht man den ggT – und damit (durch Vervielfachen) jedes Vielfache des ggT. Kleinere positive Zahlen kann man nicht erreichen, denn jede Kombination \\(xa + yb\\) ist durch den ggT teilbar.",
+      "insight": "Die Menge \\(\\{xa + yb \\mid x, y \\in \\mathbb{Z}\\}\\) besteht genau aus den Vielfachen von \\(\\operatorname{ggT}(a, b)\\). Diese Formulierung wird in „Ringe“ wieder auftauchen."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440072",
+      "section": "Kapitel 4 · Das Lemma von Bézout",
+      "text": "Wie findet man \\(x\\) und \\(y\\)? Mit dem erweiterten euklidischen Algorithmus: Man rechnet die Gleichungen von unten nach oben zurück. Für \\(\\operatorname{ggT}(1071, 462) = 21\\):",
+      "formula": "\\begin{aligned} 21 &= 462 - 3 \\cdot 147 \\\\ &= 462 - 3 \\cdot (1071 - 2 \\cdot 462) \\\\ &= 7 \\cdot 462 - 3 \\cdot 1071 \\end{aligned}",
+      "explanation": "Schritt für Schritt:\n1. Aus der vorletzten Zeile des Algorithmus (\\(462 = 3 \\cdot 147 + 21\\)) nach dem ggT auflösen: \\(21 = 462 - 3 \\cdot 147\\).\n2. Den Rest \\(147\\) aus der Zeile darüber ersetzen: \\(147 = 1071 - 2 \\cdot 462\\).\n3. Nach den Ausgangszahlen sortieren: \\(462 + 6 \\cdot 462 - 3 \\cdot 1071\\) \\(= 7 \\cdot 462 - 3 \\cdot 1071\\).\n\nProbe: \\(7 \\cdot 462 - 3 \\cdot 1071\\) \\(= 3234 - 3213\\) \\(= 21\\) ✓\n\nWichtig: Die Zahlen \\(1071\\), \\(462\\), \\(147\\) beim Einsetzen NICHT ausrechnen, sondern als „Bausteine“ stehen lassen und erst am Ende sortieren.",
+      "insight": "Die Probe am Ende ist Pflicht. Rückwärtseinsetzen ist fehleranfällig, und die Probe kostet nur eine Zeile."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440073",
+      "section": "Kapitel 4 · Das Lemma von Bézout",
+      "text": "Eine wichtige Folgerung aus Bézout ist das Lemma von Euklid. Es ist der Grund, warum die Primfaktorzerlegung eindeutig ist:",
+      "formula": "\\begin{aligned} \\operatorname{ggT}(a, b) = 1 \\;\\text{ und }\\; a \\mid bc \\quad &\\Longrightarrow \\quad a \\mid c \\\\[4pt] p \\text{ prim und } p \\mid bc \\quad &\\Longrightarrow \\quad p \\mid b \\;\\text{ oder }\\; p \\mid c \\end{aligned}",
+      "explanation": "Beweis der ersten Zeile: Nach Bézout ist \\(1 = xa + yb\\). Multipliziere mit \\(c\\): \\(c = xac + ybc\\). Der erste Summand ist durch \\(a\\) teilbar, der zweite auch (denn \\(a \\mid bc\\)). Also \\(a \\mid c\\). ∎\n\nDie zweite Zeile folgt daraus: Teilt \\(p\\) die Zahl \\(b\\) nicht, ist \\(\\operatorname{ggT}(p, b) = 1\\) (eine Primzahl hat nur die Teiler \\(1\\) und \\(p\\)), also \\(p \\mid c\\).\n\nGegenbeispiel ohne die Voraussetzung: \\(6 \\mid 4 \\cdot 9 = 36\\), aber \\(6 \\nmid 4\\) und \\(6 \\nmid 9\\). Für Nicht-Primzahlen gilt die zweite Zeile also nicht.",
+      "insight": "Bézout ist ein Werkzeug, um Teilbarkeit zu beweisen: Die Gleichung \\(1 = xa + yb\\) lässt sich mit allem Möglichen multiplizieren."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440074",
+      "section": "Kapitel 5 · Anwendungen",
+      "text": "Anwendung 1: Brüche vollständig kürzen. Man dividiert Zähler und Nenner durch ihren ggT – und ist in EINEM Schritt fertig.",
+      "formula": "\\frac{462}{1071} = \\frac{462 : 21}{1071 : 21} = \\frac{22}{51}",
+      "explanation": "Den ggT \\(21\\) haben wir mit dem euklidischen Algorithmus bestimmt.\n\nProbe: \\(\\operatorname{ggT}(22, 51) = 1\\), denn \\(51 = 2 \\cdot 22 + 7\\), \\(22 = 3 \\cdot 7 + 1\\), \\(7 = 7 \\cdot 1 + 0\\). Der Bruch lässt sich nicht weiter kürzen.\n\nAllgemein: \\(\\frac{a}{\\operatorname{ggT}(a, b)}\\) und \\(\\frac{b}{\\operatorname{ggT}(a, b)}\\) sind immer teilerfremd.",
+      "insight": "Schrittweises Kürzen (erst durch 3, dann durch 7, …) setzt voraus, dass man die Teiler errät. Der ggT liefert sie alle auf einmal."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440075",
+      "section": "Kapitel 5 · Anwendungen",
+      "text": "Anwendung 2: Gleichungen mit ganzzahligen Lösungen (diophantische Gleichungen). Wann hat \\(ax + by = c\\) Lösungen \\(x, y \\in \\mathbb{Z}\\)?",
+      "formula": "\\begin{array}{c} ax + by = c \\text{ ist ganzzahlig lösbar} \\\\[4pt] \\Updownarrow \\\\[2pt] \\operatorname{ggT}(a, b) \\mid c \\end{array}",
+      "explanation": "„⇒“: Jede Kombination \\(ax + by\\) ist durch den ggT teilbar, also muss \\(c\\) es auch sein.\n„⇐“: Bézout liefert \\(\\operatorname{ggT}(a, b) = x_0 a + y_0 b\\). Multipliziere mit \\(\\frac{c}{\\operatorname{ggT}(a,b)}\\).\n\nBeispiel 1: \\(6x + 9y = 7\\). Es ist \\(\\operatorname{ggT}(6, 9) = 3\\) und \\(3 \\nmid 7\\) – keine Lösung.\n\nBeispiel 2: \\(6x + 9y = 12\\). Aus \\(3 = (-1) \\cdot 6 + 1 \\cdot 9\\) wird durch Multiplizieren mit \\(4\\): \\(x = -4\\), \\(y = 4\\). Probe: \\(-24 + 36 = 12\\) ✓\nAlle Lösungen: \\(x = -4 + 3t\\), \\(y = 4 - 2t\\) mit \\(t \\in \\mathbb{Z}\\).",
+      "insight": "Ein klassisches Rätsel dahinter: Mit einem 6-Liter- und einem 9-Liter-Eimer kann man genau 12 Liter abmessen, aber niemals 7 Liter."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440076",
+      "section": "Kapitel 5 · Anwendungen",
+      "text": "Anwendung 3, die wichtigste für die Algebra: Inverse modulo \\(n\\). Gesucht ist ein \\(x\\) mit \\(7x \\equiv 1 \\pmod{26}\\) – also \\(7x\\) lässt beim Teilen durch \\(26\\) den Rest \\(1\\).",
+      "formula": "\\begin{aligned} 26 &= 3 \\cdot 7 + 5 & 1 &= 5 - 2 \\cdot 2 \\\\ 7 &= 1 \\cdot 5 + 2 & &= 5 - 2 \\cdot (7 - 5) = 3 \\cdot 5 - 2 \\cdot 7 \\\\ 5 &= 2 \\cdot 2 + 1 & &= 3 \\cdot (26 - 3 \\cdot 7) - 2 \\cdot 7 \\\\ & & &= 3 \\cdot 26 - 11 \\cdot 7 \\end{aligned}",
+      "explanation": "Links der euklidische Algorithmus, rechts das Rückwärtseinsetzen.\n\nErgebnis: \\(1 = 3 \\cdot 26 - 11 \\cdot 7\\). Modulo \\(26\\) fällt der erste Summand weg: \\(-11 \\cdot 7 \\equiv 1\\). Also ist \\(x \\equiv -11 \\equiv 15 \\pmod{26}\\).\n\nProbe: \\(7 \\cdot 15 = 105 = 4 \\cdot 26 + 1\\) ✓\n\nAllgemein: \\(a\\) hat genau dann ein Inverses modulo \\(n\\), wenn \\(\\operatorname{ggT}(a, n) = 1\\). Das ist der Grund, warum \\(\\mathbb{Z}/p\\) für Primzahlen \\(p\\) ein Körper ist (siehe „Ringe“ und „Körper“).",
+      "insight": "In der RSA-Verschlüsselung wird genau so der geheime Schlüssel aus dem öffentlichen berechnet – mit Zahlen von mehreren Hundert Stellen."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440077",
+      "section": "Kapitel 5 · Anwendungen",
+      "text": "Zum Abschluss der Anwendungen: Welche Rechenregeln gelten für den ggT wirklich? Hier die wichtigsten – alle mit Begründung:",
+      "formula": "\\begin{array}{ll} \\operatorname{ggT}(a, b) = \\operatorname{ggT}(b, a) & \\text{symmetrisch} \\\\ \\operatorname{ggT}(a, b) = \\operatorname{ggT}(a, b + ka) & \\text{Vielfache addieren} \\\\ \\operatorname{ggT}(ca, cb) = c \\cdot \\operatorname{ggT}(a, b) & \\text{für } c > 0 \\\\ \\operatorname{ggT}(a, \\operatorname{ggT}(b, c)) = \\operatorname{ggT}(a, b, c) & \\text{assoziativ} \\end{array}",
+      "explanation": "Zeile 2 ist der Kern des euklidischen Algorithmus: \\(a\\) und \\(b + ka\\) haben dieselben gemeinsamen Teiler wie \\(a\\) und \\(b\\).\n\nZeile 3: Bei den Primfaktoren erhöhen sich alle Exponenten um die von \\(c\\). Beispiel: \\(\\operatorname{ggT}(40, 60) = 10 \\cdot \\operatorname{ggT}(4, 6) = 20\\).\n\nWas NICHT gilt (typische Fehler):\n• \\(\\operatorname{ggT}(a + b, c)\\) \\(= \\operatorname{ggT}(a, c) + \\operatorname{ggT}(b, c)\\) – falsch: \\(\\operatorname{ggT}(2 + 3, 5) = 5\\), aber \\(1 + 1 = 2\\).\n• \\(\\operatorname{ggT}(a, bc) = \\operatorname{ggT}(a, b) \\cdot \\operatorname{ggT}(a, c)\\) – falsch: Für \\(a = b = c = 2\\) ist links \\(\\operatorname{ggT}(2, 4) = 2\\), rechts \\(2 \\cdot 2 = 4\\).",
+      "insight": "Prüfe jede vermutete Rechenregel an einem kleinen Beispiel. Ein einziges Gegenbeispiel genügt, um sie zu widerlegen."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440078",
+      "section": "Kapitel 6 · Ausblick und Rückblick",
+      "text": "Ausblick: Der euklidische Algorithmus funktioniert überall, wo es eine „Division mit Rest“ gibt.",
+      "explanation": "• Polynome: Man kann Polynome mit Rest dividieren (Polynomdivision). Daher gibt es auch einen ggT von Polynomen und einen euklidischen Algorithmus dafür. Gemeinsame Nullstellen zweier Polynome sind genau die Nullstellen ihres ggT.\n\n• Ringe: Strukturen mit Division mit Rest heißen euklidische Ringe. In ihnen gilt Bézout, und die Zerlegung in „Primelemente“ ist eindeutig – siehe Lektion „Ringe“.\n\n• Kryptographie: RSA, digitale Signaturen und viele weitere Verfahren berechnen ständig Inverse modulo \\(n\\) mit dem erweiterten euklidischen Algorithmus.\n\n• Kettenbrüche: Die Quotienten des Algorithmus (\\(2, 3, 7\\) bei \\(1071/462\\)) liefern die beste Annäherung eines Bruchs durch kleinere Brüche.",
+      "insight": "Ein über 2000 Jahre alter Algorithmus, der bis heute in jedem Smartphone läuft – das ist Mathematik, die bleibt."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440079",
+      "section": "Kapitel 6 · Ausblick und Rückblick",
+      "text": "Schau zurück, wie die Begriffe auseinander hervorgegangen sind:",
+      "explanation": "1. \\(a \\mid b\\): \\(b = ka\\) für ein \\(k \\in \\mathbb{Z}\\). Ein gemeinsamer Teiler teilt jede Kombination \\(xa + yb\\).\n\n2. ggT: größter gemeinsamer Teiler. Über Primfaktoren: kleinere Exponenten (kgV: größere). \\(\\operatorname{ggT} \\cdot \\operatorname{kgV} = a \\cdot b\\).\n\n3. Euklid: \\(\\operatorname{ggT}(a, b) = \\operatorname{ggT}(b, a \\bmod b)\\). Der ggT ist der letzte Rest ungleich 0. Schnell, auch für riesige Zahlen.\n\n4. Bézout: \\(\\operatorname{ggT}(a, b) = xa + yb\\), gefunden durch Rückwärtseinsetzen. Folgerung: Lemma von Euklid.\n\n5. Anwendungen: Brüche kürzen, \\(ax + by = c\\) lösbar genau dann, wenn \\(\\operatorname{ggT}(a, b) \\mid c\\), Inverse modulo \\(n\\).",
+      "insight": "Glückwunsch! Mit Inversen modulo \\(n\\) hast du das Werkzeug für „Gruppen“, „Ringe“ und „Körper“ schon in der Hand."
+    }
+  ]
+}

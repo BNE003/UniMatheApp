@@ -1,236 +1,159 @@
 {
-    "id": "660e8400-e29b-41d4-a716-446655440000",
-    "title": "Einführung in Körper",
-    "description": "Lass uns die grundlegenden Konzepte der Körpertheorie Schritt für Schritt erkunden.",
-    "topic": "Körper",
-    "steps": [
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440001",
-            "text": "Ein Körper ist eine algebraische Struktur, die aus einer Menge K und zwei Verknüpfungen besteht: Addition (+) und Multiplikation (·).",
-            "formula": "K = (K, +, \\cdot)",
-            "explanation": "Ein Körper ist wie eine erweiterte Zahlmenge, bei der wir sicherstellen, dass wir sowohl addieren als auch multiplizieren können, ohne die Struktur zu verlassen. Die wichtigsten Eigenschaften sind, dass wir Elemente addieren, multiplizieren und auch umkehren können (außer bei der Multiplikation mit Null). Stellen Sie sich das vor wie die rationalen oder reellen Zahlen: Egal welche zwei Zahlen wir nehmen, ihre Summe oder ihr Produkt bleibt in dieser Menge."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440002",
-            "text": "Die Addition im Körper erfüllt vier grundlegende Eigenschaften: Assoziativität, Kommutativität, Existenz eines neutralen Elements und Existenz eines inversen Elements.",
-            "formula": "a + (b + c) = (a + b) + c \\\\ a + b = b + a \\\\ a + 0 = a \\\\ a + (-a) = 0",
-            "explanation": "Diese Eigenschaften garantieren uns, dass wir beim Addieren in einem Körper immer zu einem eindeutigen Ergebnis kommen. Zum Beispiel bedeutet die Assoziativität, dass die Klammerung bei einer Addition keine Rolle spielt. Wenn wir 1 + (2 + 3) rechnen oder (1 + 2) + 3, erhalten wir immer 6. Die Kommutativität sagt uns, dass die Reihenfolge egal ist: 2 + 3 ist dasselbe wie 3 + 2. Das neutrale Element ist die Null, weil jede Zahl plus Null die Zahl selbst ist. Schließlich sorgt das inverse Element dafür, dass wir immer die Möglichkeit haben, eine Zahl wieder auszugleichen: 5 + (-5) ergibt Null."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440003",
-            "text": "Die Multiplikation im Körper (außer Null) bildet ebenfalls eine abelsche Gruppe mit vier Eigenschaften: Assoziativität, Kommutativität, Existenz eines neutralen Elements und Existenz eines inversen Elements.",
-            "formula": "a \\cdot (b \\cdot c) = (a \\cdot b) \\cdot c \\\\ a \\cdot b = b \\cdot a \\\\ a \\cdot 1 = a \\\\ a \\cdot a^{-1} = 1",
-            "explanation": "Auch bei der Multiplikation wollen wir sicherstellen, dass die Struktur stabil bleibt. Das neutrale Element ist hier die Eins, da jede Zahl mal Eins die Zahl selbst ergibt. Der Unterschied zur Addition ist, dass wir bei der Multiplikation die Null ausklammern, da Null kein Inverses besitzt. Ein einfaches Beispiel: Wenn wir die Zahl 2 multiplizieren, bleibt die Reihenfolge egal (2 × 3 ist dasselbe wie 3 × 2), und durch die Assoziativität können wir die Klammerung beliebig setzen: 2 × (3 × 4) ist dasselbe wie (2 × 3) × 4."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440004",
-            "text": "Das Distributivgesetz verknüpft Addition und Multiplikation miteinander.",
-            "formula": "a \\cdot (b + c) = a \\cdot b + a \\cdot c",
-            "explanation": "Dieses Gesetz sagt aus, dass Multiplikation sich über Addition verteilt. Denken Sie an die Regel aus der Schule: Wenn Sie 3 mal (2 + 4) rechnen, ist das dasselbe wie 3 × 2 plus 3 × 4. Das Ergebnis ist in beiden Fällen 18. Dieses Gesetz ist besonders nützlich beim Ausmultiplizieren von Klammern und macht viele Berechnungen einfacher und klarer."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440005",
-            "text": "Der Körper der rationalen Zahlen (ℚ) besteht aus allen Brüchen von ganzen Zahlen mit einem von Null verschiedenen Nenner.",
-            "formula": "\\mathbb{Q} = \\left\\{ \\frac{a}{b} \\mid a, b \\in \\mathbb{Z}, b \\neq 0 \\right\\}",
-            "explanation": "Die rationalen Zahlen bilden einen Körper, weil die Addition und Multiplikation mit den genannten Eigenschaften abgeschlossen ist."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440006",
-            "text": "Ein weiteres Beispiel für einen Körper sind die reellen Zahlen (ℝ), die alle Dezimalzahlen umfassen.",
-            "formula": "\\mathbb{R}",
-            "explanation": "Die reellen Zahlen sind ein Körper, da sie alle Körperaxiome erfüllen und in der Analysis eine zentrale Rolle spielen."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440007",
-            "text": "Auch die komplexen Zahlen (ℂ) bilden einen Körper.",
-            "formula": "\\mathbb{C} = \\{ a + bi \\mid a, b \\in \\mathbb{R} \\}",
-            "explanation": "Komplexe Zahlen erweitern die reellen Zahlen und sind für viele mathematische Gebiete unverzichtbar."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440008",
-            "text": "Körper können endlich oder unendlich viele Elemente enthalten.",
-            "formula": "|K| < \\infty \\quad \\text{oder} \\quad |K| = \\infty",
-            "explanation": "Endliche Körper werden auch als Galoiskörper bezeichnet und spielen in der Informatik und Kryptographie eine wichtige Rolle."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440009",
-            "text": "Ein endlicher Körper mit p Elementen, wobei p eine Primzahl ist, wird als Primkörper bezeichnet.",
-            "formula": "\\mathbb{F}_p = \\mathbb{Z}/p\\mathbb{Z}",
-            "explanation": "Die Addition und Multiplikation wird hier modulo p durchgeführt. Solche Körper existieren nur, wenn die Anzahl der Elemente eine Potenz einer Primzahl ist."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-44665544000a",
-            "text": "Endliche Körper mit p^n Elementen werden als Galoiskörper bezeichnet.",
-            "formula": "\\mathbb{F}_{p^n}",
-            "explanation": "Für jede Primzahl p und jedes n ∈ \\mathbb{N} gibt es bis auf Isomorphie genau einen Körper mit p^n Elementen."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-44665544000b",
-            "text": "Im Körper \\mathbb{F}_2 bestehen die Elemente aus 0 und 1.",
-            "formula": "\\mathbb{F}_2 = \\{0, 1\\}",
-            "explanation": "Addition und Multiplikation werden modulo 2 durchgeführt. \\(1 + 1 = 0\\) in diesem Körper."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-44665544000c",
-            "text": "Körpererweiterungen entstehen, wenn man einen Körper um neue Elemente erweitert.",
-            "formula": "L/K",
-            "explanation": "Dabei ist L ein Körper, der K als Teilkörper enthält. Körpererweiterungen sind zentral in der Algebra."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-44665544000d",
-            "text": "Ein Beispiel für eine Körpererweiterung ist \\(\\mathbb{Q}(\\sqrt{2})\\).",
-            "formula": "\\mathbb{Q}(\\sqrt{2}) = \\{ a + b\\sqrt{2} \\mid a, b \\in \\mathbb{Q} \\}",
-            "explanation": "Dies ist der kleinste Körper, der \\(\\mathbb{Q}\\) und \\(\\sqrt{2}\\) enthält."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-44665544000e",
-            "text": "Der Grad einer Körpererweiterung ist die Dimension als Vektorraum über dem Grundkörper.",
-            "formula": "[L:K] = n",
-            "explanation": "Zum Beispiel ist der Grad von \\(\\mathbb{Q}(\\sqrt{2})/\\mathbb{Q}\\) gleich 2."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-44665544000f",
-            "text": "Algebraische Körpererweiterungen entstehen, wenn neue Elemente Nullstellen von Polynomen sind.",
-            "formula": "f(x) \\in K[x], f(\\alpha) = 0",
-            "explanation": "Wenn \\(\\alpha\\) eine Nullstelle eines Polynoms über K ist, kann man K um \\(\\alpha\\) erweitern."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440010",
-            "text": "Ein Körper ist algebraisch abgeschlossen, wenn jedes nicht-konstante Polynom eine Nullstelle besitzt.",
-            "formula": "\\forall f(x) \\in K[x], \\deg f > 0 \\Rightarrow \\exists a \\in K: f(a) = 0",
-            "explanation": "Die komplexen Zahlen sind ein Beispiel für einen algebraisch abgeschlossenen Körper."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440011",
-            "text": "Der Körper der rationalen Funktionen ist eine wichtige Körpererweiterung.",
-            "formula": "K(x)",
-            "explanation": "Er besteht aus allen Brüchen von Polynomen über einem Körper K."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440012",
-            "text": "Körper werden in der Kryptographie genutzt, z.B. bei elliptischen Kurven.",
-            "formula": "E: y^2 = x^3 + ax + b, \\quad x, y \\in \\mathbb{F}_p",
-            "explanation": "Die Struktur endlicher Körper ermöglicht sichere kryptographische Verfahren."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440013",
-            "text": "Auch in der Codierungstheorie sind endliche Körper zentral.",
-            "formula": "",
-            "explanation": "Fehlerkorrigierende Codes wie Reed-Solomon-Codes basieren auf der Arithmetik endlicher Körper."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440014",
-            "text": "Der Körperabschluss ist die kleinste algebraisch abgeschlossene Körpererweiterung.",
-            "formula": "\\overline{K}",
-            "explanation": "Jeder Körper besitzt einen algebraischen Abschluss, der bis auf Isomorphie eindeutig ist."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440015",
-            "text": "Jeder Körper besitzt eine Charakteristik, die entweder 0 oder eine Primzahl ist.",
-            "formula": "\\operatorname{char}(K) = 0 \\quad \\text{oder} \\quad \\operatorname{char}(K) = p",
-            "explanation": "Die Charakteristik ist die kleinste Anzahl von Summanden 1, die 0 ergibt, oder 0, falls dies nie der Fall ist."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440016",
-            "text": "Im Körper \\(\\mathbb{F}_p\\) ist die Charakteristik p.",
-            "formula": "1 + 1 + \\dots + 1 = 0 \\quad (p\\text{-mal})",
-            "explanation": "Dies bedeutet, dass die Addition von p Einsern das neutrale Element ergibt."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440017",
-            "text": "Ein Körperhomomorphismus ist eine Abbildung, die die Körperstruktur erhält.",
-            "formula": "\\varphi(a + b) = \\varphi(a) + \\varphi(b),\\ \\varphi(a \\cdot b) = \\varphi(a) \\cdot \\varphi(b)",
-            "explanation": "Körperhomomorphismen sind stets injektiv, da Kerne nur das Nullelement enthalten."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440018",
-            "text": "Ein Körperautomorphismus ist ein bijektiver Körperhomomorphismus von K auf sich selbst.",
-            "formula": "\\operatorname{Aut}(K)",
-            "explanation": "Die Menge aller Automorphismen eines Körpers K bildet eine Gruppe."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440019",
-            "text": "Die Galoisgruppe einer Körpererweiterung beschreibt die Automorphismen, die den Grundkörper festlassen.",
-            "formula": "\\operatorname{Gal}(L/K)",
-            "explanation": "Die Galoistheorie verbindet Körpererweiterungen mit Gruppentheorie und löst klassische Gleichungsprobleme."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-44665544001a",
-            "text": "Die Lösung von Gleichungen wie \\(x^n = a\\) hängt davon ab, ob im Körper entsprechende n-te Wurzeln existieren.",
-            "formula": "x^n = a",
-            "explanation": "Im Körper \\(\\mathbb{C}\\) existieren für jedes a und jedes n stets Lösungen."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-44665544001b",
-            "text": "Im Körper \\(\\mathbb{F}_p\\) ist nicht jedes Element eine n-te Potenz.",
-            "formula": "x^n = a \\text{ hat nicht immer eine Lösung in } \\mathbb{F}_p",
-            "explanation": "Die Struktur der multiplikativen Gruppe bestimmt, welche Gleichungen lösbar sind."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-44665544001c",
-            "text": "Körper sind wichtige Beispiele für Vektorräume.",
-            "formula": "",
-            "explanation": "Jeder Körper ist ein Vektorraum über seinen Primkörper."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-44665544001d",
-            "text": "Die Struktur von Körpern wird in der Algebra intensiv untersucht.",
-            "formula": "",
-            "explanation": "Körper bilden die Grundlage für viele weitere mathematische Konzepte, wie Polynome, Galoistheorie und algebraische Geometrie."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-44665544001e",
-            "text": "Die Körperaxiome stellen sicher, dass die vier Grundrechenarten sinnvoll definiert sind.",
-            "formula": "",
-            "explanation": "Ohne die Existenz von Inversen und Neutralen könnten viele Gleichungen nicht gelöst werden."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-44665544001f",
-            "text": "Der Begriff des Körpers verallgemeinert die Zahlbereiche, mit denen wir aus der Schule vertraut sind.",
-            "formula": "",
-            "explanation": "Viele Eigenschaften der reellen oder komplexen Zahlen gelten in jedem Körper."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440020",
-            "text": "Zusammengefasst: Ein Körper ist eine Menge mit zwei Verknüpfungen, die bestimmte Regeln erfüllen.",
-            "formula": "",
-            "explanation": "Körper sind ein zentrales Konzept der modernen Mathematik und eröffnen zahlreiche Anwendungen."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440021",
-            "text": "Teste dein Wissen: Ist die Menge der ganzen Zahlen ein Körper?",
-            "formula": "\\mathbb{Z}",
-            "explanation": "Nein, da nicht jedes Element außer 0 ein multiplikatives Inverses besitzt."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440022",
-            "text": "Teste dein Wissen: Ist \\(\\mathbb{Q}\\) ein endlicher Körper?",
-            "formula": "\\mathbb{Q}",
-            "explanation": "Nein, \\(\\mathbb{Q}\\) ist unendlich – es gibt unendlich viele rationale Zahlen."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440023",
-            "text": "Teste dein Wissen: Gibt es einen Körper mit genau sechs Elementen?",
-            "formula": "|K| = 6",
-            "explanation": "Nein, die Anzahl der Elemente eines endlichen Körpers ist immer eine Potenz einer Primzahl."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440024",
-            "text": "Praktische Anwendung: In der digitalen Signalverarbeitung werden endliche Körper zur Fehlerkorrektur verwendet.",
-            "formula": "",
-            "explanation": "Moderne Kommunikationssysteme wie CDs oder Mobilfunk nutzen die Arithmetik endlicher Körper."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440025",
-            "text": "Praktische Anwendung: In der Geometrie ermöglichen Körper die Definition von Koordinatensystemen.",
-            "formula": "",
-            "explanation": "Vektorräume und affine Geometrie bauen auf der Struktur von Körpern auf."
-        },
-        {
-            "id": "660e8400-e29b-41d4-a716-446655440026",
-            "text": "Zusammenfassung: Mit Körpern lassen sich algebraische Strukturen und viele Anwendungen systematisch beschreiben.",
-            "formula": "",
-            "explanation": "Das Verständnis von Körpern ist ein wichtiger Schritt in der modernen Mathematik."
-        }
-    ]
-} 
+  "id": "660e8400-e29b-41d4-a716-446655440000",
+  "topic": "Körper",
+  "title": "Einführung in Körper",
+  "description": "Lass uns die grundlegenden Konzepte der Körpertheorie Schritt für Schritt erkunden.",
+  "steps": [
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440001",
+      "section": "Kapitel 1 · Wo man dividieren kann",
+      "text": "Willkommen! In einem Ring kann man addieren, subtrahieren und multiplizieren. Ein Körper ist ein Ring, in dem man zusätzlich dividieren kann – durch alles außer \\(0\\). Genau das braucht man, um Gleichungen zu lösen und um Lineare Algebra zu betreiben.",
+      "explanation": "Unser Fahrplan:\n1. Die Definition, Beispiele und erste Folgerungen\n2. Endliche Körper \\(\\mathbb{F}_p\\): Rechnen modulo einer Primzahl\n3. Die Charakteristik eines Körpers\n4. Körpererweiterungen wie \\(\\mathbb{Q}(\\sqrt{2})\\)\n5. Was Körper nicht können: Ordnung und sechs Elemente\n6. Ausblick und Rückblick",
+      "insight": "Du brauchst: „Gruppen“ und „Ringe“, besonders Einheiten und \\(\\mathbb{Z}/n\\)."
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440002",
+      "section": "Kapitel 1 · Wo man dividieren kann",
+      "text": "Ein Körper \\((K, +, \\cdot)\\) ist ein kommutativer Ring mit \\(1 \\neq 0\\), in dem jedes Element außer \\(0\\) ein multiplikatives Inverses hat.",
+      "formula": "\\begin{array}{ll} \\textbf{(K1)} & (K, +) \\text{ abelsche Gruppe, neutral: } 0 \\\\[4pt] \\textbf{(K2)} & (K \\setminus \\{0\\}, \\cdot) \\text{ abelsche Gruppe, neutral: } 1 \\\\[4pt] \\textbf{(K3)} & a(b + c) = ab + ac \\end{array}",
+      "explanation": "In Worten: Ein Körper besteht aus ZWEI abelschen Gruppen auf derselben Menge, verbunden durch das Distributivgesetz.\n\nMit der Sprache der Ringe: \\(K^\\times = K \\setminus \\{0\\}\\). Alle Elemente außer der Null sind Einheiten.\n\nDivision ist dann eine Abkürzung: \\(\\frac{a}{b} := a \\cdot b^{-1}\\) für \\(b \\neq 0\\).\n\nWarum \\(1 \\neq 0\\)? Sonst wäre \\(a = 1 \\cdot a = 0 \\cdot a = 0\\) für jedes \\(a\\), und der „Körper“ bestünde nur aus der \\(0\\). Diesen langweiligen Fall schließt man aus.",
+      "insight": "Ein Körper ist der „bequemste“ Ort zum Rechnen: Alle vier Grundrechenarten funktionieren wie gewohnt – nur die Division durch \\(0\\) bleibt verboten."
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440003",
+      "section": "Kapitel 1 · Wo man dividieren kann",
+      "text": "Die wichtigsten Körper und Nicht-Körper im Überblick:",
+      "formula": "\\begin{array}{ll} \\mathbb{Q},\\; \\mathbb{R},\\; \\mathbb{C} & \\text{Körper} \\\\ \\mathbb{Z} & \\text{kein Körper: } 2 \\text{ hat kein Inverses} \\\\ \\mathbb{Z}/6 & \\text{kein Körper: } 2 \\cdot 3 = 0 \\\\ \\mathbb{Z}/5 & \\text{Körper} \\\\ \\mathbb{R}[x] & \\text{kein Körper: } x \\text{ hat kein Inverses} \\end{array}",
+      "explanation": "\\(\\mathbb{Z}\\): \\(2 \\cdot x = 1\\) hat keine Lösung in \\(\\mathbb{Z}\\). Erst in \\(\\mathbb{Q}\\) gibt es \\(\\frac{1}{2}\\). Man kann \\(\\mathbb{Q}\\) geradezu als „den kleinsten Körper, der \\(\\mathbb{Z}\\) enthält“ verstehen.\n\n\\(\\mathbb{R}[x]\\): Das Produkt \\(x \\cdot g\\) hat für jedes Polynom \\(g \\neq 0\\) mindestens Grad \\(1\\), kann also nie \\(1\\) sein. (Erlaubt man Brüche von Polynomen, erhält man den Körper der rationalen Funktionen \\(\\mathbb{R}(x)\\).)\n\nWarum \\(\\mathbb{Z}/5\\) ein Körper ist und \\(\\mathbb{Z}/6\\) nicht, ist Thema von Kapitel 2.",
+      "insight": "Jeder Körper ist ein Ring, aber nicht jeder Ring ist ein Körper. Der Unterschied liegt allein in den multiplikativen Inversen."
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440004",
+      "section": "Kapitel 1 · Wo man dividieren kann",
+      "text": "Die wichtigste Folgerung: In einem Körper gibt es keine Nullteiler. Deshalb kann man Gleichungen lösen wie gewohnt.",
+      "formula": "\\begin{aligned} ab = 0,\\; a \\neq 0 \\;&\\Rightarrow\\; b = a^{-1}(ab) = 0 \\\\[6pt] ax = b,\\; a \\neq 0 \\;&\\Rightarrow\\; x = a^{-1} b \\text{ eindeutig} \\end{aligned}",
+      "explanation": "Erste Zeile: Ist ein Faktor nicht \\(0\\), kann man ihn „wegmultiplizieren“. Also ist jeder Körper ein Integritätsring.\n\nZweite Zeile: Lineare Gleichungen sind eindeutig lösbar. Existenz: Einsetzen zeigt \\(a \\cdot a^{-1} b = b\\). Eindeutigkeit: Aus \\(ax = ax'\\) folgt durch Kürzen \\(x = x'\\).\n\nDeshalb funktioniert das Gauß-Verfahren aus „Matrizen“ über JEDEM Körper: Man braucht nur, dass man durch Pivotelemente \\(\\neq 0\\) teilen kann.",
+      "insight": "Die gesamte Lineare Algebra – Vektorräume, Matrizen, Determinanten – funktioniert über jedem Körper, nicht nur über \\(\\mathbb{R}\\)."
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440005",
+      "section": "Kapitel 2 · Endliche Körper 𝔽ₚ",
+      "text": "Jetzt zu einer der schönsten Entdeckungen der Algebra: Es gibt Körper mit nur endlich vielen Elementen. Schau dir die Vielfachen von \\(2\\) in \\(\\mathbb{Z}/5\\) an:",
+      "visual": "clockF5",
+      "formula": "2 \\cdot 0,\\; 2 \\cdot 1,\\; 2 \\cdot 2,\\; 2 \\cdot 3,\\; 2 \\cdot 4 \\;\\equiv\\; 0,\\; 2,\\; 4,\\; 1,\\; 3 \\pmod 5",
+      "explanation": "Alle Reste kommen vor – auch die \\(1\\). Also hat \\(2\\) ein Inverses: \\(2 \\cdot 3 = 6 \\equiv 1\\).\n\nVergleiche mit \\(\\mathbb{Z}/6\\) in der Lektion „Ringe“: Dort erreichen die Vielfachen von \\(2\\) nur \\(0, 2, 4\\).\n\nDer Unterschied: \\(5\\) ist eine Primzahl, \\(6\\) nicht.",
+      "insight": "In einem endlichen Ring ohne Nullteiler ist \\(x \\mapsto ax\\) injektiv, und eine injektive Abbildung einer endlichen Menge auf sich ist bijektiv. Also wird die \\(1\\) getroffen – ein Inverses existiert."
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440006",
+      "section": "Kapitel 2 · Endliche Körper 𝔽ₚ",
+      "text": "Allgemein gilt der Satz:",
+      "formula": "\\mathbb{Z}/n \\text{ ist ein Körper} \\quad \\iff \\quad n \\text{ ist eine Primzahl}",
+      "explanation": "„⇐“: Ist \\(p\\) prim und \\(1 \\le a \\le p - 1\\), dann ist \\(\\operatorname{ggT}(a, p) = 1\\), denn \\(p\\) hat nur die Teiler \\(1\\) und \\(p\\). Nach der Lektion „Ringe“ ist \\(a\\) dann eine Einheit.\n\n„⇒“: Ist \\(n = ab\\) mit \\(1 < a, b < n\\), dann ist \\(a \\cdot b \\equiv 0\\), aber \\(a, b \\not\\equiv 0\\). Es gibt also Nullteiler – und ein Körper hat keine.\n\nDen Körper \\(\\mathbb{Z}/p\\) schreibt man oft \\(\\mathbb{F}_p\\) („F“ wie englisch „field“). Der kleinste Körper überhaupt ist \\(\\mathbb{F}_2 = \\{0, 1\\}\\).",
+      "insight": "Zwei Lektionen greifen hier ineinander: Bézout aus „ggT“ liefert die Inversen, Nullteiler aus „Ringe“ liefern das Gegenbeispiel."
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440007",
+      "section": "Kapitel 2 · Endliche Körper 𝔽ₚ",
+      "text": "Rechnen in \\(\\mathbb{F}_7\\). Zuerst die Inversen – jedes Element \\(\\neq 0\\) hat genau eines:",
+      "visual": "fieldInverses",
+      "formula": "\\begin{array}{c|cccccc} a & 1 & 2 & 3 & 4 & 5 & 6 \\\\ \\hline a^{-1} & 1 & 4 & 5 & 2 & 3 & 6 \\end{array}",
+      "explanation": "Probe: \\(2 \\cdot 4 = 8 = 7 + 1\\) ✓, \\(3 \\cdot 5 = 15 = 14 + 1\\) ✓, \\(6 \\cdot 6 = 36 = 35 + 1\\) ✓.\n\nAuffällig: \\(6 = -1\\) in \\(\\mathbb{F}_7\\), und \\((-1)(-1) = 1\\). Also ist \\(6\\) sein eigenes Inverses.\n\nJetzt eine Gleichung: \\(3x + 4 = 1\\) in \\(\\mathbb{F}_7\\).\n\\(3x = 1 - 4 = -3 = 4\\), also \\(x = 3^{-1} \\cdot 4 = 5 \\cdot 4 = 20 = 6\\).\nProbe: \\(3 \\cdot 6 + 4 = 22 = 21 + 1 = 1\\) ✓",
+      "insight": "Negative Zahlen gibt es in \\(\\mathbb{F}_p\\) nicht als eigene Elemente: \\(-a\\) ist einfach \\(p - a\\). In \\(\\mathbb{F}_7\\) ist \\(-3 = 4\\)."
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440008",
+      "section": "Kapitel 2 · Endliche Körper 𝔽ₚ",
+      "text": "Bei großen Primzahlen findet man Inverse mit dem erweiterten euklidischen Algorithmus. Beispiel: \\(7^{-1}\\) in \\(\\mathbb{F}_{101}\\).",
+      "formula": "\\begin{aligned} 101 &= 14 \\cdot 7 + 3 \\\\ 7 &= 2 \\cdot 3 + 1 \\\\[4pt] 1 &= 7 - 2 \\cdot 3 \\\\ &= 7 - 2 \\cdot (101 - 14 \\cdot 7) \\\\ &= 29 \\cdot 7 - 2 \\cdot 101 \\end{aligned}",
+      "explanation": "Modulo \\(101\\) fällt \\(2 \\cdot 101\\) weg: \\(29 \\cdot 7 \\equiv 1\\). Also \\(7^{-1} = 29\\) in \\(\\mathbb{F}_{101}\\).\n\nProbe: \\(7 \\cdot 29 = 203 = 2 \\cdot 101 + 1\\) ✓\n\nFür Zahlen mit Hunderten Stellen ist das immer noch schnell – genau so rechnen Verschlüsselungsverfahren.",
+      "insight": "Inverse in \\(\\mathbb{F}_p\\) errät man nicht, man berechnet sie. Der euklidische Algorithmus ist dafür das Standardwerkzeug."
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440009",
+      "section": "Kapitel 2 · Endliche Körper 𝔽ₚ",
+      "text": "Ein zweiter Weg zu Inversen ist der kleine Satz von Fermat:",
+      "formula": "\\begin{array}{c} a^{p-1} = 1 \\quad \\text{für alle } a \\neq 0 \\text{ in } \\mathbb{F}_p \\\\[6pt] \\Longrightarrow \\quad a^{-1} = a^{p-2} \\end{array}",
+      "explanation": "Beweis mit Lagrange (Lektion „Gruppen“): \\(\\mathbb{F}_p^\\times\\) ist eine Gruppe mit \\(p - 1\\) Elementen. Die Ordnung von \\(a\\) teilt also \\(p - 1\\), und damit ist \\(a^{p-1} = 1\\).\n\nBeispiel in \\(\\mathbb{F}_7\\): \\(3^{-1} = 3^5 = 243 = 34 \\cdot 7 + 5 = 5\\). Das passt zur Tabelle ✓\n\nFür Handrechnung ist das meist mühsamer als Euklid. Für Computer ist es bequem, weil man Potenzen sehr schnell durch wiederholtes Quadrieren berechnen kann.",
+      "insight": "Fermats Satz ist die Grundlage vieler Primzahltests: Gilt \\(a^{n-1} \\neq 1\\) modulo \\(n\\), ist \\(n\\) sicher keine Primzahl."
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440010",
+      "section": "Kapitel 3 · Die Charakteristik",
+      "text": "Addiert man in \\(\\mathbb{F}_p\\) die \\(1\\) immer wieder, landet man nach \\(p\\) Schritten bei \\(0\\). In \\(\\mathbb{Q}\\) passiert das nie. Diese Zahl heißt Charakteristik:",
+      "formula": "\\begin{array}{c} \\operatorname{char}(K) = \\text{kleinstes } n \\ge 1 \\text{ mit } \\underbrace{1 + 1 + \\dots + 1}_{n} = 0 \\\\[4pt] (\\text{bzw. } 0, \\text{ falls es kein solches } n \\text{ gibt}) \\end{array}",
+      "explanation": "Beispiele: \\(\\operatorname{char}(\\mathbb{F}_p) = p\\), \\(\\operatorname{char}(\\mathbb{Q})\\) \\(= \\operatorname{char}(\\mathbb{R})\\) \\(= \\operatorname{char}(\\mathbb{C})\\) \\(= 0\\).\n\nSatz: Die Charakteristik eines Körpers ist \\(0\\) oder eine Primzahl.\nBeweis: Wäre \\(\\operatorname{char}(K) = n = ab\\) mit \\(1 < a, b < n\\), dann wäre \\((\\underbrace{1 + \\dots + 1}_{a}) \\cdot (\\underbrace{1 + \\dots + 1}_{b})\\) \\(= \\underbrace{1 + \\dots + 1}_{n}\\) \\(= 0\\). Weil \\(n\\) minimal ist, sind beide Faktoren \\(\\neq 0\\) – Nullteiler im Körper, Widerspruch. ∎",
+      "insight": "Daher kann es keinen Körper mit \\(\\operatorname{char} = 6\\) geben – und \\(\\mathbb{Z}/6\\) ist tatsächlich keiner."
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440011",
+      "section": "Kapitel 3 · Die Charakteristik",
+      "text": "In Charakteristik \\(p\\) geschieht etwas Erstaunliches: Der „Schülerfehler“ wird richtig.",
+      "formula": "\\begin{array}{c} (a + b)^p = a^p + b^p \\\\[2pt] \\text{in Körpern der Charakteristik } p \\end{array}",
+      "explanation": "Grund: Nach dem binomischen Lehrsatz ist \\((a + b)^p = \\sum_{k=0}^{p} \\binom{p}{k} a^{p-k} b^k\\). Für \\(1 \\le k \\le p - 1\\) ist \\(\\binom{p}{k} = \\frac{p!}{k!(p-k)!}\\) durch \\(p\\) teilbar: Im Zähler steht ein \\(p\\), im Nenner nicht. Diese Koeffizienten sind in Charakteristik \\(p\\) also \\(0\\).\n\nBeispiel in \\(\\mathbb{F}_2\\): \\((a + b)^2\\) \\(= a^2 + 2ab + b^2\\) \\(= a^2 + b^2\\), denn \\(2 = 0\\).\n\nBeispiel in \\(\\mathbb{F}_3\\): \\((1 + 1)^3 = 2^3 = 8 = 2\\), und \\(1^3 + 1^3 = 2\\) ✓",
+      "insight": "Diese Regel heißt manchmal „Freshman’s Dream“ (Traum der Erstsemester). In \\(\\mathbb{R}\\) ist sie falsch, in \\(\\mathbb{F}_p\\) ein Satz."
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440012",
+      "section": "Kapitel 3 · Die Charakteristik",
+      "text": "Der Körper \\(\\mathbb{F}_2 = \\{0, 1\\}\\) ist die Mathematik der Computer. Addition und Multiplikation sind bekannte Logik-Operationen:",
+      "formula": "\\begin{array}{c|cc} + & 0 & 1 \\\\ \\hline 0 & 0 & 1 \\\\ 1 & 1 & 0 \\end{array} \\qquad \\begin{array}{c|cc} \\cdot & 0 & 1 \\\\ \\hline 0 & 0 & 0 \\\\ 1 & 0 & 1 \\end{array}",
+      "explanation": "Die Addition ist das „exklusive Oder“ (XOR): \\(1 + 1 = 0\\). Die Multiplikation ist das logische „und“.\n\nIn \\(\\mathbb{F}_2\\) ist \\(-1 = 1\\), also Addition und Subtraktion dasselbe.\n\nPrüfsummen, fehlerkorrigierende Codes (z. B. auf QR-Codes und Datenträgern) und die AES-Verschlüsselung rechnen in \\(\\mathbb{F}_2\\) oder in Körpern, die daraus gebaut sind.",
+      "insight": "Ein Bit ist ein Element von \\(\\mathbb{F}_2\\). Lineare Algebra über \\(\\mathbb{F}_2\\) ist das Werkzeug der Codierungstheorie."
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440013",
+      "section": "Kapitel 4 · Körpererweiterungen",
+      "text": "Neue Körper entstehen auch durch Erweitern. Was ist der kleinste Körper, der \\(\\mathbb{Q}\\) und \\(\\sqrt{2}\\) enthält?",
+      "formula": "\\mathbb{Q}(\\sqrt{2}) = \\{ a + b\\sqrt{2} \\mid a, b \\in \\mathbb{Q} \\}",
+      "explanation": "Addition und Multiplikation bleiben in dieser Menge:\n\\((a + b\\sqrt{2})(c + d\\sqrt{2})\\) \\(= (ac + 2bd) + (ad + bc)\\sqrt{2}\\), denn \\(\\sqrt{2}^2 = 2\\).\n\nDas Spannende ist die Division. Ist \\(a + b\\sqrt{2}\\) invertierbar? Man erweitert mit dem „konjugierten“ Element (dritte binomische Formel):\n\\(\\frac{1}{a + b\\sqrt{2}} = \\frac{a - b\\sqrt{2}}{a^2 - 2b^2}\\).\n\nDer Nenner \\(a^2 - 2b^2\\) ist nie \\(0\\) (außer für \\(a = b = 0\\)): Sonst wäre \\(\\sqrt{2} = \\pm\\frac{a}{b}\\) rational – Widerspruch zur Irrationalität aus der Lektion „Logik“.\n\nBeispiel: \\(\\frac{1}{1 + \\sqrt{2}} = \\frac{1 - \\sqrt{2}}{1 - 2} = \\sqrt{2} - 1\\).",
+      "insight": "\\(\\mathbb{Q}(\\sqrt{2})\\) ist ein Vektorraum über \\(\\mathbb{Q}\\) mit der Basis \\(1, \\sqrt{2}\\). Die Dimension \\(2\\) heißt Grad der Erweiterung."
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440014",
+      "section": "Kapitel 4 · Körpererweiterungen",
+      "text": "Die berühmteste Körpererweiterung: Man erweitert \\(\\mathbb{R}\\) um eine Lösung der Gleichung \\(x^2 + 1 = 0\\).",
+      "formula": "\\mathbb{C} = \\mathbb{R}(i) = \\{ a + bi \\mid a, b \\in \\mathbb{R} \\}, \\qquad i^2 = -1",
+      "explanation": "Das Vorgehen ist genau wie bei \\(\\mathbb{Q}(\\sqrt{2})\\): Multiplizieren mit \\(i^2 = -1\\), Invertieren mit dem konjugierten Element:\n\\(\\frac{1}{a + bi} = \\frac{a - bi}{a^2 + b^2}\\).\n\nDer Nenner \\(a^2 + b^2\\) ist für \\((a, b) \\neq (0, 0)\\) positiv. Also ist \\(\\mathbb{C}\\) ein Körper.\n\nDas Besondere an \\(\\mathbb{C}\\): Jedes nicht-konstante Polynom hat dort eine Nullstelle (Fundamentalsatz der Algebra). Man muss nie wieder erweitern. Mehr dazu in der Lektion „Komplexe Zahlen“.",
+      "insight": "Muster aller Erweiterungen: Ein Polynom hat keine Nullstelle? Dann füge eine hinzu und rechne mit der Gleichung, die sie erfüllt."
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440015",
+      "section": "Kapitel 5 · Was Körper nicht können",
+      "text": "Was Körper NICHT können. Erstens: Nicht jeder Körper lässt sich anordnen. In \\(\\mathbb{R}\\) gibt es ein „kleiner als“, das mit \\(+\\) und \\(\\cdot\\) verträglich ist – in \\(\\mathbb{C}\\) und \\(\\mathbb{F}_p\\) nicht.",
+      "formula": "\\begin{array}{c} \\text{angeordnet} \\;\\Rightarrow\\; x^2 \\ge 0 \\text{ und } 1 > 0 \\\\[8pt] \\mathbb{C}\\colon\\; i^2 = -1 < 0 \\quad \\text{Widerspruch} \\\\[6pt] \\mathbb{F}_p\\colon\\; \\underbrace{1 + \\dots + 1}_{p} = 0 \\quad \\text{Widerspruch} \\end{array}",
+      "explanation": "In einem angeordneten Körper ist jedes Quadrat \\(\\ge 0\\): Für \\(x > 0\\) ist \\(x \\cdot x > 0\\), für \\(x < 0\\) ist \\((-x)(-x) = x^2 > 0\\). Insbesondere \\(1 = 1^2 > 0\\).\n\nIn \\(\\mathbb{C}\\) wäre \\(i^2 = -1\\) ein Quadrat, das negativ ist. Also kann man komplexe Zahlen nicht der Größe nach vergleichen – „\\(i > 0\\)“ ist sinnlos.\n\nIn \\(\\mathbb{F}_p\\) wäre \\(1 > 0\\), also auch \\(1 + 1 > 0\\) usw. – aber \\(p\\) Einsen ergeben \\(0\\).",
+      "insight": "Beträge kann man in \\(\\mathbb{C}\\) trotzdem vergleichen: \\(|z| < |w|\\) ist sinnvoll, \\(z < w\\) nicht."
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440016",
+      "section": "Kapitel 5 · Was Körper nicht können",
+      "text": "Zweitens: Es gibt nicht zu jeder Anzahl einen Körper. Gibt es einen Körper mit genau 6 Elementen?",
+      "formula": "\\begin{array}{c} K \\text{ endlich} \\\\[2pt] \\Downarrow \\\\[2pt] |K| = p^n,\\; p \\text{ prim},\\; n \\ge 1 \\end{array}",
+      "explanation": "Die Antwort ist nein: Ein endlicher Körper hat immer eine Primzahlpotenz als Anzahl. Es gibt Körper mit \\(2, 3, 4, 5, 7, 8, 9, 11, \\dots\\) Elementen, aber keinen mit \\(6\\) oder \\(10\\).\n\nIdee: Ein endlicher Körper hat Charakteristik \\(p\\) und enthält dann \\(\\mathbb{F}_p\\). Er ist ein Vektorraum über \\(\\mathbb{F}_p\\), sagen wir der Dimension \\(n\\) – und hat damit \\(p^n\\) Elemente.\n\nVorsicht: Der Körper mit 4 Elementen ist NICHT \\(\\mathbb{Z}/4\\) – dort ist \\(2 \\cdot 2 = 0\\). Man konstruiert ihn wie \\(\\mathbb{C}\\): \\(\\mathbb{F}_4 = \\{0, 1, \\alpha, \\alpha + 1\\}\\) mit \\(\\alpha^2 = \\alpha + 1\\).",
+      "insight": "Typischer Fehler: „\\(\\mathbb{Z}/n\\) ist ein Körper“ für beliebiges \\(n\\). Das gilt nur für Primzahlen. Für Primzahlpotenzen gibt es zwar Körper, aber sie sehen anders aus."
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440017",
+      "section": "Kapitel 5 · Was Körper nicht können",
+      "text": "Typische Fehler beim Rechnen in Körpern:",
+      "formula": "\\begin{array}{ll} \\frac{1}{a + b} = \\frac{1}{a} + \\frac{1}{b} & \\text{falsch, z. B. } a = b = 1 \\\\ \\text{durch } 0 \\text{ teilen} & \\text{in keinem Körper erlaubt} \\\\ -3 \\notin \\mathbb{F}_7 & \\text{falsch: } -3 = 4 \\\\ \\frac{1}{2} \\text{ in } \\mathbb{F}_2 & \\text{gibt es nicht, denn } 2 = 0 \\end{array}",
+      "explanation": "Zeile 1: \\(\\frac{1}{1 + 1} = \\frac{1}{2}\\), aber \\(\\frac{1}{1} + \\frac{1}{1} = 2\\).\n\nZeile 4: In Charakteristik \\(2\\) ist \\(2 = 1 + 1 = 0\\). Formeln mit „\\(\\frac{1}{2}\\)“, etwa die p-q-Formel, funktionieren dort nicht.\n\nAllgemeiner Rat: Bevor du eine Formel aus der Schule in einem fremden Körper benutzt, prüfe, ob sie durch eine Zahl teilt, die dort \\(0\\) sein könnte.",
+      "insight": "Die meisten Rechenregeln gelten in jedem Körper – aber Formeln mit festen Zahlen wie \\(2\\) oder \\(\\frac{1}{2}\\) hängen von der Charakteristik ab."
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440018",
+      "section": "Kapitel 6 · Ausblick und Rückblick",
+      "text": "Ausblick: Wo geht es weiter?",
+      "explanation": "• Galois-Theorie: Symmetrien von Körpererweiterungen bilden Gruppen. Damit beweist man, dass es für Gleichungen fünften Grades keine allgemeine Lösungsformel mit Wurzeln gibt, und dass man mit Zirkel und Lineal keinen Winkel dreiteilen kann.\n\n• Endliche Körper in der Praxis: AES (Verschlüsselung im Internet) rechnet in \\(\\mathbb{F}_{256}\\), Reed-Solomon-Codes auf CDs und QR-Codes ebenfalls. Elliptische-Kurven-Kryptographie rechnet über \\(\\mathbb{F}_p\\) mit riesigem \\(p\\).\n\n• Analysis: \\(\\mathbb{R}\\) ist der einzige angeordnete Körper, in dem jede beschränkte Menge ein Supremum hat (Vollständigkeit). Das ist die Grundlage aller Grenzwerte.",
+      "insight": "Ein Körper ist der Zahlbereich, über dem die Lineare Algebra lebt. Jetzt weißt du, dass es viel mehr davon gibt als nur \\(\\mathbb{R}\\)."
+    },
+    {
+      "id": "660e8400-e29b-41d4-a716-446655440019",
+      "section": "Kapitel 6 · Ausblick und Rückblick",
+      "text": "Schau zurück, wie die Begriffe auseinander hervorgegangen sind:",
+      "explanation": "1. Körper: kommutativer Ring mit \\(1 \\neq 0\\), in dem jedes \\(a \\neq 0\\) invertierbar ist. Keine Nullteiler, \\(ax = b\\) eindeutig lösbar.\n\n2. \\(\\mathbb{Z}/n\\) ist genau dann ein Körper, wenn \\(n\\) prim ist. Inverse mit Euklid oder Fermat (\\(a^{-1} = a^{p-2}\\)).\n\n3. Charakteristik: \\(0\\) oder Primzahl. In Charakteristik \\(p\\): \\((a + b)^p = a^p + b^p\\). \\(\\mathbb{F}_2\\) = Bits.\n\n4. Erweiterungen: \\(\\mathbb{Q}(\\sqrt{2})\\), \\(\\mathbb{C} = \\mathbb{R}(i)\\) – Inverse durch Erweitern mit dem Konjugierten.\n\n5. \\(\\mathbb{C}\\) und \\(\\mathbb{F}_p\\) lassen sich nicht anordnen. Endliche Körper haben \\(p^n\\) Elemente.",
+      "insight": "Glückwunsch! Weiter geht es mit „Komplexe Zahlen“ – dem Körper, in dem jede Polynomgleichung lösbar ist."
+    }
+  ]
+}

@@ -1,41 +1,142 @@
-{    "id": "550e8400-e29b-41d4-a716-446655440100",
-    "topic": "Binomische Formeln",
-    "steps": [
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440101",
-            "text": "Die binomischen Formeln sind wichtige Hilfsmittel zum Ausmultiplizieren von Klammern. Sie helfen uns, bestimmte Ausdrücke schneller zu berechnen.",
-            "formula": null,
-            "explanation": "Binomische Formeln sind wie Abkürzungen für das Ausmultiplizieren von Klammern. Sie sparen uns Zeit und reduzieren Fehler."
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440102",
-            "text": "Die erste binomische Formel beschreibt das Quadrat einer Summe.",
-            "formula": "(a + b)^2 = a^2 + 2ab + b^2",
-            "explanation": "Wenn wir (a + b)² ausmultiplizieren, erhalten wir a² + 2ab + b². Der mittlere Term 2ab kommt durch das doppelte Produkt der beiden Summanden zustande."
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440103",
-            "text": "Die zweite binomische Formel beschreibt das Quadrat einer Differenz.",
-            "formula": "(a - b)^2 = a^2 - 2ab + b^2",
-            "explanation": "Bei (a - b)² ist der mittlere Term negativ, also -2ab. Das Quadrat von b bleibt positiv, da ein negatives Vorzeichen im Quadrat positiv wird."
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440104",
-            "text": "Die dritte binomische Formel beschreibt das Produkt einer Summe und einer Differenz.",
-            "formula": "(a + b)(a - b) = a^2 - b^2",
-            "explanation": "Wenn wir (a + b)(a - b) ausmultiplizieren, heben sich die gemischten Terme auf, und es bleibt nur a² - b² übrig."
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440105",
-            "text": "Lass uns ein konkretes Beispiel berechnen: (x + 3)²",
-            "formula": "(x + 3)^2 = x^2 + 2 \\cdot x \\cdot 3 + 3^2 = x^2 + 6x + 9",
-            "explanation": "Wir setzen a = x und b = 3 in die erste binomische Formel ein. Das Ergebnis ist x² + 6x + 9."
-        },
-        {
-            "id": "550e8400-e29b-41d4-a716-446655440106",
-            "text": "Die binomischen Formeln können auch rückwärts angewendet werden, um Ausdrücke zu faktorisieren.",
-            "formula": "x^2 + 6x + 9 = (x + 3)^2",
-            "explanation": "Wenn wir einen Ausdruck in der Form a² + 2ab + b² sehen, können wir ihn als (a + b)² schreiben. Das ist besonders nützlich beim Lösen von Gleichungen."
-        }
-    ]
-} 
+{
+  "id": "550e8400-e29b-41d4-a716-446655440100",
+  "topic": "Binomische Formeln",
+  "steps": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440101",
+      "section": "Kapitel 1 · Die drei Formeln",
+      "text": "Willkommen! Die binomischen Formeln kennst du vielleicht aus der Schule. Hier lernst du sie so, dass du sie nie mehr verwechselst – und siehst, warum sie im Studium überall auftauchen: beim Lösen quadratischer Gleichungen, beim Vereinfachen von Brüchen und im binomischen Lehrsatz.",
+      "explanation": "Unser Fahrplan:\n1. Die drei Formeln – mit Bildern, warum sie stimmen\n2. Anwenden: ausmultiplizieren und faktorisieren\n3. Werkzeuge: quadratische Ergänzung, p-q-Formel, Wurzeln aus dem Nenner\n4. Höhere Potenzen: Pascalsches Dreieck und binomischer Lehrsatz",
+      "insight": "Eine Formel, die man versteht, muss man nicht auswendig lernen. Ziel dieser Lektion: Du kannst jede Formel in Sekunden selbst herleiten."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440102",
+      "section": "Kapitel 1 · Die drei Formeln",
+      "text": "Fangen wir mit dem häufigsten Fehler der Algebra an. Gilt \\((a + b)^2 = a^2 + b^2\\)? Probiere es mit Zahlen:",
+      "formula": "\\begin{aligned} (3 + 4)^2 &= 7^2 = 49 \\\\ 3^2 + 4^2 &= 9 + 16 = 25 \\end{aligned}",
+      "explanation": "\\(49 \\neq 25\\). Die „Formel“ ist falsch – es fehlen \\(24\\).\n\nWoher kommen die \\(24\\)? Quadrieren heißt: mit sich selbst multiplizieren. Also muss man jeden Summanden der ersten Klammer mit jedem der zweiten multiplizieren:\n\\((a + b)(a + b)\\) \\(= a \\cdot a + a \\cdot b + b \\cdot a + b \\cdot b\\) \\(= a^2 + 2ab + b^2\\).\n\nMit \\(a = 3\\), \\(b = 4\\): \\(2ab = 2 \\cdot 12 = 24\\) ✓",
+      "insight": "Quadrieren ist nicht „verträglich“ mit der Addition: \\((a + b)^2 \\neq a^2 + b^2\\). Ebenso \\(\\sqrt{a + b} \\neq \\sqrt{a} + \\sqrt{b}\\)."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440103",
+      "section": "Kapitel 1 · Die drei Formeln",
+      "text": "Das ist die erste binomische Formel. Das Bild zeigt, warum sie stimmt: Ein Quadrat der Seite \\(a + b\\) zerfällt in vier Teile.",
+      "visual": "binomialSquare",
+      "formula": "(a + b)^2 = a^2 + 2ab + b^2",
+      "explanation": "Die Fläche des großen Quadrats ist \\((a + b)^2\\). Sie setzt sich zusammen aus:\n• einem Quadrat \\(a^2\\),\n• einem Quadrat \\(b^2\\),\n• zwei Rechtecken mit je \\(ab\\).\n\nDer Term \\(2ab\\) heißt das „gemischte Glied“ oder „doppelte Produkt“. Er ist der Teil, den man beim typischen Fehler vergisst.",
+      "insight": "Merkhilfe: „Erstes zum Quadrat, plus zweimal Erstes mal Zweites, plus Zweites zum Quadrat.“"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440104",
+      "section": "Kapitel 1 · Die drei Formeln",
+      "text": "Die zweite binomische Formel musst du nicht extra lernen. Sie folgt aus der ersten, wenn man \\(b\\) durch \\(-b\\) ersetzt:",
+      "formula": "\\begin{aligned} (a - b)^2 &= (a + (-b))^2 \\\\ &= a^2 + 2a(-b) + (-b)^2 \\\\ &= a^2 - 2ab + b^2 \\end{aligned}",
+      "explanation": "Nur das gemischte Glied ändert sein Vorzeichen. Das \\(b^2\\) bleibt positiv, denn \\((-b)^2 = b^2\\).\n\nBeispiel: \\((10 - 1)^2\\) \\(= 100 - 20 + 1\\) \\(= 81\\) \\(= 9^2\\) ✓\n\nEine Folgerung, die oft verwirrt: \\((a - b)^2 = (b - a)^2\\), denn \\(b - a = -(a - b)\\) und ein Minuszeichen verschwindet beim Quadrieren.",
+      "insight": "Ein Quadrat ist nie negativ. Steht am Ende einer Rechnung ein negativer Term vor \\(b^2\\), ist ein Vorzeichenfehler passiert."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440105",
+      "section": "Kapitel 1 · Die drei Formeln",
+      "text": "Die dritte binomische Formel hat kein Quadrat auf der linken Seite – dafür ein „plus“ und ein „minus“:",
+      "visual": "binomialDifference",
+      "formula": "(a + b)(a - b) = a^2 - b^2",
+      "explanation": "Herleitung durch Ausmultiplizieren:\n\\((a + b)(a - b)\\) \\(= a^2 - ab + ba - b^2\\) \\(= a^2 - b^2\\).\nDie gemischten Glieder \\(-ab\\) und \\(+ab\\) heben sich auf.\n\nDie Animation zeigt dasselbe geometrisch: Aus \\(a^2 - b^2\\) (ein Quadrat mit fehlender Ecke) wird durch Umlegen ein Rechteck mit den Seiten \\(a + b\\) und \\(a - b\\).",
+      "insight": "Die dritte Formel ist die wichtigste zum Faktorisieren: Eine Differenz zweier Quadrate zerfällt IMMER in ein Produkt."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440106",
+      "section": "Kapitel 2 · Anwenden – vorwärts und rückwärts",
+      "text": "Jetzt anwenden. Der Trick: Erst erkennen, was \\(a\\) und was \\(b\\) ist – dann einsetzen.",
+      "formula": "\\begin{aligned} (2x + 3)^2 &= (2x)^2 + 2 \\cdot 2x \\cdot 3 + 3^2 \\\\ &= 4x^2 + 12x + 9 \\\\[4pt] (x - \\tfrac{1}{2})^2 &= x^2 - x + \\tfrac{1}{4} \\\\ (3a - 2b)^2 &= 9a^2 - 12ab + 4b^2 \\\\ (5 + y)(5 - y) &= 25 - y^2 \\end{aligned}",
+      "explanation": "Erste Zeile: \\(a = 2x\\), \\(b = 3\\). Wichtig: \\((2x)^2 = 4x^2\\), nicht \\(2x^2\\) – die \\(2\\) wird mitquadriert!\n\nZweite Zeile: \\(a = x\\), \\(b = \\frac{1}{2}\\). Das gemischte Glied ist \\(2 \\cdot x \\cdot \\frac{1}{2} = x\\).\n\nDritte Zeile: Hier übernimmt \\(3a\\) die Rolle des ersten und \\(2b\\) die des zweiten Summanden. Das gemischte Glied ist \\(2 \\cdot 3a \\cdot 2b = 12ab\\), mit Minus.\n\nVierte Zeile: dritte Formel mit \\(a = 5\\), \\(b = y\\).",
+      "insight": "Schreib bei Unsicherheit die Klammern um \\(a\\) und \\(b\\) explizit hin: \\((2x)^2\\) statt \\(2x^2\\). Die meisten Fehler entstehen beim Weglassen dieser Klammern."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440107",
+      "section": "Kapitel 2 · Anwenden – vorwärts und rückwärts",
+      "text": "Sammeln wir die typischen Fehler – jeder davon kostet in Klausuren regelmäßig Punkte:",
+      "formula": "\\begin{array}{ll} (a + b)^2 \\neq a^2 + b^2 & 2ab \\text{ fehlt} \\\\ (2x)^2 \\neq 2x^2 & \\text{richtig: } 4x^2 \\\\ (a - b)^2 \\neq a^2 - b^2 & \\text{verwechselt mit Formel 3} \\\\ (-a - b)^2 \\neq -(a + b)^2 & \\text{richtig: } (a + b)^2 \\end{array}",
+      "explanation": "Letzte Zeile: \\(-a - b = -(a + b)\\), und beim Quadrieren verschwindet das Minus: \\((-(a + b))^2 = (a + b)^2\\).\n\nEin guter Test bei jeder Umformung: Setze kleine Zahlen ein, z. B. \\(a = 1\\), \\(b = 2\\). Für \\((a - b)^2 = a^2 - b^2\\) ergibt das \\(1 = -3\\) – sofort als falsch entlarvt.",
+      "insight": "Zahlen einsetzen kann eine Formel nicht beweisen, aber in Sekunden widerlegen. Mach es zur Gewohnheit."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440108",
+      "section": "Kapitel 2 · Anwenden – vorwärts und rückwärts",
+      "text": "Rückwärts angewendet helfen die Formeln beim Faktorisieren: Man erkennt in einer Summe ein Quadrat oder ein Produkt.",
+      "formula": "\\begin{aligned} x^2 - 10x + 25 &= (x - 5)^2 \\\\ 4x^2 - 9 &= (2x + 3)(2x - 3) \\\\ 9x^2 + 12x + 4 &= (3x + 2)^2 \\\\ x^4 - 1 &= (x^2 + 1)(x + 1)(x - 1) \\end{aligned}",
+      "explanation": "Vorgehen bei drei Summanden:\n1. Sind zwei Summanden Quadrate? Bei \\(x^2 - 10x + 25\\): \\(x^2\\) und \\(25 = 5^2\\). Also \\(a = x\\), \\(b = 5\\).\n2. Passt das gemischte Glied? \\(2 \\cdot x \\cdot 5 = 10x\\) ✓ mit Minus → zweite Formel.\n\nBei zwei Summanden mit Minus: dritte Formel. \\(4x^2 - 9 = (2x)^2 - 3^2\\).\n\nLetzte Zeile: dritte Formel zweimal! \\(x^4 - 1\\) \\(= (x^2)^2 - 1^2\\) \\(= (x^2 + 1)(x^2 - 1)\\), und \\(x^2 - 1\\) zerfällt nochmal.\n\nNicht jede Summe passt: \\(x^2 + 6x + 5\\) ist kein Quadrat, denn \\(2 \\cdot x \\cdot \\sqrt{5} \\neq 6x\\).",
+      "insight": "\\(a^2 + b^2\\) (mit Plus) lässt sich über den reellen Zahlen NICHT faktorisieren. Erst mit komplexen Zahlen geht das: \\(a^2 + b^2 = (a + bi)(a - bi)\\)."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440109",
+      "section": "Kapitel 2 · Anwenden – vorwärts und rückwärts",
+      "text": "Ein schöner Nebeneffekt: Kopfrechnen. Man zerlegt eine Zahl geschickt in eine runde Zahl und eine kleine Abweichung.",
+      "formula": "\\begin{aligned} 51^2 &= (50 + 1)^2 = 2500 + 100 + 1 = 2601 \\\\ 49^2 &= (50 - 1)^2 = 2500 - 100 + 1 = 2401 \\\\ 48 \\cdot 52 &= (50 - 2)(50 + 2) = 2500 - 4 = 2496 \\end{aligned}",
+      "explanation": "Bei der dritten Zeile liegen beide Faktoren symmetrisch um \\(50\\). Dann ist das Produkt „Mitte zum Quadrat minus Abstand zum Quadrat“.\n\nWeiteres Beispiel: \\(97 \\cdot 103 = 100^2 - 3^2 = 9991\\).",
+      "insight": "Die Formeln sind keine reinen „Buchstabenregeln“ – sie gelten für alle Zahlen und machen viele Rechnungen einfacher."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440110",
+      "section": "Kapitel 3 · Werkzeuge, die darauf aufbauen",
+      "text": "Das wichtigste Werkzeug, das auf den Formeln aufbaut, ist die quadratische Ergänzung. Idee: Einen Term \\(x^2 + px\\) zu einem vollständigen Quadrat ergänzen.",
+      "formula": "\\begin{aligned} x^2 + 6x + 5 &= x^2 + 2 \\cdot 3 \\cdot x + 3^2 - 3^2 + 5 \\\\ &= (x + 3)^2 - 9 + 5 \\\\ &= (x + 3)^2 - 4 \\end{aligned}",
+      "explanation": "Schritt für Schritt:\n1. Der Faktor vor \\(x\\) ist \\(6 = 2 \\cdot 3\\). Also ist \\(b = 3\\).\n2. Damit eine erste binomische Formel entsteht, fehlt \\(b^2 = 9\\). Wir addieren \\(9\\) und ziehen es sofort wieder ab – der Wert ändert sich nicht.\n3. Zusammenfassen.\n\nNutzen 1: Der Graph von \\(x^2 + 6x + 5\\) ist eine Parabel mit dem Scheitelpunkt \\((-3, -4)\\).\n\nNutzen 2: Nullstellen. \\((x + 3)^2 - 4\\) \\(= 0\\) \\(\\iff (x + 3)^2\\) \\(= 4\\) \\(\\iff x + 3\\) \\(= \\pm 2\\), also \\(x = -1\\) oder \\(x = -5\\).",
+      "insight": "Merkregel: Halbiere den Faktor vor \\(x\\), quadriere ihn, addiere und subtrahiere ihn."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440111",
+      "section": "Kapitel 3 · Werkzeuge, die darauf aufbauen",
+      "text": "Macht man die quadratische Ergänzung allgemein, erhält man die p-q-Formel. Für \\(x^2 + px + q = 0\\):",
+      "formula": "\\begin{aligned} x^2 + px + q &= 0 \\\\ \\left(x + \\tfrac{p}{2}\\right)^2 - \\tfrac{p^2}{4} + q &= 0 \\\\ \\left(x + \\tfrac{p}{2}\\right)^2 &= \\tfrac{p^2}{4} - q \\\\ x &= -\\tfrac{p}{2} \\pm \\sqrt{\\tfrac{p^2}{4} - q} \\end{aligned}",
+      "explanation": "Der letzte Schritt (Wurzel ziehen) geht nur, wenn \\(D = \\frac{p^2}{4} - q \\ge 0\\) ist:\n• \\(D > 0\\): zwei Lösungen,\n• \\(D = 0\\): eine Lösung,\n• \\(D < 0\\): keine reelle Lösung.\n\nKontrolle mit dem Beispiel von eben (\\(p = 6\\), \\(q = 5\\)): \\(x = -3 \\pm \\sqrt{9 - 5} = -3 \\pm 2\\) ✓",
+      "insight": "Wer die quadratische Ergänzung beherrscht, braucht die p-q-Formel nicht auswendig. Und versteht, warum unter der Wurzel genau das steht, was dort steht."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440112",
+      "section": "Kapitel 3 · Werkzeuge, die darauf aufbauen",
+      "text": "Eine Anwendung der dritten Formel, die dir in der Analysis ständig begegnet: Wurzeln aus dem Nenner entfernen. Man erweitert mit dem „anderen Vorzeichen“:",
+      "formula": "\\begin{aligned} \\frac{1}{\\sqrt{3} - 1} &= \\frac{\\sqrt{3} + 1}{(\\sqrt{3} - 1)(\\sqrt{3} + 1)} \\\\ &= \\frac{\\sqrt{3} + 1}{3 - 1} = \\frac{\\sqrt{3} + 1}{2} \\\\[10pt] \\sqrt{n + 1} - \\sqrt{n} &= \\frac{(n + 1) - n}{\\sqrt{n + 1} + \\sqrt{n}} \\\\ &= \\frac{1}{\\sqrt{n + 1} + \\sqrt{n}} \\end{aligned}",
+      "explanation": "Im Nenner entsteht \\((\\sqrt{3})^2 - 1^2\\) – die Wurzel verschwindet.\n\nDie zweite Zeile ist ein Standardtrick für Grenzwerte: Links steht eine Differenz, bei der man nicht sofort sieht, was für großes \\(n\\) passiert. Rechts sieht man es: Der Nenner wird beliebig groß, also geht der Ausdruck gegen \\(0\\).",
+      "insight": "Muster: Steht \\(\\sqrt{x} - \\sqrt{y}\\) im Weg, erweitere mit \\(\\sqrt{x} + \\sqrt{y}\\). Dann entsteht \\(x - y\\) ohne Wurzeln."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440113",
+      "section": "Kapitel 4 · Höhere Potenzen",
+      "text": "Was ist mit höheren Potenzen? \\((a + b)^3\\) berechnet man, indem man das bekannte Quadrat noch einmal mit \\((a + b)\\) multipliziert:",
+      "formula": "\\begin{aligned} (a + b)^3 &= (a + b)^2 (a + b) \\\\ &= (a^2 + 2ab + b^2)(a + b) \\\\ &= a^3 + 3a^2 b + 3ab^2 + b^3 \\end{aligned}",
+      "explanation": "Ausmultiplizieren ergibt sechs Terme:\n\\(a^3 + a^2 b + 2a^2 b\\) \\(+ 2ab^2 + ab^2 + b^3\\). Zusammengefasst: \\(a^3 + 3a^2 b + 3ab^2 + b^3\\).\n\nProbe mit \\(a = b = 1\\): \\(2^3 = 8 = 1 + 3 + 3 + 1\\) ✓\n\nDie Koeffizienten \\(1, 3, 3, 1\\) folgen einem Muster, das wir uns jetzt ansehen.",
+      "insight": "Bei \\((a + b)^n\\) hat jeder Term den Gesamtgrad \\(n\\): \\(a^3\\), \\(a^2 b\\), \\(a b^2\\), \\(b^3\\). Die Exponenten von \\(a\\) fallen, die von \\(b\\) steigen."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440114",
+      "section": "Kapitel 4 · Höhere Potenzen",
+      "text": "Die Koeffizienten bilden das Pascalsche Dreieck. Jede Zahl ist die Summe der beiden Zahlen schräg darüber:",
+      "formula": "\\begin{array}{c} n = 0\\colon \\quad 1 \\\\ n = 1\\colon \\quad 1 \\quad 1 \\\\ n = 2\\colon \\quad 1 \\quad 2 \\quad 1 \\\\ n = 3\\colon \\quad 1 \\quad 3 \\quad 3 \\quad 1 \\\\ n = 4\\colon \\quad 1 \\quad 4 \\quad 6 \\quad 4 \\quad 1 \\\\ n = 5\\colon \\quad 1 \\quad 5 \\quad 10 \\quad 10 \\quad 5 \\quad 1 \\end{array}",
+      "explanation": "Zeile \\(n\\) enthält die Koeffizienten von \\((a + b)^n\\). Zum Beispiel: \\((a + b)^4 = a^4 + 4a^3 b\\) \\(+ 6a^2 b^2 + 4ab^3 + b^4\\).\n\nWarum gilt die Additionsregel? Beim Übergang von \\((a + b)^n\\) zu \\((a + b)^{n+1}\\) multipliziert man mit \\((a + b)\\). Ein Term \\(a^{k} b^{n+1-k}\\) entsteht dann auf genau zwei Wegen: aus \\(a^{k-1} b^{n+1-k}\\) mal \\(a\\) und aus \\(a^k b^{n-k}\\) mal \\(b\\). Die Koeffizienten der beiden „Eltern“ addieren sich.",
+      "insight": "Die Zeilensumme ist immer \\(2^n\\): \\(1 + 4 + 6 + 4 + 1 = 16 = 2^4\\). Gleich sehen wir, warum."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440115",
+      "section": "Kapitel 4 · Höhere Potenzen",
+      "text": "Allgemein gilt der binomische Lehrsatz. Die Zahlen im Pascalschen Dreieck sind die Binomialkoeffizienten \\(\\binom{n}{k}\\) („n über k“):",
+      "formula": "\\begin{aligned} (a + b)^n &= \\sum_{k=0}^{n} \\binom{n}{k} a^{n-k} b^k \\\\[4pt] \\binom{n}{k} &= \\frac{n!}{k!\\,(n-k)!} \\end{aligned}",
+      "explanation": "Warum gerade \\(\\binom{n}{k}\\)? Schreibe \\((a + b)^n\\) \\(= (a + b)(a + b) \\cdots (a + b)\\) mit \\(n\\) Klammern. Beim Ausmultiplizieren wählt man aus jeder Klammer entweder \\(a\\) oder \\(b\\). Der Term \\(a^{n-k} b^k\\) entsteht so oft, wie es Möglichkeiten gibt, aus \\(n\\) Klammern genau \\(k\\) für das \\(b\\) auszuwählen. Das sind \\(\\binom{n}{k}\\).\n\nBeispiel: \\((x + 2)^4\\) mit \\(a = x\\), \\(b = 2\\) und den Koeffizienten \\(1, 4, 6, 4, 1\\):\n\\(x^4 + 4 \\cdot 2 x^3 + 6 \\cdot 4 x^2\\) \\(+ 4 \\cdot 8 x + 16\\)\n\\(= x^4 + 8x^3 + 24x^2 + 32x + 16\\).\n\nDen Lehrsatz beweist man formal mit vollständiger Induktion – genau mit der Additionsregel des Pascalschen Dreiecks.",
+      "insight": "Die erste binomische Formel ist der Fall \\(n = 2\\): \\(\\binom{2}{0} = 1\\), \\(\\binom{2}{1} = 2\\), \\(\\binom{2}{2} = 1\\)."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440116",
+      "section": "Kapitel 4 · Höhere Potenzen",
+      "text": "Setzt man spezielle Werte für \\(a\\) und \\(b\\) ein, erhält man überraschende Identitäten:",
+      "formula": "\\begin{aligned} a = b = 1\\colon\\quad & \\sum_{k=0}^{n} \\binom{n}{k} = 2^n \\\\ a = 1,\\ b = -1\\colon\\quad & \\sum_{k=0}^{n} (-1)^k \\binom{n}{k} = 0 \\quad (n \\ge 1) \\end{aligned}",
+      "explanation": "Die erste Zeile hat eine anschauliche Bedeutung: \\(\\binom{n}{k}\\) zählt die \\(k\\)-elementigen Teilmengen einer \\(n\\)-elementigen Menge. Summiert über alle \\(k\\) erhält man ALLE Teilmengen – und das sind \\(2^n\\) (siehe Potenzmenge in „Mengen und Abbildungen“).\n\nZweite Zeile mit \\(n = 4\\): \\(1 - 4 + 6 - 4 + 1 = 0\\) ✓. Es gibt also gleich viele Teilmengen mit gerader wie mit ungerader Elementanzahl.",
+      "insight": "Ein Satz, viele Folgerungen: Durch geschicktes Einsetzen wird der Lehrsatz zu einem Werkzeug für Zählprobleme."
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440117",
+      "section": "Kapitel 5 · Rückblick",
+      "text": "Schau zurück, was du jetzt kannst:",
+      "explanation": "1. \\((a + b)^2 = a^2 + 2ab + b^2\\) – das gemischte Glied \\(2ab\\) nie vergessen. Bild: Quadrat aus vier Teilen.\n\n2. \\((a - b)^2 = a^2 - 2ab + b^2\\) – folgt aus Formel 1 mit \\(-b\\).\n\n3. \\((a + b)(a - b) = a^2 - b^2\\) – Differenz von Quadraten zerfällt immer.\n\n4. Vorwärts ausmultiplizieren, rückwärts faktorisieren. Zahlen einsetzen entlarvt Fehler.\n\n5. Quadratische Ergänzung → Scheitelpunkt und p-q-Formel. Dritte Formel → Wurzeln aus dem Nenner.\n\n6. \\((a + b)^n = \\sum_k \\binom{n}{k} a^{n-k} b^k\\) mit dem Pascalschen Dreieck.",
+      "insight": "Glückwunsch! Den binomischen Lehrsatz beweist du in „Vollständige Induktion“ selbst, und \\(\\binom{n}{k}\\) begegnet dir in der Kombinatorik und Wahrscheinlichkeitsrechnung wieder."
+    }
+  ]
+}
