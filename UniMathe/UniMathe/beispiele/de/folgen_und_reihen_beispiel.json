@@ -1,179 +1,238 @@
-{    "id": "aa0e8400-e29b-41d4-a716-446655440001",
-    "topic": "Folgen und Reihen",
-    "steps": [
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440002",
-            "text": "Eine Folge ist eine Abbildung von den natürlichen Zahlen in eine Menge.",
-            "formula": "(a_n)_{n \\in \\mathbb{N}} = (a_1, a_2, a_3, ...)",
-            "explanation": "Eine Folge ist wie eine unendliche Liste von Zahlen, die nach einer bestimmten Regel aufgebaut ist. Es ist wie das Zählen der Stufen einer unendlichen Treppe!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440003",
-            "text": "Eine Folge konvergiert gegen einen Grenzwert, wenn sie sich diesem immer mehr annähert.",
-            "formula": "\\lim_{n \\to \\infty} a_n = a \\quad \\Leftrightarrow \\quad \\forall \\varepsilon > 0 \\, \\exists N \\in \\mathbb{N} \\, \\forall n \\geq N: |a_n - a| < \\varepsilon",
-            "explanation": "Die Konvergenz bedeutet, dass die Folge sich einem bestimmten Wert immer mehr annähert. Es ist wie ein Ziel, das man nie ganz erreicht, aber beliebig nahe kommen kann!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440004",
-            "text": "Eine Reihe ist die Summe der Glieder einer Folge.",
-            "formula": "\\sum_{n=1}^{\\infty} a_n = a_1 + a_2 + a_3 + ...",
-            "explanation": "Eine Reihe ist wie das Aufsummieren aller Glieder einer Folge. Es ist wie das Zusammenzählen aller Stufen einer unendlichen Treppe!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440005",
-            "text": "Die geometrische Reihe ist eine wichtige spezielle Reihe.",
-            "formula": "\\sum_{n=0}^{\\infty} q^n = \\frac{1}{1-q} \\quad \\text{für } |q| < 1",
-            "explanation": "Die geometrische Reihe konvergiert für |q| < 1 und divergiert sonst. Es ist wie das Aufsummieren von immer kleiner werdenden Zahlen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440006",
-            "text": "Der Quotiententest ist ein wichtiges Konvergenzkriterium.",
-            "formula": "\\lim_{n \\to \\infty} \\left|\\frac{a_{n+1}}{a_n}\\right| = q \\quad \\begin{cases} q < 1 & \\Rightarrow \\text{konvergent} \\\\ q > 1 & \\Rightarrow \\text{divergent} \\end{cases}",
-            "explanation": "Der Quotiententest vergleicht aufeinanderfolgende Glieder einer Reihe. Es ist wie das Messen, wie schnell die Reihe wächst oder schrumpft!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440007",
-            "text": "Das Wurzelkriterium ist ein weiteres Konvergenzkriterium.",
-            "formula": "\\lim_{n \\to \\infty} \\sqrt[n]{|a_n|} = q \\quad \\begin{cases} q < 1 & \\Rightarrow \\text{konvergent} \\\\ q > 1 & \\Rightarrow \\text{divergent} \\end{cases}",
-            "explanation": "Das Wurzelkriterium betrachtet die n-te Wurzel der Glieder. Es ist wie das Messen der durchschnittlichen Größe der Glieder!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440008",
-            "text": "Das Leibniz-Kriterium für alternierende Reihen.",
-            "formula": "\\text{Wenn } (a_n) \\text{ monoton fallend und } \\lim_{n \\to \\infty} a_n = 0, \\text{ dann konvergiert } \\sum_{n=1}^{\\infty} (-1)^n a_n",
-            "explanation": "Das Leibniz-Kriterium hilft uns bei Reihen mit alternierenden Vorzeichen. Es ist wie ein Pendel, das immer kleiner werdende Ausschläge macht!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440009",
-            "text": "Die harmonische Reihe ist ein wichtiges Beispiel.",
-            "formula": "\\sum_{n=1}^{\\infty} \\frac{1}{n} = 1 + \\frac{1}{2} + \\frac{1}{3} + ... = \\infty",
-            "explanation": "Die harmonische Reihe divergiert, obwohl ihre Glieder gegen 0 gehen. Es ist wie das Aufsummieren immer kleiner werdender Zahlen, die trotzdem unendlich groß werden!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440010",
-            "text": "Die Exponentialreihe konvergiert für alle reellen Zahlen.",
-            "formula": "e^x = \\sum_{n=0}^{\\infty} \\frac{x^n}{n!} = 1 + x + \\frac{x^2}{2!} + \\frac{x^3}{3!} + ...",
-            "explanation": "Die Exponentialreihe ist eine wichtige Darstellung der e-Funktion. Es ist wie das Zusammensetzen einer Funktion aus unendlich vielen Polynomen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440011",
-            "text": "Die Taylor-Reihe approximiert Funktionen durch Polynome.",
-            "formula": "f(x) = \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(a)}{n!} (x-a)^n",
-            "explanation": "Die Taylor-Reihe erlaubt uns, Funktionen durch Polynome zu approximieren. Es ist wie das Nachbauen einer komplexen Kurve durch einfache Bausteine!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440012",
-            "text": "Die Fourier-Reihe zerlegt periodische Funktionen in Sinus- und Kosinusfunktionen.",
-            "formula": "f(x) = \\frac{a_0}{2} + \\sum_{n=1}^{\\infty} (a_n \\cos(nx) + b_n \\sin(nx))",
-            "explanation": "Die Fourier-Reihe ist wie das Zerlegen eines komplexen Tons in seine Grundfrequenzen. Es ist wie das Analysieren einer Melodie!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440013",
-            "text": "Das Majorantenkriterium vergleicht Reihen mit bekannten Reihen.",
-            "formula": "\\text{Wenn } |a_n| \\leq b_n \\text{ und } \\sum b_n \\text{ konvergiert, dann konvergiert auch } \\sum a_n",
-            "explanation": "Das Majorantenkriterium ist wie das Vergleichen einer unbekannten Reihe mit einer bekannten. Es ist wie das Abschätzen einer unbekannten Größe!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440014",
-            "text": "Das Minorantenkriterium ist das Gegenstück zum Majorantenkriterium.",
-            "formula": "\\text{Wenn } a_n \\geq b_n \\geq 0 \\text{ und } \\sum b_n \\text{ divergiert, dann divergiert auch } \\sum a_n",
-            "explanation": "Das Minorantenkriterium ist wie das Finden einer unteren Schranke. Es ist wie das Sicherstellen, dass eine Reihe mindestens so groß wird wie eine bekannte divergente Reihe!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440015",
-            "text": "Die Potenzreihe ist eine Verallgemeinerung der Taylor-Reihe.",
-            "formula": "\\sum_{n=0}^{\\infty} a_n (x-a)^n",
-            "explanation": "Die Potenzreihe ist wie ein verallgemeinertes Polynom mit unendlich vielen Gliedern. Es ist wie das Erweitern des Polynombegriffs ins Unendliche!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440016",
-            "text": "Der Konvergenzradius einer Potenzreihe.",
-            "formula": "R = \\frac{1}{\\limsup_{n \\to \\infty} \\sqrt[n]{|a_n|}}",
-            "explanation": "Der Konvergenzradius gibt an, in welchem Bereich die Potenzreihe konvergiert. Es ist wie der Wirkungsbereich einer mathematischen Formel!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440017",
-            "text": "Die Binomialreihe verallgemeinert den binomischen Lehrsatz.",
-            "formula": "(1+x)^\\alpha = \\sum_{n=0}^{\\infty} \\binom{\\alpha}{n} x^n \\quad \\text{für } |x| < 1",
-            "explanation": "Die Binomialreihe erlaubt uns, Potenzen mit beliebigen Exponenten zu entwickeln. Es ist wie das Erweitern des binomischen Lehrsatzes ins Unendliche!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440018",
-            "text": "Die Logarithmusreihe entwickelt den natürlichen Logarithmus.",
-            "formula": "\\ln(1+x) = \\sum_{n=1}^{\\infty} \\frac{(-1)^{n+1}}{n} x^n \\quad \\text{für } |x| < 1",
-            "explanation": "Die Logarithmusreihe ist wie das Zusammensetzen des Logarithmus aus einfachen Potenzen. Es ist wie das Zerlegen einer komplexen Funktion in einfache Bausteine!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440019",
-            "text": "Die Arcustangensreihe entwickelt die Umkehrfunktion des Tangens.",
-            "formula": "\\arctan x = \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{2n+1} x^{2n+1} \\quad \\text{für } |x| \\leq 1",
-            "explanation": "Die Arcustangensreihe ist wie das Zusammensetzen der Umkehrfunktion des Tangens aus einfachen Potenzen. Es ist wie das Zurückverfolgen eines Weges!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440020",
-            "text": "Die Sinusreihe entwickelt die Sinusfunktion.",
-            "formula": "\\sin x = \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{(2n+1)!} x^{2n+1}",
-            "explanation": "Die Sinusreihe ist wie das Zusammensetzen der Sinusfunktion aus unendlich vielen Polynomen. Es ist wie das Nachbauen einer Schwingung!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440021",
-            "text": "Die Kosinusreihe entwickelt die Kosinusfunktion.",
-            "formula": "\\cos x = \\sum_{n=0}^{\\infty} \\frac{(-1)^n}{(2n)!} x^{2n}",
-            "explanation": "Die Kosinusreihe ist wie das Zusammensetzen der Kosinusfunktion aus unendlich vielen Polynomen. Es ist wie das Nachbauen einer Schwingung!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440022",
-            "text": "Die Hyperbelsinusreihe entwickelt die Sinus Hyperbolicus Funktion.",
-            "formula": "\\sinh x = \\sum_{n=0}^{\\infty} \\frac{x^{2n+1}}{(2n+1)!}",
-            "explanation": "Die Hyperbelsinusreihe ist wie das Zusammensetzen der Sinus Hyperbolicus Funktion aus unendlich vielen Polynomen. Es ist wie ein Spiegelbild der Sinusreihe!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440023",
-            "text": "Die Hyperbelkosinusreihe entwickelt die Kosinus Hyperbolicus Funktion.",
-            "formula": "\\cosh x = \\sum_{n=0}^{\\infty} \\frac{x^{2n}}{(2n)!}",
-            "explanation": "Die Hyperbelkosinusreihe ist wie das Zusammensetzen der Kosinus Hyperbolicus Funktion aus unendlich vielen Polynomen. Es ist wie ein Spiegelbild der Kosinusreihe!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440024",
-            "text": "Die Arcussinusreihe entwickelt die Umkehrfunktion des Sinus.",
-            "formula": "\\arcsin x = \\sum_{n=0}^{\\infty} \\frac{(2n)!}{4^n (n!)^2 (2n+1)} x^{2n+1} \\quad \\text{für } |x| < 1",
-            "explanation": "Die Arcussinusreihe ist wie das Zusammensetzen der Umkehrfunktion des Sinus aus unendlich vielen Polynomen. Es ist wie das Zurückverfolgen einer Schwingung!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440025",
-            "text": "Die Arcuskosinusreihe entwickelt die Umkehrfunktion des Kosinus.",
-            "formula": "\\arccos x = \\frac{\\pi}{2} - \\arcsin x",
-            "explanation": "Die Arcuskosinusreihe ist wie das Zusammensetzen der Umkehrfunktion des Kosinus aus der Arcussinusreihe. Es ist wie das Spiegeln einer Funktion!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440026",
-            "text": "Die Areafunktionenreihen entwickeln die Umkehrfunktionen der Hyperbelfunktionen.",
-            "formula": "\\text{arsinh } x = \\sum_{n=0}^{\\infty} \\frac{(-1)^n (2n)!}{4^n (n!)^2 (2n+1)} x^{2n+1}",
-            "explanation": "Die Areafunktionenreihen sind wie das Zusammensetzen der Umkehrfunktionen der Hyperbelfunktionen aus unendlich vielen Polynomen. Es ist wie das Zurückverfolgen einer Hyperbel!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440027",
-            "text": "Die Produktreihe entwickelt das Produkt zweier Reihen.",
-            "formula": "(\\sum_{n=0}^{\\infty} a_n)(\\sum_{n=0}^{\\infty} b_n) = \\sum_{n=0}^{\\infty} \\sum_{k=0}^n a_k b_{n-k}",
-            "explanation": "Die Produktreihe ist wie das Multiplizieren zweier unendlicher Summen. Es ist wie das Kombinieren zweier unendlicher Prozesse!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440028",
-            "text": "Die Umordnung von Reihen ist unter bestimmten Bedingungen erlaubt.",
-            "formula": "\\text{Wenn } \\sum a_n \\text{ absolut konvergiert, dann konvergiert auch jede Umordnung gegen denselben Wert}",
-            "explanation": "Die Umordnung von Reihen ist wie das Neuanordnen von Gliedern einer unendlichen Summe. Es ist wie das Umsortieren einer unendlichen Liste!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440029",
-            "text": "Die Partialsummen einer Reihe konvergieren gegen den Reihenwert.",
-            "formula": "s_n = \\sum_{k=1}^n a_k \\quad \\Rightarrow \\quad \\lim_{n \\to \\infty} s_n = \\sum_{k=1}^{\\infty} a_k",
-            "explanation": "Die Partialsummen sind wie das schrittweise Aufsummieren der Glieder einer Reihe. Es ist wie das Annähern an einen Grenzwert!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440030",
-            "text": "Zum Schluss schauen wir uns an, wie Reihen in der Physik verwendet werden.",
-            "formula": "\\text{Reihen werden verwendet, um periodische Phänomene zu beschreiben und zu analysieren}",
-            "explanation": "In der Physik helfen uns Reihen, komplexe Schwingungen und Wellen zu verstehen. Es ist wie das Übersetzen mathematischer Konzepte in die Sprache der Natur!"
-        }
-    ]
-} 
+{
+  "id": "aa0e8400-e29b-41d4-a716-446655440001",
+  "topic": "Folgen und Reihen",
+  "steps": [
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440001",
+      "section": "Kapitel 1 · Folgen",
+      "text": "Willkommen in der Analysis! Alles, was hier kommt – Stetigkeit, Ableitung, Integral – beruht auf einem einzigen Begriff: dem Grenzwert. Und den versteht man am besten an Folgen.",
+      "explanation": "Unser Fahrplan:\n1. Folgen: Schreibweisen und Beispiele\n2. Konvergenz: was „strebt gegen“ genau heißt\n3. Grenzwerte berechnen: Rechenregeln, Sandwich, wichtige Grenzwerte\n4. Monotonie und die Vollständigkeit von \\(\\mathbb{R}\\)\n5. Reihen: unendliche Summen\n6. Konvergenzkriterien\n7. Potenzreihen, Ausblick und Rückblick",
+      "insight": "Nimm dir für Kapitel 2 Zeit. Wer die Definition der Konvergenz wirklich verstanden hat, dem fällt der Rest der Analysis viel leichter."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440002",
+      "section": "Kapitel 1 · Folgen",
+      "text": "Eine Folge ist eine unendliche, durchnummerierte Liste von Zahlen \\(a_1, a_2, a_3, \\dots\\) Formal: eine Abbildung \\(\\mathbb{N} \\to \\mathbb{R}\\), \\(n \\mapsto a_n\\).",
+      "formula": "\\begin{aligned} a_n &= \\tfrac{1}{n}\\colon & &1,\\; \\tfrac{1}{2},\\; \\tfrac{1}{3},\\; \\tfrac{1}{4},\\; \\dots \\\\ b_n &= (-1)^n\\colon & &-1,\\; 1,\\; -1,\\; 1,\\; \\dots \\\\ c_n &= 2^n\\colon & &2,\\; 4,\\; 8,\\; 16,\\; \\dots \\\\ d_n &= \\tfrac{n}{n+1}\\colon & &\\tfrac{1}{2},\\; \\tfrac{2}{3},\\; \\tfrac{3}{4},\\; \\tfrac{4}{5},\\; \\dots \\end{aligned}",
+      "explanation": "\\(a_n\\) heißt das \\(n\\)-te Glied der Folge, die ganze Folge schreibt man \\((a_n)_{n \\in \\mathbb{N}}\\) oder kurz \\((a_n)\\).\n\nSchon an diesen vier Beispielen sieht man ganz verschiedenes Verhalten:\n• \\(a_n\\) wird immer kleiner und nähert sich \\(0\\).\n• \\(b_n\\) springt ewig hin und her.\n• \\(c_n\\) wächst über alle Grenzen.\n• \\(d_n\\) nähert sich \\(1\\), ohne es je zu erreichen.\n\nDie zentrale Frage dieses Kapitels: Wie beschreibt man „nähert sich“ präzise?",
+      "insight": "Unterscheide die Folge \\((a_n)\\) (die ganze Liste) vom Glied \\(a_n\\) (eine einzelne Zahl). Die Folge \\((\\frac{1}{n})\\) ist nicht „die Zahl \\(0\\)“."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440003",
+      "section": "Kapitel 1 · Folgen",
+      "text": "Folgen können auch rekursiv definiert sein: Man gibt den Anfang an und eine Regel, wie man aus einem Glied das nächste berechnet. Ein berühmtes Beispiel ist das Heron-Verfahren zur Berechnung von \\(\\sqrt{2}\\):",
+      "formula": "\\begin{aligned} a_1 &= 2, \\qquad a_{n+1} = \\frac{1}{2}\\left(a_n + \\frac{2}{a_n}\\right) \\\\[4pt] a_2 &= 1{,}5 \\\\ a_3 &= 1{,}41\\overline{6} \\\\ a_4 &= 1{,}414215\\ldots \\end{aligned}",
+      "explanation": "Die Idee: Ist \\(a_n\\) zu groß als Näherung für \\(\\sqrt{2}\\), dann ist \\(\\frac{2}{a_n}\\) zu klein (denn ihr Produkt ist \\(2\\)). Der Mittelwert der beiden liegt näher an \\(\\sqrt{2}\\).\n\nSchon \\(a_4\\) stimmt auf fünf Nachkommastellen mit \\(\\sqrt{2} = 1{,}414213\\ldots\\) überein.\n\nDieses Verfahren kannten schon die Babylonier vor fast 4000 Jahren. Taschenrechner nutzen bis heute ähnliche Verfahren.",
+      "insight": "Viele Algorithmen erzeugen Folgen von Näherungen. Die Frage „Konvergiert das Verfahren, und wogegen?“ ist dann eine Frage über Folgen."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440004",
+      "section": "Kapitel 1 · Folgen",
+      "text": "Zwei Eigenschaften helfen, das Verhalten einer Folge zu beschreiben:",
+      "formula": "\\begin{array}{ll} \\text{monoton wachsend:} & a_{n+1} \\ge a_n \\text{ für alle } n \\\\ \\text{monoton fallend:} & a_{n+1} \\le a_n \\text{ für alle } n \\\\ \\text{beschränkt:} & |a_n| \\le K \\text{ für alle } n \\text{ (ein festes } K) \\end{array}",
+      "explanation": "Beispiele:\n• \\(\\frac{1}{n}\\): fallend und beschränkt (alle Glieder liegen in \\((0, 1]\\)).\n• \\(\\frac{n}{n+1}\\): wachsend und beschränkt (durch \\(1\\)).\n• \\((-1)^n\\): beschränkt, aber nicht monoton.\n• \\(2^n\\): wachsend, aber unbeschränkt.\n\nMonotonie nachweisen: Man untersucht \\(a_{n+1} - a_n\\) oder (bei positiven Gliedern) \\(\\frac{a_{n+1}}{a_n}\\). Für \\(\\frac{n}{n+1}\\):\n\\(\\frac{n+1}{n+2} - \\frac{n}{n+1} = \\frac{(n+1)^2 - n(n+2)}{(n+1)(n+2)} = \\frac{1}{(n+1)(n+2)} > 0\\).",
+      "insight": "„Beschränkt“ heißt: Es gibt EINE Schranke für ALLE Glieder. Jedes einzelne Glied ist natürlich endlich – das reicht nicht."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440005",
+      "section": "Kapitel 2 · Konvergenz",
+      "text": "Jetzt die zentrale Definition. Die Idee: \\((a_n)\\) konvergiert gegen \\(a\\), wenn die Glieder IRGENDWANN FÜR IMMER beliebig nah bei \\(a\\) liegen.",
+      "visual": "sequenceConvergence",
+      "formula": "\\begin{array}{c} \\lim_{n \\to \\infty} a_n = a \\\\[6pt] :\\iff \\text{zu jedem } \\varepsilon > 0 \\text{ gibt es ein } N \\in \\mathbb{N}, \\\\ \\text{sodass } |a_n - a| < \\varepsilon \\text{ für alle } n \\ge N \\end{array}",
+      "explanation": "Lies die Definition als Spiel:\n1. Jemand gibt eine Genauigkeit \\(\\varepsilon\\) vor, z. B. \\(0{,}01\\).\n2. Du musst einen Index \\(N\\) nennen,\n3. ab dem ALLE Glieder näher als \\(\\varepsilon\\) an \\(a\\) liegen – nicht nur einige.\n\nGewinnst du das Spiel für JEDES \\(\\varepsilon > 0\\), konvergiert die Folge.\n\nDie Animation zeigt das als „ε-Schlauch“ um den Grenzwert: Ab einem Index darf kein Glied mehr herausspringen. Je enger der Schlauch, desto später beginnt man.",
+      "insight": "\\(|a_n - a| < \\varepsilon\\) heißt einfach: Der Abstand von \\(a_n\\) zu \\(a\\) ist kleiner als \\(\\varepsilon\\). Beträge messen Abstände."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440006",
+      "section": "Kapitel 2 · Konvergenz",
+      "text": "Das erste Beispiel mit Beweis: \\(\\frac{1}{n} \\to 0\\). Wir müssen zu jedem \\(\\varepsilon\\) ein passendes \\(N\\) finden.",
+      "formula": "\\begin{aligned} \\left|\\tfrac{1}{n} - 0\\right| = \\tfrac{1}{n} < \\varepsilon \\quad &\\iff \\quad n > \\tfrac{1}{\\varepsilon} \\\\[4pt] \\text{Wähle } N > \\tfrac{1}{\\varepsilon}\\colon \\quad n \\ge N \\;&\\Rightarrow\\; \\tfrac{1}{n} \\le \\tfrac{1}{N} < \\varepsilon \\end{aligned}",
+      "explanation": "Rezept für solche Beweise:\n1. Den Abstand \\(|a_n - a|\\) aufschreiben und vereinfachen.\n2. Die Ungleichung \\(|a_n - a| < \\varepsilon\\) nach \\(n\\) auflösen.\n3. \\(N\\) entsprechend wählen.\n\nKonkret: Für \\(\\varepsilon = 0{,}01\\) reicht \\(N = 101\\). Für \\(\\varepsilon = 0{,}0001\\) reicht \\(N = 10001\\).\n\nDass es zu jeder Zahl \\(\\frac{1}{\\varepsilon}\\) eine größere natürliche Zahl gibt, ist das archimedische Prinzip – eine Grundeigenschaft der reellen Zahlen.",
+      "insight": "\\(N\\) darf (und wird meist) von \\(\\varepsilon\\) abhängen. Das ist die Reihenfolge der Quantoren aus der Lektion „Logik“: \\(\\forall \\varepsilon \\;\\exists N\\)."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440007",
+      "section": "Kapitel 2 · Konvergenz",
+      "text": "Ein etwas schwierigeres Beispiel: \\(a_n = \\frac{2n + 1}{n + 3} \\to 2\\).",
+      "formula": "\\begin{aligned} |a_n - 2| &= \\left|\\frac{2n + 1 - 2(n + 3)}{n + 3}\\right| = \\frac{5}{n + 3} \\\\[4pt] \\frac{5}{n + 3} < \\varepsilon \\;&\\iff\\; n > \\frac{5}{\\varepsilon} - 3 \\end{aligned}",
+      "explanation": "Der Trick: Erst auf einen Nenner bringen. Dann bleibt ein einfacher Bruch übrig, der für große \\(n\\) klein wird.\n\nMit \\(N > \\frac{5}{\\varepsilon} - 3\\) ist für alle \\(n \\ge N\\) der Abstand kleiner als \\(\\varepsilon\\).\n\nKontrolle: Für \\(\\varepsilon = 0{,}1\\) ist \\(N > 47\\). Tatsächlich: \\(a_{48} = \\frac{97}{51} \\approx 1{,}902\\), Abstand \\(0{,}098 < 0{,}1\\) ✓",
+      "insight": "In der Praxis rechnet man solche Grenzwerte schneller mit Rechenregeln (Kapitel 3). Die ε-Definition braucht man, um diese Regeln zu beweisen – und für Fälle, in denen keine Regel greift."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440008",
+      "section": "Kapitel 2 · Konvergenz",
+      "text": "Konvergiert eine Folge nicht, heißt sie divergent. Es gibt verschiedene Arten zu divergieren:",
+      "formula": "\\begin{array}{ll} (-1)^n & \\text{springt zwischen } -1 \\text{ und } 1 \\\\ n^2 & \\text{wächst über alle Grenzen: } n^2 \\to \\infty \\\\ (-2)^n & \\text{unbeschränkt mit wechselndem Vorzeichen} \\\\ \\sin n & \\text{beschränkt, ohne Grenzwert} \\end{array}",
+      "explanation": "Warum konvergiert \\((-1)^n\\) nicht? Angenommen, gegen ein \\(a\\). Mit \\(\\varepsilon = \\frac{1}{2}\\) müssten ab einem \\(N\\) sowohl \\(1\\) als auch \\(-1\\) näher als \\(\\frac{1}{2}\\) an \\(a\\) liegen. Dann wäre ihr Abstand kleiner als \\(1\\) (Dreiecksungleichung) – aber er ist \\(2\\). Widerspruch.\n\nBei \\(n^2\\) sagt man „bestimmt divergent gegen \\(\\infty\\)“ und schreibt \\(n^2 \\to \\infty\\). Das ist KEINE Konvergenz: \\(\\infty\\) ist keine reelle Zahl.",
+      "insight": "„\\(\\lim a_n = \\infty\\)“ ist eine verbreitete Schreibweise, aber die Folge ist trotzdem divergent. Sie divergiert nur auf eine übersichtliche Weise."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440009",
+      "section": "Kapitel 2 · Konvergenz",
+      "text": "Zwei wichtige Sätze über konvergente Folgen:",
+      "formula": "\\begin{array}{ll} 1. & \\text{Der Grenzwert ist eindeutig.} \\\\[4pt] 2. & \\text{Jede konvergente Folge ist beschränkt.} \\end{array}",
+      "explanation": "Zu 1: Würde \\((a_n)\\) gegen \\(a\\) UND \\(b\\) konvergieren mit \\(a \\neq b\\), wähle \\(\\varepsilon = \\frac{|a - b|}{2}\\). Ab einem Index lägen alle Glieder gleichzeitig in zwei disjunkten Schläuchen. Unmöglich.\n\nZu 2: Mit \\(\\varepsilon = 1\\) liegen ab einem \\(N\\) alle Glieder in \\((a - 1, a + 1)\\). Davor gibt es nur endlich viele Glieder – und das Maximum endlich vieler Zahlen ist eine Schranke.\n\nDie Umkehrung von 2 ist falsch: \\((-1)^n\\) ist beschränkt, aber nicht konvergent.",
+      "insight": "Satz 2 ist ein schnelles Divergenzkriterium: Eine unbeschränkte Folge wie \\((n^2)\\) kann nicht konvergieren."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440010",
+      "section": "Kapitel 3 · Grenzwerte berechnen",
+      "text": "Grenzwerte berechnet man meist mit den Grenzwertsätzen: Grenzwerte vertragen sich mit den Grundrechenarten.",
+      "formula": "\\begin{array}{c} a_n \\to a, \\;\\; b_n \\to b \\quad \\Longrightarrow \\\\[6pt] a_n + b_n \\to a + b, \\qquad a_n \\cdot b_n \\to a \\cdot b \\\\[4pt] \\dfrac{a_n}{b_n} \\to \\dfrac{a}{b} \\quad (\\text{falls } b \\neq 0) \\end{array}",
+      "explanation": "Voraussetzung ist, dass BEIDE Folgen konvergieren (gegen reelle Zahlen). Sonst darf man die Regeln nicht anwenden.\n\nBeispiel: \\(\\left(3 + \\frac{1}{n}\\right)\\left(2 - \\frac{5}{n^2}\\right) \\to 3 \\cdot 2\\) \\(= 6\\), weil \\(\\frac{1}{n} \\to 0\\) und \\(\\frac{5}{n^2} \\to 0\\).\n\nGegenbeispiel zur Warnung: \\(a_n = n\\) und \\(b_n = -n\\) divergieren beide, aber \\(a_n + b_n = 0 \\to 0\\). Und \\(a_n = n\\), \\(b_n = \\frac{1}{n}\\): \\(a_n b_n = 1\\). Aus divergenten Teilen kann alles werden.",
+      "insight": "Erst prüfen, ob die Teile konvergieren, dann die Sätze anwenden. Andersherum entstehen Fehler wie „\\(\\infty - \\infty = 0\\)“."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440011",
+      "section": "Kapitel 3 · Grenzwerte berechnen",
+      "text": "Der wichtigste Trick für Brüche: durch die höchste Potenz von \\(n\\) im Nenner teilen.",
+      "formula": "\\begin{aligned} \\frac{3n^2 + 2n}{n^2 - 5} &= \\frac{3 + \\frac{2}{n}}{1 - \\frac{5}{n^2}} \\;\\to\\; \\frac{3 + 0}{1 - 0} = 3 \\\\[6pt] \\frac{4n + 1}{n^2 + 1} &= \\frac{\\frac{4}{n} + \\frac{1}{n^2}}{1 + \\frac{1}{n^2}} \\;\\to\\; \\frac{0}{1} = 0 \\\\[6pt] \\frac{n^3}{2n^2 + 1} &= \\frac{n}{2 + \\frac{1}{n^2}} \\;\\to\\; \\infty \\end{aligned}",
+      "explanation": "Danach stehen im Zähler und Nenner konvergente Folgen, und der Nenner geht nicht gegen \\(0\\) – die Grenzwertsätze greifen.\n\nMerkregel für Quotienten zweier Polynome in \\(n\\):\n• Zählergrad = Nennergrad: Grenzwert = Quotient der Leitkoeffizienten (\\(\\frac{3}{1}\\)).\n• Zählergrad < Nennergrad: Grenzwert \\(0\\).\n• Zählergrad > Nennergrad: bestimmt divergent.",
+      "insight": "Typischer Fehler: „\\(\\frac{\\infty}{\\infty} = 1\\)“. Die drei Beispiele zeigen: Bei „\\(\\frac{\\infty}{\\infty}\\)“ kann \\(3\\), \\(0\\) oder \\(\\infty\\) herauskommen. Man muss umformen."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440012",
+      "section": "Kapitel 3 · Grenzwerte berechnen",
+      "text": "Wenn Rechenregeln nicht greifen, hilft oft der Sandwich-Satz: Eine eingeklemmte Folge muss mitlaufen.",
+      "formula": "\\begin{array}{c} b_n \\le a_n \\le c_n \\;\\text{ und }\\; b_n \\to a,\\; c_n \\to a \\;\\;\\Longrightarrow\\;\\; a_n \\to a \\\\[8pt] -\\frac{1}{n} \\le \\frac{\\sin n}{n} \\le \\frac{1}{n} \\;\\;\\Longrightarrow\\;\\; \\frac{\\sin n}{n} \\to 0 \\end{array}",
+      "explanation": "Die Folge \\(\\sin n\\) hat selbst keinen Grenzwert. Trotzdem wissen wir: \\(-1 \\le \\sin n \\le 1\\). Teilt man durch \\(n\\), wird die „Schwankung“ zusammengedrückt.\n\nDie Grenzwertsätze helfen hier nicht: \\(\\frac{\\sin n}{n} = \\sin n \\cdot \\frac{1}{n}\\), und \\(\\sin n\\) konvergiert nicht.\n\nAllgemeines Muster: „beschränkt mal Nullfolge = Nullfolge“.",
+      "insight": "Für den Sandwich-Satz braucht man zwei Schranken mit DEMSELBEN Grenzwert. Nur eine Schranke sagt nichts über die Konvergenz."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440013",
+      "section": "Kapitel 3 · Grenzwerte berechnen",
+      "text": "Einige Grenzwerte braucht man so oft, dass man sie kennen sollte:",
+      "formula": "\\begin{array}{ll} q^n \\to 0 & \\text{für } |q| < 1 \\\\ \\sqrt[n]{a} \\to 1 & \\text{für } a > 0 \\\\ \\sqrt[n]{n} \\to 1 & \\\\ \\frac{n^k}{q^n} \\to 0 & \\text{für } q > 1 \\\\ \\left(1 + \\frac{1}{n}\\right)^n \\to e \\approx 2{,}71828 & \\end{array}",
+      "explanation": "Zeile 1: \\(0{,}9^{10} \\approx 0{,}35\\), \\(0{,}9^{100} \\approx 0{,}00003\\).\n\nZeile 4: Exponentielles Wachstum schlägt jede Potenz. \\(\\frac{n^{10}}{1{,}01^n}\\) wird zwar zuerst riesig, aber am Ende geht es gegen \\(0\\).\n\nZeile 5 definiert die Eulersche Zahl \\(e\\). Werte:\n\\(n = 1\\): \\(2\\); \\(n = 10\\): \\(2{,}594\\); \\(n = 100\\): \\(2{,}705\\); \\(n = 1000\\): \\(2{,}717\\).\nDeutung: Zinseszins. \\(100\\,\\%\\) Zinsen pro Jahr, aufgeteilt in \\(n\\) Zinsperioden, vermehren \\(1\\) Euro auf \\((1 + \\frac{1}{n})^n\\) Euro – und mehr als \\(e\\) Euro werden es nie.",
+      "insight": "Typischer Fehler bei Zeile 5: „\\(1 + \\frac{1}{n} \\to 1\\), also \\((1 + \\frac{1}{n})^n \\to 1^\\infty = 1\\)“. Basis und Exponent ändern sich gleichzeitig – „\\(1^\\infty\\)“ ist ein unbestimmter Ausdruck."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440014",
+      "section": "Kapitel 3 · Grenzwerte berechnen",
+      "text": "Beispielsammlung: Grenzwerte von Folgen. Versuche jedes Beispiel erst selbst, bevor du die Lösung liest.",
+      "formula": "\\begin{array}{ll} \\text{a)} & \\dfrac{n^2 + 1}{2n^2 - n} \\\\[6pt] \\text{b)} & \\sqrt{n + 1} - \\sqrt{n} \\\\[6pt] \\text{c)} & \\left(1 + \\dfrac{2}{n}\\right)^n \\\\[6pt] \\text{d)} & \\dfrac{(-1)^n}{n} \\\\[6pt] \\text{e)} & \\dfrac{3^n + 2^n}{3^n} \\end{array}",
+      "explanation": "a) Durch \\(n^2\\) teilen: \\(\\frac{1 + 1/n^2}{2 - 1/n} \\to \\frac{1}{2}\\).\n\nb) Mit \\(\\sqrt{n + 1} + \\sqrt{n}\\) erweitern (dritte binomische Formel): \\(\\frac{1}{\\sqrt{n + 1} + \\sqrt{n}} \\to 0\\).\n\nc) Wie bei \\(e\\), nur mit \\(2\\): Der Grenzwert ist \\(e^2 \\approx 7{,}39\\).\n\nd) Sandwich: \\(-\\frac{1}{n} \\le \\frac{(-1)^n}{n} \\le \\frac{1}{n}\\), also \\(\\to 0\\). Die Vorzeichen springen, aber der Abstand zu \\(0\\) schrumpft.\n\ne) Aufteilen: \\(1 + \\left(\\frac{2}{3}\\right)^n \\to 1 + 0 = 1\\), weil \\(\\left|\\frac{2}{3}\\right| < 1\\).",
+      "insight": "Strategie: Erst den „Typ“ erkennen (Bruch aus Polynomen, Wurzeldifferenz, \\(1^\\infty\\), beschränkt mal Nullfolge, Exponentialterme) – dann die passende Technik."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440015",
+      "section": "Kapitel 4 · Monotonie und Vollständigkeit",
+      "text": "Ein mächtiger Satz, der ohne Kenntnis des Grenzwerts auskommt:",
+      "formula": "\\text{monoton und beschränkt} \\;\\Longrightarrow\\; \\text{konvergent}",
+      "explanation": "Anschauung: Eine wachsende Folge, die eine Decke nie durchstößt, muss sich irgendwo „stauen“. Der Grenzwert ist die kleinste obere Schranke (das Supremum) der Folgenglieder.\n\nDieser Satz ist äquivalent zur Vollständigkeit der reellen Zahlen: \\(\\mathbb{R}\\) hat „keine Löcher“.\n\nIn \\(\\mathbb{Q}\\) gilt er NICHT: Die Folge \\(1;\\ 1{,}4;\\ 1{,}41;\\ 1{,}414;\\ \\dots\\) (Dezimalstellen von \\(\\sqrt{2}\\)) besteht aus rationalen Zahlen, ist wachsend und durch \\(2\\) beschränkt. Ihr Grenzwert \\(\\sqrt{2}\\) liegt aber nicht in \\(\\mathbb{Q}\\).",
+      "insight": "Genau deshalb rechnet die Analysis in \\(\\mathbb{R}\\) und nicht in \\(\\mathbb{Q}\\): Grenzwerte sollen dort existieren, wo die Folge „hinwill“."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440016",
+      "section": "Kapitel 4 · Monotonie und Vollständigkeit",
+      "text": "Anwendung auf das Heron-Verfahren: Warum konvergiert es, und warum gegen \\(\\sqrt{2}\\)?",
+      "formula": "\\begin{aligned} a_{n+1} - \\sqrt{2} &= \\frac{(a_n - \\sqrt{2})^2}{2a_n} \\ge 0 \\\\[4pt] a_{n+1} - a_n &= \\frac{2 - a_n^2}{2a_n} \\le 0 \\end{aligned}",
+      "explanation": "Erste Zeile (nachrechnen durch Einsetzen der Rekursion): Ab \\(a_2\\) sind alle Glieder \\(\\ge \\sqrt{2}\\). Die Folge ist nach unten beschränkt.\n\nZweite Zeile: Weil \\(a_n^2 \\ge 2\\), ist \\(a_{n+1} \\le a_n\\). Die Folge ist fallend.\n\nFallend und nach unten beschränkt, also konvergent gegen ein \\(a > 0\\). In der Rekursion darf man auf beiden Seiten zum Grenzwert übergehen:\n\\(a\\) \\(= \\frac{1}{2}\\left(a + \\frac{2}{a}\\right) \\;\\Rightarrow\\; 2a^2\\) \\(= a^2 + 2 \\;\\Rightarrow\\; a\\) \\(= \\sqrt{2}\\).\n\nDie erste Zeile zeigt außerdem, warum es so schnell geht: Der Fehler wird in jedem Schritt QUADRIERT.",
+      "insight": "Typische Strategie bei rekursiven Folgen: erst Konvergenz zeigen (Monotonie + Beschränktheit), dann den Grenzwert aus der Fixpunktgleichung berechnen. Nie umgekehrt!"
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440017",
+      "section": "Kapitel 5 · Reihen",
+      "text": "Eine Reihe ist eine „unendliche Summe“. Präzise: Man addiert schrittweise und betrachtet die Folge der Zwischenergebnisse, der Partialsummen.",
+      "formula": "\\begin{aligned} s_n &= a_1 + a_2 + \\dots + a_n = \\sum_{k=1}^{n} a_k \\\\[4pt] \\sum_{k=1}^{\\infty} a_k &:= \\lim_{n \\to \\infty} s_n \\quad (\\text{falls der Grenzwert existiert}) \\end{aligned}",
+      "explanation": "Eine Reihe ist also nichts Neues, sondern eine spezielle Folge: die Folge \\((s_n)\\) der Partialsummen.\n\nUnterscheide genau:\n• die Folge der Summanden \\((a_k)\\), z. B. \\(\\frac{1}{2}, \\frac{1}{4}, \\frac{1}{8}, \\dots\\)\n• die Folge der Partialsummen \\((s_n)\\): \\(\\frac{1}{2}, \\frac{3}{4}, \\frac{7}{8}, \\dots\\)\n• den Wert der Reihe \\(\\sum a_k = \\lim s_n\\), hier \\(1\\).",
+      "insight": "Ohne Grenzwertbegriff ist „unendlich viele Zahlen addieren“ sinnlos. Mit ihm ist es eine präzise Frage: Konvergieren die Partialsummen?"
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440018",
+      "section": "Kapitel 5 · Reihen",
+      "text": "Das wichtigste Beispiel überhaupt: die geometrische Reihe. Das Bild zeigt sie für \\(q = \\frac{1}{2}\\).",
+      "visual": "geometricSeries",
+      "formula": "\\begin{array}{c} \\displaystyle\\sum_{k=0}^{\\infty} q^k = 1 + q + q^2 + \\dots = \\frac{1}{1 - q} \\quad \\text{für } |q| < 1 \\\\[10pt] \\displaystyle\\sum_{k=1}^{\\infty} \\left(\\tfrac{1}{2}\\right)^k = \\frac{1}{1 - \\frac{1}{2}} - 1 = 1 \\end{array}",
+      "explanation": "Herleitung: Die Partialsummen kennst du aus „Vollständige Induktion“:\n\\(s_n\\) \\(= 1 + q + \\dots + q^n\\) \\(= \\frac{1 - q^{n+1}}{1 - q}\\).\nFür \\(|q| < 1\\) geht \\(q^{n+1} \\to 0\\), also \\(s_n \\to \\frac{1}{1 - q}\\).\n\nFür \\(|q| \\ge 1\\) divergiert die Reihe (die Summanden gehen nicht gegen \\(0\\)).\n\nBeispiel: \\(1 + \\frac{1}{3} + \\frac{1}{9} + \\dots = \\frac{1}{1 - \\frac{1}{3}} = \\frac{3}{2}\\).",
+      "insight": "Achtung beim Startindex: Die Formel \\(\\frac{1}{1 - q}\\) gilt für die Summe ab \\(k = 0\\). Beginnt die Summe bei \\(k = 1\\), fehlt der Summand \\(q^0 = 1\\)."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440019",
+      "section": "Kapitel 5 · Reihen",
+      "text": "Eine verblüffende Anwendung: Ist \\(0{,}999\\ldots = 1\\)? Die geometrische Reihe gibt eine klare Antwort.",
+      "formula": "0{,}\\overline{9} = \\frac{9}{10} + \\frac{9}{100} + \\frac{9}{1000} + \\dots = \\frac{9}{10} \\sum_{k=0}^{\\infty} \\left(\\tfrac{1}{10}\\right)^k = \\frac{9}{10} \\cdot \\frac{1}{1 - \\frac{1}{10}} = 1",
+      "explanation": "Ein unendlicher Dezimalbruch IST eine Reihe – das ist seine Definition. Und diese Reihe hat den Wert \\(1\\).\n\n\\(0{,}999\\ldots\\) ist also keine Zahl „knapp unter 1“, sondern nur eine andere Schreibweise für \\(1\\). Es gibt keine reelle Zahl zwischen den beiden – sonst müsste ihr Abstand positiv sein, aber er ist kleiner als jedes \\(\\varepsilon\\).\n\nGenauso: \\(0{,}\\overline{3} = \\frac{3}{10} \\cdot \\frac{10}{9} = \\frac{1}{3}\\).",
+      "insight": "Jede periodische Dezimalzahl ist eine geometrische Reihe und daher ein Bruch. Damit lässt sich jede solche Zahl in einen Bruch umrechnen."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440020",
+      "section": "Kapitel 5 · Reihen",
+      "text": "Eine notwendige Bedingung für Konvergenz: Die Summanden müssen gegen \\(0\\) gehen. Aber Vorsicht – das reicht nicht!",
+      "visual": "seriesComparison",
+      "formula": "\\begin{array}{c} \\sum a_k \\text{ konvergent} \\;\\Longrightarrow\\; a_k \\to 0 \\\\[6pt] \\text{aber:} \\quad \\dfrac{1}{k} \\to 0, \\;\\text{ und doch } \\; \\displaystyle\\sum_{k=1}^{\\infty} \\frac{1}{k} = \\infty \\end{array}",
+      "explanation": "Der erste Teil: Konvergiert \\(s_n \\to s\\), dann \\(a_n = s_n - s_{n-1} \\to s - s = 0\\).\n\nDie harmonische Reihe \\(1 + \\frac{1}{2} + \\frac{1}{3} + \\dots\\) divergiert trotzdem. Der Beweis (Nikolaus von Oresme, um 1350) ist ein Klassiker:\n\\(1 + \\frac{1}{2} + \\underbrace{\\tfrac{1}{3} + \\tfrac{1}{4}}_{\\ge \\frac{1}{4} + \\frac{1}{4} = \\frac{1}{2}} + \\underbrace{\\tfrac{1}{5} + \\dots + \\tfrac{1}{8}}_{\\ge 4 \\cdot \\frac{1}{8} = \\frac{1}{2}} + \\dots\\)\nMan findet unendlich viele Blöcke, die jeweils mindestens \\(\\frac{1}{2}\\) beitragen.\n\nDagegen konvergiert \\(\\sum \\frac{1}{k^2}\\), und zwar gegen \\(\\frac{\\pi^2}{6}\\) (Euler, 1734).",
+      "insight": "Typischer Fehler: „Die Summanden gehen gegen 0, also konvergiert die Reihe.“ Das Kriterium funktioniert nur in eine Richtung: Gehen die Summanden NICHT gegen 0, divergiert die Reihe sicher."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440021",
+      "section": "Kapitel 5 · Reihen",
+      "text": "Manchmal kann man den Wert einer Reihe exakt ausrechnen, weil sich fast alles weghebt – eine Teleskopsumme:",
+      "formula": "\\begin{aligned} \\frac{1}{k(k+1)} &= \\frac{1}{k} - \\frac{1}{k+1} \\\\[4pt] s_n &= \\left(1 - \\tfrac{1}{2}\\right) + \\left(\\tfrac{1}{2} - \\tfrac{1}{3}\\right) + \\dots + \\left(\\tfrac{1}{n} - \\tfrac{1}{n+1}\\right) \\\\ &= 1 - \\frac{1}{n+1} \\;\\to\\; 1 \\end{aligned}",
+      "explanation": "Die erste Zeile ist eine Partialbruchzerlegung: Probe \\(\\frac{1}{k} - \\frac{1}{k+1} = \\frac{(k+1) - k}{k(k+1)} = \\frac{1}{k(k+1)}\\) ✓\n\nIn der Partialsumme hebt sich jeder negative Term mit dem positiven Term der nächsten Klammer weg. Übrig bleiben nur der erste und der letzte Term – wie bei einem zusammengeschobenen Teleskop.\n\nAlso: \\(\\frac{1}{2} + \\frac{1}{6} + \\frac{1}{12} + \\frac{1}{20} + \\dots = 1\\).",
+      "insight": "Teleskopsummen sind selten, aber wenn man sie erkennt, bekommt man den exakten Wert geschenkt. Meist muss man sich mit der Frage „konvergent oder nicht?“ begnügen."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440022",
+      "section": "Kapitel 6 · Konvergenzkriterien",
+      "text": "Meist kennt man den Wert einer Reihe nicht und will nur wissen, OB sie konvergiert. Das erste Werkzeug ist der Vergleich mit bekannten Reihen:",
+      "formula": "\\begin{array}{ll} \\textbf{Majorante:} & |a_k| \\le b_k,\\; \\sum b_k \\text{ konvergent} \\Rightarrow \\sum a_k \\text{ konvergent} \\\\[4pt] \\textbf{Minorante:} & a_k \\ge b_k \\ge 0,\\; \\sum b_k \\text{ divergent} \\Rightarrow \\sum a_k \\text{ divergent} \\end{array}",
+      "explanation": "Beispiel Majorante: \\(\\sum \\frac{1}{k^2 + k}\\) konvergiert, denn \\(\\frac{1}{k^2 + k} \\le \\frac{1}{k^2}\\), und \\(\\sum \\frac{1}{k^2}\\) konvergiert.\n\nBeispiel Majorante: \\(\\sum \\frac{\\sin k}{k^2}\\) konvergiert, denn \\(\\left|\\frac{\\sin k}{k^2}\\right| \\le \\frac{1}{k^2}\\).\n\nBeispiel Minorante: \\(\\sum \\frac{1}{\\sqrt{k}}\\) divergiert, denn \\(\\frac{1}{\\sqrt{k}} \\ge \\frac{1}{k}\\), und die harmonische Reihe divergiert.\n\nVergleichsreihen, die man kennen sollte: \\(\\sum \\frac{1}{k^s}\\) konvergiert genau für \\(s > 1\\). Und \\(\\sum q^k\\) konvergiert genau für \\(|q| < 1\\).",
+      "insight": "Für eine Majorante braucht man eine GRÖSSERE konvergente Reihe, für eine Minorante eine KLEINERE divergente. Andersherum sagt der Vergleich nichts."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440023",
+      "section": "Kapitel 6 · Konvergenzkriterien",
+      "text": "Das Quotientenkriterium vergleicht automatisch mit einer geometrischen Reihe: Man schaut, um welchen Faktor die Summanden schrumpfen.",
+      "formula": "\\begin{array}{c} \\lim_{k \\to \\infty} \\left|\\dfrac{a_{k+1}}{a_k}\\right| = q \\quad \\Longrightarrow \\quad \\begin{cases} q < 1\\colon & \\text{konvergent} \\\\ q > 1\\colon & \\text{divergent} \\\\ q = 1\\colon & \\text{keine Aussage} \\end{cases} \\end{array}",
+      "explanation": "Beispiel 1: \\(\\sum \\frac{k}{2^k}\\). Quotient: \\(\\frac{k+1}{2^{k+1}} \\cdot \\frac{2^k}{k} = \\frac{k+1}{2k} \\to \\frac{1}{2} < 1\\). Konvergent (der Wert ist übrigens \\(2\\)).\n\nBeispiel 2: \\(\\sum \\frac{2^k}{k!}\\). Quotient: \\(\\frac{2^{k+1}}{(k+1)!} \\cdot \\frac{k!}{2^k} = \\frac{2}{k+1} \\to 0\\). Konvergent – Fakultäten wachsen schneller als jede Potenz.\n\nBeispiel 3: \\(\\sum \\frac{1}{k}\\) und \\(\\sum \\frac{1}{k^2}\\) haben beide \\(q = 1\\). Die eine divergiert, die andere konvergiert. Bei \\(q = 1\\) muss man anders argumentieren.",
+      "insight": "Das Quotientenkriterium ist ideal bei Fakultäten und Potenzen \\(q^k\\). Bei Brüchen aus Polynomen wie \\(\\frac{1}{k^2}\\) liefert es immer \\(q = 1\\) – dann Vergleichskriterium benutzen."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440024",
+      "section": "Kapitel 6 · Konvergenzkriterien",
+      "text": "Bei Reihen mit wechselnden Vorzeichen gibt es ein eigenes, sehr bequemes Kriterium: das Leibniz-Kriterium.",
+      "formula": "\\begin{array}{c} a_k \\ge 0 \\text{ monoton fallend},\\; a_k \\to 0 \\;\\;\\Longrightarrow\\;\\; \\displaystyle\\sum (-1)^k a_k \\text{ konvergiert} \\\\[10pt] 1 - \\frac{1}{2} + \\frac{1}{3} - \\frac{1}{4} + \\dots = \\ln 2 \\approx 0{,}693 \\end{array}",
+      "explanation": "Anschaulich: Die Partialsummen springen hin und her (vor, zurück, vor, …), aber jeder Sprung ist kürzer als der vorige. Sie pendeln sich ein.\n\nDie alternierende harmonische Reihe konvergiert also – obwohl die harmonische Reihe ohne Vorzeichenwechsel divergiert!\n\nBonus: Der Fehler beim Abbrechen ist höchstens der erste weggelassene Summand. Nach \\(1 - \\frac{1}{2} + \\frac{1}{3} = 0{,}833\\) ist der Fehler höchstens \\(\\frac{1}{4}\\).",
+      "insight": "Die Reihe \\(\\sum \\frac{(-1)^k}{k}\\) konvergiert, aber \\(\\sum \\left|\\frac{(-1)^k}{k}\\right|\\) nicht. So eine Reihe heißt bedingt konvergent – mit überraschenden Folgen (nächster Schritt)."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440025",
+      "section": "Kapitel 6 · Konvergenzkriterien",
+      "text": "Absolute Konvergenz: \\(\\sum a_k\\) heißt absolut konvergent, wenn sogar \\(\\sum |a_k|\\) konvergiert. Der Unterschied ist erstaunlich groß:",
+      "formula": "\\begin{array}{c} \\sum |a_k| \\text{ konvergent} \\;\\Longrightarrow\\; \\sum a_k \\text{ konvergent} \\\\[6pt] \\text{absolut konvergent: Umordnen ändert den Wert nicht} \\\\ \\text{bedingt konvergent: Umordnen kann jeden Wert ergeben} \\end{array}",
+      "explanation": "Der Riemannsche Umordnungssatz: Ordnet man die Summanden von \\(1 - \\frac{1}{2} + \\frac{1}{3} - \\frac{1}{4} + \\dots\\) geschickt um, kann man JEDEN beliebigen Wert erhalten – oder Divergenz. Zum Beispiel ergibt die Anordnung „zwei positive, ein negativer“:\n\\(1 + \\frac{1}{3} - \\frac{1}{2}\\) \\(+ \\frac{1}{5} + \\frac{1}{7} - \\frac{1}{4} + \\dots\\) \\(= \\frac{3}{2}\\ln 2\\).\n\nUnendliche Summen verhalten sich also nicht immer wie endliche. Das Kommutativgesetz gilt nur bei absoluter Konvergenz.",
+      "insight": "Absolute Konvergenz ist die „gutartige“ Konvergenz: Mit ihr darf man umordnen, Reihen multiplizieren und gliedweise rechnen wie gewohnt."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440026",
+      "section": "Kapitel 6 · Konvergenzkriterien",
+      "text": "Beispielsammlung: Konvergiert die Reihe? Wähle jeweils ein passendes Kriterium.",
+      "formula": "\\begin{array}{ll} \\text{a)} & \\displaystyle\\sum_{k=1}^{\\infty} \\frac{k}{k + 1} \\\\[8pt] \\text{b)} & \\displaystyle\\sum_{k=1}^{\\infty} \\frac{1}{k^2 + 1} \\\\[8pt] \\text{c)} & \\displaystyle\\sum_{k=1}^{\\infty} \\frac{(-1)^k}{\\sqrt{k}} \\\\[8pt] \\text{d)} & \\displaystyle\\sum_{k=1}^{\\infty} \\frac{k!}{k^k} \\\\[8pt] \\text{e)} & \\displaystyle\\sum_{k=1}^{\\infty} \\frac{3}{4^k} \\end{array}",
+      "explanation": "a) Divergent: Die Summanden gehen gegen \\(1\\), nicht gegen \\(0\\). Das notwendige Kriterium ist verletzt.\n\nb) Konvergent: Majorante \\(\\frac{1}{k^2 + 1} \\le \\frac{1}{k^2}\\).\n\nc) Konvergent nach Leibniz: \\(\\frac{1}{\\sqrt{k}}\\) fällt monoton gegen \\(0\\). Aber nicht absolut konvergent, denn \\(\\sum \\frac{1}{\\sqrt{k}}\\) divergiert.\n\nd) Konvergent nach dem Quotientenkriterium: \\(\\frac{(k+1)!}{(k+1)^{k+1}} \\cdot \\frac{k^k}{k!} = \\left(\\frac{k}{k+1}\\right)^k \\to \\frac{1}{e} < 1\\).\n\ne) Geometrische Reihe: \\(3 \\sum_{k=1}^{\\infty} \\left(\\tfrac{1}{4}\\right)^k = 3 \\cdot \\frac{1/4}{1 - 1/4} = 1\\).",
+      "insight": "Prüf-Reihenfolge, die sich bewährt: 1. Gehen die Summanden gegen 0? 2. Bekannte Reihe (geometrisch, \\(\\frac{1}{k^s}\\))? 3. Fakultäten/Potenzen → Quotient. 4. Wechselnde Vorzeichen → Leibniz. 5. Sonst Vergleich."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440027",
+      "section": "Kapitel 7 · Potenzreihen, Ausblick und Rückblick",
+      "text": "Zum Schluss Reihen, deren Summanden eine Variable \\(x\\) enthalten – Potenzreihen. Die wichtigste ist die Exponentialreihe:",
+      "formula": "\\begin{array}{c} e^x = \\displaystyle\\sum_{k=0}^{\\infty} \\frac{x^k}{k!} = 1 + x + \\frac{x^2}{2} + \\frac{x^3}{6} + \\frac{x^4}{24} + \\dots \\\\[10pt] e = 1 + 1 + \\tfrac{1}{2} + \\tfrac{1}{6} + \\tfrac{1}{24} + \\tfrac{1}{120} + \\dots \\approx 2{,}71828 \\end{array}",
+      "explanation": "Nach dem Quotientenkriterium konvergiert die Reihe für JEDES \\(x\\): Der Quotient \\(\\left|\\frac{x}{k+1}\\right|\\) geht gegen \\(0\\).\n\nSchon sechs Summanden liefern \\(e \\approx 2{,}7167\\) – viel schneller als \\((1 + \\frac{1}{n})^n\\).\n\nAndere Potenzreihen konvergieren nur auf einem Intervall. Die geometrische Reihe \\(\\sum x^k = \\frac{1}{1-x}\\) zum Beispiel nur für \\(|x| < 1\\). Die Hälfte der Intervallbreite heißt Konvergenzradius (\\(R = 1\\) hier, \\(R = \\infty\\) bei \\(e^x\\)).",
+      "insight": "Viele wichtige Funktionen sind Potenzreihen: \\(\\sin x\\), \\(\\cos x\\), \\(\\ln(1 + x)\\). Woher die Koeffizienten kommen, zeigt die Taylor-Formel in der Lektion „Differentialrechnung“."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440028",
+      "section": "Kapitel 7 · Potenzreihen, Ausblick und Rückblick",
+      "text": "Ausblick: Wo braucht man Folgen und Reihen?",
+      "explanation": "• Stetigkeit und Ableitung werden über Grenzwerte definiert – Thema der Lektionen „Grenzwerte“ und „Differentialrechnung“.\n\n• Das Integral ist der Grenzwert von Summen (Riemann-Summen) – siehe „Integralrechnung“.\n\n• Numerik: Iterationsverfahren wie Heron oder Newton erzeugen Folgen. Wie schnell sie konvergieren, entscheidet über die Rechenzeit.\n\n• Fourier-Reihen zerlegen Schwingungen in Sinus und Kosinus – Grundlage der Signalverarbeitung.\n\n• Finanzmathematik: Zinseszins, Ratenkredite und Renten sind geometrische Reihen.",
+      "insight": "Die Analysis ist im Kern die Mathematik des Unendlichen – gezähmt durch den Grenzwertbegriff."
+    },
+    {
+      "id": "a10e8400-e29b-41d4-a716-446655440029",
+      "section": "Kapitel 7 · Potenzreihen, Ausblick und Rückblick",
+      "text": "Schau zurück, wie die Begriffe auseinander hervorgegangen sind:",
+      "explanation": "1. Folge: Abbildung \\(\\mathbb{N} \\to \\mathbb{R}\\), explizit oder rekursiv. Monoton, beschränkt.\n\n2. Konvergenz: \\(\\forall \\varepsilon > 0 \\;\\exists N\\colon |a_n - a| < \\varepsilon\\) für \\(n \\ge N\\). Grenzwert eindeutig, konvergent ⇒ beschränkt.\n\n3. Rechnen: Grenzwertsätze (nur bei konvergenten Teilen!), durch höchste Potenz teilen, Sandwich. \\(q^n \\to 0\\), \\(\\sqrt[n]{n} \\to 1\\), \\((1 + \\frac{1}{n})^n \\to e\\).\n\n4. Monoton + beschränkt ⇒ konvergent (Vollständigkeit von \\(\\mathbb{R}\\)).\n\n5. Reihe = Folge der Partialsummen. Geometrische Reihe \\(\\frac{1}{1-q}\\). Summanden → 0 ist nötig, aber nicht hinreichend (harmonische Reihe).\n\n6. Kriterien: Majorante/Minorante, Quotient, Leibniz. Absolute Konvergenz erlaubt Umordnen.\n\n7. Potenzreihen: \\(e^x = \\sum \\frac{x^k}{k!}\\).",
+      "insight": "Glückwunsch! Weiter geht es mit „Grenzwerte“ – dort überträgst du den Grenzwertbegriff von Folgen auf Funktionen."
+    }
+  ]
+}

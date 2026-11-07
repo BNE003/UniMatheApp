@@ -1,179 +1,224 @@
-{    "id": "aa0e8400-e29b-41d4-a716-446655440011",
-    "topic": "Integralrechnung",
-    "steps": [
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440012",
-            "text": "Das bestimmte Integral berechnet die Fläche unter einer Kurve.",
-            "formula": "\\int_a^b f(x) \\, dx = \\lim_{n \\to \\infty} \\sum_{i=1}^n f(x_i) \\Delta x",
-            "explanation": "Das Integral ist wie das Zusammensetzen vieler kleiner Rechtecke, um die Fläche unter einer Kurve zu approximieren. Je mehr Rechtecke, desto genauer wird die Näherung!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440013",
-            "text": "Der Hauptsatz der Differential- und Integralrechnung verbindet Ableitung und Integral.",
-            "formula": "\\int_a^b f'(x) \\, dx = f(b) - f(a)",
-            "explanation": "Der Hauptsatz zeigt uns, dass Integration und Differentiation inverse Operationen sind. Es ist wie das Hin- und Zurückgehen auf einem Weg!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440014",
-            "text": "Die Integrationsregeln helfen uns, Integrale zu berechnen.",
-            "formula": "\\begin{align*} \\int (f + g) \\, dx &= \\int f \\, dx + \\int g \\, dx \\\\ \\int k \\cdot f \\, dx &= k \\cdot \\int f \\, dx \\end{align*}",
-            "explanation": "Die Integrationsregeln sind wie ein Werkzeugkasten, der uns hilft, komplexe Integrale in einfachere Teile zu zerlegen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440015",
-            "text": "Die Integration durch Substitution ist eine wichtige Technik.",
-            "formula": "\\int f(g(x)) \\cdot g'(x) \\, dx = \\int f(u) \\, du",
-            "explanation": "Die Substitution ist wie das Umformen eines schwierigen Puzzles in ein einfacheres, indem wir die Teile neu anordnen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440016",
-            "text": "Die partielle Integration für Produkte von Funktionen.",
-            "formula": "\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx",
-            "explanation": "Die partielle Integration ist wie das geschickte Aufteilen eines Produkts, um die Integration zu vereinfachen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440017",
-            "text": "Die Integration rationaler Funktionen durch Partialbruchzerlegung.",
-            "formula": "\\frac{P(x)}{Q(x)} = \\sum_{i=1}^n \\frac{A_i}{(x-a_i)^{k_i}}",
-            "explanation": "Die Partialbruchzerlegung ist wie das Zerlegen eines komplexen Bruchs in einfachere, besser integrierbare Teile!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440018",
-            "text": "Uneigentliche Integrale für unendliche Grenzen oder Unstetigkeiten.",
-            "formula": "\\int_a^\\infty f(x) \\, dx = \\lim_{b \\to \\infty} \\int_a^b f(x) \\, dx",
-            "explanation": "Uneigentliche Integrale erlauben uns, auch über unendliche Bereiche zu integrieren. Es ist wie das Messen einer unendlich langen Strecke!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440019",
-            "text": "Die Volumenberechnung durch Rotation um die x-Achse.",
-            "formula": "V = \\pi \\int_a^b f(x)^2 \\, dx",
-            "explanation": "Durch Rotation einer Kurve entstehen dreidimensionale Körper, deren Volumen wir mit dem Integral berechnen können!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440020",
-            "text": "Die Bogenlänge einer Kurve kann durch Integration berechnet werden.",
-            "formula": "L = \\int_a^b \\sqrt{1 + f'(x)^2} \\, dx",
-            "explanation": "Die Bogenlänge ist wie das Ausrollen einer gekrümmten Linie in eine gerade Strecke!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440021",
-            "text": "Die Integration von Potenzfunktionen.",
-            "formula": "\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C \\quad \\text{für } n \\neq -1",
-            "explanation": "Die Integration von Potenzfunktionen erhöht den Exponenten um 1 und teilt durch den neuen Exponenten. Es ist wie das Umkehren der Ableitung!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440022",
-            "text": "Die Integration von Exponentialfunktionen.",
-            "formula": "\\int e^x \\, dx = e^x + C, \\quad \\int a^x \\, dx = \\frac{a^x}{\\ln a} + C",
-            "explanation": "Die Exponentialfunktion ist ihre eigene Stammfunktion, mit einem zusätzlichen Faktor für andere Basen. Es ist wie ein mathematischer Zaubertrick!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440023",
-            "text": "Die Integration von trigonometrischen Funktionen.",
-            "formula": "\\begin{align*} \\int \\sin x \\, dx &= -\\cos x + C \\\\ \\int \\cos x \\, dx &= \\sin x + C \\\\ \\int \\tan x \\, dx &= -\\ln |\\cos x| + C \\end{align*}",
-            "explanation": "Die Integration trigonometrischer Funktionen führt zu anderen trigonometrischen Funktionen. Es ist wie ein Tanz der Funktionen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440024",
-            "text": "Die Integration von Hyperbelfunktionen.",
-            "formula": "\\begin{align*} \\int \\sinh x \\, dx &= \\cosh x + C \\\\ \\int \\cosh x \\, dx &= \\sinh x + C \\\\ \\int \\tanh x \\, dx &= \\ln |\\cosh x| + C \\end{align*}",
-            "explanation": "Die Hyperbelfunktionen haben ähnliche Integrationsregeln wie die trigonometrischen Funktionen. Es ist wie ein Spiegelbild der Trigonometrie!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440025",
-            "text": "Die Integration von Arkusfunktionen.",
-            "formula": "\\begin{align*} \\int \\arcsin x \\, dx &= x \\arcsin x + \\sqrt{1-x^2} + C \\\\ \\int \\arccos x \\, dx &= x \\arccos x - \\sqrt{1-x^2} + C \\end{align*}",
-            "explanation": "Die Integration der Arkusfunktionen führt zu interessanten Kombinationen. Es ist wie das Öffnen einer Tür in die Welt der Umkehrfunktionen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440026",
-            "text": "Die Integration von Areafunktionen.",
-            "formula": "\\begin{align*} \\int \\text{arsinh } x \\, dx &= x \\text{arsinh } x - \\sqrt{1+x^2} + C \\\\ \\int \\text{arcosh } x \\, dx &= x \\text{arcosh } x - \\sqrt{x^2-1} + C \\end{align*}",
-            "explanation": "Die Areafunktionen haben ähnliche Integrationsregeln wie die Arkusfunktionen. Es ist wie ein Spiegelbild der Arkusfunktionen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440027",
-            "text": "Die Integration von Logarithmusfunktionen.",
-            "formula": "\\int \\ln x \\, dx = x \\ln x - x + C",
-            "explanation": "Die Integration des Logarithmus führt zu einer interessanten Kombination aus x und ln(x). Es ist wie das Zusammensetzen eines Puzzles!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440028",
-            "text": "Die Integration von Wurzelfunktionen.",
-            "formula": "\\int \\sqrt{x} \\, dx = \\frac{2}{3} x^{3/2} + C",
-            "explanation": "Die Integration der Wurzel führt zu einer Potenzfunktion mit gebrochenem Exponenten. Es ist wie das Verallgemeinern der Potenzregel!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440029",
-            "text": "Die Integration von Produkten trigonometrischer Funktionen.",
-            "formula": "\\begin{align*} \\int \\sin x \\cos x \\, dx &= \\frac{1}{2} \\sin^2 x + C \\\\ \\int \\sin^2 x \\, dx &= \\frac{x}{2} - \\frac{\\sin 2x}{4} + C \\end{align*}",
-            "explanation": "Die Integration von Produkten trigonometrischer Funktionen erfordert oft trigonometrische Identitäten. Es ist wie das Zerlegen eines komplexen Ausdrucks!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440030",
-            "text": "Die Integration durch Partialbruchzerlegung bei mehrfachen Polstellen.",
-            "formula": "\\frac{P(x)}{(x-a)^n} = \\sum_{k=1}^n \\frac{A_k}{(x-a)^k}",
-            "explanation": "Bei mehrfachen Polstellen müssen wir mehrere Terme in der Partialbruchzerlegung berücksichtigen. Es ist wie das Zerlegen in immer kleinere Teile!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440031",
-            "text": "Die Integration von Funktionen mit Absolutbetrag.",
-            "formula": "\\int |f(x)| \\, dx = \\begin{cases} \\int f(x) \\, dx & \\text{für } f(x) \\geq 0 \\\\ -\\int f(x) \\, dx & \\text{für } f(x) < 0 \\end{cases}",
-            "explanation": "Die Integration des Absolutbetrags erfordert eine Fallunterscheidung. Es ist wie das Spiegeln an der x-Achse!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440032",
-            "text": "Die Integration von Funktionen mit Potenz und Basis.",
-            "formula": "\\int x^n \\ln x \\, dx = \\frac{x^{n+1}}{n+1} \\ln x - \\frac{x^{n+1}}{(n+1)^2} + C",
-            "explanation": "Die Integration von Produkten aus Potenz und Logarithmus führt zu interessanten Kombinationen. Es ist wie das Zusammensetzen eines komplexen Puzzles!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440033",
-            "text": "Die Integration von Funktionen mit Exponentialfunktion und Potenz.",
-            "formula": "\\int x^n e^x \\, dx = x^n e^x - n \\int x^{n-1} e^x \\, dx",
-            "explanation": "Die Integration von Produkten aus Potenz und Exponentialfunktion erfordert wiederholte partielle Integration. Es ist wie das schrittweise Vereinfachen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440034",
-            "text": "Die Integration von Funktionen mit trigonometrischer Funktion und Potenz.",
-            "formula": "\\int x^n \\sin x \\, dx = -x^n \\cos x + n \\int x^{n-1} \\cos x \\, dx",
-            "explanation": "Die Integration von Produkten aus Potenz und trigonometrischer Funktion erfordert wiederholte partielle Integration. Es ist wie ein Tanz zwischen Potenz und Trigonometrie!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440035",
-            "text": "Die Integration von Funktionen mit Hyperbelfunktion und Potenz.",
-            "formula": "\\int x^n \\sinh x \\, dx = x^n \\cosh x - n \\int x^{n-1} \\cosh x \\, dx",
-            "explanation": "Die Integration von Produkten aus Potenz und Hyperbelfunktion folgt ähnlichen Regeln wie bei trigonometrischen Funktionen. Es ist wie ein paralleles Universum der Integration!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440036",
-            "text": "Die Integration von Funktionen mit Arkusfunktion und Potenz.",
-            "formula": "\\int x^n \\arcsin x \\, dx = \\frac{x^{n+1}}{n+1} \\arcsin x - \\frac{1}{n+1} \\int \\frac{x^{n+1}}{\\sqrt{1-x^2}} \\, dx",
-            "explanation": "Die Integration von Produkten aus Potenz und Arkusfunktion führt zu interessanten Kombinationen. Es ist wie das Öffnen einer Tür in die Welt der Umkehrfunktionen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440037",
-            "text": "Die Integration von Funktionen mit Areafunktion und Potenz.",
-            "formula": "\\int x^n \\text{arsinh } x \\, dx = \\frac{x^{n+1}}{n+1} \\text{arsinh } x - \\frac{1}{n+1} \\int \\frac{x^{n+1}}{\\sqrt{1+x^2}} \\, dx",
-            "explanation": "Die Integration von Produkten aus Potenz und Areafunktion folgt ähnlichen Regeln wie bei Arkusfunktionen. Es ist wie ein Spiegelbild der Arkusfunktionen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440038",
-            "text": "Die Integration von Funktionen mit Wurzel und Potenz.",
-            "formula": "\\int x^n \\sqrt{x} \\, dx = \\frac{2}{2n+3} x^{n+3/2} + C",
-            "explanation": "Die Integration von Produkten aus Potenz und Wurzel führt zu Potenzfunktionen mit gebrochenen Exponenten. Es ist wie das Verallgemeinern der Potenzregel!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440039",
-            "text": "Die Integration von Funktionen mit Logarithmus und Potenz.",
-            "formula": "\\int x^n \\ln x \\, dx = \\frac{x^{n+1}}{n+1} \\ln x - \\frac{x^{n+1}}{(n+1)^2} + C",
-            "explanation": "Die Integration von Produkten aus Potenz und Logarithmus führt zu interessanten Kombinationen. Es ist wie das Zusammensetzen eines komplexen Puzzles!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440040",
-            "text": "Zum Schluss schauen wir uns an, wie die Integralrechnung in der Physik verwendet wird.",
-            "formula": "W = \\int_a^b F(x) \\, dx",
-            "explanation": "In der Physik berechnen wir mit Integralen Arbeit, Energie und viele andere wichtige Größen. Es ist wie das Zusammensetzen vieler kleiner Beiträge zu einem Gesamtergebnis!"
-        }
-    ]
-} 
+{
+  "id": "aa0e8400-e29b-41d4-a716-446655440011",
+  "topic": "Integralrechnung",
+  "steps": [
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440001",
+      "section": "Kapitel 1 · Fläche als Grenzwert",
+      "text": "Willkommen! Die Differentialrechnung fragt: Wie schnell ändert sich etwas? Die Integralrechnung fragt umgekehrt: Wie viel hat sich insgesamt angesammelt? Fläche, zurückgelegte Strecke, Volumen, Arbeit – alles Integrale.",
+      "explanation": "Unser Fahrplan:\n1. Die Fläche unter einer Kurve als Grenzwert von Summen\n2. Eigenschaften: Linearität, Vorzeichen, Abschätzungen\n3. Der Hauptsatz: Integrieren ist Umkehrung des Ableitens\n4. Substitution\n5. Partielle Integration und Partialbruchzerlegung\n6. Uneigentliche Integrale: unendlich lange Flächen\n7. Anwendungen, typische Fehler, Rückblick",
+      "insight": "Du brauchst: „Folgen und Reihen“ (Grenzwerte von Summen) und „Differentialrechnung“ (Ableitungsregeln)."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440002",
+      "section": "Kapitel 1 · Fläche als Grenzwert",
+      "text": "Ein Auto fährt. Kennt man die Geschwindigkeit \\(v(t)\\) zu jedem Zeitpunkt, wie weit ist es gefahren?",
+      "formula": "\\begin{array}{ll} v = 20 \\;\\text{m/s konstant, } 10 \\;\\text{s}\\colon & s = 20 \\cdot 10 = 200 \\;\\text{m} \\;\\;\\text{(Rechteck)} \\\\[4pt] v(t) = 2t \\;\\text{m/s}, \\; 0 \\le t \\le 10\\colon & s = \\tfrac{1}{2} \\cdot 10 \\cdot 20 = 100 \\;\\text{m} \\;\\;\\text{(Dreieck)} \\end{array}",
+      "explanation": "Bei konstanter Geschwindigkeit ist Strecke = Geschwindigkeit · Zeit – im \\(t\\)-\\(v\\)-Diagramm die Fläche eines Rechtecks.\n\nBei gleichmäßig wachsender Geschwindigkeit ist es die Fläche eines Dreiecks.\n\nAllgemein gilt: Die zurückgelegte Strecke ist die Fläche unter dem Graphen von \\(v\\). Was aber, wenn der Graph gekrümmt ist? Dann gibt es keine Flächenformel aus der Schule.",
+      "insight": "„Fläche unter dem Graphen“ ist mehr als Geometrie: Es ist die Summe aus „Rate mal winziger Zeitraum“ über alle Zeiträume."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440003",
+      "section": "Kapitel 1 · Fläche als Grenzwert",
+      "text": "Die Idee von Riemann: Man zerlegt die Fläche in schmale Rechtecke, addiert deren Flächen – und lässt die Rechtecke immer schmaler werden.",
+      "visual": "riemannSums",
+      "formula": "\\int_a^b f(x)\\,dx = \\lim_{n \\to \\infty} \\sum_{k=1}^{n} f(x_k)\\,\\Delta x, \\qquad \\Delta x = \\frac{b - a}{n}",
+      "explanation": "\\(\\Delta x\\) ist die Breite eines Rechtecks, \\(f(x_k)\\) seine Höhe (\\(x_k\\) ein Punkt im \\(k\\)-ten Teilintervall).\n\nDie Schreibweise \\(\\int f(x)\\,dx\\) erinnert genau daran: Das Integralzeichen ist ein langgezogenes S für „Summe“, und \\(dx\\) steht für die „unendlich schmale“ Breite.\n\nFür \\(f(x) = x^2\\) auf \\([0, 2]\\) nähern sich die Summen \\(1{,}75\\); \\(2{,}19\\); \\(2{,}42\\); \\(2{,}60\\) dem Wert \\(\\frac{8}{3} \\approx 2{,}667\\).\n\nExistiert der Grenzwert (unabhängig von der Wahl der \\(x_k\\)), heißt \\(f\\) integrierbar. Alle stetigen Funktionen sind integrierbar.",
+      "insight": "Das Integral ist der Grenzwert einer Folge von Summen. Damit hängt es direkt an „Folgen und Reihen“."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440004",
+      "section": "Kapitel 1 · Fläche als Grenzwert",
+      "text": "Kann man so ein Integral auch exakt ausrechnen? Für \\(\\int_0^1 x^2\\,dx\\) hilft die Quadratsummenformel aus der Lektion „Vollständige Induktion“.",
+      "formula": "\\begin{aligned} \\sum_{k=1}^{n} \\left(\\frac{k}{n}\\right)^2 \\cdot \\frac{1}{n} &= \\frac{1}{n^3} \\sum_{k=1}^{n} k^2 = \\frac{1}{n^3} \\cdot \\frac{n(n+1)(2n+1)}{6} \\\\[6pt] &= \\frac{(1 + \\frac{1}{n})(2 + \\frac{1}{n})}{6} \\;\\to\\; \\frac{2}{6} = \\frac{1}{3} \\end{aligned}",
+      "explanation": "Wir zerlegen \\([0, 1]\\) in \\(n\\) gleiche Teile der Breite \\(\\frac{1}{n}\\) und nehmen als Höhe den Funktionswert am rechten Rand, \\(\\left(\\frac{k}{n}\\right)^2\\).\n\nMit der Formel \\(\\sum k^2 = \\frac{n(n+1)(2n+1)}{6}\\) und dem Teilen durch \\(n^3\\) (höchste Potenz) erhält man den Grenzwert \\(\\frac{1}{3}\\).\n\nAlso: \\(\\int_0^1 x^2\\,dx = \\frac{1}{3}\\). Das Quadrat \\([0,1] \\times [0,1]\\) wird von der Parabel im Verhältnis \\(1 : 2\\) geteilt – ein Ergebnis, das schon Archimedes kannte.",
+      "insight": "Diese Rechnung funktioniert, ist aber mühsam. Der Hauptsatz in Kapitel 3 macht daraus eine Zeile."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440005",
+      "section": "Kapitel 2 · Eigenschaften des Integrals",
+      "text": "Integrale haben einfache Rechenregeln. Sie folgen direkt aus den Regeln für Summen:",
+      "formula": "\\begin{aligned} \\int_a^b (c\\,f + g)\\,dx &= c \\int_a^b f\\,dx + \\int_a^b g\\,dx \\\\[4pt] \\int_a^b f\\,dx + \\int_b^c f\\,dx &= \\int_a^c f\\,dx \\\\[4pt] \\int_a^b f\\,dx &= -\\int_b^a f\\,dx, \\qquad \\int_a^a f\\,dx = 0 \\end{aligned}",
+      "explanation": "Zeile 1: Linearität. Konstanten darf man herausziehen, Summen getrennt integrieren.\n\nZeile 2: Flächen über benachbarten Intervallen addieren sich.\n\nZeile 3: Vertauscht man die Grenzen, ändert sich das Vorzeichen. Das ist eine Festlegung, die Zeile 2 für alle \\(a, b, c\\) gültig macht.\n\nAchtung: Für Produkte gibt es KEINE solche Regel. \\(\\int f \\cdot g\\,dx \\neq \\int f\\,dx \\cdot \\int g\\,dx\\). Beispiel: \\(\\int_0^1 x \\cdot x\\,dx = \\frac{1}{3}\\), aber \\(\\int_0^1 x\\,dx \\cdot \\int_0^1 x\\,dx = \\frac{1}{4}\\).",
+      "insight": "Für Produkte braucht man eigene Techniken – die partielle Integration in Kapitel 5."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440006",
+      "section": "Kapitel 2 · Eigenschaften des Integrals",
+      "text": "Wichtig: Das Integral misst Flächen MIT Vorzeichen. Was unterhalb der x-Achse liegt, zählt negativ.",
+      "visual": "signedArea",
+      "formula": "\\begin{aligned} \\int_0^{\\pi} \\sin x\\,dx &= 2, \\qquad \\int_{\\pi}^{2\\pi} \\sin x\\,dx = -2 \\\\[4pt] \\int_0^{2\\pi} \\sin x\\,dx &= 0, \\qquad \\int_0^{2\\pi} |\\sin x|\\,dx = 4 \\end{aligned}",
+      "explanation": "In der Riemann-Summe sind die Rechteckhöhen \\(f(x_k)\\) negativ, wo \\(f\\) negativ ist – also auch die „Flächen“.\n\nFür die geometrische Fläche zwischen Graph und Achse muss man die Bereiche getrennt integrieren und die Beträge addieren: \\(2 + |-2| = 4\\).\n\nPhysikalisch ist das Vorzeichen sinnvoll: Integriert man eine Geschwindigkeit, die zeitweise negativ ist (rückwärts fahren), erhält man die Verschiebung, nicht die gefahrene Strecke.",
+      "insight": "Typischer Fehler bei Flächenaufgaben: einfach über das ganze Intervall integrieren. Erst die Nullstellen bestimmen, dann stückweise integrieren!"
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440007",
+      "section": "Kapitel 2 · Eigenschaften des Integrals",
+      "text": "Integrale lassen sich abschätzen, ohne sie auszurechnen. Und es gibt einen Mittelwertsatz:",
+      "formula": "\\begin{array}{c} m \\le f(x) \\le M \\text{ auf } [a, b] \\;\\Longrightarrow\\; m(b - a) \\le \\displaystyle\\int_a^b f\\,dx \\le M(b - a) \\\\[10pt] \\text{Mittelwert: } \\bar{f} = \\dfrac{1}{b - a} \\displaystyle\\int_a^b f(x)\\,dx \\end{array}",
+      "explanation": "Anschaulich: Die Fläche liegt zwischen der Fläche eines niedrigen und eines hohen Rechtecks.\n\nBeispiel: \\(\\int_0^1 e^{-x^2}\\,dx\\) lässt sich nicht mit elementaren Funktionen berechnen. Aber \\(e^{-1} \\le e^{-x^2} \\le 1\\) auf \\([0, 1]\\), also liegt das Integral zwischen \\(0{,}37\\) und \\(1\\). (Tatsächlich etwa \\(0{,}747\\).)\n\nDer Mittelwert \\(\\bar{f}\\) ist die Höhe des Rechtecks mit gleicher Fläche. Beispiel: Der Mittelwert von \\(\\sin\\) auf \\([0, \\pi]\\) ist \\(\\frac{2}{\\pi} \\approx 0{,}64\\).",
+      "insight": "Mittelwerte von Funktionen begegnen dir überall: mittlere Temperatur über einen Tag, mittlere Leistung über eine Periode, Erwartungswerte in der Stochastik."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440008",
+      "section": "Kapitel 3 · Der Hauptsatz",
+      "text": "Jetzt der wichtigste Satz der Analysis. Betrachte die Flächenfunktion \\(A(x) = \\int_a^x f(t)\\,dt\\). Wie schnell wächst sie, wenn \\(x\\) wächst?",
+      "visual": "fundamentalTheorem",
+      "formula": "\\begin{aligned} A(x + h) - A(x) &\\approx f(x) \\cdot h \\\\[4pt] \\frac{A(x + h) - A(x)}{h} &\\approx f(x) \\;\\;\\xrightarrow{h \\to 0}\\;\\; A'(x) = f(x) \\end{aligned}",
+      "explanation": "Schiebt man die rechte Grenze um \\(h\\) weiter, kommt ein schmaler Streifen dazu. Er ist fast ein Rechteck mit Breite \\(h\\) und Höhe \\(f(x)\\).\n\nTeilt man durch \\(h\\) und lässt \\(h \\to 0\\) gehen, erhält man den Differenzenquotienten von \\(A\\) – und sein Grenzwert ist \\(f(x)\\) (wenn \\(f\\) stetig ist).\n\nAlso: Die Ableitung der Flächenfunktion ist die ursprüngliche Funktion. Integrieren und Differenzieren sind Umkehroperationen!",
+      "insight": "Das ist die große Entdeckung von Newton und Leibniz (um 1670): Zwei scheinbar völlig verschiedene Probleme – Tangenten und Flächen – sind zwei Seiten derselben Medaille."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440009",
+      "section": "Kapitel 3 · Der Hauptsatz",
+      "text": "Daraus folgt die Rechenvorschrift für Integrale. Eine Funktion \\(F\\) mit \\(F' = f\\) heißt Stammfunktion von \\(f\\).",
+      "formula": "\\begin{array}{c} \\textbf{Hauptsatz:} \\quad \\displaystyle\\int_a^b f(x)\\,dx = F(b) - F(a) =: \\Big[F(x)\\Big]_a^b \\\\[10pt] \\displaystyle\\int_0^2 x^2\\,dx = \\Big[\\tfrac{x^3}{3}\\Big]_0^2 = \\tfrac{8}{3} - 0 = \\tfrac{8}{3} \\end{array}",
+      "explanation": "Statt Grenzwerte von Summen zu berechnen, sucht man eine Stammfunktion und setzt die Grenzen ein.\n\nKontrolle: \\(\\left(\\frac{x^3}{3}\\right)' = x^2\\) ✓. Und \\(\\frac{8}{3}\\) ist genau der Wert, dem sich die Riemann-Summen in Kapitel 1 genähert haben.\n\nEbenso: \\(\\int_0^1 x^2\\,dx = \\frac{1}{3}\\) – die mühsame Rechnung mit der Quadratsummenformel in einer Zeile.",
+      "insight": "Integrieren heißt also: rückwärts ableiten. Jede Ableitungsregel liefert eine Integrationsregel."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440010",
+      "section": "Kapitel 3 · Der Hauptsatz",
+      "text": "Stammfunktionen sind nicht eindeutig: Man kann immer eine Konstante addieren. Deshalb schreibt man beim unbestimmten Integral „\\(+ C\\)“:",
+      "formula": "\\int x^2\\,dx = \\frac{x^3}{3} + C, \\qquad C \\in \\mathbb{R}",
+      "explanation": "\\(\\frac{x^3}{3}\\), \\(\\frac{x^3}{3} + 5\\) und \\(\\frac{x^3}{3} - \\pi\\) sind alle Stammfunktionen von \\(x^2\\) – ihre Ableitung ist gleich, weil die Ableitung einer Konstanten \\(0\\) ist.\n\nUmgekehrt unterscheiden sich zwei Stammfunktionen auf einem Intervall NUR um eine Konstante. Das folgt aus dem Mittelwertsatz: Ist \\((F - G)' = 0\\), dann ist \\(F - G\\) konstant.\n\nBeim bestimmten Integral fällt die Konstante weg: \\((F(b) + C) - (F(a) + C)\\) \\(= F(b) - F(a)\\).",
+      "insight": "Typischer Fehler: das „\\(+ C\\)“ beim unbestimmten Integral vergessen. In Anwendungen (Anfangswerte, Differentialgleichungen) bestimmt man \\(C\\) aus einer Zusatzbedingung."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440011",
+      "section": "Kapitel 3 · Der Hauptsatz",
+      "text": "Die Grundintegrale – jede Zeile ist eine Ableitungsregel, rückwärts gelesen:",
+      "formula": "\\begin{array}{ll} \\displaystyle\\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C \\;\\;(n \\neq -1) & \\displaystyle\\int \\frac{1}{x}\\,dx = \\ln|x| + C \\\\[10pt] \\displaystyle\\int e^x\\,dx = e^x + C & \\displaystyle\\int \\sin x\\,dx = -\\cos x + C \\\\[10pt] \\displaystyle\\int \\cos x\\,dx = \\sin x + C & \\displaystyle\\int \\frac{1}{1 + x^2}\\,dx = \\arctan x + C \\end{array}",
+      "explanation": "Die Potenzregel versagt bei \\(n = -1\\): \\(\\frac{x^0}{0}\\) ist sinnlos. Diese Lücke füllt der Logarithmus.\n\nWarum \\(\\ln|x|\\) mit Betrag? Für \\(x < 0\\) ist \\((\\ln(-x))' = \\frac{1}{-x} \\cdot (-1) = \\frac{1}{x}\\). Mit Betrag gilt die Formel auf beiden Seiten der \\(0\\).\n\nBeispiele:\n\\(\\int_1^e \\frac{1}{x}\\,dx = \\ln e - \\ln 1 = 1\\).\n\\(\\int_0^{\\pi} \\sin x\\,dx\\) \\(= [-\\cos x]_0^{\\pi}\\) \\(= 1 - (-1)\\) \\(= 2\\).\n\\(\\int_0^1 \\frac{1}{1 + x^2}\\,dx = \\arctan 1 = \\frac{\\pi}{4}\\).",
+      "insight": "Jedes Ergebnis lässt sich durch Ableiten prüfen. Mach das bei jeder Integration – es kostet Sekunden und findet fast jeden Fehler."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440012",
+      "section": "Kapitel 3 · Der Hauptsatz",
+      "text": "Beispielsammlung mit Grundintegralen – nur Linearität und die Tabelle werden gebraucht:",
+      "formula": "\\begin{array}{ll} \\text{a)} & \\displaystyle\\int (3x^2 - 4x + 1)\\,dx \\\\[8pt] \\text{b)} & \\displaystyle\\int_1^4 \\sqrt{x}\\,dx \\\\[8pt] \\text{c)} & \\displaystyle\\int \\left(\\frac{1}{x^2} + e^{2x}\\right) dx \\\\[8pt] \\text{d)} & \\displaystyle\\int_0^{\\pi/2} \\cos x\\,dx \\end{array}",
+      "explanation": "a) Gliedweise: \\(x^3 - 2x^2 + x + C\\).\n\nb) \\(\\sqrt{x} = x^{1/2}\\), Stammfunktion \\(\\frac{x^{3/2}}{3/2} = \\frac{2}{3}x^{3/2}\\). Also \\(\\frac{2}{3}(4^{3/2} - 1^{3/2})\\) \\(= \\frac{2}{3}(8 - 1)\\) \\(= \\frac{14}{3}\\).\n\nc) \\(\\frac{1}{x^2} = x^{-2}\\) hat die Stammfunktion \\(\\frac{x^{-1}}{-1} = -\\frac{1}{x}\\). Und \\(\\int e^{2x}\\,dx = \\frac{1}{2}e^{2x}\\). Ergebnis: \\(-\\frac{1}{x} + \\frac{1}{2}e^{2x} + C\\).\n\nd) \\([\\sin x]_0^{\\pi/2} = 1 - 0 = 1\\).",
+      "insight": "Wurzeln und Brüche erst als Potenzen schreiben (\\(\\sqrt{x} = x^{1/2}\\), \\(\\frac{1}{x^2} = x^{-2}\\)), dann die Potenzregel anwenden."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440013",
+      "section": "Kapitel 3 · Der Hauptsatz",
+      "text": "Eine wichtige Warnung: Ableiten ist immer möglich, Integrieren nicht. Viele harmlose Funktionen haben keine elementare Stammfunktion:",
+      "formula": "\\int e^{-x^2}\\,dx, \\qquad \\int \\frac{\\sin x}{x}\\,dx, \\qquad \\int \\sqrt{1 + x^3}\\,dx",
+      "explanation": "Diese Funktionen sind stetig, haben also Stammfunktionen (die Flächenfunktion!). Man kann sie aber nicht mit \\(+\\), \\(\\cdot\\), Wurzeln, \\(\\exp\\), \\(\\ln\\) und trigonometrischen Funktionen hinschreiben – das wurde im 19. Jahrhundert bewiesen (Liouville).\n\nDie erste ist besonders wichtig: Sie beschreibt die Normalverteilung der Statistik. Ihre Werte berechnet man numerisch oder mit Potenzreihen.\n\nAbleiten ist ein Handwerk mit festen Regeln. Integrieren ist eher eine Kunst: Man kennt Techniken und probiert, welche passt.",
+      "insight": "Wenn eine Integrationsaufgabe partout nicht aufgeht, kann es daran liegen, dass es keine geschlossene Lösung gibt. In Klausuren sind die Aufgaben aber so gewählt, dass eine Technik passt."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440014",
+      "section": "Kapitel 4 · Substitution",
+      "text": "Die erste Technik: Substitution. Sie ist die Kettenregel rückwärts. Erkennungszeichen: Im Integranden steht eine innere Funktion UND (bis auf einen Faktor) deren Ableitung.",
+      "formula": "\\begin{aligned} \\int f(g(x))\\,g'(x)\\,dx &= \\int f(u)\\,du \\quad \\text{mit } u = g(x) \\\\[6pt] \\int 2x \\cos(x^2)\\,dx &\\overset{u = x^2}{=} \\int \\cos u\\,du = \\sin u + C = \\sin(x^2) + C \\end{aligned}",
+      "explanation": "Rezept:\n1. Innere Funktion wählen: \\(u = x^2\\).\n2. Ableiten und als „Differentiale“ schreiben: \\(\\frac{du}{dx} = 2x\\), also \\(du = 2x\\,dx\\).\n3. Alles durch \\(u\\) ausdrücken: \\(2x\\,dx\\) wird zu \\(du\\).\n4. Integrieren, zurück-substituieren.\n\nProbe: \\((\\sin(x^2))' = \\cos(x^2) \\cdot 2x\\) ✓ – genau die Kettenregel.",
+      "insight": "Nach der Substitution darf kein \\(x\\) mehr übrig sein. Bleibt eins übrig, war die Wahl von \\(u\\) ungeschickt."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440015",
+      "section": "Kapitel 4 · Substitution",
+      "text": "Weitere Beispiele. Ein fehlender konstanter Faktor ist kein Problem:",
+      "formula": "\\begin{aligned} \\int x\\,e^{x^2}\\,dx &= \\tfrac{1}{2} \\int e^u\\,du = \\tfrac{1}{2} e^{x^2} + C \\quad (u = x^2,\\; x\\,dx = \\tfrac{1}{2} du) \\\\[6pt] \\int \\tan x\\,dx &= \\int \\frac{\\sin x}{\\cos x}\\,dx = -\\int \\frac{du}{u} = -\\ln|\\cos x| + C \\quad (u = \\cos x) \\\\[6pt] \\int \\frac{f'(x)}{f(x)}\\,dx &= \\ln|f(x)| + C \\end{aligned}",
+      "explanation": "Erstes Beispiel: \\(du = 2x\\,dx\\), also \\(x\\,dx = \\frac{1}{2} du\\). Den Faktor \\(\\frac{1}{2}\\) zieht man vor das Integral.\n\nZweites Beispiel: \\(du = -\\sin x\\,dx\\). Der Zähler ist (bis auf das Vorzeichen) die Ableitung des Nenners.\n\nDie dritte Zeile ist die allgemeine Regel dahinter: „Ableitung durch Funktion“ ergibt einen Logarithmus. Beispiel: \\(\\int \\frac{2x}{x^2 + 1}\\,dx = \\ln(x^2 + 1) + C\\).",
+      "insight": "Konstante Faktoren lassen sich ausgleichen, Faktoren mit \\(x\\) nicht. \\(\\int e^{x^2}\\,dx\\) lässt sich deshalb NICHT substituieren – es fehlt das \\(x\\)."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440016",
+      "section": "Kapitel 4 · Substitution",
+      "text": "Bei bestimmten Integralen substituiert man am besten auch die Grenzen – dann muss man nicht zurück-substituieren:",
+      "formula": "\\int_0^1 x\\,e^{x^2}\\,dx \\;\\overset{u = x^2}{=}\\; \\frac{1}{2} \\int_0^1 e^u\\,du = \\frac{1}{2}\\big[e^u\\big]_0^1 = \\frac{e - 1}{2}",
+      "explanation": "Die Grenzen beziehen sich nach der Substitution auf \\(u\\): Für \\(x = 0\\) ist \\(u = 0\\), für \\(x = 1\\) ist \\(u = 1\\). Hier sind sie zufällig gleich geblieben.\n\nEin Beispiel, wo sie sich ändern: \\(\\int_0^2 2x(x^2 + 1)^3\\,dx\\) mit \\(u = x^2 + 1\\). Neue Grenzen: \\(u\\) von \\(1\\) bis \\(5\\):\n\\(\\int_1^5 u^3\\,du\\) \\(= \\left[\\frac{u^4}{4}\\right]_1^5\\) \\(= \\frac{625 - 1}{4}\\) \\(= 156\\).",
+      "insight": "Typischer Fehler: substituieren, aber die alten \\(x\\)-Grenzen in die \\(u\\)-Stammfunktion einsetzen. Entweder Grenzen umrechnen ODER zurück-substituieren – nie mischen."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440017",
+      "section": "Kapitel 5 · Partielle Integration und Partialbrüche",
+      "text": "Die zweite Technik: partielle Integration. Sie ist die Produktregel rückwärts – für Integrale von Produkten.",
+      "formula": "\\begin{aligned} \\int u\\,v'\\,dx &= u\\,v - \\int u'\\,v\\,dx \\\\[6pt] \\int x\\,e^x\\,dx &= x\\,e^x - \\int 1 \\cdot e^x\\,dx = (x - 1)\\,e^x + C \\end{aligned}",
+      "explanation": "Herleitung: Aus \\((uv)' = u'v + uv'\\) folgt durch Integrieren \\(uv = \\int u'v\\,dx + \\int uv'\\,dx\\).\n\nIm Beispiel: \\(u = x\\) (wird beim Ableiten einfacher: \\(u' = 1\\)) und \\(v' = e^x\\) (lässt sich leicht integrieren: \\(v = e^x\\)).\n\nProbe: \\(((x - 1)e^x)'\\) \\(= e^x + (x - 1)e^x\\) \\(= x\\,e^x\\) ✓\n\nDie Kunst ist die richtige Wahl: \\(u\\) soll durch Ableiten einfacher werden, \\(v'\\) soll integrierbar sein.",
+      "insight": "Faustregel für \\(u\\) (was abgeleitet wird), in dieser Reihenfolge: Logarithmus, Polynome, dann \\(e^x\\) und trigonometrische Funktionen."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440018",
+      "section": "Kapitel 5 · Partielle Integration und Partialbrüche",
+      "text": "Drei weitere Beispiele, darunter zwei berühmte Tricks:",
+      "formula": "\\begin{aligned} \\int \\ln x\\,dx &= \\int 1 \\cdot \\ln x\\,dx = x \\ln x - \\int x \\cdot \\tfrac{1}{x}\\,dx = x \\ln x - x + C \\\\[6pt] \\int x \\sin x\\,dx &= -x \\cos x + \\int \\cos x\\,dx = -x\\cos x + \\sin x + C \\\\[6pt] \\int e^x \\sin x\\,dx &= \\tfrac{1}{2}\\, e^x (\\sin x - \\cos x) + C \\end{aligned}",
+      "explanation": "Trick 1 (\\(\\ln x\\)): einen Faktor \\(1\\) dazudenken, \\(v' = 1\\) und \\(u = \\ln x\\). Das Ableiten macht aus dem Logarithmus etwas Einfaches.\n\nZeile 2: \\(u = x\\), \\(v' = \\sin x\\), also \\(v = -\\cos x\\).\n\nTrick 2 (Zeile 3): Zweimal partiell integrieren. Danach steht das ursprüngliche Integral \\(I\\) wieder da:\n\\(I = e^x \\sin x - e^x \\cos x - I\\). Diese Gleichung löst man nach \\(I\\) auf: \\(2I = e^x(\\sin x - \\cos x)\\).",
+      "insight": "Taucht das Ausgangsintegral nach partieller Integration wieder auf, ist das kein Kreis – sondern eine Gleichung, die man auflösen kann."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440019",
+      "section": "Kapitel 5 · Partielle Integration und Partialbrüche",
+      "text": "Die dritte Technik, für gebrochen-rationale Funktionen: Partialbruchzerlegung. Man zerlegt den Bruch in einfache Brüche, die man direkt integrieren kann.",
+      "formula": "\\begin{aligned} \\frac{1}{x^2 - 1} &= \\frac{1}{(x - 1)(x + 1)} = \\frac{A}{x - 1} + \\frac{B}{x + 1} \\\\[4pt] 1 &= A(x + 1) + B(x - 1) \\;\\Rightarrow\\; A = \\tfrac{1}{2},\\; B = -\\tfrac{1}{2} \\\\[4pt] \\int \\frac{dx}{x^2 - 1} &= \\tfrac{1}{2} \\ln|x - 1| - \\tfrac{1}{2} \\ln|x + 1| + C = \\tfrac{1}{2} \\ln\\left|\\frac{x - 1}{x + 1}\\right| + C \\end{aligned}",
+      "explanation": "Vorgehen:\n1. Nenner faktorisieren.\n2. Ansatz mit unbekannten Zählern \\(A\\), \\(B\\).\n3. Mit dem Hauptnenner multiplizieren.\n4. Geschickte Werte einsetzen: \\(x = 1\\) liefert \\(1 = 2A\\), \\(x = -1\\) liefert \\(1 = -2B\\).\n\nDanach bleiben nur Integrale vom Typ \\(\\int \\frac{dx}{x - a} = \\ln|x - a|\\).\n\nProbe: \\(\\frac{1/2}{x - 1} - \\frac{1/2}{x + 1}\\) \\(= \\frac{\\frac{1}{2}(x + 1) - \\frac{1}{2}(x - 1)}{x^2 - 1}\\) \\(= \\frac{1}{x^2 - 1}\\) ✓",
+      "insight": "Das ist dieselbe Zerlegung wie bei der Teleskopsumme \\(\\frac{1}{k(k+1)} = \\frac{1}{k} - \\frac{1}{k+1}\\) in „Folgen und Reihen“."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440020",
+      "section": "Kapitel 5 · Partielle Integration und Partialbrüche",
+      "text": "Welche Technik passt? Das Erkennen ist die eigentliche Schwierigkeit. Eine Beispielsammlung mit Begründung:",
+      "formula": "\\begin{array}{ll} \\text{a)} & \\displaystyle\\int \\cos x \\; e^{\\sin x}\\,dx \\\\[8pt] \\text{b)} & \\displaystyle\\int x \\cos x\\,dx \\\\[8pt] \\text{c)} & \\displaystyle\\int \\frac{x}{x^2 + 1}\\,dx \\\\[8pt] \\text{d)} & \\displaystyle\\int x^2 \\ln x\\,dx \\end{array}",
+      "explanation": "a) Innere Funktion \\(\\sin x\\), ihre Ableitung \\(\\cos x\\) steht daneben → Substitution \\(u = \\sin x\\): \\(e^{\\sin x} + C\\).\n\nb) Produkt aus Polynom und \\(\\cos\\) → partiell mit \\(u = x\\): \\(x\\sin x - \\int \\sin x\\,dx = x \\sin x + \\cos x + C\\).\n\nc) Zähler ist bis auf den Faktor 2 die Ableitung des Nenners → \\(\\frac{1}{2}\\ln(x^2 + 1) + C\\).\n\nd) Logarithmus im Produkt → partiell mit \\(u = \\ln x\\), \\(v' = x^2\\):\n\\(\\frac{x^3}{3}\\ln x - \\int \\frac{x^3}{3} \\cdot \\frac{1}{x}\\,dx\\) \\(= \\frac{x^3}{3}\\ln x - \\frac{x^3}{9} + C\\).",
+      "insight": "Entscheidungshilfe: Steht die Ableitung einer inneren Funktion daneben → Substitution. Produkt zweier „verschiedener Sorten“ (Polynom mal \\(e^x\\), \\(\\sin\\), \\(\\ln\\)) → partiell. Bruch aus Polynomen → Partialbrüche."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440021",
+      "section": "Kapitel 6 · Uneigentliche Integrale",
+      "text": "Was ist mit Flächen, die sich ins Unendliche erstrecken? Man integriert bis zu einer Grenze \\(b\\) und lässt dann \\(b \\to \\infty\\) gehen – ein uneigentliches Integral.",
+      "visual": "improperIntegral",
+      "formula": "\\begin{aligned} \\int_1^{\\infty} \\frac{dx}{x^2} &= \\lim_{b \\to \\infty} \\left[-\\frac{1}{x}\\right]_1^b = \\lim_{b \\to \\infty} \\left(1 - \\frac{1}{b}\\right) = 1 \\\\[6pt] \\int_1^{\\infty} \\frac{dx}{x} &= \\lim_{b \\to \\infty} \\ln b = \\infty \\end{aligned}",
+      "explanation": "Eine unendlich lange Fläche kann einen endlichen Inhalt haben – wie die geometrische Reihe eine endliche Summe.\n\nDer Unterschied zwischen \\(\\frac{1}{x^2}\\) und \\(\\frac{1}{x}\\) entspricht genau dem zwischen \\(\\sum \\frac{1}{k^2}\\) (konvergent) und \\(\\sum \\frac{1}{k}\\) (divergent). Das ist kein Zufall: Das Integralvergleichskriterium verbindet beide.\n\nAllgemein: \\(\\int_1^{\\infty} \\frac{dx}{x^s}\\) konvergiert genau für \\(s > 1\\).",
+      "insight": "Ein uneigentliches Integral IST ein Grenzwert. Schreib ihn aus, statt „\\(\\infty\\)“ in eine Stammfunktion einzusetzen."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440022",
+      "section": "Kapitel 6 · Uneigentliche Integrale",
+      "text": "Uneigentlich ist ein Integral auch dann, wenn die Funktion an einer Grenze unbeschränkt wird:",
+      "formula": "\\begin{aligned} \\int_0^1 \\frac{dx}{\\sqrt{x}} &= \\lim_{a \\to 0^+} \\big[2\\sqrt{x}\\big]_a^1 = \\lim_{a \\to 0^+} (2 - 2\\sqrt{a}) = 2 \\\\[6pt] \\int_0^1 \\frac{dx}{x^2} &= \\lim_{a \\to 0^+} \\left(\\frac{1}{a} - 1\\right) = \\infty \\end{aligned}",
+      "explanation": "Bei \\(\\frac{1}{\\sqrt{x}}\\) wächst die Funktion bei \\(0\\) über alle Grenzen – trotzdem ist die Fläche endlich. Bei \\(\\frac{1}{x^2}\\) nicht.\n\nHier kehrt sich die Regel aus dem vorigen Schritt um: \\(\\int_0^1 \\frac{dx}{x^s}\\) konvergiert genau für \\(s < 1\\).\n\nEine berühmte Warnung: \\(\\int_{-1}^1 \\frac{dx}{x^2}\\) mit der Stammfunktion „ausgerechnet“ ergibt \\(\\left[-\\frac{1}{x}\\right]_{-1}^1 = -1 - 1 = -2\\). Unmöglich – der Integrand ist positiv! Der Fehler: Bei \\(0\\) liegt ein Pol, der Hauptsatz gilt dort nicht. Das Integral divergiert.",
+      "insight": "Vor jedem Integral prüfen: Ist der Integrand auf dem GANZEN Intervall stetig? Wenn nicht, aufteilen und als uneigentliches Integral behandeln."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440023",
+      "section": "Kapitel 7 · Anwendungen, Fehler und Rückblick",
+      "text": "Anwendung 1: Fläche zwischen zwei Kurven. Man integriert die Differenz „obere minus untere“ Funktion.",
+      "formula": "\\begin{aligned} \\text{Schnittpunkte von } y = x \\text{ und } y = x^2\\colon \\;& x = 0,\\; x = 1 \\\\[4pt] A = \\int_0^1 (x - x^2)\\,dx &= \\left[\\frac{x^2}{2} - \\frac{x^3}{3}\\right]_0^1 = \\frac{1}{2} - \\frac{1}{3} = \\frac{1}{6} \\end{aligned}",
+      "explanation": "Vorgehen:\n1. Schnittpunkte bestimmen: \\(x = x^2 \\iff x(1 - x) = 0\\).\n2. Herausfinden, welche Kurve oben liegt: Bei \\(x = \\frac{1}{2}\\) ist \\(x = 0{,}5 > 0{,}25 = x^2\\).\n3. „Oben minus unten“ integrieren.\n\nKreuzen sich die Kurven mehrfach, muss man an jedem Schnittpunkt aufteilen – oder den Betrag der Differenz integrieren.",
+      "insight": "Die Lage zur x-Achse spielt hier keine Rolle: „oben minus unten“ ist auch dann positiv, wenn beide Kurven unter der Achse liegen."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440024",
+      "section": "Kapitel 7 · Anwendungen, Fehler und Rückblick",
+      "text": "Anwendung 2: Rotationsvolumen. Dreht man den Graphen von \\(f\\) um die x-Achse, entsteht ein Körper. Seine Querschnitte sind Kreise mit Radius \\(f(x)\\):",
+      "formula": "\\begin{aligned} V &= \\pi \\int_a^b f(x)^2\\,dx \\\\[6pt] \\text{Kugel: } f(x) = \\sqrt{r^2 - x^2}\\colon \\quad V &= \\pi \\int_{-r}^{r} (r^2 - x^2)\\,dx = \\pi\\left(2r^3 - \\frac{2r^3}{3}\\right) = \\frac{4}{3}\\pi r^3 \\end{aligned}",
+      "explanation": "Idee: Man zerschneidet den Körper in dünne Scheiben der Dicke \\(dx\\). Jede Scheibe ist fast ein Zylinder mit Volumen \\(\\pi f(x)^2\\,dx\\). Das Integral addiert alle Scheiben.\n\nDamit haben wir die Formel für das Kugelvolumen hergeleitet, die man aus der Schule kennt: Der Halbkreis \\(y = \\sqrt{r^2 - x^2}\\) erzeugt beim Drehen die Kugel.\n\nDasselbe Prinzip „zerlegen, Teile annähern, aufsummieren, Grenzwert“ steckt in jeder Anwendung des Integrals.",
+      "insight": "Merke das Muster: kleine Größe ≈ (Rate) × (kleines Stück), dann integrieren. So entstehen Formeln für Masse, Arbeit, Schwerpunkt und Wahrscheinlichkeit."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440025",
+      "section": "Kapitel 7 · Anwendungen, Fehler und Rückblick",
+      "text": "Anwendung 3: Physik. Arbeit ist „Kraft mal Weg“ – bei veränderlicher Kraft ein Integral. Beispiel: eine Feder mit Federkraft \\(F(x) = Dx\\).",
+      "formula": "\\begin{aligned} W &= \\int_0^s F(x)\\,dx = \\int_0^s D x\\,dx = \\frac{1}{2} D s^2 \\\\[6pt] \\text{Ort aus Geschwindigkeit:} \\quad s(t) &= s(0) + \\int_0^t v(\\tau)\\,d\\tau \\end{aligned}",
+      "explanation": "Die Spannenergie einer Feder ist also \\(\\frac{1}{2}Ds^2\\). Beispiel: \\(D = 100\\) N/m, \\(s = 0{,}1\\) m ergibt \\(W = 0{,}5\\) J.\n\nDie zweite Zeile ist der Hauptsatz in Physik-Sprache: Kennt man die Geschwindigkeit und den Startort, kennt man den Ort zu jeder Zeit. Die Konstante \\(C\\) ist hier der Startort \\(s(0)\\).\n\nDas Auto aus Kapitel 1: \\(v(t) = 2t\\) ergibt \\(s(t) = t^2\\), nach 10 s also 100 m ✓",
+      "insight": "Bestand = Anfangsbestand + Integral der Änderungsrate. Diese Gleichung beschreibt Wasserstände, Bevölkerungen, Kontostände – und ist der Kern des Hauptsatzes."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440026",
+      "section": "Kapitel 7 · Anwendungen, Fehler und Rückblick",
+      "text": "Die häufigsten Fehler beim Integrieren:",
+      "formula": "\\begin{array}{ll} \\int f g\\,dx = \\int f\\,dx \\cdot \\int g\\,dx & \\text{falsch} \\\\ \\int \\frac{1}{x}\\,dx = \\frac{x^0}{0} & \\text{falsch: } \\ln|x| \\\\ \\int e^{2x}\\,dx = e^{2x} & \\text{falsch: } \\tfrac{1}{2}e^{2x} \\\\ \\text{„} + C \\text{“ vergessen} & \\text{beim unbestimmten Integral} \\\\ \\text{Fläche} = \\int_a^b f\\,dx & \\text{nur wenn } f \\ge 0 \\\\ \\int_{-1}^{1} \\frac{dx}{x^2} = -2 & \\text{falsch: Pol bei } 0 \\end{array}",
+      "explanation": "Zeile 3: Beim Integrieren wird durch die innere Ableitung GETEILT (beim Ableiten wird mit ihr multipliziert). Probe durch Ableiten: \\(\\left(\\frac{1}{2}e^{2x}\\right)' = e^{2x}\\) ✓\n\nDie wichtigste Gewohnheit: Jede Stammfunktion durch Ableiten prüfen. Und vor jedem bestimmten Integral fragen: Ist der Integrand auf dem ganzen Intervall stetig? Wechselt er das Vorzeichen?",
+      "insight": "Ableiten ist die Probe für Integrieren – immer verfügbar, immer zuverlässig."
+    },
+    {
+      "id": "a40e8400-e29b-41d4-a716-446655440027",
+      "section": "Kapitel 7 · Anwendungen, Fehler und Rückblick",
+      "text": "Schau zurück, wie die Begriffe auseinander hervorgegangen sind:",
+      "explanation": "1. Integral = Grenzwert von Riemann-Summen = Fläche mit Vorzeichen.\n\n2. Linearität, Intervalladditivität, Abschätzungen, Mittelwert. Keine Produktregel!\n\n3. Hauptsatz: \\(A'(x) = f(x)\\), also \\(\\int_a^b f\\,dx = F(b) - F(a)\\). Stammfunktionen bis auf \\(+ C\\). Nicht jede Funktion hat eine elementare Stammfunktion.\n\n4. Substitution = Kettenregel rückwärts. Grenzen mit umrechnen.\n\n5. Partielle Integration = Produktregel rückwärts. Partialbrüche für rationale Funktionen.\n\n6. Uneigentliche Integrale als Grenzwerte: \\(\\int_1^\\infty \\frac{dx}{x^s}\\) endlich für \\(s > 1\\), \\(\\int_0^1 \\frac{dx}{x^s}\\) für \\(s < 1\\).\n\n7. Anwendungen: Flächen zwischen Kurven, Volumen, Arbeit, Bestand aus Änderungsrate.",
+      "insight": "Glückwunsch! In der „Mehrdimensionalen Analysis“ geht es weiter mit Funktionen von mehreren Variablen – mit Ableitungen in viele Richtungen und Integralen über Flächen."
+    }
+  ]
+}

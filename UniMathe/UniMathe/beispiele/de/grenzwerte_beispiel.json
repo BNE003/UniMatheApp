@@ -1,179 +1,191 @@
-{    "id": "aa0e8400-e29b-41d4-a716-446655440031",
-    "topic": "Grenzwerte",
-    "steps": [
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440032",
-            "text": "Der Grenzwert einer Folge beschreibt ihr Verhalten für große n.",
-            "formula": "\\lim_{n \\to \\infty} a_n = a \\quad \\Leftrightarrow \\quad \\forall \\varepsilon > 0 \\, \\exists N \\in \\mathbb{N} \\, \\forall n \\geq N: |a_n - a| < \\varepsilon",
-            "explanation": "Der Grenzwert einer Folge ist wie ein Ziel, dem sich die Folge immer mehr annähert. Es ist wie ein Punkt, den man nie ganz erreicht, aber beliebig nahe kommen kann!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440033",
-            "text": "Der Grenzwert einer Funktion für x gegen einen Wert a.",
-            "formula": "\\lim_{x \\to a} f(x) = L \\quad \\Leftrightarrow \\quad \\forall \\varepsilon > 0 \\, \\exists \\delta > 0 \\, \\forall x: 0 < |x-a| < \\delta \\Rightarrow |f(x)-L| < \\varepsilon",
-            "explanation": "Der Grenzwert einer Funktion beschreibt ihr Verhalten in der Nähe eines Punktes. Es ist wie das Beobachten einer Funktion durch ein immer stärkeres Mikroskop!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440034",
-            "text": "Einseitige Grenzwerte untersuchen das Verhalten von links und rechts.",
-            "formula": "\\lim_{x \\to a^-} f(x) \\quad \\text{und} \\quad \\lim_{x \\to a^+} f(x)",
-            "explanation": "Einseitige Grenzwerte sind wie das Betrachten einer Funktion von zwei verschiedenen Seiten. Es ist wie das Annähern an eine Wand von links und rechts!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440035",
-            "text": "Grenzwerte im Unendlichen beschreiben das Verhalten für große x.",
-            "formula": "\\lim_{x \\to \\infty} f(x) \\quad \\text{und} \\quad \\lim_{x \\to -\\infty} f(x)",
-            "explanation": "Grenzwerte im Unendlichen sind wie das Beobachten einer Funktion aus großer Entfernung. Es ist wie das Betrachten eines Weges, der in der Ferne verschwindet!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440036",
-            "text": "Die Grenzwertsätze für Summen und Produkte.",
-            "formula": "\\begin{align*} \\lim (f + g) &= \\lim f + \\lim g \\\\ \\lim (f \\cdot g) &= \\lim f \\cdot \\lim g \\end{align*}",
-            "explanation": "Die Grenzwertsätze erlauben uns, Grenzwerte zu berechnen. Es ist wie das Zerlegen eines komplexen Problems in einfachere Teile!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440037",
-            "text": "Der Sandwich-Satz (Einschnürungssatz) für Grenzwerte.",
-            "formula": "\\text{Wenn } f(x) \\leq g(x) \\leq h(x) \\text{ und } \\lim f(x) = \\lim h(x) = L, \\text{ dann } \\lim g(x) = L",
-            "explanation": "Der Sandwich-Satz ist wie das Einquetschen einer Funktion zwischen zwei anderen. Es ist wie das Festhalten einer Funktion zwischen zwei Grenzen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440038",
-            "text": "Unbestimmte Ausdrücke erfordern spezielle Behandlung.",
-            "formula": "\\frac{0}{0}, \\quad \\frac{\\infty}{\\infty}, \\quad 0 \\cdot \\infty, \\quad \\infty - \\infty, \\quad 0^0, \\quad \\infty^0, \\quad 1^\\infty",
-            "explanation": "Unbestimmte Ausdrücke sind wie mathematische Rätsel, die eine besondere Lösung erfordern. Es ist wie das Lösen eines kniffligen Puzzles!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440039",
-            "text": "Die Regel von L'Hôpital für unbestimmte Ausdrücke.",
-            "formula": "\\lim_{x \\to a} \\frac{f(x)}{g(x)} = \\lim_{x \\to a} \\frac{f'(x)}{g'(x)}",
-            "explanation": "Die Regel von L'Hôpital ist wie ein Zaubertrick für unbestimmte Ausdrücke. Es ist wie das Umwandeln eines schwierigen Problems in ein einfacheres!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440040",
-            "text": "Der Zusammenhang zwischen Grenzwerten von Folgen und Funktionen.",
-            "formula": "\\lim_{x \\to a} f(x) = L \\quad \\Leftrightarrow \\quad \\lim_{n \\to \\infty} f(x_n) = L \\text{ für alle Folgen } (x_n) \\text{ mit } \\lim_{n \\to \\infty} x_n = a",
-            "explanation": "Der Zusammenhang zeigt uns, dass Grenzwerte von Funktionen und Folgen eng verwandt sind. Es ist wie das Betrachten desselben Phänomens aus verschiedenen Perspektiven!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440041",
-            "text": "Grenzwerte von Potenzfunktionen.",
-            "formula": "\\lim_{x \\to \\infty} x^n = \\begin{cases} \\infty & \\text{für } n > 0 \\\\ 1 & \\text{für } n = 0 \\\\ 0 & \\text{für } n < 0 \\end{cases}",
-            "explanation": "Potenzfunktionen haben unterschiedliches Verhalten im Unendlichen. Es ist wie das Beobachten verschiedener Wachstumsraten!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440042",
-            "text": "Grenzwerte von Exponentialfunktionen.",
-            "formula": "\\lim_{x \\to \\infty} e^x = \\infty, \\quad \\lim_{x \\to -\\infty} e^x = 0",
-            "explanation": "Die Exponentialfunktion wächst schneller als jede Potenzfunktion. Es ist wie ein Rennen, bei dem die Exponentialfunktion immer gewinnt!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440043",
-            "text": "Grenzwerte von Logarithmusfunktionen.",
-            "formula": "\\lim_{x \\to \\infty} \\ln x = \\infty, \\quad \\lim_{x \\to 0^+} \\ln x = -\\infty",
-            "explanation": "Der Logarithmus wächst langsamer als jede Potenzfunktion. Es ist wie ein langsamer, aber stetiger Aufstieg!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440044",
-            "text": "Grenzwerte von trigonometrischen Funktionen.",
-            "formula": "\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1, \\quad \\lim_{x \\to 0} \\frac{1-\\cos x}{x} = 0",
-            "explanation": "Die trigonometrischen Funktionen haben interessante Grenzwerte bei 0. Es ist wie das Beobachten von Schwingungen in der Nähe des Ursprungs!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440045",
-            "text": "Grenzwerte von Hyperbelfunktionen.",
-            "formula": "\\lim_{x \\to \\infty} \\sinh x = \\infty, \\quad \\lim_{x \\to \\infty} \\cosh x = \\infty",
-            "explanation": "Die Hyperbelfunktionen wachsen exponentiell. Es ist wie das Beobachten von Funktionen, die immer schneller wachsen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440046",
-            "text": "Grenzwerte von Arkusfunktionen.",
-            "formula": "\\lim_{x \\to \\infty} \\arctan x = \\frac{\\pi}{2}, \\quad \\lim_{x \\to -\\infty} \\arctan x = -\\frac{\\pi}{2}",
-            "explanation": "Die Arkusfunktionen haben endliche Grenzwerte im Unendlichen. Es ist wie das Beobachten von Funktionen, die sich einem festen Wert nähern!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440047",
-            "text": "Grenzwerte von Areafunktionen.",
-            "formula": "\\lim_{x \\to \\infty} \\text{arsinh } x = \\infty, \\quad \\lim_{x \\to \\infty} \\text{arcosh } x = \\infty",
-            "explanation": "Die Areafunktionen wachsen logarithmisch. Es ist wie das Beobachten von Funktionen, die langsam aber stetig wachsen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440048",
-            "text": "Grenzwerte von Quotienten aus Polynomen.",
-            "formula": "\\lim_{x \\to \\infty} \\frac{a_n x^n + ... + a_0}{b_m x^m + ... + b_0} = \\begin{cases} \\frac{a_n}{b_m} & \\text{für } n = m \\\\ 0 & \\text{für } n < m \\\\ \\pm \\infty & \\text{für } n > m \\end{cases}",
-            "explanation": "Die Grenzwerte von Polynomquotienten hängen vom Verhältnis der höchsten Potenzen ab. Es ist wie das Vergleichen der Wachstumsraten!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440049",
-            "text": "Grenzwerte von Wurzelfunktionen.",
-            "formula": "\\lim_{x \\to \\infty} \\sqrt[n]{x} = \\infty, \\quad \\lim_{x \\to 0^+} \\sqrt[n]{x} = 0",
-            "explanation": "Wurzelfunktionen wachsen langsamer als lineare Funktionen. Es ist wie das Beobachten von Funktionen, die sich langsam dem Unendlichen nähern!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440050",
-            "text": "Grenzwerte von Potenzen mit veränderlicher Basis.",
-            "formula": "\\lim_{x \\to \\infty} (1 + \\frac{1}{x})^x = e",
-            "explanation": "Diese Grenzwertbeziehung führt zur Eulerschen Zahl. Es ist wie das Entdecken einer magischen Zahl in der Mathematik!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440051",
-            "text": "Grenzwerte von Produkten mit veränderlichen Faktoren.",
-            "formula": "\\lim_{x \\to 0} \\frac{\\sin x}{x} \\cdot \\frac{1-\\cos x}{x} = 0",
-            "explanation": "Die Grenzwerte von Produkten können durch die Grenzwerte der Faktoren bestimmt werden. Es ist wie das Zerlegen eines komplexen Problems!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440052",
-            "text": "Grenzwerte von Differenzen.",
-            "formula": "\\lim_{x \\to \\infty} (\\sqrt{x+1} - \\sqrt{x}) = 0",
-            "explanation": "Die Grenzwerte von Differenzen können durch Umformungen berechnet werden. Es ist wie das Vereinfachen eines komplizierten Ausdrucks!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440053",
-            "text": "Grenzwerte von Quotienten mit Wurzeln.",
-            "formula": "\\lim_{x \\to \\infty} \\frac{\\sqrt{x^2+1} - x}{x} = 0",
-            "explanation": "Die Grenzwerte von Quotienten mit Wurzeln erfordern oft geschickte Umformungen. Es ist wie das Lösen eines mathematischen Rätsels!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440054",
-            "text": "Grenzwerte von Funktionen mit Absolutbetrag.",
-            "formula": "\\lim_{x \\to 0} \\frac{|x|}{x} \\text{ existiert nicht}",
-            "explanation": "Funktionen mit Absolutbetrag können unterschiedliches Verhalten von links und rechts zeigen. Es ist wie das Beobachten einer Funktion an einer Ecke!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440055",
-            "text": "Grenzwerte von Funktionen mit Sprungstellen.",
-            "formula": "\\lim_{x \\to 0} \\text{sgn}(x) \\text{ existiert nicht}",
-            "explanation": "Funktionen mit Sprungstellen haben oft keinen Grenzwert an der Sprungstelle. Es ist wie das Beobachten einer Funktion an einer Kante!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440056",
-            "text": "Grenzwerte von Funktionen mit Polstellen.",
-            "formula": "\\lim_{x \\to 0} \\frac{1}{x} = \\infty",
-            "explanation": "Funktionen mit Polstellen haben oft unendliche Grenzwerte. Es ist wie das Beobachten einer Funktion, die über alle Grenzen wächst!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440057",
-            "text": "Grenzwerte von Funktionen mit hebbaren Unstetigkeiten.",
-            "formula": "\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1",
-            "explanation": "Hebbare Unstetigkeiten können durch Grenzwerte behoben werden. Es ist wie das Flicken eines Lochs in einer Funktion!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440058",
-            "text": "Grenzwerte von Funktionen mit oszillierendem Verhalten.",
-            "formula": "\\lim_{x \\to \\infty} \\sin x \\text{ existiert nicht}",
-            "explanation": "Funktionen mit oszillierendem Verhalten haben oft keinen Grenzwert. Es ist wie das Beobachten einer Funktion, die ständig hin und her schwingt!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440059",
-            "text": "Grenzwerte von Funktionen mit asymptotischem Verhalten.",
-            "formula": "\\lim_{x \\to \\infty} \\frac{x^2+1}{x} = \\infty",
-            "explanation": "Funktionen können sich asymptotisch einer Geraden nähern. Es ist wie das Beobachten einer Funktion, die sich einer Grenze nähert!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440060",
-            "text": "Zum Schluss schauen wir uns an, wie Grenzwerte in der Physik verwendet werden.",
-            "formula": "\\text{Grenzwerte werden verwendet, um momentane Änderungsraten zu beschreiben}",
-            "explanation": "In der Physik helfen uns Grenzwerte, Geschwindigkeiten und Beschleunigungen zu verstehen. Es ist wie das Übersetzen mathematischer Konzepte in die Sprache der Natur!"
-        }
-    ]
-} 
+{
+  "id": "aa0e8400-e29b-41d4-a716-446655440031",
+  "topic": "Grenzwerte",
+  "steps": [
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440001",
+      "section": "Kapitel 1 · Die Idee",
+      "text": "Willkommen! In „Folgen und Reihen“ ging es um \\(n \\to \\infty\\). Jetzt fragen wir: Was macht eine Funktion \\(f(x)\\), wenn \\(x\\) sich einer Stelle \\(a\\) nähert? Diese Frage steckt hinter Stetigkeit, Ableitung und Integral.",
+      "explanation": "Unser Fahrplan:\n1. Die Idee an einem Beispiel mit „Loch“\n2. Die Definition: über Folgen und mit \\(\\varepsilon\\) und \\(\\delta\\)\n3. Einseitige Grenzwerte, Grenzwerte im Unendlichen, Polstellen\n4. Rechentechniken: Kürzen, Erweitern, Sandwich\n5. Wichtige Grenzwerte und die Wachstumshierarchie\n6. Stetigkeit, Zwischenwertsatz, Extremwertsatz\n7. Typische Fehler und Rückblick",
+      "insight": "Du brauchst „Folgen und Reihen“, vor allem den Begriff der konvergenten Folge."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440002",
+      "section": "Kapitel 1 · Die Idee",
+      "text": "Ein Beispiel, das die Idee zeigt: \\(f(x) = \\frac{x^2 - 1}{x - 1}\\). An der Stelle \\(x = 1\\) entsteht \\(\\frac{0}{0}\\) – der Ausdruck ist dort nicht definiert. Was passiert in der Nähe?",
+      "visual": "removableHole",
+      "formula": "\\begin{array}{c|c} x & f(x) \\\\ \\hline 0{,}9 & 1{,}9 \\\\ 0{,}99 & 1{,}99 \\\\ 0{,}999 & 1{,}999 \\\\ \\hline 1{,}001 & 2{,}001 \\\\ 1{,}01 & 2{,}01 \\\\ 1{,}1 & 2{,}1 \\end{array}",
+      "explanation": "Die Werte nähern sich von beiden Seiten der \\(2\\).\n\nDer Grund: Für \\(x \\neq 1\\) kann man kürzen: \\(\\frac{x^2 - 1}{x - 1} = \\frac{(x + 1)(x - 1)}{x - 1} = x + 1\\). Der Graph ist die Gerade \\(y = x + 1\\) – mit einem Loch bei \\(x = 1\\).\n\nWir schreiben \\(\\lim_{x \\to 1} f(x) = 2\\), obwohl \\(f(1)\\) gar nicht existiert.",
+      "insight": "Der Grenzwert fragt nicht, was AN der Stelle passiert, sondern was in ihrer NÄHE passiert. \\(f(a)\\) muss dafür nicht einmal definiert sein."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440003",
+      "section": "Kapitel 2 · Die Definition",
+      "text": "Erste Definition, über Folgen: \\(f\\) hat bei \\(a\\) den Grenzwert \\(L\\), wenn jede Folge, die gegen \\(a\\) strebt, Funktionswerte liefert, die gegen \\(L\\) streben.",
+      "formula": "\\begin{array}{c} \\lim_{x \\to a} f(x) = L \\\\[4pt] :\\iff \\text{für JEDE Folge } x_n \\to a \\text{ mit } x_n \\neq a \\text{ gilt } f(x_n) \\to L \\end{array}",
+      "explanation": "Damit wird der neue Begriff auf den bekannten Folgengrenzwert zurückgeführt.\n\nWichtig ist „jede Folge“: Ein paar ausgewählte Folgen reichen nicht. Umgekehrt genügen ZWEI Folgen mit verschiedenen Grenzwerten, um zu zeigen, dass kein Grenzwert existiert.\n\nBeispiel: \\(f(x) = \\sin\\frac{1}{x}\\) bei \\(a = 0\\).\n• \\(x_n = \\frac{1}{n\\pi} \\to 0\\) liefert \\(f(x_n) = \\sin(n\\pi) = 0\\).\n• \\(y_n = \\frac{1}{2n\\pi + \\pi/2} \\to 0\\) liefert \\(f(y_n) = 1\\).\nZwei verschiedene Grenzwerte – also existiert \\(\\lim_{x \\to 0} \\sin\\frac{1}{x}\\) nicht.",
+      "insight": "Die Bedingung \\(x_n \\neq a\\) sorgt dafür, dass der Wert \\(f(a)\\) selbst keine Rolle spielt."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440004",
+      "section": "Kapitel 2 · Die Definition",
+      "text": "Gleichwertig ist die ε-δ-Definition. Sie überträgt das „Schlauch-Spiel“ aus der Folgen-Lektion auf Funktionen:",
+      "formula": "\\begin{array}{c} \\lim_{x \\to a} f(x) = L \\\\[4pt] :\\iff \\text{zu jedem } \\varepsilon > 0 \\text{ gibt es ein } \\delta > 0 \\text{ mit} \\\\ 0 < |x - a| < \\delta \\;\\Rightarrow\\; |f(x) - L| < \\varepsilon \\end{array}",
+      "explanation": "Als Spiel:\n1. Jemand gibt eine Genauigkeit \\(\\varepsilon\\) für die Funktionswerte vor (ein waagerechter Streifen um \\(L\\)).\n2. Du musst einen Abstand \\(\\delta\\) finden (einen senkrechten Streifen um \\(a\\)),\n3. sodass ALLE \\(x\\) in diesem Streifen (außer \\(a\\) selbst) Funktionswerte im \\(\\varepsilon\\)-Streifen haben.\n\n„Nah genug an \\(a\\)“ garantiert also „beliebig nah an \\(L\\)“.",
+      "insight": "\\(\\delta\\) hängt von \\(\\varepsilon\\) ab: Je genauer die Forderung an \\(f(x)\\), desto näher muss \\(x\\) an \\(a\\) liegen."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440005",
+      "section": "Kapitel 2 · Die Definition",
+      "text": "Ein Beweis mit ε und δ: \\(\\lim_{x \\to 2} (3x - 1) = 5\\).",
+      "formula": "\\begin{aligned} |f(x) - 5| &= |3x - 6| = 3\\,|x - 2| \\\\[4pt] 3\\,|x - 2| < \\varepsilon \\;&\\iff\\; |x - 2| < \\frac{\\varepsilon}{3} \\\\[4pt] \\text{Wähle } \\delta &= \\frac{\\varepsilon}{3} \\end{aligned}",
+      "explanation": "Vorgehen wie bei Folgen:\n1. Den Abstand \\(|f(x) - L|\\) so umformen, dass \\(|x - a|\\) sichtbar wird.\n2. Ablesen, wie klein \\(|x - a|\\) sein muss.\n\nProbe: Für \\(\\varepsilon = 0{,}3\\) ist \\(\\delta = 0{,}1\\). Liegt \\(x\\) zwischen \\(1{,}9\\) und \\(2{,}1\\), liegt \\(3x - 1\\) zwischen \\(4{,}7\\) und \\(5{,}3\\) ✓\n\nBei Geraden ist \\(\\delta\\) einfach \\(\\varepsilon\\) geteilt durch den Betrag der Steigung: Eine steilere Gerade braucht ein kleineres \\(\\delta\\).",
+      "insight": "In der Praxis berechnet man Grenzwerte mit Rechenregeln. Die ε-δ-Technik braucht man, um diese Regeln zu begründen – und für Beweise in Vorlesung und Klausur."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440006",
+      "section": "Kapitel 3 · Einseitige und uneigentliche Grenzwerte",
+      "text": "Manchmal nähert man sich nur von einer Seite. Einseitige Grenzwerte schreibt man so:",
+      "formula": "\\begin{array}{c} \\lim_{x \\to a^-} f(x) \\;\\; \\text{(von links, } x < a) \\qquad \\lim_{x \\to a^+} f(x) \\;\\; \\text{(von rechts, } x > a) \\\\[8pt] \\lim_{x \\to 0^-} \\frac{|x|}{x} = -1, \\qquad \\lim_{x \\to 0^+} \\frac{|x|}{x} = 1 \\end{array}",
+      "explanation": "Für \\(x > 0\\) ist \\(|x| = x\\), also \\(\\frac{|x|}{x} = 1\\). Für \\(x < 0\\) ist \\(|x| = -x\\), also \\(\\frac{|x|}{x} = -1\\). Der Graph springt bei \\(0\\).\n\nSatz: Der (beidseitige) Grenzwert existiert genau dann, wenn beide einseitigen Grenzwerte existieren und gleich sind.\n\nHier sind sie verschieden – also existiert \\(\\lim_{x \\to 0} \\frac{|x|}{x}\\) nicht.",
+      "insight": "Bei Funktionen mit Fallunterscheidung (Betrag, abschnittsweise Definition) immer beide Seiten getrennt untersuchen."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440007",
+      "section": "Kapitel 3 · Einseitige und uneigentliche Grenzwerte",
+      "text": "Grenzwerte für \\(x \\to \\pm\\infty\\) beschreiben das Verhalten „ganz weit draußen“. Bei gebrochen-rationalen Funktionen entscheiden die Grade:",
+      "formula": "\\begin{aligned} \\lim_{x \\to \\infty} \\frac{2x^2 + 3}{5x^2 - x} &= \\frac{2}{5} \\\\[4pt] \\lim_{x \\to \\infty} \\frac{x + 1}{x^2} &= 0 \\\\[4pt] \\lim_{x \\to \\infty} \\frac{x^3}{x^2 + 1} &= \\infty \\end{aligned}",
+      "explanation": "Methode wie bei Folgen: durch die höchste Potenz des Nenners teilen. Beim ersten Beispiel:\n\\(\\frac{2x^2 + 3}{5x^2 - x} = \\frac{2 + \\frac{3}{x^2}}{5 - \\frac{1}{x}} \\to \\frac{2}{5}\\).\n\nGeometrisch bedeutet ein Grenzwert \\(L\\) für \\(x \\to \\infty\\): Die Gerade \\(y = L\\) ist eine waagerechte Asymptote. Im ersten Beispiel nähert sich der Graph der Geraden \\(y = 0{,}4\\).\n\nBeim dritten Beispiel ist der Zählergrad um 1 größer. Polynomdivision liefert \\(\\frac{x^3}{x^2 + 1} = x - \\frac{x}{x^2 + 1}\\) – der Graph nähert sich der schiefen Asymptote \\(y = x\\).",
+      "insight": "Die Gradregel gilt für \\(x \\to +\\infty\\) und \\(x \\to -\\infty\\) gleichermaßen, solange der Grenzwert endlich ist. Bei \\(\\pm\\infty\\) muss man die Vorzeichen getrennt prüfen."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440008",
+      "section": "Kapitel 3 · Einseitige und uneigentliche Grenzwerte",
+      "text": "An Polstellen wächst eine Funktion über alle Grenzen. Auch hier hilft die Unterscheidung von links und rechts:",
+      "formula": "\\begin{aligned} \\lim_{x \\to 0^+} \\frac{1}{x} &= +\\infty, & \\lim_{x \\to 0^-} \\frac{1}{x} &= -\\infty \\\\[4pt] \\lim_{x \\to 0^+} \\frac{1}{x^2} &= +\\infty, & \\lim_{x \\to 0^-} \\frac{1}{x^2} &= +\\infty \\end{aligned}",
+      "explanation": "Bei \\(\\frac{1}{x}\\) hängt das Vorzeichen davon ab, ob \\(x\\) klein positiv oder klein negativ ist: Pol mit Vorzeichenwechsel.\n\nBei \\(\\frac{1}{x^2}\\) ist der Nenner immer positiv: Pol ohne Vorzeichenwechsel. Hier darf man \\(\\lim_{x \\to 0} \\frac{1}{x^2} = \\infty\\) schreiben.\n\nRezept: Zähler \\(\\neq 0\\) und Nenner \\(\\to 0\\) ergibt eine Polstelle. Das Vorzeichen bestimmt man, indem man eine Zahl knapp neben der Stelle einsetzt.",
+      "insight": "Zähler UND Nenner gegen \\(0\\) (Typ „\\(\\frac{0}{0}\\)“) ist etwas ganz anderes – dann kann ein Loch wie im ersten Beispiel vorliegen. Erst kürzen, dann entscheiden."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440009",
+      "section": "Kapitel 4 · Rechentechniken",
+      "text": "Die Grenzwertsätze gelten auch für Funktionen. Ist \\(f\\) an der Stelle „harmlos“, setzt man einfach ein. Die eigentliche Arbeit beginnt bei unbestimmten Ausdrücken. Technik 1: Faktorisieren und kürzen.",
+      "formula": "\\begin{aligned} \\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2} &= \\lim_{x \\to 2} \\frac{(x - 2)(x + 2)}{x - 2} = \\lim_{x \\to 2} (x + 2) = 4 \\\\[6pt] \\lim_{x \\to 3} \\frac{x^2 - 5x + 6}{x^2 - 9} &= \\lim_{x \\to 3} \\frac{(x - 2)(x - 3)}{(x + 3)(x - 3)} = \\frac{1}{6} \\end{aligned}",
+      "explanation": "Steht beim Einsetzen „\\(\\frac{0}{0}\\)“ da, haben Zähler und Nenner eine gemeinsame Nullstelle \\(a\\). Nach der Lektion „Ringe“ enthalten dann beide den Faktor \\((x - a)\\) – den man kürzen kann.\n\nDanach ist der Ausdruck an der Stelle harmlos, und man darf einsetzen.\n\nKürzen ist erlaubt, weil der Grenzwert nur Werte mit \\(x \\neq a\\) betrachtet. Dort ist \\(\\frac{x - a}{x - a} = 1\\).",
+      "insight": "„\\(\\frac{0}{0}\\)“ ist kein Ergebnis, sondern ein Arbeitsauftrag: Finde den gemeinsamen Faktor."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440010",
+      "section": "Kapitel 4 · Rechentechniken",
+      "text": "Technik 2: Bei Wurzeln mit der dritten binomischen Formel erweitern.",
+      "formula": "\\begin{aligned} \\lim_{x \\to 0} \\frac{\\sqrt{1 + x} - 1}{x} &= \\lim_{x \\to 0} \\frac{(\\sqrt{1 + x} - 1)(\\sqrt{1 + x} + 1)}{x(\\sqrt{1 + x} + 1)} \\\\ &= \\lim_{x \\to 0} \\frac{x}{x(\\sqrt{1 + x} + 1)} = \\frac{1}{2} \\\\[6pt] \\lim_{x \\to \\infty} \\left(\\sqrt{x + 1} - \\sqrt{x}\\right) &= \\lim_{x \\to \\infty} \\frac{1}{\\sqrt{x + 1} + \\sqrt{x}} = 0 \\end{aligned}",
+      "explanation": "Erstes Beispiel: Im Zähler entsteht \\((1 + x) - 1 = x\\), das sich gegen das \\(x\\) im Nenner kürzt.\n\nZweites Beispiel: Typ „\\(\\infty - \\infty\\)“. Nach dem Erweitern steht im Zähler \\((x + 1) - x = 1\\), im Nenner etwas sehr Großes.\n\nBeide Tricks kennst du aus der Lektion „Binomische Formeln“ (Wurzeln aus dem Nenner bringen).",
+      "insight": "Muster: Differenz von Wurzeln → mit der Summe erweitern. Die Wurzeln verschwinden aus dem kritischen Teil."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440011",
+      "section": "Kapitel 4 · Rechentechniken",
+      "text": "Technik 3: der Sandwich-Satz. Er funktioniert für Funktionen genauso wie für Folgen.",
+      "visual": "squeeze",
+      "formula": "\\begin{array}{c} -|x| \\le x \\sin\\tfrac{1}{x} \\le |x| \\\\[6pt] \\lim_{x \\to 0} (-|x|) = \\lim_{x \\to 0} |x| = 0 \\;\\;\\Longrightarrow\\;\\; \\lim_{x \\to 0} x \\sin\\tfrac{1}{x} = 0 \\end{array}",
+      "explanation": "\\(\\sin\\frac{1}{x}\\) allein hat bei \\(0\\) keinen Grenzwert (siehe Kapitel 2). Multipliziert mit \\(x\\) wird die Schwingung aber „zusammengedrückt“.\n\nAllgemeines Muster: beschränkte Funktion mal Funktion mit Grenzwert \\(0\\) ergibt Grenzwert \\(0\\).\n\nWeitere Beispiele: \\(\\lim_{x \\to \\infty} \\frac{\\cos x}{x} = 0\\), \\(\\lim_{x \\to 0} x^2 \\sin\\frac{1}{x^2} = 0\\).",
+      "insight": "Die Grenzwertsätze helfen hier nicht, weil \\(\\sin\\frac{1}{x}\\) keinen Grenzwert hat. Genau für solche Fälle gibt es den Sandwich-Satz."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440012",
+      "section": "Kapitel 5 · Wichtige Grenzwerte",
+      "text": "Der wichtigste trigonometrische Grenzwert. Ein Taschenrechner (im Bogenmaß) zeigt: \\(\\frac{\\sin 0{,}1}{0{,}1} \\approx 0{,}99833\\), \\(\\frac{\\sin 0{,}01}{0{,}01} \\approx 0{,}99998\\).",
+      "formula": "\\begin{array}{c} \\lim_{x \\to 0} \\dfrac{\\sin x}{x} = 1 \\\\[8pt] \\cos x \\le \\dfrac{\\sin x}{x} \\le 1 \\quad \\text{für } 0 < |x| < \\tfrac{\\pi}{2} \\end{array}",
+      "explanation": "Die Ungleichung folgt am Einheitskreis aus einem Flächenvergleich: Für einen Winkel \\(x\\) ist das Dreieck mit Fläche \\(\\frac{\\sin x}{2}\\) kleiner als der Kreissektor mit Fläche \\(\\frac{x}{2}\\), und dieser kleiner als das Dreieck mit Fläche \\(\\frac{\\tan x}{2}\\). Umformen ergibt die Zeile oben.\n\nWeil \\(\\cos x \\to 1\\), liefert der Sandwich-Satz den Grenzwert \\(1\\).\n\nAnschaulich: Für kleine Winkel ist \\(\\sin x \\approx x\\). Das benutzt man z. B. beim Pendel (kleine Auslenkungen) und in der Optik.",
+      "insight": "Gilt nur im Bogenmaß! In Grad wäre der Grenzwert \\(\\frac{\\pi}{180}\\). Deshalb rechnet die Analysis immer im Bogenmaß."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440013",
+      "section": "Kapitel 5 · Wichtige Grenzwerte",
+      "text": "Daraus folgen weitere Grenzwerte durch geschickte Umformung, z. B. für \\(1 - \\cos x\\):",
+      "formula": "\\begin{aligned} \\frac{1 - \\cos x}{x^2} &= \\frac{(1 - \\cos x)(1 + \\cos x)}{x^2 (1 + \\cos x)} = \\frac{\\sin^2 x}{x^2} \\cdot \\frac{1}{1 + \\cos x} \\\\[6pt] &\\to 1^2 \\cdot \\frac{1}{2} = \\frac{1}{2} \\quad (x \\to 0) \\end{aligned}",
+      "explanation": "Wieder die dritte binomische Formel: \\((1 - \\cos x)(1 + \\cos x)\\) \\(= 1 - \\cos^2 x\\) \\(= \\sin^2 x\\).\n\nDanach zerfällt der Ausdruck in Faktoren, deren Grenzwerte bekannt sind.\n\nFolgerung: Für kleine \\(x\\) gilt \\(\\cos x \\approx 1 - \\frac{x^2}{2}\\). Das ist der Anfang der Taylor-Reihe des Kosinus.",
+      "insight": "Unbekannte Grenzwerte auf bekannte zurückführen – das ist die wichtigste Fähigkeit in diesem Kapitel."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440014",
+      "section": "Kapitel 5 · Wichtige Grenzwerte",
+      "text": "Ein unverzichtbares Werkzeug: die Wachstumshierarchie. Für \\(x \\to \\infty\\) gewinnt immer die Funktion weiter rechts:",
+      "formula": "\\begin{array}{c} \\ln x \\;\\ll\\; x^a \\;\\ll\\; e^x \\qquad (a > 0) \\\\[8pt] \\lim_{x \\to \\infty} \\dfrac{\\ln x}{x} = 0, \\qquad \\lim_{x \\to \\infty} \\dfrac{x^{10}}{e^x} = 0, \\qquad \\lim_{x \\to 0^+} x \\ln x = 0 \\end{array}",
+      "explanation": "„\\(f \\ll g\\)“ heißt: \\(\\frac{f(x)}{g(x)} \\to 0\\) für \\(x \\to \\infty\\).\n\nZahlen machen es greifbar: Für \\(x = 100\\) ist \\(\\ln x \\approx 4{,}6\\), \\(x^2 = 10^4\\), \\(e^x \\approx 2{,}7 \\cdot 10^{43}\\).\n\nDas dritte Beispiel ist Typ „\\(0 \\cdot (-\\infty)\\)“. Mit \\(x = \\frac{1}{t}\\) wird daraus \\(-\\frac{\\ln t}{t} \\to 0\\) für \\(t \\to \\infty\\). Die Potenz \\(x\\) gewinnt gegen den Logarithmus.",
+      "insight": "Die Hierarchie entscheidet viele Klausuraufgaben in einer Zeile. Begründen kann man sie später elegant mit der Regel von L'Hospital (Lektion „Differentialrechnung“)."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440015",
+      "section": "Kapitel 5 · Wichtige Grenzwerte",
+      "text": "Und noch ein Grenzwert vom Typ „\\(1^\\infty\\)“, der die Eulersche Zahl liefert – jetzt für Funktionen:",
+      "formula": "\\lim_{x \\to \\infty} \\left(1 + \\frac{1}{x}\\right)^x = e, \\qquad \\lim_{x \\to \\infty} \\left(1 + \\frac{a}{x}\\right)^x = e^a",
+      "explanation": "Die erste Formel kennst du für Folgen. Die zweite folgt durch Substitution \\(x = a \\cdot t\\):\n\\(\\left(1 + \\frac{a}{at}\\right)^{at}\\) \\(= \\left(\\left(1 + \\frac{1}{t}\\right)^t\\right)^a \\to e^a\\) (für \\(a > 0\\)).\n\nAnwendung: Wachstum mit stetiger Verzinsung. Bei \\(5\\,\\%\\) Jahreszins und immer kürzeren Zinsperioden wächst ein Kapital in einem Jahr auf \\(e^{0{,}05} \\approx 1{,}0513\\) – also effektiv \\(5{,}13\\,\\%\\).",
+      "insight": "„\\(1^\\infty\\)“ ist unbestimmt: Hier kommt \\(e^a\\) heraus, je nach Geschwindigkeit von Basis und Exponent. Niemals einfach „\\(= 1\\)“ schreiben!"
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440016",
+      "section": "Kapitel 5 · Wichtige Grenzwerte",
+      "text": "Beispielsammlung: Funktionsgrenzwerte. Jedes Beispiel benutzt eine andere Technik.",
+      "formula": "\\begin{array}{ll} \\text{a)} & \\lim_{x \\to 0} \\dfrac{\\sin 3x}{x} \\\\[8pt] \\text{b)} & \\lim_{x \\to \\infty} \\left(\\sqrt{x^2 + x} - x\\right) \\\\[8pt] \\text{c)} & \\lim_{x \\to \\infty} x \\sin\\dfrac{1}{x} \\\\[8pt] \\text{d)} & \\lim_{x \\to 1} \\dfrac{x^3 - 1}{x - 1} \\\\[8pt] \\text{e)} & \\lim_{x \\to 0^+} \\dfrac{1}{x} - \\dfrac{1}{x^2} \\end{array}",
+      "explanation": "a) Erweitern mit 3: \\(3 \\cdot \\frac{\\sin 3x}{3x}\\). Mit \\(u = 3x \\to 0\\) ist \\(\\frac{\\sin u}{u} \\to 1\\). Ergebnis: \\(3\\).\n\nb) Typ „\\(\\infty - \\infty\\)“, mit \\(\\sqrt{x^2 + x} + x\\) erweitern: \\(\\frac{x}{\\sqrt{x^2 + x} + x} = \\frac{1}{\\sqrt{1 + 1/x} + 1} \\to \\frac{1}{2}\\).\n\nc) Substitution \\(t = \\frac{1}{x} \\to 0^+\\): \\(\\frac{\\sin t}{t} \\to 1\\).\n\nd) Faktorisieren: \\(x^3 - 1 = (x - 1)(x^2 + x + 1)\\). Nach dem Kürzen einsetzen: \\(1 + 1 + 1 = 3\\).\n\ne) Auf einen Nenner: \\(\\frac{x - 1}{x^2}\\). Zähler \\(\\to -1\\), Nenner \\(\\to 0^+\\), also \\(\\to -\\infty\\).",
+      "insight": "Ein schneller Plausibilitätstest: Setze für \\(x\\) einen Wert nahe der Stelle ein (z. B. \\(0{,}001\\) oder \\(1000\\)) und vergleiche mit deinem Ergebnis."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440017",
+      "section": "Kapitel 6 · Stetigkeit",
+      "text": "Jetzt der wichtigste Anwendungsbegriff: Stetigkeit. Eine Funktion ist stetig an der Stelle \\(a\\), wenn Grenzwert und Funktionswert übereinstimmen.",
+      "formula": "f \\text{ stetig in } a \\quad :\\iff \\quad \\lim_{x \\to a} f(x) = f(a)",
+      "explanation": "In der Definition stecken DREI Bedingungen:\n1. \\(f(a)\\) existiert.\n2. \\(\\lim_{x \\to a} f(x)\\) existiert.\n3. Beide sind gleich.\n\nAnschaulich: Man kann den Graphen an dieser Stelle ohne Absetzen zeichnen.\n\nStetig sind: Polynome, \\(\\sin\\), \\(\\cos\\), \\(e^x\\), \\(\\ln x\\) (auf \\((0, \\infty)\\)), \\(\\sqrt{x}\\), und alle Summen, Produkte, Quotienten (wo der Nenner \\(\\neq 0\\)) und Verkettungen davon.\n\nFür stetige Funktionen darf man Grenzwerte durch Einsetzen berechnen – das ist der eigentliche Nutzen.",
+      "insight": "Für Grenzwertaufgaben heißt das: Erst prüfen, ob man einfach einsetzen darf. Nur bei Problemstellen („\\(\\frac{0}{0}\\)“, „\\(\\frac{1}{0}\\)“, …) braucht man Tricks."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440018",
+      "section": "Kapitel 6 · Stetigkeit",
+      "text": "Wie kann Stetigkeit scheitern? Es gibt vier typische Arten von Unstetigkeitsstellen:",
+      "visual": "continuityTypes",
+      "formula": "\\begin{array}{ll} \\text{hebbar:} & \\text{Grenzwert existiert, aber } \\neq f(a) \\text{ oder } f(a) \\text{ fehlt} \\\\ \\text{Sprung:} & \\text{einseitige Grenzwerte verschieden} \\\\ \\text{Polstelle:} & f(x) \\to \\pm\\infty \\\\ \\text{Oszillation:} & \\text{nicht einmal einseitige Grenzwerte} \\end{array}",
+      "explanation": "Beispiele:\n• hebbar: \\(\\frac{x^2 - 1}{x - 1}\\) bei \\(1\\). Setzt man \\(f(1) := 2\\), wird die Funktion stetig („Loch stopfen“). Ebenso \\(\\frac{\\sin x}{x}\\) bei \\(0\\) mit dem Wert \\(1\\).\n• Sprung: Vorzeichenfunktion bei \\(0\\).\n• Pol: \\(\\frac{1}{x}\\) bei \\(0\\).\n• Oszillation: \\(\\sin\\frac{1}{x}\\) bei \\(0\\).\n\nNur die hebbare Unstetigkeit lässt sich durch eine Festlegung beheben.",
+      "insight": "Achtung: \\(\\frac{1}{x}\\) ist auf ihrem Definitionsbereich \\(\\mathbb{R} \\setminus \\{0\\}\\) stetig! Die Stelle \\(0\\) gehört gar nicht dazu. „Unstetig bei 0“ ist streng genommen eine Aussage über eine Fortsetzung."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440019",
+      "section": "Kapitel 6 · Stetigkeit",
+      "text": "Eine typische Klausuraufgabe: Einen Parameter so wählen, dass eine abschnittsweise definierte Funktion stetig wird.",
+      "formula": "\\begin{aligned} f(x) &= \\begin{cases} x^2 & x \\le 1 \\\\ a x - 1 & x > 1 \\end{cases} \\\\[6pt] \\lim_{x \\to 1^-} f(x) &= 1, \\qquad \\lim_{x \\to 1^+} f(x) = a - 1 \\\\[4pt] \\text{stetig} \\;&\\iff\\; a - 1 = 1 \\;\\iff\\; a = 2 \\end{aligned}",
+      "explanation": "Beide Teilfunktionen sind für sich stetig (Polynome). Kritisch ist nur die Nahtstelle \\(x = 1\\).\n\nDort muss gelten: linksseitiger Grenzwert = rechtsseitiger Grenzwert = Funktionswert. Der Funktionswert ist \\(f(1) = 1^2 = 1\\) (die Stelle gehört zum ersten Fall).\n\nFür \\(a = 2\\) passen die Stücke ohne Sprung zusammen. Für jedes andere \\(a\\) entsteht eine Sprungstelle.\n\nErweiterung: Will man zusätzlich Differenzierbarkeit, müssen auch die Steigungen übereinstimmen: \\(2x = 2\\) links und \\(a = 2\\) rechts – hier passt das sogar.",
+      "insight": "Bei abschnittsweise definierten Funktionen sind nur die Nahtstellen interessant. Dort einseitige Grenzwerte getrennt berechnen."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440020",
+      "section": "Kapitel 6 · Stetigkeit",
+      "text": "Stetige Funktionen haben eine anschaulich klare, aber mächtige Eigenschaft: den Zwischenwertsatz.",
+      "formula": "\\begin{array}{c} f \\text{ stetig auf } [a, b],\\; f(a) < 0 < f(b) \\\\[2pt] \\Downarrow \\\\[2pt] \\text{es gibt ein } \\xi \\in (a, b) \\text{ mit } f(\\xi) = 0 \\end{array}",
+      "explanation": "Wer von unterhalb der x-Achse nach oberhalb will, ohne abzusetzen, muss sie kreuzen.\n\nAnwendung: Hat \\(x^3 + x - 1 = 0\\) eine Lösung? \\(f(0) = -1 < 0\\) und \\(f(1) = 1 > 0\\). Also liegt eine Nullstelle in \\((0, 1)\\).\n\nDas Bisektionsverfahren findet sie, indem es das Intervall immer halbiert:\n• \\(f(0{,}5) = -0{,}375 < 0\\) → Nullstelle in \\([0{,}5;\\ 1]\\)\n• \\(f(0{,}75) \\approx 0{,}17 > 0\\) → in \\([0{,}5;\\ 0{,}75]\\)\n• \\(f(0{,}625) \\approx -0{,}13 < 0\\) → in \\([0{,}625;\\ 0{,}75]\\)\nDie Nullstelle ist \\(\\xi \\approx 0{,}6823\\).",
+      "insight": "Der Satz sagt nur, DASS es eine Nullstelle gibt, nicht wo. Das Bisektionsverfahren macht daraus einen Algorithmus – mit garantierter Konvergenz."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440021",
+      "section": "Kapitel 6 · Stetigkeit",
+      "text": "Eine zweite Eigenschaft stetiger Funktionen: der Satz vom Maximum und Minimum (Extremwertsatz).",
+      "formula": "\\begin{array}{c} f \\text{ stetig auf dem abgeschlossenen Intervall } [a, b] \\\\[2pt] \\Downarrow \\\\[2pt] f \\text{ nimmt auf } [a, b] \\text{ ein Maximum und ein Minimum an} \\end{array}",
+      "explanation": "Beide Voraussetzungen sind nötig:\n• Nicht abgeschlossen: \\(f(x) = \\frac{1}{x}\\) auf \\((0, 1]\\) ist stetig, aber unbeschränkt – kein Maximum.\n• Nicht abgeschlossen: \\(f(x) = x\\) auf \\((0, 1)\\) hat weder Maximum noch Minimum; die Werte kommen \\(0\\) und \\(1\\) nur beliebig nahe.\n• Nicht stetig: Eine Funktion mit Sprung kann ihr „Maximum“ knapp verfehlen.\n\nDieser Satz garantiert, dass Optimierungsaufgaben auf abgeschlossenen Intervallen immer eine Lösung haben. Wie man sie findet, zeigt die Differentialrechnung.",
+      "insight": "Zwischenwertsatz und Extremwertsatz sind Existenzsätze. Sie sind die Grundlage dafür, dass Rechenverfahren überhaupt etwas finden können."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440022",
+      "section": "Kapitel 7 · Typische Fehler und Rückblick",
+      "text": "Die unbestimmten Ausdrücke im Überblick. Bei ihnen kann JEDES Ergebnis herauskommen – man muss umformen:",
+      "formula": "\\frac{0}{0}, \\quad \\frac{\\infty}{\\infty}, \\quad 0 \\cdot \\infty, \\quad \\infty - \\infty, \\quad 1^\\infty, \\quad 0^0, \\quad \\infty^0",
+      "explanation": "Beispiele für „\\(\\frac{0}{0}\\)“ mit ganz verschiedenen Ergebnissen:\n• \\(\\frac{x}{x} \\to 1\\)\n• \\(\\frac{x^2}{x} \\to 0\\)\n• \\(\\frac{x}{x^2} \\to \\infty\\) (für \\(x \\to 0^+\\))\n• \\(\\frac{\\sin x}{x} \\to 1\\)\n\nWerkzeuge: Kürzen, Erweitern, durch die höchste Potenz teilen, Sandwich, bekannte Grenzwerte, und (in der nächsten Lektion) L'Hospital.\n\nDagegen sind Ausdrücke wie „\\(\\frac{1}{\\infty} = 0\\)“, „\\(\\infty + \\infty = \\infty\\)“ oder „\\(\\frac{1}{0^+} = +\\infty\\)“ als Kurzschreibweise unproblematisch.",
+      "insight": "Typischer Fehler: „\\(\\infty - \\infty = 0\\)“ oder „\\(\\frac{\\infty}{\\infty} = 1\\)“. Für unbestimmte Ausdrücke gibt es keine Regel – nur Umformen hilft."
+    },
+    {
+      "id": "a20e8400-e29b-41d4-a716-446655440023",
+      "section": "Kapitel 7 · Typische Fehler und Rückblick",
+      "text": "Schau zurück, wie die Begriffe auseinander hervorgegangen sind:",
+      "explanation": "1. Grenzwert: Verhalten in der NÄHE von \\(a\\), unabhängig von \\(f(a)\\).\n\n2. Definition über Folgen (jede Folge \\(x_n \\to a\\)) oder mit \\(\\varepsilon\\) und \\(\\delta\\).\n\n3. Einseitig (\\(a^-\\), \\(a^+\\)), im Unendlichen (Asymptoten, Gradregel), Polstellen.\n\n4. Techniken: Kürzen bei „\\(\\frac{0}{0}\\)“, mit binomischer Formel erweitern, Sandwich.\n\n5. \\(\\frac{\\sin x}{x} \\to 1\\), \\(\\frac{1 - \\cos x}{x^2} \\to \\frac{1}{2}\\), \\(\\ln x \\ll x^a \\ll e^x\\), \\((1 + \\frac{a}{x})^x \\to e^a\\).\n\n6. Stetigkeit: \\(\\lim f(x) = f(a)\\). Hebbar, Sprung, Pol, Oszillation. Zwischenwertsatz (Bisektion) und Extremwertsatz (nur auf \\([a, b]\\)).\n\n7. Unbestimmte Ausdrücke: umformen, nie raten.",
+      "insight": "Glückwunsch! In der „Differentialrechnung“ wird der Grenzwert zum Werkzeug, mit dem man Steigungen exakt berechnet."
+    }
+  ]
+}

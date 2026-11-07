@@ -1,185 +1,225 @@
-{    "id": "aa0e8400-e29b-41d4-a716-446655440000",
-    "topic": "Differentialrechnung",
-    "steps": [
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440001",
-            "text": "Die Ableitung einer Funktion beschreibt ihre momentane Änderungsrate.",
-            "formula": "f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}",
-            "explanation": "Die Ableitung gibt uns die Steigung der Tangente an der Stelle x. Es ist wie das Messen der momentanen Geschwindigkeit eines Objekts!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440002",
-            "text": "Die Ableitungsregeln erlauben uns, Ableitungen zu berechnen.",
-            "formula": "\\begin{align*} (f + g)' &= f' + g' \\\\ (f \\cdot g)' &= f' \\cdot g + f \\cdot g' \\\\ \\left(\\frac{f}{g}\\right)' &= \\frac{f' \\cdot g - f \\cdot g'}{g^2} \\end{align*}",
-            "explanation": "Die Ableitungsregeln helfen uns, Ableitungen komplexer Funktionen zu berechnen. Es ist wie ein Baukasten mit verschiedenen Werkzeugen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440003",
-            "text": "Die Kettenregel für zusammengesetzte Funktionen.",
-            "formula": "(f \\circ g)'(x) = f'(g(x)) \\cdot g'(x)",
-            "explanation": "Die Kettenregel hilft uns, Ableitungen von verschachtelten Funktionen zu berechnen. Es ist wie das Zerlegen einer komplexen Maschine in ihre Einzelteile!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440004",
-            "text": "Die Ableitungen der elementaren Funktionen.",
-            "formula": "\\begin{align*} (x^n)' &= n \\cdot x^{n-1} \\\\ (\\sin x)' &= \\cos x \\\\ (\\cos x)' &= -\\sin x \\\\ (e^x)' &= e^x \\\\ (\\ln x)' &= \\frac{1}{x} \\end{align*}",
-            "explanation": "Die Ableitungen der elementaren Funktionen sind die Grundbausteine der Differentialrechnung. Es ist wie das Alphabet der Analysis!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440005",
-            "text": "Die höheren Ableitungen beschreiben die Änderung der Änderung.",
-            "formula": "f''(x) = (f'(x))', \\quad f'''(x) = (f''(x))', \\quad ...",
-            "explanation": "Höhere Ableitungen geben uns Informationen über die Krümmung und weitere Eigenschaften der Funktion. Es ist wie das Betrachten einer Kurve mit immer stärkerer Lupe!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440006",
-            "text": "Die Taylor-Reihe approximiert Funktionen durch Polynome.",
-            "formula": "f(x) = \\sum_{n=0}^{\\infty} \\frac{f^{(n)}(a)}{n!} (x-a)^n",
-            "explanation": "Die Taylor-Reihe erlaubt uns, Funktionen durch Polynome zu approximieren. Es ist wie das Nachbauen einer komplexen Kurve durch einfache Bausteine!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440007",
-            "text": "Die Mittelwertsätze der Differentialrechnung.",
-            "formula": "\\frac{f(b) - f(a)}{b-a} = f'(\\xi) \\quad \\text{für ein } \\xi \\in (a,b)",
-            "explanation": "Der Mittelwertsatz verbindet die durchschnittliche Änderungsrate mit der momentanen Änderungsrate. Es ist wie ein Brückenschlag zwischen zwei wichtigen Konzepten!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440008",
-            "text": "Die Monotonie einer Funktion kann durch ihre Ableitung bestimmt werden.",
-            "formula": "\\begin{cases} f'(x) > 0 & \\Rightarrow f \\text{ streng monoton wachsend} \\\\ f'(x) < 0 & \\Rightarrow f \\text{ streng monoton fallend} \\end{cases}",
-            "explanation": "Die Ableitung gibt uns Auskunft über das Wachstumsverhalten der Funktion. Es ist wie ein Kompass, der uns die Richtung zeigt!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440009",
-            "text": "Extremstellen können durch die Ableitung gefunden werden.",
-            "formula": "f'(x_0) = 0 \\quad \\text{und} \\quad f''(x_0) \\neq 0",
-            "explanation": "Die Ableitung hilft uns, Maxima und Minima einer Funktion zu finden. Es ist wie das Suchen nach Gipfeln und Tälern in einer Landschaft!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440010",
-            "text": "Die Ableitung der Umkehrfunktion.",
-            "formula": "(f^{-1})'(y) = \\frac{1}{f'(f^{-1}(y))}",
-            "explanation": "Die Ableitung der Umkehrfunktion ist der Kehrwert der Ableitung der ursprünglichen Funktion. Es ist wie das Spiegeln einer Steigung!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440011",
-            "text": "Die Ableitung der Exponentialfunktion mit beliebiger Basis.",
-            "formula": "(a^x)' = a^x \\cdot \\ln a",
-            "explanation": "Die Ableitung der Exponentialfunktion enthält einen zusätzlichen Faktor ln(a). Es ist wie ein spezieller Multiplikator für jede Basis!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440012",
-            "text": "Die Ableitung der Logarithmusfunktion mit beliebiger Basis.",
-            "formula": "(\\log_a x)' = \\frac{1}{x \\cdot \\ln a}",
-            "explanation": "Die Ableitung des Logarithmus enthält einen Faktor 1/(x·ln(a)). Es ist wie ein spezieller Teiler für jede Basis!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440013",
-            "text": "Die Ableitung der trigonometrischen Funktionen.",
-            "formula": "\\begin{align*} (\\tan x)' &= \\frac{1}{\\cos^2 x} \\\\ (\\cot x)' &= -\\frac{1}{\\sin^2 x} \\\\ (\\sec x)' &= \\tan x \\cdot \\sec x \\\\ (\\csc x)' &= -\\cot x \\cdot \\csc x \\end{align*}",
-            "explanation": "Die Ableitungen der trigonometrischen Funktionen zeigen interessante Zusammenhänge zwischen den Funktionen. Es ist wie ein Tanz der Funktionen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440014",
-            "text": "Die Ableitung der Hyperbelfunktionen.",
-            "formula": "\\begin{align*} (\\sinh x)' &= \\cosh x \\\\ (\\cosh x)' &= \\sinh x \\\\ (\\tanh x)' &= \\frac{1}{\\cosh^2 x} \\end{align*}",
-            "explanation": "Die Hyperbelfunktionen haben ähnliche Ableitungsregeln wie die trigonometrischen Funktionen. Es ist wie ein Spiegelbild der Trigonometrie!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440015",
-            "text": "Die Ableitung der Arkusfunktionen.",
-            "formula": "\\begin{align*} (\\arcsin x)' &= \\frac{1}{\\sqrt{1-x^2}} \\\\ (\\arccos x)' &= -\\frac{1}{\\sqrt{1-x^2}} \\\\ (\\arctan x)' &= \\frac{1}{1+x^2} \\end{align*}",
-            "explanation": "Die Ableitungen der Arkusfunktionen haben interessante Wurzeln im Nenner. Es ist wie das Öffnen einer Tür in die Welt der Umkehrfunktionen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440016",
-            "text": "Die Ableitung der Areafunktionen.",
-            "formula": "\\begin{align*} (\\text{arsinh } x)' &= \\frac{1}{\\sqrt{1+x^2}} \\\\ (\\text{arcosh } x)' &= \\frac{1}{\\sqrt{x^2-1}} \\\\ (\\text{artanh } x)' &= \\frac{1}{1-x^2} \\end{align*}",
-            "explanation": "Die Areafunktionen sind die Umkehrfunktionen der Hyperbelfunktionen. Es ist wie das Zurückverfolgen eines Weges!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440017",
-            "text": "Die Ableitung einer Potenzfunktion mit beliebigem Exponenten.",
-            "formula": "(x^r)' = r \\cdot x^{r-1} \\quad \\text{für } r \\in \\mathbb{R}",
-            "explanation": "Die Potenzregel gilt auch für nicht-ganze Exponenten. Es ist wie das Verallgemeinern einer einfachen Regel!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440018",
-            "text": "Die Ableitung einer Funktion mit Absolutbetrag.",
-            "formula": "|f(x)|' = \\frac{f(x)}{|f(x)|} \\cdot f'(x) \\quad \\text{für } f(x) \\neq 0",
-            "explanation": "Die Ableitung des Absolutbetrags hängt vom Vorzeichen der Funktion ab. Es ist wie das Spiegeln an der x-Achse!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440019",
-            "text": "Die Ableitung einer Funktion mit Wurzel.",
-            "formula": "(\\sqrt{f(x)})' = \\frac{f'(x)}{2\\sqrt{f(x)}}",
-            "explanation": "Die Ableitung der Wurzel enthält einen Faktor 1/(2√f(x)). Es ist wie das Teilen durch die doppelte Wurzel!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440020",
-            "text": "Die Ableitung einer Funktion mit Potenz und Basis.",
-            "formula": "(f(x)^{g(x)})' = f(x)^{g(x)} \\cdot (g'(x) \\cdot \\ln f(x) + \\frac{g(x) \\cdot f'(x)}{f(x)})",
-            "explanation": "Die Ableitung einer Funktion mit veränderlicher Basis und Exponent ist komplex. Es ist wie das Kombinieren von Exponential- und Potenzregel!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440021",
-            "text": "Die Ableitung einer Funktion mit Logarithmus.",
-            "formula": "(\\ln |f(x)|)' = \\frac{f'(x)}{f(x)}",
-            "explanation": "Die Ableitung des Logarithmus ist der Quotient aus Ableitung und Funktion. Es ist wie das Teilen durch die ursprüngliche Funktion!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440022",
-            "text": "Die Ableitung einer Funktion mit Exponentialfunktion.",
-            "formula": "(e^{f(x)})' = e^{f(x)} \\cdot f'(x)",
-            "explanation": "Die Ableitung der Exponentialfunktion enthält die ursprüngliche Funktion als Faktor. Es ist wie das Beibehalten der Funktion mit einem zusätzlichen Faktor!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440023",
-            "text": "Die Ableitung einer Funktion mit trigonometrischer Funktion.",
-            "formula": "\\begin{align*} (\\sin f(x))' &= \\cos f(x) \\cdot f'(x) \\\\ (\\cos f(x))' &= -\\sin f(x) \\cdot f'(x) \\end{align*}",
-            "explanation": "Die Ableitung einer verschachtelten trigonometrischen Funktion folgt der Kettenregel. Es ist wie das Kombinieren von Trigonometrie und Kettenregel!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440024",
-            "text": "Die Ableitung einer Funktion mit Hyperbelfunktion.",
-            "formula": "\\begin{align*} (\\sinh f(x))' &= \\cosh f(x) \\cdot f'(x) \\\\ (\\cosh f(x))' &= \\sinh f(x) \\cdot f'(x) \\end{align*}",
-            "explanation": "Die Ableitung einer verschachtelten Hyperbelfunktion folgt ähnlichen Regeln wie die trigonometrischen Funktionen. Es ist wie ein paralleles Universum der Ableitungen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440025",
-            "text": "Die Ableitung einer Funktion mit Arkusfunktion.",
-            "formula": "\\begin{align*} (\\arcsin f(x))' &= \\frac{f'(x)}{\\sqrt{1-f(x)^2}} \\\\ (\\arccos f(x))' &= -\\frac{f'(x)}{\\sqrt{1-f(x)^2}} \\end{align*}",
-            "explanation": "Die Ableitung einer verschachtelten Arkusfunktion enthält die Wurzel im Nenner. Es ist wie das Öffnen einer Tür in die Welt der Umkehrfunktionen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440026",
-            "text": "Die Ableitung einer Funktion mit Areafunktion.",
-            "formula": "\\begin{align*} (\\text{arsinh } f(x))' &= \\frac{f'(x)}{\\sqrt{1+f(x)^2}} \\\\ (\\text{arcosh } f(x))' &= \\frac{f'(x)}{\\sqrt{f(x)^2-1}} \\end{align*}",
-            "explanation": "Die Ableitung einer verschachtelten Areafunktion folgt ähnlichen Regeln wie die Arkusfunktionen. Es ist wie ein Spiegelbild der Arkusfunktionen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440027",
-            "text": "Die Ableitung einer Funktion mit Potenz und Wurzel.",
-            "formula": "(\\sqrt[n]{f(x)})' = \\frac{f'(x)}{n \\cdot \\sqrt[n]{f(x)^{n-1}}}",
-            "explanation": "Die Ableitung der n-ten Wurzel enthält einen Faktor 1/n. Es ist wie das Teilen durch die Wurzelordnung!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440028",
-            "text": "Die Ableitung einer Funktion mit Logarithmus und Potenz.",
-            "formula": "(\\log_a f(x))' = \\frac{f'(x)}{f(x) \\cdot \\ln a}",
-            "explanation": "Die Ableitung des Logarithmus mit beliebiger Basis enthält einen Faktor 1/(ln a). Es ist wie das Anpassen an verschiedene Basen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440029",
-            "text": "Die Ableitung einer Funktion mit Exponentialfunktion und Potenz.",
-            "formula": "(a^{f(x)})' = a^{f(x)} \\cdot \\ln a \\cdot f'(x)",
-            "explanation": "Die Ableitung der Exponentialfunktion mit beliebiger Basis enthält einen Faktor ln(a). Es ist wie das Anpassen an verschiedene Basen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440030",
-            "text": "Zum Schluss schauen wir uns an, wie die Differentialrechnung in der Physik verwendet wird.",
-            "formula": "v(t) = s'(t), \\quad a(t) = v'(t) = s''(t)",
-            "explanation": "In der Physik beschreiben Ableitungen Geschwindigkeit und Beschleunigung. Es ist wie das Übersetzen mathematischer Konzepte in die Sprache der Natur!"
-        }
-    ]
-} 
+{
+  "id": "aa0e8400-e29b-41d4-a716-446655440000",
+  "topic": "Differentialrechnung",
+  "steps": [
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440001",
+      "section": "Kapitel 1 · Änderungsraten",
+      "text": "Willkommen! Die Differentialrechnung beantwortet eine einzige Frage: Wie schnell ändert sich etwas – in diesem Augenblick? Geschwindigkeit, Wachstum, Steigung eines Hangs, Grenzkosten: Alles ist dieselbe Mathematik.",
+      "explanation": "Unser Fahrplan:\n1. Von der mittleren zur momentanen Änderungsrate\n2. Die Ableitung: Definition, erste Beispiele, Differenzierbarkeit\n3. Ableitungsregeln: Produkt, Quotient, Kette, Umkehrfunktion\n4. Was \\(f'\\) und \\(f''\\) über den Graphen verraten: Monotonie, Extrema, Krümmung\n5. Der Mittelwertsatz und seine Folgen\n6. Anwendungen: Optimierung, Linearisierung, Newton-Verfahren, L'Hospital\n7. Taylor-Polynome, typische Fehler, Rückblick",
+      "insight": "Du brauchst: „Grenzwerte“. Die Ableitung ist ein Grenzwert – und zwar vom Typ „\\(\\frac{0}{0}\\)“."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440002",
+      "section": "Kapitel 1 · Änderungsraten",
+      "text": "Ein Stein fällt. Nach \\(t\\) Sekunden hat er ungefähr \\(s(t) = 5t^2\\) Meter zurückgelegt. Wie schnell ist er nach genau 2 Sekunden?",
+      "formula": "\\begin{array}{c|c} \\text{Zeitraum} & \\text{mittlere Geschwindigkeit } \\frac{s(t_2) - s(t_1)}{t_2 - t_1} \\\\ \\hline [0;\\ 2] & \\frac{20 - 0}{2} = 10 \\;\\text{m/s} \\\\ [2;\\ 3] & \\frac{45 - 20}{1} = 25 \\;\\text{m/s} \\\\ [2;\\ 2{,}1] & \\frac{22{,}05 - 20}{0{,}1} = 20{,}5 \\;\\text{m/s} \\\\ [2;\\ 2{,}01] & \\frac{20{,}2005 - 20}{0{,}01} = 20{,}05 \\;\\text{m/s} \\end{array}",
+      "explanation": "Die mittlere Geschwindigkeit ist „Strecke durch Zeit“. Sie hängt vom gewählten Zeitraum ab.\n\nJe kürzer der Zeitraum nach \\(t = 2\\), desto näher kommen die Werte an \\(20\\) m/s. Das ist die momentane Geschwindigkeit – die Zahl, die der Tacho im Augenblick \\(t = 2\\) anzeigt.\n\nAllgemein: Für den Zeitraum \\([2;\\ 2 + h]\\) ist die mittlere Geschwindigkeit \\(\\frac{5(2 + h)^2 - 20}{h} = \\frac{20h + 5h^2}{h} = 20 + 5h \\to 20\\).",
+      "insight": "„Momentan“ heißt: Grenzwert der mittleren Änderungsrate für immer kürzere Zeiträume. Genau das ist die Ableitung."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440003",
+      "section": "Kapitel 1 · Änderungsraten",
+      "text": "Geometrisch ist die mittlere Änderungsrate die Steigung einer Sekante. Lässt man den zweiten Punkt auf den ersten zulaufen, wird aus der Sekante die Tangente.",
+      "visual": "secantToTangent",
+      "formula": "\\underbrace{\\frac{f(x_0 + h) - f(x_0)}{h}}_{\\text{Sekantensteigung}} \\;\\xrightarrow{\\;h \\to 0\\;}\\; \\underbrace{f'(x_0)}_{\\text{Tangentensteigung}}",
+      "explanation": "Der Bruch heißt Differenzenquotient: Höhenunterschied durch Breitenunterschied.\n\nFür \\(f(x) = x^2\\) bei \\(x_0 = 1\\):\n\\(\\frac{(1 + h)^2 - 1}{h} = \\frac{2h + h^2}{h} = 2 + h \\to 2\\).\n\nWichtig: Man darf \\(h\\) NICHT einfach \\(0\\) setzen – dann stünde \\(\\frac{0}{0}\\) da. Erst vereinfachen (kürzen), dann den Grenzwert bilden.",
+      "insight": "Die Tangente ist die Gerade, die sich „in nächster Nähe“ am besten an den Graphen anschmiegt. Ihre Steigung misst, wie steil der Graph an dieser Stelle ist."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440004",
+      "section": "Kapitel 2 · Die Ableitung",
+      "text": "Jetzt die Definition. Eine Funktion \\(f\\) heißt differenzierbar an der Stelle \\(x_0\\), wenn der folgende Grenzwert existiert. Er heißt Ableitung von \\(f\\) in \\(x_0\\):",
+      "formula": "f'(x_0) = \\lim_{h \\to 0} \\frac{f(x_0 + h) - f(x_0)}{h}",
+      "explanation": "Weitere Schreibweisen: \\(\\frac{df}{dx}(x_0)\\) (Leibniz) und \\(\\dot{f}\\) (in der Physik bei Zeitableitungen).\n\nIst \\(f\\) an jeder Stelle differenzierbar, erhält man eine neue Funktion \\(f'\\colon x \\mapsto f'(x)\\), die Ableitungsfunktion.\n\nInterpretationen derselben Zahl:\n• Geometrie: Steigung der Tangente.\n• Physik: Geschwindigkeit, wenn \\(f\\) der Ort ist.\n• Wirtschaft: Grenzkosten, wenn \\(f\\) die Kosten sind.",
+      "insight": "Die Leibniz-Schreibweise \\(\\frac{df}{dx}\\) erinnert an den Ursprung: ein Quotient aus einer winzigen Änderung von \\(f\\) und einer winzigen Änderung von \\(x\\)."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440005",
+      "section": "Kapitel 2 · Die Ableitung",
+      "text": "Ableitungen direkt aus der Definition berechnen – zwei Beispiele, die alle Techniken aus „Grenzwerte“ benutzen:",
+      "formula": "\\begin{aligned} (x^2)'\\colon \\quad \\frac{(x + h)^2 - x^2}{h} &= \\frac{2xh + h^2}{h} = 2x + h \\;\\to\\; 2x \\\\[8pt] \\left(\\tfrac{1}{x}\\right)'\\colon \\quad \\frac{\\frac{1}{x + h} - \\frac{1}{x}}{h} &= \\frac{x - (x + h)}{h\\,x(x + h)} = \\frac{-1}{x(x + h)} \\;\\to\\; -\\frac{1}{x^2} \\end{aligned}",
+      "explanation": "Erstes Beispiel: binomische Formel, dann \\(h\\) kürzen.\n\nZweites Beispiel: Die Brüche im Zähler auf einen Nenner bringen. Im Zähler entsteht \\(-h\\), das sich kürzt.\n\nErgebnis: \\((x^2)' = 2x\\) und \\(\\left(\\frac{1}{x}\\right)' = -\\frac{1}{x^2}\\). Beides passt zur Potenzregel \\((x^n)' = n x^{n-1}\\) mit \\(n = 2\\) bzw. \\(n = -1\\).",
+      "insight": "Jede Ableitungsregel lässt sich so aus der Definition herleiten. Man macht es einmal für die Grundbausteine – danach rechnet man mit Regeln."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440006",
+      "section": "Kapitel 2 · Die Ableitung",
+      "text": "Nicht jede Funktion ist überall differenzierbar. Das Standardbeispiel ist der Betrag an der Stelle \\(0\\):",
+      "formula": "\\begin{aligned} f(x) = |x|\\colon \\quad \\frac{|0 + h| - |0|}{h} = \\frac{|h|}{h} = \\begin{cases} 1 & h > 0 \\\\ -1 & h < 0 \\end{cases} \\end{aligned}",
+      "explanation": "Von rechts ist die Steigung \\(1\\), von links \\(-1\\). Der Grenzwert für \\(h \\to 0\\) existiert nicht – der Graph hat bei \\(0\\) einen Knick.\n\nWichtig: \\(|x|\\) ist bei \\(0\\) stetig, aber nicht differenzierbar.\n\nAllgemein gilt: Differenzierbar ⇒ stetig. Die Umkehrung ist falsch – stetige Funktionen können Knicke haben. Es gibt sogar stetige Funktionen, die NIRGENDS differenzierbar sind (Weierstraß-Funktion).",
+      "insight": "Anschaulich: Differenzierbar heißt „beim Hineinzoomen sieht der Graph aus wie eine Gerade“. Ein Knick bleibt beim Zoomen ein Knick."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440007",
+      "section": "Kapitel 3 · Ableitungsregeln",
+      "text": "Die Grundableitungen, die man kennen muss. Alle anderen Ableitungen setzt man mit Regeln daraus zusammen:",
+      "formula": "\\begin{array}{ll} (x^n)' = n x^{n-1} & (e^x)' = e^x \\\\[4pt] (\\sin x)' = \\cos x & (\\ln x)' = \\frac{1}{x} \\\\[4pt] (\\cos x)' = -\\sin x & (a^x)' = a^x \\ln a \\\\[4pt] (\\sqrt{x})' = \\frac{1}{2\\sqrt{x}} & (c)' = 0 \\end{array}",
+      "explanation": "Die Potenzregel gilt für alle reellen Exponenten, z. B. \\((\\sqrt{x})'\\) \\(= (x^{1/2})'\\) \\(= \\frac{1}{2} x^{-1/2}\\) \\(= \\frac{1}{2\\sqrt{x}}\\).\n\nDie Exponentialfunktion ist die einzige Funktion (bis auf einen Faktor), die ihre eigene Ableitung ist. Deshalb taucht sie überall auf, wo „Wachstum proportional zum Bestand“ beschrieben wird.\n\n\\((\\sin x)' = \\cos x\\) folgt aus dem Grenzwert \\(\\frac{\\sin h}{h} \\to 1\\) (Lektion „Grenzwerte“) – wieder nur im Bogenmaß.",
+      "insight": "Merkhilfe für sin und cos: Beim Ableiten dreht man sich im Kreis: \\(\\sin \\to \\cos \\to -\\sin \\to -\\cos \\to \\sin\\)."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440008",
+      "section": "Kapitel 3 · Ableitungsregeln",
+      "text": "Summen und Vielfache leitet man gliedweise ab (Linearität). Bei Produkten gibt es eine Überraschung:",
+      "formula": "\\begin{aligned} (c \\cdot f + g)' &= c \\cdot f' + g' \\\\[4pt] (u \\cdot v)' &= u' v + u v' \\\\[4pt] (x^2 \\sin x)' &= 2x \\sin x + x^2 \\cos x \\end{aligned}",
+      "explanation": "Warum nicht einfach \\(u' \\cdot v'\\)? Stell dir ein Rechteck mit den Seiten \\(u\\) und \\(v\\) vor. Wachsen beide Seiten ein wenig (um \\(\\Delta u\\) und \\(\\Delta v\\)), kommen zwei Streifen dazu: \\(\\Delta u \\cdot v\\) und \\(u \\cdot \\Delta v\\) – plus ein winziges Eckstück \\(\\Delta u \\cdot \\Delta v\\), das bei der Grenzwertbildung verschwindet.\n\nProbe mit \\(u = v = x\\): \\((x \\cdot x)' = 1 \\cdot x + x \\cdot 1 = 2x\\) ✓. Mit \\(u' v'\\) käme fälschlich \\(1\\) heraus.",
+      "insight": "Typischer Fehler: \\((uv)' = u'v'\\). Das ist falsch – die Produktregel hat immer ZWEI Summanden."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440009",
+      "section": "Kapitel 3 · Ableitungsregeln",
+      "text": "Für Quotienten gibt es die Quotientenregel. Ein Beispiel ist die Ableitung des Tangens:",
+      "formula": "\\begin{aligned} \\left(\\frac{u}{v}\\right)' &= \\frac{u' v - u v'}{v^2} \\\\[6pt] (\\tan x)' &= \\left(\\frac{\\sin x}{\\cos x}\\right)' = \\frac{\\cos x \\cos x - \\sin x (-\\sin x)}{\\cos^2 x} = \\frac{1}{\\cos^2 x} \\end{aligned}",
+      "explanation": "Merkhilfe: „NAZ minus ZAN durch N-Quadrat“ – Nenner mal Ableitung des Zählers minus Zähler mal Ableitung des Nenners, geteilt durch den Nenner zum Quadrat.\n\nIm Beispiel: \\(\\cos^2 x + \\sin^2 x = 1\\).\n\nEin zweites Beispiel: \\(\\left(\\frac{x}{x^2 + 1}\\right)' = \\frac{1 \\cdot (x^2 + 1) - x \\cdot 2x}{(x^2 + 1)^2} = \\frac{1 - x^2}{(x^2 + 1)^2}\\).",
+      "insight": "Im Zähler kommt es auf die Reihenfolge an (Minuszeichen!). Mit der Probe \\(\\left(\\frac{x}{1}\\right)' = 1\\) prüft man schnell, ob man sie richtig im Kopf hat."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440010",
+      "section": "Kapitel 3 · Ableitungsregeln",
+      "text": "Die wichtigste Regel ist die Kettenregel – für verschachtelte Funktionen: „äußere Ableitung mal innere Ableitung“.",
+      "formula": "\\begin{aligned} \\big(f(g(x))\\big)' &= f'(g(x)) \\cdot g'(x) \\\\[6pt] \\big((3x + 1)^5\\big)' &= 5(3x + 1)^4 \\cdot 3 \\\\ \\big(\\sin(x^2)\\big)' &= \\cos(x^2) \\cdot 2x \\\\ \\big(e^{-x^2}\\big)' &= e^{-x^2} \\cdot (-2x) \\end{aligned}",
+      "explanation": "Anschauung mit Zahnrädern: Dreht sich Rad \\(g\\) dreimal so schnell wie \\(x\\), und Rad \\(f\\) fünfmal so schnell wie \\(g\\), dann dreht sich \\(f\\) fünfzehnmal so schnell wie \\(x\\). Änderungsraten multiplizieren sich.\n\nVorgehen:\n1. Innere Funktion erkennen: \\(3x + 1\\), \\(x^2\\), \\(-x^2\\).\n2. Äußere Funktion ableiten, die innere dabei unverändert lassen.\n3. Mit der Ableitung der inneren Funktion multiplizieren.\n\nMit Leibniz-Schreibweise sieht die Regel aus wie Bruchrechnung: \\(\\frac{df}{dx} = \\frac{df}{dg} \\cdot \\frac{dg}{dx}\\).",
+      "insight": "Typischer Fehler: die innere Ableitung vergessen. \\((\\sin 2x)' = 2\\cos 2x\\), nicht \\(\\cos 2x\\)."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440011",
+      "section": "Kapitel 3 · Ableitungsregeln",
+      "text": "Mit der Kettenregel erhält man auch die Ableitung von Umkehrfunktionen. Beispiel: Aus \\(e^{\\ln x} = x\\) folgt die Ableitung des Logarithmus.",
+      "formula": "\\begin{aligned} e^{\\ln x} = x \\;&\\Rightarrow\\; e^{\\ln x} \\cdot (\\ln x)' = 1 \\;\\Rightarrow\\; (\\ln x)' = \\frac{1}{e^{\\ln x}} = \\frac{1}{x} \\\\[6pt] \\text{allgemein:} \\quad (f^{-1})'(y) &= \\frac{1}{f'(f^{-1}(y))} \\end{aligned}",
+      "explanation": "Man leitet die Gleichung \\(f(f^{-1}(y)) = y\\) auf beiden Seiten ab und löst nach \\((f^{-1})'\\) auf.\n\nGeometrisch: Der Graph der Umkehrfunktion ist der an \\(y = x\\) gespiegelte Graph. Dabei werden Höhe und Breite vertauscht – die Steigung wird zum Kehrwert.\n\nNoch ein Beispiel: \\(\\arctan\\) ist die Umkehrung von \\(\\tan\\). Aus \\((\\tan x)' = 1 + \\tan^2 x\\) folgt \\((\\arctan y)' = \\frac{1}{1 + y^2}\\).",
+      "insight": "Die Formel versagt dort, wo \\(f' = 0\\) ist: Eine waagerechte Tangente wird beim Spiegeln senkrecht – Steigung unendlich."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440012",
+      "section": "Kapitel 3 · Ableitungsregeln",
+      "text": "Ein Trick für Funktionen der Form \\(f(x)^{g(x)}\\): logarithmisch ableiten. Beispiel \\(x^x\\) für \\(x > 0\\):",
+      "formula": "\\begin{aligned} x^x &= e^{x \\ln x} \\\\ (x^x)' &= e^{x \\ln x} \\cdot (x \\ln x)' = x^x \\left(\\ln x + x \\cdot \\tfrac{1}{x}\\right) = x^x (\\ln x + 1) \\end{aligned}",
+      "explanation": "Weder die Potenzregel (\\(x^n\\) hat konstanten Exponenten) noch die Regel für \\(a^x\\) (konstante Basis) passen hier – Basis UND Exponent ändern sich.\n\nDer Trick: mit \\(a = e^{\\ln a}\\) alles in eine \\(e\\)-Funktion umschreiben. Dann Kettenregel und Produktregel.\n\nTypischer Fehler: \\((x^x)' = x \\cdot x^{x-1} = x^x\\). Das behandelt den Exponenten fälschlich als Konstante.",
+      "insight": "„Variable im Exponenten“ ist immer ein Signal: Umschreiben mit \\(e^{\\ln(\\dots)}\\)."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440013",
+      "section": "Kapitel 3 · Ableitungsregeln",
+      "text": "Beispielsammlung zur Kettenregel – meist kombiniert mit anderen Regeln. Erst selbst rechnen, dann vergleichen:",
+      "formula": "\\begin{array}{ll} \\text{a)} & \\left(\\sqrt{x^2 + 1}\\right)' \\\\[6pt] \\text{b)} & \\left(\\ln(\\sin x)\\right)' \\\\[6pt] \\text{c)} & \\left(e^{\\sin x}\\right)' \\\\[6pt] \\text{d)} & \\left(\\sin^3 x\\right)' \\\\[6pt] \\text{e)} & \\left(x\\,e^{-x}\\right)' \\\\[6pt] \\text{f)} & \\left(\\dfrac{\\ln x}{x}\\right)' \\end{array}",
+      "explanation": "a) \\(\\frac{1}{2\\sqrt{x^2 + 1}} \\cdot 2x = \\frac{x}{\\sqrt{x^2 + 1}}\\)\n\nb) \\(\\frac{1}{\\sin x} \\cdot \\cos x = \\frac{\\cos x}{\\sin x}\\)\n\nc) \\(e^{\\sin x} \\cdot \\cos x\\)\n\nd) \\(\\sin^3 x = (\\sin x)^3\\), also \\(3\\sin^2 x \\cdot \\cos x\\)\n\ne) Produktregel und Kettenregel: \\(e^{-x} + x \\cdot e^{-x} \\cdot (-1)\\) \\(= (1 - x)\\,e^{-x}\\)\n\nf) Quotientenregel: \\(\\frac{\\frac{1}{x} \\cdot x - \\ln x \\cdot 1}{x^2} = \\frac{1 - \\ln x}{x^2}\\)",
+      "insight": "Bei verschachtelten Ausdrücken von außen nach innen arbeiten und jede Schicht einzeln ableiten. Schreibe Zwischenschritte hin – im Kopf gehen innere Ableitungen verloren."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440014",
+      "section": "Kapitel 4 · Was die Ableitung über den Graphen verrät",
+      "text": "Jetzt zum Nutzen: Was verrät die Ableitung über den Graphen? Das Bild zeigt \\(f(x) = x^3 - 3x\\) und seine Ableitung.",
+      "visual": "derivativeGraph",
+      "formula": "\\begin{array}{ll} f' > 0 \\text{ auf einem Intervall} & \\Rightarrow f \\text{ streng wachsend} \\\\ f' < 0 \\text{ auf einem Intervall} & \\Rightarrow f \\text{ streng fallend} \\\\ f'(x_0) = 0 & \\Rightarrow \\text{waagerechte Tangente} \\end{array}",
+      "explanation": "Für \\(f(x) = x^3 - 3x\\) ist \\(f'(x)\\) \\(= 3x^2 - 3\\) \\(= 3(x - 1)(x + 1)\\).\n• Für \\(x < -1\\): \\(f' > 0\\), \\(f\\) steigt.\n• Für \\(-1 < x < 1\\): \\(f' < 0\\), \\(f\\) fällt.\n• Für \\(x > 1\\): \\(f' > 0\\), \\(f\\) steigt.\n\nStatt viele Funktionswerte zu berechnen, reicht also eine Vorzeichentabelle von \\(f'\\).",
+      "insight": "Die Nullstellen von \\(f'\\) teilen die x-Achse in Bereiche, in denen \\(f\\) entweder steigt oder fällt. Das ist der Kern jeder Kurvendiskussion."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440015",
+      "section": "Kapitel 4 · Was die Ableitung über den Graphen verrät",
+      "text": "Lokale Extrema: Hoch- und Tiefpunkte. Die notwendige Bedingung ist eine waagerechte Tangente – aber Vorsicht, sie reicht nicht!",
+      "formula": "\\begin{array}{c} x_0 \\text{ lokales Extremum (im Inneren)} \\;\\Longrightarrow\\; f'(x_0) = 0 \\\\[8pt] f'(x_0) = 0 \\;\\text{ und }\\; f' \\text{ wechselt das Vorzeichen} \\;\\Longrightarrow\\; \\text{Extremum} \\\\[4pt] \\text{von } + \\text{ nach } -\\colon \\text{Hochpunkt}, \\qquad \\text{von } - \\text{ nach } +\\colon \\text{Tiefpunkt} \\end{array}",
+      "explanation": "Gegenbeispiel zur Warnung: \\(f(x) = x^3\\) hat \\(f'(0) = 0\\), aber bei \\(0\\) weder Hoch- noch Tiefpunkt. \\(f' = 3x^2\\) ist links und rechts positiv – kein Vorzeichenwechsel. Das ist ein Sattelpunkt.\n\nBeim Beispiel \\(x^3 - 3x\\):\n• Bei \\(x = -1\\) wechselt \\(f'\\) von \\(+\\) nach \\(-\\): Hochpunkt \\((-1, 2)\\).\n• Bei \\(x = 1\\) wechselt \\(f'\\) von \\(-\\) nach \\(+\\): Tiefpunkt \\((1, -2)\\).\n\n„Im Inneren“ ist wichtig: Auf \\([0, 2]\\) hat \\(f(x) = x\\) das Maximum am Rand bei \\(2\\), obwohl \\(f' = 1 \\neq 0\\).",
+      "insight": "Bei Optimierung auf einem Intervall \\([a, b]\\) immer auch die Randwerte \\(f(a)\\) und \\(f(b)\\) prüfen!"
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440016",
+      "section": "Kapitel 4 · Was die Ableitung über den Graphen verrät",
+      "text": "Die zweite Ableitung \\(f''\\) misst, wie sich die Steigung ändert – also die Krümmung des Graphen:",
+      "formula": "\\begin{array}{ll} f'' > 0 & \\text{linksgekrümmt (konvex, „Schale“)} \\\\ f'' < 0 & \\text{rechtsgekrümmt (konkav, „Dach“)} \\\\ f'(x_0) = 0,\\; f''(x_0) > 0 & \\Rightarrow \\text{Tiefpunkt} \\\\ f'(x_0) = 0,\\; f''(x_0) < 0 & \\Rightarrow \\text{Hochpunkt} \\end{array}",
+      "explanation": "Für \\(f(x) = x^3 - 3x\\) ist \\(f''(x) = 6x\\):\n• \\(f''(-1) = -6 < 0\\): Hochpunkt ✓\n• \\(f''(1) = 6 > 0\\): Tiefpunkt ✓\n• Bei \\(x = 0\\) wechselt \\(f''\\) das Vorzeichen: Wendepunkt \\((0, 0)\\). Dort ändert sich die Krümmung.\n\nIst \\(f''(x_0) = 0\\), sagt dieses Kriterium nichts. Beispiel \\(x^4\\) bei \\(0\\): \\(f'' = 12x^2 = 0\\), trotzdem ein Tiefpunkt. Dann hilft das Vorzeichenwechsel-Kriterium.",
+      "insight": "Physikalisch: Ist \\(f\\) der Ort, dann ist \\(f'\\) die Geschwindigkeit und \\(f''\\) die Beschleunigung."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440017",
+      "section": "Kapitel 4 · Was die Ableitung über den Graphen verrät",
+      "text": "Eine vollständige Kurvendiskussion für \\(f(x) = x^3 - 3x\\) – so sieht sie in einer Klausur aus:",
+      "formula": "\\begin{array}{ll} \\text{Nullstellen:} & x(x^2 - 3) = 0 \\Rightarrow x \\in \\{0, \\pm\\sqrt{3}\\} \\\\ \\text{Ableitungen:} & f' = 3x^2 - 3,\\;\\; f'' = 6x \\\\ \\text{Extrema:} & H(-1 \\mid 2),\\;\\; T(1 \\mid -2) \\\\ \\text{Wendepunkt:} & W(0 \\mid 0),\\; \\text{Steigung } -3 \\\\ \\text{Symmetrie:} & f(-x) = -f(x) \\;\\text{(punktsymmetrisch)} \\\\ \\text{Verhalten:} & x \\to \\pm\\infty\\colon f(x) \\to \\pm\\infty \\end{array}",
+      "explanation": "Reihenfolge bewährt sich: Definitionsbereich, Symmetrie, Nullstellen, Ableitungen, Extrema, Wendepunkte, Verhalten im Unendlichen, Skizze.\n\nDie Symmetrie spart Arbeit: Hat man den Tiefpunkt bei \\((1, -2)\\), liegt der Hochpunkt gespiegelt bei \\((-1, 2)\\).\n\nKontrolle mit der Skizze: Zwischen den Nullstellen \\(-\\sqrt{3} \\approx -1{,}73\\) und \\(0\\) liegt der Hochpunkt, zwischen \\(0\\) und \\(\\sqrt{3}\\) der Tiefpunkt ✓",
+      "insight": "Eine Skizze am Ende deckt Rechenfehler auf: Hochpunkte müssen über, Tiefpunkte unter ihrer Umgebung liegen."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440018",
+      "section": "Kapitel 5 · Der Mittelwertsatz",
+      "text": "Ein zentraler Satz verbindet mittlere und momentane Änderungsrate: der Mittelwertsatz.",
+      "visual": "meanValue",
+      "formula": "\\begin{array}{c} f \\text{ stetig auf } [a, b], \\text{ differenzierbar auf } (a, b) \\\\[2pt] \\Downarrow \\\\[2pt] \\text{es gibt ein } \\xi \\in (a, b) \\text{ mit } f'(\\xi) = \\dfrac{f(b) - f(a)}{b - a} \\end{array}",
+      "explanation": "Anschaulich: Irgendwo ist die Tangente parallel zur Sekante.\n\nIm Alltag: Fährst du 120 km in einer Stunde, dann zeigte dein Tacho irgendwann GENAU 120 km/h an – auch wenn du zwischendurch schneller und langsamer warst. Abschnittskontrollen („Section Control“) bei Geschwindigkeitsmessungen beruhen darauf.\n\nWie der Zwischenwertsatz sagt der Mittelwertsatz nur, DASS es ein \\(\\xi\\) gibt, nicht wo.",
+      "insight": "Der Mittelwertsatz ist die Brücke von Informationen über \\(f'\\) (lokal) zu Aussagen über \\(f\\) (global). Der nächste Schritt zeigt, was das bringt."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440019",
+      "section": "Kapitel 5 · Der Mittelwertsatz",
+      "text": "Folgerungen aus dem Mittelwertsatz – sie begründen, was wir in Kapitel 4 schon benutzt haben:",
+      "formula": "\\begin{array}{ll} 1. & f' = 0 \\text{ auf einem Intervall} \\Rightarrow f \\text{ konstant} \\\\ 2. & f' > 0 \\text{ auf einem Intervall} \\Rightarrow f \\text{ streng wachsend} \\\\ 3. & |f'| \\le M \\Rightarrow |f(b) - f(a)| \\le M\\,|b - a| \\end{array}",
+      "explanation": "Beweis von 2: Für \\(a < b\\) im Intervall ist \\(f(b) - f(a) = f'(\\xi)(b - a)\\) für ein \\(\\xi\\). Beide Faktoren sind positiv, also \\(f(b) > f(a)\\). ∎\n\nFolgerung 1 ist die Grundlage der Integralrechnung: Zwei Stammfunktionen derselben Funktion unterscheiden sich nur um eine Konstante (das „\\(+ C\\)“).\n\nFolgerung 3 als Abschätzung: Weil \\(|(\\sin x)'| = |\\cos x| \\le 1\\), gilt \\(|\\sin a - \\sin b| \\le |a - b|\\) für alle \\(a, b\\).",
+      "insight": "„Auf einem Intervall“ ist wichtig! Die Funktion \\(\\frac{|x|}{x}\\) hat überall Ableitung \\(0\\) (wo sie definiert ist), ist aber nicht konstant – ihr Definitionsbereich besteht aus zwei Stücken."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440020",
+      "section": "Kapitel 6 · Anwendungen",
+      "text": "Anwendung 1: Optimierung. Aus einem quadratischen Blech mit Seitenlänge 12 cm soll eine oben offene Schachtel mit möglichst großem Volumen werden. Man schneidet an den Ecken Quadrate der Seitenlänge \\(x\\) heraus und klappt die Ränder hoch.",
+      "formula": "\\begin{aligned} V(x) &= x\\,(12 - 2x)^2, \\qquad 0 \\le x \\le 6 \\\\ V'(x) &= (12 - 2x)^2 - 4x(12 - 2x) = (12 - 2x)(12 - 6x) \\\\ V'(x) = 0 \\;&\\Rightarrow\\; x = 2 \\;\\;(\\text{oder } x = 6) \\\\ V(2) &= 2 \\cdot 8^2 = 128 \\;\\text{cm}^3 \\end{aligned}",
+      "explanation": "Vorgehen bei jeder Optimierungsaufgabe:\n1. Zielgröße als Funktion EINER Variablen aufschreiben (Skizze!).\n2. Sinnvollen Definitionsbereich festlegen: \\(x\\) zwischen \\(0\\) und \\(6\\).\n3. Ableiten, Nullstellen suchen.\n4. Kandidaten UND Ränder vergleichen.\n\nKandidaten: \\(V(0) = 0\\), \\(V(2) = 128\\), \\(V(6) = 0\\). Das Maximum ist \\(128\\) cm³ bei \\(x = 2\\) cm.\n\nNach dem Extremwertsatz (Lektion „Grenzwerte“) gibt es auf \\([0, 6]\\) sicher ein Maximum – also muss es einer dieser Kandidaten sein.",
+      "insight": "Die Produktregel und anschließendes Ausklammern (statt Ausmultiplizieren) machen die Nullstellensuche leicht."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440021",
+      "section": "Kapitel 6 · Anwendungen",
+      "text": "Noch eine Extremwertaufgabe, diesmal mit einer Funktion aus der Beispielsammlung: Wo ist \\(f(x) = \\frac{\\ln x}{x}\\) am größten?",
+      "formula": "\\begin{aligned} f'(x) &= \\frac{1 - \\ln x}{x^2} = 0 \\;\\iff\\; \\ln x = 1 \\;\\iff\\; x = e \\\\[4pt] f(e) &= \\frac{1}{e} \\approx 0{,}368 \\end{aligned}",
+      "explanation": "Vorzeichen von \\(f'\\): Der Nenner \\(x^2\\) ist positiv. Der Zähler \\(1 - \\ln x\\) ist positiv für \\(x < e\\) und negativ für \\(x > e\\). Also wechselt \\(f'\\) bei \\(e\\) von \\(+\\) nach \\(-\\): Hochpunkt.\n\nAm Rand: Für \\(x \\to 0^+\\) geht \\(f \\to -\\infty\\), für \\(x \\to \\infty\\) geht \\(f \\to 0\\) (Wachstumshierarchie). Das lokale Maximum ist also das globale.\n\nEine überraschende Folgerung: Welche ist größer, \\(e^\\pi\\) oder \\(\\pi^e\\)? Weil \\(\\frac{\\ln x}{x}\\) bei \\(e\\) maximal ist, gilt \\(\\frac{\\ln \\pi}{\\pi} < \\frac{\\ln e}{e}\\), also \\(e \\ln \\pi < \\pi\\), also \\(\\pi^e < e^\\pi\\).",
+      "insight": "Kurvendiskussionen beantworten manchmal Fragen, die gar nicht nach Funktionen aussehen. Der Trick: die Frage in eine Funktion „übersetzen“."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440022",
+      "section": "Kapitel 6 · Anwendungen",
+      "text": "Anwendung 2: Linearisierung. Nahe \\(x_0\\) ist die Tangente eine gute Näherung für die Funktion:",
+      "formula": "\\begin{aligned} f(x) &\\approx f(x_0) + f'(x_0)(x - x_0) \\\\[6pt] \\sqrt{4{,}1} &\\approx \\sqrt{4} + \\frac{1}{2\\sqrt{4}} \\cdot 0{,}1 = 2 + 0{,}025 = 2{,}025 \\end{aligned}",
+      "explanation": "Der exakte Wert ist \\(\\sqrt{4{,}1} = 2{,}02485\\ldots\\) – die Näherung stimmt auf drei Nachkommastellen.\n\nWeitere Näherungen für kleine \\(x\\), die Physiker täglich benutzen:\n• \\(\\sin x \\approx x\\)\n• \\(e^x \\approx 1 + x\\)\n• \\((1 + x)^n \\approx 1 + nx\\) (vergleiche Bernoulli-Ungleichung)\n\nDas ist die eigentliche Idee der Ableitung: Eine differenzierbare Funktion ist im Kleinen linear.",
+      "insight": "In der Lektion „Mehrdimensionale Analysis“ wird genau diese Idee verallgemeinert: Die Ableitung ist die beste lineare Näherung – dort eine Matrix."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440023",
+      "section": "Kapitel 6 · Anwendungen",
+      "text": "Anwendung 3: das Newton-Verfahren. Man sucht eine Nullstelle, indem man immer wieder die Tangente benutzt:",
+      "visual": "newton",
+      "formula": "\\begin{aligned} x_{n+1} &= x_n - \\frac{f(x_n)}{f'(x_n)} \\\\[6pt] f(x) = x^2 - 2\\colon \\quad x_{n+1} &= x_n - \\frac{x_n^2 - 2}{2x_n} = \\frac{1}{2}\\left(x_n + \\frac{2}{x_n}\\right) \\end{aligned}",
+      "explanation": "Herleitung: Die Tangente in \\(x_n\\) ist \\(y = f(x_n) + f'(x_n)(x - x_n)\\). Ihre Nullstelle ist \\(x_{n+1}\\).\n\nFür \\(f(x) = x^2 - 2\\) entsteht genau das Heron-Verfahren aus „Folgen und Reihen“! Werte ab \\(x_0 = 2\\): \\(1{,}5\\); \\(1{,}41667\\); \\(1{,}414216\\).\n\nNewton konvergiert (in der Nähe einer einfachen Nullstelle) quadratisch: Die Zahl der richtigen Stellen verdoppelt sich ungefähr mit jedem Schritt. Er kann aber scheitern, wenn \\(f'(x_n) \\approx 0\\) ist oder der Startwert schlecht gewählt ist.",
+      "insight": "Taschenrechner und Computer berechnen Wurzeln, Kehrwerte und Nullstellen intern oft mit Varianten des Newton-Verfahrens."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440024",
+      "section": "Kapitel 6 · Anwendungen",
+      "text": "Anwendung 4: die Regel von L'Hospital für Grenzwerte vom Typ „\\(\\frac{0}{0}\\)“ oder „\\(\\frac{\\infty}{\\infty}\\)“:",
+      "formula": "\\begin{aligned} \\lim_{x \\to a} \\frac{f(x)}{g(x)} &= \\lim_{x \\to a} \\frac{f'(x)}{g'(x)} \\quad \\text{(falls rechts existiert)} \\\\[6pt] \\lim_{x \\to 0} \\frac{\\sin x}{x} &= \\lim_{x \\to 0} \\frac{\\cos x}{1} = 1 \\\\[4pt] \\lim_{x \\to \\infty} \\frac{x^2}{e^x} &= \\lim_{x \\to \\infty} \\frac{2x}{e^x} = \\lim_{x \\to \\infty} \\frac{2}{e^x} = 0 \\end{aligned}",
+      "explanation": "Man leitet Zähler und Nenner GETRENNT ab – nicht mit der Quotientenregel!\n\nIm zweiten Beispiel wendet man die Regel zweimal an. Das begründet die Wachstumshierarchie: Nach \\(n\\)-maligem Ableiten bleibt von \\(x^n\\) eine Konstante, von \\(e^x\\) wieder \\(e^x\\).\n\nVorher immer prüfen, ob wirklich „\\(\\frac{0}{0}\\)“ oder „\\(\\frac{\\infty}{\\infty}\\)“ vorliegt. Sonst liefert die Regel falsche Ergebnisse: \\(\\lim_{x \\to 0} \\frac{x + 1}{x + 2} = \\frac{1}{2}\\), aber \\(\\frac{(x + 1)'}{(x + 2)'} = 1\\).",
+      "insight": "L'Hospital ist bequem, aber kein Allheilmittel. Bei „\\(\\frac{0}{0}\\)“ mit Polynomen ist Kürzen oft schneller und weniger fehleranfällig."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440025",
+      "section": "Kapitel 7 · Taylor, typische Fehler und Rückblick",
+      "text": "Die Linearisierung lässt sich verbessern: Man nimmt nicht nur die Steigung, sondern auch Krümmung und höhere Ableitungen dazu. Das ergibt das Taylor-Polynom:",
+      "visual": "taylorSine",
+      "formula": "\\begin{aligned} T_n(x) &= \\sum_{k=0}^{n} \\frac{f^{(k)}(x_0)}{k!} (x - x_0)^k \\\\[6pt] \\sin x &= x - \\frac{x^3}{3!} + \\frac{x^5}{5!} - \\frac{x^7}{7!} + \\dots \\\\[4pt] e^x &= 1 + x + \\frac{x^2}{2!} + \\frac{x^3}{3!} + \\dots \\end{aligned}",
+      "explanation": "Die Koeffizienten sind so gewählt, dass \\(T_n\\) an der Stelle \\(x_0\\) denselben Wert und dieselben ersten \\(n\\) Ableitungen hat wie \\(f\\).\n\nFür \\(\\sin x\\) bei \\(x_0 = 0\\): Die Ableitungen sind \\(\\sin, \\cos, -\\sin, -\\cos, \\dots\\), an der Stelle \\(0\\) also \\(0, 1, 0, -1, 0, 1, \\dots\\) Nur die ungeraden Potenzen bleiben übrig.\n\nFür \\(e^x\\) sind alle Ableitungen bei \\(0\\) gleich \\(1\\) – und es entsteht die Exponentialreihe aus „Folgen und Reihen“.",
+      "insight": "Taylor-Polynome sind das Werkzeug, mit dem Computer \\(\\sin\\), \\(e^x\\) und \\(\\ln\\) berechnen. Und sie erklären Näherungen wie \\(\\sin x \\approx x\\) und \\(\\cos x \\approx 1 - \\frac{x^2}{2}\\)."
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440026",
+      "section": "Kapitel 7 · Taylor, typische Fehler und Rückblick",
+      "text": "Die häufigsten Fehler beim Ableiten – auf einen Blick:",
+      "formula": "\\begin{array}{ll} (uv)' = u'v' & \\text{falsch: Produktregel} \\\\ (\\sin 2x)' = \\cos 2x & \\text{falsch: } 2\\cos 2x \\\\ (e^{x^2})' = e^{x^2} & \\text{falsch: } 2x\\,e^{x^2} \\\\ (x^x)' = x \\cdot x^{x-1} & \\text{falsch: } x^x(\\ln x + 1) \\\\ (\\pi^2)' = 2\\pi & \\text{falsch: Konstante} \\Rightarrow 0 \\\\ f'(x_0) = 0 \\Rightarrow \\text{Extremum} & \\text{falsch: } x^3 \\text{ bei } 0 \\end{array}",
+      "explanation": "Die meisten Fehler entstehen durch vergessene innere Ableitungen und durch Verwechseln von Konstanten und Variablen.\n\nKontrollmöglichkeiten:\n• Wenn möglich, das Ergebnis auf einem zweiten Weg prüfen (\\(x^2 \\cdot x = x^3\\) mit Produkt- und mit Potenzregel).\n• Ein Zahlenwert: Differenzenquotient mit kleinem \\(h\\) ausrechnen und vergleichen.\n• Plausibilität am Graphen: Wo \\(f\\) steigt, muss \\(f' > 0\\) sein.",
+      "insight": "Die Kettenregel ist die Fehlerquelle Nummer eins. Frag dich bei jedem Funktionsausdruck: Steht da eine innere Funktion, die nicht einfach \\(x\\) ist?"
+    },
+    {
+      "id": "a30e8400-e29b-41d4-a716-446655440027",
+      "section": "Kapitel 7 · Taylor, typische Fehler und Rückblick",
+      "text": "Schau zurück, wie die Begriffe auseinander hervorgegangen sind:",
+      "explanation": "1. Mittlere Änderungsrate (Sekante) → momentane Änderungsrate (Tangente).\n\n2. \\(f'(x_0) = \\lim_{h \\to 0} \\frac{f(x_0 + h) - f(x_0)}{h}\\). Differenzierbar ⇒ stetig, nicht umgekehrt (\\(|x|\\)).\n\n3. Regeln: Linearität, Produkt-, Quotienten-, Kettenregel, Umkehrfunktion, logarithmisches Ableiten.\n\n4. \\(f' > 0\\): steigend. Extremum: \\(f' = 0\\) mit Vorzeichenwechsel oder \\(f'' \\neq 0\\). \\(f''\\): Krümmung, Wendepunkte.\n\n5. Mittelwertsatz: \\(f'(\\xi) = \\frac{f(b) - f(a)}{b - a}\\). Folgen: \\(f' = 0\\) ⇒ konstant, Monotonie, Abschätzungen.\n\n6. Anwendungen: Optimierung (Ränder prüfen!), Linearisierung, Newton, L'Hospital.\n\n7. Taylor-Polynome: beste Näherung durch Polynome.",
+      "insight": "Glückwunsch! In der „Integralrechnung“ geht es umgekehrt: Aus der Änderungsrate soll der Bestand rekonstruiert werden."
+    }
+  ]
+}

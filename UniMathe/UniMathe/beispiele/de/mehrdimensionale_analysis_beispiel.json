@@ -1,179 +1,223 @@
-{    "id": "aa0e8400-e29b-41d4-a716-446655440061",
-    "topic": "Mehrdimensionale Analysis",
-    "steps": [
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440062",
-            "text": "Partielle Ableitungen beschreiben die Änderung einer Funktion in Richtung einer Variablen.",
-            "formula": "\\frac{\\partial f}{\\partial x_i} = \\lim_{h \\to 0} \\frac{f(x_1,...,x_i+h,...,x_n) - f(x_1,...,x_i,...,x_n)}{h}",
-            "explanation": "Partielle Ableitungen sind wie das Messen der Steigung einer Funktion in einer bestimmten Richtung. Es ist wie das Beobachten einer Landschaft aus einer bestimmten Perspektive!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440063",
-            "text": "Der Gradient zeigt die Richtung des steilsten Anstiegs einer Funktion.",
-            "formula": "\\nabla f = \\left(\\frac{\\partial f}{\\partial x_1}, ..., \\frac{\\partial f}{\\partial x_n}\\right)",
-            "explanation": "Der Gradient ist wie ein Kompass, der uns die Richtung des steilsten Aufstiegs zeigt. Es ist wie das Finden des schnellsten Weges bergauf!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440064",
-            "text": "Die Divergenz misst die Quellstärke eines Vektorfeldes.",
-            "formula": "\\text{div } \\vec{F} = \\nabla \\cdot \\vec{F} = \\sum_{i=1}^n \\frac{\\partial F_i}{\\partial x_i}",
-            "explanation": "Die Divergenz ist wie das Messen, wie viel Flüssigkeit aus einem Punkt heraus- oder hineinfließt. Es ist wie das Beobachten eines Wasserhahns!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440065",
-            "text": "Die Rotation beschreibt die Wirbelstärke eines Vektorfeldes.",
-            "formula": "\\text{rot } \\vec{F} = \\nabla \\times \\vec{F} = \\begin{vmatrix} \\vec{e}_1 & \\vec{e}_2 & \\vec{e}_3 \\\\ \\frac{\\partial}{\\partial x} & \\frac{\\partial}{\\partial y} & \\frac{\\partial}{\\partial z} \\\\ F_1 & F_2 & F_3 \\end{vmatrix}",
-            "explanation": "Die Rotation ist wie das Messen der Wirbelstärke in einem Fluss. Es ist wie das Beobachten eines Strudels!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440066",
-            "text": "Mehrfachintegrale berechnen Volumina und andere Größen.",
-            "formula": "\\iiint_V f(x,y,z) \\, dx \\, dy \\, dz",
-            "explanation": "Mehrfachintegrale sind wie das Zusammensetzen eines dreidimensionalen Puzzles. Es ist wie das Berechnen des Volumens eines komplexen Körpers!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440067",
-            "text": "Die Kettenregel für Funktionen mehrerer Variablen.",
-            "formula": "\\frac{d}{dt} f(\\vec{x}(t)) = \\nabla f \\cdot \\frac{d\\vec{x}}{dt}",
-            "explanation": "Die Kettenregel ist wie das Verfolgen einer Spur durch ein Gebirge. Es ist wie das Berechnen der Steigung entlang eines Weges!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440068",
-            "text": "Die Taylor-Entwicklung für Funktionen mehrerer Variablen.",
-            "formula": "f(\\vec{x}) = f(\\vec{a}) + \\nabla f(\\vec{a}) \\cdot (\\vec{x}-\\vec{a}) + \\frac{1}{2} (\\vec{x}-\\vec{a})^T H_f(\\vec{a}) (\\vec{x}-\\vec{a}) + ...",
-            "explanation": "Die Taylor-Entwicklung ist wie das Annähern einer komplexen Landschaft durch eine einfachere. Es ist wie das Ersetzen einer Bergkette durch eine Parabel!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440069",
-            "text": "Die Hesse-Matrix charakterisiert Extrema.",
-            "formula": "H_f = \\begin{pmatrix} \\frac{\\partial^2 f}{\\partial x_1^2} & ... & \\frac{\\partial^2 f}{\\partial x_1 \\partial x_n} \\\\ ... & ... & ... \\\\ \\frac{\\partial^2 f}{\\partial x_n \\partial x_1} & ... & \\frac{\\partial^2 f}{\\partial x_n^2} \\end{pmatrix}",
-            "explanation": "Die Hesse-Matrix ist wie ein detaillierter Höhenplan einer Landschaft. Es ist wie das Analysieren der Krümmung eines Berges!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440070",
-            "text": "Lagrange-Multiplikatoren für Optimierung unter Nebenbedingungen.",
-            "formula": "\\nabla f = \\lambda \\nabla g",
-            "explanation": "Lagrange-Multiplikatoren sind wie das Finden des höchsten Punktes auf einem vorgegebenen Weg. Es ist wie das Optimieren unter Einschränkungen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440071",
-            "text": "Die Jacobi-Matrix beschreibt die Ableitung einer vektorwertigen Funktion.",
-            "formula": "J_f = \\begin{pmatrix} \\frac{\\partial f_1}{\\partial x_1} & ... & \\frac{\\partial f_1}{\\partial x_n} \\\\ ... & ... & ... \\\\ \\frac{\\partial f_m}{\\partial x_1} & ... & \\frac{\\partial f_m}{\\partial x_n} \\end{pmatrix}",
-            "explanation": "Die Jacobi-Matrix ist wie ein detaillierter Transformationsplan. Es ist wie das Beschreiben einer komplexen Verformung!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440072",
-            "text": "Die Funktionaldeterminante misst die Volumenänderung bei Transformationen.",
-            "formula": "\\det(J_f) = \\begin{vmatrix} \\frac{\\partial f_1}{\\partial x_1} & ... & \\frac{\\partial f_1}{\\partial x_n} \\\\ ... & ... & ... \\\\ \\frac{\\partial f_n}{\\partial x_1} & ... & \\frac{\\partial f_n}{\\partial x_n} \\end{vmatrix}",
-            "explanation": "Die Funktionaldeterminante ist wie ein Maß für die Dehnung oder Stauchung bei einer Transformation. Es ist wie das Messen der Volumenänderung!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440073",
-            "text": "Kurvenintegrale berechnen Arbeit entlang eines Weges.",
-            "formula": "\\int_C \\vec{F} \\cdot d\\vec{r} = \\int_a^b \\vec{F}(\\vec{r}(t)) \\cdot \\vec{r}'(t) \\, dt",
-            "explanation": "Kurvenintegrale sind wie das Berechnen der Arbeit, die man leisten muss, um einen Berg zu besteigen. Es ist wie das Messen des Energieaufwands!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440074",
-            "text": "Oberflächenintegrale berechnen Flüsse durch Flächen.",
-            "formula": "\\iint_S \\vec{F} \\cdot d\\vec{S} = \\iint_D \\vec{F}(\\vec{r}(u,v)) \\cdot (\\vec{r}_u \\times \\vec{r}_v) \\, du \\, dv",
-            "explanation": "Oberflächenintegrale sind wie das Messen des Flusses durch ein Netz. Es ist wie das Berechnen des Durchflusses!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440075",
-            "text": "Der Satz von Stokes verbindet Kurven- und Flächenintegrale.",
-            "formula": "\\int_C \\vec{F} \\cdot d\\vec{r} = \\iint_S (\\nabla \\times \\vec{F}) \\cdot d\\vec{S}",
-            "explanation": "Der Satz von Stokes ist wie ein mathematischer Zaubertrick. Es ist wie das Umwandeln eines Linienintegrals in ein Flächenintegral!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440076",
-            "text": "Der Satz von Gauß verbindet Volumen- und Oberflächenintegrale.",
-            "formula": "\\iiint_V (\\nabla \\cdot \\vec{F}) \\, dV = \\oiint_S \\vec{F} \\cdot d\\vec{S}",
-            "explanation": "Der Satz von Gauß ist wie ein mathematischer Wunderwaffe. Es ist wie das Umwandeln eines Volumenintegrals in ein Oberflächenintegral!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440077",
-            "text": "Die Laplace-Gleichung beschreibt stationäre Prozesse.",
-            "formula": "\\Delta f = \\sum_{i=1}^n \\frac{\\partial^2 f}{\\partial x_i^2} = 0",
-            "explanation": "Die Laplace-Gleichung ist wie die Beschreibung eines Gleichgewichtszustands. Es ist wie das Finden einer stabilen Temperaturverteilung!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440078",
-            "text": "Die Poisson-Gleichung beschreibt Quellen und Senken.",
-            "formula": "\\Delta f = \\rho",
-            "explanation": "Die Poisson-Gleichung ist wie die Beschreibung von Quellen und Senken in einem Feld. Es ist wie das Modellieren von Ladungsverteilungen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440079",
-            "text": "Die Wellengleichung beschreibt Schwingungen.",
-            "formula": "\\frac{\\partial^2 f}{\\partial t^2} = c^2 \\Delta f",
-            "explanation": "Die Wellengleichung ist wie die Beschreibung von Schwingungen in einem Medium. Es ist wie das Modellieren von Schallwellen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440080",
-            "text": "Die Wärmeleitungsgleichung beschreibt Temperaturänderungen.",
-            "formula": "\\frac{\\partial f}{\\partial t} = \\alpha \\Delta f",
-            "explanation": "Die Wärmeleitungsgleichung ist wie die Beschreibung der Temperaturverteilung in einem Körper. Es ist wie das Modellieren der Wärmeausbreitung!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440081",
-            "text": "Die Kontinuitätsgleichung beschreibt Erhaltungsgrößen.",
-            "formula": "\\frac{\\partial \\rho}{\\partial t} + \\nabla \\cdot (\\rho \\vec{v}) = 0",
-            "explanation": "Die Kontinuitätsgleichung ist wie die Beschreibung der Erhaltung von Masse. Es ist wie das Modellieren eines Flusses!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440082",
-            "text": "Die Navier-Stokes-Gleichungen beschreiben Strömungen.",
-            "formula": "\\frac{\\partial \\vec{v}}{\\partial t} + (\\vec{v} \\cdot \\nabla) \\vec{v} = -\\frac{1}{\\rho} \\nabla p + \\nu \\Delta \\vec{v}",
-            "explanation": "Die Navier-Stokes-Gleichungen sind wie die Beschreibung von Flüssigkeitsströmungen. Es ist wie das Modellieren von Wasserströmen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440083",
-            "text": "Die Maxwell-Gleichungen beschreiben elektromagnetische Felder.",
-            "formula": "\\begin{align*} \\nabla \\cdot \\vec{E} &= \\frac{\\rho}{\\varepsilon_0} \\\\ \\nabla \\times \\vec{E} &= -\\frac{\\partial \\vec{B}}{\\partial t} \\\\ \\nabla \\cdot \\vec{B} &= 0 \\\\ \\nabla \\times \\vec{B} &= \\mu_0 \\vec{J} + \\mu_0 \\varepsilon_0 \\frac{\\partial \\vec{E}}{\\partial t} \\end{align*}",
-            "explanation": "Die Maxwell-Gleichungen sind wie die Beschreibung von elektromagnetischen Feldern. Es ist wie das Modellieren von Licht und Magnetismus!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440084",
-            "text": "Die Schrödinger-Gleichung beschreibt Quantensysteme.",
-            "formula": "i\\hbar \\frac{\\partial \\Psi}{\\partial t} = -\\frac{\\hbar^2}{2m} \\Delta \\Psi + V \\Psi",
-            "explanation": "Die Schrödinger-Gleichung ist wie die Beschreibung von Quantensystemen. Es ist wie das Modellieren von Atomen und Molekülen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440085",
-            "text": "Die Einstein-Feldgleichungen beschreiben die Gravitation.",
-            "formula": "R_{\\mu\\nu} - \\frac{1}{2} R g_{\\mu\\nu} = \\frac{8\\pi G}{c^4} T_{\\mu\\nu}",
-            "explanation": "Die Einstein-Feldgleichungen sind wie die Beschreibung der Gravitation. Es ist wie das Modellieren der Krümmung der Raumzeit!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440086",
-            "text": "Die Hamilton-Jacobi-Gleichung beschreibt klassische Systeme.",
-            "formula": "\\frac{\\partial S}{\\partial t} + H(\\vec{q}, \\nabla S) = 0",
-            "explanation": "Die Hamilton-Jacobi-Gleichung ist wie die Beschreibung klassischer Systeme. Es ist wie das Modellieren von Planetenbahnen!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440087",
-            "text": "Die Fokker-Planck-Gleichung beschreibt stochastische Prozesse.",
-            "formula": "\\frac{\\partial P}{\\partial t} = -\\nabla \\cdot (\\vec{v} P) + D \\Delta P",
-            "explanation": "Die Fokker-Planck-Gleichung ist wie die Beschreibung zufälliger Bewegungen. Es ist wie das Modellieren von Brownscher Bewegung!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440088",
-            "text": "Die Korteweg-de Vries-Gleichung beschreibt Solitonen.",
-            "formula": "\\frac{\\partial u}{\\partial t} + 6u \\frac{\\partial u}{\\partial x} + \\frac{\\partial^3 u}{\\partial x^3} = 0",
-            "explanation": "Die Korteweg-de Vries-Gleichung ist wie die Beschreibung von Solitonen. Es ist wie das Modellieren von Tsunamis!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440089",
-            "text": "Die Burgers-Gleichung beschreibt Stoßwellen.",
-            "formula": "\\frac{\\partial u}{\\partial t} + u \\frac{\\partial u}{\\partial x} = \\nu \\frac{\\partial^2 u}{\\partial x^2}",
-            "explanation": "Die Burgers-Gleichung ist wie die Beschreibung von Stoßwellen. Es ist wie das Modellieren von Verkehrsstaus!"
-        },
-        {
-            "id": "aa0e8400-e29b-41d4-a716-446655440090",
-            "text": "Zum Schluss schauen wir uns an, wie mehrdimensionale Analysis in der Physik verwendet wird.",
-            "formula": "\\text{Mehrdimensionale Analysis wird verwendet, um komplexe physikalische Systeme zu beschreiben}",
-            "explanation": "In der Physik hilft uns mehrdimensionale Analysis, komplexe Systeme zu verstehen. Es ist wie das Übersetzen mathematischer Konzepte in die Sprache der Natur!"
-        }
-    ]
-} 
+{
+  "id": "aa0e8400-e29b-41d4-a716-446655440061",
+  "topic": "Mehrdimensionale Analysis",
+  "steps": [
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440001",
+      "section": "Kapitel 1 · Funktionen mehrerer Variablen",
+      "text": "Willkommen! Die meisten Größen in Natur und Technik hängen von mehreren Variablen ab: Die Temperatur im Raum von drei Koordinaten, der Gewinn von Preis und Menge, die Höhe einer Landschaft von Länge und Breite. Diese Lektion überträgt Ableitung und Integral auf solche Funktionen.",
+      "explanation": "Unser Fahrplan:\n1. Funktionen mehrerer Variablen: Graphen und Höhenlinien\n2. Partielle Ableitungen\n3. Gradient und Richtungsableitung\n4. Differenzierbarkeit, Tangentialebene, Kettenregel\n5. Extremwerte mit der Hesse-Matrix\n6. Extrema mit Nebenbedingung: Lagrange\n7. Mehrfachintegrale, Polarkoordinaten\n8. Ausblick und Rückblick",
+      "insight": "Du brauchst: „Differentialrechnung“, „Integralrechnung“ und aus der Linearen Algebra Vektoren, Matrizen und Eigenwerte."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440002",
+      "section": "Kapitel 1 · Funktionen mehrerer Variablen",
+      "text": "Eine Funktion \\(f\\colon \\mathbb{R}^2 \\to \\mathbb{R}\\) ordnet jedem Punkt \\((x, y)\\) eine Zahl zu. Ihr Graph ist eine Fläche über der Ebene – wie eine Landschaft.",
+      "formula": "\\begin{array}{ll} f(x, y) = x^2 + y^2 & \\text{Schale (Paraboloid)} \\\\ f(x, y) = x^2 - y^2 & \\text{Sattel} \\\\ f(x, y) = 6 - 2x - 3y & \\text{schiefe Ebene} \\\\ T(x, y, z) & \\text{Temperatur im Raum} \\end{array}",
+      "explanation": "Beispiele für Funktionswerte: \\(f(1, 2) = 1 + 4 = 5\\) beim Paraboloid, \\(f(1, 2) = 1 - 4 = -3\\) beim Sattel.\n\nDer Graph von \\(f(x, y)\\) ist die Menge der Punkte \\((x, y, f(x, y))\\) im Raum – eine Fläche. Bei drei Variablen wie \\(T(x, y, z)\\) bräuchte man vier Dimensionen; dann hilft nur noch die Rechnung.\n\nViele Begriffe übertragen sich direkt: Grenzwerte und Stetigkeit definiert man wie in einer Variablen, nur mit dem Abstand \\(\\sqrt{(x - x_0)^2 + (y - y_0)^2}\\) statt \\(|x - x_0|\\).",
+      "insight": "Die zentrale neue Schwierigkeit: Man kann sich einem Punkt aus unendlich vielen Richtungen nähern, nicht nur von links und rechts."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440003",
+      "section": "Kapitel 1 · Funktionen mehrerer Variablen",
+      "text": "Eine Landschaft zeichnet man in der Ebene am besten mit Höhenlinien – wie auf einer Wanderkarte. Eine Höhenlinie verbindet alle Punkte mit demselben Funktionswert \\(c\\).",
+      "formula": "\\begin{aligned} N_c &= \\{ (x, y) \\mid f(x, y) = c \\} \\\\[4pt] x^2 + y^2 = c\\colon \\quad &\\text{Kreise mit Radius } \\sqrt{c} \\\\ x^2 + 2y^2 = c\\colon \\quad &\\text{Ellipsen} \\\\ x^2 - y^2 = c\\colon \\quad &\\text{Hyperbeln} \\end{aligned}",
+      "explanation": "Wo die Höhenlinien dicht liegen, ist das Gelände steil. Wo sie weit auseinander liegen, ist es flach.\n\nBeim Paraboloid \\(x^2 + y^2\\) liegen die Kreise für \\(c = 1, 2, 3, 4\\) bei den Radien \\(1;\\ 1{,}41;\\ 1{,}73;\\ 2\\) – nach außen immer dichter: Die Schale wird steiler.\n\nHöhenlinien begegnen dir als Isobaren (gleicher Luftdruck) auf Wetterkarten und als Äquipotentiallinien in der Physik.",
+      "insight": "Höhenlinien schneiden sich nie (ein Punkt hat nur einen Funktionswert). Sie zeigen die Form der Fläche ohne 3D-Zeichnung."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440004",
+      "section": "Kapitel 2 · Partielle Ableitungen",
+      "text": "Wie ableiten? Die einfachste Idee: Man hält alle Variablen bis auf eine fest und leitet nach dieser einen ab. Das ergibt die partiellen Ableitungen.",
+      "formula": "\\begin{aligned} \\frac{\\partial f}{\\partial x}(x_0, y_0) &= \\lim_{h \\to 0} \\frac{f(x_0 + h, y_0) - f(x_0, y_0)}{h} \\\\[4pt] \\frac{\\partial f}{\\partial y}(x_0, y_0) &= \\lim_{h \\to 0} \\frac{f(x_0, y_0 + h) - f(x_0, y_0)}{h} \\end{aligned}",
+      "explanation": "Das Zeichen \\(\\partial\\) („del“ oder „partiell“) zeigt: Es wird nur nach EINER von mehreren Variablen abgeleitet. Kurz schreibt man auch \\(f_x\\) und \\(f_y\\).\n\nGeometrisch: Man schneidet die Fläche mit der Ebene \\(y = y_0\\). Es entsteht eine Kurve, und \\(f_x\\) ist deren Steigung. Ebenso \\(f_y\\) mit einem Schnitt bei \\(x = x_0\\).\n\nAuf der Wanderkarte: \\(f_x\\) ist die Steigung, wenn man genau nach Osten geht; \\(f_y\\), wenn man genau nach Norden geht.",
+      "insight": "Rechentechnisch ist nichts Neues nötig: Die andere Variable wird behandelt wie eine Konstante, etwa wie die Zahl \\(5\\)."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440005",
+      "section": "Kapitel 2 · Partielle Ableitungen",
+      "text": "Beispiel: \\(f(x, y) = x^2 y + 3y^2 + \\sin x\\).",
+      "formula": "\\begin{aligned} f_x &= 2xy + \\cos x \\\\ f_y &= x^2 + 6y \\\\[4pt] f_x(0, 1) &= 0 + 1 = 1, \\qquad f_y(0, 1) = 0 + 6 = 6 \\end{aligned}",
+      "explanation": "Ableiten nach \\(x\\): In \\(x^2 y\\) ist \\(y\\) ein konstanter Faktor, also \\((x^2 y)_x = 2x \\cdot y\\). Der Summand \\(3y^2\\) enthält kein \\(x\\) – er ist eine Konstante, Ableitung \\(0\\). Und \\((\\sin x)_x = \\cos x\\).\n\nAbleiten nach \\(y\\): In \\(x^2 y\\) ist \\(x^2\\) ein konstanter Faktor, Ableitung \\(x^2\\). \\((3y^2)_y = 6y\\). \\(\\sin x\\) ist konstant.\n\nIm Punkt \\((0, 1)\\) steigt die Fläche also in \\(y\\)-Richtung sechsmal so stark wie in \\(x\\)-Richtung.",
+      "insight": "Typischer Fehler: Beim Ableiten nach \\(x\\) auch die \\(y\\)-Terme „ableiten“. Ein Term ohne \\(x\\) fällt beim partiellen Ableiten nach \\(x\\) einfach weg."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440006",
+      "section": "Kapitel 2 · Partielle Ableitungen",
+      "text": "Höhere partielle Ableitungen bildet man, indem man erneut ableitet – auch gemischt. Dabei gibt es eine schöne Überraschung:",
+      "formula": "\\begin{aligned} f(x, y) &= x^3 y^2 + e^{xy} \\\\ f_{xy} &= (3x^2 y^2 + y e^{xy})_y = 6x^2 y + e^{xy} + xy\\,e^{xy} \\\\ f_{yx} &= (2x^3 y + x e^{xy})_x = 6x^2 y + e^{xy} + xy\\,e^{xy} \\end{aligned}",
+      "explanation": "\\(f_{xy}\\) heißt: erst nach \\(x\\), dann nach \\(y\\) ableiten.\n\nBeide Reihenfolgen liefern dasselbe! Das ist der Satz von Schwarz: Sind die zweiten partiellen Ableitungen stetig, dann gilt \\(f_{xy} = f_{yx}\\).\n\nBei der Rechnung in Zeile 2 braucht man die Produktregel für \\(y e^{xy}\\): \\((y)_y e^{xy} + y (e^{xy})_y\\) \\(= e^{xy} + y \\cdot x e^{xy}\\).",
+      "insight": "Der Satz von Schwarz ist eine nützliche Kontrolle: Stimmen \\(f_{xy}\\) und \\(f_{yx}\\) nicht überein, ist ein Rechenfehler passiert."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440007",
+      "section": "Kapitel 3 · Gradient und Richtungsableitung",
+      "text": "Fasst man alle partiellen Ableitungen zu einem Vektor zusammen, erhält man den Gradienten. Er ist das wichtigste Objekt dieser Lektion.",
+      "formula": "\\begin{aligned} \\nabla f(x, y) &= \\begin{pmatrix} f_x \\\\ f_y \\end{pmatrix} \\\\[6pt] f = x^2 + 2y^2\\colon \\quad \\nabla f &= \\begin{pmatrix} 2x \\\\ 4y \\end{pmatrix}, \\qquad \\nabla f(1, 1) = \\begin{pmatrix} 2 \\\\ 4 \\end{pmatrix} \\end{aligned}",
+      "explanation": "Das Symbol \\(\\nabla\\) heißt „Nabla“. Der Gradient ordnet jedem Punkt einen Vektor zu – ein Vektorfeld.\n\nFür drei Variablen hat er drei Komponenten: \\(\\nabla f = (f_x, f_y, f_z)\\).\n\nWas bedeutet dieser Vektor? Das zeigt die nächste Animation.",
+      "insight": "Der Gradient ist ein Vektor in der Ebene der Variablen (der „Landkarte“), nicht ein Vektor auf der Fläche im Raum."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440008",
+      "section": "Kapitel 3 · Gradient und Richtungsableitung",
+      "text": "Der Gradient hat zwei geometrische Eigenschaften, die ihn so wichtig machen:",
+      "visual": "contourGradient",
+      "formula": "\\begin{array}{ll} 1. & \\nabla f \\text{ zeigt in Richtung des steilsten Anstiegs} \\\\ 2. & \\nabla f \\text{ steht senkrecht auf der Höhenlinie} \\\\ 3. & |\\nabla f| \\text{ ist die größte Steigung} \\end{array}",
+      "explanation": "Anschaulich auf der Wanderkarte: Willst du möglichst schnell bergauf, gehst du senkrecht zu den Höhenlinien – genau in Richtung des Gradienten. Wasser fließt in die Gegenrichtung \\(-\\nabla f\\).\n\nEntlang einer Höhenlinie ändert sich \\(f\\) nicht. Deshalb hat die Bewegung entlang der Höhenlinie keinen Anteil in Richtung des Gradienten – sie stehen senkrecht.\n\nBeim Beispiel \\(x^2 + 2y^2\\) im Punkt \\((1, 1)\\): \\(\\nabla f = (2, 4)\\) zeigt mehr nach „oben“ als nach rechts, weil die Ellipsen in \\(y\\)-Richtung enger liegen – dort ist es steiler.",
+      "insight": "„Gradientenabstieg“ – immer ein Stück in Richtung \\(-\\nabla f\\) gehen – ist das Verfahren, mit dem neuronale Netze trainiert werden."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440009",
+      "section": "Kapitel 3 · Gradient und Richtungsableitung",
+      "text": "Wie steil ist es in einer beliebigen Richtung \\(v\\) (mit \\(|v| = 1\\))? Die Antwort liefert die Richtungsableitung:",
+      "formula": "\\begin{aligned} D_v f &= \\nabla f \\cdot v = |\\nabla f| \\cos\\alpha \\\\[6pt] f = x^2 + 2y^2,\\; (1, 1),\\; v = \\tfrac{1}{\\sqrt{2}}\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}\\colon \\quad D_v f &= \\tfrac{1}{\\sqrt{2}}(2 + 4) = 3\\sqrt{2} \\approx 4{,}24 \\end{aligned}",
+      "explanation": "Die Richtungsableitung ist das Skalarprodukt von Gradient und Richtung. \\(\\alpha\\) ist der Winkel zwischen beiden.\n\nDaraus folgen die Eigenschaften des vorigen Schritts:\n• Maximal für \\(\\alpha = 0\\) (in Richtung des Gradienten): \\(D_v f = |\\nabla f|\\).\n• Null für \\(\\alpha = 90°\\) (entlang der Höhenlinie).\n• Minimal für \\(\\alpha = 180°\\): steilster Abstieg.\n\nIm Beispiel: \\(|\\nabla f(1, 1)| = \\sqrt{4 + 16} = \\sqrt{20} \\approx 4{,}47\\). Die diagonale Richtung liefert \\(4{,}24\\) – fast maximal, weil sie fast in Gradientenrichtung zeigt.",
+      "insight": "Die partiellen Ableitungen sind Spezialfälle: \\(f_x = D_{e_1} f\\) und \\(f_y = D_{e_2} f\\) – Richtungsableitungen in Achsenrichtung."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440010",
+      "section": "Kapitel 3 · Gradient und Richtungsableitung",
+      "text": "Beispielsammlung: Gradienten berechnen und deuten.",
+      "formula": "\\begin{array}{ll} \\text{a)} & f = xy \\\\[4pt] \\text{b)} & f = e^x \\sin y \\\\[4pt] \\text{c)} & f = \\sqrt{x^2 + y^2} \\\\[4pt] \\text{d)} & f = 3x - 2y + 7 \\end{array}",
+      "explanation": "a) \\(\\nabla f = (y, x)\\). Im Punkt \\((2, 1)\\): \\((1, 2)\\).\n\nb) \\(\\nabla f = (e^x \\sin y,\\; e^x \\cos y)\\).\n\nc) \\(\\nabla f = \\left(\\frac{x}{\\sqrt{x^2 + y^2}},\\; \\frac{y}{\\sqrt{x^2 + y^2}}\\right)\\). Das ist ein Einheitsvektor, der vom Ursprung weg zeigt: Der Abstand zum Ursprung wächst am schnellsten, wenn man sich radial entfernt – und zwar mit Steigung \\(1\\). Im Ursprung selbst ist \\(f\\) nicht differenzierbar (Kegelspitze).\n\nd) \\(\\nabla f = (3, -2)\\), überall gleich. Eine Ebene hat überall dieselbe Steigung – das Gegenstück zur Geraden mit konstanter Ableitung.",
+      "insight": "Plausibilitätscheck: Zeigt der Gradient dorthin, wo die Funktion größer wird? Bei c) wird der Abstand nach außen größer – der Gradient zeigt nach außen ✓"
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440011",
+      "section": "Kapitel 4 · Differenzierbarkeit und Kettenregel",
+      "text": "In einer Variablen ist die Tangente die beste lineare Näherung. In zwei Variablen ist es die Tangentialebene:",
+      "formula": "\\begin{aligned} f(x, y) &\\approx f(x_0, y_0) + f_x(x_0, y_0)(x - x_0) + f_y(x_0, y_0)(y - y_0) \\\\[6pt] f = x^2 + y^2,\\; (1, 2)\\colon \\quad f(x, y) &\\approx 5 + 2(x - 1) + 4(y - 2) \\end{aligned}",
+      "explanation": "Kontrolle mit einem nahen Punkt: \\(f(1{,}1;\\ 2{,}1) = 1{,}21 + 4{,}41 = 5{,}62\\). Die Näherung liefert \\(5 + 0{,}2 + 0{,}4 = 5{,}6\\) ✓\n\nEine Funktion heißt (total) differenzierbar, wenn diese Näherung so gut ist, dass der Fehler schneller als der Abstand zu \\((x_0, y_0)\\) gegen \\(0\\) geht.\n\nKompakt: \\(f(p + h) \\approx f(p) + \\nabla f(p) \\cdot h\\) – genau wie \\(f(x_0 + h) \\approx f(x_0) + f'(x_0)\\,h\\) in einer Variablen.",
+      "insight": "Die Ableitung ist in jeder Dimension dasselbe Konzept: die beste lineare Näherung. In einer Variablen eine Zahl, hier ein Vektor, bei Funktionen \\(\\mathbb{R}^n \\to \\mathbb{R}^m\\) eine Matrix."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440012",
+      "section": "Kapitel 4 · Differenzierbarkeit und Kettenregel",
+      "text": "Eine Warnung: Existieren alle partiellen Ableitungen, heißt das NICHT, dass die Funktion differenzierbar ist – nicht einmal stetig!",
+      "formula": "\\begin{aligned} f(x, y) &= \\begin{cases} \\dfrac{xy}{x^2 + y^2} & (x, y) \\neq (0, 0) \\\\ 0 & (x, y) = (0, 0) \\end{cases} \\\\[8pt] f(x, 0) &= 0, \\quad f(0, y) = 0 \\;\\Rightarrow\\; f_x(0,0) = f_y(0,0) = 0 \\\\[4pt] f(t, t) &= \\tfrac{t^2}{2t^2} = \\tfrac{1}{2} \\quad \\text{für } t \\neq 0 \\end{aligned}",
+      "explanation": "Auf den Achsen ist \\(f\\) überall \\(0\\), also sind beide partiellen Ableitungen im Ursprung \\(0\\).\n\nAuf der Diagonalen ist \\(f\\) aber konstant \\(\\frac{1}{2}\\) – bis auf den Ursprung selbst, wo \\(f = 0\\) ist. Nähert man sich entlang der Diagonalen, ist der Grenzwert \\(\\frac{1}{2} \\neq f(0, 0)\\). Die Funktion ist nicht einmal stetig.\n\nDer Grund: Partielle Ableitungen schauen nur in zwei Richtungen. Das Verhalten in allen anderen Richtungen bleibt unsichtbar.\n\nHinreichend für Differenzierbarkeit ist: Die partiellen Ableitungen existieren in einer Umgebung UND sind dort stetig.",
+      "insight": "In mehreren Variablen muss man sich einem Punkt aus allen Richtungen nähern. Zwei Richtungen zu prüfen reicht nicht."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440013",
+      "section": "Kapitel 4 · Differenzierbarkeit und Kettenregel",
+      "text": "Die Kettenregel in mehreren Variablen: Läuft man auf einem Weg \\(\\gamma(t) = (x(t), y(t))\\) durch die Landschaft, wie schnell ändert sich die Höhe?",
+      "formula": "\\begin{aligned} \\frac{d}{dt} f(x(t), y(t)) &= f_x \\cdot x'(t) + f_y \\cdot y'(t) = \\nabla f \\cdot \\gamma'(t) \\\\[6pt] f = x^2 + y^2,\\; \\gamma(t) = (\\cos t, \\sin t)\\colon \\quad \\frac{d}{dt} f &= 2\\cos t \\cdot (-\\sin t) + 2\\sin t \\cdot \\cos t = 0 \\end{aligned}",
+      "explanation": "Die Höhenänderung ist „Gradient mal Geschwindigkeitsvektor“ – eine Richtungsableitung, multipliziert mit dem Tempo.\n\nIm Beispiel läuft man auf dem Einheitskreis – genau einer Höhenlinie von \\(x^2 + y^2\\). Die Höhe bleibt konstant, die Ableitung ist \\(0\\) ✓. Probe ohne Kettenregel: \\(f(\\gamma(t)) = \\cos^2 t + \\sin^2 t = 1\\).\n\nDaraus folgt auch der Satz „Gradient steht senkrecht auf Höhenlinien“: Auf einer Höhenlinie ist \\(\\nabla f \\cdot \\gamma' = 0\\), also \\(\\nabla f \\perp \\gamma'\\).",
+      "insight": "Allgemein: Die Ableitung einer Verkettung ist das Produkt der Ableitungen – in mehreren Variablen ein Matrixprodukt. Die Kettenregel einer Variablen ist der Spezialfall von \\(1 \\times 1\\)-Matrizen."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440014",
+      "section": "Kapitel 5 · Extremwerte",
+      "text": "Wo hat \\(f\\) Extremwerte? Wie in einer Variablen: Ein Extremum im Inneren kann nur dort liegen, wo die Tangentialebene waagerecht ist.",
+      "formula": "\\begin{array}{c} (x_0, y_0) \\text{ lokales Extremum} \\;\\Longrightarrow\\; \\nabla f(x_0, y_0) = 0 \\\\[6pt] \\text{Solche Punkte heißen kritische Punkte.} \\end{array}",
+      "explanation": "\\(\\nabla f = 0\\) bedeutet ZWEI Gleichungen: \\(f_x = 0\\) und \\(f_y = 0\\).\n\nBeispiel: \\(f(x, y) = x^2 + y^2 - 2x + 4y\\).\n\\(f_x = 2x - 2 = 0 \\Rightarrow x = 1\\)\n\\(f_y = 2y + 4 = 0 \\Rightarrow y = -2\\)\nEinziger kritischer Punkt: \\((1, -2)\\).\n\nQuadratische Ergänzung zeigt, was dort los ist: \\(f = (x - 1)^2 + (y + 2)^2 - 5\\). Ein Minimum mit Wert \\(-5\\).\n\nAber Vorsicht: Wie \\(x^3\\) in einer Variablen hat nicht jeder kritische Punkt ein Extremum.",
+      "insight": "Kritische Punkte sind Kandidaten, keine Ergebnisse. Für die Entscheidung braucht man zweite Ableitungen."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440015",
+      "section": "Kapitel 5 · Extremwerte",
+      "text": "In zwei Variablen gibt es neben Minimum und Maximum einen dritten Fall: den Sattelpunkt.",
+      "visual": "criticalPoints",
+      "formula": "\\begin{array}{lll} x^2 + y^2 & \\text{Minimum} & \\text{steigt in alle Richtungen} \\\\ -(x^2 + y^2) & \\text{Maximum} & \\text{fällt in alle Richtungen} \\\\ x^2 - y^2 & \\text{Sattel} & \\text{steigt in } x\\text{, fällt in } y \\end{array}",
+      "explanation": "Alle drei Funktionen haben im Ursprung \\(\\nabla f = 0\\).\n\nDer Sattel heißt so, weil er wie ein Pferdesattel aussieht: In Reitrichtung geht es nach oben (vorne und hinten), quer dazu nach unten (zu den Beinen).\n\nEin Gebirgspass ist ein Sattelpunkt: der tiefste Punkt auf dem Weg über den Kamm, aber der höchste Punkt auf dem Weg durch das Tal.",
+      "insight": "Ob Minimum, Maximum oder Sattel, entscheiden die Krümmungen in allen Richtungen. Die erfasst die Hesse-Matrix."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440016",
+      "section": "Kapitel 5 · Extremwerte",
+      "text": "Die Hesse-Matrix enthält alle zweiten partiellen Ableitungen. Ihre Eigenwerte entscheiden über die Art des kritischen Punkts:",
+      "formula": "\\begin{array}{c} H_f = \\begin{pmatrix} f_{xx} & f_{xy} \\\\ f_{yx} & f_{yy} \\end{pmatrix} \\\\[10pt] \\begin{array}{ll} \\text{alle Eigenwerte} > 0 & \\text{Minimum} \\\\ \\text{alle Eigenwerte} < 0 & \\text{Maximum} \\\\ \\text{Eigenwerte mit beiden Vorzeichen} & \\text{Sattelpunkt} \\\\ \\text{ein Eigenwert} = 0 & \\text{keine Aussage} \\end{array} \\end{array}",
+      "explanation": "Nach dem Satz von Schwarz ist \\(H_f\\) symmetrisch. Nach dem Spektralsatz (Lektion „Eigenwerte“) hat sie reelle Eigenwerte und orthogonale Eigenvektoren – die Hauptkrümmungsrichtungen.\n\nFür \\(2 \\times 2\\)-Matrizen gibt es eine Abkürzung über die Determinante (sie ist das Produkt der Eigenwerte):\n• \\(\\det H > 0\\) und \\(f_{xx} > 0\\): Minimum\n• \\(\\det H > 0\\) und \\(f_{xx} < 0\\): Maximum\n• \\(\\det H < 0\\): Sattelpunkt\n\nFür \\(x^2 - y^2\\): \\(H = \\operatorname{diag}(2, -2)\\), \\(\\det H = -4 < 0\\) – Sattel ✓",
+      "insight": "Das ist die mehrdimensionale Version von „\\(f'' > 0\\) ⇒ Minimum“. Positive Definitheit der Hesse-Matrix ersetzt das Vorzeichen der zweiten Ableitung."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440017",
+      "section": "Kapitel 5 · Extremwerte",
+      "text": "Ein vollständiges Beispiel: \\(f(x, y) = x^3 - 3x + y^2\\).",
+      "formula": "\\begin{aligned} \\nabla f &= \\begin{pmatrix} 3x^2 - 3 \\\\ 2y \\end{pmatrix} = 0 \\;\\Rightarrow\\; (1, 0),\\; (-1, 0) \\\\[6pt] H_f &= \\begin{pmatrix} 6x & 0 \\\\ 0 & 2 \\end{pmatrix} \\\\[6pt] H_f(1, 0) &= \\begin{pmatrix} 6 & 0 \\\\ 0 & 2 \\end{pmatrix}\\colon\\; \\text{Minimum},\\; f = -2 \\\\[4pt] H_f(-1, 0) &= \\begin{pmatrix} -6 & 0 \\\\ 0 & 2 \\end{pmatrix}\\colon\\; \\text{Sattelpunkt} \\end{aligned}",
+      "explanation": "Kritische Punkte: \\(3x^2 - 3 = 0 \\Rightarrow x = \\pm 1\\), und \\(2y = 0 \\Rightarrow y = 0\\).\n\nDie Hesse-Matrix ist hier schon diagonal, die Eigenwerte stehen auf der Diagonalen.\n• Bei \\((1, 0)\\): \\(6 > 0\\) und \\(2 > 0\\) – positiv definit, lokales Minimum mit \\(f(1, 0) = 1 - 3 = -2\\).\n• Bei \\((-1, 0)\\): \\(-6 < 0\\) und \\(2 > 0\\) – indefinit, Sattelpunkt. (In \\(x\\)-Richtung ist dort ein Hochpunkt der Kurve \\(x^3 - 3x\\), in \\(y\\)-Richtung ein Tiefpunkt.)\n\nDas Minimum ist nur lokal: Für \\(x \\to -\\infty\\) geht \\(f \\to -\\infty\\).",
+      "insight": "Vergleiche mit der Kurvendiskussion von \\(x^3 - 3x\\) in der „Differentialrechnung“: Der Term \\(y^2\\) fügt einfach eine Richtung hinzu, in der es immer bergauf geht."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440018",
+      "section": "Kapitel 6 · Extrema mit Nebenbedingung",
+      "text": "Oft sucht man ein Extremum unter einer Nebenbedingung: Welcher Punkt auf einer Kurve hat den größten Funktionswert? Die Methode von Lagrange löst das elegant.",
+      "visual": "lagrange",
+      "formula": "\\begin{array}{c} \\text{Extremum von } f \\text{ unter } g(x, y) = 0 \\\\[4pt] \\Downarrow \\\\[2pt] \\nabla f = \\lambda\\, \\nabla g \\;\\text{ für ein } \\lambda \\in \\mathbb{R} \\;\\;\\text{ und }\\;\\; g = 0 \\end{array}",
+      "explanation": "Die Idee aus der Animation: Man wandert auf der Nebenbedingungskurve und beobachtet die Höhenlinien von \\(f\\). Solange eine Höhenlinie die Kurve SCHNEIDET, kann man auf der Kurve noch höher oder tiefer kommen. Am Extremum BERÜHRT die Höhenlinie die Kurve nur.\n\nBerühren heißt: Beide Kurven haben dieselbe Tangente – also sind ihre Normalen parallel. Die Normalen sind die Gradienten \\(\\nabla f\\) und \\(\\nabla g\\).\n\n\\(\\lambda\\) heißt Lagrange-Multiplikator.",
+      "insight": "Aus einem Optimierungsproblem mit Nebenbedingung wird ein Gleichungssystem: 2 Gleichungen aus \\(\\nabla f = \\lambda \\nabla g\\) plus die Nebenbedingung – für die 3 Unbekannten \\(x\\), \\(y\\), \\(\\lambda\\)."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440019",
+      "section": "Kapitel 6 · Extrema mit Nebenbedingung",
+      "text": "Das Beispiel aus der Animation durchgerechnet: Maximiere \\(f(x, y) = x + y\\) auf dem Kreis \\(x^2 + y^2 = 1\\).",
+      "formula": "\\begin{aligned} \\nabla f = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} &= \\lambda \\begin{pmatrix} 2x \\\\ 2y \\end{pmatrix} \\;\\Rightarrow\\; x = y = \\frac{1}{2\\lambda} \\\\[6pt] x^2 + y^2 = 1 \\;&\\Rightarrow\\; 2x^2 = 1 \\;\\Rightarrow\\; x = y = \\pm\\frac{1}{\\sqrt{2}} \\\\[6pt] f\\left(\\tfrac{1}{\\sqrt{2}}, \\tfrac{1}{\\sqrt{2}}\\right) &= \\sqrt{2}, \\qquad f\\left(-\\tfrac{1}{\\sqrt{2}}, -\\tfrac{1}{\\sqrt{2}}\\right) = -\\sqrt{2} \\end{aligned}",
+      "explanation": "Mit \\(g(x, y) = x^2 + y^2 - 1\\) ist \\(\\nabla g = (2x, 2y)\\).\n\nAus den beiden Gradientengleichungen folgt \\(x = y\\). Einsetzen in die Nebenbedingung liefert zwei Kandidaten.\n\nDer Kreis ist eine abgeschlossene, beschränkte Menge, also nimmt die stetige Funktion \\(f\\) dort Maximum und Minimum an. Vergleich der Kandidaten: Maximum \\(\\sqrt{2}\\), Minimum \\(-\\sqrt{2}\\).",
+      "insight": "Ohne Lagrange könnte man hier parametrisieren (\\(x = \\cos t\\), \\(y = \\sin t\\)) und \\(\\cos t + \\sin t\\) maximieren. Lagrange funktioniert auch dann, wenn sich die Nebenbedingung nicht so leicht auflösen lässt."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440020",
+      "section": "Kapitel 6 · Extrema mit Nebenbedingung",
+      "text": "Ein Anwendungsbeispiel: Welches Rechteck mit Umfang 4 hat die größte Fläche?",
+      "formula": "\\begin{aligned} f(x, y) &= xy, \\qquad g(x, y) = 2x + 2y - 4 = 0 \\\\[4pt] \\begin{pmatrix} y \\\\ x \\end{pmatrix} &= \\lambda \\begin{pmatrix} 2 \\\\ 2 \\end{pmatrix} \\;\\Rightarrow\\; x = y \\\\[4pt] 4x = 4 \\;&\\Rightarrow\\; x = y = 1, \\quad A = 1 \\end{aligned}",
+      "explanation": "Das Quadrat ist das Rechteck mit maximaler Fläche bei gegebenem Umfang. Zum Vergleich: Ein Rechteck \\(1{,}5 \\times 0{,}5\\) hat denselben Umfang, aber nur die Fläche \\(0{,}75\\).\n\nDer Multiplikator hat übrigens eine Bedeutung: \\(\\lambda = \\frac{1}{2}\\) gibt an, um wie viel die maximale Fläche wächst, wenn man den erlaubten Umfang ein wenig vergrößert. In der Wirtschaft heißt \\(\\lambda\\) deshalb „Schattenpreis“ einer Ressource.",
+      "insight": "Lagrange-Multiplikatoren sind das Standardwerkzeug der Ökonomie (Nutzenmaximierung bei gegebenem Budget) und der Physik (Bewegung unter Zwangsbedingungen)."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440021",
+      "section": "Kapitel 7 · Mehrfachintegrale",
+      "text": "Jetzt das Integral. Das Doppelintegral \\(\\iint_G f(x, y)\\,dA\\) misst das Volumen unter dem Graphen über einem Gebiet \\(G\\). Über Rechtecken berechnet man es Schicht für Schicht (Satz von Fubini):",
+      "formula": "\\begin{aligned} \\int_0^1 \\int_0^2 x y\\,dy\\,dx &= \\int_0^1 \\left[\\frac{x y^2}{2}\\right]_{y=0}^{y=2} dx = \\int_0^1 2x\\,dx = 1 \\end{aligned}",
+      "explanation": "Man integriert zuerst innen nach \\(y\\) (dabei ist \\(x\\) eine Konstante) und dann außen nach \\(x\\). Das ist wie beim partiellen Ableiten: Eine Variable nach der anderen.\n\nAnschaulich: Das innere Integral ist die Fläche eines Querschnitts bei festem \\(x\\). Das äußere Integral addiert alle Querschnitte – wie beim Rotationsvolumen in der „Integralrechnung“.\n\nBei stetigen Funktionen darf man die Reihenfolge vertauschen: \\(\\int_0^2 \\int_0^1 xy\\,dx\\,dy\\) \\(= \\int_0^2 \\frac{y}{2}\\,dy\\) \\(= 1\\) ✓",
+      "insight": "Ein Doppelintegral ist (fast immer) zwei gewöhnliche Integrale hintereinander. Die Kunst liegt darin, die Grenzen richtig aufzustellen."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440022",
+      "section": "Kapitel 7 · Mehrfachintegrale",
+      "text": "Bei nicht-rechteckigen Gebieten hängen die inneren Grenzen von der äußeren Variablen ab. Beispiel: das Dreieck unter der Geraden \\(y = x\\) für \\(0 \\le x \\le 1\\).",
+      "formula": "\\begin{aligned} G &= \\{ (x, y) \\mid 0 \\le x \\le 1,\\; 0 \\le y \\le x \\} \\\\[4pt] \\iint_G y\\,dA &= \\int_0^1 \\int_0^x y\\,dy\\,dx = \\int_0^1 \\frac{x^2}{2}\\,dx = \\frac{1}{6} \\end{aligned}",
+      "explanation": "Für jedes feste \\(x\\) läuft \\(y\\) von \\(0\\) bis \\(x\\) – das ist ein senkrechter Streifen im Dreieck.\n\nKontrolle mit \\(f = 1\\): \\(\\iint_G 1\\,dA = \\int_0^1 x\\,dx = \\frac{1}{2}\\) – genau die Fläche des Dreiecks ✓\n\nVertauscht man die Reihenfolge, ändern sich die Grenzen: Für festes \\(y\\) läuft \\(x\\) von \\(y\\) bis \\(1\\). Dann: \\(\\int_0^1 \\int_y^1 y\\,dx\\,dy\\) \\(= \\int_0^1 y(1 - y)\\,dy\\) \\(= \\frac{1}{2} - \\frac{1}{3}\\) \\(= \\frac{1}{6}\\) ✓",
+      "insight": "Immer zuerst eine Skizze des Gebiets machen! Aus ihr liest man die Grenzen ab – für beide Reihenfolgen."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440023",
+      "section": "Kapitel 7 · Mehrfachintegrale",
+      "text": "Bei kreisförmigen Gebieten rechnet man in Polarkoordinaten \\(x = r\\cos\\varphi\\), \\(y = r\\sin\\varphi\\). Dabei kommt ein Faktor \\(r\\) dazu:",
+      "visual": "polarArea",
+      "formula": "\\begin{aligned} dA &= r\\,dr\\,d\\varphi \\\\[4pt] \\text{Kreisfläche:} \\quad \\int_0^{2\\pi} \\int_0^R r\\,dr\\,d\\varphi &= 2\\pi \\cdot \\frac{R^2}{2} = \\pi R^2 \\end{aligned}",
+      "explanation": "Warum der Faktor \\(r\\)? Eine kleine Zelle zwischen \\(r\\) und \\(r + dr\\) und zwischen \\(\\varphi\\) und \\(\\varphi + d\\varphi\\) ist fast ein Rechteck mit den Seiten \\(dr\\) und \\(r\\,d\\varphi\\) (Bogenlänge!). Weiter außen sind die Zellen größer.\n\nAllgemein heißt dieser Faktor Funktionaldeterminante: die Determinante der Ableitungsmatrix der Koordinatentransformation. Sie misst, wie die Transformation Flächen verzerrt – genau wie die Determinante in der Lektion „Determinanten“.\n\nProbe: \\(\\det\\begin{pmatrix} \\cos\\varphi & -r\\sin\\varphi \\\\ \\sin\\varphi & r\\cos\\varphi \\end{pmatrix}\\) \\(= r(\\cos^2\\varphi + \\sin^2\\varphi)\\) \\(= r\\) ✓",
+      "insight": "Typischer Fehler: In Polarkoordinaten das \\(r\\) in \\(dA = r\\,dr\\,d\\varphi\\) vergessen. Ohne es käme für die Kreisfläche \\(2\\pi R\\) heraus – das ist der Umfang."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440024",
+      "section": "Kapitel 7 · Mehrfachintegrale",
+      "text": "Ein berühmtes Ergebnis, das nur mit diesem Trick gelingt: das Gaußsche Fehlerintegral. In einer Variablen hat \\(e^{-x^2}\\) keine elementare Stammfunktion – trotzdem kann man das Integral über ganz \\(\\mathbb{R}\\) exakt berechnen.",
+      "formula": "\\begin{aligned} I &= \\int_{-\\infty}^{\\infty} e^{-x^2}\\,dx \\\\[4pt] I^2 &= \\int_{-\\infty}^{\\infty} \\int_{-\\infty}^{\\infty} e^{-(x^2 + y^2)}\\,dx\\,dy = \\int_0^{2\\pi} \\int_0^{\\infty} e^{-r^2}\\,r\\,dr\\,d\\varphi \\\\[4pt] &= 2\\pi \\left[-\\tfrac{1}{2} e^{-r^2}\\right]_0^{\\infty} = \\pi \\;\\;\\Longrightarrow\\;\\; I = \\sqrt{\\pi} \\end{aligned}",
+      "explanation": "Der Trick: Man quadriert \\(I\\) und schreibt das Quadrat als Doppelintegral über die ganze Ebene. Dort wird \\(x^2 + y^2 = r^2\\).\n\nIn Polarkoordinaten steht plötzlich der Faktor \\(r\\) da – und \\(r\\,e^{-r^2}\\) hat die Stammfunktion \\(-\\frac{1}{2}e^{-r^2}\\) (Substitution!).\n\nDieses Integral ist die Grundlage der Normalverteilung in der Statistik. Dass dort \\(\\sqrt{2\\pi}\\) im Nenner steht, liegt genau an diesem Ergebnis.",
+      "insight": "Manchmal ist ein Problem in höherer Dimension leichter als in niedriger. Ein Wechsel der Perspektive (hier: Koordinaten) ist eines der mächtigsten Werkzeuge der Mathematik."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440025",
+      "section": "Kapitel 7 · Mehrfachintegrale",
+      "text": "Zwei weitere Beispiele zu Doppelintegralen – einmal kartesisch, einmal in Polarkoordinaten:",
+      "formula": "\\begin{aligned} \\int_0^1 \\int_0^1 (x^2 + y^2)\\,dy\\,dx &= \\int_0^1 \\left(x^2 + \\tfrac{1}{3}\\right) dx = \\tfrac{1}{3} + \\tfrac{1}{3} = \\tfrac{2}{3} \\\\[8pt] \\iint_{x^2 + y^2 \\le 1} (x^2 + y^2)\\,dA &= \\int_0^{2\\pi} \\int_0^1 r^2 \\cdot r\\,dr\\,d\\varphi = 2\\pi \\cdot \\tfrac{1}{4} = \\tfrac{\\pi}{2} \\end{aligned}",
+      "explanation": "Erstes Integral über das Einheitsquadrat: Innen nach \\(y\\) integrieren, dabei ist \\(x^2\\) eine Konstante: \\(\\int_0^1 (x^2 + y^2)\\,dy = x^2 + \\frac{1}{3}\\).\n\nZweites Integral über die Einheitskreisscheibe: In kartesischen Koordinaten wären die Grenzen unangenehm (\\(y\\) von \\(-\\sqrt{1 - x^2}\\) bis \\(\\sqrt{1 - x^2}\\)). In Polarkoordinaten wird \\(x^2 + y^2 = r^2\\), und mit dem Faktor \\(r\\) entsteht \\(r^3\\).\n\nDeutung: Das ist das „Trägheitsmoment“ einer Kreisscheibe um ihren Mittelpunkt – eine Größe aus der Mechanik.",
+      "insight": "Faustregel: Rechteckige Gebiete → kartesisch. Kreise, Ringe, Sektoren, oder Ausdrücke mit \\(x^2 + y^2\\) → Polarkoordinaten."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440026",
+      "section": "Kapitel 8 · Ausblick und Rückblick",
+      "text": "Ausblick: Wo geht es weiter?",
+      "explanation": "• Jacobi-Matrix: Für \\(f\\colon \\mathbb{R}^n \\to \\mathbb{R}^m\\) fasst sie alle partiellen Ableitungen zusammen. Sie ist die lineare Abbildung, die \\(f\\) lokal am besten annähert. Die Kettenregel wird zu einem Matrixprodukt.\n\n• Vektorfelder: Divergenz (Quellstärke) und Rotation (Wirbelstärke) beschreiben Strömungen und elektromagnetische Felder.\n\n• Integralsätze von Gauß und Stokes: Sie verallgemeinern den Hauptsatz – das Integral einer Ableitung über ein Gebiet ist ein Integral über dessen Rand.\n\n• Partielle Differentialgleichungen: Wärmeleitung, Wellen, Strömungen und Quantenmechanik werden durch Gleichungen mit partiellen Ableitungen beschrieben.\n\n• Optimierung: Gradientenverfahren und Lagrange-Methoden sind das Rückgrat von Machine Learning, Logistik und Ökonomie.",
+      "insight": "Alles in dieser Lektion folgt aus einer Idee: Eine differenzierbare Funktion ist im Kleinen linear. Lineare Algebra und Analysis arbeiten hier Hand in Hand."
+    },
+    {
+      "id": "a50e8400-e29b-41d4-a716-446655440027",
+      "section": "Kapitel 8 · Ausblick und Rückblick",
+      "text": "Schau zurück, wie die Begriffe auseinander hervorgegangen sind:",
+      "explanation": "1. \\(f(x, y)\\): Graph als Fläche, Höhenlinien als Landkarte.\n\n2. Partielle Ableitungen: andere Variablen konstant halten. Satz von Schwarz: \\(f_{xy} = f_{yx}\\).\n\n3. Gradient \\(\\nabla f\\): steilster Anstieg, senkrecht auf Höhenlinien. Richtungsableitung \\(\\nabla f \\cdot v\\).\n\n4. Tangentialebene als beste lineare Näherung. Partielle Ableitungen allein garantieren keine Differenzierbarkeit. Kettenregel: \\(\\frac{d}{dt} f(\\gamma(t)) = \\nabla f \\cdot \\gamma'\\).\n\n5. Extrema: \\(\\nabla f = 0\\), dann Hesse-Matrix: positiv definit (Min), negativ definit (Max), indefinit (Sattel).\n\n6. Lagrange: \\(\\nabla f = \\lambda \\nabla g\\) – Höhenlinie berührt die Nebenbedingung.\n\n7. Mehrfachintegrale schichtweise (Fubini). Polarkoordinaten mit \\(dA = r\\,dr\\,d\\varphi\\). \\(\\int e^{-x^2} = \\sqrt{\\pi}\\).",
+      "insight": "Glückwunsch! Damit hast du alle Analysis-Lektionen durchgearbeitet – von der ersten Folge bis zu Integralen in der Ebene."
+    }
+  ]
+}

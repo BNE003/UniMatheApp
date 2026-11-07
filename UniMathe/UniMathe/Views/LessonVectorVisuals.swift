@@ -124,6 +124,25 @@ struct LessonVisualView: View {
         case "complexOperations": ComplexOperationsVisual()
         case "complexMultiplication": ComplexMultiplicationVisual()
         case "rootsOfUnity": RootsOfUnityVisual()
+        case "sequenceConvergence": SequenceConvergenceVisual()
+        case "geometricSeries": GeometricSeriesVisual()
+        case "seriesComparison": SeriesComparisonVisual()
+        case "removableHole": RemovableHoleVisual()
+        case "squeeze": SqueezeVisual()
+        case "continuityTypes": ContinuityTypesVisual()
+        case "secantToTangent": SecantToTangentVisual()
+        case "derivativeGraph": DerivativeGraphVisual()
+        case "meanValue": MeanValueVisual()
+        case "newton": NewtonVisual()
+        case "taylorSine": TaylorSineVisual()
+        case "riemannSums": RiemannSumVisual()
+        case "fundamentalTheorem": FundamentalTheoremVisual()
+        case "signedArea": SignedAreaVisual()
+        case "improperIntegral": ImproperIntegralVisual()
+        case "contourGradient": ContourGradientVisual()
+        case "criticalPoints": CriticalPointsVisual()
+        case "lagrange": LagrangeVisual()
+        case "polarArea": PolarAreaVisual()
         case "clockZ12": ClockVisual(n: 12, frames: [
             ClockFrame(caption: "ℤ/12: Rechnen auf der Uhr. Es gibt nur die Zahlen 0 bis 11; nach 11 kommt wieder 0."),
             ClockFrame(arcs: [ClockArc(from: 9, steps: 5)], marks: [(9, .blue), (2, .green)], caption: "9 + 5: Von 9 aus 5 Schritte weiter landet man bei 2. Also 9 + 5 = 2 in ℤ/12 (denn 14 = 12 + 2)."),
@@ -2439,6 +2458,786 @@ private struct RootsOfUnityVisual: View {
                 .opacity(show(phase >= 1))
             Arrow(from: .zero, to: root(1), color: VisualColor.second, window: window, width: 2.5)
                 .opacity(show(phase == 1))
+        }
+    }
+}
+
+// MARK: - Analysis: Bausteine für Funktionsgraphen
+
+/// Zeichnet den Graphen von f zwischen `from` und `to`. Werte weit außerhalb des Fensters
+/// (Polstellen) unterbrechen die Linie, statt quer durchs Bild zu springen.
+struct FunctionGraphShape: Shape {
+    let window: PlaneWindow
+    let from: CGFloat
+    let to: CGFloat
+    var samples = 300
+    let f: @Sendable (CGFloat) -> CGFloat
+
+    func path(in rect: CGRect) -> Path {
+        var p = Path()
+        var penDown = false
+        let span = window.yMax - window.yMin
+        for i in 0...samples {
+            let x = from + (to - from) * CGFloat(i) / CGFloat(samples)
+            let y = f(x)
+            if !y.isFinite || y > window.yMax + span || y < window.yMin - span {
+                penDown = false
+                continue
+            }
+            let pt = window.point(CGPoint(x: x, y: y), in: rect.size)
+            if penDown { p.addLine(to: pt) } else { p.move(to: pt); penDown = true }
+        }
+        return p
+    }
+}
+
+/// Fläche zwischen Graph und x-Achse.
+struct AreaUnderGraphShape: Shape {
+    let window: PlaneWindow
+    var from: CGFloat
+    var to: CGFloat
+    let f: @Sendable (CGFloat) -> CGFloat
+
+    var animatableData: AnimatablePair<CGFloat, CGFloat> {
+        get { AnimatablePair(from, to) }
+        set { from = newValue.first; to = newValue.second }
+    }
+
+    func path(in rect: CGRect) -> Path {
+        var p = Path()
+        guard to > from else { return p }
+        let samples = 160
+        p.move(to: window.point(CGPoint(x: from, y: 0), in: rect.size))
+        for i in 0...samples {
+            let x = from + (to - from) * CGFloat(i) / CGFloat(samples)
+            p.addLine(to: window.point(CGPoint(x: x, y: f(x)), in: rect.size))
+        }
+        p.addLine(to: window.point(CGPoint(x: to, y: 0), in: rect.size))
+        p.closeSubpath()
+        return p
+    }
+}
+
+/// Gerade durch (x0, y0) mit Steigung m über das ganze Fenster; Steigung animierbar.
+struct SlopeLineShape: Shape {
+    let window: PlaneWindow
+    let x0: CGFloat
+    let y0: CGFloat
+    var m: CGFloat
+
+    var animatableData: CGFloat {
+        get { m }
+        set { m = newValue }
+    }
+
+    func path(in rect: CGRect) -> Path {
+        var p = Path()
+        p.move(to: window.point(CGPoint(x: window.xMin, y: y0 + m * (window.xMin - x0)), in: rect.size))
+        p.addLine(to: window.point(CGPoint(x: window.xMax, y: y0 + m * (window.xMax - x0)), in: rect.size))
+        return p
+    }
+}
+
+/// Ein Punkt, der beim Animieren auf dem Graphen entlangläuft.
+struct PointOnGraphShape: Shape {
+    let window: PlaneWindow
+    var x: CGFloat
+    let radius: CGFloat
+    let f: @Sendable (CGFloat) -> CGFloat
+
+    var animatableData: CGFloat {
+        get { x }
+        set { x = newValue }
+    }
+
+    func path(in rect: CGRect) -> Path {
+        let c = window.point(CGPoint(x: x, y: f(x)), in: rect.size)
+        return Path(ellipseIn: CGRect(x: c.x - radius, y: c.y - radius, width: 2 * radius, height: 2 * radius))
+    }
+}
+
+private func graphStroke(_ color: Color, width: CGFloat = 2.5, dashed: Bool = false) -> StrokeStyle {
+    StrokeStyle(lineWidth: width, lineCap: .round, lineJoin: .round, dash: dashed ? [6, 4] : [])
+}
+
+private struct HollowDot: View {
+    let at: CGPoint
+    let color: Color
+    let window: PlaneWindow
+    let size: CGSize
+
+    var body: some View {
+        Circle()
+            .fill(Color.appSurface)
+            .overlay(Circle().stroke(color, lineWidth: 2.5))
+            .frame(width: 11, height: 11)
+            .position(window.point(at, in: size))
+    }
+}
+
+/// Waagerechtes Band y ∈ [center − eps, center + eps].
+private struct HorizontalBand: View {
+    let center: CGFloat
+    let eps: CGFloat
+    let window: PlaneWindow
+    let size: CGSize
+    let color: Color
+
+    var body: some View {
+        unitRect(window.xMin, center - eps, window.xMax, center + eps, window: window, size: size)
+            .fill(color.opacity(0.15))
+    }
+}
+
+/// Senkrechtes Band x ∈ [center − delta, center + delta].
+private struct VerticalBand: View {
+    let center: CGFloat
+    let delta: CGFloat
+    let window: PlaneWindow
+    let size: CGSize
+    let color: Color
+
+    var body: some View {
+        unitRect(center - delta, window.yMin, center + delta, window.yMax, window: window, size: size)
+            .fill(color.opacity(0.13))
+    }
+}
+
+// MARK: - Folgen und Reihen
+
+private struct SequenceConvergenceVisual: View {
+    let window = PlaneWindow(xMin: -0.5, xMax: 15.5, yMin: -0.2, yMax: 2.2)
+
+    private func a(_ n: Int) -> CGFloat { 1 + (n % 2 == 0 ? 1 : -1) / CGFloat(n) }
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Die Folge aₙ = 1 + (−1)ⁿ/n: 0; 1,5; 0,67; 1,25; 0,8; … Die Punkte springen um 1 herum – mit immer kleinerem Ausschlag.",
+            "Ein ε-Schlauch um den Grenzwert 1 mit ε = 0,25. Ab n = 5 liegen ALLE weiteren Glieder darin, denn 1/n < 0,25 für n > 4.",
+            "Engerer Schlauch, ε = 0,1: Jetzt muss man länger warten – erst ab n = 11 bleiben alle Glieder drin.",
+            "Das ist Konvergenz: Für JEDES noch so kleine ε gibt es ein N, ab dem alle Glieder im Schlauch bleiben. Kleineres ε, größeres N."
+        ]) { phase, size in
+            let eps: CGFloat = phase >= 2 ? 0.1 : 0.25
+            let startN = phase >= 2 ? 11 : 5
+            HorizontalBand(center: 1, eps: eps, window: window, size: size, color: VisualColor.result)
+                .opacity(show(phase >= 1))
+            PlaneLineShape(through: CGPoint(x: 0, y: 1), direction: CGPoint(x: 1, y: 0), window: window)
+                .stroke(VisualColor.result, style: graphStroke(VisualColor.result, width: 1.5, dashed: true))
+            ForEach(1...15, id: \.self) { n in
+                let inside = phase >= 1 && n >= startN
+                Dot(at: CGPoint(x: CGFloat(n), y: a(n)), color: inside ? VisualColor.result : VisualColor.first, window: window, size: size)
+            }
+            MathLabel(text: "N = \(startN)", at: CGPoint(x: CGFloat(startN), y: 0.15), color: VisualColor.result, window: window, size: size, offset: .zero)
+                .opacity(show(phase >= 1))
+            MathLabel(text: "ε = " + (phase >= 2 ? "0,1" : "0,25"), at: CGPoint(x: 13.2, y: 1.55), color: VisualColor.result, window: window, size: size, offset: .zero)
+                .opacity(show(phase >= 1))
+        }
+    }
+}
+
+private struct GeometricSeriesVisual: View {
+    let window = PlaneWindow(xMin: -0.1, xMax: 1.1, yMin: -0.1, yMax: 1.1)
+
+    /// Rechteck des k-ten Summanden 1/2^(k+1) beim abwechselnden Halbieren des Einheitsquadrats.
+    private func piece(_ k: Int) -> (CGFloat, CGFloat, CGFloat, CGFloat) {
+        var x0: CGFloat = 0, y0: CGFloat = 0, x1: CGFloat = 1, y1: CGFloat = 1
+        var result = (x0, y0, x1, y1)
+        for i in 0...k {
+            if i % 2 == 0 {
+                let mid = (x0 + x1) / 2
+                result = (x0, y0, mid, y1)
+                x0 = mid
+            } else {
+                let mid = (y0 + y1) / 2
+                result = (x0, y0, x1, mid)
+                y0 = mid
+            }
+        }
+        return result
+    }
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Das Einheitsquadrat hat die Fläche 1. Die Hälfte davon: ½.",
+            "Dazu die Hälfte vom Rest: ½ + ¼ = ¾.",
+            "Immer weiter: ½ + ¼ + ⅛ + 1/16 = 15/16. Es fehlt immer genau so viel, wie zuletzt dazukam.",
+            "Nach unendlich vielen Schritten ist das Quadrat gefüllt: ½ + ¼ + ⅛ + … = 1. Unendlich viele Summanden, aber eine endliche Summe!"
+        ], showGrid: false) { phase, size in
+            let count = [1, 2, 4, 10][min(phase, 3)]
+            unitRect(0, 0, 1, 1, window: window, size: size).stroke(Color.primary.opacity(0.6), lineWidth: 2)
+            ForEach(0..<10, id: \.self) { k in
+                let r = piece(k)
+                unitRect(r.0, r.1, r.2, r.3, window: window, size: size)
+                    .fill([VisualColor.first, VisualColor.second, VisualColor.result, VisualColor.extra][k % 4].opacity(0.55))
+                    .opacity(show(k < count))
+                unitRect(r.0, r.1, r.2, r.3, window: window, size: size)
+                    .stroke(Color.appSurface, lineWidth: 1.5)
+                    .opacity(show(k < count))
+            }
+            MathLabel(text: "½", at: CGPoint(x: 0.25, y: 0.5), color: .primary, window: window, size: size, offset: .zero)
+            MathLabel(text: "¼", at: CGPoint(x: 0.75, y: 0.25), color: .primary, window: window, size: size, offset: .zero).opacity(show(phase >= 1))
+            MathLabel(text: "⅛", at: CGPoint(x: 0.625, y: 0.75), color: .primary, window: window, size: size, offset: .zero).opacity(show(phase >= 2))
+        }
+    }
+}
+
+private struct SeriesComparisonVisual: View {
+    let window = PlaneWindow(xMin: -1, xMax: 41, yMin: -0.3, yMax: 4.6)
+
+    private func harmonic(_ n: Int) -> CGFloat { (1...n).reduce(CGFloat(0)) { $0 + 1 / CGFloat($1) } }
+    private func basel(_ n: Int) -> CGFloat { (1...n).reduce(CGFloat(0)) { $0 + 1 / CGFloat($1 * $1) } }
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Partialsummen von Σ 1/k² (orange): 1; 1,25; 1,36; … Sie wachsen, aber nähern sich einer festen Höhe.",
+            "Grenzwert π²/6 ≈ 1,645 (gestrichelt). Die Reihe konvergiert.",
+            "Partialsummen von Σ 1/k (blau): 1; 1,5; 1,83; 2,08; … Sie wachsen immer langsamer …",
+            "… aber ohne Grenze: Nach 40 Gliedern ist man erst bei 4,28, und doch wird jede Schranke irgendwann überschritten. Die harmonische Reihe divergiert, obwohl 1/k → 0."
+        ]) { phase, size in
+            PlaneLineShape(through: CGPoint(x: 0, y: CGFloat.pi * CGFloat.pi / 6), direction: CGPoint(x: 1, y: 0), window: window)
+                .stroke(VisualColor.second, style: graphStroke(VisualColor.second, width: 1.5, dashed: true))
+                .opacity(show(phase >= 1))
+            ForEach(1...40, id: \.self) { n in
+                Circle().fill(VisualColor.second).frame(width: 6, height: 6)
+                    .position(window.point(CGPoint(x: CGFloat(n), y: basel(n)), in: size))
+                Circle().fill(VisualColor.first).frame(width: 6, height: 6)
+                    .position(window.point(CGPoint(x: CGFloat(n), y: harmonic(n)), in: size))
+                    .opacity(show(phase >= 2 && (phase >= 3 || n <= 12)))
+            }
+            MathLabel(text: "π²/6", at: CGPoint(x: 36, y: 1.645), color: VisualColor.second, window: window, size: size, offset: CGSize(width: 0, height: 14))
+                .opacity(show(phase >= 1))
+        }
+    }
+}
+
+// MARK: - Grenzwerte
+
+private struct RemovableHoleVisual: View {
+    let window = PlaneWindow(xMin: -1, xMax: 3, yMin: -0.5, yMax: 3.5)
+    private let xs: [CGFloat] = [0.2, 0.6, 0.85, 0.95]
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "f(x) = (x² − 1)/(x − 1) ist bei x = 1 nicht definiert (0/0). Für x ≠ 1 ist f(x) = x + 1 – der Graph ist eine Gerade mit einem Loch.",
+            "Von links: x = 0,2; 0,6; 0,85; 0,95 liefert f(x) = 1,2; 1,6; 1,85; 1,95.",
+            "Von rechts: x = 1,8; 1,4; 1,15; 1,05 liefert 2,8; 2,4; 2,15; 2,05.",
+            "Von beiden Seiten nähern sich die Werte der 2. Also lim f(x) = 2 für x → 1 – obwohl f(1) gar nicht existiert."
+        ]) { phase, size in
+            FunctionGraphShape(window: window, from: -1, to: 3) { $0 + 1 }
+                .stroke(VisualColor.first, style: graphStroke(VisualColor.first))
+            HollowDot(at: CGPoint(x: 1, y: 2), color: VisualColor.first, window: window, size: size)
+            ForEach(xs.indices, id: \.self) { i in
+                Dot(at: CGPoint(x: xs[i], y: xs[i] + 1), color: VisualColor.second, window: window, size: size)
+                    .opacity(show(phase >= 1))
+                Dot(at: CGPoint(x: 2 - xs[i], y: 3 - xs[i]), color: VisualColor.extra, window: window, size: size)
+                    .opacity(show(phase >= 2))
+            }
+            Arrow(from: CGPoint(x: 1, y: 0), to: CGPoint(x: 1, y: 1.85), color: VisualColor.result, window: window, width: 1.5, dashed: true)
+                .opacity(show(phase >= 3))
+            MathLabel(text: "Grenzwert 2", at: CGPoint(x: 1, y: 2), color: VisualColor.result, window: window, size: size, offset: CGSize(width: -48, height: -14))
+                .opacity(show(phase >= 3))
+        }
+    }
+}
+
+private struct SqueezeVisual: View {
+    let window = PlaneWindow(xMin: -0.6, xMax: 0.6, yMin: -0.6, yMax: 0.6)
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "f(x) = x · sin(1/x) schwingt bei x → 0 unendlich oft hin und her. Hat f dort einen Grenzwert?",
+            "Weil −1 ≤ sin(1/x) ≤ 1 ist, liegt der Graph zwischen −|x| und |x| (gestrichelt).",
+            "Beide Schranken gehen für x → 0 gegen 0. f ist dazwischen eingeklemmt – also gilt auch lim x · sin(1/x) = 0. Das ist der Sandwich-Satz."
+        ]) { phase, size in
+            FunctionGraphShape(window: window, from: -0.6, to: 0.6, samples: 1400) { x in
+                abs(x) < 0.0005 ? 0 : x * sin(1 / x)
+            }
+            .stroke(VisualColor.first, style: graphStroke(VisualColor.first, width: 1.8))
+            FunctionGraphShape(window: window, from: -0.6, to: 0.6) { abs($0) }
+                .stroke(VisualColor.second, style: graphStroke(VisualColor.second, width: 2, dashed: true))
+                .opacity(show(phase >= 1))
+            FunctionGraphShape(window: window, from: -0.6, to: 0.6) { -abs($0) }
+                .stroke(VisualColor.second, style: graphStroke(VisualColor.second, width: 2, dashed: true))
+                .opacity(show(phase >= 1))
+            Dot(at: .zero, color: VisualColor.result, window: window, size: size)
+                .opacity(show(phase >= 2))
+        }
+    }
+}
+
+private struct ContinuityTypesVisual: View {
+    let window = PlaneWindow(xMin: -2, xMax: 2, yMin: -2, yMax: 2)
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Stetig: x² lässt sich ohne Absetzen zeichnen. An jeder Stelle stimmt der Grenzwert mit dem Funktionswert überein.",
+            "Sprungstelle: Die Vorzeichenfunktion springt bei 0 von −1 auf 1. Links- und rechtsseitiger Grenzwert sind verschieden.",
+            "Polstelle: 1/x wächst bei 0 über alle Grenzen – nach links gegen −∞, nach rechts gegen +∞.",
+            "Oszillation: sin(1/x) schwankt bei 0 unendlich oft zwischen −1 und 1. Es gibt nicht einmal einseitige Grenzwerte."
+        ]) { phase, size in
+            FunctionGraphShape(window: window, from: -2, to: 2) { $0 * $0 }
+                .stroke(VisualColor.first, style: graphStroke(VisualColor.first))
+                .opacity(show(phase == 0))
+            Group {
+                FunctionGraphShape(window: window, from: -2, to: -0.02) { _ in -1 }
+                    .stroke(VisualColor.second, style: graphStroke(VisualColor.second))
+                FunctionGraphShape(window: window, from: 0.02, to: 2) { _ in 1 }
+                    .stroke(VisualColor.second, style: graphStroke(VisualColor.second))
+                HollowDot(at: CGPoint(x: 0, y: -1), color: VisualColor.second, window: window, size: size)
+                HollowDot(at: CGPoint(x: 0, y: 1), color: VisualColor.second, window: window, size: size)
+                Dot(at: .zero, color: VisualColor.second, window: window, size: size)
+            }
+            .opacity(show(phase == 1))
+            Group {
+                FunctionGraphShape(window: window, from: -2, to: -0.01) { 1 / $0 }
+                    .stroke(VisualColor.warning, style: graphStroke(VisualColor.warning))
+                FunctionGraphShape(window: window, from: 0.01, to: 2) { 1 / $0 }
+                    .stroke(VisualColor.warning, style: graphStroke(VisualColor.warning))
+            }
+            .opacity(show(phase == 2))
+            FunctionGraphShape(window: window, from: -2, to: 2, samples: 2400) { x in
+                abs(x) < 0.003 ? .nan : sin(1 / x)
+            }
+            .stroke(VisualColor.extra, style: graphStroke(VisualColor.extra, width: 1.5))
+            .opacity(show(phase == 3))
+        }
+    }
+}
+
+// MARK: - Differentialrechnung
+
+private struct SecantToTangentVisual: View {
+    let window = PlaneWindow(xMin: -0.5, xMax: 3.5, yMin: -1, yMax: 7)
+    private let hs: [CGFloat] = [2, 1, 0.5, 0.1, 0.0001]
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "f(x) = x² und der Punkt P = (1, 1). Die Sekante durch P und Q = (3, 9) hat die Steigung (9 − 1)/2 = 4.",
+            "Q rückt näher: h = 1, Q = (2, 4). Steigung (4 − 1)/1 = 3.",
+            "h = 0,5: Steigung (2,25 − 1)/0,5 = 2,5.",
+            "h = 0,1: Steigung (1,21 − 1)/0,1 = 2,1. Die Sekante kippt in eine Grenzlage …",
+            "… die Tangente mit Steigung 2. Allgemein: (1 + h)² − 1 = 2h + h², geteilt durch h ergibt 2 + h → 2. Also f′(1) = 2."
+        ]) { phase, size in
+            let h = hs[min(phase, hs.count - 1)]
+            FunctionGraphShape(window: window, from: -0.5, to: 3.5) { $0 * $0 }
+                .stroke(VisualColor.first, style: graphStroke(VisualColor.first))
+            SlopeLineShape(window: window, x0: 1, y0: 1, m: 2 + h)
+                .stroke(phase >= 4 ? VisualColor.result : VisualColor.second, style: graphStroke(VisualColor.second, width: 2))
+            PointOnGraphShape(window: window, x: 1 + h, radius: 5) { $0 * $0 }
+                .fill(VisualColor.second)
+                .opacity(show(phase < 4))
+            Dot(at: CGPoint(x: 1, y: 1), color: VisualColor.result, window: window, size: size)
+            MathLabel(text: "P", at: CGPoint(x: 1, y: 1), color: VisualColor.result, window: window, size: size, offset: CGSize(width: -12, height: -12))
+        }
+    }
+}
+
+private struct DerivativeGraphVisual: View {
+    let window = PlaneWindow(xMin: -2.5, xMax: 2.5, yMin: -3.5, yMax: 6)
+    private func f(_ x: CGFloat) -> CGFloat { x * x * x - 3 * x }
+    private let points: [CGFloat] = [-2, -1, 0, 1, 2]
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "f(x) = x³ − 3x. Wo steigt der Graph, wo fällt er, wo ist er waagerecht?",
+            "Tangenten an einigen Stellen: Bei x = −1 und x = 1 sind sie waagerecht – Steigung 0. Dazwischen fällt f, außen steigt f.",
+            "Trägt man die Steigungen als neue Funktion auf, entsteht f′(x) = 3x² − 3 (orange). Sie ist positiv, wo f steigt, und negativ, wo f fällt.",
+            "Die Nullstellen von f′ (x = ±1) markieren die Hoch- und Tiefpunkte von f: Hochpunkt (−1, 2), Tiefpunkt (1, −2)."
+        ]) { phase, size in
+            FunctionGraphShape(window: window, from: -2.5, to: 2.5) { x in x * x * x - 3 * x }
+                .stroke(VisualColor.first, style: graphStroke(VisualColor.first))
+            ForEach(points.indices, id: \.self) { i in
+                let x = points[i]
+                SlopeLineShape(window: window, x0: x, y0: f(x), m: 3 * x * x - 3)
+                    .stroke(VisualColor.result.opacity(0.7), style: graphStroke(VisualColor.result, width: 1.5))
+                    .opacity(show(phase == 1))
+            }
+            FunctionGraphShape(window: window, from: -2.5, to: 2.5) { x in 3 * x * x - 3 }
+                .stroke(VisualColor.second, style: graphStroke(VisualColor.second))
+                .opacity(show(phase >= 2))
+            Dot(at: CGPoint(x: -1, y: 2), color: VisualColor.warning, window: window, size: size).opacity(show(phase >= 3))
+            Dot(at: CGPoint(x: 1, y: -2), color: VisualColor.warning, window: window, size: size).opacity(show(phase >= 3))
+            Dot(at: CGPoint(x: -1, y: 0), color: VisualColor.second, window: window, size: size).opacity(show(phase >= 3))
+            Dot(at: CGPoint(x: 1, y: 0), color: VisualColor.second, window: window, size: size).opacity(show(phase >= 3))
+            MathLabel(text: "f", at: CGPoint(x: 2.2, y: f(2.2)), color: VisualColor.first, window: window, size: size, offset: CGSize(width: 12, height: 0))
+            MathLabel(text: "f′", at: CGPoint(x: 1.9, y: 3 * 1.9 * 1.9 - 3), color: VisualColor.second, window: window, size: size, offset: CGSize(width: -16, height: 0))
+                .opacity(show(phase >= 2))
+        }
+    }
+}
+
+private struct MeanValueVisual: View {
+    let window = PlaneWindow(xMin: -0.5, xMax: 3, yMin: -0.5, yMax: 4.5)
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "f(x) = x² auf dem Intervall [0, 2].",
+            "Die Sekante von (0, 0) nach (2, 4) hat die Steigung (4 − 0)/(2 − 0) = 2: die mittlere Steigung.",
+            "Mittelwertsatz: Irgendwo dazwischen hat die Tangente GENAU diese Steigung. Hier bei ξ = 1, denn f′(1) = 2. Tangente und Sekante sind parallel."
+        ]) { phase, size in
+            FunctionGraphShape(window: window, from: -0.5, to: 2.2) { $0 * $0 }
+                .stroke(VisualColor.first, style: graphStroke(VisualColor.first))
+            Arrow(from: .zero, to: CGPoint(x: 2, y: 4), color: VisualColor.second, window: window, width: 2.5)
+                .opacity(show(phase >= 1))
+            SlopeLineShape(window: window, x0: 1, y0: 1, m: 2)
+                .stroke(VisualColor.result, style: graphStroke(VisualColor.result, width: 2, dashed: true))
+                .opacity(show(phase >= 2))
+            Dot(at: CGPoint(x: 1, y: 1), color: VisualColor.result, window: window, size: size).opacity(show(phase >= 2))
+            MathLabel(text: "ξ = 1", at: CGPoint(x: 1, y: 1), color: VisualColor.result, window: window, size: size, offset: CGSize(width: 26, height: 8))
+                .opacity(show(phase >= 2))
+        }
+    }
+}
+
+private struct NewtonVisual: View {
+    let window = PlaneWindow(xMin: 0.8, xMax: 2.3, yMin: -1.2, yMax: 2.6)
+    private let iterates: [CGFloat] = [2, 1.5, 1.416_667]
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Gesucht: die Nullstelle von f(x) = x² − 2, also √2. Start bei x₀ = 2.",
+            "Tangente in (2, 2) mit Steigung f′(2) = 4. Sie schneidet die x-Achse bei x₁ = 2 − 2/4 = 1,5.",
+            "Tangente in x₁ = 1,5: Schnitt bei x₂ = 1,5 − 0,25/3 ≈ 1,41667.",
+            "Schon x₂ stimmt auf drei Nachkommastellen mit √2 ≈ 1,41421 überein. Jeder Schritt verdoppelt etwa die Zahl der richtigen Stellen."
+        ]) { phase, size in
+            FunctionGraphShape(window: window, from: 0.8, to: 2.3) { $0 * $0 - 2 }
+                .stroke(VisualColor.first, style: graphStroke(VisualColor.first))
+            ForEach(0..<2, id: \.self) { k in
+                let x = iterates[k]
+                SlopeLineShape(window: window, x0: x, y0: x * x - 2, m: 2 * x)
+                    .stroke(VisualColor.second, style: graphStroke(VisualColor.second, width: 1.8))
+                    .opacity(show(phase == k + 1 || (phase == 3)))
+                Path { p in
+                    p.move(to: window.point(CGPoint(x: x, y: 0), in: size))
+                    p.addLine(to: window.point(CGPoint(x: x, y: x * x - 2), in: size))
+                }
+                .stroke(Color.secondary, style: StrokeStyle(lineWidth: 1, dash: [3, 3]))
+                .opacity(show(phase >= k + 1))
+            }
+            ForEach(0..<3, id: \.self) { k in
+                Dot(at: CGPoint(x: iterates[k], y: 0), color: k == 2 ? VisualColor.result : VisualColor.second, window: window, size: size)
+                    .opacity(show(phase >= k))
+                MathLabel(text: ["x₀", "x₁", "x₂"][k], at: CGPoint(x: iterates[k], y: 0), color: VisualColor.second, window: window, size: size, offset: CGSize(width: k == 2 ? -12 : 0, height: 16))
+                    .opacity(show(phase >= k))
+            }
+        }
+    }
+}
+
+private struct TaylorSineVisual: View {
+    let window = PlaneWindow(xMin: -6.5, xMax: 6.5, yMin: -3, yMax: 3)
+
+    nonisolated private static func taylor(_ x: CGFloat, terms: Int) -> CGFloat {
+        var sum: CGFloat = 0
+        var term = x
+        for k in 0..<terms {
+            sum += term
+            let n = CGFloat(2 * k + 2)
+            term = -term * x * x / (n * (n + 1))
+        }
+        return sum
+    }
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "sin x (blau) und seine Tangente bei 0: T₁(x) = x. Nahe 0 passt sie gut, weiter weg nicht.",
+            "T₃(x) = x − x³/6 hat bei 0 dieselbe Steigung UND dieselbe Krümmung wie sin. Sie passt auf einem größeren Bereich.",
+            "T₅(x) = x − x³/6 + x⁵/120: noch weiter.",
+            "T₉: Mit jedem weiteren Glied schmiegt sich das Polynom über einen größeren Bereich an sin x an. Im Grenzfall ist sin x = x − x³/3! + x⁵/5! − …"
+        ]) { phase, size in
+            let terms = [1, 2, 3, 5][min(phase, 3)]
+            FunctionGraphShape(window: window, from: -6.5, to: 6.5) { sin($0) }
+                .stroke(VisualColor.first, style: graphStroke(VisualColor.first, width: 3))
+            FunctionGraphShape(window: window, from: -6.5, to: 6.5) { TaylorSineVisual.taylor($0, terms: terms) }
+                .stroke(VisualColor.second, style: graphStroke(VisualColor.second, width: 2.2))
+                .id(terms)
+                .transition(.opacity)
+        }
+    }
+}
+
+// MARK: - Integralrechnung
+
+private struct RiemannSumVisual: View {
+    let window = PlaneWindow(xMin: -0.2, xMax: 2.3, yMin: -0.3, yMax: 4.5)
+    private let counts = [4, 8, 16, 64]
+    private let sums = ["1,75", "2,19", "2,42", "2,60"]
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Fläche unter f(x) = x² von 0 bis 2, angenähert durch 4 Rechtecke (Höhe = Funktionswert am linken Rand): 1,75.",
+            "8 Rechtecke: 2,19. Die Lücken zur Kurve werden kleiner.",
+            "16 Rechtecke: 2,42.",
+            "64 Rechtecke: 2,60. Im Grenzwert n → ∞ erhält man die exakte Fläche 8/3 ≈ 2,667 – das Integral."
+        ]) { phase, size in
+            let n = counts[min(phase, counts.count - 1)]
+            let w = 2 / CGFloat(n)
+            ZStack {
+                ForEach(0..<n, id: \.self) { k in
+                    let x = CGFloat(k) * w
+                    unitRect(x, 0, x + w, x * x, window: window, size: size)
+                        .fill(VisualColor.second.opacity(0.4))
+                    unitRect(x, 0, x + w, x * x, window: window, size: size)
+                        .stroke(VisualColor.second, lineWidth: n > 20 ? 0.5 : 1.2)
+                }
+            }
+            .id(n)
+            .transition(.opacity)
+            FunctionGraphShape(window: window, from: 0, to: 2.1) { $0 * $0 }
+                .stroke(VisualColor.first, style: graphStroke(VisualColor.first))
+            MathLabel(text: "≈ " + sums[min(phase, 3)], at: CGPoint(x: 0.6, y: 3.6), color: VisualColor.second, window: window, size: size, offset: .zero)
+        }
+    }
+}
+
+private struct FundamentalTheoremVisual: View {
+    let window = PlaneWindow(xMin: -0.3, xMax: 4.4, yMin: -0.3, yMax: 4.4)
+    private func f(_ t: CGFloat) -> CGFloat { 1 + t / 2 }
+    private let xs: [CGFloat] = [1, 2, 3, 3]
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "f(t) = 1 + t/2. Die Flächenfunktion A(x) misst die Fläche unter f von 0 bis x. Für x = 1: A(1) = 1,25.",
+            "x = 2: A(2) = 3. Die Fläche wächst mit x.",
+            "x = 3: A(3) = 5,25. Wie schnell wächst sie?",
+            "Schiebt man x ein kleines Stück h weiter, kommt ein schmaler Streifen dazu: ungefähr ein Rechteck der Höhe f(x). Also A′(x) = f(x) – die Flächenfunktion ist eine Stammfunktion von f!"
+        ]) { phase, size in
+            let x = xs[min(phase, 3)]
+            AreaUnderGraphShape(window: window, from: 0, to: x) { 1 + $0 / 2 }
+                .fill(VisualColor.first.opacity(0.3))
+            unitRect(3, 0, 3.35, f(3), window: window, size: size)
+                .fill(VisualColor.second.opacity(0.7))
+                .opacity(show(phase >= 3))
+            FunctionGraphShape(window: window, from: 0, to: 4.2) { 1 + $0 / 2 }
+                .stroke(VisualColor.first, style: graphStroke(VisualColor.first))
+            MathLabel(text: "A(x)", at: CGPoint(x: x / 2, y: 0.6), color: VisualColor.first, window: window, size: size, offset: .zero)
+            MathLabel(text: "x", at: CGPoint(x: x, y: 0), color: .primary, window: window, size: size, offset: CGSize(width: 0, height: 14))
+            MathLabel(text: "h", at: CGPoint(x: 3.175, y: 0), color: VisualColor.second, window: window, size: size, offset: CGSize(width: 6, height: 14))
+                .opacity(show(phase >= 3))
+            MathLabel(text: "f(x)", at: CGPoint(x: 3.35, y: f(3) / 2), color: VisualColor.second, window: window, size: size, offset: CGSize(width: 20, height: 0))
+                .opacity(show(phase >= 3))
+        }
+    }
+}
+
+private struct SignedAreaVisual: View {
+    let window = PlaneWindow(xMin: -0.4, xMax: 6.8, yMin: -1.6, yMax: 1.6)
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "sin x von 0 bis 2π.",
+            "Von 0 bis π liegt der Graph oberhalb der Achse: Diese Fläche zählt positiv, ∫₀^π sin x dx = 2.",
+            "Von π bis 2π liegt er unterhalb: Diese Fläche zählt negativ, −2.",
+            "Zusammen: ∫₀^{2π} sin x dx = 2 − 2 = 0. Das Integral misst Flächen MIT Vorzeichen. Die tatsächliche Fläche ist ∫|sin x| dx = 4."
+        ]) { phase, size in
+            AreaUnderGraphShape(window: window, from: 0, to: .pi) { sin($0) }
+                .fill(VisualColor.result.opacity(0.4))
+                .opacity(show(phase >= 1))
+            AreaUnderGraphShape(window: window, from: .pi, to: 2 * .pi) { sin($0) }
+                .fill(VisualColor.warning.opacity(0.35))
+                .opacity(show(phase >= 2))
+            FunctionGraphShape(window: window, from: -0.4, to: 6.8) { sin($0) }
+                .stroke(VisualColor.first, style: graphStroke(VisualColor.first))
+            MathLabel(text: "+2", at: CGPoint(x: 1.57, y: 0.45), color: VisualColor.result, window: window, size: size, offset: .zero).opacity(show(phase >= 1))
+            MathLabel(text: "−2", at: CGPoint(x: 4.71, y: -0.45), color: VisualColor.warning, window: window, size: size, offset: .zero).opacity(show(phase >= 2))
+        }
+    }
+}
+
+private struct ImproperIntegralVisual: View {
+    let window = PlaneWindow(xMin: -0.3, xMax: 10.5, yMin: -0.15, yMax: 1.3)
+    private let bs: [CGFloat] = [2, 5, 10, 10]
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Fläche unter 1/x² von 1 bis b = 2: Sie beträgt 1 − 1/2 = 0,5.",
+            "b = 5: 1 − 1/5 = 0,8.",
+            "b = 10: 0,9. Für b → ∞ geht 1 − 1/b gegen 1. Die unendlich lange Fläche hat den endlichen Inhalt 1!",
+            "Zum Vergleich 1/x (gestrichelt): Fläche von 1 bis b ist ln b → ∞. Der Graph liegt nur wenig höher, doch die Fläche ist unendlich groß."
+        ]) { phase, size in
+            let b = bs[min(phase, 3)]
+            AreaUnderGraphShape(window: window, from: 1, to: b) { 1 / ($0 * $0) }
+                .fill(VisualColor.first.opacity(0.35))
+            FunctionGraphShape(window: window, from: 0.85, to: 10.5) { 1 / ($0 * $0) }
+                .stroke(VisualColor.first, style: graphStroke(VisualColor.first))
+            FunctionGraphShape(window: window, from: 0.8, to: 10.5) { 1 / $0 }
+                .stroke(VisualColor.second, style: graphStroke(VisualColor.second, width: 2, dashed: true))
+                .opacity(show(phase >= 3))
+            MathLabel(text: "b", at: CGPoint(x: b, y: 0), color: .primary, window: window, size: size, offset: CGSize(width: 0, height: 12))
+        }
+    }
+}
+
+// MARK: - Mehrdimensionale Analysis
+
+private func ellipsePath(rx: CGFloat, ry: CGFloat, window: PlaneWindow, size: CGSize) -> Path {
+    var p = Path()
+    for i in 0...120 {
+        let t = 2 * CGFloat.pi * CGFloat(i) / 120
+        let pt = window.point(CGPoint(x: rx * cos(t), y: ry * sin(t)), in: size)
+        if i == 0 { p.move(to: pt) } else { p.addLine(to: pt) }
+    }
+    return p
+}
+
+private struct ContourGradientVisual: View {
+    let window = PlaneWindow(xMin: -2.6, xMax: 2.6, yMin: -2.6, yMax: 2.6)
+    /// f(x, y) = x² + 2y², Gradient (2x, 4y).
+    private let points: [CGPoint] = [CGPoint(x: 1.2, y: 0.6), CGPoint(x: -1.5, y: 0.3), CGPoint(x: 0.3, y: -1.0), CGPoint(x: -0.8, y: -0.9)]
+    private let levels: [CGFloat] = [0.5, 1, 2, 3, 4]
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "f(x, y) = x² + 2y² als Landkarte: Jede Höhenlinie verbindet Punkte mit gleichem Funktionswert (0,5; 1; 2; 3; 4). Innen ist es tief, außen hoch.",
+            "An einigen Punkten der Gradient ∇f = (2x, 4y). Er steht SENKRECHT auf der Höhenlinie durch den Punkt.",
+            "Der Gradient zeigt bergauf, in Richtung des steilsten Anstiegs. Seine Länge gibt an, wie steil es dort ist.",
+            "Im Ursprung ist ∇f = (0, 0): Der tiefste Punkt. An Extremstellen ist der Gradient der Nullvektor."
+        ]) { phase, size in
+            ForEach(levels.indices, id: \.self) { i in
+                let c = levels[i]
+                ellipsePath(rx: sqrt(c), ry: sqrt(c / 2), window: window, size: size)
+                    .stroke(VisualColor.first.opacity(0.35 + 0.1 * Double(i)), lineWidth: 1.8)
+            }
+            ForEach(points.indices, id: \.self) { i in
+                let p = points[i]
+                let g = CGPoint(x: 2 * p.x, y: 4 * p.y)
+                let len = sqrt(g.x * g.x + g.y * g.y)
+                let scale: CGFloat = phase >= 2 ? 0.25 : 0.55 / len
+                Arrow(from: p, to: CGPoint(x: p.x + scale * g.x, y: p.y + scale * g.y), color: VisualColor.second, window: window, width: 2.5)
+                    .opacity(show(phase >= 1))
+                Dot(at: p, color: VisualColor.second, window: window, size: size).opacity(show(phase >= 1))
+            }
+            Dot(at: .zero, color: VisualColor.result, window: window, size: size).opacity(show(phase >= 3))
+        }
+    }
+}
+
+private struct CriticalPointsVisual: View {
+    let window = PlaneWindow(xMin: -2.2, xMax: 2.2, yMin: -2.2, yMax: 2.2)
+
+    private func hyperbola(_ c: CGFloat, size: CGSize, branch: Int) -> Path {
+        var p = Path()
+        for i in 0...80 {
+            let t = -2.2 + 4.4 * CGFloat(i) / 80
+            let pt: CGPoint
+            if c > 0 {
+                let x = sqrt(c + t * t) * (branch == 0 ? 1 : -1)
+                pt = CGPoint(x: x, y: t)
+            } else {
+                let y = sqrt(-c + t * t) * (branch == 0 ? 1 : -1)
+                pt = CGPoint(x: t, y: y)
+            }
+            let q = window.point(pt, in: size)
+            if i == 0 { p.move(to: q) } else { p.addLine(to: q) }
+        }
+        return p
+    }
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "f = x² + y²: Höhenlinien sind Kreise, die Werte wachsen nach außen. Im Ursprung liegt ein Minimum (Talboden).",
+            "f = −(x² + y²): dieselben Kreise, aber die Werte fallen nach außen. Im Ursprung liegt ein Maximum (Bergspitze).",
+            "f = x² − y²: Höhenlinien sind Hyperbeln. In x-Richtung steigt f (orange), in y-Richtung fällt f (blau). Im Ursprung ist ∇f = 0, aber es ist weder Minimum noch Maximum – ein Sattelpunkt."
+        ]) { phase, size in
+            Group {
+                ForEach(1...4, id: \.self) { k in
+                    ellipsePath(rx: 0.5 * CGFloat(k), ry: 0.5 * CGFloat(k), window: window, size: size)
+                        .stroke((phase == 0 ? VisualColor.second : VisualColor.first).opacity(0.3 + 0.15 * Double(k)), lineWidth: 2)
+                }
+            }
+            .opacity(show(phase <= 1))
+            Group {
+                ForEach([0.5, 1.5, 3.0], id: \.self) { (c: Double) in
+                    hyperbola(CGFloat(c), size: size, branch: 0).stroke(VisualColor.second.opacity(0.7), lineWidth: 2)
+                    hyperbola(CGFloat(c), size: size, branch: 1).stroke(VisualColor.second.opacity(0.7), lineWidth: 2)
+                    hyperbola(CGFloat(-c), size: size, branch: 0).stroke(VisualColor.first.opacity(0.7), lineWidth: 2)
+                    hyperbola(CGFloat(-c), size: size, branch: 1).stroke(VisualColor.first.opacity(0.7), lineWidth: 2)
+                }
+            }
+            .opacity(show(phase == 2))
+            Dot(at: .zero, color: VisualColor.result, window: window, size: size)
+        }
+    }
+}
+
+private struct LagrangeVisual: View {
+    let window = PlaneWindow(xMin: -2, xMax: 2, yMin: -2, yMax: 2)
+    private let levels: [CGFloat] = [-1, 0, 1, 1.414]
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Gesucht: der größte Wert von f(x, y) = x + y auf dem Einheitskreis x² + y² = 1 (die Nebenbedingung).",
+            "Höhenlinien von f sind Geraden x + y = c. Für c = −1, 0, 1 schneiden sie den Kreis – dort sind noch größere Werte möglich.",
+            "Die größte Höhenlinie, die den Kreis noch trifft, BERÜHRT ihn nur: c = √2 im Punkt (1/√2, 1/√2).",
+            "Im Berührpunkt sind ∇f = (1, 1) und ∇g = (2x, 2y) parallel: ∇f = λ∇g. Das ist die Lagrange-Bedingung."
+        ]) { phase, size in
+            ellipsePath(rx: 1, ry: 1, window: window, size: size)
+                .stroke(VisualColor.first, lineWidth: 3)
+            ForEach(levels.indices, id: \.self) { i in
+                let c = levels[i]
+                PlaneLineShape(through: CGPoint(x: c / 2, y: c / 2), direction: CGPoint(x: 1, y: -1), window: window)
+                    .stroke(i == 3 ? VisualColor.result : VisualColor.second.opacity(0.6), style: graphStroke(VisualColor.second, width: i == 3 ? 2.5 : 1.8, dashed: i != 3))
+                    .opacity(show(i < 3 ? phase >= 1 : phase >= 2))
+            }
+            let p = CGPoint(x: 0.7071, y: 0.7071)
+            Dot(at: p, color: VisualColor.result, window: window, size: size).opacity(show(phase >= 2))
+            Arrow(from: p, to: CGPoint(x: p.x + 0.55, y: p.y + 0.55), color: VisualColor.second, window: window, width: 3)
+                .opacity(show(phase >= 3))
+            Arrow(from: p, to: CGPoint(x: p.x + 0.4, y: p.y + 0.4), color: VisualColor.extra, window: window, width: 2)
+                .opacity(show(phase >= 3))
+            MathLabel(text: "∇f ∥ ∇g", at: CGPoint(x: 1.25, y: 1.4), color: VisualColor.second, window: window, size: size, offset: CGSize(width: 0, height: -8))
+                .opacity(show(phase >= 3))
+        }
+    }
+}
+
+private struct PolarAreaVisual: View {
+    let window = PlaneWindow(xMin: -2.2, xMax: 2.2, yMin: -2.2, yMax: 2.2)
+
+    private func sector(r0: CGFloat, r1: CGFloat, a0: CGFloat, a1: CGFloat, size: CGSize) -> Path {
+        var p = Path()
+        let n = 24
+        for i in 0...n {
+            let a = a0 + (a1 - a0) * CGFloat(i) / CGFloat(n)
+            let pt = window.point(CGPoint(x: r1 * cos(a), y: r1 * sin(a)), in: size)
+            if i == 0 { p.move(to: pt) } else { p.addLine(to: pt) }
+        }
+        for i in stride(from: n, through: 0, by: -1) {
+            let a = a0 + (a1 - a0) * CGFloat(i) / CGFloat(n)
+            p.addLine(to: window.point(CGPoint(x: r0 * cos(a), y: r0 * sin(a)), in: size))
+        }
+        p.closeSubpath()
+        return p
+    }
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Polarkoordinaten: Kreise r = konstant und Strahlen φ = konstant zerlegen die Ebene in kleine Zellen.",
+            "Eine Zelle nahe der Mitte: Radialseite Δr, Bogenseite r · Δφ. Ihre Fläche ist ungefähr r · Δr · Δφ.",
+            "Eine Zelle weiter außen mit gleichem Δr und Δφ ist größer – genau um den Faktor r. Deshalb steht beim Integrieren in Polarkoordinaten dA = r dr dφ."
+        ], showGrid: false) { phase, size in
+            ForEach(1...4, id: \.self) { k in
+                ellipsePath(rx: 0.5 * CGFloat(k), ry: 0.5 * CGFloat(k), window: window, size: size)
+                    .stroke(Color.secondary.opacity(0.4), lineWidth: 1.2)
+            }
+            ForEach(0..<12, id: \.self) { k in
+                let a = CGFloat(k) * .pi / 6
+                Path { p in
+                    p.move(to: window.point(.zero, in: size))
+                    p.addLine(to: window.point(CGPoint(x: 2 * cos(a), y: 2 * sin(a)), in: size))
+                }
+                .stroke(Color.secondary.opacity(0.4), lineWidth: 1.2)
+            }
+            sector(r0: 0.5, r1: 1.0, a0: .pi / 6, a1: .pi / 3, size: size)
+                .fill(VisualColor.first.opacity(0.5))
+                .opacity(show(phase >= 1))
+            sector(r0: 1.5, r1: 2.0, a0: .pi / 6, a1: .pi / 3, size: size)
+                .fill(VisualColor.second.opacity(0.5))
+                .opacity(show(phase >= 2))
+            MathLabel(text: "r·Δφ", at: CGPoint(x: 1.95 * cos(.pi / 4), y: 1.95 * sin(.pi / 4)), color: VisualColor.second, window: window, size: size, offset: CGSize(width: 18, height: -10))
+                .opacity(show(phase >= 2))
+            MathLabel(text: "Δr", at: CGPoint(x: 1.75 * cos(.pi / 3), y: 1.75 * sin(.pi / 3)), color: VisualColor.second, window: window, size: size, offset: CGSize(width: -16, height: -4))
+                .opacity(show(phase >= 2))
         }
     }
 }

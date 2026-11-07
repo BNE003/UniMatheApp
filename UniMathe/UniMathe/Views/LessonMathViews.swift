@@ -168,6 +168,30 @@ struct LessonFormulaView: View {
                     }
                     if (typeof postContentHeight === 'function') { postContentHeight(); }
                 }
+                // Etwas zu breite Formeln leicht verkleinern (höchstens auf 78 %),
+                // damit sie ohne Scrollen in den Kasten passen. Nur deutlich breitere
+                // Formeln bleiben scrollbar.
+                var fitted = false;
+                function fit() {
+                    if (fitted) { return; }
+                    var natural = inner.scrollWidth;
+                    var available = scroller.clientWidth;
+                    if (natural <= 0 || available <= 0) { return; }
+                    fitted = true;
+                    if (natural > available + 2) {
+                        var factor = Math.max(0.78, (available - 4) / natural);
+                        inner.style.fontSize = (factor * 100).toFixed(1) + '%';
+                    }
+                    update();
+                }
+                function whenTypeset(callback) {
+                    if (window.MathJax && MathJax.startup && MathJax.startup.promise) {
+                        MathJax.startup.promise.then(callback);
+                    } else {
+                        setTimeout(function () { whenTypeset(callback); }, 50);
+                    }
+                }
+                whenTypeset(fit);
                 scroller.addEventListener('scroll', update, { passive: true });
                 window.addEventListener('load', update);
                 window.addEventListener('resize', update);
