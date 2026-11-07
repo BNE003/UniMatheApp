@@ -1,155 +1,289 @@
-{    "id": "cc0e8400-e29b-41d4-a716-446655440000",
-    "topic": "Lineare Abbildungen",
-    "steps": [
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440001",
-            "text": "Eine lineare Abbildung f: V → W zwischen Vektorräumen erhält die Vektorraumstruktur. Sie ist additiv und homogen.",
-            "formula": "f(\\lambda v + \\mu w) = \\lambda f(v) + \\mu f(w)",
-            "explanation": "Diese Eigenschaft bedeutet, dass die Abbildung Geraden auf Geraden abbildet und den Nullpunkt erhält. Stell dir vor, du zeichnest eine Linie im Raum - unter einer linearen Abbildung bleibt sie eine Linie! Das ist wie ein Zaubertrick: Die Struktur bleibt erhalten, nur die Position und Größe können sich ändern."
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440002",
-            "text": "Lass uns ein konkretes Beispiel einer linearen Abbildung im ℝ² anschauen: die Rotation um den Ursprung.",
-            "formula": "f\\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} \\cos \\theta & -\\sin \\theta \\\\ \\sin \\theta & \\cos \\theta \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}",
-            "explanation": "Diese Abbildung dreht jeden Vektor um den Winkel θ gegen den Uhrzeigersinn. Sie ist linear, da sie die Vektorraumstruktur erhält und Geraden auf Geraden abbildet. Stell dir vor, du drehst ein Blatt Papier - alle Linien bleiben gerade, nur ihre Richtung ändert sich!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440003",
-            "text": "Jede lineare Abbildung f: ℝⁿ → ℝᵐ kann durch eine m×n-Matrix A dargestellt werden. Die Spalten der Matrix sind die Bilder der Standardbasisvektoren.",
-            "formula": "f(x) = Ax = \\begin{pmatrix} a_{11} & \\cdots & a_{1n} \\\\ \\vdots & \\ddots & \\vdots \\\\ a_{m1} & \\cdots & a_{mn} \\end{pmatrix} \\begin{pmatrix} x_1 \\\\ \\vdots \\\\ x_n \\end{pmatrix}",
-            "explanation": "Die Matrixdarstellung hängt von der gewählten Basis ab. Die Spalten der Matrix zeigen uns, wohin die Basisvektoren abgebildet werden. Das ist wie ein Rezept: Wenn wir wissen, wohin die Grundrichtungen gehen, können wir jeden Vektor transformieren!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440004",
-            "text": "Der Kern einer linearen Abbildung ist die Menge aller Vektoren, die auf den Nullvektor abgebildet werden. Er ist ein Untervektorraum.",
-            "formula": "\\ker(f) = \\{v \\in V \\mid f(v) = 0\\}",
-            "explanation": "Der Kern gibt uns wichtige Informationen über die Abbildung. Seine Dimension heißt Defekt der Abbildung. Ein großer Kern bedeutet, dass viele Vektoren auf den Nullvektor abgebildet werden. Das ist wie ein schwarzes Loch: Alles, was hineinfällt, verschwindet!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440005",
-            "text": "Das Bild einer linearen Abbildung ist die Menge aller Bildvektoren. Es ist ebenfalls ein Untervektorraum.",
-            "formula": "\\text{im}(f) = \\{f(v) \\mid v \\in V\\}",
-            "explanation": "Das Bild zeigt uns, welche Vektoren überhaupt erreicht werden können. Seine Dimension heißt Rang der Abbildung. Ein großes Bild bedeutet, dass viele Vektoren im Zielraum erreicht werden können. Das ist wie ein Schatten: Er zeigt uns, wo wir überall hinkommen können!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440006",
-            "text": "Der Dimensionssatz verbindet Kern und Bild einer linearen Abbildung. Er ist eine fundamentale Beziehung.",
-            "formula": "\\dim V = \\dim \\ker(f) + \\dim \\text{im}(f)",
-            "explanation": "Dieser Satz sagt uns, dass die Summe aus Defekt und Rang gleich der Dimension des Definitionsbereichs ist. Er ist nützlich, um den Rang einer Matrix zu bestimmen. Das ist wie ein Puzzle: Die Teile müssen zusammenpassen!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440007",
-            "text": "Eine lineare Abbildung ist injektiv genau dann, wenn ihr Kern nur den Nullvektor enthält.",
-            "formula": "f \\text{ injektiv} \\Leftrightarrow \\ker(f) = \\{0\\}",
-            "explanation": "Injektive Abbildungen sind umkehrbar auf ihrem Bild. Sie erhalten die lineare Unabhängigkeit von Vektoren. Das bedeutet, dass verschiedene Vektoren auf verschiedene Bilder abgebildet werden. Es ist wie ein Einbahnstraßensystem: Jeder Weg führt zu einem anderen Ziel!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440008",
-            "text": "Eine lineare Abbildung ist surjektiv genau dann, wenn ihr Bild der gesamte Zielraum ist.",
-            "formula": "f \\text{ surjektiv} \\Leftrightarrow \\text{im}(f) = W",
-            "explanation": "Surjektive Abbildungen erreichen jeden Vektor im Zielraum. Das bedeutet, dass für jeden Vektor im Zielraum mindestens ein Urbild existiert. Es ist wie ein Netz: Es fängt jeden Punkt im Zielraum ein!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440009",
-            "text": "Eine lineare Abbildung ist bijektiv genau dann, wenn sie injektiv und surjektiv ist.",
-            "formula": "f \\text{ bijektiv} \\Leftrightarrow f \\text{ injektiv} \\wedge f \\text{ surjektiv}",
-            "explanation": "Bijektive Abbildungen sind umkehrbar. Sie stellen eine eineindeutige Zuordnung zwischen Definitions- und Zielbereich her. Es ist wie ein Tanz: Jeder Partner hat genau einen Tanzpartner!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440010",
-            "text": "Die Verkettung linearer Abbildungen ist wieder linear. Die Matrix der Verkettung ist das Produkt der einzelnen Matrizen.",
-            "formula": "(g \\circ f)(v) = g(f(v))",
-            "explanation": "Die Verkettung entspricht der Matrixmultiplikation. Die Reihenfolge ist wichtig: g∘f bedeutet, dass zuerst f und dann g angewendet wird. Es ist wie eine Verkettung von Zaubertricks: Der Effekt des zweiten Tricks wirkt auf das Ergebnis des ersten!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440011",
-            "text": "Eine lineare Abbildung kann durch ihre Wirkung auf eine Basis vollständig beschrieben werden.",
-            "formula": "f(v) = f(\\sum_{i=1}^n \\lambda_i b_i) = \\sum_{i=1}^n \\lambda_i f(b_i)",
-            "explanation": "Wenn wir wissen, wohin die Basisvektoren abgebildet werden, können wir die Abbildung für jeden Vektor berechnen. Dies ist die Grundlage für die Matrixdarstellung. Es ist wie ein Baukasten: Wenn wir wissen, wohin die Grundbausteine gehen, können wir alles bauen!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440012",
-            "text": "Der Rang einer Matrix ist die Dimension des Bildes der zugehörigen linearen Abbildung.",
-            "formula": "\\text{rang}(A) = \\dim \\text{im}(f_A)",
-            "explanation": "Der Rang gibt uns die maximale Anzahl linear unabhängiger Spalten (oder Zeilen) der Matrix. Er ist wichtig für die Lösbarkeit von linearen Gleichungssystemen. Es ist wie die Anzahl der unabhängigen Richtungen, in die wir uns bewegen können!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440013",
-            "text": "Eine lineare Abbildung ist genau dann invertierbar, wenn sie bijektiv ist.",
-            "formula": "f^{-1}(f(v)) = v \\text{ und } f(f^{-1}(w)) = w",
-            "explanation": "Die inverse Abbildung macht die Wirkung der ursprünglichen Abbildung rückgängig. Ihre Matrix ist die inverse Matrix der ursprünglichen Matrix. Es ist wie ein Rückwärtsgang: Wir können jeden Schritt rückgängig machen!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440014",
-            "text": "Die Determinante einer linearen Abbildung gibt das Volumenverhältnis an.",
-            "formula": "\\det(f) = \\frac{\\text{Volumen}(f(P))}{\\text{Volumen}(P)}",
-            "explanation": "Die Determinante zeigt uns, wie sich Volumina unter der Abbildung ändern. Eine Determinante von 0 bedeutet, dass die Abbildung das Volumen auf 0 zusammenzieht. Es ist wie ein Maßstab: Sie zeigt uns, wie stark die Abbildung dehnt oder staucht!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440015",
-            "text": "Eigenwerte und Eigenvektoren einer linearen Abbildung sind besonders wichtig.",
-            "formula": "f(v) = \\lambda v",
-            "explanation": "Eigenvektoren werden nur gestreckt oder gestaucht, ihre Richtung bleibt erhalten. Die zugehörigen Eigenwerte geben den Streckungsfaktor an. Es ist wie ein Zauberstab: Er verändert nur die Größe, nicht die Richtung!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440016",
-            "text": "Lass uns ein konkretes Beispiel einer linearen Abbildung im ℝ³ anschauen: die Projektion auf eine Ebene.",
-            "formula": "f\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} x \\\\ y \\\\ 0 \\end{pmatrix}",
-            "explanation": "Diese Abbildung projiziert jeden Vektor auf die xy-Ebene. Sie ist linear, da sie die Vektorraumstruktur erhält. Es ist wie ein Schattenwurf: Jeder Punkt wird senkrecht auf die Ebene projiziert!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440017",
-            "text": "Eine weitere wichtige lineare Abbildung ist die Spiegelung an einer Geraden im ℝ².",
-            "formula": "f\\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} \\cos 2\\theta & \\sin 2\\theta \\\\ \\sin 2\\theta & -\\cos 2\\theta \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix}",
-            "explanation": "Diese Abbildung spiegelt jeden Vektor an einer Geraden durch den Ursprung mit Winkel θ. Sie ist linear und hat die Determinante -1. Es ist wie ein Spiegel: Jeder Punkt wird auf die andere Seite gespiegelt!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440018",
-            "text": "Die Verkettung von Spiegelungen führt zu interessanten Ergebnissen.",
-            "formula": "f = f_2 \\circ f_1",
-            "explanation": "Die Verkettung zweier Spiegelungen ist eine Rotation. Der Winkel der Rotation ist doppelt so groß wie der Winkel zwischen den Spiegelachsen. Es ist wie ein Doppelspiegel: Zwei Spiegelungen ergeben eine Drehung!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440019",
-            "text": "Eine lineare Abbildung kann auch durch ihre Wirkung auf Polynome definiert werden.",
-            "formula": "f(p(x)) = p'(x)",
-            "explanation": "Die Ableitung ist eine lineare Abbildung auf dem Vektorraum der Polynome. Sie erhält die Vektorraumstruktur und ist linear. Es ist wie ein Transformator: Er verwandelt Polynome in ihre Ableitungen!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440020",
-            "text": "Die Matrix einer linearen Abbildung hängt von der gewählten Basis ab.",
-            "formula": "A' = P^{-1}AP",
-            "explanation": "Wenn wir die Basis ändern, ändert sich auch die Matrix der Abbildung. Die neue Matrix ist ähnlich zur alten. Es ist wie ein Koordinatensystemwechsel: Die Abbildung bleibt gleich, nur ihre Darstellung ändert sich!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440021",
-            "text": "Eine lineare Abbildung kann auch durch ihre Wirkung auf Funktionen definiert werden.",
-            "formula": "f(g(x)) = \\int_0^x g(t) dt",
-            "explanation": "Die Integration ist eine lineare Abbildung auf dem Vektorraum der stetigen Funktionen. Sie erhält die Vektorraumstruktur und ist linear. Es ist wie ein Akkumulator: Er sammelt die Werte der Funktion!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440022",
-            "text": "Die Verkettung von Integration und Differentiation ist besonders interessant.",
-            "formula": "f(g(x)) = \\frac{d}{dx}\\int_0^x g(t) dt = g(x)",
-            "explanation": "Die Verkettung von Integration und Differentiation ergibt die Identität (bis auf eine Konstante). Es ist wie ein Kreis: Wenn wir integrieren und dann ableiten, kommen wir wieder zum Ausgangspunkt!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440023",
-            "text": "Eine lineare Abbildung kann auch durch ihre Wirkung auf Matrizen definiert werden.",
-            "formula": "f(A) = A^T",
-            "explanation": "Die Transposition ist eine lineare Abbildung auf dem Vektorraum der Matrizen. Sie erhält die Vektorraumstruktur und ist linear. Es ist wie ein Spiegel: Sie spiegelt die Matrix an der Hauptdiagonale!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440024",
-            "text": "Die Verkettung von Transposition und Matrixmultiplikation führt zu interessanten Ergebnissen.",
-            "formula": "(AB)^T = B^T A^T",
-            "explanation": "Die Transposition eines Produkts ist das Produkt der transponierten Matrizen in umgekehrter Reihenfolge. Es ist wie ein Handschuhwechsel: Die Reihenfolge der Operationen ist wichtig!"
-        },
-        {
-            "id": "cc0e8400-e29b-41d4-a716-446655440025",
-            "text": "Zum Schluss schauen wir uns an, wie lineare Abbildungen in der Computergrafik verwendet werden.",
-            "formula": "f\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} a & b & c \\\\ d & e & f \\\\ g & h & i \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}",
-            "explanation": "Lineare Abbildungen werden verwendet, um 3D-Objekte zu transformieren. Sie ermöglichen Rotationen, Skalierungen und Spiegelungen. Es ist wie ein Zauberkasten: Mit den richtigen Matrizen können wir jeden 3D-Effekt erzeugen!"
-        }
-    ]
-} 
+{
+  "id": "cc0e8400-e29b-41d4-a716-446655440000",
+  "topic": "Lineare Abbildungen",
+  "steps": [
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440001",
+      "section": "Kapitel 1 · Was ist eine lineare Abbildung?",
+      "text": "Willkommen! In dieser Lektion lernst du, was lineare Abbildungen sind, warum sie das Herzstück der Linearen Algebra bilden – und wie alles, was du über Vektorräume und Matrizen weißt, hier zusammenläuft.\n\nDu brauchst dafür: Vektorräume (Linearkombination, Spann, Basis, Dimension) und Matrizen (besonders „Matrix mal Vektor“ und „Spalten = Bilder von \\(e_1, e_2, \\dots\\)“).",
+      "explanation": "Unser Fahrplan:\n1. Was ist eine lineare Abbildung – und wie erkennt man sie?\n2. Basisbilder legen die ganze Abbildung fest\n3. Geometrische Beispiele: Drehung, Scherung, Spiegelung, Projektion\n4. Kern und Bild\n5. Injektiv, surjektiv, bijektiv\n6. Verkettung linearer Abbildungen\n7. Die Matrix bezüglich beliebiger Basen\n8. Ausblick: Determinante und Eigenvektoren",
+      "insight": "Die Leitidee: Eine lineare Abbildung ist eine Funktion zwischen Vektorräumen, die Addition und Skalierung respektiert. Matrizen sind nur ihre „Rechenform“."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440002",
+      "section": "Kapitel 1 · Was ist eine lineare Abbildung?",
+      "text": "Eine Abbildung \\(f \\colon V \\to W\\) ordnet jedem Vektor \\(v \\in V\\) einen Vektor \\(f(v) \\in W\\) zu. Davon gibt es unüberschaubar viele – die meisten ignorieren die Struktur der Vektorräume völlig.\n\nWir wollen nur solche Abbildungen, die mit den beiden Grundoperationen verträglich sind. Dafür gibt es zwei Wege, denselben Vektor zu berechnen: \\(f(u + v)\\) – erst addieren, dann abbilden – oder \\(f(u) + f(v)\\) – erst abbilden, dann addieren.",
+      "formula": "\\begin{align*} f(u + v) &= f(u) + f(v) \\\\ f(\\lambda v) &= \\lambda \\, f(v) \\end{align*}",
+      "explanation": "Die erste Gleichung heißt Additivität, die zweite Homogenität. „Verträglich“ heißt: Es ist egal, ob man erst rechnet und dann abbildet oder erst abbildet und dann rechnet.\n\nDas ist keine Selbstverständlichkeit. Nur sehr spezielle Abbildungen haben diese Eigenschaft – dafür sind sie aber viel leichter zu verstehen als beliebige.",
+      "insight": "Lineare Abbildung = „Addition und Skalierung dürfen vor oder nach der Abbildung passieren.“"
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440003",
+      "section": "Kapitel 1 · Was ist eine lineare Abbildung?",
+      "text": "Sehen wir uns das an einem Beispiel an: \\(f(x, y) = (2x + y,\\ y)\\), mit \\(u = (1, 0)\\) und \\(v = (0, 2)\\). Beide Wege führen zum selben Ziel:",
+      "visual": "linearityCheck",
+      "formula": "\\begin{align*} f(u + v) &= f(1, 2) = (4, 2) \\\\ f(u) + f(v) &= (2, 0) + (2, 2) = (4, 2) \\end{align*}",
+      "explanation": "Probiere die Animation durch: Weg A addiert zuerst (\\(u + v = (1, 2)\\)) und bildet dann ab. Weg B bildet zuerst ab und hängt dann \\(f(v)\\) an die Spitze von \\(f(u)\\). Beide enden bei \\((4, 2)\\).\n\nEin einzelnes Zahlenbeispiel beweist die Linearität natürlich noch nicht – es zeigt nur, was die Gleichung bedeutet.",
+      "insight": "Geometrisch: Die Parallelogramm-Konstruktion der Vektoraddition bleibt unter \\(f\\) ein Parallelogramm."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440004",
+      "section": "Kapitel 1 · Was ist eine lineare Abbildung?",
+      "text": "Nun die offizielle Definition. Seien \\(V, W\\) Vektorräume über demselben Körper \\(K\\). Eine Abbildung \\(f \\colon V \\to W\\) heißt linear, wenn für alle \\(u, v \\in V\\) und \\(\\lambda \\in K\\) gilt:",
+      "formula": "\\begin{align*} f(u + v) &= f(u) + f(v) && \\text{(Additivität)} \\\\ f(\\lambda u) &= \\lambda f(u) && \\text{(Homogenität)} \\end{align*}",
+      "explanation": "Beides lässt sich zu einer Bedingung zusammenfassen:\n\\(f(\\lambda u + \\mu v) = \\lambda f(u) + \\mu f(v)\\) für alle \\(\\lambda, \\mu \\in K\\) und \\(u, v \\in V\\).\n\nIn Worten: \\(f\\) schickt Linearkombinationen auf Linearkombinationen – mit denselben Koeffizienten. Genau das war die Kernidee der Vektorräume-Lektion.\n\nZwei Folgerungen kommen sofort:\n• \\(f(0) = 0\\), denn \\(f(0) = f(0 \\cdot 0) = 0 \\cdot f(0) = 0\\).\n• \\(f(-v) = -f(v)\\), denn \\(f(-v) = f((-1) \\cdot v) = (-1) \\cdot f(v)\\).",
+      "insight": "Jede lineare Abbildung schickt den Nullvektor auf den Nullvektor. Wer \\(f(0) \\neq 0\\) findet, hat sofort einen Beweis, dass \\(f\\) NICHT linear ist."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440005",
+      "section": "Kapitel 1 · Was ist eine lineare Abbildung?",
+      "text": "Wie weist man Linearität nach? Man prüft beide Bedingungen allgemein. Beispiel: \\(f \\colon \\mathbb{R}^2 \\to \\mathbb{R}^2\\) mit \\(f(x, y) = (x + 2y,\\ 3x - y)\\). Wir nehmen \\(u = (x_1, y_1)\\), \\(v = (x_2, y_2)\\) und \\(\\lambda \\in \\mathbb{R}\\):",
+      "formula": "\\begin{align*} f(u + v) &= \\bigl( (x_1 + x_2) + 2(y_1 + y_2),\\ 3(x_1 + x_2) - (y_1 + y_2) \\bigr) \\\\ &= (x_1 + 2y_1,\\ 3x_1 - y_1) + (x_2 + 2y_2,\\ 3x_2 - y_2) = f(u) + f(v) \\\\[4pt] f(\\lambda u) &= (\\lambda x_1 + 2\\lambda y_1,\\ 3\\lambda x_1 - \\lambda y_1) = \\lambda f(u) \\end{align*}",
+      "explanation": "Das Muster: Wenn jede Komponente des Bildes eine Summe aus Vielfachen der Eingangskoordinaten ist (hier \\(x + 2y\\) und \\(3x - y\\)), dann ist die Abbildung linear. Es kommt also kein Quadrat, kein Produkt von Variablen und keine Konstante vor.\n\nMan kann auch bequemer arbeiten: \\(f(x, y) = A\\binom{x}{y}\\) mit \\(A = \\begin{pmatrix} 1 & 2 \\\\ 3 & -1 \\end{pmatrix}\\). Und weil \\(A(u + v) = Au + Av\\) und \\(A(\\lambda u) = \\lambda Au\\) (Matrizen-Lektion!), ist \\(f\\) automatisch linear.",
+      "insight": "Jede Abbildung der Form \\(x \\mapsto Ax\\) ist linear. Später sehen wir: Für \\(K^n \\to K^m\\) ist das sogar die EINZIGE Form."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440006",
+      "section": "Kapitel 1 · Was ist eine lineare Abbildung?",
+      "text": "Genauso wichtig: erkennen, wenn etwas NICHT linear ist. Hier drei typische Gegenbeispiele:",
+      "formula": "\\begin{align*} g(x, y) &= (x + 1,\\ y) \\\\ h(x) &= x^2 \\\\ k(x, y) &= xy \\end{align*}",
+      "explanation": "• \\(g\\): Es ist \\(g(0, 0) = (1, 0) \\neq (0, 0)\\). Die Abbildung verschiebt den Ursprung – nicht linear.\n\n• \\(h\\): Es ist \\(h(1 + 1) = 4\\), aber \\(h(1) + h(1) = 2\\). Additivität verletzt.\n\n• \\(k\\): Es ist \\(k(2 \\cdot (1, 1)) = k(2, 2) = 4\\), aber \\(2 \\cdot k(1, 1) = 2\\). Homogenität verletzt.\n\nBeachte: \\(h(0) = 0\\) gilt! Der Test \\(f(0) = 0\\) ist also notwendig, aber nicht hinreichend.",
+      "insight": "Typischer Fehler: „\\(f(0) = 0\\), also linear.“ Falsch! \\(x \\mapsto x^2\\) erfüllt \\(f(0) = 0\\) und ist trotzdem nicht linear. Immer beide Bedingungen prüfen."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440007",
+      "section": "Kapitel 1 · Was ist eine lineare Abbildung?",
+      "text": "Vektoren müssen keine Pfeile im \\(\\mathbb{R}^n\\) sein – das wissen wir aus der Vektorräume-Lektion. Deshalb gibt es lineare Abbildungen auch zwischen Funktionen- oder Polynomräumen. Das wichtigste Beispiel: das Ableiten.\n\nSei \\(P_2\\) der Vektorraum der Polynome vom Grad \\(\\le 2\\), also \\(p(x) = a + bx + cx^2\\). Dann ist \\(D \\colon P_2 \\to P_1\\), \\(D(p) = p'\\) linear:",
+      "formula": "\\begin{align*} D(p + q) &= (p + q)' = p' + q' = D(p) + D(q) \\\\ D(\\lambda p) &= (\\lambda p)' = \\lambda p' = \\lambda D(p) \\end{align*}",
+      "explanation": "Die Summenregel und die Faktorregel der Analysis sagen also genau: „Das Ableiten ist linear.“ Dasselbe gilt für das Integrieren: \\(\\int_0^x (g + h) = \\int_0^x g + \\int_0^x h\\).\n\nAuch die Transposition \\(A \\mapsto A^T\\) ist linear (auf dem Vektorraum der Matrizen), denn \\((A + B)^T = A^T + B^T\\) und \\((\\lambda A)^T = \\lambda A^T\\).\n\nAlles, was wir in dieser Lektion herleiten, gilt für ALLE diese Beispiele – nicht nur für \\(\\mathbb{R}^n\\).",
+      "insight": "Lineare Abbildungen sind überall: Ableiten, Integrieren, Transponieren, Drehen, Projizieren, Skalieren …"
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440008",
+      "section": "Kapitel 2 · Basisbilder legen alles fest",
+      "text": "Eine lineare Abbildung hat eine überraschende Eigenschaft: Man muss ihre Wirkung nur auf einer Basis kennen. Ist \\(v = \\lambda_1 b_1 + \\dots + \\lambda_n b_n\\) eine Linearkombination der Basis \\((b_1, \\dots, b_n)\\), dann folgt aus der Linearität:",
+      "formula": "f(v) = f\\Bigl(\\sum_{i=1}^{n} \\lambda_i b_i\\Bigr) = \\sum_{i=1}^{n} \\lambda_i \\, f(b_i)",
+      "explanation": "Konkret: \\(f \\colon \\mathbb{R}^2 \\to \\mathbb{R}^2\\) sei linear mit \\(f(e_1) = (1, 2)\\) und \\(f(e_2) = (-1, 1)\\). Dann ist für \\(v = (3, 2) = 3e_1 + 2e_2\\):\n\\(f(v) = 3 \\cdot (1, 2) + 2 \\cdot (-1, 1) = (3 - 2,\\ 6 + 2) = (1, 8)\\).\n\nDu hast \\(f\\) nie „als Formel“ gesehen – nur die zwei Bilder \\(f(e_1)\\), \\(f(e_2)\\) – und kannst trotzdem jeden Vektor abbilden.",
+      "insight": "Eine lineare Abbildung ist durch die Bilder einer Basis vollständig bestimmt. Alles andere folgt durch Linearkombination."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440009",
+      "section": "Kapitel 2 · Basisbilder legen alles fest",
+      "text": "Gilt auch die Umkehrung? Kann man die Basisbilder frei wählen? Ja – und das ist einer der wichtigsten Sätze der Linearen Algebra:",
+      "formula": "\\begin{array}{l} \\text{Sei } (b_1, \\dots, b_n) \\text{ eine Basis von } V \\text{ und } w_1, \\dots, w_n \\in W \\text{ beliebig.} \\\\[4pt] \\text{Dann gibt es genau eine lineare Abbildung } f \\colon V \\to W \\text{ mit } f(b_i) = w_i. \\end{array}",
+      "explanation": "Warum „genau eine“? Eindeutigkeit: Jedes \\(v\\) hat eindeutige Koordinaten \\(\\lambda_i\\) bezüglich der Basis, und \\(f(v)\\) muss \\(\\sum \\lambda_i w_i\\) sein. Existenz: Genau diese Formel definiert eine lineare Abbildung.\n\nDie Basiseigenschaft liefert beides: Der Spann erzeugt jeden Vektor (Existenz), und die lineare Unabhängigkeit macht die Koordinaten eindeutig (kein Widerspruch bei der Definition).",
+      "insight": "Basisvektoren sind „frei wählbar“, ihre Bilder auch: Das ist der Grund, warum man lineare Abbildungen so leicht konstruieren kann."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440010",
+      "section": "Kapitel 2 · Basisbilder legen alles fest",
+      "text": "Ein Beispiel mit einer anderen Basis als der Standardbasis. Gesucht: die lineare Abbildung \\(f \\colon \\mathbb{R}^2 \\to \\mathbb{R}^2\\) mit \\(f(1, 1) = (2, 0)\\) und \\(f(1, -1) = (0, 2)\\). Die Vektoren \\((1, 1)\\) und \\((1, -1)\\) bilden eine Basis. Wohin gehen \\(e_1\\) und \\(e_2\\)?",
+      "formula": "\\begin{align*} e_1 &= \\tfrac12 (1, 1) + \\tfrac12 (1, -1) \\ \\Rightarrow\\ f(e_1) = \\tfrac12 (2, 0) + \\tfrac12 (0, 2) = (1, 1) \\\\ e_2 &= \\tfrac12 (1, 1) - \\tfrac12 (1, -1) \\ \\Rightarrow\\ f(e_2) = \\tfrac12 (2, 0) - \\tfrac12 (0, 2) = (1, -1) \\end{align*}",
+      "explanation": "Also ist \\(f(x, y) = x \\cdot (1, 1) + y \\cdot (1, -1) = (x + y,\\ x - y)\\).\n\nProbe: \\(f(1, 1) = (2, 0)\\) ✓ und \\(f(1, -1) = (0, 2)\\) ✓.\n\nVorgehen: (1) die Standardvektoren als Linearkombination der Basis schreiben, (2) die Linearität anwenden.",
+      "insight": "Typisches Rezept: Bilder der Basis gegeben → Standardvektoren in der Basis ausdrücken → Bilder von \\(e_1, \\dots, e_n\\) berechnen → Matrix aufstellen."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440011",
+      "section": "Kapitel 2 · Basisbilder legen alles fest",
+      "text": "Für \\(K^n \\to K^m\\) gilt noch mehr: Jede lineare Abbildung ist eine Matrix. Wir wählen die Standardbasis \\(e_1, \\dots, e_n\\) und schreiben die Bilder \\(f(e_j)\\) als Spalten nebeneinander:",
+      "formula": "A = \\begin{pmatrix} | & & | \\\\ f(e_1) & \\cdots & f(e_n) \\\\ | & & | \\end{pmatrix} \\in K^{m \\times n}, \\qquad f(x) = Ax",
+      "explanation": "Beispiel: \\(f \\colon \\mathbb{R}^3 \\to \\mathbb{R}^2\\), \\(f(x, y, z) = (x + 2y,\\ y - z)\\). Die Bilder der Standardvektoren:\n\\(f(e_1) = (1, 0)\\), \\(f(e_2) = (2, 1)\\), \\(f(e_3) = (0, -1)\\).\n\nDiese drei Spalten ergeben die \\(2 \\times 3\\)-Matrix\n\\(A = \\begin{pmatrix} 1 & 2 & 0 \\\\ 0 & 1 & -1 \\end{pmatrix}\\).\n\nProbe mit \\((1, 1, 1)\\): \\(f(1, 1, 1) = (3, 0)\\) und \\(A\\,(1, 1, 1)^T = (1 + 2 + 0,\\ 0 + 1 - 1) = (3, 0)\\) ✓. Die Matrix hat so viele Spalten wie die Dimension des Definitionsbereichs und so viele Zeilen wie die des Zielraums.",
+      "insight": "Lineare Abbildungen \\(K^n \\to K^m\\) und \\(m \\times n\\)-Matrizen sind dasselbe: \\(f \\mapsto A\\) ist eine Eins-zu-eins-Zuordnung. Das erklärt rückwirkend, warum die Matrizen-Lektion „Matrix = Abbildung“ sagen durfte."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440012",
+      "section": "Kapitel 3 · Geometrische Beispiele",
+      "text": "Jetzt füllen wir das mit Leben. Beginnen wir mit der Drehung um den Ursprung um den Winkel \\(\\theta\\) gegen den Uhrzeigersinn. Ist sie linear? Ja – dreht man ein Parallelogramm, bleibt es ein Parallelogramm (siehe Additivität oben). Also reicht es, zu wissen, wohin \\(e_1\\) und \\(e_2\\) wandern:",
+      "formula": "R_\\theta = \\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix}",
+      "explanation": "Warum diese Spalten? \\(e_1 = (1, 0)\\) landet nach der Drehung bei \\((\\cos\\theta, \\sin\\theta)\\) – so sind Sinus und Kosinus am Einheitskreis definiert. Und \\(e_2\\) ist \\(e_1\\) um 90° gedreht, landet also bei \\(\\theta + 90°\\): \\((\\cos(\\theta + 90°), \\sin(\\theta + 90°)) = (-\\sin\\theta, \\cos\\theta)\\).\n\nFür \\(\\theta = 90°\\) ergibt das \\(\\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix}\\) – die Matrix \\(R\\) aus der Matrizen-Lektion.",
+      "insight": "Drehungen sind linear. Sie erhalten Längen und Winkel – aber das ist eine EXTRA-Eigenschaft, die nicht jede lineare Abbildung hat."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440013",
+      "section": "Kapitel 3 · Geometrische Beispiele",
+      "text": "Die nächste: die Scherung \\(f(x, y) = (x + y,\\ y)\\). Sie schiebt jede Zeile der Ebene um ihre Höhe nach rechts – wie ein Kartenstapel, den man seitlich verschiebt. Wo landen \\(e_1\\), \\(e_2\\), das Gitter und \\(x = (1, 2)\\)?",
+      "visual": "shearMap",
+      "formula": "S = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}",
+      "explanation": "Die Spalten von \\(S\\) sind \\(f(e_1) = (1, 0)\\) und \\(f(e_2) = (1, 1)\\). Das Quadrat wird zum Parallelogramm: Grundseite und Höhe bleiben gleich, also bleibt die Fläche gleich. Längen und Winkel dagegen ändern sich – \\(e_2\\) wird länger.\n\nAuch das Bild ist wieder ganz \\(\\mathbb{R}^2\\): Mit \\(S\\) kann man jeden Punkt erreichen, indem man einfach zurückschert.",
+      "insight": "Scherung: Fläche bleibt, Winkel nicht. Lineare Abbildungen verformen, aber immer „gerade“: Gitterlinien bleiben parallel und gleichmäßig verteilt."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440014",
+      "section": "Kapitel 3 · Geometrische Beispiele",
+      "text": "Die Spiegelung an der Winkelhalbierenden \\(y = x\\) vertauscht die Koordinaten: \\(f(x, y) = (y, x)\\).",
+      "visual": "reflectionMap",
+      "formula": "P = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}",
+      "explanation": "Spalten ablesen: \\(f(e_1) = (0, 1) = e_2\\) und \\(f(e_2) = (1, 0) = e_1\\) – die beiden Basisvektoren tauschen die Plätze.\n\nZweimal spiegeln bringt alles zurück: \\(P \\cdot P = I\\). Eine solche Abbildung ist ihre eigene Umkehrung. Die allgemeine Spiegelung an einer Geraden durch den Ursprung hat den Winkel \\(\\theta\\) und die Matrix \\(\\begin{pmatrix} \\cos 2\\theta & \\sin 2\\theta \\\\ \\sin 2\\theta & -\\cos 2\\theta \\end{pmatrix}\\) – für \\(\\theta = 45°\\) ist das genau \\(P\\).",
+      "insight": "Spiegelungen drehen den Umlaufsinn um. Das wird später durch ein Minuszeichen bei der Determinante sichtbar."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440015",
+      "section": "Kapitel 3 · Geometrische Beispiele",
+      "text": "Zuletzt eine Abbildung, bei der Information verloren geht: die Projektion auf die \\(xy\\)-Ebene im \\(\\mathbb{R}^3\\), \\(f(x, y, z) = (x, y, 0)\\). Sie wirft jeden Punkt senkrecht auf die Ebene – wie der Schatten bei Mittagssonne.",
+      "formula": "Q = \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}",
+      "explanation": "Spalten: \\(f(e_1) = e_1\\), \\(f(e_2) = e_2\\), \\(f(e_3) = 0\\). Die dritte Spalte ist der Nullvektor – die \\(z\\)-Richtung verschwindet.\n\nAlle Punkte \\((x, y, z)\\) mit dem gleichen \\(x, y\\) landen beim selben Bildpunkt. Man kann also aus dem Bild nicht mehr ablesen, wie hoch der Punkt vorher war.",
+      "insight": "Genau diese Fragen – „Was verschwindet?“ und „Was kommt heraus?“ – beantworten Kern und Bild im nächsten Kapitel."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440016",
+      "section": "Kapitel 4 · Kern und Bild",
+      "text": "Bei einer Abbildung stellen sich zwei natürliche Fragen: Welche Vektoren werden auf null gequetscht? Und welche Vektoren des Zielraums werden überhaupt getroffen? Wir sehen uns das an \\(f(x, y) = (x + y,\\ x + y)\\) an:",
+      "visual": "kernelImage",
+      "explanation": "Die Vektoren \\(p = (2, -2)\\) und \\(q = (-1, 1)\\) liegen auf der Geraden \\(y = -x\\); beide werden auf \\((0, 0)\\) gequetscht. Die Menge aller solchen Vektoren ist der Kern.\n\nAlle Bildvektoren haben die Form \\((t, t)\\), liegen also auf der Geraden \\(y = x\\). Das ist das Bild.\n\nAußerdem sieht man: Alle Vektoren einer zum Kern parallelen Geraden (z. B. \\(x + y = 3\\)) landen im selben Punkt.",
+      "insight": "Kern = „was verschwindet“. Bild = „was erreicht wird“. Zusammen beschreiben sie die Abbildung fast vollständig."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440017",
+      "section": "Kapitel 4 · Kern und Bild",
+      "text": "Die formalen Definitionen für eine lineare Abbildung \\(f \\colon V \\to W\\):",
+      "formula": "\\begin{align*} \\ker f &= \\{\\, v \\in V \\mid f(v) = 0 \\,\\} \\subseteq V \\\\ \\operatorname{im} f &= \\{\\, f(v) \\mid v \\in V \\,\\} \\subseteq W \\end{align*}",
+      "explanation": "Der Kern liegt im Definitionsbereich \\(V\\), das Bild im Zielraum \\(W\\).\n\nBeide sind Untervektorräume – das kannst du mit dem Untervektorraumkriterium nachprüfen:\n• Kern: \\(f(0) = 0\\), also \\(0 \\in \\ker f\\). Sind \\(u, v \\in \\ker f\\), so ist \\(f(u + v) = 0 + 0 = 0\\) und \\(f(\\lambda u) = \\lambda \\cdot 0 = 0\\).\n• Bild: \\(0 = f(0) \\in \\operatorname{im} f\\). Es ist \\(f(u) + f(v) = f(u + v)\\) und \\(\\lambda f(u) = f(\\lambda u)\\) – wieder im Bild.",
+      "insight": "Kern und Bild sind Untervektorräume – deshalb kann man ihre Dimension fragen, ihre Basis suchen und so weiter."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440018",
+      "section": "Kapitel 4 · Kern und Bild",
+      "text": "Wie berechnet man den Kern? Er besteht aus den Lösungen des homogenen Gleichungssystems \\(Ax = 0\\) – das löst man mit dem Gauß-Verfahren. Wir nehmen die Matrix von oben:\n\\(A = \\begin{pmatrix} 1 & 2 & 0 \\\\ 0 & 1 & -1 \\end{pmatrix}\\) zu \\(f(x, y, z) = (x + 2y,\\ y - z)\\).",
+      "formula": "\\begin{align*} x + 2y &= 0 \\\\ y - z &= 0 \\end{align*} \\quad \\Rightarrow \\quad y = z,\\ \\ x = -2z \\quad \\Rightarrow \\quad \\ker f = \\operatorname{span}\\left\\{ \\begin{pmatrix} -2 \\\\ 1 \\\\ 1 \\end{pmatrix} \\right\\}",
+      "explanation": "Probe: \\(A\\,(-2, 1, 1)^T = (-2 + 2 + 0,\\ 1 - 1) = (0, 0)\\) ✓.\n\nDer Kern ist eine Gerade im \\(\\mathbb{R}^3\\), also \\(\\dim \\ker f = 1\\). Die Variable \\(z\\) ist „frei“ – sie darf beliebig sein, die anderen richten sich danach.",
+      "insight": "Kern bestimmen = \\(Ax = 0\\) lösen. Die Anzahl der freien Variablen ist die Dimension des Kerns."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440019",
+      "section": "Kapitel 4 · Kern und Bild",
+      "text": "Das Bild ist noch leichter zu sehen. Es gilt: \\(Ax = x_1 a_1 + \\dots + x_n a_n\\) ist eine Linearkombination der Spalten. Das Bild ist also der Spann der Spalten – der „Spaltenraum“:",
+      "formula": "\\operatorname{im} f = \\operatorname{span}(a_1, \\dots, a_n), \\qquad \\dim \\operatorname{im} f = \\operatorname{rang} A",
+      "explanation": "Für \\(A = \\begin{pmatrix} 1 & 2 & 0 \\\\ 0 & 1 & -1 \\end{pmatrix}\\) sind die Spalten \\((1, 0)\\), \\((2, 1)\\), \\((0, -1)\\). Die Spalten \\((1, 0)\\) und \\((0, -1)\\) sind schon linear unabhängig, spannen also ganz \\(\\mathbb{R}^2\\) auf. Das Bild ist ganz \\(\\mathbb{R}^2\\), also \\(\\operatorname{rang} A = 2\\).\n\nDie Dimension des Bildes heißt Rang von \\(f\\). Das ist derselbe Rang wie in der Matrizen-Lektion: Er zählt die linear unabhängigen Spalten.",
+      "insight": "Bild = Spann der Spalten. Rang = Dimension des Bildes = Anzahl linear unabhängiger Spalten."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440020",
+      "section": "Kapitel 4 · Kern und Bild",
+      "text": "Beim Beispiel sind \\(\\dim \\ker f = 1\\) und \\(\\dim \\operatorname{im} f = 2\\), und der Definitionsbereich ist der \\(\\mathbb{R}^3\\). Es ist \\(1 + 2 = 3\\). Zufall? Nein, das ist der Dimensionssatz (Rangsatz):",
+      "formula": "\\dim V = \\dim \\ker f + \\dim \\operatorname{im} f",
+      "explanation": "Ein Gedanke dahinter: Von den \\(n = \\dim V\\) Richtungen des Definitionsbereichs verschwinden die einen (Kern), die anderen überleben (Bild). Zusammen sind es alle.\n\nWeitere Kontrollen:\n• Projektion \\(Q\\) (\\(\\mathbb{R}^3 \\to \\mathbb{R}^3\\)): Kern = \\(z\\)-Achse (Dim. 1), Bild = \\(xy\\)-Ebene (Dim. 2), \\(1 + 2 = 3\\) ✓.\n• Ableiten \\(D \\colon P_2 \\to P_1\\): Kern = konstante Polynome (Dim. 1), Bild = ganz \\(P_1\\) (Dim. 2), \\(1 + 2 = 3 = \\dim P_2\\) ✓.\n• \\(f(x, y) = (x + y, x + y)\\): \\(1 + 1 = 2\\) ✓.",
+      "insight": "Dimensionssatz: Was nicht im Kern verschwindet, taucht im Bild auf. Defekt + Rang = Dimension des Definitionsbereichs."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440021",
+      "section": "Kapitel 4 · Kern und Bild",
+      "text": "Warum stimmt der Dimensionssatz? Die Beweisidee ist so einfach, dass du sie dir merken kannst. Sei \\((b_1, \\dots, b_k)\\) eine Basis des Kerns. Wir ergänzen sie zu einer Basis \\((b_1, \\dots, b_k, b_{k+1}, \\dots, b_n)\\) von \\(V\\) (Basisergänzungssatz).",
+      "formula": "\\begin{align*} f(b_1) &= \\dots = f(b_k) = 0 \\\\ \\operatorname{im} f &= \\operatorname{span}\\bigl( f(b_{k+1}), \\dots, f(b_n) \\bigr) \\end{align*}",
+      "explanation": "Die ersten \\(k\\) Basisvektoren liefern nichts zum Bild (sie sind ja im Kern). Die restlichen \\(n - k\\) Bilder erzeugen das Bild – und sie sind linear unabhängig: Aus \\(\\sum_{i > k} \\mu_i f(b_i) = 0\\) folgt \\(f(\\sum \\mu_i b_i) = 0\\), also liegt \\(\\sum \\mu_i b_i\\) im Kern. Dann ist \\(\\sum \\mu_i b_i\\) auch eine Linearkombination von \\(b_1, \\dots, b_k\\). Weil \\((b_1, \\dots, b_n)\\) linear unabhängig ist, geht das nur mit allen \\(\\mu_i = 0\\).\n\nAlso: \\(\\dim \\operatorname{im} f = n - k\\), das ist die Aussage \\(n = k + (n - k)\\).",
+      "insight": "Der Beweis ist nur eine Buchführung über die Basis: \\(k\\) Vektoren verschwinden, \\(n - k\\) überleben."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440022",
+      "section": "Kapitel 5 · Injektiv, surjektiv, bijektiv",
+      "text": "Aus der Lektion „Mengen und Abbildungen“ kennst du injektiv, surjektiv und bijektiv. Für lineare Abbildungen kann man sie an Kern und Bild ablesen. Beginnen wir mit injektiv: verschiedene Vektoren haben verschiedene Bilder.",
+      "formula": "f \\text{ injektiv} \\iff \\ker f = \\{0\\}",
+      "explanation": "Warum? Wegen der Linearität gilt \\(f(u) = f(v) \\iff f(u - v) = 0\\). „Zwei Vektoren haben dasselbe Bild“ heißt also genau „ihre Differenz liegt im Kern“. Besteht der Kern nur aus \\(0\\), kann das nur für \\(u = v\\) passieren.\n\nBeispiel: \\(f(x, y) = (x + y, x + y)\\) ist nicht injektiv, denn \\((1, -1) \\in \\ker f\\) – und deshalb haben \\((1, 0)\\) und \\((0, 1)\\) dasselbe Bild \\((1, 1)\\).",
+      "insight": "Injektivität muss man bei linearen Abbildungen nicht für alle Paare prüfen – es genügt, dass der Kern trivial ist."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440023",
+      "section": "Kapitel 5 · Injektiv, surjektiv, bijektiv",
+      "text": "Surjektiv heißt: Jeder Vektor des Zielraums wird getroffen. Das ist direkt eine Aussage über das Bild:",
+      "formula": "f \\text{ surjektiv} \\iff \\operatorname{im} f = W \\iff \\operatorname{rang} f = \\dim W",
+      "explanation": "Beispiel: \\(f(x, y, z) = (x + 2y,\\ y - z)\\) ist surjektiv, denn das Bild ist ganz \\(\\mathbb{R}^2\\) (Rang 2). Aber nicht injektiv: Der Kern ist die Gerade, die von \\((-2, 1, 1)\\) aufgespannt wird.\n\nDie Projektion \\(Q\\) ist weder injektiv (Kern = \\(z\\)-Achse) noch surjektiv (Bild = \\(xy\\)-Ebene \\(\\neq \\mathbb{R}^3\\)).",
+      "insight": "Injektiv ⇔ Kern ist \\(\\{0\\}\\). Surjektiv ⇔ Bild ist der ganze Zielraum. Beides kann man mit dem Gauß-Verfahren prüfen."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440024",
+      "section": "Kapitel 5 · Injektiv, surjektiv, bijektiv",
+      "text": "Mit dem Dimensionssatz bekommt man ohne Rechnung wichtige Aussagen, nur aus den Dimensionen:",
+      "formula": "\\begin{array}{ll} \\dim V > \\dim W & \\Rightarrow f \\text{ nicht injektiv} \\\\ \\dim V < \\dim W & \\Rightarrow f \\text{ nicht surjektiv} \\\\ \\dim V = \\dim W & \\Rightarrow \\bigl( f \\text{ injektiv} \\iff f \\text{ surjektiv} \\iff f \\text{ bijektiv} \\bigr) \\end{array}",
+      "explanation": "Begründung:\n• \\(\\dim V > \\dim W\\): Das Bild liegt in \\(W\\), hat also höchstens Dimension \\(\\dim W\\). Dann ist \\(\\dim \\ker f = \\dim V - \\dim \\operatorname{im} f > 0\\).\n• \\(\\dim V < \\dim W\\): \\(\\dim \\operatorname{im} f \\le \\dim V < \\dim W\\), das Bild kann also nicht alles füllen.\n• \\(\\dim V = \\dim W\\): \\(\\ker f = \\{0\\} \\iff \\dim \\operatorname{im} f = \\dim V = \\dim W \\iff \\operatorname{im} f = W\\).\n\nIm Beispiel \\(\\mathbb{R}^3 \\to \\mathbb{R}^2\\) war also schon vor jeder Rechnung klar, dass die Abbildung nicht injektiv sein kann.",
+      "insight": "Bei gleicher Dimension genügt EINE Eigenschaft: injektiv ⇔ surjektiv ⇔ bijektiv. Das gilt nur für lineare Abbildungen und endliche Dimension!"
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440025",
+      "section": "Kapitel 5 · Injektiv, surjektiv, bijektiv",
+      "text": "Eine bijektive lineare Abbildung heißt Isomorphismus. Sie ist umkehrbar, und die Umkehrabbildung \\(f^{-1}\\) ist automatisch wieder linear: Aus \\(f(u) = a\\), \\(f(v) = b\\) folgt \\(f(u + v) = a + b\\), also \\(f^{-1}(a + b) = u + v = f^{-1}(a) + f^{-1}(b)\\).",
+      "formula": "V \\cong W \\iff \\dim V = \\dim W",
+      "explanation": "Zwei Vektorräume sind „im Wesentlichen gleich“, wenn es einen Isomorphismus zwischen ihnen gibt. Und das hängt nur von der Dimension ab (bei gleichem Körper).\n\nBeispiel: \\(P_2 \\to \\mathbb{R}^3\\), \\(a + bx + cx^2 \\mapsto (a, b, c)\\) ist ein Isomorphismus. Polynome zweiten Grades und Vektoren im \\(\\mathbb{R}^3\\) verhalten sich beim Addieren und Skalieren exakt gleich. Das ist genau die Abbildung „Basis → Koordinaten“ aus der Vektorräume-Lektion.\n\nAllgemein ist jeder \\(n\\)-dimensionale \\(K\\)-Vektorraum isomorph zu \\(K^n\\).",
+      "insight": "Der Koordinatenvektor ist ein Isomorphismus \\(V \\to K^n\\). Deshalb darf man in jedem endlich-dimensionalen Vektorraum mit Spaltenvektoren und Matrizen rechnen."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440026",
+      "section": "Kapitel 5 · Injektiv, surjektiv, bijektiv",
+      "text": "Für Matrizen heißt das: Die lineare Abbildung \\(f_A \\colon K^n \\to K^n\\), \\(x \\mapsto Ax\\) ist genau dann bijektiv, wenn \\(A\\) invertierbar ist – und ihre Umkehrabbildung hat die Matrix \\(A^{-1}\\). Rechnen wir es an der Scherung \\(A = \\begin{pmatrix} 2 & 1 \\\\ 0 & 1 \\end{pmatrix}\\) aus der Matrizen-Lektion vor:",
+      "formula": "A^{-1} = \\begin{pmatrix} \\tfrac12 & -\\tfrac12 \\\\ 0 & 1 \\end{pmatrix}, \\qquad A A^{-1} = \\begin{pmatrix} 2 \\cdot \\tfrac12 & -1 + 1 \\\\ 0 & 1 \\end{pmatrix} = I",
+      "explanation": "Die Spalten von \\(A\\) sind \\((2, 0)\\) und \\((1, 1)\\); sie sind linear unabhängig, also \\(\\operatorname{rang} A = 2\\), also bijektiv.\n\nFür \\(A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\end{pmatrix}\\) hingegen sind die Spalten abhängig: \\(\\operatorname{rang} = 1\\), Bild = Gerade, \\(\\dim \\ker = 1\\). Nicht injektiv, nicht surjektiv, nicht invertierbar – die Ebene wird auf eine Gerade gequetscht.",
+      "insight": "Quadratische Matrix \\(A\\): invertierbar ⇔ \\(f_A\\) bijektiv ⇔ Kern \\(= \\{0\\}\\) ⇔ Rang \\(= n\\) ⇔ Spalten linear unabhängig."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440027",
+      "section": "Kapitel 6 · Verkettung",
+      "text": "Linearen Abbildungen kann man hintereinander ausführen. Sind \\(f \\colon U \\to V\\) und \\(g \\colon V \\to W\\) linear, dann ist \\(g \\circ f \\colon U \\to W\\) wieder linear. Das ist schnell nachgerechnet:",
+      "formula": "(g \\circ f)(u + v) = g\\bigl( f(u) + f(v) \\bigr) = g(f(u)) + g(f(v)) = (g \\circ f)(u) + (g \\circ f)(v)",
+      "explanation": "Für die Homogenität geht es genauso: \\(g(f(\\lambda u)) = g(\\lambda f(u)) = \\lambda g(f(u))\\).\n\nWenn \\(f\\) die Matrix \\(A\\) und \\(g\\) die Matrix \\(B\\) hat, dann hat \\(g \\circ f\\) die Matrix \\(B \\cdot A\\) – das ist genau die Matrixmultiplikation. Man liest von rechts nach links: Erst \\(A\\) anwenden, dann \\(B\\).",
+      "insight": "Verkettung linearer Abbildungen ↔ Produkt der Matrizen. Deshalb ist die Matrixmultiplikation so definiert, wie sie definiert ist."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440028",
+      "section": "Kapitel 6 · Verkettung",
+      "text": "Die Reihenfolge ist wichtig. Sei \\(D\\) die Streckung in \\(x\\)-Richtung um 2 und \\(R\\) die Drehung um 90°. Dann ergibt „erst \\(D\\), dann \\(R\\)“ etwas anderes als „erst \\(R\\), dann \\(D\\)“:",
+      "visual": "matrixOrder",
+      "formula": "D = \\begin{pmatrix} 2 & 0 \\\\ 0 & 1 \\end{pmatrix}, \\quad R = \\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix}, \\quad R D = \\begin{pmatrix} 0 & -1 \\\\ 2 & 0 \\end{pmatrix} \\neq D R = \\begin{pmatrix} 0 & -2 \\\\ 1 & 0 \\end{pmatrix}",
+      "explanation": "In der Animation siehst du es: Erst \\(D\\) macht das Quadrat zu einem Rechteck der Breite 2, \\(R\\) dreht es auf die Hochkante. Umgekehrt dreht \\(R\\) das Quadrat (bleibt ein Quadrat), und \\(D\\) streckt es danach in die Breite.\n\nAuch deshalb gibt es kein Kommutativgesetz für Matrizen: Verkettung von Abbildungen ist im Allgemeinen nicht kommutativ.",
+      "insight": "\\(g \\circ f \\neq f \\circ g\\) – schon bei einfachen Abbildungen. „Erst \\(f\\), dann \\(g\\)“ schreibt man als \\(g \\circ f\\), also das zuerst Angewendete steht rechts."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440029",
+      "section": "Kapitel 6 · Verkettung",
+      "text": "Ein Beispiel mit verschiedenen Dimensionen. Sei \\(f \\colon \\mathbb{R}^2 \\to \\mathbb{R}^3\\) mit \\(A = \\begin{pmatrix} 1 & 0 \\\\ 1 & 1 \\\\ 0 & 2 \\end{pmatrix}\\) und \\(g \\colon \\mathbb{R}^3 \\to \\mathbb{R}^2\\) mit \\(B = \\begin{pmatrix} 1 & 2 & 0 \\\\ 0 & 1 & -1 \\end{pmatrix}\\). Die Verkettung \\(g \\circ f\\) geht von \\(\\mathbb{R}^2\\) nach \\(\\mathbb{R}^2\\):",
+      "formula": "BA = \\begin{pmatrix} 1 & 2 & 0 \\\\ 0 & 1 & -1 \\end{pmatrix} \\begin{pmatrix} 1 & 0 \\\\ 1 & 1 \\\\ 0 & 2 \\end{pmatrix} = \\begin{pmatrix} 3 & 2 \\\\ 1 & -1 \\end{pmatrix}",
+      "explanation": "Die Spalten von \\(BA\\) sind \\(B\\) angewendet auf die Spalten von \\(A\\): \\(B (1, 1, 0)^T = (3, 1)\\) und \\(B (0, 1, 2)^T = (2, -1)\\).\n\nProbe mit \\(x = (1, 1)\\): \\(f(x) = A x = (1, 2, 2)\\) und \\(g(f(x)) = B (1, 2, 2)^T = (5, 0)\\). Direkt: \\(BA \\binom{1}{1} = (3 + 2,\\ 1 - 1) = (5, 0)\\) ✓.\n\nDie Größen passen zusammen: \\((2 \\times 3) \\cdot (3 \\times 2) = (2 \\times 2)\\). Der Zielraum von \\(f\\) muss der Definitionsbereich von \\(g\\) sein.",
+      "insight": "Matrizen lassen sich nur multiplizieren, wenn die Dimensionen zu den Abbildungen passen: Spaltenzahl von \\(B\\) = Zeilenzahl von \\(A\\)."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440030",
+      "section": "Kapitel 7 · Matrix bezüglich beliebiger Basen",
+      "text": "Bisher haben wir die Standardbasis benutzt. Aber manchmal ist sie unpraktisch – oder es gibt gar keine „Standardbasis“, etwa bei \\(P_2\\). Dann wählt man Basen \\(B = (b_1, \\dots, b_n)\\) von \\(V\\) und \\(C = (c_1, \\dots, c_m)\\) von \\(W\\) und schreibt alle Vektoren in Koordinaten bezüglich dieser Basen.\n\nDie Idee bleibt dieselbe: Die \\(j\\)-te Spalte der Matrix enthält die Koordinaten von \\(f(b_j)\\) bezüglich \\(C\\).",
+      "formula": "M_C^B(f) = \\begin{pmatrix} | & & | \\\\ [f(b_1)]_C & \\cdots & [f(b_n)]_C \\\\ | & & | \\end{pmatrix}, \\qquad [f(v)]_C = M_C^B(f) \\cdot [v]_B",
+      "explanation": "Beispiel: Das Ableiten \\(D \\colon P_2 \\to P_1\\) mit den Basen \\(B = (1, x, x^2)\\) und \\(C = (1, x)\\):\n• \\(D(1) = 0\\) → Koordinaten \\((0, 0)\\)\n• \\(D(x) = 1\\) → Koordinaten \\((1, 0)\\)\n• \\(D(x^2) = 2x\\) → Koordinaten \\((0, 2)\\)\n\n\\(M = \\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}\\). Probe mit \\(p = 3 + 4x + 5x^2\\), Koordinaten \\((3, 4, 5)\\): \\(M (3, 4, 5)^T = (4, 10)\\), und tatsächlich ist \\(p' = 4 + 10x\\) ✓.",
+      "insight": "Mit Koordinaten wird jede lineare Abbildung zwischen endlich-dimensionalen Räumen zu einer Matrix – auch Ableiten von Polynomen."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440031",
+      "section": "Kapitel 7 · Matrix bezüglich beliebiger Basen",
+      "text": "Dieselbe Abbildung kann in verschiedenen Basen verschiedene Matrizen haben – und manche sind viel einfacher als andere. Betrachte \\(f(x, y) = (2x + y,\\ x + 2y)\\) mit der Standardmatrix \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}\\). In der Basis \\(b_1 = (1, 1)\\), \\(b_2 = (1, -1)\\) passiert etwas Schönes:",
+      "visual": "basisChange",
+      "formula": "\\begin{align*} f(b_1) &= (3, 3) = 3 \\cdot b_1 + 0 \\cdot b_2 \\\\ f(b_2) &= (1, -1) = 0 \\cdot b_1 + 1 \\cdot b_2 \\end{align*} \\quad \\Rightarrow \\quad M_B^B(f) = \\begin{pmatrix} 3 & 0 \\\\ 0 & 1 \\end{pmatrix}",
+      "explanation": "In dieser Basis ist \\(f\\) eine reine Streckung: \\(b_1\\)-Richtung mal 3, \\(b_2\\)-Richtung mal 1. Die Rechnung wird trivial: Ein Vektor mit B-Koordinaten \\((2, 1)\\) geht auf B-Koordinaten \\((6, 1)\\).\n\nIn der Standardbasis sieht man das der Matrix \\(\\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}\\) nicht an. Die Abbildung ist dieselbe – nur die „Brille“, durch die man sie betrachtet, ist eine andere.",
+      "insight": "Eine geschickt gewählte Basis kann eine Abbildung drastisch vereinfachen. Genau das macht man bei Eigenvektoren."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440032",
+      "section": "Kapitel 7 · Matrix bezüglich beliebiger Basen",
+      "text": "Wie rechnet man die Matrix von einer Basis in die andere um? Sei \\(T\\) die Matrix mit den neuen Basisvektoren als Spalten (in Standardkoordinaten). Dann gilt für die Matrix \\(A'\\) in der neuen Basis:",
+      "formula": "A' = T^{-1} A \\, T",
+      "explanation": "Lies von rechts nach links: \\(T\\) übersetzt neue Koordinaten in Standardkoordinaten, \\(A\\) wendet die Abbildung an, \\(T^{-1}\\) übersetzt zurück.\n\nNachrechnen mit \\(T = \\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}\\) und \\(T^{-1} = \\tfrac12 \\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}\\):\n\\(A T = \\begin{pmatrix} 3 & 1 \\\\ 3 & -1 \\end{pmatrix}\\), und\n\\(T^{-1} A T = \\tfrac12 \\begin{pmatrix} 6 & 0 \\\\ 0 & 2 \\end{pmatrix} = \\begin{pmatrix} 3 & 0 \\\\ 0 & 1 \\end{pmatrix}\\) ✓.\n\nMatrizen \\(A\\) und \\(A' = T^{-1} A T\\) heißen ähnlich: Sie beschreiben dieselbe Abbildung.",
+      "insight": "Basiswechsel: \\(A' = T^{-1} A T\\). Ähnliche Matrizen = dieselbe lineare Abbildung in verschiedenen Basen. Rang, Spur und Determinante bleiben dabei gleich."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440033",
+      "section": "Kapitel 8 · Ausblick und Rückblick",
+      "text": "Ein Ausblick auf das, was als Nächstes kommt. Wie stark verändert eine lineare Abbildung Flächen? Diese Zahl heißt Determinante:",
+      "formula": "\\det\\begin{pmatrix} 2 & 1 \\\\ 0 & 1 \\end{pmatrix} = 2, \\quad \\det\\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix} = 1, \\quad \\det\\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix} = -1, \\quad \\det\\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix} = 0",
+      "explanation": "• Streckung \\(\\begin{pmatrix} 2 & 1 \\\\ 0 & 1 \\end{pmatrix}\\): Flächen verdoppeln sich.\n• Scherung: Flächen bleiben gleich.\n• Spiegelung: Flächen bleiben gleich, aber der Umlaufsinn kehrt sich um – das Vorzeichen.\n• \\(\\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix}\\): Die Ebene wird auf eine Gerade gequetscht, die Fläche wird 0 – und genau dann gibt es einen Kern.\n\nEs gilt: \\(\\det A \\neq 0 \\iff A\\) invertierbar. Mehr dazu in der Lektion „Determinanten“.",
+      "insight": "Determinante = Flächenfaktor (mit Vorzeichen). \\(\\det = 0\\) ⇔ die Abbildung quetscht etwas zusammen ⇔ Kern \\(\\neq \\{0\\}\\)."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440034",
+      "section": "Kapitel 8 · Ausblick und Rückblick",
+      "text": "Und was bedeutet die Basis \\((1, 1), (1, -1)\\) aus dem letzten Kapitel wirklich? Dort wurden die Vektoren nur gestreckt, nie gedreht: \\(f(b_1) = 3 b_1\\) und \\(f(b_2) = 1 \\cdot b_2\\). Solche Richtungen heißen Eigenvektoren, die Streckfaktoren Eigenwerte:",
+      "formula": "f(v) = \\lambda \\, v, \\quad v \\neq 0",
+      "explanation": "Hat man genug Eigenvektoren für eine Basis, ist die Matrix in dieser Basis diagonal – wie gerade gesehen. Dann kann man Potenzen \\(A^n\\) blitzschnell ausrechnen: Es genügt, die Diagonaleinträge zu potenzieren.\n\nWie man Eigenwerte und Eigenvektoren findet, lernst du in der Lektion „Eigenwerte und Eigenvektoren“.",
+      "insight": "Eigenvektoren sind die „natürlichen Achsen“ einer Abbildung: Entlang ihnen wird nur gestreckt."
+    },
+    {
+      "id": "cc0e8400-e29b-41d4-a716-446655440035",
+      "section": "Kapitel 8 · Ausblick und Rückblick",
+      "text": "Schau zurück, wie die Begriffe auseinander hervorgegangen sind:",
+      "explanation": "1. Struktur erhalten wollen → \\(f(u + v) = f(u) + f(v)\\), \\(f(\\lambda u) = \\lambda f(u)\\).\n\n2. Nur Linearkombinationen → \\(f\\) ist durch die Bilder einer Basis festgelegt → Matrix (Spalten = \\(f(e_j)\\)).\n\n3. Typische Beispiele → Drehung, Scherung, Spiegelung, Projektion, Ableiten.\n\n4. Was verschwindet, was entsteht? → Kern und Bild, beide Untervektorräume, Dimensionssatz \\(\\dim V = \\dim \\ker f + \\dim \\operatorname{im} f\\).\n\n5. Injektiv ⇔ Kern \\(= \\{0\\}\\); surjektiv ⇔ Bild \\(= W\\); Isomorphismus ⇔ gleiche Dimension.\n\n6. Hintereinanderausführen → Matrixprodukt, nicht kommutativ.\n\n7. Beliebige Basen → \\(M_C^B(f)\\); Basiswechsel \\(A' = T^{-1} A T\\).\n\n8. Ausblick → Determinante, Eigenvektoren.",
+      "insight": "Glückwunsch! Wenn du bei jedem Schritt erklären kannst, WARUM er aus dem vorigen folgt, hast du lineare Abbildungen verstanden. Weiter geht es mit „Determinanten“ und „Eigenwerte und Eigenvektoren“."
+    }
+  ]
+}

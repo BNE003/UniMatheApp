@@ -37,6 +37,34 @@ struct LessonVisualView: View {
         case "matrixTransform": MatrixTransformVisual()
         case "matrixOrder": MatrixOrderVisual()
         case "singularMatrix": SingularMatrixVisual()
+        case "linearityCheck": LinearityCheckVisual()
+        case "kernelImage": KernelImageVisual()
+        case "shearMap": GridMapVisual(
+            captions: [
+                "Vorher: das Einheitsquadrat, e₁ = (1, 0), e₂ = (0, 1) und der Vektor x = (1, 2). Die Abbildung ist f(x, y) = (x + y, y).",
+                "f(e₁) = (1 + 0, 0) = (1, 0): e₁ bleibt, wo es ist.",
+                "f(e₂) = (0 + 1, 1) = (1, 1): e₂ kippt nach rechts.",
+                "Das Gitter folgt: Das Quadrat wird zu einem schiefen Parallelogramm. Grundseite und Höhe bleiben gleich – die Fläche auch.",
+                "f(x) = 1 · f(e₁) + 2 · f(e₂) = (1, 0) + (2, 2) = (3, 2). Das ist eine Scherung."
+            ],
+            image1: CGPoint(x: 1, y: 0),
+            image2: CGPoint(x: 1, y: 1),
+            sample: CGPoint(x: 1, y: 2)
+        )
+        case "reflectionMap": GridMapVisual(
+            captions: [
+                "Vorher: das Einheitsquadrat, e₁, e₂ und x = (1, 2). Die Abbildung ist f(x, y) = (y, x): Sie vertauscht die Koordinaten.",
+                "f(e₁) = (0, 1): e₁ springt nach oben.",
+                "f(e₂) = (1, 0): e₂ springt nach rechts. Die beiden Basisvektoren tauschen die Plätze.",
+                "Das Gitter wird an der Geraden y = x gespiegelt. Das Quadrat landet auf sich selbst, aber sein Umlaufsinn kehrt sich um.",
+                "f(x) = 1 · f(e₁) + 2 · f(e₂) = (0, 1) + (2, 0) = (2, 1): das Spiegelbild von x an der Geraden y = x."
+            ],
+            image1: CGPoint(x: 0, y: 1),
+            image2: CGPoint(x: 1, y: 0),
+            sample: CGPoint(x: 1, y: 2),
+            mirrorDirection: CGPoint(x: 1, y: 1)
+        )
+        case "basisChange": BasisChangeVisual()
         default: EmptyView()
         }
     }
@@ -733,6 +761,191 @@ private struct SingularMatrixVisual: View {
                 .opacity(show(phase >= 2))
 
             Dot(at: target, color: VisualColor.warning, window: window, size: size)
+                .opacity(show(phase >= 3))
+        }
+    }
+}
+
+// MARK: - Lineare Abbildungen: Animationen
+
+// MARK: - 10. Linearität: erst addieren oder erst abbilden – dasselbe Ergebnis
+
+private struct LinearityCheckVisual: View {
+    let window = PlaneWindow(xMin: -1, xMax: 5, yMin: -1, yMax: 5)
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "f(x, y) = (2x + y, y). Wir nehmen u = (1, 0) und v = (0, 2).",
+            "Weg A, Schritt 1: erst addieren. u + v = (1, 2).",
+            "Weg A, Schritt 2: dann abbilden. f(u + v) = (2 · 1 + 2, 2) = (4, 2).",
+            "Weg B: erst abbilden, f(u) = (2, 0) und f(v) = (2, 2), dann addieren: (4, 2). Dasselbe Ziel – f ist additiv."
+        ]) { phase, size in
+            let vStart = phase >= 1 ? CGPoint(x: 1, y: 0) : .zero
+            let vEnd = CGPoint(x: vStart.x, y: vStart.y + 2)
+
+            Arrow(from: .zero, to: CGPoint(x: 1, y: 2), color: VisualColor.result, window: window)
+                .opacity(show(phase >= 1))
+            MathLabel(text: "u+v", at: CGPoint(x: 1, y: 2), color: VisualColor.result, window: window, size: size, offset: CGSize(width: -20, height: -8))
+                .opacity(show(phase >= 1))
+
+            Arrow(from: .zero, to: CGPoint(x: 1, y: 0), color: VisualColor.first, window: window)
+            MathLabel(text: "u", at: CGPoint(x: 1, y: 0), color: VisualColor.first, window: window, size: size, offset: CGSize(width: 0, height: 14))
+            Arrow(from: vStart, to: vEnd, color: VisualColor.second, window: window)
+            MathLabel(text: "v", at: vEnd, color: VisualColor.second, window: window, size: size, offset: CGSize(width: -12, height: 0))
+
+            Arrow(from: .zero, to: phase >= 2 ? CGPoint(x: 4, y: 2) : CGPoint(x: 1, y: 2), color: VisualColor.extra, window: window, width: 4)
+                .opacity(show(phase >= 2))
+            MathLabel(text: "f(u+v)", at: CGPoint(x: 4, y: 2), color: VisualColor.extra, window: window, size: size, offset: CGSize(width: 22, height: -10))
+                .opacity(show(phase >= 2))
+
+            Arrow(from: .zero, to: CGPoint(x: 2, y: 0), color: VisualColor.first, window: window, dashed: true)
+                .opacity(show(phase >= 3))
+            MathLabel(text: "f(u)", at: CGPoint(x: 2, y: 0), color: VisualColor.first, window: window, size: size, offset: CGSize(width: 0, height: 14))
+                .opacity(show(phase >= 3))
+            Arrow(from: phase >= 3 ? CGPoint(x: 2, y: 0) : .zero,
+                  to: phase >= 3 ? CGPoint(x: 4, y: 2) : CGPoint(x: 2, y: 2),
+                  color: VisualColor.second, window: window, dashed: true)
+                .opacity(show(phase >= 3))
+            MathLabel(text: "f(v)", at: CGPoint(x: 3, y: 1), color: VisualColor.second, window: window, size: size, offset: CGSize(width: 16, height: 8))
+                .opacity(show(phase >= 3))
+        }
+    }
+}
+
+// MARK: - 11. Kern und Bild
+
+private struct KernelImageVisual: View {
+    let window = PlaneWindow(xMin: -3, xMax: 4, yMin: -3, yMax: 4)
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "f(x, y) = (x + y, x + y). Die Vektoren p = (2, −2) und q = (−1, 1) liegen auf der Geraden y = −x.",
+            "f(p) = (0, 0) und f(q) = (0, 0): Beide werden auf den Nullvektor gequetscht. Diese Gerade ist der Kern.",
+            "Nun r = (3, 0) und s = (0, 3). Sie liegen auf einer zum Kern parallelen Geraden (x + y = 3).",
+            "f(r) = f(s) = (3, 3): Die ganze Gerade landet in einem Punkt. Alle Bilder liegen auf y = x – das ist das Bild. Dim Kern + Dim Bild = 1 + 1 = 2 = dim ℝ²."
+        ]) { phase, size in
+            PlaneLineShape(through: .zero, direction: CGPoint(x: 1, y: -1), window: window)
+                .stroke(VisualColor.warning.opacity(0.35), lineWidth: 6)
+            MathLabel(text: "Kern", at: CGPoint(x: -2, y: 2), color: VisualColor.warning, window: window, size: size, offset: CGSize(width: -14, height: -8))
+
+            PlaneLineShape(through: .zero, direction: CGPoint(x: 1, y: 1), window: window)
+                .stroke(VisualColor.result.opacity(0.35), lineWidth: 6)
+                .opacity(show(phase >= 2))
+            MathLabel(text: "Bild", at: CGPoint(x: -1.5, y: -1.5), color: VisualColor.result, window: window, size: size, offset: CGSize(width: 16, height: 8))
+                .opacity(show(phase >= 2))
+
+            PlaneLineShape(through: CGPoint(x: 3, y: 0), direction: CGPoint(x: 1, y: -1), window: window)
+                .stroke(VisualColor.extra, style: StrokeStyle(lineWidth: 2, dash: [5, 4]))
+                .opacity(show(phase >= 2))
+
+            Group {
+                Arrow(from: .zero, to: phase >= 1 ? .zero : CGPoint(x: 2, y: -2), color: VisualColor.first, window: window)
+                Arrow(from: .zero, to: phase >= 1 ? .zero : CGPoint(x: -1, y: 1), color: VisualColor.second, window: window)
+                MathLabel(text: "p", at: CGPoint(x: 2, y: -2), color: VisualColor.first, window: window, size: size, offset: CGSize(width: 12, height: 8))
+                    .opacity(show(phase == 0))
+                MathLabel(text: "q", at: CGPoint(x: -1, y: 1), color: VisualColor.second, window: window, size: size, offset: CGSize(width: -12, height: -4))
+                    .opacity(show(phase == 0))
+                MathLabel(text: "f(p) = f(q) = 0", at: .zero, color: VisualColor.warning, window: window, size: size, offset: CGSize(width: 50, height: 16))
+                    .opacity(show(phase == 1))
+            }
+            .opacity(show(phase <= 1))
+
+            Group {
+                Arrow(from: .zero, to: phase >= 3 ? CGPoint(x: 3, y: 3) : CGPoint(x: 3, y: 0), color: VisualColor.first, window: window)
+                Arrow(from: .zero, to: phase >= 3 ? CGPoint(x: 3, y: 3) : CGPoint(x: 0, y: 3), color: VisualColor.second, window: window)
+                MathLabel(text: phase >= 3 ? "f(r)=f(s)" : "r", at: phase >= 3 ? CGPoint(x: 3, y: 3) : CGPoint(x: 3, y: 0), color: VisualColor.first, window: window, size: size, offset: phase >= 3 ? CGSize(width: -34, height: -8) : CGSize(width: 10, height: 12))
+                MathLabel(text: "s", at: CGPoint(x: 0, y: 3), color: VisualColor.second, window: window, size: size, offset: CGSize(width: -12, height: -4))
+                    .opacity(show(phase == 2))
+            }
+            .opacity(show(phase >= 2))
+
+            Dot(at: CGPoint(x: 3, y: 3), color: VisualColor.result, window: window, size: size)
+                .opacity(show(phase >= 3))
+        }
+    }
+}
+
+// MARK: - 12. Geometrische Abbildungen: Scherung und Spiegelung
+
+/// Zeigt, wohin e₁, e₂, das Gitter und ein Beispielvektor unter einer linearen Abbildung wandern.
+/// Phase 1: e₁ → image1, Phase 2: e₂ → image2, Phase 3: Gitter folgt, Phase 4: Beispielvektor.
+private struct GridMapVisual: View {
+    let window = PlaneWindow(xMin: -1, xMax: 4, yMin: -1, yMax: 4)
+    let captions: [String]
+    let image1: CGPoint
+    let image2: CGPoint
+    let sample: CGPoint
+    var mirrorDirection: CGPoint? = nil
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: captions) { phase, size in
+            let col1 = phase >= 1 ? image1 : CGPoint(x: 1, y: 0)
+            let col2 = phase >= 2 ? image2 : CGPoint(x: 0, y: 1)
+            let gridA = phase >= 3 ? image1 : CGPoint(x: 1, y: 0)
+            let gridB = phase >= 3 ? image2 : CGPoint(x: 0, y: 1)
+            let sampleImage = CGPoint(
+                x: sample.x * image1.x + sample.y * image2.x,
+                y: sample.x * image1.y + sample.y * image2.y
+            )
+            let xPoint = phase >= 4 ? sampleImage : sample
+
+            if let mirror = mirrorDirection {
+                PlaneLineShape(through: .zero, direction: mirror, window: window)
+                    .stroke(VisualColor.extra, style: StrokeStyle(lineWidth: 2, dash: [5, 4]))
+                    .opacity(show(phase >= 3))
+            }
+
+            AnimatableGridShape(a: gridA, b: gridB, window: window)
+                .stroke(VisualColor.first.opacity(0.35), lineWidth: 1)
+            ParallelogramShape(a: gridA, b: gridB, window: window)
+                .fill(VisualColor.first.opacity(0.18))
+
+            Arrow(from: .zero, to: xPoint, color: VisualColor.result, window: window)
+            MathLabel(text: phase >= 4 ? "f(x)" : "x", at: xPoint, color: VisualColor.result, window: window, size: size, offset: CGSize(width: 18, height: -10))
+
+            Arrow(from: .zero, to: col1, color: VisualColor.first, window: window, width: 4)
+            MathLabel(text: phase >= 1 ? "f(e₁)" : "e₁", at: col1, color: VisualColor.first, window: window, size: size, offset: CGSize(width: 4, height: 16))
+            Arrow(from: .zero, to: col2, color: VisualColor.second, window: window, width: 4)
+            MathLabel(text: phase >= 2 ? "f(e₂)" : "e₂", at: col2, color: VisualColor.second, window: window, size: size, offset: CGSize(width: -24, height: -8))
+        }
+    }
+}
+
+// MARK: - 13. Basiswechsel: In der richtigen Basis wird f einfach
+
+private struct BasisChangeVisual: View {
+    let window = PlaneWindow(xMin: -2, xMax: 8, yMin: -2, yMax: 8)
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Basis B mit b₁ = (1, 1) und b₂ = (1, −1). Der Vektor v = (3, 1) = 2 · b₁ + 1 · b₂ hat die B-Koordinaten (2, 1).",
+            "f(x, y) = (2x + y, x + 2y). Es ist f(b₁) = (3, 3) = 3 · b₁: b₁ wird nur gestreckt.",
+            "f(b₂) = (1, −1) = 1 · b₂: b₂ bleibt unverändert.",
+            "Also f(v) = 2 · 3 · b₁ + 1 · 1 · b₂ = (6, 6) + (1, −1) = (7, 5). In B-Koordinaten: (2, 1) ↦ (6, 1) – einfach komponentenweise mit 3 und 1 multipliziert."
+        ]) { phase, size in
+            SkewGridShape(a: CGPoint(x: 1, y: 1), b: CGPoint(x: 1, y: -1), window: window)
+                .stroke(VisualColor.first.opacity(0.18), lineWidth: 1)
+
+            Arrow(from: .zero, to: CGPoint(x: 3, y: 1), color: VisualColor.extra, window: window)
+            MathLabel(text: "v", at: CGPoint(x: 3, y: 1), color: VisualColor.extra, window: window, size: size, offset: CGSize(width: 12, height: 8))
+
+            Arrow(from: .zero, to: CGPoint(x: 3, y: 3), color: VisualColor.first, window: window, dashed: true)
+                .opacity(show(phase >= 1))
+            MathLabel(text: "f(b₁) = 3·b₁", at: CGPoint(x: 3, y: 3), color: VisualColor.first, window: window, size: size, offset: CGSize(width: -38, height: -10))
+                .opacity(show(phase >= 1))
+
+            Arrow(from: .zero, to: CGPoint(x: 1, y: 1), color: VisualColor.first, window: window, width: 4)
+            MathLabel(text: "b₁", at: CGPoint(x: 1, y: 1), color: VisualColor.first, window: window, size: size, offset: CGSize(width: -14, height: -2))
+            Arrow(from: .zero, to: CGPoint(x: 1, y: -1), color: VisualColor.second, window: window, width: 4)
+            MathLabel(text: phase >= 2 ? "b₂ = f(b₂)" : "b₂", at: CGPoint(x: 1, y: -1), color: VisualColor.second, window: window, size: size, offset: CGSize(width: 24, height: 8))
+
+            Arrow(from: .zero, to: phase >= 3 ? CGPoint(x: 6, y: 6) : CGPoint(x: 3, y: 1), color: VisualColor.first, window: window, dashed: true)
+                .opacity(show(phase >= 3))
+            Arrow(from: CGPoint(x: 6, y: 6), to: phase >= 3 ? CGPoint(x: 7, y: 5) : CGPoint(x: 6, y: 6), color: VisualColor.second, window: window, dashed: true)
+                .opacity(show(phase >= 3))
+            Arrow(from: .zero, to: phase >= 3 ? CGPoint(x: 7, y: 5) : CGPoint(x: 3, y: 1), color: VisualColor.result, window: window, width: 4)
+                .opacity(show(phase >= 3))
+            MathLabel(text: "f(v)", at: CGPoint(x: 7, y: 5), color: VisualColor.result, window: window, size: size, offset: CGSize(width: 16, height: 0))
                 .opacity(show(phase >= 3))
         }
     }
