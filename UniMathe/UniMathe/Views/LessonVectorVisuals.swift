@@ -65,6 +65,20 @@ struct LessonVisualView: View {
             mirrorDirection: CGPoint(x: 1, y: 1)
         )
         case "basisChange": BasisChangeVisual()
+        case "detArea": GridMapVisual(
+            window: PlaneWindow(xMin: -1, xMax: 5, yMin: -1, yMax: 5),
+            captions: [
+                "Das Einheitsquadrat hat die Fläche 1. Wir wenden f(x) = A x mit A = (3 1; 1 2) an. Dazu e₁ = (1, 0), e₂ = (0, 1) und x = (1, 1).",
+                "f(e₁) = A e₁ = (3, 1): die erste Spalte von A.",
+                "f(e₂) = A e₂ = (1, 2): die zweite Spalte von A.",
+                "Das Quadrat wird zum Parallelogramm mit der Fläche |3 · 2 − 1 · 1| = 5. Die Determinante sagt: Flächen werden mit 5 multipliziert.",
+                "Die Ecke x = (1, 1) landet bei f(x) = (3 + 1, 1 + 2) = (4, 3) – der gegenüberliegenden Ecke des Parallelogramms."
+            ],
+            image1: CGPoint(x: 3, y: 1),
+            image2: CGPoint(x: 1, y: 2),
+            sample: CGPoint(x: 1, y: 1)
+        )
+        case "detRules": DetRulesVisual()
         default: EmptyView()
         }
     }
@@ -870,7 +884,7 @@ private struct KernelImageVisual: View {
 /// Zeigt, wohin e₁, e₂, das Gitter und ein Beispielvektor unter einer linearen Abbildung wandern.
 /// Phase 1: e₁ → image1, Phase 2: e₂ → image2, Phase 3: Gitter folgt, Phase 4: Beispielvektor.
 private struct GridMapVisual: View {
-    let window = PlaneWindow(xMin: -1, xMax: 4, yMin: -1, yMax: 4)
+    var window = PlaneWindow(xMin: -1, xMax: 4, yMin: -1, yMax: 4)
     let captions: [String]
     let image1: CGPoint
     let image2: CGPoint
@@ -947,6 +961,37 @@ private struct BasisChangeVisual: View {
                 .opacity(show(phase >= 3))
             MathLabel(text: "f(v)", at: CGPoint(x: 7, y: 5), color: VisualColor.result, window: window, size: size, offset: CGSize(width: 16, height: 0))
                 .opacity(show(phase >= 3))
+        }
+    }
+}
+
+// MARK: - 14. Determinante: Rechenregeln am Parallelogramm
+
+private struct DetRulesVisual: View {
+    let window = PlaneWindow(xMin: -1, xMax: 6, yMin: -1, yMax: 6)
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Die Spalten a = (1, 0) und b = (1, 2) spannen ein Parallelogramm auf. Seine Fläche: det(a, b) = 1 · 2 − 1 · 0 = 2.",
+            "Verdoppeln wir a zu (2, 0), verdoppelt sich die Fläche: det = 2 · 2 − 1 · 0 = 4. Die Determinante ist linear in jeder Spalte.",
+            "Schieben wir b längs a nach b + a = (3, 2), bleiben Grundseite und Höhe gleich: Die Fläche bleibt 4.",
+            "Kippen wir b auf die Gerade durch a, etwa nach (3, 0), klappt das Parallelogramm zu einer Strecke zusammen: Fläche 0, denn die Spalten sind linear abhängig."
+        ]) { phase, size in
+            let a = phase >= 1 ? CGPoint(x: 2, y: 0) : CGPoint(x: 1, y: 0)
+            let b: CGPoint = phase >= 3 ? CGPoint(x: 3, y: 0) : (phase >= 2 ? CGPoint(x: 3, y: 2) : CGPoint(x: 1, y: 2))
+            let area = ["2", "4", "4", "0"][min(phase, 3)]
+            let color = phase >= 3 ? VisualColor.warning : VisualColor.first
+
+            ParallelogramShape(a: a, b: b, window: window)
+                .fill(color.opacity(0.2))
+            ParallelogramShape(a: a, b: b, window: window)
+                .stroke(color, lineWidth: 2)
+            MathLabel(text: "Fläche " + area, at: CGPoint(x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 + 0.3), color: color, window: window, size: size, offset: CGSize(width: 0, height: phase >= 3 ? -16 : 0))
+
+            Arrow(from: .zero, to: a, color: VisualColor.first, window: window, width: 4)
+            MathLabel(text: "a", at: a, color: VisualColor.first, window: window, size: size, offset: CGSize(width: 4, height: 16))
+            Arrow(from: .zero, to: b, color: VisualColor.second, window: window, width: 4)
+            MathLabel(text: "b", at: b, color: VisualColor.second, window: window, size: size, offset: CGSize(width: -12, height: -8))
         }
     }
 }
