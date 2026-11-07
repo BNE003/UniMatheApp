@@ -48,16 +48,25 @@ struct InteractiveExampleStep: Codable, Identifiable {
     let text: String
     let formula: String?
     let explanation: String?
+    /// Optional: kurze Kapitelzeile über dem Schritt (z. B. "Kapitel 3 · Untervektorräume").
+    let section: String?
+    /// Optional: Name einer erklärenden Animation aus `LessonVisualView`.
+    let visual: String?
+    /// Optional: hervorgehobene Kernaussage ("Merke") am Ende des Schritts.
+    let insight: String?
     
     enum CodingKeys: String, CodingKey {
-        case id, text, formula, explanation
+        case id, text, formula, explanation, section, visual, insight
     }
     
-    init(id: UUID = UUID(), text: String, formula: String? = nil, explanation: String? = nil) {
+    init(id: UUID = UUID(), text: String, formula: String? = nil, explanation: String? = nil, section: String? = nil, visual: String? = nil, insight: String? = nil) {
         self.id = id
         self.text = text
         self.formula = formula
         self.explanation = explanation
+        self.section = section
+        self.visual = visual
+        self.insight = insight
     }
     
     init(from decoder: Decoder) throws {
@@ -66,6 +75,9 @@ struct InteractiveExampleStep: Codable, Identifiable {
         text = try container.decode(String.self, forKey: .text)
         formula = try container.decodeIfPresent(String.self, forKey: .formula)
         explanation = try container.decodeIfPresent(String.self, forKey: .explanation)
+        section = try container.decodeIfPresent(String.self, forKey: .section)
+        visual = try container.decodeIfPresent(String.self, forKey: .visual)
+        insight = try container.decodeIfPresent(String.self, forKey: .insight)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -74,6 +86,9 @@ struct InteractiveExampleStep: Codable, Identifiable {
         try container.encode(text, forKey: .text)
         try container.encodeIfPresent(formula, forKey: .formula)
         try container.encodeIfPresent(explanation, forKey: .explanation)
+        try container.encodeIfPresent(section, forKey: .section)
+        try container.encodeIfPresent(visual, forKey: .visual)
+        try container.encodeIfPresent(insight, forKey: .insight)
     }
 }
 
@@ -1045,15 +1060,19 @@ struct LearningPlanProgressCard: View {
 struct ExplanationContent: View {
     let step: InteractiveExampleStep
     let showCurrentStep: Bool
-    @State private var formulaHeight: CGFloat = 50
     @Environment(\.locale) private var locale
     @ObservedObject private var settings = SettingsModel.shared
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text(step.text)
-                .font(.body)
-                .foregroundColor(.primary)
+            if let section = step.section {
+                Text(section.uppercased())
+                    .font(.caption.weight(.semibold))
+                    .foregroundColor(.appAccentBlue)
+                    .padding(.horizontal, 4)
+            }
+            
+            LessonRichText(step.text, fontSize: 17)
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(
@@ -1067,10 +1086,13 @@ struct ExplanationContent: View {
                     removal: .scale(scale: 0.8).combined(with: .opacity)
                 ))
             
+            if let visual = step.visual {
+                LessonVisualView(kind: visual)
+                    .transition(.opacity)
+            }
+            
             if let formula = step.formula {
-                LaTeXView(content: "$$" + formula + "$$", height: $formulaHeight)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: formulaHeight)
+                LessonFormulaView(formula: formula)
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 16)
@@ -1085,9 +1107,7 @@ struct ExplanationContent: View {
             }
             
             if let explanation = step.explanation {
-                Text(explanation)
-                    .font(.subheadline)
-                    .foregroundColor(.primary)
+                LessonRichText(explanation, fontSize: 15)
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(
@@ -1100,6 +1120,26 @@ struct ExplanationContent: View {
                         removal: .scale(scale: 0.8).combined(with: .opacity)
                     ))
                     .animation(.spring(response: 0.5, dampingFraction: 0.7).delay(0.4), value: showCurrentStep)
+            }
+            
+            if let insight = step.insight {
+                HStack(alignment: .top, spacing: 10) {
+                    Image(systemName: "lightbulb.fill")
+                        .foregroundColor(.yellow)
+                    LessonRichText(insight, fontSize: 15, bold: true)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(
+                    RoundedRectangle(cornerRadius: 16)
+                        .fill(Color.appAccentBlue.opacity(0.12))
+                )
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(Color.appAccentBlue.opacity(0.35), lineWidth: 1)
+                )
+                .transition(.opacity)
             }
         }
         .frame(maxWidth: .infinity)
