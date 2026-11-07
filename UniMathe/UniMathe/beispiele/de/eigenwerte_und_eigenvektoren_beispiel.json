@@ -1,155 +1,322 @@
-{    "id": "bb0e8400-e29b-41d4-a716-446655440000",
-    "topic": "Eigenwerte",
-    "steps": [
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440001",
-            "text": "Ein Eigenvektor einer Matrix A ist ein Vektor v ≠ 0, der durch Multiplikation mit A nur gestreckt wird.",
-            "formula": "A \\cdot v = \\lambda \\cdot v",
-            "explanation": "Der Streckungsfaktor λ heißt Eigenwert. Stell dir vor, du hast einen Gummiband - wenn du es in eine bestimmte Richtung ziehst, wird es nur länger oder kürzer, aber behält seine Richtung bei. Genau das passiert mit Eigenvektoren!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440002",
-            "text": "Die Eigenwerte sind die Nullstellen des charakteristischen Polynoms.",
-            "formula": "\\det(A - \\lambda \\cdot I) = 0",
-            "explanation": "I ist die Einheitsmatrix. Das charakteristische Polynom ist wie ein Fingerabdruck der Matrix - es verrät uns, welche Streckungsfaktoren möglich sind. Es ist ein Polynom n-ten Grades, wenn A eine n×n-Matrix ist."
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440003",
-            "text": "Für eine 2×2-Matrix A = (a b; c d) ist das charakteristische Polynom:",
-            "formula": "\\det\\begin{pmatrix} a-\\lambda & b \\\\ c & d-\\lambda \\end{pmatrix} = (a-\\lambda)(d-\\lambda) - b \\cdot c = 0",
-            "explanation": "Dies führt zu einer quadratischen Gleichung in λ, deren Lösungen die Eigenwerte sind. Lass uns ein konkretes Beispiel anschauen: Für A = (2 1; 1 2) erhalten wir λ² - 4λ + 3 = 0, also λ₁ = 1 und λ₂ = 3."
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440004",
-            "text": "Die Eigenvektoren zu einem Eigenwert λ erhält man durch Lösen des homogenen Systems:",
-            "formula": "(A - \\lambda \\cdot I) \\cdot v = 0",
-            "explanation": "Die Lösungen bilden den Eigenraum zum Eigenwert λ. Die Dimension des Eigenraums heißt geometrische Vielfachheit. Für unser Beispiel A = (2 1; 1 2) und λ₁ = 1 erhalten wir den Eigenvektor v₁ = (1, -1)ᵀ."
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440005",
-            "text": "Eine Matrix ist diagonalisierbar, wenn sie n linear unabhängige Eigenvektoren hat.",
-            "formula": "A = P \\cdot \\Lambda \\cdot P^{-1}",
-            "explanation": "P ist die Matrix der Eigenvektoren, Λ die Diagonalmatrix der Eigenwerte. Dies ermöglicht einfache Potenzierung: A^k = P·Λ^k·P^(-1). Für unser Beispiel ist A = (2 1; 1 2) diagonalisierbar mit P = (1 1; -1 1) und Λ = (1 0; 0 3)."
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440006",
-            "text": "Die Spur einer Matrix ist die Summe ihrer Eigenwerte.",
-            "formula": "\\text{tr}(A) = \\sum_{i=1}^n \\lambda_i",
-            "explanation": "Die Spur ist die Summe der Diagonalelemente und invariant unter Ähnlichkeitstransformationen. Für unser Beispiel A = (2 1; 1 2) ist tr(A) = 2 + 2 = 4, was der Summe der Eigenwerte 1 + 3 = 4 entspricht!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440007",
-            "text": "Die Determinante einer Matrix ist das Produkt ihrer Eigenwerte.",
-            "formula": "\\det(A) = \\prod_{i=1}^n \\lambda_i",
-            "explanation": "Dies erklärt, warum eine Matrix genau dann invertierbar ist, wenn alle Eigenwerte ungleich Null sind. Für unser Beispiel A = (2 1; 1 2) ist det(A) = 3, was dem Produkt der Eigenwerte 1 · 3 = 3 entspricht!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440008",
-            "text": "Die algebraische Vielfachheit eines Eigenwerts ist seine Vielfachheit als Nullstelle des charakteristischen Polynoms.",
-            "formula": "p_A(\\lambda) = (\\lambda - \\lambda_0)^k \\cdot q(\\lambda)",
-            "explanation": "Die algebraische Vielfachheit k gibt an, wie oft ein Eigenwert als Nullstelle auftritt. Sie ist immer größer oder gleich der geometrischen Vielfachheit. Es ist wie die Anzahl der Male, die eine Note in einem Musikstück vorkommt!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440009",
-            "text": "Eine Matrix ist genau dann diagonalisierbar, wenn die geometrische Vielfachheit jedes Eigenwerts gleich seiner algebraischen Vielfachheit ist.",
-            "formula": "\\dim E_\\lambda = \\text{alg. Vielfachheit von } \\lambda",
-            "explanation": "Dies ist ein wichtiges Kriterium für Diagonalisierbarkeit. Wenn die Vielfachheiten nicht übereinstimmen, müssen wir auf die Jordan-Normalform zurückgreifen. Es ist wie ein Puzzle - alle Teile müssen perfekt zusammenpassen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440010",
-            "text": "Die Jordan-Normalform ist eine verallgemeinerte Diagonalform für nicht diagonalisierbare Matrizen.",
-            "formula": "A = P \\cdot J \\cdot P^{-1}",
-            "explanation": "J ist eine Blockdiagonalmatrix aus Jordan-Blöcken. Jeder Block entspricht einem Eigenwert und hat die Form (λ 1; 0 λ). Es ist wie eine fast-diagonale Form, die noch ein bisschen mehr Struktur zeigt!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440011",
-            "text": "Die Potenz einer Matrix kann über die Jordan-Normalform berechnet werden.",
-            "formula": "A^k = P \\cdot J^k \\cdot P^{-1}",
-            "explanation": "Die Potenzierung der Jordan-Blöcke folgt einer einfachen Regel. Für einen 2×2-Block (λ 1; 0 λ) ist die k-te Potenz (λ^k k·λ^(k-1); 0 λ^k). Es ist wie das Potenzieren einer Zahl, nur mit einem zusätzlichen Term!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440012",
-            "text": "Die Exponentialfunktion einer Matrix kann über die Jordan-Normalform definiert werden.",
-            "formula": "e^A = P \\cdot e^J \\cdot P^{-1}",
-            "explanation": "Die Exponentialfunktion ist wichtig für die Lösung von Differentialgleichungen. Für einen Jordan-Block (λ 1; 0 λ) ist e^J = (e^λ e^λ; 0 e^λ). Es ist wie die normale Exponentialfunktion, nur für Matrizen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440013",
-            "text": "Die Singulärwertzerlegung (SVD) verallgemeinert die Eigenwertzerlegung für nicht-quadratische Matrizen.",
-            "formula": "A = U \\cdot \\Sigma \\cdot V^T",
-            "explanation": "U und V sind orthogonale Matrizen, Σ ist eine Diagonalmatrix mit den Singulärwerten. Die Singulärwerte sind die Wurzeln der Eigenwerte von A^T·A. Es ist wie eine verallgemeinerte Diagonalisierung!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440014",
-            "text": "Die QR-Zerlegung ist ein wichtiges numerisches Verfahren zur Berechnung von Eigenwerten.",
-            "formula": "A = Q \\cdot R",
-            "explanation": "Q ist eine orthogonale Matrix, R ist eine obere Dreiecksmatrix. Die QR-Iteration konvergiert gegen eine obere Dreiecksmatrix, deren Diagonalelemente die Eigenwerte sind. Es ist wie ein iteratives Verfahren zur Diagonalisierung!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440015",
-            "text": "Die Schur-Zerlegung zeigt, dass jede Matrix unitär ähnlich zu einer oberen Dreiecksmatrix ist.",
-            "formula": "A = U \\cdot T \\cdot U^*",
-            "explanation": "U ist eine unitäre Matrix, T ist eine obere Dreiecksmatrix. Die Diagonalelemente von T sind die Eigenwerte. Es ist wie eine verallgemeinerte Diagonalisierung für komplexe Matrizen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440016",
-            "text": "Die Spektralzerlegung einer symmetrischen Matrix ist besonders einfach.",
-            "formula": "A = Q \\cdot \\Lambda \\cdot Q^T",
-            "explanation": "Q ist eine orthogonale Matrix, Λ ist eine Diagonalmatrix. Die Eigenwerte sind reell und die Eigenvektoren sind orthogonal. Es ist wie eine besonders schöne Diagonalisierung!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440017",
-            "text": "Die Definitheit einer symmetrischen Matrix kann über ihre Eigenwerte charakterisiert werden.",
-            "formula": "\\begin{cases} A \\text{ positiv definit} &\\Leftrightarrow \\lambda_i > 0 \\\\ A \\text{ negativ definit} &\\Leftrightarrow \\lambda_i < 0 \\\\ A \\text{ positiv semidefinit} &\\Leftrightarrow \\lambda_i \\geq 0 \\end{cases}",
-            "explanation": "Die Definitheit ist wichtig für Optimierungsprobleme. Eine positiv definite Matrix hat nur positive Eigenwerte. Es ist wie ein Maß für die Krümmung einer quadratischen Form!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440018",
-            "text": "Die Konditionszahl einer Matrix misst ihre numerische Stabilität.",
-            "formula": "\\kappa(A) = \\|A\\| \\cdot \\|A^{-1}\\| = \\frac{|\\lambda_{\\max}|}{|\\lambda_{\\min}|}",
-            "explanation": "Die Konditionszahl ist das Verhältnis des größten zum kleinsten Eigenwert. Eine große Konditionszahl bedeutet schlechte numerische Stabilität. Es ist wie ein Maß für die Empfindlichkeit der Matrix!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440019",
-            "text": "Die Perron-Frobenius-Theorie beschreibt die Eigenwerte und Eigenvektoren nichtnegativer Matrizen.",
-            "formula": "\\begin{cases} \\lambda_1 > 0 \\\\ |\\lambda_i| \\leq \\lambda_1 \\\\ v_1 > 0 \\end{cases}",
-            "explanation": "Der größte Eigenwert ist reell und positiv, und der zugehörige Eigenvektor hat nur positive Einträge. Dies ist wichtig für Markov-Ketten und PageRank. Es ist wie ein spezielles Theorem für positive Matrizen!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440020",
-            "text": "Die Gerschgorin-Kreise geben eine einfache Abschätzung für die Eigenwerte.",
-            "formula": "|\\lambda - a_{ii}| \\leq \\sum_{j \\neq i} |a_{ij}|",
-            "explanation": "Jeder Eigenwert liegt in mindestens einem Gerschgorin-Kreis. Die Kreise sind um die Diagonalelemente zentriert. Es ist wie eine einfache geometrische Abschätzung für die Eigenwerte!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440021",
-            "text": "Die Rayleigh-Quotienten geben eine Abschätzung für den größten Eigenwert.",
-            "formula": "\\lambda_{\\max} \\geq \\frac{x^T A x}{x^T x}",
-            "explanation": "Der Rayleigh-Quotient ist immer größer oder gleich dem größten Eigenwert. Er wird minimal für den zugehörigen Eigenvektor. Es ist wie ein Maß für die maximale Streckung!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440022",
-            "text": "Die Power-Methode ist ein iteratives Verfahren zur Berechnung des größten Eigenwerts.",
-            "formula": "x_{k+1} = \\frac{A x_k}{\\|A x_k\\|}",
-            "explanation": "Die Power-Methode konvergiert gegen den Eigenvektor zum betragsgrößten Eigenwert. Sie ist einfach zu implementieren, aber kann langsam konvergieren. Es ist wie ein iteratives Verfahren zur Maximierung!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440023",
-            "text": "Die Inverse Power-Methode berechnet den kleinsten Eigenwert.",
-            "formula": "x_{k+1} = \\frac{A^{-1} x_k}{\\|A^{-1} x_k\\|}",
-            "explanation": "Die Inverse Power-Methode konvergiert gegen den Eigenvektor zum betragskleinsten Eigenwert. Sie ist besonders nützlich für große, dünnbesetzte Matrizen. Es ist wie die Power-Methode, nur in die andere Richtung!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440024",
-            "text": "Die Lanczos-Methode ist ein effizientes Verfahren für große, symmetrische Matrizen.",
-            "formula": "T_k = Q_k^T A Q_k",
-            "explanation": "Die Lanczos-Methode reduziert die Matrix auf eine Tridiagonalmatrix. Sie ist besonders effizient für große, dünnbesetzte Matrizen. Es ist wie eine intelligente Reduktion der Problemgröße!"
-        },
-        {
-            "id": "bb0e8400-e29b-41d4-a716-446655440025",
-            "text": "Zum Schluss schauen wir uns an, wie Eigenwerte in der Quantenmechanik verwendet werden.",
-            "formula": "H \\psi = E \\psi",
-            "explanation": "In der Quantenmechanik sind die Eigenwerte die möglichen Energieniveaus eines Systems. Die Eigenvektoren beschreiben die zugehörigen Zustände. Es ist wie eine mathematische Beschreibung der Quantenwelt!"
-        }
-    ]
-} 
+{
+  "id": "bb0e8400-e29b-41d4-a716-446655440000",
+  "topic": "Eigenwerte",
+  "steps": [
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440001",
+      "section": "Kapitel 1 · Die Grundidee",
+      "text": "Willkommen! In dieser Lektion geht es um eine der wichtigsten Ideen der linearen Algebra: Eigenwerte und Eigenvektoren.\n\nDu brauchst dafür: Matrizen als Abbildungen (Lektion „Matrizen“), Kern und Basiswechsel (Lektion „Lineare Abbildungen“) und die Determinante (Lektion „Determinanten“).",
+      "explanation": "Unser Fahrplan:\n1. Die Grundidee: Richtungen, die eine Matrix nur streckt\n2. Geometrische Beispiele: Streckung, Spiegelung, Drehung, Scherung, Projektion\n3. Eigenwerte berechnen mit dem charakteristischen Polynom\n4. Eigenvektoren und Eigenräume berechnen\n5. Wichtige Eigenschaften: Spur, Determinante, Unabhängigkeit\n6. Algebraische und geometrische Vielfachheit\n7. Diagonalisieren – und warum das so nützlich ist\n8. Ausblick und Rückblick",
+      "insight": "Die Kernfrage dieser Lektion: Gibt es Richtungen, die eine Matrix nicht verdreht, sondern nur streckt? Wenn ja, wird die Matrix plötzlich ganz einfach."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440002",
+      "section": "Kapitel 1 · Die Grundidee",
+      "text": "Eine Matrix wirbelt Vektoren normalerweise ordentlich durcheinander: Sie dreht, streckt und schert sie gleichzeitig.\n\nNehmen wir unser Beispiel für die ganze Lektion, \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}\\), und schauen, was mit einigen Vektoren passiert. Die meisten kippen aus ihrer Richtung heraus. Aber ein paar besondere Vektoren bleiben auf ihrer Geraden:",
+      "visual": "eigenSearch",
+      "formula": "\\begin{aligned} \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} &= \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix} \\\\[4pt] \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} &= \\begin{pmatrix} 3 \\\\ 3 \\end{pmatrix} = 3 \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} \\end{aligned}",
+      "explanation": "Oben: \\((1, 0)\\) wird auf \\((2, 1)\\) abgebildet – das ist kein Vielfaches von \\((1, 0)\\), die Richtung hat sich geändert.\n\nUnten: \\((1, 1)\\) wird auf \\((3, 3)\\) abgebildet – genau das Dreifache. Die Richtung bleibt, nur die Länge ändert sich.\n\nDie Animation probiert vier Vektoren durch. Achte darauf, ob der Bildpfeil auf der gestrichelten Geraden bleibt.",
+      "insight": "Vektoren, deren Richtung von \\(A\\) nicht verändert wird, heißen Eigenvektoren. Der Streckfaktor heißt Eigenwert."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440003",
+      "section": "Kapitel 1 · Die Grundidee",
+      "text": "Jetzt die präzise Definition. Sei \\(A\\) eine quadratische \\(n \\times n\\)-Matrix über einem Körper \\(K\\) (bei uns meist \\(\\mathbb{R}\\)).",
+      "formula": "\\begin{array}{c} A v = \\lambda v, \\quad v \\neq 0 \\\\[6pt] \\lambda: \\text{ Eigenwert} \\\\[2pt] v: \\text{ Eigenvektor zu } \\lambda \\end{array}",
+      "explanation": "Lies die Gleichung so: Wendet man \\(A\\) auf \\(v\\) an, kommt dasselbe heraus, als würde man \\(v\\) nur mit der Zahl \\(\\lambda\\) multiplizieren.\n\nWichtig:\n• \\(A\\) muss quadratisch sein, sonst liegen \\(Av\\) und \\(v\\) in verschiedenen Räumen und man kann sie nicht vergleichen.\n• „Eigen“ heißt so viel wie „zugehörig“ oder „charakteristisch“: Eigenwerte sind charakteristische Zahlen der Matrix.\n• Die Menge aller Eigenwerte von \\(A\\) heißt Spektrum von \\(A\\).\n\nIn unserem Beispiel: \\(v = (1, 1)\\) ist ein Eigenvektor von \\(A\\) zum Eigenwert \\(\\lambda = 3\\).",
+      "insight": "Ein Eigenvektor ist eine Richtung, ein Eigenwert ist der Faktor, um den \\(A\\) in dieser Richtung streckt."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440004",
+      "section": "Kapitel 1 · Die Grundidee",
+      "text": "Was sagt der Eigenwert \\(\\lambda\\) geometrisch? Auf der Geraden durch \\(v\\) wirkt \\(A\\) wie eine ganz normale Multiplikation mit der Zahl \\(\\lambda\\):",
+      "visual": "eigenvalueScaling",
+      "formula": "\\begin{array}{ll} \\lambda > 1: & \\text{gestreckt} \\\\ 0 < \\lambda < 1: & \\text{gestaucht} \\\\ \\lambda = 1: & \\text{fest} \\\\ \\lambda < 0: & \\text{umgeklappt} \\\\ \\lambda = 0: & v \\mapsto 0 \\end{array}",
+      "explanation": "Auch ein negativer Eigenwert lässt die Gerade unverändert – der Vektor zeigt danach nur in die entgegengesetzte Richtung. „Richtung erhalten“ meint also immer: auf derselben Geraden durch den Ursprung bleiben.\n\nDer Fall \\(\\lambda = 0\\) ist erlaubt und besonders interessant: \\(Av = 0\\) heißt, \\(v\\) liegt im Kern von \\(A\\).",
+      "insight": "Eigenvektoren zu \\(\\lambda = 0\\) sind genau die Vektoren \\(v \\neq 0\\) im Kern. \\(0\\) ist also genau dann Eigenwert, wenn \\(A\\) nicht injektiv ist."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440005",
+      "section": "Kapitel 1 · Die Grundidee",
+      "text": "Warum verlangt man \\(v \\neq 0\\)? Weil der Nullvektor die Gleichung immer erfüllt – für jede Zahl:",
+      "formula": "A \\cdot 0 = 0 = \\lambda \\cdot 0 \\quad \\text{für jedes } \\lambda \\in K",
+      "explanation": "Wäre \\(v = 0\\) erlaubt, wäre jede Zahl ein „Eigenwert“, und der Begriff wäre nutzlos. Der Nullvektor hat auch gar keine Richtung, die erhalten bleiben könnte.\n\nHäufige Verwechslung:\n• Der Eigenvektor darf NIE der Nullvektor sein.\n• Der Eigenwert darf sehr wohl \\(0\\) sein.",
+      "insight": "\\(v \\neq 0\\) ist Pflicht, \\(\\lambda = 0\\) ist erlaubt. Diese Asymmetrie ist ein klassischer Prüfungsfallstrick."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440006",
+      "section": "Kapitel 1 · Die Grundidee",
+      "text": "Prüfen, ob ein gegebener Vektor ein Eigenvektor ist, ist einfach: Rechne \\(Av\\) aus und schau, ob ein Vielfaches von \\(v\\) herauskommt.",
+      "formula": "\\begin{aligned} \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\begin{pmatrix} -1 \\\\ 1 \\end{pmatrix} &= \\begin{pmatrix} -2 + 1 \\\\ -1 + 2 \\end{pmatrix} = \\begin{pmatrix} -1 \\\\ 1 \\end{pmatrix} = 1 \\cdot \\begin{pmatrix} -1 \\\\ 1 \\end{pmatrix} \\\\[4pt] \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} &= \\begin{pmatrix} 4 \\\\ 5 \\end{pmatrix} \\end{aligned}",
+      "explanation": "Erste Zeile: \\((-1, 1)\\) ist ein Eigenvektor zum Eigenwert \\(1\\) – \\(A\\) lässt ihn unverändert.\n\nZweite Zeile: \\((4, 5)\\) ist kein Vielfaches von \\((1, 2)\\), denn aus \\(4 = c \\cdot 1\\) folgt \\(c = 4\\), aber \\(4 \\cdot 2 = 8 \\neq 5\\). Also ist \\((1, 2)\\) kein Eigenvektor.",
+      "insight": "Prüfen ist leicht, Finden ist die eigentliche Aufgabe. Dafür brauchen wir gleich die Determinante."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440007",
+      "section": "Kapitel 1 · Die Grundidee",
+      "text": "Ist \\(v\\) ein Eigenvektor, dann auch jedes Vielfache \\(c v\\) mit \\(c \\neq 0\\) – zum selben Eigenwert:",
+      "formula": "A(cv) = c(Av) = c(\\lambda v) = \\lambda (cv)",
+      "explanation": "Eigenvektoren sind also nie eindeutig: \\((1, 1)\\), \\((2, 2)\\) und \\((-5, -5)\\) sind alle Eigenvektoren von \\(A\\) zum Eigenwert \\(3\\). Eigentlich sucht man Eigenrichtungen, nicht einzelne Vektoren.\n\nMehr noch: Sind \\(v\\) und \\(w\\) Eigenvektoren zum selben \\(\\lambda\\), dann ist auch \\(v + w\\) einer (falls \\(\\neq 0\\)), denn \\(A(v + w) = \\lambda v + \\lambda w = \\lambda(v + w)\\).\n\nAlle Eigenvektoren zu \\(\\lambda\\) bilden zusammen mit dem Nullvektor einen Untervektorraum:\n\\(E_\\lambda = \\{ v \\in K^n : Av = \\lambda v \\}\\), den Eigenraum zu \\(\\lambda\\).",
+      "insight": "Der Eigenraum \\(E_\\lambda\\) ist ein Untervektorraum. Der Nullvektor gehört zum Eigenraum, ist aber selbst kein Eigenvektor."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440008",
+      "section": "Kapitel 2 · Geometrische Beispiele",
+      "text": "Bevor wir rechnen, entwickeln wir ein Gefühl an Beispielen, bei denen man die Eigenvektoren direkt sehen kann. Das einfachste: eine Diagonalmatrix.",
+      "formula": "D = \\begin{pmatrix} 2 & 0 \\\\ 0 & \\tfrac{1}{2} \\end{pmatrix}: \\quad D e_1 = 2 e_1, \\quad D e_2 = \\tfrac{1}{2} e_2",
+      "explanation": "\\(D\\) streckt die \\(x\\)-Richtung um \\(2\\) und staucht die \\(y\\)-Richtung auf die Hälfte. Die Koordinatenachsen sind die Eigenrichtungen, die Diagonaleinträge die Eigenwerte.\n\nAllgemein gilt für eine Diagonalmatrix mit Einträgen \\(d_1, \\dots, d_n\\): \\(D e_i = d_i e_i\\). Die Eigenwerte stehen direkt auf der Diagonale.",
+      "insight": "Diagonalmatrizen sind der Idealfall. Später werden wir sehen: Viele Matrizen sind „versteckte“ Diagonalmatrizen – nur in einer schiefen Basis."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440009",
+      "section": "Kapitel 2 · Geometrische Beispiele",
+      "text": "Spiegelung an der Geraden \\(y = x\\), also \\(S = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}\\) (sie vertauscht die Koordinaten). Welche Richtungen bleiben erhalten?",
+      "formula": "\\begin{aligned} S \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} &= \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} = 1 \\cdot \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} \\\\[4pt] S \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix} &= \\begin{pmatrix} -1 \\\\ 1 \\end{pmatrix} = -1 \\cdot \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix} \\end{aligned}",
+      "explanation": "Ohne zu rechnen sieht man:\n• Vektoren auf der Spiegelachse bleiben, wo sie sind → Eigenwert \\(1\\).\n• Vektoren senkrecht zur Achse werden genau umgeklappt → Eigenwert \\(-1\\).\n\nJeder andere Vektor wird in eine neue Richtung gespiegelt und ist kein Eigenvektor.",
+      "insight": "Bei jeder Spiegelung in der Ebene sind die Eigenwerte \\(1\\) (Achse) und \\(-1\\) (Senkrechte zur Achse)."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440010",
+      "section": "Kapitel 2 · Geometrische Beispiele",
+      "text": "Drehung um \\(90°\\): \\(R = \\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix}\\). Hier dreht sich JEDER Vektor \\(v \\neq 0\\) um \\(90°\\) – keine Richtung bleibt erhalten.",
+      "formula": "\\begin{aligned} Rv = \\lambda v \\;&\\Rightarrow\\; R(Rv) = \\lambda^2 v \\\\ R(Rv) = -v \\;&\\Rightarrow\\; \\lambda^2 = -1 \\end{aligned}",
+      "explanation": "Zweimal um \\(90°\\) drehen ist eine Drehung um \\(180°\\), also \\(R^2 v = -v\\). Ein Eigenwert müsste deshalb \\(\\lambda^2 = -1\\) erfüllen. Das hat keine reelle Lösung.\n\nÜber den komplexen Zahlen gibt es dagegen die Eigenwerte \\(\\lambda = i\\) und \\(\\lambda = -i\\), mit komplexen Eigenvektoren, z. B. \\(v = (1, -i)\\): Es ist \\(Rv = (i, 1)\\), und das ist \\(i \\cdot v\\), denn \\(i \\cdot (1, -i) = (i, -i^2) = (i, 1)\\).",
+      "insight": "Typischer Fehler: „Jede Matrix hat Eigenwerte.“ Über \\(\\mathbb{R}\\) stimmt das nicht! Über \\(\\mathbb{C}\\) hat jede quadratische Matrix mindestens einen Eigenwert."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440011",
+      "section": "Kapitel 2 · Geometrische Beispiele",
+      "text": "Projektion auf die \\(x\\)-Achse: \\(P = \\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}\\), also \\(P(x, y) = (x, 0)\\).",
+      "formula": "P e_1 = 1 \\cdot e_1, \\qquad P e_2 = 0 = 0 \\cdot e_2",
+      "explanation": "Vektoren auf der \\(x\\)-Achse bleiben unverändert → Eigenwert \\(1\\).\nVektoren auf der \\(y\\)-Achse werden auf \\(0\\) abgebildet → Eigenwert \\(0\\). Der Eigenraum \\(E_0 = \\operatorname{Kern} P\\) ist die \\(y\\)-Achse.\n\n\\(P\\) ist nicht invertierbar, und das zeigt sich am Eigenwert \\(0\\) – ein Zusammenhang, den wir in Kapitel 5 allgemein beweisen.",
+      "insight": "Für jede Projektion gilt \\(P^2 = P\\). Aus \\(Pv = \\lambda v\\) folgt dann \\(\\lambda v = \\lambda^2 v\\), also \\(\\lambda = 0\\) oder \\(\\lambda = 1\\). Projektionen haben nur diese beiden Eigenwerte."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440012",
+      "section": "Kapitel 2 · Geometrische Beispiele",
+      "text": "Und eine Scherung, \\(C = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}\\)? Sie schiebt jeden Punkt um seine \\(y\\)-Koordinate nach rechts: \\(C(x, y) = (x + y, y)\\).",
+      "visual": "shearEigen",
+      "formula": "\\begin{array}{c} C \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\lambda \\begin{pmatrix} x \\\\ y \\end{pmatrix} \\\\[6pt] \\iff \\begin{cases} x + y = \\lambda x \\\\ y = \\lambda y \\end{cases} \\end{array}",
+      "explanation": "Fall \\(y \\neq 0\\): Aus der zweiten Gleichung folgt \\(\\lambda = 1\\), dann aus der ersten \\(x + y = x\\), also \\(y = 0\\) – Widerspruch.\n\nFall \\(y = 0\\): Dann gilt \\(x = \\lambda x\\) mit \\(x \\neq 0\\), also \\(\\lambda = 1\\).\n\nDie einzigen Eigenvektoren sind also die Vielfachen von \\((1, 0)\\), alle zum Eigenwert \\(1\\).",
+      "insight": "Die Scherung hat nur EINE Eigenrichtung. Das wird in Kapitel 6 wichtig: Nicht jede Matrix hat genug Eigenvektoren, um eine Basis zu bilden."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440013",
+      "section": "Kapitel 3 · Eigenwerte berechnen",
+      "text": "Jetzt das systematische Verfahren. Der Trick: Wir bringen alles auf eine Seite.",
+      "formula": "\\begin{aligned} A v = \\lambda v &\\iff A v - \\lambda I v = 0 \\\\ &\\iff (A - \\lambda I)\\, v = 0 \\end{aligned}",
+      "explanation": "Wir schreiben \\(\\lambda v = \\lambda I v\\) mit der Einheitsmatrix \\(I\\), um \\(v\\) ausklammern zu können.\n\nTypischer Fehler: \\((A - \\lambda) v\\) schreiben. „Matrix minus Zahl“ ist nicht definiert! Gemeint ist \\(A - \\lambda I\\): Von jedem Diagonaleintrag wird \\(\\lambda\\) abgezogen, alles andere bleibt.\n\nWir suchen also ein \\(v \\neq 0\\) im Kern der Matrix \\(A - \\lambda I\\).",
+      "insight": "\\(\\lambda\\) ist Eigenwert ⇔ \\((A - \\lambda I) v = 0\\) hat eine Lösung \\(v \\neq 0\\) ⇔ \\(\\operatorname{Kern}(A - \\lambda I) \\neq \\{0\\}\\)."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440014",
+      "section": "Kapitel 3 · Eigenwerte berechnen",
+      "text": "Wann hat ein homogenes Gleichungssystem \\(Mv = 0\\) eine Lösung \\(v \\neq 0\\)? Genau dann, wenn \\(M\\) nicht invertierbar ist – also wenn \\(\\det M = 0\\). Mit \\(M = A - \\lambda I\\) folgt:",
+      "formula": "\\lambda \\text{ ist Eigenwert von } A \\iff \\det(A - \\lambda I) = 0",
+      "explanation": "Die Kette der Äquivalenzen (aus „Matrizen“ und „Determinanten“):\n\\(\\operatorname{Kern} M \\neq \\{0\\}\\) ⇔ Spalten von \\(M\\) linear abhängig ⇔ \\(M\\) nicht invertierbar ⇔ \\(\\det M = 0\\).\n\nDamit haben wir eine Gleichung, in der nur noch \\(\\lambda\\) vorkommt – \\(v\\) ist verschwunden. Wir können die Eigenwerte also zuerst und ganz unabhängig von den Eigenvektoren bestimmen.",
+      "insight": "Geometrisch: \\(\\lambda\\) ist genau dann Eigenwert, wenn \\(A - \\lambda I\\) die Ebene auf eine Gerade (oder einen Punkt) zusammenquetscht."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440015",
+      "section": "Kapitel 3 · Eigenwerte berechnen",
+      "text": "Für eine \\(2 \\times 2\\)-Matrix \\(\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}\\) rechnen wir \\(\\det(A - \\lambda I)\\) allgemein aus:",
+      "formula": "\\begin{aligned} \\det \\begin{pmatrix} a - \\lambda & b \\\\ c & d - \\lambda \\end{pmatrix} &= (a - \\lambda)(d - \\lambda) - bc \\\\ &= \\lambda^2 - (a + d)\\lambda + (ad - bc) \\\\ &= \\lambda^2 - \\operatorname{tr}(A)\\, \\lambda + \\det A \\end{aligned}",
+      "explanation": "Das ist ein Polynom in \\(\\lambda\\), das charakteristische Polynom \\(\\chi_A(\\lambda) = \\det(A - \\lambda I)\\). Die Eigenwerte sind genau seine Nullstellen.\n\nFür \\(2 \\times 2\\)-Matrizen braucht man also nur die Spur \\(\\operatorname{tr}(A) = a + d\\) (Summe der Diagonale) und die Determinante.\n\nAllgemein ist \\(\\chi_A\\) für eine \\(n \\times n\\)-Matrix ein Polynom vom Grad \\(n\\). Deshalb hat \\(A\\) höchstens \\(n\\) verschiedene Eigenwerte.",
+      "insight": "Manche Bücher definieren \\(\\chi_A(\\lambda) = \\det(\\lambda I - A)\\). Das unterscheidet sich höchstens um den Faktor \\((-1)^n\\) und hat dieselben Nullstellen."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440016",
+      "section": "Kapitel 3 · Eigenwerte berechnen",
+      "text": "Nun unser Beispiel \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}\\). Hier ist \\(\\operatorname{tr}(A) = 4\\) und \\(\\det A = 3\\):",
+      "visual": "charPolyCollapse",
+      "formula": "\\begin{aligned} \\chi_A(\\lambda) &= (2 - \\lambda)^2 - 1 \\\\ &= \\lambda^2 - 4\\lambda + 3 \\\\ &= (\\lambda - 1)(\\lambda - 3) \\\\[4pt] \\Longrightarrow \\quad &\\lambda_1 = 3, \\;\\; \\lambda_2 = 1 \\end{aligned}",
+      "explanation": "Probe durch Einsetzen: \\(\\chi_A(1) = 1 - 4 + 3 = 0\\) ✓ und \\(\\chi_A(3) = 9 - 12 + 3 = 0\\) ✓.\n\nDie Animation zeigt, was die Nullstellen bedeuten: Für jedes \\(\\lambda\\) spannen die Spalten von \\(A - \\lambda I\\) ein Parallelogramm auf. Genau bei \\(\\lambda = 1\\) und \\(\\lambda = 3\\) klappt es zusammen – dort ist \\(\\det(A - \\lambda I) = 0\\).",
+      "insight": "Das passt zu Kapitel 1: Dort hatten wir \\((1, 1)\\) mit Faktor \\(3\\) und \\((-1, 1)\\) mit Faktor \\(1\\) gefunden. Jetzt wissen wir: Es gibt keine weiteren Eigenwerte."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440017",
+      "section": "Kapitel 3 · Eigenwerte berechnen",
+      "text": "Eine wichtige Abkürzung: Bei Dreiecksmatrizen (und damit auch Diagonalmatrizen) stehen die Eigenwerte direkt auf der Diagonale.",
+      "formula": "\\begin{aligned} &\\det \\begin{pmatrix} a_{11} - \\lambda & * & *  \\\\ 0 & a_{22} - \\lambda & * \\\\ 0 & 0 & a_{33} - \\lambda \\end{pmatrix} \\\\[4pt] &= (a_{11} - \\lambda)(a_{22} - \\lambda)(a_{33} - \\lambda) \\end{aligned}",
+      "explanation": "\\(A - \\lambda I\\) ist wieder eine Dreiecksmatrix, und deren Determinante ist das Produkt der Diagonale. Die Nullstellen sind also \\(a_{11}, a_{22}, a_{33}\\).\n\nBeispiel: \\(\\begin{pmatrix} 2 & 7 \\\\ 0 & 5 \\end{pmatrix}\\) hat die Eigenwerte \\(2\\) und \\(5\\). Die Scherung aus Kapitel 2 hat \\(\\chi_C(\\lambda) = (1 - \\lambda)^2\\), also den doppelten Eigenwert \\(1\\).",
+      "insight": "Typischer Fehler: Die Matrix erst mit dem Gauß-Verfahren auf Dreiecksform bringen und dann die Diagonale ablesen. Zeilenumformungen ÄNDERN die Eigenwerte! Die Abkürzung gilt nur, wenn \\(A\\) selbst schon Dreiecksform hat."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440018",
+      "section": "Kapitel 3 · Eigenwerte berechnen",
+      "text": "Ein \\(3 \\times 3\\)-Beispiel. Bei größeren Matrizen lohnt es sich, nach einer Zeile oder Spalte mit vielen Nullen zu entwickeln:",
+      "formula": "\\begin{aligned} B &= \\begin{pmatrix} 4 & 0 & 1 \\\\ 2 & 3 & 2 \\\\ 1 & 0 & 4 \\end{pmatrix} \\\\[6pt] \\det(B - \\lambda I) &= \\det \\begin{pmatrix} 4 - \\lambda & 0 & 1 \\\\ 2 & 3 - \\lambda & 2 \\\\ 1 & 0 & 4 - \\lambda \\end{pmatrix} \\end{aligned}",
+      "explanation": "Die zweite Spalte enthält nur einen Eintrag ungleich \\(0\\), nämlich \\(3 - \\lambda\\) an Position \\((2, 2)\\). Entwicklung nach dieser Spalte (Vorzeichen \\((-1)^{2+2} = +1\\)):\n\n\\(\\chi_B(\\lambda) = (3 - \\lambda) \\cdot D(\\lambda)\\) mit \\(D(\\lambda) = (4 - \\lambda)^2 - 1\\)\n\nDabei ist \\(D(\\lambda)\\) die Determinante des \\(2 \\times 2\\)-Rests, der nach Streichen von Zeile 2 und Spalte 2 übrig bleibt. Mit der dritten binomischen Formel:\n\\((4 - \\lambda)^2 - 1 = (3 - \\lambda)(5 - \\lambda)\\). Also:\n\n\\(\\chi_B(\\lambda) = (3 - \\lambda)^2 (5 - \\lambda)\\)",
+      "insight": "Die Eigenwerte sind \\(\\lambda = 3\\) (doppelte Nullstelle) und \\(\\lambda = 5\\) (einfache Nullstelle). Tipp: Nicht vorschnell ausmultiplizieren! Faktoren, die schon dastehen, erspart man sich beim Suchen der Nullstellen."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440019",
+      "section": "Kapitel 4 · Eigenvektoren berechnen",
+      "text": "Kennt man einen Eigenwert \\(\\lambda\\), findet man die Eigenvektoren durch Lösen des homogenen Gleichungssystems \\((A - \\lambda I) v = 0\\). Für unser \\(A\\) und \\(\\lambda_1 = 3\\):",
+      "formula": "\\begin{aligned} A - 3I &= \\begin{pmatrix} -1 & 1 \\\\ 1 & -1 \\end{pmatrix} \\\\[4pt] &\\leadsto \\begin{pmatrix} -1 & 1 \\\\ 0 & 0 \\end{pmatrix} \\\\[4pt] &\\Rightarrow\\; -x + y = 0 \\end{aligned}",
+      "explanation": "Die zweite Zeile ist das \\((-1)\\)-fache der ersten, Gauß macht sie zu einer Nullzeile. Das ist kein Zufall: Weil \\(\\det(A - 3I) = 0\\) ist, MUSS mindestens eine Nullzeile entstehen.\n\nÜbrig bleibt \\(y = x\\), mit \\(x\\) frei wählbar. Also besteht \\(E_3\\) aus allen Vektoren \\(t \\cdot (1, 1)\\) mit \\(t \\in \\mathbb{R}\\):\n\\(E_3 = \\operatorname{span}\\{(1, 1)\\}\\)",
+      "insight": "Kontrolle: Entsteht beim Gauß-Verfahren KEINE Nullzeile, hast du dich beim Eigenwert verrechnet – dann gibt es nur die Lösung \\(v = 0\\)."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440020",
+      "section": "Kapitel 4 · Eigenvektoren berechnen",
+      "text": "Genauso für \\(\\lambda_2 = 1\\):",
+      "formula": "\\begin{aligned} A - 1 \\cdot I &= \\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix} \\\\[4pt] &\\leadsto \\begin{pmatrix} 1 & 1 \\\\ 0 & 0 \\end{pmatrix} \\\\[4pt] &\\Rightarrow\\; x + y = 0 \\end{aligned}",
+      "explanation": "Also \\(y = -x\\) und \\(E_1 = \\operatorname{span}\\{(-1, 1)\\}\\).\n\nProbe – immer machen, sie kostet nur Sekunden:\n\\(A \\cdot (1, 1) = (3, 3) = 3 \\cdot (1, 1)\\) ✓\n\\(A \\cdot (-1, 1) = (-1, 1) = 1 \\cdot (-1, 1)\\) ✓",
+      "insight": "Allgemein gilt: \\(E_\\lambda = \\operatorname{Kern}(A - \\lambda I)\\). Eigenräume berechnet man also genau wie Kerne."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440021",
+      "section": "Kapitel 4 · Eigenvektoren berechnen",
+      "text": "Jetzt sehen wir das Gesamtbild: \\(A\\) hat zwei Eigengeraden. Auf der einen streckt \\(A\\) um \\(3\\), auf der anderen lässt \\(A\\) alles fest. Jeder andere Vektor ist eine Mischung und ändert seine Richtung.",
+      "visual": "eigenMap",
+      "formula": "\\begin{aligned} x &= \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} = \\tfrac{1}{2} \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} - \\tfrac{1}{2} \\begin{pmatrix} -1 \\\\ 1 \\end{pmatrix} \\\\[6pt] Ax &= \\tfrac{3}{2} \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} - \\tfrac{1}{2} \\begin{pmatrix} -1 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix} \\end{aligned}",
+      "explanation": "Zerlegt man einen beliebigen Vektor in seine Anteile entlang der Eigenrichtungen, kann man \\(A\\) ohne Matrixmultiplikation anwenden: Den Anteil in Richtung \\((1, 1)\\) mal \\(3\\), den Anteil in Richtung \\((-1, 1)\\) mal \\(1\\).\n\nErgebnis \\((2, 1)\\) – genau die erste Spalte von \\(A\\), wie es für \\(A e_1\\) sein muss ✓.\n\nWeil der eine Anteil verdreifacht wird und der andere nicht, kippt \\(x\\) aus seiner Richtung heraus.",
+      "insight": "Die Eigenvektoren zerlegen die Wirkung von \\(A\\) in unabhängige, eindimensionale Streckungen. Das ist die zentrale Idee hinter dem Diagonalisieren."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440022",
+      "section": "Kapitel 4 · Eigenvektoren berechnen",
+      "text": "Zurück zum \\(3 \\times 3\\)-Beispiel \\(B\\) mit den Eigenwerten \\(5\\) und \\(3\\). Zuerst \\(\\lambda = 5\\):",
+      "formula": "\\begin{aligned} B - 5I &= \\begin{pmatrix} -1 & 0 & 1 \\\\ 2 & -2 & 2 \\\\ 1 & 0 & -1 \\end{pmatrix} \\\\[6pt] &\\leadsto \\begin{pmatrix} -1 & 0 & 1 \\\\ 0 & -2 & 4 \\\\ 0 & 0 & 0 \\end{pmatrix} \\end{aligned}",
+      "explanation": "Umformungen: Zeile 2 plus 2 × Zeile 1, Zeile 3 plus Zeile 1.\n\nAus Zeile 1: \\(z = x\\). Aus Zeile 2: \\(-2y + 4z = 0\\), also \\(y = 2z = 2x\\). Mit \\(x = 1\\):\n\\(E_5 = \\operatorname{span}\\{(1, 2, 1)\\}\\)\n\nProbe (jede Zeile von \\(B\\) mal \\((1, 2, 1)\\), z. B. erste Zeile: \\(4 + 0 + 1 = 5\\)):\n\\(B \\cdot (1, 2, 1) = (5, 10, 5)\\)\n\\(= 5 \\cdot (1, 2, 1)\\) ✓",
+      "insight": "Ein einfacher Eigenwert (einfache Nullstelle von \\(\\chi\\)) hat immer einen eindimensionalen Eigenraum."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440023",
+      "section": "Kapitel 4 · Eigenvektoren berechnen",
+      "text": "Und für den doppelten Eigenwert \\(\\lambda = 3\\):",
+      "formula": "\\begin{aligned} B - 3I &= \\begin{pmatrix} 1 & 0 & 1 \\\\ 2 & 0 & 2 \\\\ 1 & 0 & 1 \\end{pmatrix} \\\\[6pt] &\\leadsto \\begin{pmatrix} 1 & 0 & 1 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix} \\end{aligned}",
+      "explanation": "Nur eine Gleichung bleibt übrig: \\(x + z = 0\\). Zwei Variablen sind frei, nämlich \\(y\\) und \\(z\\) (oder \\(x\\)). Mit \\(x = -z\\):\n\n\\(v = (-z, y, z)\\)\n\\(= y \\cdot (0, 1, 0) + z \\cdot (-1, 0, 1)\\)\n\nAlso \\(E_3 = \\operatorname{span}\\{(0, 1, 0), (-1, 0, 1)\\}\\) – eine Ebene!\n\nProbe (erste Zeile: \\(-4 + 0 + 1 = -3\\)):\n\\(B \\cdot (-1, 0, 1) = (-3, 0, 3)\\)\n\\(= 3 \\cdot (-1, 0, 1)\\) ✓",
+      "insight": "Hier ist der Eigenraum zum doppelten Eigenwert zweidimensional. Das ist der „gute“ Fall – leider nicht selbstverständlich, wie die Scherung zeigt."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440024",
+      "section": "Kapitel 4 · Eigenvektoren berechnen",
+      "text": "Zusammenfassung des Rezepts – und die typischen Fehler, die dabei passieren:",
+      "formula": "\\begin{array}{ll} 1. & \\chi_A(\\lambda) = \\det(A - \\lambda I) \\\\ 2. & \\text{Nullstellen } \\lambda_1, \\dots, \\lambda_k \\\\ 3. & (A - \\lambda_i I)\\, v = 0 \\text{ lösen} \\\\ 4. & \\text{Probe: } A v = \\lambda_i v \\end{array}",
+      "explanation": "Typische Fehler:\n• \\(\\lambda\\) nur von einem Teil der Diagonale abziehen oder auch von Einträgen außerhalb der Diagonale.\n• Vor dem Aufstellen von \\(\\chi_A\\) Zeilenumformungen an \\(A\\) machen – das verändert die Eigenwerte.\n• Den Nullvektor als Eigenvektor angeben.\n• Nach dem Gauß-Verfahren keine Nullzeile erhalten und trotzdem weiterrechnen – dann stimmt der Eigenwert nicht.\n• Eigenvektoren nicht mit der Probe kontrollieren.",
+      "insight": "Zeilenumformungen sind erst in Schritt 3 erlaubt, also beim Lösen von \\((A - \\lambda I) v = 0\\) – denn dort ändern sie die Lösungsmenge nicht."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440025",
+      "section": "Kapitel 5 · Wichtige Eigenschaften",
+      "text": "Zwei schnelle Kontrollen für die Eigenwerte: Spur und Determinante. Über \\(\\mathbb{C}\\) zerfällt das charakteristische Polynom immer in Linearfaktoren. Zählt man die Eigenwerte \\(\\lambda_1, \\dots, \\lambda_n\\) dort mit Vielfachheiten, gilt:",
+      "formula": "\\begin{aligned} \\operatorname{tr}(A) &= \\lambda_1 + \\lambda_2 + \\dots + \\lambda_n \\\\ \\det A &= \\lambda_1 \\cdot \\lambda_2 \\cdots \\lambda_n \\end{aligned}",
+      "explanation": "Für \\(2 \\times 2\\) sieht man das direkt: Einerseits ist \\(\\chi_A(\\lambda) = \\lambda^2 - \\operatorname{tr}(A)\\lambda + \\det A\\), andererseits \\(\\chi_A(\\lambda) = (\\lambda - \\lambda_1)(\\lambda - \\lambda_2)\\). Ausmultiplizieren und Koeffizienten vergleichen (Satz von Vieta) liefert beide Formeln.\n\nUnser \\(A\\): \\(\\operatorname{tr} A = 4 = 3 + 1\\) ✓ und \\(\\det A = 3 = 3 \\cdot 1\\) ✓.\n\nUnser \\(B\\): Die Spur ist \\(4 + 3 + 4 = 11\\), und \\(3 + 3 + 5 = 11\\) ✓. Die Determinante ist \\(\\det B = 45 = 3 \\cdot 3 \\cdot 5\\) ✓.",
+      "insight": "Doppelte Eigenwerte zählen doppelt! Bei \\(B\\) wird die \\(3\\) zweimal addiert bzw. multipliziert."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440026",
+      "section": "Kapitel 5 · Wichtige Eigenschaften",
+      "text": "Daraus folgt eine wichtige Verbindung zur Invertierbarkeit:",
+      "formula": "\\begin{aligned} 0 \\text{ ist Eigenwert} &\\iff \\det(A - 0 \\cdot I) = 0 \\\\ &\\iff \\det A = 0 \\\\ &\\iff A \\text{ nicht invertierbar} \\end{aligned}",
+      "explanation": "Anders gesagt: \\(A\\) ist genau dann invertierbar, wenn kein Eigenwert \\(0\\) ist.\n\nDann gilt außerdem: Aus \\(Av = \\lambda v\\) folgt durch Multiplikation mit \\(A^{-1}\\) und Division durch \\(\\lambda\\):\n\\(A^{-1} v = \\frac{1}{\\lambda} v\\).\n\n\\(A^{-1}\\) hat also dieselben Eigenvektoren wie \\(A\\), mit den Kehrwerten als Eigenwerte. Für unser \\(A\\): \\(A^{-1}\\) hat die Eigenwerte \\(\\frac{1}{3}\\) und \\(1\\).",
+      "insight": "Damit wird die große Liste aus „Matrizen“ und „Determinanten“ noch länger: invertierbar ⇔ \\(\\det A \\neq 0\\) ⇔ Kern trivial ⇔ voller Rang ⇔ \\(0\\) ist kein Eigenwert."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440027",
+      "section": "Kapitel 5 · Wichtige Eigenschaften",
+      "text": "Auch Potenzen sind mit Eigenvektoren ganz einfach. Wendet man \\(A\\) zweimal an, wird zweimal mit \\(\\lambda\\) gestreckt:",
+      "formula": "\\begin{aligned} A^2 v &= A(\\lambda v) = \\lambda (Av) = \\lambda^2 v \\\\ A^k v &= \\lambda^k v \\end{aligned}",
+      "explanation": "Eigenvektoren von \\(A\\) sind also auch Eigenvektoren von \\(A^k\\), mit Eigenwert \\(\\lambda^k\\).\n\nBeispiel: \\(A^{10} \\cdot (1, 1) = 3^{10} \\cdot (1, 1)\\), also \\((59049, 59049)\\) – ohne eine einzige Matrixmultiplikation.\n\nVorsicht bei der Umkehrung: Eigenwerte von \\(A + B\\) oder \\(AB\\) sind im Allgemeinen NICHT Summen oder Produkte der Eigenwerte von \\(A\\) und \\(B\\) – das klappt nur, wenn beide dieselben Eigenvektoren haben.",
+      "insight": "Für Potenzen gilt: gleiche Eigenvektoren, Eigenwerte hoch \\(k\\). Genau das macht Eigenwerte für Prozesse interessant, die sich wiederholen."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440028",
+      "section": "Kapitel 5 · Wichtige Eigenschaften",
+      "text": "Was passiert, wenn man \\(A\\) immer wieder anwendet? Der Anteil in Richtung des betragsgrößten Eigenwerts wächst am schnellsten und setzt sich durch:",
+      "visual": "powerIteration",
+      "formula": "\\begin{aligned} A^k \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} &= \\tfrac{1}{2} \\cdot 3^k \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} - \\tfrac{1}{2} \\cdot 1^k \\begin{pmatrix} -1 \\\\ 1 \\end{pmatrix} \\\\[6pt] &= \\tfrac{1}{2} \\begin{pmatrix} 3^k + 1 \\\\ 3^k - 1 \\end{pmatrix} \\end{aligned}",
+      "explanation": "Wir haben \\((1, 0)\\) wie in Kapitel 4 in Eigenanteile zerlegt. Der erste Anteil wird bei jedem Schritt verdreifacht, der zweite bleibt gleich.\n\nFür \\(k = 3\\): \\(\\frac{1}{2}(28, 26) = (14, 13)\\). Die Richtung kommt \\((1, 1)\\) immer näher, weil \\(3^k\\) den Summanden \\(1\\) bald völlig dominiert.\n\nAuf diesem Prinzip beruht die Potenzmethode (Vektoriteration), ein einfaches numerisches Verfahren zur Berechnung des betragsgrößten Eigenwerts. Es funktioniert, wenn es genau einen betragsgrößten Eigenwert gibt und der Startvektor einen Anteil in dessen Richtung hat.",
+      "insight": "Langfristig bestimmt der betragsgrößte Eigenwert das Verhalten. Das nutzt z. B. Googles PageRank: Die Rangliste ist ein Eigenvektor zum Eigenwert \\(1\\) einer riesigen Matrix."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440029",
+      "section": "Kapitel 5 · Wichtige Eigenschaften",
+      "text": "Ein zentraler Satz: Eigenvektoren zu VERSCHIEDENEN Eigenwerten sind linear unabhängig. Beweis für zwei Eigenvektoren \\(v_1, v_2\\) mit \\(\\lambda_1 \\neq \\lambda_2\\):",
+      "formula": "\\begin{aligned} c_1 v_1 + c_2 v_2 &= 0 \\\\ c_1 \\lambda_1 v_1 + c_2 \\lambda_2 v_2 &= 0 \\\\ c_1 (\\lambda_1 - \\lambda_2)\\, v_1 &= 0 \\end{aligned}",
+      "explanation": "Zeile 2 entsteht, indem man \\(A\\) auf Zeile 1 anwendet. Zeile 3 ist Zeile 2 minus \\(\\lambda_2\\) mal Zeile 1 – der Summand mit \\(v_2\\) fällt weg.\n\nWeil \\(\\lambda_1 - \\lambda_2 \\neq 0\\) und \\(v_1 \\neq 0\\) ist, folgt \\(c_1 = 0\\). Eingesetzt in die erste Zeile: \\(c_2 v_2 = 0\\), also \\(c_2 = 0\\). Damit sind \\(v_1, v_2\\) linear unabhängig. ∎\n\nFür beliebig viele Eigenvektoren funktioniert derselbe Trick mit vollständiger Induktion.\n\nFolgerung: Hat eine \\(n \\times n\\)-Matrix \\(n\\) verschiedene Eigenwerte, dann bilden \\(n\\) zugehörige Eigenvektoren eine Basis von \\(K^n\\).",
+      "insight": "Verschiedene Eigenwerte garantieren unabhängige Eigenvektoren. Bei gleichen Eigenwerten muss man genauer hinschauen – das ist das Thema des nächsten Kapitels."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440030",
+      "section": "Kapitel 6 · Vielfachheiten",
+      "text": "Jeder Eigenwert hat zwei „Vielfachheiten“, die man streng unterscheiden muss:",
+      "formula": "\\begin{array}{l} \\mu_a(\\lambda): \\text{ Vielfachheit von } \\lambda \\\\ \\qquad \\text{als Nullstelle von } \\chi_A \\\\[8pt] \\mu_g(\\lambda) = \\dim E_\\lambda \\\\ \\qquad = \\dim \\operatorname{Kern}(A - \\lambda I) \\end{array}",
+      "explanation": "Die algebraische Vielfachheit zählt, wie oft der Faktor \\((\\lambda_0 - \\lambda)\\) in \\(\\chi_A\\) vorkommt. Die geometrische Vielfachheit zählt, wie viele linear unabhängige Eigenvektoren es zu \\(\\lambda\\) gibt.\n\nBei \\(B\\) aus Kapitel 3 und 4:\n• \\(\\lambda = 3\\): \\(\\chi_B\\) enthält \\((3 - \\lambda)^2\\), also \\(\\mu_a = 2\\). \\(E_3\\) ist eine Ebene, also \\(\\mu_g = 2\\).\n• \\(\\lambda = 5\\): \\(\\mu_a = 1\\) und \\(\\mu_g = 1\\).",
+      "insight": "Es gilt immer: \\(1 \\le \\mu_g(\\lambda) \\le \\mu_a(\\lambda)\\). Ein Eigenwert hat mindestens einen Eigenvektor, aber eventuell weniger, als seine Vielfachheit im Polynom verspricht."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440031",
+      "section": "Kapitel 6 · Vielfachheiten",
+      "text": "Das Gegenbeispiel kennst du schon: die Scherung \\(C = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}\\).",
+      "formula": "\\begin{aligned} \\chi_C(\\lambda) &= (1 - \\lambda)^2 \\\\[4pt] C - I &= \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix} \\\\[4pt] E_1 &= \\operatorname{span}\\{(1, 0)\\} \\end{aligned}",
+      "explanation": "Algebraisch ist \\(1\\) eine doppelte Nullstelle: \\(\\mu_a(1) = 2\\).\n\nAber \\(C - I\\) hat Rang \\(1\\), also ist \\(\\dim \\operatorname{Kern}(C - I) = 2 - 1 = 1\\): \\(\\mu_g(1) = 1\\).\n\nEs „fehlt“ ein Eigenvektor. In ganz \\(\\mathbb{R}^2\\) gibt es nur eine einzige Eigenrichtung – genau das hat die Animation in Kapitel 2 gezeigt.",
+      "insight": "Doppelter Eigenwert heißt NICHT automatisch zwei unabhängige Eigenvektoren. Vergleiche: Die Einheitsmatrix \\(I\\) hat ebenfalls \\(\\chi_I(\\lambda) = (1 - \\lambda)^2\\), aber \\(E_1 = \\mathbb{R}^2\\), also \\(\\mu_g = 2\\)."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440032",
+      "section": "Kapitel 7 · Diagonalisieren",
+      "text": "Jetzt kommt der eigentliche Lohn. Nehmen wir die Eigenvektoren von \\(A\\) als neue Basis: \\(v_1 = (1, 1)\\) und \\(v_2 = (-1, 1)\\). In dieser Basis macht \\(A\\) nur noch eines: Koordinaten mit \\(3\\) bzw. \\(1\\) multiplizieren.",
+      "visual": "basisChange",
+      "formula": "\\begin{array}{c} A v_1 = 3 v_1, \\quad A v_2 = 1 \\cdot v_2 \\\\[6pt] \\Downarrow \\\\[2pt] \\text{Matrix bzgl. } (v_1, v_2): \\; D = \\begin{pmatrix} 3 & 0 \\\\ 0 & 1 \\end{pmatrix} \\end{array}",
+      "explanation": "Erinnerung aus „Lineare Abbildungen“: Die Spalten der Abbildungsmatrix sind die Koordinaten der Bilder der Basisvektoren. \\(A v_1 = 3 v_1 + 0 \\cdot v_2\\) liefert die erste Spalte \\((3, 0)\\), \\(A v_2 = 0 \\cdot v_1 + 1 \\cdot v_2\\) die zweite Spalte \\((0, 1)\\).\n\nDie Animation verwendet die Basis \\((1, 1)\\) und \\((1, -1)\\). Das ist dieselbe Eigenrichtung zum Eigenwert \\(1\\), nur mit umgekehrtem Vorzeichen.",
+      "insight": "In einer Basis aus Eigenvektoren wird jede Matrix zu einer Diagonalmatrix. „Diagonalisieren“ heißt: eine solche Basis finden."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440033",
+      "section": "Kapitel 7 · Diagonalisieren",
+      "text": "Als Matrixgleichung: Schreibe die Eigenvektoren als Spalten in eine Matrix \\(P\\) und die Eigenwerte in derselben Reihenfolge auf die Diagonale von \\(D\\).",
+      "formula": "\\begin{aligned} AP &= A\\,(v_1 \\mid v_2) \\\\ &= (\\lambda_1 v_1 \\mid \\lambda_2 v_2) = PD \\\\[6pt] \\Longrightarrow \\quad A &= P D P^{-1} \\\\ D &= P^{-1} A P \\end{aligned}",
+      "explanation": "\\(AP\\) berechnet man spaltenweise: Die \\(j\\)-te Spalte ist \\(A v_j = \\lambda_j v_j\\). Und \\(PD\\) multipliziert die \\(j\\)-te Spalte von \\(P\\) mit \\(\\lambda_j\\) – dasselbe!\n\n\\(P\\) ist invertierbar, weil seine Spalten eine Basis bilden. Deshalb darf man mit \\(P^{-1}\\) durchmultiplizieren.\n\nEine Matrix \\(A\\) heißt diagonalisierbar, wenn es ein invertierbares \\(P\\) und eine Diagonalmatrix \\(D\\) mit \\(A = PDP^{-1}\\) gibt.",
+      "insight": "Typischer Fehler: Die Reihenfolge in \\(P\\) und \\(D\\) passt nicht zusammen. Der Eigenwert in Spalte \\(j\\) von \\(D\\) muss zum Eigenvektor in Spalte \\(j\\) von \\(P\\) gehören."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440034",
+      "section": "Kapitel 7 · Diagonalisieren",
+      "text": "Für unser Beispiel konkret ausgerechnet:",
+      "formula": "\\begin{aligned} P &= \\begin{pmatrix} 1 & -1 \\\\ 1 & 1 \\end{pmatrix} \\\\[6pt] D &= \\begin{pmatrix} 3 & 0 \\\\ 0 & 1 \\end{pmatrix} \\\\[6pt] P^{-1} &= \\tfrac{1}{2} \\begin{pmatrix} 1 & 1 \\\\ -1 & 1 \\end{pmatrix} \\\\[6pt] P D P^{-1} &= \\begin{pmatrix} 3 & -1 \\\\ 3 & 1 \\end{pmatrix} \\cdot \\tfrac{1}{2} \\begin{pmatrix} 1 & 1 \\\\ -1 & 1 \\end{pmatrix} \\\\[6pt] &= \\tfrac{1}{2} \\begin{pmatrix} 4 & 2 \\\\ 2 & 4 \\end{pmatrix} = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\;\\checkmark \\end{aligned}",
+      "explanation": "\\(P^{-1}\\) mit der \\(2 \\times 2\\)-Formel: \\(\\det P = 1 \\cdot 1 - (-1) \\cdot 1 = 2\\), also \\(P^{-1} = \\frac{1}{2} \\begin{pmatrix} 1 & 1 \\\\ -1 & 1 \\end{pmatrix}\\).\n\n\\(PD\\): erste Spalte von \\(P\\) mal \\(3\\), zweite mal \\(1\\), ergibt \\(\\begin{pmatrix} 3 & -1 \\\\ 3 & 1 \\end{pmatrix}\\).\n\nDann \\(PD \\cdot P^{-1} = \\frac{1}{2} \\begin{pmatrix} 3 + 1 & 3 - 1 \\\\ 3 - 1 & 3 + 1 \\end{pmatrix}\\), und das ist genau \\(A\\) ✓",
+      "insight": "Die Probe \\(PDP^{-1} = A\\) (oder einfacher \\(AP = PD\\)) deckt fast jeden Rechenfehler auf."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440035",
+      "section": "Kapitel 7 · Diagonalisieren",
+      "text": "Wann ist eine Matrix diagonalisierbar? Genau dann, wenn es genug Eigenvektoren gibt:",
+      "formula": "\\begin{array}{c} A \\text{ diagonalisierbar} \\\\[2pt] \\Updownarrow \\\\[2pt] \\text{Basis aus Eigenvektoren von } A \\\\[2pt] \\Updownarrow \\\\[2pt] \\chi_A \\text{ zerfällt in Linearfaktoren} \\\\ \\text{und } \\mu_g(\\lambda) = \\mu_a(\\lambda) \\text{ für alle } \\lambda \\end{array}",
+      "explanation": "Hinreichend (aber nicht notwendig): \\(A\\) hat \\(n\\) verschiedene Eigenwerte. Dann folgt es aus dem Satz in Kapitel 5.\n\nUnsere Beispiele:\n• \\(A\\): zwei verschiedene Eigenwerte → diagonalisierbar.\n• \\(B\\): \\(\\mu_g = \\mu_a\\) für \\(3\\) und \\(5\\) → diagonalisierbar, mit \\(P = \\begin{pmatrix} 0 & -1 & 1 \\\\ 1 & 0 & 2 \\\\ 0 & 1 & 1 \\end{pmatrix}\\) und \\(D = \\operatorname{diag}(3, 3, 5)\\).\n• Scherung \\(C\\): \\(\\mu_g(1) = 1 < 2 = \\mu_a(1)\\) → NICHT diagonalisierbar.\n• Drehung \\(R\\): über \\(\\mathbb{R}\\) zerfällt \\(\\chi_R = \\lambda^2 + 1\\) nicht → über \\(\\mathbb{R}\\) nicht diagonalisierbar, über \\(\\mathbb{C}\\) schon.",
+      "insight": "Ein doppelter Eigenwert ist kein Hindernis (siehe \\(B\\)). Das Hindernis ist ein FEHLENDER Eigenvektor (siehe \\(C\\))."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440036",
+      "section": "Kapitel 7 · Diagonalisieren",
+      "text": "Wozu der Aufwand? Mit \\(A = PDP^{-1}\\) werden Potenzen trivial, weil sich die inneren \\(P^{-1}P\\) wegkürzen:",
+      "formula": "\\begin{aligned} A^k &= (PDP^{-1})^k = P D^k P^{-1} \\\\[6pt] P D^k &= \\begin{pmatrix} 3^k & -1 \\\\ 3^k & 1 \\end{pmatrix} \\\\[6pt] A^k &= \\begin{pmatrix} 3^k & -1 \\\\ 3^k & 1 \\end{pmatrix} \\cdot \\tfrac{1}{2} \\begin{pmatrix} 1 & 1 \\\\ -1 & 1 \\end{pmatrix} \\\\[6pt] &= \\tfrac{1}{2} \\begin{pmatrix} 3^k + 1 & 3^k - 1 \\\\ 3^k - 1 & 3^k + 1 \\end{pmatrix} \\end{aligned}",
+      "explanation": "Beim Ausschreiben von \\((PDP^{-1})(PDP^{-1}) \\cdots\\) steht zwischen je zwei Faktoren \\(P^{-1}P = I\\) – übrig bleibt \\(P D^k P^{-1}\\).\n\n\\(D^k\\) ist einfach: Jeder Diagonaleintrag wird hoch \\(k\\) genommen. \\(PD^k\\) multipliziert dann die Spalten von \\(P\\) mit \\(3^k\\) bzw. \\(1\\).\n\nProbe für \\(k = 2\\): Direkt gerechnet ist \\(A^2 = \\begin{pmatrix} 5 & 4 \\\\ 4 & 5 \\end{pmatrix}\\). Die Formel liefert \\(\\frac{1}{2} \\begin{pmatrix} 9 + 1 & 9 - 1 \\\\ 9 - 1 & 9 + 1 \\end{pmatrix}\\), also dasselbe ✓\n\nDie erste Spalte ist genau \\(A^k (1, 0)\\) aus Kapitel 5.",
+      "insight": "Statt \\(k - 1\\) Matrixmultiplikationen braucht man nur noch \\(k\\)-te Potenzen von Zahlen. Das ist die Grundlage für Rekursionen (z. B. eine geschlossene Formel für Fibonacci-Zahlen), Markov-Ketten und lineare Differentialgleichungen."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440037",
+      "section": "Kapitel 7 · Diagonalisieren",
+      "text": "Ein besonders schöner Spezialfall: symmetrische Matrizen (\\(A^T = A\\)), wie unser \\(A\\). Für sie gilt der Spektralsatz:",
+      "formula": "\\begin{array}{c} A = A^T \\text{ reell} \\\\[2pt] \\Downarrow \\\\[2pt] \\text{alle Eigenwerte reell} \\\\[2pt] A = Q D Q^T \\text{ mit } Q^T Q = I \\end{array}",
+      "explanation": "Eigenvektoren zu verschiedenen Eigenwerten stehen bei symmetrischen Matrizen sogar senkrecht aufeinander. Bei uns: \\((1, 1) \\cdot (-1, 1) = -1 + 1 = 0\\) ✓.\n\nNormiert man sie auf Länge \\(1\\), wird \\(P\\) zu einer orthogonalen Matrix \\(Q\\) mit \\(Q^{-1} = Q^T\\):\n\\(Q = \\frac{1}{\\sqrt{2}} \\begin{pmatrix} 1 & -1 \\\\ 1 & 1 \\end{pmatrix}\\) – das ist eine Drehung um \\(45°\\).\n\nGeometrisch: \\(A\\) dreht das Koordinatensystem auf die Eigenachsen, streckt dort entlang der Achsen und dreht zurück.",
+      "insight": "Jede reelle symmetrische Matrix ist diagonalisierbar, sogar mit einer Orthonormalbasis. Das macht sie in Physik, Statistik und Optimierung so wichtig."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440038",
+      "section": "Kapitel 8 · Ausblick und Rückblick",
+      "text": "Ausblick: Was ist mit Matrizen, die nicht diagonalisierbar sind, und wo braucht man Eigenwerte überall?",
+      "explanation": "• Jordan-Normalform: Zerfällt \\(\\chi_A\\) in Linearfaktoren (über \\(\\mathbb{C}\\) immer), ist \\(A\\) ähnlich zu einer fast-diagonalen Matrix. Fehlende Eigenvektoren werden durch Einsen über der Diagonale ersetzt. Die Scherung \\(\\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}\\) ist bereits so ein Jordan-Block.\n\n• Komplexe Eigenwerte: Sie gehören zu Drehungen. Eine reelle \\(2 \\times 2\\)-Matrix mit Eigenwerten \\(a \\pm bi\\) dreht und streckt gleichzeitig.\n\n• Differentialgleichungen: Das System \\(x'(t) = A x(t)\\) hat für einen Eigenvektor \\(v\\) die Lösung \\(x(t) = e^{\\lambda t} v\\). Die Eigenwerte entscheiden über Wachstum, Zerfall und Schwingung.\n\n• Markov-Ketten und PageRank: Gleichgewichtsverteilungen sind Eigenvektoren zum Eigenwert \\(1\\).\n\n• Hauptachsentransformation und Statistik (Hauptkomponentenanalyse): Eigenvektoren einer symmetrischen Matrix zeigen die Hauptrichtungen einer Ellipse bzw. einer Datenwolke.\n\n• Physik: Eigenfrequenzen schwingender Systeme. In der Quantenmechanik sind messbare Energien Eigenwerte, \\(H\\psi = E\\psi\\).\n\n• Singulärwertzerlegung: Eine Verallgemeinerung auf beliebige, auch nicht quadratische Matrizen. Die Singulärwerte sind die Wurzeln der Eigenwerte von \\(A^T A\\).",
+      "insight": "Eigenwerte sind überall dort wichtig, wo etwas wiederholt oder kontinuierlich wirkt. Sie verraten das Langzeitverhalten eines Systems."
+    },
+    {
+      "id": "bb0e8400-e29b-41d4-a716-446655440039",
+      "section": "Kapitel 8 · Ausblick und Rückblick",
+      "text": "Schau zurück, wie die Begriffe auseinander hervorgegangen sind:",
+      "explanation": "1. Richtungen, die \\(A\\) nur streckt → \\(Av = \\lambda v\\), \\(v \\neq 0\\). Eigenvektoren zu \\(\\lambda\\) bilden mit \\(0\\) den Eigenraum \\(E_\\lambda\\).\n\n2. Geometrie: Streckung (Achsen), Spiegelung (\\(\\pm 1\\)), Projektion (\\(0\\), \\(1\\)), Drehung (keine reellen), Scherung (zu wenige).\n\n3. \\((A - \\lambda I)v = 0\\) nichttrivial lösbar ⇔ \\(\\det(A - \\lambda I) = 0\\) → charakteristisches Polynom, bei \\(2 \\times 2\\): \\(\\lambda^2 - \\operatorname{tr}(A)\\lambda + \\det A\\).\n\n4. \\(E_\\lambda = \\operatorname{Kern}(A - \\lambda I)\\), mit Gauß lösen, Probe machen.\n\n5. \\(\\operatorname{tr} A = \\sum \\lambda_i\\), \\(\\det A = \\prod \\lambda_i\\); \\(0\\) Eigenwert ⇔ nicht invertierbar; \\(A^k v = \\lambda^k v\\); verschiedene Eigenwerte → unabhängige Eigenvektoren.\n\n6. \\(1 \\le \\mu_g \\le \\mu_a\\).\n\n7. Basis aus Eigenvektoren → \\(A = PDP^{-1}\\) → \\(A^k = PD^kP^{-1}\\). Symmetrische Matrizen: immer, sogar orthogonal.\n\n8. Ausblick: Jordan-Form, Differentialgleichungen, Markov-Ketten, Physik, SVD.",
+      "insight": "Glückwunsch! Wenn du bei jedem Schritt erklären kannst, WARUM er aus dem vorigen folgt, hast du Eigenwerte und Eigenvektoren wirklich verstanden."
+    }
+  ]
+}

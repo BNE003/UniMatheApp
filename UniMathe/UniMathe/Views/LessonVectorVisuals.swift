@@ -79,6 +79,35 @@ struct LessonVisualView: View {
             sample: CGPoint(x: 1, y: 1)
         )
         case "detRules": DetRulesVisual()
+        case "eigenSearch": EigenSearchVisual()
+        case "eigenvalueScaling": EigenvalueScalingVisual()
+        case "charPolyCollapse": CharPolyCollapseVisual()
+        case "eigenMap": EigenMapVisual(
+            captions: [
+                "A = (2 1; 1 2). Blau: v₁ = (1, 1), orange: v₂ = (−1, 1), rot: ein gewöhnlicher Vektor x = (1, 0).",
+                "Gestrichelt: die Geraden durch v₁, v₂ und x. Die Geraden durch v₁ und v₂ sind die Eigenräume.",
+                "Jetzt wirkt A auf die ganze Ebene: A v₁ = 3 v₁ und A v₂ = 1 · v₂ bleiben auf ihren Geraden. A x = (2, 1) verlässt dagegen seine Gerade.",
+                "A streckt also in Richtung (1, 1) um den Faktor 3 und lässt die Richtung (−1, 1) unverändert. Mehr macht A nicht – das ist das ganze Geheimnis dieser Matrix."
+            ],
+            column1: CGPoint(x: 2, y: 1),
+            column2: CGPoint(x: 1, y: 2),
+            eigen: [(CGPoint(x: 1, y: 1), 3, "v₁"), (CGPoint(x: -1, y: 1), 1, "v₂")],
+            sample: CGPoint(x: 1, y: 0)
+        )
+        case "shearEigen": EigenMapVisual(
+            window: PlaneWindow(xMin: -1.5, xMax: 2.5, yMin: -1.5, yMax: 2.5),
+            captions: [
+                "Scherung A = (1 1; 0 1). Blau: v = (1, 0), rot: x = (0, 1).",
+                "Die x-Achse (gestrichelt) ist die einzige Eigengerade. Die rote Gerade durch x ist zum Vergleich eingezeichnet.",
+                "A wirkt: A v = v bleibt liegen (Eigenwert 1). A x = (1, 1) kippt aus seiner Geraden heraus – wie jeder Vektor außerhalb der x-Achse.",
+                "Es gibt nur EINE Eigenrichtung: Doppelter Eigenwert 1, aber Eigenraum der Dimension 1. Zu wenige Eigenvektoren für eine Basis!"
+            ],
+            column1: CGPoint(x: 1, y: 0),
+            column2: CGPoint(x: 1, y: 1),
+            eigen: [(CGPoint(x: 1, y: 0), 1, "v")],
+            sample: CGPoint(x: 0, y: 1)
+        )
+        case "powerIteration": PowerIterationVisual()
         default: EmptyView()
         }
     }
@@ -992,6 +1021,205 @@ private struct DetRulesVisual: View {
             MathLabel(text: "a", at: a, color: VisualColor.first, window: window, size: size, offset: CGSize(width: 4, height: 16))
             Arrow(from: .zero, to: b, color: VisualColor.second, window: window, width: 4)
             MathLabel(text: "b", at: b, color: VisualColor.second, window: window, size: size, offset: CGSize(width: -12, height: -8))
+        }
+    }
+}
+
+// MARK: - Eigenwerte und Eigenvektoren: Animationen
+
+// MARK: - 15. Suche nach Richtungen, die erhalten bleiben
+
+/// Pro Phase ein Testvektor u (mit seiner Geraden) und sein Bild A·u für A = (2 1; 1 2).
+private struct EigenSearchVisual: View {
+    let window = PlaneWindow(xMin: -2.5, xMax: 4, yMin: -1.5, yMax: 5)
+
+    private let tests: [(CGPoint, CGPoint)] = [
+        (CGPoint(x: 1, y: 0), CGPoint(x: 2, y: 1)),
+        (CGPoint(x: 0, y: 1), CGPoint(x: 1, y: 2)),
+        (CGPoint(x: 1, y: 1), CGPoint(x: 3, y: 3)),
+        (CGPoint(x: -1, y: 1), CGPoint(x: -1, y: 1))
+    ]
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "A = (2 1; 1 2). Testvektor u = (1, 0) mit seiner Geraden (gestrichelt). A · u = (2, 1) liegt NICHT auf dieser Geraden: Die Richtung ändert sich.",
+            "u = (0, 1): A · u = (1, 2). Wieder kippt der Vektor aus seiner Geraden heraus.",
+            "u = (1, 1): A · u = (3, 3) = 3·u. Der Vektor bleibt auf seiner Geraden und wird nur verdreifacht – ein Eigenvektor zum Eigenwert 3!",
+            "u = (−1, 1): A · u = (−2 + 1, −1 + 2) = (−1, 1) = 1·u. Auch ein Eigenvektor, diesmal zum Eigenwert 1."
+        ]) { phase, size in
+            let test = tests[min(phase, tests.count - 1)]
+            let isEigen = phase >= 2
+            let imageColor = isEigen ? VisualColor.result : VisualColor.warning
+
+            PlaneLineShape(through: .zero, direction: test.0, window: window)
+                .stroke(isEigen ? VisualColor.result.opacity(0.6) : VisualColor.first.opacity(0.5), style: StrokeStyle(lineWidth: 2, dash: [5, 4]))
+
+            Arrow(from: .zero, to: test.1, color: imageColor, window: window, width: 3)
+            MathLabel(text: "A·u", at: test.1, color: imageColor, window: window, size: size, offset: CGSize(width: 18, height: -10))
+
+            Arrow(from: .zero, to: test.0, color: VisualColor.first, window: window, width: 4)
+            MathLabel(text: "u", at: test.0, color: VisualColor.first, window: window, size: size, offset: CGSize(width: phase == 3 ? -14 : 12, height: 14))
+        }
+    }
+}
+
+// MARK: - 16. Was der Eigenwert über die Streckung verrät
+
+private struct EigenvalueScalingVisual: View {
+    let window = PlaneWindow(xMin: -3, xMax: 5, yMin: -3, yMax: 5)
+    private let v = CGPoint(x: 2, y: 1)
+    private let lambdas: [CGFloat] = [1, 2, 0.5, -1, 0]
+    private let names = ["λ = 1", "λ = 2", "λ = ½", "λ = −1", "λ = 0"]
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Ein Eigenvektor v = (2, 1) und seine Gerade. Ist A v = λ v, so hängt alles nur vom Faktor λ ab. Bei λ = 1 bleibt v unverändert.",
+            "λ = 2: A v = 2 v – doppelt so lang, gleiche Richtung.",
+            "λ = ½: A v = ½ v – halb so lang, gleiche Richtung.",
+            "λ = −1: A v = −v – gleiche Gerade, aber umgeklappt in die Gegenrichtung.",
+            "λ = 0: A v = 0 – v wird auf den Nullpunkt gequetscht. Dann ist v ein Vektor im Kern von A."
+        ]) { phase, size in
+            let lambda = lambdas[min(phase, lambdas.count - 1)]
+            let image = CGPoint(x: lambda * v.x, y: lambda * v.y)
+
+            PlaneLineShape(through: .zero, direction: v, window: window)
+                .stroke(VisualColor.result.opacity(0.5), style: StrokeStyle(lineWidth: 2, dash: [5, 4]))
+
+            Arrow(from: .zero, to: v, color: VisualColor.first, window: window, width: 6)
+                .opacity(0.35)
+            MathLabel(text: "v", at: v, color: VisualColor.first, window: window, size: size, offset: CGSize(width: 4, height: 16))
+
+            Arrow(from: .zero, to: image, color: VisualColor.result, window: window, width: 3)
+            Dot(at: image, color: VisualColor.result, window: window, size: size)
+            MathLabel(text: "A·v  (" + names[min(phase, names.count - 1)] + ")", at: image, color: VisualColor.result, window: window, size: size, offset: CGSize(width: phase == 3 ? 10 : -6, height: phase == 3 ? 18 : -18))
+        }
+    }
+}
+
+// MARK: - 17. det(A − λI) = 0: Das Parallelogramm klappt zusammen
+
+private struct CharPolyCollapseVisual: View {
+    let window = PlaneWindow(xMin: -2, xMax: 3.5, yMin: -2, yMax: 3.5)
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "λ = 0: A − 0 · I = (2 1; 1 2). Die Spalten (2, 1) und (1, 2) spannen ein Parallelogramm mit Fläche det = 4 − 1 = 3 auf.",
+            "λ = 1: A − I = (1 1; 1 1). Beide Spalten sind (1, 1) – das Parallelogramm klappt zusammen, det = 0. Also ist 1 ein Eigenwert!",
+            "λ = 2: A − 2I = (0 1; 1 0). Spalten (0, 1) und (1, 0): wieder eine echte Fläche, det = 0 − 1 = −1.",
+            "λ = 3: A − 3I = (−1 1; 1 −1). Die Spalten (−1, 1) und (1, −1) sind entgegengesetzt – Fläche 0. Also ist 3 ein Eigenwert!"
+        ]) { phase, size in
+            let lambda = CGFloat(min(phase, 3))
+            let a = CGPoint(x: 2 - lambda, y: 1)
+            let b = CGPoint(x: 1, y: 2 - lambda)
+            let collapsed = phase == 1 || phase == 3
+            let color = collapsed ? VisualColor.warning : VisualColor.first
+            let detText = ["det = 3", "det = 0", "det = −1", "det = 0"][min(phase, 3)]
+
+            ParallelogramShape(a: a, b: b, window: window)
+                .fill(color.opacity(0.2))
+            ParallelogramShape(a: a, b: b, window: window)
+                .stroke(color, lineWidth: 2)
+
+            Arrow(from: .zero, to: a, color: VisualColor.first, window: window, width: 4)
+            Arrow(from: .zero, to: b, color: VisualColor.second, window: window, width: 3)
+
+            MathLabel(text: "λ = \(Int(lambda)):  " + detText, at: CGPoint(x: 0.75, y: -1.4), color: color, window: window, size: size, offset: .zero)
+        }
+    }
+}
+
+// MARK: - 18. Eigenrichtungen unter der Abbildung
+
+/// Zeigt Eigengeraden einer 2×2-Matrix, dann wird die Abbildung angewendet:
+/// Eigenvektoren bleiben auf ihrer Geraden, ein Vergleichsvektor nicht.
+private struct EigenMapVisual: View {
+    var window = PlaneWindow(xMin: -2, xMax: 4, yMin: -2, yMax: 4)
+    let captions: [String]
+    let column1: CGPoint
+    let column2: CGPoint
+    /// Eigenvektoren mit zugehörigem Eigenwert und Beschriftung.
+    let eigen: [(vector: CGPoint, lambda: CGFloat, name: String)]
+    let sample: CGPoint
+    var linesPhase = 1
+    var mapPhase = 2
+
+    private func apply(_ p: CGPoint) -> CGPoint {
+        CGPoint(x: p.x * column1.x + p.y * column2.x, y: p.x * column1.y + p.y * column2.y)
+    }
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: captions) { phase, size in
+            let mapped = phase >= mapPhase
+            let gridA = mapped ? column1 : CGPoint(x: 1, y: 0)
+            let gridB = mapped ? column2 : CGPoint(x: 0, y: 1)
+            let samplePoint = mapped ? apply(sample) : sample
+
+            AnimatableGridShape(a: gridA, b: gridB, window: window)
+                .stroke(Color.secondary.opacity(0.3), lineWidth: 1)
+            ParallelogramShape(a: gridA, b: gridB, window: window)
+                .fill(VisualColor.first.opacity(0.12))
+
+            ForEach(eigen.indices, id: \.self) { i in
+                PlaneLineShape(through: .zero, direction: eigen[i].vector, window: window)
+                    .stroke(VisualColor.result.opacity(0.55), style: StrokeStyle(lineWidth: 2.5, dash: [6, 4]))
+                    .opacity(show(phase >= linesPhase))
+            }
+
+            PlaneLineShape(through: .zero, direction: sample, window: window)
+                .stroke(VisualColor.warning.opacity(0.35), style: StrokeStyle(lineWidth: 1.5, dash: [3, 4]))
+                .opacity(show(phase >= linesPhase))
+            Arrow(from: .zero, to: samplePoint, color: VisualColor.warning, window: window, width: 3)
+            MathLabel(text: mapped ? "A·x" : "x", at: samplePoint, color: VisualColor.warning, window: window, size: size, offset: CGSize(width: 16, height: 10))
+
+            ForEach(eigen.indices, id: \.self) { i in
+                let v = eigen[i].vector
+                let target = mapped ? CGPoint(x: eigen[i].lambda * v.x, y: eigen[i].lambda * v.y) : v
+                Arrow(from: .zero, to: target, color: i == 0 ? VisualColor.first : VisualColor.second, window: window, width: 4)
+                MathLabel(
+                    text: mapped ? "A·" + eigen[i].name : eigen[i].name,
+                    at: target,
+                    color: i == 0 ? VisualColor.first : VisualColor.second,
+                    window: window,
+                    size: size,
+                    offset: i == 0 ? CGSize(width: 18, height: 14) : CGSize(width: -22, height: -10)
+                )
+            }
+        }
+    }
+}
+
+// MARK: - 19. Wiederholtes Anwenden: Die Richtung läuft zum größten Eigenwert
+
+private struct PowerIterationVisual: View {
+    let window = PlaneWindow(xMin: -1, xMax: 4, yMin: -1, yMax: 4)
+
+    /// x, A x, A² x, A³ x für A = (2 1; 1 2) und x = (1, 0).
+    private let iterates: [CGPoint] = [
+        CGPoint(x: 1, y: 0), CGPoint(x: 2, y: 1), CGPoint(x: 5, y: 4), CGPoint(x: 14, y: 13)
+    ]
+
+    private func scaled(_ p: CGPoint) -> CGPoint {
+        let length = sqrt(p.x * p.x + p.y * p.y)
+        return CGPoint(x: 3 * p.x / length, y: 3 * p.y / length)
+    }
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Start: x = (1, 0). Gestrichelt: die Eigengerade zu λ = 3. Alle Pfeile sind auf gleiche Länge gebracht – es geht nur um die Richtung.",
+            "A x = (2, 1): Die Richtung dreht sich zur Eigengeraden hin.",
+            "A² x = (5, 4): noch näher dran.",
+            "A³ x = (14, 13): fast genau auf der Geraden. Der Anteil in Richtung (1, 1) wächst mit 3ᵏ, der Anteil in Richtung (1, −1) bleibt bei 1ᵏ = 1."
+        ]) { phase, size in
+            PlaneLineShape(through: .zero, direction: CGPoint(x: 1, y: 1), window: window)
+                .stroke(VisualColor.result.opacity(0.6), style: StrokeStyle(lineWidth: 2.5, dash: [6, 4]))
+
+            ForEach(0..<iterates.count, id: \.self) { k in
+                Arrow(from: .zero, to: scaled(iterates[k]), color: VisualColor.first, window: window, width: k == phase ? 4 : 2)
+                    .opacity(k > phase ? 0 : (k == phase ? 1 : 0.3))
+            }
+
+            let current = scaled(iterates[min(phase, iterates.count - 1)])
+            MathLabel(text: ["x", "A·x", "A²·x", "A³·x"][min(phase, 3)], at: current, color: VisualColor.first, window: window, size: size, offset: CGSize(width: 22, height: 8))
         }
     }
 }
