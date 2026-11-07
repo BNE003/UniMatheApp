@@ -23,6 +23,20 @@ struct LessonVisualView: View {
         case "spanGrowth": SpanGrowthVisual()
         case "linearDependence": LinearDependenceVisual()
         case "basisCoordinates": BasisCoordinatesVisual()
+        case "matrixTimesVector": LinearCombinationVisual(
+            captions: [
+                "A hat die Spalten a₁ = (2, 1) und a₂ = (1, 2). Wir berechnen A · x für x = (1, 2).",
+                "Der 2. Eintrag von x ist 2: Spalte a₂ wird verdoppelt → 2 · a₂ = (2, 4).",
+                "Der 1. Eintrag von x ist 1: a₁ einmal. Wir hängen 2 · a₂ an die Spitze von a₁.",
+                "A · x = 1 · a₁ + 2 · a₂ = (4, 5). Matrix mal Vektor ist eine Linearkombination der Spalten!"
+            ],
+            firstName: "a₁",
+            secondName: "a₂",
+            targetName: "A·x"
+        )
+        case "matrixTransform": MatrixTransformVisual()
+        case "matrixOrder": MatrixOrderVisual()
+        case "singularMatrix": SingularMatrixVisual()
         default: EmptyView()
         }
     }
@@ -398,29 +412,33 @@ private struct SubspaceClosureVisual: View {
 
 private struct LinearCombinationVisual: View {
     let window = PlaneWindow(xMin: -1.5, xMax: 6.5, yMin: -1.5, yMax: 6.5)
+    var captions = [
+        "Ziel: w = (4, 5). Unsere Bausteine: v₁ = (2, 1) und v₂ = (1, 2).",
+        "Erst skalieren: Wir verdoppeln v₂ und erhalten 2 · v₂ = (2, 4).",
+        "Dann addieren: 2 · v₂ wird an die Spitze von 1 · v₁ gehängt.",
+        "Treffer! 1 · v₁ + 2 · v₂ = (4, 5) = w. Die Zahlen 1 und 2 sind die „Bauanleitung“ für w."
+    ]
+    var firstName = "v₁"
+    var secondName = "v₂"
+    var targetName = "w"
 
     var body: some View {
-        AnimatedFigure(window: window, captions: [
-            "Ziel: w = (4, 5). Unsere Bausteine: v₁ = (2, 1) und v₂ = (1, 2).",
-            "Erst skalieren: Wir verdoppeln v₂ und erhalten 2 · v₂ = (2, 4).",
-            "Dann addieren: 2 · v₂ wird an die Spitze von 1 · v₁ gehängt.",
-            "Treffer! 1 · v₁ + 2 · v₂ = (4, 5) = w. Die Zahlen 1 und 2 sind die „Bauanleitung“ für w."
-        ]) { phase, size in
+        AnimatedFigure(window: window, captions: captions) { phase, size in
             let v2Start = phase >= 2 ? CGPoint(x: 2, y: 1) : .zero
             let v2Length: CGFloat = phase >= 1 ? 2 : 1
             let v2End = CGPoint(x: v2Start.x + v2Length, y: v2Start.y + 2 * v2Length)
 
             Dot(at: CGPoint(x: 4, y: 5), color: VisualColor.result, window: window, size: size, hollow: phase < 3)
-            MathLabel(text: "w", at: CGPoint(x: 4, y: 5), color: VisualColor.result, window: window, size: size)
+            MathLabel(text: targetName, at: CGPoint(x: 4, y: 5), color: VisualColor.result, window: window, size: size)
 
             Arrow(from: .zero, to: phase >= 3 ? CGPoint(x: 4, y: 5) : .zero, color: VisualColor.result, window: window, width: 4)
                 .opacity(show(phase >= 3))
 
             Arrow(from: .zero, to: CGPoint(x: 2, y: 1), color: VisualColor.first, window: window)
-            MathLabel(text: "v₁", at: CGPoint(x: 2, y: 1), color: VisualColor.first, window: window, size: size, offset: CGSize(width: 12, height: 10))
+            MathLabel(text: firstName, at: CGPoint(x: 2, y: 1), color: VisualColor.first, window: window, size: size, offset: CGSize(width: 12, height: 10))
 
             Arrow(from: v2Start, to: v2End, color: VisualColor.second, window: window)
-            MathLabel(text: phase >= 1 ? "2·v₂" : "v₂", at: v2End, color: VisualColor.second, window: window, size: size, offset: phase >= 2 ? CGSize(width: -26, height: 6) : CGSize(width: -16, height: -6))
+            MathLabel(text: phase >= 1 ? "2·" + secondName : secondName, at: v2End, color: VisualColor.second, window: window, size: size, offset: phase >= 2 ? CGSize(width: -26, height: 6) : CGSize(width: -16, height: -6))
         }
     }
 }
@@ -549,6 +567,173 @@ private struct BasisCoordinatesVisual: View {
 
             Dot(at: CGPoint(x: 4, y: 5), color: VisualColor.result, window: window, size: size)
             MathLabel(text: phase >= 3 ? "w ≙ (1, 2) bzgl. B" : (standard ? "w = (4, 5)" : "w"), at: CGPoint(x: 4, y: 5), color: VisualColor.result, window: window, size: size, offset: CGSize(width: -30, height: -16))
+        }
+    }
+}
+
+// MARK: - Matrizen: animierbare Formen
+
+/// Parallelogramm, das von den Vektoren a und b im Ursprung aufgespannt wird (animierbar).
+struct ParallelogramShape: Shape {
+    var a: CGPoint
+    var b: CGPoint
+    let window: PlaneWindow
+
+    var animatableData: AnimatablePair<AnimatablePair<CGFloat, CGFloat>, AnimatablePair<CGFloat, CGFloat>> {
+        get { AnimatablePair(AnimatablePair(a.x, a.y), AnimatablePair(b.x, b.y)) }
+        set {
+            a = CGPoint(x: newValue.first.first, y: newValue.first.second)
+            b = CGPoint(x: newValue.second.first, y: newValue.second.second)
+        }
+    }
+
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        path.move(to: window.point(.zero, in: rect.size))
+        path.addLine(to: window.point(a, in: rect.size))
+        path.addLine(to: window.point(CGPoint(x: a.x + b.x, y: a.y + b.y), in: rect.size))
+        path.addLine(to: window.point(b, in: rect.size))
+        path.closeSubpath()
+        return path
+    }
+}
+
+/// Gitter aus den ganzzahligen Kombinationen von a und b, dessen Richtungen sich animieren lassen.
+struct AnimatableGridShape: Shape {
+    var a: CGPoint
+    var b: CGPoint
+    let window: PlaneWindow
+
+    var animatableData: AnimatablePair<AnimatablePair<CGFloat, CGFloat>, AnimatablePair<CGFloat, CGFloat>> {
+        get { AnimatablePair(AnimatablePair(a.x, a.y), AnimatablePair(b.x, b.y)) }
+        set {
+            a = CGPoint(x: newValue.first.first, y: newValue.first.second)
+            b = CGPoint(x: newValue.second.first, y: newValue.second.second)
+        }
+    }
+
+    func path(in rect: CGRect) -> Path {
+        SkewGridShape(a: a, b: b, window: window).path(in: rect)
+    }
+}
+
+// MARK: - 7. Matrix als Abbildung: das Gitter wird verformt
+
+private struct MatrixTransformVisual: View {
+    let window = PlaneWindow(xMin: -1.5, xMax: 5, yMin: -1.5, yMax: 5)
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Vorher: e₁ = (1, 0), e₂ = (0, 1), das Einheitsquadrat und der Vektor x = (1, 2).",
+            "A = (2 1; 0 1) schickt e₁ auf A · e₁ = (2, 0) – genau die 1. Spalte von A.",
+            "e₂ landet auf A · e₂ = (1, 1) – genau die 2. Spalte von A.",
+            "Das ganze Gitter folgt: Gitterlinien bleiben gerade, parallel und gleichmäßig verteilt. Das Quadrat wird zum Parallelogramm.",
+            "x = (1, 2) landet bei A · x = 1 · (2, 0) + 2 · (1, 1) = (4, 2) – dieselben Koordinaten im neuen Gitter."
+        ]) { phase, size in
+            let col1 = phase >= 1 ? CGPoint(x: 2, y: 0) : CGPoint(x: 1, y: 0)
+            let col2 = phase >= 2 ? CGPoint(x: 1, y: 1) : CGPoint(x: 0, y: 1)
+            let gridA = phase >= 3 ? CGPoint(x: 2, y: 0) : CGPoint(x: 1, y: 0)
+            let gridB = phase >= 3 ? CGPoint(x: 1, y: 1) : CGPoint(x: 0, y: 1)
+            let xImage = phase >= 4 ? CGPoint(x: 4, y: 2) : CGPoint(x: 1, y: 2)
+
+            AnimatableGridShape(a: gridA, b: gridB, window: window)
+                .stroke(VisualColor.first.opacity(0.35), lineWidth: 1)
+            ParallelogramShape(a: gridA, b: gridB, window: window)
+                .fill(VisualColor.first.opacity(0.18))
+
+            Arrow(from: .zero, to: xImage, color: VisualColor.result, window: window)
+            MathLabel(text: phase >= 4 ? "A·x" : "x", at: xImage, color: VisualColor.result, window: window, size: size, offset: CGSize(width: 14, height: -10))
+
+            Arrow(from: .zero, to: col1, color: VisualColor.first, window: window, width: 4)
+            MathLabel(text: phase >= 1 ? "A·e₁" : "e₁", at: col1, color: VisualColor.first, window: window, size: size, offset: CGSize(width: 4, height: 16))
+            Arrow(from: .zero, to: col2, color: VisualColor.second, window: window, width: 4)
+            MathLabel(text: phase >= 2 ? "A·e₂" : "e₂", at: col2, color: VisualColor.second, window: window, size: size, offset: CGSize(width: -22, height: -8))
+        }
+    }
+}
+
+// MARK: - 8. Reihenfolge: R·D ≠ D·R
+
+private struct MatrixOrderVisual: View {
+    let window = PlaneWindow(xMin: -3, xMax: 3, yMin: -1.5, yMax: 3)
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "Start: das Einheitsquadrat. D verdoppelt die x-Richtung, R dreht um 90°.",
+            "Erst D: Aus dem Quadrat wird ein Rechteck der Breite 2.",
+            "Dann R: Das Rechteck wird gedreht – Ergebnis von R · D ist ein hohes Rechteck.",
+            "Jetzt umgekehrt, von vorn: Erst R dreht das Quadrat – es bleibt ein Quadrat.",
+            "Dann D: Ergebnis von D · R ist ein breites Rechteck. Gestrichelt: R · D zum Vergleich. Also R · D ≠ D · R."
+        ]) { phase, size in
+            let columns: (CGPoint, CGPoint) = {
+                switch phase {
+                case 1: return (CGPoint(x: 2, y: 0), CGPoint(x: 0, y: 1))
+                case 2: return (CGPoint(x: 0, y: 2), CGPoint(x: -1, y: 0))
+                case 3: return (CGPoint(x: 0, y: 1), CGPoint(x: -1, y: 0))
+                case 4: return (CGPoint(x: 0, y: 1), CGPoint(x: -2, y: 0))
+                default: return (CGPoint(x: 1, y: 0), CGPoint(x: 0, y: 1))
+                }
+            }()
+
+            ParallelogramShape(a: CGPoint(x: 0, y: 2), b: CGPoint(x: -1, y: 0), window: window)
+                .stroke(VisualColor.extra, style: StrokeStyle(lineWidth: 2, dash: [5, 4]))
+                .opacity(show(phase == 4))
+            MathLabel(text: "R·D", at: CGPoint(x: -0.5, y: 2), color: VisualColor.extra, window: window, size: size, offset: CGSize(width: 0, height: -12))
+                .opacity(show(phase == 2 || phase == 4))
+
+            ParallelogramShape(a: columns.0, b: columns.1, window: window)
+                .fill(VisualColor.first.opacity(0.25))
+            ParallelogramShape(a: columns.0, b: columns.1, window: window)
+                .stroke(VisualColor.first, lineWidth: 2)
+
+            MathLabel(text: "D·R", at: CGPoint(x: -1, y: 1), color: VisualColor.first, window: window, size: size, offset: CGSize(width: 0, height: -14))
+                .opacity(show(phase == 4))
+
+            Arrow(from: .zero, to: columns.0, color: VisualColor.first, window: window, width: 3)
+            Arrow(from: .zero, to: columns.1, color: VisualColor.second, window: window, width: 3)
+        }
+    }
+}
+
+// MARK: - 9. Nicht invertierbar: Die Ebene wird auf eine Gerade gequetscht
+
+private struct SingularMatrixVisual: View {
+    let window = PlaneWindow(xMin: -1.5, xMax: 5, yMin: -1.5, yMax: 5)
+
+    var body: some View {
+        AnimatedFigure(window: window, captions: [
+            "A = (1 2; 2 4). Die Spalten (1, 2) und (2, 4) zeigen in dieselbe Richtung – die zweite ist das Doppelte der ersten.",
+            "A quetscht die ganze Ebene auf eine Gerade: Das Gitter fällt zusammen, das Quadrat wird zu einer Strecke.",
+            "Nimm zwei verschiedene Vektoren p = (2, 0) und q = (0, 1) …",
+            "… beide landen bei A · p = A · q = (2, 4). Aus (2, 4) kann man nicht mehr ablesen, woher man kam: A ist nicht umkehrbar."
+        ]) { phase, size in
+            let gridA = phase >= 1 ? CGPoint(x: 1, y: 2) : CGPoint(x: 1, y: 0)
+            let gridB = phase >= 1 ? CGPoint(x: 2, y: 4) : CGPoint(x: 0, y: 1)
+            let target = CGPoint(x: 2, y: 4)
+
+            PlaneLineShape(through: .zero, direction: CGPoint(x: 1, y: 2), window: window)
+                .stroke(VisualColor.warning.opacity(0.3), lineWidth: 6)
+                .opacity(show(phase >= 1))
+
+            AnimatableGridShape(a: gridA, b: gridB, window: window)
+                .stroke(VisualColor.first.opacity(0.35), lineWidth: 1)
+                .opacity(phase >= 1 ? 0.0 : 1.0)
+            ParallelogramShape(a: gridA, b: gridB, window: window)
+                .fill(VisualColor.first.opacity(0.2))
+            ParallelogramShape(a: gridA, b: gridB, window: window)
+                .stroke(VisualColor.first, lineWidth: 2)
+
+            Arrow(from: .zero, to: phase >= 3 ? target : CGPoint(x: 2, y: 0), color: VisualColor.second, window: window)
+                .opacity(show(phase >= 2))
+            MathLabel(text: phase >= 3 ? "A·p" : "p", at: phase >= 3 ? target : CGPoint(x: 2, y: 0), color: VisualColor.second, window: window, size: size, offset: CGSize(width: 18, height: 12))
+                .opacity(show(phase >= 2))
+            Arrow(from: .zero, to: phase >= 3 ? target : CGPoint(x: 0, y: 1), color: VisualColor.extra, window: window)
+                .opacity(show(phase >= 2))
+            MathLabel(text: phase >= 3 ? "A·q" : "q", at: phase >= 3 ? target : CGPoint(x: 0, y: 1), color: VisualColor.extra, window: window, size: size, offset: CGSize(width: -22, height: -8))
+                .opacity(show(phase >= 2))
+
+            Dot(at: target, color: VisualColor.warning, window: window, size: size)
+                .opacity(show(phase >= 3))
         }
     }
 }

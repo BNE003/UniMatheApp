@@ -1,215 +1,302 @@
-{    "id": "dd0e8400-e29b-41d4-a716-446655440000",
-    "topic": "Matrizen",
-    "steps": [
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440001",
-            "text": "Hallo! Heute beschäftigen wir uns mit Matrizen - einem der wichtigsten Konzepte in der linearen Algebra. Eine Matrix ist wie ein Zahlenraster, das in Zeilen und Spalten angeordnet ist. Stell dir vor, du hast ein Schachbrett, auf dem statt Schachfiguren Zahlen stehen!",
-            "formula": "A = \\begin{pmatrix} a_{11} & a_{12} & \\cdots & a_{1n} \\\\ a_{21} & a_{22} & \\cdots & a_{2n} \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ a_{m1} & a_{m2} & \\cdots & a_{mn} \\end{pmatrix}",
-            "explanation": "Schauen wir uns die Matrix A genauer an: Sie hat m Zeilen und n Spalten, wir schreiben dafür A ∈ ℝ^(m×n). Jede Zahl in der Matrix hat ihre eigene Adresse: a_ij bedeutet, dass die Zahl in der i-ten Zeile und j-ten Spalte steht. Zum Beispiel ist a_23 die Zahl in der zweiten Zeile und dritten Spalte. Die Dimension m×n liest man als 'm mal n'."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440002",
-            "text": "Lass uns ein konkretes Beispiel anschauen! Hier haben wir eine 2×3-Matrix. Das bedeutet, sie hat 2 Zeilen und 3 Spalten. Stell dir vor, diese Matrix beschreibt zum Beispiel die Preise von drei Produkten in zwei verschiedenen Läden.",
-            "formula": "A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix}",
-            "explanation": "Schauen wir uns die Zahlen genauer an: In der ersten Zeile haben wir die Zahlen 1, 2 und 3. In der zweiten Zeile stehen 4, 5 und 6. Wenn wir zum Beispiel a_12 suchen, gehen wir in die erste Zeile (i=1) und zweite Spalte (j=2) - dort finden wir die Zahl 2! Diese Matrix könnte zum Beispiel bedeuten: Laden 1 verkauft Produkt 1 für 1€, Produkt 2 für 2€ und Produkt 3 für 3€. Laden 2 ist etwas teurer: 4€, 5€ und 6€."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440003",
-            "text": "Super! Jetzt lernen wir, wie man Matrizen addiert. Das ist eigentlich ganz einfach: Wir addieren einfach die Zahlen, die an der gleichen Position stehen. Aber Achtung: Wir können nur Matrizen addieren, die die gleiche Größe haben!",
-            "formula": "\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} + \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix} = \\begin{pmatrix} 1+5 & 2+6 \\\\ 3+7 & 4+8 \\end{pmatrix} = \\begin{pmatrix} 6 & 8 \\\\ 10 & 12 \\end{pmatrix}",
-            "explanation": "Schauen wir uns das Schritt für Schritt an: Die 1 in der ersten Zeile, ersten Spalte wird mit der 5 addiert, also 1+5=6. Die 2 wird mit der 6 addiert, also 2+6=8. Und so weiter! Das Tolle ist: Die Reihenfolge spielt keine Rolle (1+5 ist das Gleiche wie 5+1), und wenn wir drei Matrizen addieren, können wir auch die Klammern setzen, wo wir wollen. Das nennt man Kommutativität und Assoziativität."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440004",
-            "text": "Jetzt lernen wir, wie man eine Matrix mit einer Zahl (einem Skalar) multipliziert. Das ist wie wenn du alle Preise in einem Laden verdoppeln würdest - jede Zahl wird mit dem gleichen Faktor multipliziert!",
-            "formula": "2 \\cdot \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} = \\begin{pmatrix} 2 \\cdot 1 & 2 \\cdot 2 \\\\ 2 \\cdot 3 & 2 \\cdot 4 \\end{pmatrix} = \\begin{pmatrix} 2 & 4 \\\\ 6 & 8 \\end{pmatrix}",
-            "explanation": "Jede Zahl in der Matrix wird mit 2 multipliziert. Die 1 wird zu 2, die 2 wird zu 4, und so weiter. Das ist wie eine gleichmäßige Vergrößerung oder Verkleinerung der Matrix. Wenn wir zwei Matrizen addieren und dann mit einer Zahl multiplizieren, ist das das Gleiche, als wenn wir jede Matrix einzeln mit der Zahl multiplizieren und dann addieren. Das nennt man Distributivität."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440005",
-            "text": "Jetzt wird es spannend: Die Matrixmultiplikation! Das ist etwas komplizierter, aber keine Sorge - wir schaffen das zusammen. Wichtig: Wir können nur Matrizen multiplizieren, wenn die Anzahl der Spalten der ersten Matrix gleich der Anzahl der Zeilen der zweiten Matrix ist.",
-            "formula": "\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} \\cdot \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix} = \\begin{pmatrix} 1 \\cdot 5 + 2 \\cdot 7 & 1 \\cdot 6 + 2 \\cdot 8 \\\\ 3 \\cdot 5 + 4 \\cdot 7 & 3 \\cdot 6 + 4 \\cdot 8 \\end{pmatrix} = \\begin{pmatrix} 19 & 22 \\\\ 43 & 50 \\end{pmatrix}",
-            "explanation": "Lass uns das Schritt für Schritt durchgehen: Für das erste Element (oben links) nehmen wir die erste Zeile der ersten Matrix und die erste Spalte der zweiten Matrix. Wir multiplizieren die entsprechenden Zahlen und addieren sie: 1·5 + 2·7 = 19. Für das zweite Element (oben rechts) nehmen wir die erste Zeile und zweite Spalte: 1·6 + 2·8 = 22. Und so weiter! Wichtig: Die Reihenfolge ist bei der Matrixmultiplikation wichtig - A·B ist nicht immer gleich B·A!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440006",
-            "text": "Kommen wir zur Transponierten einer Matrix. Das ist wie ein Spiegelbild der Matrix - wir tauschen Zeilen und Spalten!",
-            "formula": "\\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix}^T = \\begin{pmatrix} 1 & 4 \\\\ 2 & 5 \\\\ 3 & 6 \\end{pmatrix}",
-            "explanation": "Schau mal: Die erste Zeile [1,2,3] wird zur ersten Spalte, die zweite Zeile [4,5,6] wird zur zweiten Spalte. Das T oben bedeutet 'transponiert'. Wenn wir eine Matrix zweimal transponieren, kommen wir wieder zur Ausgangsmatrix zurück. Und wenn wir zwei Matrizen multiplizieren und dann transponieren, ist das das Gleiche, als wenn wir zuerst transponieren und dann in umgekehrter Reihenfolge multiplizieren."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440007",
-            "text": "Eine quadratische Matrix ist besonders wichtig - sie hat gleich viele Zeilen wie Spalten. Stell dir ein quadratisches Schachbrett vor!",
-            "formula": "A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \\end{pmatrix}",
-            "explanation": "Diese Matrix ist 3×3 - sie hat 3 Zeilen und 3 Spalten. Die Zahlen auf der Hauptdiagonale (von oben links nach unten rechts) sind 1, 5 und 9. Quadratische Matrizen sind besonders wichtig, weil sie Transformationen im gleichen Raum beschreiben. Zum Beispiel könnte diese Matrix eine 3D-Rotation oder -Spiegelung beschreiben."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440008",
-            "text": "Die Einheitsmatrix ist wie die Zahl 1 bei normalen Zahlen - wenn wir sie mit einer Matrix multiplizieren, bleibt die Matrix unverändert!",
-            "formula": "I = \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}",
-            "explanation": "Die Einheitsmatrix hat auf der Hauptdiagonale nur Einsen und sonst überall Nullen. Wenn wir eine Matrix mit der Einheitsmatrix multiplizieren, bleibt sie unverändert - genau wie wenn wir eine Zahl mit 1 multiplizieren. Die Einheitsmatrix ist wie ein 'neutrales Element' - sie verändert nichts."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440009",
-            "text": "Jetzt wird es richtig spannend: Die inverse Matrix! Das ist wie das 'Gegenteil' einer Matrix - wenn wir eine Matrix mit ihrer Inversen multiplizieren, bekommen wir die Einheitsmatrix.",
-            "formula": "\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}^{-1} = \\frac{1}{-2} \\begin{pmatrix} 4 & -2 \\\\ -3 & 1 \\end{pmatrix}",
-            "explanation": "Die inverse Matrix macht die Wirkung der ursprünglichen Matrix rückgängig. Wenn wir eine Matrix mit ihrer Inversen multiplizieren, bekommen wir die Einheitsmatrix. Aber Achtung: Nicht jede Matrix hat eine Inverse! Eine Matrix hat genau dann eine Inverse, wenn ihre Determinante nicht null ist. Bei 2×2-Matrizen können wir die Inverse mit einer einfachen Formel berechnen."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440010",
-            "text": "Eine symmetrische Matrix ist wie ein Spiegelbild - wenn wir sie an der Hauptdiagonale spiegeln, bleibt sie gleich!",
-            "formula": "\\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 5 \\\\ 3 & 5 & 6 \\end{pmatrix}",
-            "explanation": "Bei einer symmetrischen Matrix sind die Elemente spiegelsymmetrisch zur Hauptdiagonale. Zum Beispiel: a_12 = a_21 = 2, a_13 = a_31 = 3, und a_23 = a_32 = 5. Symmetrische Matrizen sind in der Physik und Technik sehr wichtig, zum Beispiel bei der Beschreibung von Spannungen in Materialien oder bei der Analyse von Schwingungen."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440011",
-            "text": "Dreiecksmatrizen sind besonders praktisch! Bei einer oberen Dreiecksmatrix stehen unterhalb der Hauptdiagonale nur Nullen, bei einer unteren Dreiecksmatrix oberhalb.",
-            "formula": "\\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 4 & 5 \\\\ 0 & 0 & 6 \\end{pmatrix}",
-            "explanation": "Diese Matrix ist eine obere Dreiecksmatrix - unterhalb der Hauptdiagonale stehen nur Nullen. Dreiecksmatrizen sind super praktisch, wenn wir Gleichungssysteme lösen wollen. Die Determinante einer Dreiecksmatrix ist einfach das Produkt der Zahlen auf der Hauptdiagonale. Das macht viele Rechnungen viel einfacher!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440012",
-            "text": "Diagonalmatrizen sind noch einfacher - sie haben nur auf der Hauptdiagonale von null verschiedene Zahlen, sonst überall Nullen.",
-            "formula": "\\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 2 & 0 \\\\ 0 & 0 & 3 \\end{pmatrix}",
-            "explanation": "Bei einer Diagonalmatrix stehen nur auf der Hauptdiagonale Zahlen, die nicht null sind. Das macht das Rechnen super einfach! Wenn wir zwei Diagonalmatrizen multiplizieren, multiplizieren wir einfach die entsprechenden Zahlen auf der Diagonale. Und wenn wir eine Diagonalmatrix potenzieren, potenzieren wir einfach die Zahlen auf der Diagonale."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440013",
-            "text": "Die Spur einer Matrix ist die Summe aller Zahlen auf der Hauptdiagonale. Das klingt einfach, ist aber eine sehr wichtige Eigenschaft!",
-            "formula": "\\text{tr}\\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \\end{pmatrix} = 1 + 5 + 9 = 15",
-            "explanation": "Die Spur ist die Summe der Zahlen auf der Hauptdiagonale: 1 + 5 + 9 = 15. Die Spur ist eine wichtige Invariante - sie ändert sich nicht, wenn wir die Matrix auf bestimmte Arten transformieren. Die Spur ist auch die Summe der Eigenwerte der Matrix. Das ist super nützlich in der Physik und Technik!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440014",
-            "text": "Eine nilpotente Matrix ist eine Matrix, die nach mehrmaliger Multiplikation mit sich selbst zur Nullmatrix wird. Das ist wie eine Transformation, die sich irgendwann 'aufbraucht'!",
-            "formula": "\\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}^2 = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}",
-            "explanation": "Wenn wir diese Matrix mit sich selbst multiplizieren, bekommen wir die Nullmatrix. Das bedeutet, dass die Transformation nach zweimaliger Anwendung alles auf null setzt. Nilpotente Matrizen sind wichtig in der Theorie der Jordan-Normalform und haben nur den Eigenwert 0."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440015",
-            "text": "Eine idempotente Matrix bleibt bei Multiplikation mit sich selbst unverändert. Das ist wie eine Projektion, die einmal angewendet das Ergebnis nicht mehr verändert!",
-            "formula": "\\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}^2 = \\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}",
-            "explanation": "Wenn wir diese Matrix mit sich selbst multiplizieren, bekommen wir die gleiche Matrix wieder. Das ist wie eine Projektion - wenn du einen Schatten wirfst und dann den Schatten nochmal projizierst, bleibt der Schatten gleich. Idempotente Matrizen sind wichtig in der Statistik und Quantenmechanik."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440016",
-            "text": "Lass uns ein praktisches Beispiel anschauen: Wie können wir mit Matrizen ein lineares Gleichungssystem lösen?",
-            "formula": "\\begin{pmatrix} 2 & 1 \\\\ 1 & 3 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} 5 \\\\ 7 \\end{pmatrix}",
-            "explanation": "Dieses Gleichungssystem können wir als Matrixgleichung schreiben. Die Lösung bekommen wir, indem wir die inverse Matrix der Koeffizientenmatrix mit dem Ergebnisvektor multiplizieren. Das ist viel eleganter als das Einsetzungsverfahren!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440017",
-            "text": "Matrizen können auch Rotationen im Raum beschreiben. Hier ist eine Rotationsmatrix für eine Drehung um die z-Achse!",
-            "formula": "R_z(\\theta) = \\begin{pmatrix} \\cos\\theta & -\\sin\\theta & 0 \\\\ \\sin\\theta & \\cos\\theta & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}",
-            "explanation": "Diese Matrix beschreibt eine Drehung um den Winkel θ um die z-Achse. Wenn wir einen Punkt mit dieser Matrix multiplizieren, wird er um die z-Achse gedreht. Das ist super nützlich in der Computergrafik und Robotik!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440018",
-            "text": "Die Determinante einer Matrix ist eine wichtige Zahl, die uns viel über die Matrix verrät. Für eine 2×2-Matrix ist sie einfach zu berechnen!",
-            "formula": "\\det\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = ad - bc",
-            "explanation": "Die Determinante ist ad - bc. Sie sagt uns zum Beispiel, ob die Matrix invertierbar ist (Determinante ≠ 0) und wie sich Flächen unter der Transformation ändern. Die Determinante ist auch das Produkt der Eigenwerte!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440019",
-            "text": "Eigenwerte und Eigenvektoren sind super wichtig! Ein Eigenvektor wird bei Multiplikation mit der Matrix nur gestreckt oder gestaucht.",
-            "formula": "\\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} = 3 \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}",
-            "explanation": "Der Vektor (1,1) ist ein Eigenvektor zum Eigenwert 3. Wenn wir ihn mit der Matrix multiplizieren, wird er einfach mit 3 multipliziert. Eigenwerte und -vektoren sind wichtig für Schwingungen, Stabilitätsanalysen und vieles mehr!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440020",
-            "text": "Zum Schluss: Die Jordan-Normalform ist eine besonders schöne Form einer Matrix, die uns viel über ihr Verhalten verrät.",
-            "formula": "J = \\begin{pmatrix} \\lambda & 1 & 0 \\\\ 0 & \\lambda & 1 \\\\ 0 & 0 & \\lambda \\end{pmatrix}",
-            "explanation": "Die Jordan-Normalform zeigt uns die Eigenwerte (λ) und ihre algebraische Vielfachheit. Sie ist super nützlich für die Analyse von dynamischen Systemen und Differentialgleichungen. Jede Matrix kann in Jordan-Normalform gebracht werden!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440021",
-            "text": "Bevor wir zur Jordan-Normalform kommen, schauen wir uns die Gauss-Jordan-Elimination an. Das ist ein Verfahren, um Matrizen in eine besonders einfache Form zu bringen.",
-            "formula": "\\begin{pmatrix} 2 & 1 & 3 \\\\ 1 & 2 & 1 \\\\ 3 & 1 & 2 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}",
-            "explanation": "Die Gauss-Jordan-Elimination verwandelt eine Matrix in die Einheitsmatrix. Dafür dürfen wir: 1) Zeilen vertauschen, 2) Zeilen mit einer Zahl multiplizieren, 3) Vielfache einer Zeile zu einer anderen addieren. Lass uns das Schritt für Schritt durchgehen!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440022",
-            "text": "Schritt 1 der Gauss-Jordan-Elimination: Wir bringen die erste Spalte in die richtige Form. Dafür teilen wir die erste Zeile durch 2.",
-            "formula": "\\begin{pmatrix} 2 & 1 & 3 \\\\ 1 & 2 & 1 \\\\ 3 & 1 & 2 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0.5 & 1.5 \\\\ 1 & 2 & 1 \\\\ 3 & 1 & 2 \\end{pmatrix}",
-            "explanation": "Wir teilen die erste Zeile durch 2, damit wir eine 1 in der ersten Position haben. Jetzt können wir diese 1 nutzen, um die anderen Einträge in der ersten Spalte zu eliminieren."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440023",
-            "text": "Schritt 2: Wir eliminieren die anderen Einträge in der ersten Spalte, indem wir Vielfache der ersten Zeile von den anderen Zeilen abziehen.",
-            "formula": "\\begin{pmatrix} 1 & 0.5 & 1.5 \\\\ 1 & 2 & 1 \\\\ 3 & 1 & 2 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0.5 & 1.5 \\\\ 0 & 1.5 & -0.5 \\\\ 0 & -0.5 & -2.5 \\end{pmatrix}",
-            "explanation": "Wir subtrahieren die erste Zeile von der zweiten und das Dreifache der ersten Zeile von der dritten. Jetzt haben wir in der ersten Spalte nur noch eine 1 und sonst Nullen."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440024",
-            "text": "Schritt 3: Jetzt machen wir das Gleiche für die zweite Spalte. Wir teilen die zweite Zeile durch 1.5.",
-            "formula": "\\begin{pmatrix} 1 & 0.5 & 1.5 \\\\ 0 & 1.5 & -0.5 \\\\ 0 & -0.5 & -2.5 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0.5 & 1.5 \\\\ 0 & 1 & -\\frac{1}{3} \\\\ 0 & -0.5 & -2.5 \\end{pmatrix}",
-            "explanation": "Wir teilen die zweite Zeile durch 1.5, um eine 1 in der zweiten Position zu bekommen. Jetzt können wir diese 1 nutzen, um die anderen Einträge in der zweiten Spalte zu eliminieren."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440025",
-            "text": "Schritt 4: Wir eliminieren die anderen Einträge in der zweiten Spalte.",
-            "formula": "\\begin{pmatrix} 1 & 0.5 & 1.5 \\\\ 0 & 1 & -\\frac{1}{3} \\\\ 0 & -0.5 & -2.5 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0 & \\frac{5}{3} \\\\ 0 & 1 & -\\frac{1}{3} \\\\ 0 & 0 & -\\frac{8}{3} \\end{pmatrix}",
-            "explanation": "Wir subtrahieren das 0.5-fache der zweiten Zeile von der ersten und addieren das 0.5-fache der zweiten Zeile zur dritten. Jetzt haben wir in der zweiten Spalte nur noch eine 1 und sonst Nullen."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440026",
-            "text": "Schritt 5: Zum Schluss machen wir das Gleiche für die dritte Spalte. Wir teilen die dritte Zeile durch -8/3.",
-            "formula": "\\begin{pmatrix} 1 & 0 & \\frac{5}{3} \\\\ 0 & 1 & -\\frac{1}{3} \\\\ 0 & 0 & -\\frac{8}{3} \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0 & \\frac{5}{3} \\\\ 0 & 1 & -\\frac{1}{3} \\\\ 0 & 0 & 1 \\end{pmatrix}",
-            "explanation": "Wir teilen die dritte Zeile durch -8/3, um eine 1 in der dritten Position zu bekommen. Jetzt können wir diese 1 nutzen, um die anderen Einträge in der dritten Spalte zu eliminieren."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440027",
-            "text": "Schritt 6: Wir eliminieren die anderen Einträge in der dritten Spalte.",
-            "formula": "\\begin{pmatrix} 1 & 0 & \\frac{5}{3} \\\\ 0 & 1 & -\\frac{1}{3} \\\\ 0 & 0 & 1 \\end{pmatrix} \\rightarrow \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}",
-            "explanation": "Wir subtrahieren das 5/3-fache der dritten Zeile von der ersten und addieren das 1/3-fache der dritten Zeile zur zweiten. Jetzt haben wir die Einheitsmatrix erreicht!"
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440028",
-            "text": "Jetzt schauen wir uns die Jordan-Normalform genauer an. Sie ist besonders nützlich, wenn eine Matrix nicht diagonalisierbar ist.",
-            "formula": "A = \\begin{pmatrix} 2 & 1 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}",
-            "explanation": "Diese Matrix hat den Eigenwert 2 mit algebraischer Vielfachheit 3, aber nur einen linear unabhängigen Eigenvektor. Deshalb können wir sie nicht diagonalisieren, aber in Jordan-Normalform bringen."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440029",
-            "text": "Lass uns die Jordan-Normalform dieser Matrix berechnen. Zuerst bestimmen wir die Eigenwerte.",
-            "formula": "\\det(A - \\lambda I) = \\det\\begin{pmatrix} 2-\\lambda & 1 & 0 \\\\ 0 & 2-\\lambda & 1 \\\\ 0 & 0 & 2-\\lambda \\end{pmatrix} = (2-\\lambda)^3 = 0",
-            "explanation": "Die Determinante von A-λI ist (2-λ)³, also ist λ=2 der einzige Eigenwert mit algebraischer Vielfachheit 3. Jetzt müssen wir die geometrische Vielfachheit bestimmen."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440030",
-            "text": "Wir berechnen den Kern von (A-2I), um die geometrische Vielfachheit zu bestimmen.",
-            "formula": "A-2I = \\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix}",
-            "explanation": "Der Kern von (A-2I) ist eindimensional, also ist die geometrische Vielfachheit 1. Das bedeutet, wir brauchen einen Jordan-Block der Größe 3."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440031",
-            "text": "Jetzt können wir die Jordan-Normalform direkt hinschreiben. Sie besteht aus einem Jordan-Block der Größe 3 zum Eigenwert 2.",
-            "formula": "J = \\begin{pmatrix} 2 & 1 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}",
-            "explanation": "Die Jordan-Normalform ist bereits die Matrix selbst! Das passiert, wenn die Matrix bereits in Jordan-Normalform ist. Die Einsen über der Diagonale zeigen die Kettenlänge der verallgemeinerten Eigenvektoren."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440032",
-            "text": "Lass uns ein komplizierteres Beispiel anschauen. Diese Matrix hat zwei verschiedene Eigenwerte.",
-            "formula": "A = \\begin{pmatrix} 3 & 1 & 0 \\\\ 0 & 3 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}",
-            "explanation": "Diese Matrix hat die Eigenwerte 3 (mit algebraischer Vielfachheit 2) und 2 (mit algebraischer Vielfachheit 1). Wir müssen die geometrische Vielfachheit von 3 bestimmen."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440033",
-            "text": "Wir berechnen den Kern von (A-3I) für den Eigenwert 3.",
-            "formula": "A-3I = \\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & -1 \\end{pmatrix}",
-            "explanation": "Der Kern von (A-3I) ist eindimensional, also ist die geometrische Vielfachheit von 3 gleich 1. Das bedeutet, wir brauchen einen Jordan-Block der Größe 2 zum Eigenwert 3."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440034",
-            "text": "Die Jordan-Normalform dieser Matrix besteht aus einem Jordan-Block der Größe 2 zum Eigenwert 3 und einem Block der Größe 1 zum Eigenwert 2.",
-            "formula": "J = \\begin{pmatrix} 3 & 1 & 0 \\\\ 0 & 3 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}",
-            "explanation": "Die Jordan-Normalform zeigt uns die Struktur der Matrix: Ein Jordan-Block der Größe 2 für den Eigenwert 3 (mit einer 1 über der Diagonale) und ein einzelner Block für den Eigenwert 2."
-        },
-        {
-            "id": "dd0e8400-e29b-41d4-a716-446655440035",
-            "text": "Zum Schluss schauen wir uns an, wie wir die Transformationsmatrix P finden, die A in Jordan-Normalform überführt.",
-            "formula": "P^{-1}AP = J",
-            "explanation": "Die Transformationsmatrix P besteht aus den verallgemeinerten Eigenvektoren. Für unseren ersten Block brauchen wir einen verallgemeinerten Eigenvektor der Länge 2 und einen normalen Eigenvektor für den zweiten Block."
-        }
-    ]
-} 
+{
+  "id": "dd0e8400-e29b-41d4-a716-446655440000",
+  "topic": "Matrizen",
+  "steps": [
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440001",
+      "section": "Kapitel 1 · Was ist eine Matrix?",
+      "text": "Willkommen! In dieser Lektion lernst du Matrizen von Grund auf – nicht als Rezeptsammlung, sondern so, dass du verstehst, WARUM man mit ihnen so rechnet.\n\nDu brauchst dafür nur das, was du in der Lektion „Vektorräume“ gelernt hast: Vektoren, Linearkombinationen, Spann und lineare Unabhängigkeit. Genau diese Ideen werden hier immer wieder auftauchen.",
+      "explanation": "Unser Fahrplan:\n1. Was ist eine Matrix – und wozu braucht man sie?\n2. Mit Matrizen rechnen wie mit Vektoren\n3. Matrix mal Vektor: zwei Sichtweisen und ein Bild\n4. Matrixmultiplikation: warum sie genau so definiert ist\n5. Besondere Matrizen\n6. Gleichungssysteme lösen mit dem Gauß-Verfahren\n7. Die inverse Matrix\n8. Ausblick: Determinante, Drehungen, Eigenvektoren",
+      "insight": "Die wichtigste Idee vorweg: Eine Matrix ist nicht nur eine Zahlentabelle – sie beschreibt eine Abbildung, die Vektoren verändert."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440002",
+      "section": "Kapitel 1 · Was ist eine Matrix?",
+      "text": "Fangen wir mit einem Problem an, das du kennst: einem linearen Gleichungssystem.\n\n\\(2x + y = 5\\)\n\\(x + 3y = 7\\)\n\nBeim Lösen schreibt man ständig \\(x\\), \\(y\\), \\(+\\) und \\(=\\) neu ab. Die eigentliche Information steckt aber nur in den Zahlen. Also schreiben wir nur die Zahlen auf – ordentlich in Zeilen und Spalten:",
+      "formula": "\\begin{array}{c} \\begin{aligned} 2x + y &= 5 \\\\ x + 3y &= 7 \\end{aligned} \\\\[4pt] \\Downarrow \\\\[2pt] A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 3 \\end{pmatrix}, \\quad b = \\begin{pmatrix} 5 \\\\ 7 \\end{pmatrix} \\end{array}",
+      "explanation": "Jede Zeile von \\(A\\) gehört zu einer Gleichung, jede Spalte zu einer Variable: Die erste Spalte enthält alle Zahlen vor \\(x\\), die zweite alle Zahlen vor \\(y\\). Die rechte Seite sammeln wir im Vektor \\(b\\).\n\nSo ein rechteckiges Zahlenschema heißt Matrix. Die Position jeder Zahl hat also eine Bedeutung – das ist der Unterschied zu einer bloßen Zahlenliste.",
+      "insight": "Eine Matrix ist ein rechteckiges Zahlenschema. Zeilen und Spalten tragen Bedeutung – zum Beispiel „Gleichung“ und „Variable“."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440003",
+      "section": "Kapitel 1 · Was ist eine Matrix?",
+      "text": "Jetzt die Schreibweise. Eine Matrix mit \\(m\\) Zeilen und \\(n\\) Spalten heißt \\(m \\times n\\)-Matrix. Den Eintrag in Zeile \\(i\\) und Spalte \\(j\\) nennen wir \\(a_{ij}\\):",
+      "formula": "A = \\begin{pmatrix} a_{11} & a_{12} & \\cdots & a_{1n} \\\\ a_{21} & a_{22} & \\cdots & a_{2n} \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ a_{m1} & a_{m2} & \\cdots & a_{mn} \\end{pmatrix}",
+      "explanation": "Konkret: \\(A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix}\\) ist eine \\(2 \\times 3\\)-Matrix (2 Zeilen, 3 Spalten). Es gilt\n\\(a_{12} = 2\\), \\(a_{21} = 4\\) und \\(a_{23} = 6\\).\n\nMerksatz für die Indizes: „Zeile zuerst, Spalte später“. \\(a_{21}\\) ist also NICHT dasselbe wie \\(a_{12}\\).\n\nDie Menge aller \\(m \\times n\\)-Matrizen mit Einträgen aus dem Körper \\(K\\) schreibt man \\(K^{m \\times n}\\), zum Beispiel \\(\\mathbb{R}^{2 \\times 3}\\).",
+      "insight": "Typischer Fehler: Zeilen und Spalten verwechseln. Eine \\(2 \\times 3\\)-Matrix hat 2 Zeilen und 3 Spalten – nicht umgekehrt."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440004",
+      "section": "Kapitel 1 · Was ist eine Matrix?",
+      "text": "Man kann eine Matrix auf zwei Arten „lesen“: als übereinanderliegende Zeilen oder als nebeneinanderstehende Spalten. Für \\(A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix}\\):",
+      "formula": "\\begin{align*} \\text{Zeilen: } &(1, 2, 3),\\ (4, 5, 6) \\in \\mathbb{R}^3 \\\\ \\text{Spalten:}& \\\\ &\\begin{pmatrix} 1 \\\\ 4 \\end{pmatrix}, \\begin{pmatrix} 2 \\\\ 5 \\end{pmatrix}, \\begin{pmatrix} 3 \\\\ 6 \\end{pmatrix} \\in \\mathbb{R}^2 \\end{align*}",
+      "explanation": "Beide Sichtweisen sind nützlich:\n\n• Die Zeilen entsprechen den Gleichungen eines Gleichungssystems.\n• Die Spalten sind Vektoren – und mit Vektoren können wir Linearkombinationen bilden, einen Spann betrachten und auf lineare Unabhängigkeit prüfen.\n\nDiese Spalten-Sicht wird in Kapitel 3 zum Schlüssel für alles Weitere.",
+      "insight": "Merke dir: Eine \\(m \\times n\\)-Matrix besteht aus \\(n\\) Spaltenvektoren im \\(K^m\\)."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440005",
+      "section": "Kapitel 2 · Matrizen als Vektorraum",
+      "text": "Matrizen gleicher Größe kann man genauso behandeln wie Vektoren: Addiert wird Eintrag für Eintrag, und beim Multiplizieren mit einer Zahl wird jeder Eintrag mit dieser Zahl multipliziert.",
+      "formula": "\\begin{align*} \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} + \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix} &= \\begin{pmatrix} 6 & 8 \\\\ 10 & 12 \\end{pmatrix} \\\\ 2 \\cdot \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} &= \\begin{pmatrix} 2 & 4 \\\\ 6 & 8 \\end{pmatrix} \\end{align*}",
+      "explanation": "Ausführlich: oben links \\(1 + 5 = 6\\), oben rechts \\(2 + 6 = 8\\), unten links \\(3 + 7 = 10\\), unten rechts \\(4 + 8 = 12\\).\n\nBeim Skalieren: \\(2 \\cdot 1 = 2\\), \\(2 \\cdot 2 = 4\\), \\(2 \\cdot 3 = 6\\), \\(2 \\cdot 4 = 8\\).\n\nWarum nur bei gleicher Größe? Bei einer \\(2 \\times 2\\)- und einer \\(2 \\times 3\\)-Matrix hätte die dritte Spalte keinen Partner – „Eintrag plus Eintrag“ ergibt dann keinen Sinn.",
+      "insight": "Addition und Skalarmultiplikation von Matrizen funktionieren komponentenweise – genau wie im \\(K^n\\)."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440006",
+      "section": "Kapitel 2 · Matrizen als Vektorraum",
+      "text": "Erinnerst du dich an die Lektion „Vektorräume“? Dort tauchte \\(K^{m \\times n}\\) schon als Beispiel auf. Jetzt sehen wir, warum: Eine \\(m \\times n\\)-Matrix ist nichts anderes als \\(mn\\) Zahlen, nur rechteckig angeordnet.\n\nAlso ist \\(K^{m \\times n}\\) ein Vektorraum, und alles von dort gilt hier. Zum Beispiel hat \\(K^{2 \\times 2}\\) die Standardbasis \\(E_{11}, E_{12}, E_{21}, E_{22}\\):",
+      "formula": "\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} = 1 E_{11} + 2 E_{12} + 3 E_{21} + 4 E_{22}",
+      "explanation": "Dabei ist \\(E_{ij}\\) die Matrix mit einer 1 an der Stelle \\((i, j)\\) und sonst Nullen, zum Beispiel \\(E_{12} = \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}\\).\n\n• Der Nullvektor ist die Nullmatrix \\(0\\) (alle Einträge 0).\n• Der Gegenvektor von \\(A\\) ist \\(-A\\) (alle Vorzeichen umdrehen).\n• \\(\\dim K^{m \\times n} = m \\cdot n\\), also \\(\\dim K^{2 \\times 2} = 4\\).",
+      "insight": "Bis hierhin sind Matrizen „nur“ Vektoren in anderer Form. Spannend wird es jetzt: Matrizen können etwas, das Vektoren nicht können – sie können auf Vektoren WIRKEN."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440007",
+      "section": "Kapitel 3 · Matrix mal Vektor",
+      "text": "Zurück zum Gleichungssystem \\(2x + y = 5\\), \\(x + 3y = 7\\). Wir wollen es als EINE Gleichung schreiben: \\(A \\cdot x = b\\), mit dem Unbekannten-Vektor \\(x = (x, y)\\).\n\nDamit das klappt, muss „\\(A\\) mal Vektor“ genau die linken Seiten der Gleichungen liefern. Also definieren wir:",
+      "formula": "\\begin{pmatrix} 2 & 1 \\\\ 1 & 3 \\end{pmatrix}\\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} 2x + 1y \\\\ 1x + 3y \\end{pmatrix}",
+      "explanation": "Jeder Eintrag des Ergebnisses entsteht aus einer Zeile von \\(A\\): Man multipliziert die Zeile Eintrag für Eintrag mit dem Vektor und addiert.\n\n• 1. Zeile \\((2, 1)\\) mit \\((x, y)\\): \\(2 \\cdot x + 1 \\cdot y\\)\n• 2. Zeile \\((1, 3)\\) mit \\((x, y)\\): \\(1 \\cdot x + 3 \\cdot y\\)\n\nDamit ist das Gleichungssystem genau \\(A x = b\\) mit \\(b = (5, 7)\\). Die Definition ist also nicht willkürlich – sie ist so gemacht, dass Gleichungssysteme kurz aufschreibbar werden.",
+      "insight": "Zeilen-Sicht: Der \\(i\\)-te Eintrag von \\(Ax\\) ist „Zeile \\(i\\) von \\(A\\) mal \\(x\\)“ – multiplizieren und aufsummieren."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440008",
+      "section": "Kapitel 3 · Matrix mal Vektor",
+      "text": "Allgemein: Für eine \\(m \\times n\\)-Matrix \\(A\\) und einen Vektor \\(x \\in K^n\\) ist \\(Ax \\in K^m\\) definiert durch",
+      "formula": "(Ax)_i = \\sum_{j=1}^{n} a_{ij} x_j = a_{i1} x_1 + \\dots + a_{in} x_n",
+      "explanation": "Wichtig: Die Zeilen von \\(A\\) haben \\(n\\) Einträge, also muss auch \\(x\\) genau \\(n\\) Einträge haben. Anzahl der Spalten von \\(A\\) = Anzahl der Einträge von \\(x\\).\n\nBeispiel mit einer \\(2 \\times 3\\)-Matrix:\n\\(\\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix} \\begin{pmatrix} 1 \\\\ 0 \\\\ 2 \\end{pmatrix}\\)\n\\(= \\begin{pmatrix} 1 + 0 + 6 \\\\ 4 + 0 + 12 \\end{pmatrix} = \\begin{pmatrix} 7 \\\\ 16 \\end{pmatrix}\\)\n\nAus einem Vektor im \\(\\mathbb{R}^3\\) wird ein Vektor im \\(\\mathbb{R}^2\\).",
+      "insight": "Eine \\(m \\times n\\)-Matrix nimmt Vektoren aus \\(K^n\\) und liefert Vektoren in \\(K^m\\). „Rein“ gehen \\(n\\) Einträge, „raus“ kommen \\(m\\)."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440009",
+      "section": "Kapitel 3 · Matrix mal Vektor",
+      "text": "Jetzt kommt die wichtigste Erkenntnis der Lektion. Wir schreiben dieselbe Rechnung einfach anders auf – nach Spalten sortiert:",
+      "visual": "matrixTimesVector",
+      "formula": "\\begin{align*} \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}\\begin{pmatrix} x_1 \\\\ x_2 \\end{pmatrix} &= \\begin{pmatrix} 2x_1 + x_2 \\\\ x_1 + 2x_2 \\end{pmatrix} \\\\ &= x_1 \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix} + x_2 \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} \\end{align*}",
+      "explanation": "\\(Ax\\) ist eine Linearkombination der Spalten von \\(A\\) – und die Einträge von \\(x\\) sind die Koeffizienten!\n\nMit \\(x = (1, 2)\\): \\(1 \\cdot (2, 1) + 2 \\cdot (1, 2) = (4, 5)\\). Das ist exakt die „Bauanleitung“ aus der Lektion „Vektorräume“ (Kapitel 4). Damals haben wir also schon, ohne es zu wissen, eine Matrix mit einem Vektor multipliziert.\n\nFolgerung: \\(Ax = b\\) ist genau dann lösbar, wenn \\(b\\) eine Linearkombination der Spalten ist – also wenn \\(b \\in \\operatorname{span}(\\text{Spalten von } A)\\).",
+      "insight": "Spalten-Sicht: \\(Ax = x_1 a_1 + \\dots + x_n a_n\\). Matrix mal Vektor heißt: Spalten mit den Einträgen von \\(x\\) gewichten und addieren."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440010",
+      "section": "Kapitel 3 · Matrix mal Vektor",
+      "text": "Die Spalten-Sicht liefert noch etwas: ein BILD. Wenn wir jeden Vektor \\(x\\) der Ebene durch \\(Ax\\) ersetzen, wird die ganze Ebene verformt. Was passiert mit den Standardvektoren \\(e_1 = (1, 0)\\) und \\(e_2 = (0, 1)\\)?",
+      "visual": "matrixTransform",
+      "formula": "\\begin{align*} A &= \\begin{pmatrix} 2 & 1 \\\\ 0 & 1 \\end{pmatrix} \\\\ A e_1 &= \\begin{pmatrix} 2 \\\\ 0 \\end{pmatrix}, \\quad A e_2 = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} \\end{align*}",
+      "explanation": "Mit der Spalten-Sicht ist \\(A e_1 = 1 \\cdot a_1 + 0 \\cdot a_2 = a_1\\) – die erste Spalte. Genauso ist \\(A e_2\\) die zweite Spalte.\n\nUnd jeder andere Vektor? \\(x = (x_1, x_2) = x_1 e_1 + x_2 e_2\\) wird zu \\(Ax = x_1 a_1 + x_2 a_2\\). Er behält also seine „Koordinaten“, nur im neuen, verformten Gitter. Deshalb bleiben Gitterlinien gerade, parallel und gleichmäßig verteilt.\n\nDahinter stecken zwei Rechenregeln, die direkt aus der Definition folgen:\n\\(A(u + v) = Au + Av\\) und \\(A(\\lambda u) = \\lambda (Au)\\).",
+      "insight": "Die Spalten einer Matrix sind die Bilder der Standardbasisvektoren. Wer die Spalten kennt, kennt die ganze Abbildung."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440011",
+      "section": "Kapitel 3 · Matrix mal Vektor",
+      "text": "Mit dieser Regel kannst du viele Matrizen „lesen“, ohne zu rechnen. Schau dir jeweils an, wohin \\(e_1\\) (1. Spalte) und \\(e_2\\) (2. Spalte) wandern:",
+      "formula": "\\begin{align*} D &= \\begin{pmatrix} 2 & 0 \\\\ 0 & 1 \\end{pmatrix}, & R &= \\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix} \\\\[4pt] S &= \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}, & P &= \\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix} \\end{align*}",
+      "explanation": "• \\(D\\): \\(e_1 \\mapsto (2, 0)\\), \\(e_2\\) bleibt. Streckung in \\(x\\)-Richtung um den Faktor 2.\n• \\(R\\): \\(e_1 \\mapsto (0, 1)\\), \\(e_2 \\mapsto (-1, 0)\\). Drehung um 90° gegen den Uhrzeigersinn.\n• \\(S\\): \\(e_1\\) bleibt, \\(e_2 \\mapsto (0, -1)\\). Spiegelung an der \\(x\\)-Achse.\n• \\(P\\): \\(e_1\\) bleibt, \\(e_2 \\mapsto (0, 0)\\). Projektion auf die \\(x\\)-Achse – jeder Punkt fällt senkrecht auf die Achse.",
+      "insight": "Nächste Frage: Was passiert, wenn wir zwei solche Abbildungen nacheinander ausführen – erst \\(D\\), dann \\(R\\)? Gibt es dafür wieder eine einzige Matrix?"
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440012",
+      "section": "Kapitel 4 · Matrixmultiplikation",
+      "text": "Wir führen zuerst \\(B\\) und dann \\(A\\) aus: \\(x \\mapsto Bx \\mapsto A(Bx)\\). Gibt es eine Matrix \\(C\\) mit \\(Cx = A(Bx)\\) für alle \\(x\\)?\n\nAus Kapitel 3 wissen wir: Die Spalten von \\(C\\) sind die Bilder der Standardvektoren. Also rechnen wir aus, wohin \\(e_j\\) wandert:\n\n\\(C e_j = A(B e_j) = A \\cdot (j\\text{-te Spalte von } B)\\)",
+      "formula": "AB = \\big(\\, A b_1 \\;\\big|\\; A b_2 \\;\\big|\\; \\cdots \\;\\big|\\; A b_p \\,\\big)",
+      "explanation": "Damit ist die Matrixmultiplikation geboren: Die \\(j\\)-te Spalte von \\(AB\\) ist \\(A\\) mal die \\(j\\)-te Spalte \\(b_j\\) von \\(B\\).\n\nUnd so wird automatisch \\((AB)x = A(Bx)\\): „Erst \\(B\\), dann \\(A\\)“ ist dasselbe wie „einmal \\(AB\\)“.\n\nAchtung beim Lesen: In \\(AB\\) wird zuerst \\(B\\) angewendet, dann \\(A\\) – von rechts nach links, genau wie bei der Verkettung \\(f \\circ g\\) von Funktionen.",
+      "insight": "Matrixmultiplikation = Hintereinanderausführung. Deshalb ist sie genau so definiert, wie sie definiert ist."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440013",
+      "section": "Kapitel 4 · Matrixmultiplikation",
+      "text": "Rechnen wir ein Beispiel Spalte für Spalte durch: \\(A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}\\) und \\(B = \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix}\\).",
+      "formula": "\\begin{align*} A \\begin{pmatrix} 5 \\\\ 7 \\end{pmatrix} &= \\begin{pmatrix} 1 \\cdot 5 + 2 \\cdot 7 \\\\ 3 \\cdot 5 + 4 \\cdot 7 \\end{pmatrix} \\\\ &= \\begin{pmatrix} 19 \\\\ 43 \\end{pmatrix} \\\\[4pt] A \\begin{pmatrix} 6 \\\\ 8 \\end{pmatrix} &= \\begin{pmatrix} 1 \\cdot 6 + 2 \\cdot 8 \\\\ 3 \\cdot 6 + 4 \\cdot 8 \\end{pmatrix} \\\\ &= \\begin{pmatrix} 22 \\\\ 50 \\end{pmatrix} \\\\[4pt] AB &= \\begin{pmatrix} 19 & 22 \\\\ 43 & 50 \\end{pmatrix} \\end{align*}",
+      "explanation": "Schau dir an, woher z. B. die 43 kommt: aus der 2. Zeile von \\(A\\), also \\((3, 4)\\), und der 1. Spalte von \\(B\\), also \\((5, 7)\\): \\(3 \\cdot 5 + 4 \\cdot 7 = 15 + 28 = 43\\).\n\nDas ist die bekannte Faustregel „Zeile mal Spalte“: Der Eintrag \\(c_{ij}\\) von \\(AB\\) ist Zeile \\(i\\) von \\(A\\) mal Spalte \\(j\\) von \\(B\\):\n\\(c_{ij} = \\sum_k a_{ik} b_{kj}\\).\n\nJetzt weißt du aber auch, WARUM diese Regel gilt.",
+      "insight": "Zwei gleichwertige Rechenwege: spaltenweise „\\(A\\) mal jede Spalte von \\(B\\)“ oder eintragsweise „Zeile \\(i\\) mal Spalte \\(j\\)“."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440014",
+      "section": "Kapitel 4 · Matrixmultiplikation",
+      "text": "Wann darf man \\(A\\) und \\(B\\) überhaupt multiplizieren? \\(A\\) muss die Spalten von \\(B\\) „verarbeiten“ können. Hat \\(A\\) \\(n\\) Spalten, müssen die Spalten von \\(B\\) also \\(n\\) Einträge haben:",
+      "formula": "\\underbrace{A}_{m \\times n} \\cdot \\underbrace{B}_{n \\times p} = \\underbrace{AB}_{m \\times p}",
+      "explanation": "Merkhilfe: Die inneren Zahlen müssen übereinstimmen, die äußeren bleiben übrig.\n\n• \\((2 \\times 3) \\cdot (3 \\times 2)\\) ergibt \\(2 \\times 2\\).\n• \\((3 \\times 2) \\cdot (2 \\times 3)\\) ergibt \\(3 \\times 3\\).\n• \\((2 \\times 3) \\cdot (2 \\times 3)\\) ist nicht definiert (\\(3 \\neq 2\\)).\n\nBeispiel:\n\\(\\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix} \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\\\ 1 & 1 \\end{pmatrix}\\)\n\\(= \\begin{pmatrix} 4 & 5 \\\\ 10 & 11 \\end{pmatrix}\\)\n\nNachrechnen: \\(1 + 0 + 3 = 4\\), \\(0 + 2 + 3 = 5\\), \\(4 + 0 + 6 = 10\\), \\(0 + 5 + 6 = 11\\).",
+      "insight": "Vor jeder Multiplikation zuerst die Größen prüfen: innen gleich, außen bleibt übrig."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440015",
+      "section": "Kapitel 4 · Matrixmultiplikation",
+      "text": "Bei Zahlen ist \\(3 \\cdot 5 = 5 \\cdot 3\\). Gilt das auch für Matrizen? Testen wir es mit \\(D\\) (Streckung in \\(x\\)-Richtung) und \\(R\\) (Drehung um 90°):",
+      "visual": "matrixOrder",
+      "formula": "\\begin{align*} RD &= \\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix}\\begin{pmatrix} 2 & 0 \\\\ 0 & 1 \\end{pmatrix} \\\\ &= \\begin{pmatrix} 0 & -1 \\\\ 2 & 0 \\end{pmatrix} \\\\[4pt] DR &= \\begin{pmatrix} 2 & 0 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix} \\\\ &= \\begin{pmatrix} 0 & -2 \\\\ 1 & 0 \\end{pmatrix} \\end{align*}",
+      "explanation": "Spaltenweise nachgerechnet: Für \\(RD\\) ist die 1. Spalte \\(R \\cdot (2, 0) = (0, 2)\\) und die 2. Spalte \\(R \\cdot (0, 1) = (-1, 0)\\). Für \\(DR\\) ist die 1. Spalte \\(D \\cdot (0, 1) = (0, 1)\\) und die 2. Spalte \\(D \\cdot (-1, 0) = (-2, 0)\\).\n\nGeometrisch ist das einleuchtend: „Erst strecken, dann drehen“ liefert ein hohes Rechteck, „erst drehen, dann strecken“ ein breites.",
+      "insight": "Matrixmultiplikation ist NICHT kommutativ: Im Allgemeinen ist \\(AB \\neq BA\\). Die Reihenfolge der Faktoren darfst du nie einfach vertauschen."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440016",
+      "section": "Kapitel 4 · Matrixmultiplikation",
+      "text": "Welche Rechenregeln gelten dann? Für Matrizen passender Größe gilt:\n\n• Assoziativ: \\(A(BC) = (AB)C\\) – beides heißt „erst \\(C\\), dann \\(B\\), dann \\(A\\)“.\n• Distributiv: \\(A(B + C) = AB + AC\\) und \\((A + B)C = AC + BC\\).\n• Skalare darf man herausziehen: \\((\\lambda A)B = \\lambda(AB) = A(\\lambda B)\\).\n\nAber Vorsicht – eine bekannte Regel von Zahlen gilt NICHT:",
+      "formula": "N = \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}, \\qquad N^2 = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}",
+      "explanation": "\\(N \\neq 0\\), aber \\(N \\cdot N = 0\\). Rechne nach: 1. Spalte von \\(N^2\\) ist \\(N \\cdot (0, 0) = (0, 0)\\), 2. Spalte ist \\(N \\cdot (1, 0) = (0, 0)\\).\n\nGeometrisch: \\(N\\) schickt \\(e_2\\) auf \\(e_1\\) und \\(e_1\\) auf \\(0\\). Zweimal angewendet landet alles bei \\(0\\).\n\nFolgen:\n• Aus \\(AB = 0\\) folgt NICHT \\(A = 0\\) oder \\(B = 0\\).\n• Aus \\(AB = AC\\) folgt NICHT \\(B = C\\) – man darf nicht einfach „durch \\(A\\) kürzen“.\nMatrizen mit \\(N^k = 0\\) für ein \\(k\\) heißen nilpotent.",
+      "insight": "Merke: assoziativ und distributiv – ja. Kommutativ und „kürzen“ – nein."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440017",
+      "section": "Kapitel 5 · Besondere Matrizen",
+      "text": "Einige Matrizen tauchen so oft auf, dass sie eigene Namen haben. Die wichtigste ist die Einheitsmatrix \\(I_n\\): Ihre Spalten sind \\(e_1, \\dots, e_n\\). Sie schickt also jeden Basisvektor auf sich selbst – sie tut nichts.",
+      "formula": "\\begin{align*} I_3 &= \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix} \\\\ AI &= IA = A \\end{align*}",
+      "explanation": "\\(I\\) spielt für Matrizen die Rolle der Zahl 1: \\(Ix = x\\) für jeden Vektor und \\(AI = IA = A\\) für jede (quadratische) Matrix.\n\nEtwas allgemeiner sind Diagonalmatrizen: Nur auf der Hauptdiagonale (von oben links nach unten rechts) stehen Einträge \\(\\neq 0\\). Eine Diagonalmatrix streckt jede Achse einzeln. Deshalb ist Rechnen mit ihnen besonders leicht:\n\n\\(\\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix} \\begin{pmatrix} 4 & 0 \\\\ 0 & 5 \\end{pmatrix} = \\begin{pmatrix} 8 & 0 \\\\ 0 & 15 \\end{pmatrix}\\)\n\\(\\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}^3 = \\begin{pmatrix} 8 & 0 \\\\ 0 & 27 \\end{pmatrix}\\)",
+      "insight": "Diagonalmatrizen multipliziert man, indem man einfach die Diagonaleinträge multipliziert. Viele Verfahren (z. B. Diagonalisieren) zielen darauf ab, genau so eine Form zu erreichen."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440018",
+      "section": "Kapitel 5 · Besondere Matrizen",
+      "text": "Bei einer oberen Dreiecksmatrix stehen unterhalb der Hauptdiagonale nur Nullen, bei einer unteren Dreiecksmatrix oberhalb:",
+      "formula": "\\begin{align*} \\text{oben: } &\\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 4 & 5 \\\\ 0 & 0 & 6 \\end{pmatrix} \\\\[4pt] \\text{unten: } &\\begin{pmatrix} 1 & 0 & 0 \\\\ 2 & 4 & 0 \\\\ 3 & 5 & 6 \\end{pmatrix} \\end{align*}",
+      "explanation": "Warum sind sie so beliebt? Ein Gleichungssystem mit oberer Dreiecksmatrix kann man von unten nach oben lösen: Die letzte Gleichung enthält nur eine Unbekannte, die vorletzte zwei, und so weiter.\n\nGenau dorthin bringt uns das Gauß-Verfahren in Kapitel 6. Außerdem ist das Produkt zweier oberer Dreiecksmatrizen wieder eine obere Dreiecksmatrix.",
+      "insight": "Dreiecksform = „von unten nach oben lösbar“. Das ist das Ziel des Gauß-Verfahrens."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440019",
+      "section": "Kapitel 5 · Besondere Matrizen",
+      "text": "Die Transponierte \\(A^T\\) entsteht, indem man Zeilen und Spalten vertauscht: Die erste Zeile wird zur ersten Spalte, die zweite Zeile zur zweiten Spalte, und so weiter. Formal: \\((A^T)_{ij} = a_{ji}\\).",
+      "formula": "\\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix}^{\\!T} = \\begin{pmatrix} 1 & 4 \\\\ 2 & 5 \\\\ 3 & 6 \\end{pmatrix}",
+      "explanation": "Aus einer \\(m \\times n\\)-Matrix wird eine \\(n \\times m\\)-Matrix. Bei quadratischen Matrizen ist das eine Spiegelung an der Hauptdiagonale.\n\nRechenregeln: \\((A^T)^T = A\\), \\((A + B)^T = A^T + B^T\\) und – Achtung – \\((AB)^T = B^T A^T\\). Die Reihenfolge dreht sich um!\n\nWarum? Schon die Größen erzwingen es: Ist \\(A\\) eine \\(m \\times n\\)- und \\(B\\) eine \\(n \\times p\\)-Matrix, dann ist \\((AB)^T\\) eine \\(p \\times m\\)-Matrix. \\(B^T A^T\\) hat die Größe \\((p \\times n)(n \\times m) = p \\times m\\) und passt, \\(A^T B^T\\) wäre im Allgemeinen gar nicht definiert.\n\nProbe mit unserem Beispiel von vorhin:\n\\((AB)^T = \\begin{pmatrix} 19 & 43 \\\\ 22 & 50 \\end{pmatrix}\\)\n\\(B^T A^T = \\begin{pmatrix} 5 & 7 \\\\ 6 & 8 \\end{pmatrix} \\begin{pmatrix} 1 & 3 \\\\ 2 & 4 \\end{pmatrix}\\)\n\\(= \\begin{pmatrix} 19 & 43 \\\\ 22 & 50 \\end{pmatrix}\\) ✓",
+      "insight": "Transponieren eines Produkts dreht die Reihenfolge um: \\((AB)^T = B^T A^T\\)."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440020",
+      "section": "Kapitel 5 · Besondere Matrizen",
+      "text": "Eine quadratische Matrix heißt symmetrisch, wenn \\(A^T = A\\) gilt – wenn sie sich beim Spiegeln an der Hauptdiagonale nicht ändert:",
+      "formula": "\\begin{array}{c} \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 5 \\\\ 3 & 5 & 6 \\end{pmatrix} \\\\[6pt] a_{ij} = a_{ji} \\end{array}",
+      "explanation": "Hier ist \\(a_{12} = a_{21} = 2\\), \\(a_{13} = a_{31} = 3\\) und \\(a_{23} = a_{32} = 5\\).\n\nEin schöner Trick: Für JEDE Matrix \\(A\\) ist \\(A^T A\\) symmetrisch. Beweis mit den Regeln von eben:\n\\((A^T A)^T = A^T (A^T)^T = A^T A\\).\n\nSymmetrische Matrizen haben besonders gute Eigenschaften (z. B. sind sie immer diagonalisierbar) – das lernst du in der Lektion „Eigenwerte und Eigenvektoren“.",
+      "insight": "Symmetrisch heißt \\(A^T = A\\). Erkennbar daran, dass die Einträge spiegelbildlich zur Hauptdiagonale liegen."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440021",
+      "section": "Kapitel 5 · Besondere Matrizen",
+      "text": "Die Spur einer quadratischen Matrix ist die Summe der Diagonaleinträge:",
+      "formula": "\\operatorname{tr} \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\\\ 7 & 8 & 9 \\end{pmatrix} = 1 + 5 + 9 = 15",
+      "explanation": "Die Spur sieht unscheinbar aus, hat aber eine überraschende Eigenschaft: Obwohl \\(AB \\neq BA\\) sein kann, gilt immer \\(\\operatorname{tr}(AB) = \\operatorname{tr}(BA)\\).\n\nProbe mit \\(A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}\\), \\(B = \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix}\\):\n\\(AB = \\begin{pmatrix} 19 & 22 \\\\ 43 & 50 \\end{pmatrix}\\), also \\(\\operatorname{tr}(AB) = 69\\).\n\\(BA = \\begin{pmatrix} 23 & 34 \\\\ 31 & 46 \\end{pmatrix}\\), also \\(\\operatorname{tr}(BA) = 69\\).\n\nDie Matrizen sind verschieden, die Spuren gleich. Später wirst du sehen: Die Spur ist die Summe der Eigenwerte.",
+      "insight": "\\(\\operatorname{tr}(A)\\) = Summe der Diagonaleinträge, und es gilt immer \\(\\operatorname{tr}(AB) = \\operatorname{tr}(BA)\\)."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440022",
+      "section": "Kapitel 5 · Besondere Matrizen",
+      "text": "Zwei weitere Begriffe, die in Klausuren gern abgefragt werden:\n\n• idempotent: \\(P^2 = P\\)\n• nilpotent: \\(N^k = 0\\) für ein \\(k \\ge 1\\)",
+      "formula": "\\begin{align*} \\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}^{2} &= \\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix} \\\\ \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}^{2} &= \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix} \\end{align*}",
+      "explanation": "Die erste Matrix ist die Projektion \\(P\\) auf die \\(x\\)-Achse aus Kapitel 3. Projiziert man einen Punkt, der schon auf der Achse liegt, ein zweites Mal, ändert sich nichts. Deshalb ist \\(P \\cdot P = P\\).\n\nDie zweite Matrix ist \\(N\\) aus Kapitel 4: Sie verschiebt \\(e_2 \\mapsto e_1 \\mapsto 0\\). Nach zwei Schritten ist alles bei 0.\n\nSo bekommen die abstrakten Gleichungen \\(P^2 = P\\) und \\(N^2 = 0\\) eine anschauliche Bedeutung.",
+      "insight": "Idempotent = „zweimal anwenden ändert nichts mehr“ (Projektionen). Nilpotent = „nach endlich vielen Schritten ist alles 0“."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440023",
+      "section": "Kapitel 6 · Gleichungssysteme und Gauß",
+      "text": "Jetzt lösen wir Gleichungssysteme \\(Ax = b\\) systematisch. Dazu schreibt man \\(A\\) und \\(b\\) in eine erweiterte Koeffizientenmatrix \\((A \\mid b)\\) und formt Zeilen um. Erlaubt sind genau drei Umformungen:\n\n1. Zwei Zeilen vertauschen.\n2. Eine Zeile mit einer Zahl \\(\\lambda \\neq 0\\) multiplizieren.\n3. Ein Vielfaches einer Zeile zu einer anderen addieren.",
+      "explanation": "Warum dürfen wir das? Jede dieser Umformungen ändert die Lösungsmenge NICHT:\n\n• Erfüllt \\(x\\) die alten Gleichungen, dann auch die neuen – die neuen sind ja aus den alten zusammengesetzt.\n• Und jede Umformung lässt sich rückgängig machen (zurücktauschen, durch \\(\\lambda\\) teilen, das Vielfache wieder abziehen). Also gilt auch die Rückrichtung.\n\nGenau deshalb muss \\(\\lambda \\neq 0\\) sein: Multipliziert man eine Zeile mit 0, wird aus der Gleichung \\(0 = 0\\). Die Information ist verloren und lässt sich nicht zurückholen – die Lösungsmenge kann größer werden.",
+      "insight": "Zeilenumformungen sind erlaubt, weil sie umkehrbar sind. Umkehrbar ⇒ gleiche Lösungsmenge."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440024",
+      "section": "Kapitel 6 · Gleichungssysteme und Gauß",
+      "text": "Ziel ist eine Dreiecksform (Zeilenstufenform). Beispiel:\n\n\\(x + y + z = 6\\)\n\\(2x + y - z = 1\\)\n\\(x - y + 2z = 5\\)\n\nSchritt 1: Wir nutzen die 1 oben links, um \\(x\\) aus den Zeilen II und III zu entfernen. Rechne mit: II \\(- 2 \\cdot\\) I und III \\(-\\) I.",
+      "formula": "\\begin{align*} &\\left(\\begin{array}{rrr|r} 1 & 1 & 1 & 6 \\\\ 2 & 1 & -1 & 1 \\\\ 1 & -1 & 2 & 5 \\end{array}\\right) \\\\ \\leadsto\\; &\\left(\\begin{array}{rrr|r} 1 & 1 & 1 & 6 \\\\ 0 & -1 & -3 & -11 \\\\ 0 & -2 & 1 & -1 \\end{array}\\right) \\end{align*}",
+      "explanation": "Zeile II: \\((2, 1, -1 \\mid 1) - 2 \\cdot (1, 1, 1 \\mid 6) = (0, -1, -3 \\mid -11)\\).\nZeile III: \\((1, -1, 2 \\mid 5) - (1, 1, 1 \\mid 6) = (0, -2, 1 \\mid -1)\\).\n\nDie erste Spalte enthält jetzt unter der 1 nur noch Nullen: \\(x\\) kommt in den Zeilen II und III nicht mehr vor.",
+      "insight": "Strategie: Spalte für Spalte von links nach rechts unter dem „Pivot“ (dem führenden Eintrag) Nullen erzeugen."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440025",
+      "section": "Kapitel 6 · Gleichungssysteme und Gauß",
+      "text": "Schritt 2: Jetzt nutzen wir die \\(-1\\) in Zeile II, um in Zeile III den Eintrag \\(-2\\) zu entfernen: III \\(- 2 \\cdot\\) II.",
+      "formula": "\\begin{align*} &\\left(\\begin{array}{rrr|r} 1 & 1 & 1 & 6 \\\\ 0 & -1 & -3 & -11 \\\\ 0 & 0 & 7 & 21 \\end{array}\\right) \\\\[4pt] &\\Rightarrow\\; z = 3,\\ y = 2,\\ x = 1 \\end{align*}",
+      "explanation": "Zeile III: \\((0, -2, 1 \\mid -1) - 2 \\cdot (0, -1, -3 \\mid -11) = (0, 0, 7 \\mid 21)\\).\n\nJetzt von unten nach oben (Rückwärtseinsetzen):\n• III: \\(7z = 21\\), also \\(z = 3\\).\n• II: \\(-y - 3 \\cdot 3 = -11\\), also \\(-y = -2\\), also \\(y = 2\\).\n• I: \\(x + 2 + 3 = 6\\), also \\(x = 1\\).\n\nProbe in den Original-Gleichungen: \\(1 + 2 + 3 = 6\\) ✓, \\(2 + 2 - 3 = 1\\) ✓, \\(1 - 2 + 6 = 5\\) ✓",
+      "insight": "Nach dem Gauß-Verfahren immer eine Probe in den ursprünglichen Gleichungen machen – sie kostet wenig und findet fast jeden Rechenfehler."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440026",
+      "section": "Kapitel 6 · Gleichungssysteme und Gauß",
+      "text": "Nicht jedes System hat genau eine Lösung. Die Zeilenstufenform zeigt sofort, welcher Fall vorliegt. Drei Beispiele mit zwei Unbekannten:",
+      "formula": "\\begin{align*} &\\text{(a) } \\left(\\begin{array}{rr|r} 1 & 1 & 2 \\\\ 0 & 1 & 1 \\end{array}\\right) \\\\ &\\text{(b) } \\left(\\begin{array}{rr|r} 1 & 1 & 1 \\\\ 0 & 0 & 1 \\end{array}\\right) \\\\ &\\text{(c) } \\left(\\begin{array}{rr|r} 1 & 1 & 1 \\\\ 0 & 0 & 0 \\end{array}\\right) \\end{align*}",
+      "explanation": "(a) Genau eine Lösung: \\(y = 1\\), dann \\(x = 1\\). Geometrisch schneiden sich zwei Geraden in einem Punkt.\n\n(b) Keine Lösung: Die letzte Zeile bedeutet \\(0x + 0y = 1\\), also \\(0 = 1\\) – ein Widerspruch. Das entsteht z. B. aus \\(x + y = 1\\) und \\(2x + 2y = 3\\) (II \\(- 2 \\cdot\\) I). Zwei parallele Geraden.\n\n(c) Unendlich viele Lösungen: Die letzte Zeile ist \\(0 = 0\\) und sagt nichts. \\(y = t\\) ist frei wählbar, und \\(x = 1 - t\\). Das entsteht z. B. aus \\(x + y = 1\\) und \\(2x + 2y = 2\\). Beide Gleichungen beschreiben dieselbe Gerade.",
+      "insight": "Zeile \\((0 \\cdots 0 \\mid c)\\) mit \\(c \\neq 0\\) ⇒ keine Lösung. Weniger Stufen als Unbekannte (ohne Widerspruch) ⇒ freie Parameter, unendlich viele Lösungen."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440027",
+      "section": "Kapitel 6 · Gleichungssysteme und Gauß",
+      "text": "Die Anzahl der Stufen hat einen Namen: Der Rang einer Matrix ist die Anzahl der Zeilen ungleich null in ihrer Zeilenstufenform.\n\nWas misst er? Hier verbindet sich alles mit der Lektion „Vektorräume“:",
+      "formula": "\\operatorname{rang} A = \\dim \\operatorname{span}(\\text{Spalten von } A)",
+      "explanation": "Der Rang ist die maximale Anzahl linear unabhängiger Spalten – also die Dimension des Raums, den die Spalten aufspannen. Nach Kapitel 3 ist das genau die Menge aller möglichen Ergebnisse \\(Ax\\).\n\nBeispiel: \\(\\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\end{pmatrix}\\) wird mit II \\(- 2 \\cdot\\) I zu \\(\\begin{pmatrix} 1 & 2 \\\\ 0 & 0 \\end{pmatrix}\\), also Rang 1. Passt: Die zweite Spalte \\((2, 4)\\) ist das Doppelte der ersten, die Spalten spannen nur eine Gerade auf.\n\nLösbarkeitskriterium: \\(Ax = b\\) ist genau dann lösbar, wenn \\(\\operatorname{rang} A = \\operatorname{rang}(A \\mid b)\\) gilt – wenn \\(b\\) also keine neue Richtung hinzufügt.",
+      "insight": "Für eine \\(n \\times n\\)-Matrix gilt: Rang \\(n\\) ⇔ Spalten linear unabhängig ⇔ \\(Ax = b\\) hat für jedes \\(b\\) genau eine Lösung. Diese Matrizen schauen wir uns jetzt genauer an."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440028",
+      "section": "Kapitel 7 · Die inverse Matrix",
+      "text": "Bei Zahlen löst man \\(ax = b\\) durch Teilen: \\(x = a^{-1} b\\), falls \\(a \\neq 0\\). Geht das bei Matrizen auch?\n\nDurch eine Matrix „teilen“ kann man nicht direkt. Aber man kann eine Matrix suchen, die die Wirkung von \\(A\\) rückgängig macht:",
+      "formula": "A A^{-1} = A^{-1} A = I",
+      "explanation": "Eine quadratische Matrix \\(A\\) heißt invertierbar, wenn es so eine Matrix \\(A^{-1}\\) gibt. Sie heißt die Inverse von \\(A\\).\n\nDann lösen wir \\(Ax = b\\) wie bei Zahlen: Von links mit \\(A^{-1}\\) multiplizieren ergibt \\(A^{-1} A x = A^{-1} b\\), also \\(x = A^{-1} b\\).\n\nBeispiel: Die Drehung \\(R\\) um 90° macht man durch die Drehung um \\(-90°\\) rückgängig: \\(R^{-1} = \\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix}\\). Rechne \\(R R^{-1} = I\\) nach!",
+      "insight": "Die Inverse ist die „Rückgängig-Taste“: Erst \\(A\\), dann \\(A^{-1}\\) ergibt wieder den Ausgangsvektor."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440029",
+      "section": "Kapitel 7 · Die inverse Matrix",
+      "text": "Aber nicht jede Matrix lässt sich rückgängig machen. Schau dir \\(A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\end{pmatrix}\\) an:",
+      "visual": "singularMatrix",
+      "explanation": "\\(A\\) schickt \\((2, 0)\\) und \\((0, 1)\\) beide auf \\((2, 4)\\). Eine Inverse müsste \\((2, 4)\\) gleichzeitig auf \\((2, 0)\\) und auf \\((0, 1)\\) zurückschicken – unmöglich.\n\nDer Grund: Die Spalten \\((1, 2)\\) und \\((2, 4)\\) sind linear abhängig. Damit erzeugen sie nur eine Gerade, und die ganze Ebene wird auf diese Gerade gequetscht. Dabei geht Information verloren.\n\nAnders als bei Zahlen gibt es also Matrizen \\(A \\neq 0\\) ohne Inverse.",
+      "insight": "Für \\(A \\in K^{n \\times n}\\) sind gleichwertig: \\(A\\) invertierbar ⇔ Spalten linear unabhängig ⇔ \\(\\operatorname{rang} A = n\\). Später kommt noch dazu: ⇔ \\(\\det A \\neq 0\\)."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440030",
+      "section": "Kapitel 7 · Die inverse Matrix",
+      "text": "Für \\(2 \\times 2\\)-Matrizen gibt es eine fertige Formel. Für \\(A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}\\) mit \\(ad - bc \\neq 0\\) gilt:",
+      "formula": "A^{-1} = \\frac{1}{ad - bc} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}",
+      "explanation": "Merkhilfe: Diagonaleinträge \\(a\\) und \\(d\\) tauschen, bei \\(b\\) und \\(c\\) das Vorzeichen wechseln, alles durch \\(ad - bc\\) teilen.\n\nWarum stimmt das? Wir multiplizieren nach:\n\\(\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}\\)\n\\(= \\begin{pmatrix} ad - bc & 0 \\\\ 0 & ad - bc \\end{pmatrix}\\)\nTeilen durch \\(ad - bc\\) ergibt genau \\(I\\).\n\nBeispiel: \\(A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}\\), \\(ad - bc = 4 - 6 = -2\\):\n\\(A^{-1} = -\\tfrac{1}{2} \\begin{pmatrix} 4 & -2 \\\\ -3 & 1 \\end{pmatrix}\\)\n\\(= \\begin{pmatrix} -2 & 1 \\\\ 1{,}5 & -0{,}5 \\end{pmatrix}\\)\n\nUnd wenn \\(ad - bc = 0\\)? Dann sind die Spalten abhängig, und es gibt keine Inverse. Für \\(\\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\end{pmatrix}\\) ist \\(4 - 4 = 0\\).",
+      "insight": "Die Zahl \\(ad - bc\\) entscheidet über die Invertierbarkeit. Sie heißt Determinante – mehr dazu im Ausblick."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440031",
+      "section": "Kapitel 7 · Die inverse Matrix",
+      "text": "Jetzt lösen wir unser Gleichungssystem aus Kapitel 1 mit der Inversen: \\(2x + y = 5\\), \\(x + 3y = 7\\).\n\nFür \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 3 \\end{pmatrix}\\) ist \\(ad - bc = 6 - 1 = 5\\), also:",
+      "formula": "\\begin{align*} A^{-1} &= \\tfrac{1}{5} \\begin{pmatrix} 3 & -1 \\\\ -1 & 2 \\end{pmatrix} \\\\ x = A^{-1} b &= \\tfrac{1}{5} \\begin{pmatrix} 3 \\cdot 5 - 1 \\cdot 7 \\\\ -1 \\cdot 5 + 2 \\cdot 7 \\end{pmatrix} \\\\ &= \\tfrac{1}{5} \\begin{pmatrix} 8 \\\\ 9 \\end{pmatrix} \\end{align*}",
+      "explanation": "Also \\(x = \\tfrac{8}{5}\\) und \\(y = \\tfrac{9}{5}\\).\n\nProbe: \\(2 \\cdot \\tfrac{8}{5} + \\tfrac{9}{5} = \\tfrac{25}{5} = 5\\) ✓ und \\(\\tfrac{8}{5} + 3 \\cdot \\tfrac{9}{5} = \\tfrac{35}{5} = 7\\) ✓\n\nPraxistipp: Für ein einzelnes Gleichungssystem ist das Gauß-Verfahren meist schneller. Die Inverse lohnt sich, wenn man \\(Ax = b\\) für viele verschiedene \\(b\\) lösen muss.",
+      "insight": "\\(Ax = b\\) mit invertierbarem \\(A\\) hat genau eine Lösung: \\(x = A^{-1} b\\)."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440032",
+      "section": "Kapitel 7 · Die inverse Matrix",
+      "text": "Für größere Matrizen berechnet man die Inverse mit dem Gauß-Jordan-Verfahren: Man schreibt \\((A \\mid I)\\) und formt so lange um, bis links \\(I\\) steht. Dann steht rechts \\(A^{-1}\\).\n\nBeispiel mit \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 1 \\end{pmatrix}\\):",
+      "formula": "\\begin{align*} &\\left(\\begin{array}{rr|rr} 2 & 1 & 1 & 0 \\\\ 1 & 1 & 0 & 1 \\end{array}\\right) \\\\ \\leadsto\\; &\\left(\\begin{array}{rr|rr} 1 & 1 & 0 & 1 \\\\ 2 & 1 & 1 & 0 \\end{array}\\right) \\\\ \\leadsto\\; &\\left(\\begin{array}{rr|rr} 1 & 1 & 0 & 1 \\\\ 0 & -1 & 1 & -2 \\end{array}\\right) \\\\ \\leadsto\\; &\\left(\\begin{array}{rr|rr} 1 & 0 & 1 & -1 \\\\ 0 & 1 & -1 & 2 \\end{array}\\right) \\end{align*}",
+      "explanation": "Die Schritte: I und II vertauschen. Dann II \\(- 2 \\cdot\\) I. Dann I \\(+\\) II und II \\(\\cdot (-1)\\).\n\nErgebnis: \\(A^{-1} = \\begin{pmatrix} 1 & -1 \\\\ -1 & 2 \\end{pmatrix}\\). Probe:\n\\(\\begin{pmatrix} 2 & 1 \\\\ 1 & 1 \\end{pmatrix} \\begin{pmatrix} 1 & -1 \\\\ -1 & 2 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}\\) ✓\n\nWarum funktioniert das? Jede Zeilenumformung ist selbst eine Multiplikation von links mit einer Matrix. Fasst man alle zusammen zu einer Matrix \\(M\\), dann gilt links \\(MA = I\\) – also ist \\(M = A^{-1}\\). Rechts wurde dieselbe \\(M\\) auf \\(I\\) angewendet: \\(MI = M = A^{-1}\\).",
+      "insight": "Gauß-Jordan: \\((A \\mid I) \\leadsto (I \\mid A^{-1})\\). Entsteht links eine Nullzeile, ist \\(A\\) nicht invertierbar."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440033",
+      "section": "Kapitel 7 · Die inverse Matrix",
+      "text": "Zum Abschluss die Rechenregeln für Inverse – mit kurzer Begründung, damit du sie nicht auswendig lernen musst:",
+      "formula": "\\begin{align*} (A^{-1})^{-1} &= A \\\\ (AB)^{-1} &= B^{-1} A^{-1} \\\\ (A^T)^{-1} &= (A^{-1})^T \\end{align*}",
+      "explanation": "Die zweite Regel prüft man durch Nachrechnen:\n\\((AB)(B^{-1} A^{-1}) = A (B B^{-1}) A^{-1} = A I A^{-1} = A A^{-1} = I\\).\n\nAnschaulich ist es wie beim Anziehen: Erst Socken (\\(B\\)), dann Schuhe (\\(A\\)). Ausziehen geht in umgekehrter Reihenfolge – erst die Schuhe (\\(A^{-1}\\)), dann die Socken (\\(B^{-1}\\)).\n\nDie Inverse ist außerdem eindeutig: Sind \\(B\\) und \\(C\\) beide invers zu \\(A\\), dann gilt \\(B = BI = B(AC) = (BA)C = IC = C\\).\n\nTypischer Fehler: \\((A + B)^{-1} \\neq A^{-1} + B^{-1}\\). Gegenbeispiel: \\(A = B = I\\). Dann ist \\((2I)^{-1} = \\tfrac{1}{2} I\\), aber \\(I + I = 2I\\).",
+      "insight": "Beim Invertieren UND beim Transponieren eines Produkts dreht sich die Reihenfolge um."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440034",
+      "section": "Kapitel 8 · Ausblick und Rückblick",
+      "text": "Ausblick 1: Die Determinante. Die Zahl \\(ad - bc\\) aus der Inversen-Formel hat eine geometrische Bedeutung: Sie gibt an, um welchen Faktor \\(A\\) Flächen vergrößert.",
+      "formula": "\\det \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix} = ad - bc",
+      "explanation": "• \\(A = \\begin{pmatrix} 2 & 1 \\\\ 0 & 1 \\end{pmatrix}\\) aus Kapitel 3: \\(\\det A = 2 \\cdot 1 - 1 \\cdot 0 = 2\\). Das Einheitsquadrat wurde zu einem Parallelogramm mit Grundseite 2 und Höhe 1, also Fläche 2 ✓\n• \\(\\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\end{pmatrix}\\): \\(\\det = 0\\). Das Quadrat wird zur Strecke, Fläche 0 – genau deshalb nicht invertierbar.\n• Ein negatives Vorzeichen bedeutet, dass die Orientierung umgedreht wird (Spiegelung), z. B. \\(\\det S = -1\\).\n\nWie man Determinanten größerer Matrizen berechnet, lernst du in der Lektion „Determinanten“.",
+      "insight": "\\(A\\) invertierbar ⇔ \\(\\det A \\neq 0\\) ⇔ \\(A\\) quetscht den Raum nicht auf etwas Kleineres zusammen."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440035",
+      "section": "Kapitel 8 · Ausblick und Rückblick",
+      "text": "Ausblick 2: Drehungen. Mit der Regel „Spalten = Bilder von \\(e_1\\) und \\(e_2\\)“ kannst du die Drehmatrix selbst herleiten. Dreht man \\(e_1\\) um den Winkel \\(\\theta\\), landet er bei \\((\\cos\\theta, \\sin\\theta)\\). \\(e_2\\) landet bei \\((-\\sin\\theta, \\cos\\theta)\\):",
+      "formula": "R_\\theta = \\begin{pmatrix} \\cos\\theta & -\\sin\\theta \\\\ \\sin\\theta & \\cos\\theta \\end{pmatrix}",
+      "explanation": "Für \\(\\theta = 90°\\) ist \\(\\cos\\theta = 0\\) und \\(\\sin\\theta = 1\\). Es ergibt sich genau \\(R = \\begin{pmatrix} 0 & -1 \\\\ 1 & 0 \\end{pmatrix}\\) aus Kapitel 3.\n\nZwei Drehungen hintereinander sind eine Drehung um die Summe der Winkel: \\(R_\\alpha R_\\beta = R_{\\alpha + \\beta}\\). Ausmultipliziert liefert das übrigens die Additionstheoreme für Sinus und Kosinus.\n\nIm Raum dreht die folgende Matrix um die \\(z\\)-Achse (mit \\(c = \\cos\\theta\\), \\(s = \\sin\\theta\\)):\n\\(R_z(\\theta) = \\begin{pmatrix} c & -s & 0 \\\\ s & c & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}\\)\nDie dritte Spalte zeigt: \\(e_3\\) bleibt fest.",
+      "insight": "Lineare Abbildungen und ihre Matrizen sind das nächste große Thema – siehe die Lektion „Lineare Abbildungen“."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440036",
+      "section": "Kapitel 8 · Ausblick und Rückblick",
+      "text": "Ausblick 3: Eigenvektoren. Manche Vektoren werden von einer Matrix nicht gedreht, sondern nur gestreckt. Für \\(A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}\\):",
+      "formula": "\\begin{align*} A \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} &= \\begin{pmatrix} 3 \\\\ 3 \\end{pmatrix} = 3 \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} \\\\ A \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix} &= \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix} = 1 \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix} \\end{align*}",
+      "explanation": "\\((1, 1)\\) ist ein Eigenvektor zum Eigenwert 3, und \\((1, -1)\\) ist ein Eigenvektor zum Eigenwert 1. Diese beiden bilden sogar eine Basis des \\(\\mathbb{R}^2\\). In dieser Basis wirkt \\(A\\) wie die Diagonalmatrix \\(\\begin{pmatrix} 3 & 0 \\\\ 0 & 1 \\end{pmatrix}\\) – Kapitel 5 lässt grüßen.\n\nProbe mit der Spur: \\(\\operatorname{tr} A = 2 + 2 = 4 = 3 + 1\\), die Summe der Eigenwerte ✓\n\nNicht jede Matrix lässt sich so diagonalisieren, z. B. \\(\\begin{pmatrix} 2 & 1 \\\\ 0 & 2 \\end{pmatrix}\\). Für solche Fälle gibt es die Jordan-Normalform. Beides lernst du in der Lektion „Eigenwerte und Eigenvektoren“.",
+      "insight": "Eigenvektoren sind die Richtungen, die eine Matrix nur streckt. Sie machen aus komplizierten Matrizen (fast) Diagonalmatrizen."
+    },
+    {
+      "id": "dd0e8400-e29b-41d4-a716-446655440037",
+      "section": "Kapitel 8 · Ausblick und Rückblick",
+      "text": "Schau zurück, wie die Begriffe auseinander hervorgegangen sind:",
+      "explanation": "1. Gleichungssysteme kompakt aufschreiben → Matrix, Notation \\(a_{ij}\\).\n\n2. Matrizen sind \\(mn\\) Zahlen → \\(K^{m \\times n}\\) ist ein Vektorraum.\n\n3. \\(Ax\\) = Linearkombination der Spalten → Spalten = Bilder von \\(e_1, \\dots, e_n\\) → Matrix = Abbildung.\n\n4. Abbildungen hintereinander ausführen → Matrixmultiplikation, nicht kommutativ.\n\n5. Wichtige Spezialfälle → \\(I\\), Diagonal-, Dreiecks- und symmetrische Matrizen, \\(A^T\\), Spur.\n\n6. \\(Ax = b\\) lösen → Gauß-Verfahren, Lösungsfälle, Rang \\(= \\dim \\operatorname{span}(\\text{Spalten})\\).\n\n7. Abbildung rückgängig machen → Inverse, existiert genau bei unabhängigen Spalten.\n\n8. Ausblick → Determinante, Drehungen, Eigenvektoren.",
+      "insight": "Glückwunsch! Wenn du bei jedem Schritt erklären kannst, WARUM er aus dem vorigen folgt, hast du Matrizen wirklich verstanden. Weiter geht es mit „Lineare Abbildungen“ und „Determinanten“."
+    }
+  ]
+}
