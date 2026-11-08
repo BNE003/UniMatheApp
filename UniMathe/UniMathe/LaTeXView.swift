@@ -121,6 +121,71 @@ struct LaTeXView: UIViewRepresentable {
                 setTimeout(postContentHeight, 300);
                 setTimeout(postContentHeight, 600);
             </script>
+            <script>
+                // Abgesetzte Formeln leicht verkleinern (höchstens auf 70 %), damit sie ohne
+                // Scrollen in den Kasten passen. Passt es trotzdem nicht, bleibt der Kasten
+                // horizontal scrollbar mit sichtbarer Scrollleiste.
+                (function () {
+                    function fitBlocks() {
+                        var nodes = document.querySelectorAll('mjx-container[display="true"], .math-block');
+                        nodes.forEach(function (el) {
+                            if (el.closest('#fx-scroll')) { return; }
+                            if (el.classList.contains('math-block') && el.querySelector('mjx-container[display="true"]')) { return; }
+                            el.style.fontSize = '';
+                            var available = el.clientWidth;
+                            var natural = el.scrollWidth;
+                            if (available <= 0 || natural <= available + 2) { return; }
+                            var factor = Math.max(0.7, (available - 4) / natural);
+                            el.style.fontSize = (factor * 100).toFixed(1) + '%';
+                        });
+                        // Inline-Formeln, die breiter als der Kasten sind: verkleinern und
+                        // notfalls in sich horizontal scrollbar machen.
+                        var container = document.querySelector('.content-container');
+                        var maxWidth = container ? container.clientWidth : 0;
+                        document.querySelectorAll('mjx-container:not([display="true"])').forEach(function (el) {
+                            if (el.closest('#fx-scroll') || maxWidth <= 0) { return; }
+                            el.style.fontSize = '';
+                            el.style.display = '';
+                            el.style.maxWidth = '';
+                            el.style.overflowX = '';
+                            el.style.overflowY = '';
+                            el.style.verticalAlign = '';
+                            var natural = el.getBoundingClientRect().width;
+                            if (natural <= maxWidth + 2) { return; }
+                            var factor = Math.max(0.7, (maxWidth - 4) / natural);
+                            el.style.fontSize = (factor * 100).toFixed(1) + '%';
+                            el.style.display = 'inline-block';
+                            el.style.maxWidth = '100%';
+                            el.style.overflowX = 'auto';
+                            el.style.overflowY = 'hidden';
+                            el.style.verticalAlign = 'middle';
+                        });
+                        if (typeof postContentHeight === 'function') { postContentHeight(); }
+                    }
+                    function whenTypeset(cb) {
+                        if (window.MathJax && MathJax.startup && MathJax.startup.promise) {
+                            MathJax.startup.promise.then(cb);
+                        } else {
+                            setTimeout(function () { whenTypeset(cb); }, 50);
+                        }
+                    }
+                    whenTypeset(function () { fitBlocks(); setTimeout(fitBlocks, 300); });
+                    window.addEventListener('resize', fitBlocks);
+                })();
+            </script>
+            <style>
+                mjx-container[display="true"], .math-block {
+                    overflow-x: auto;
+                    overflow-y: hidden;
+                    max-width: 100%;
+                    -webkit-overflow-scrolling: touch;
+                }
+                mjx-container::-webkit-scrollbar, .math-block::-webkit-scrollbar { height: 5px; }
+                mjx-container::-webkit-scrollbar-thumb, .math-block::-webkit-scrollbar-thumb {
+                    background: rgba(128, 128, 128, 0.5);
+                    border-radius: 3px;
+                }
+            </style>
             <style>
                 :root {
                     --primary-color: \(primaryColor);
