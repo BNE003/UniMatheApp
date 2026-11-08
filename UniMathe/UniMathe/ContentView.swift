@@ -590,13 +590,13 @@ struct ExercisesView: View {
     private var freeExercises: [Exercise] {
         guard let difficulty = selectedDifficulty else { return [] }
         let exercisesForDifficulty = exercises.filter { $0.difficulty == difficulty }
-        return Array(exercisesForDifficulty.prefix(1))
+        return Array(exercisesForDifficulty.prefix(2))
     }
     
     private var proExercises: [Exercise] {
         guard let difficulty = selectedDifficulty else { return [] }
         let exercisesForDifficulty = exercises.filter { $0.difficulty == difficulty }
-        return Array(exercisesForDifficulty.dropFirst(1))
+        return Array(exercisesForDifficulty.dropFirst(2))
     }
     
     var body: some View {
@@ -665,7 +665,7 @@ struct ExercisesView: View {
                                     ExerciseCard(exercise: exercise, isFreeExercise: false)
                                 }
                             } else {
-                                // FREE: 1 frei, Rest geblurrt
+                                // FREE: 2 frei, Rest geblurrt
                                 ForEach(freeExercises) { exercise in
                                     ExerciseCard(exercise: exercise, isFreeExercise: true)
                                 }

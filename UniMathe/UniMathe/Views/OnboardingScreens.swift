@@ -3498,7 +3498,7 @@ struct MonthlyUpdatesOnboardingView: View {
             symbolName: "sparkles"
         )
         .fullScreenCover(isPresented: $showPaywall) {
-            PurchaseView(isPresented: $showPaywall)
+            PurchaseView(isPresented: $showPaywall, hasCooldown: true)
                 .onDisappear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                         onboardingManager.completeOnboarding()

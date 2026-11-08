@@ -37,7 +37,7 @@ struct PurchaseView: View {
     
     private let allowCloseAfter: CGFloat = 5.0 //time in seconds until close is allows
     
-    var hasCooldown: Bool = true
+    var hasCooldown: Bool = false
     
     let placeholderProductDetails: [PurchaseProductDetails] = [
         PurchaseProductDetails(price: "-", productId: "demo", duration: "week", durationPlanName: "week", hasTrial: false),

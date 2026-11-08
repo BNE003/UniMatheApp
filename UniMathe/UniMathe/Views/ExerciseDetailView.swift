@@ -9,7 +9,7 @@ struct ExerciseDetailView: View {
     @State private var solutionHeights: [CGFloat] = []
     @State private var titleHeight: CGFloat = 32
     @State private var showPaywall = false
-    @State private var pendingShowSolutionAfterPaywall = false
+    private let freeStepLimit = 10
     @ObservedObject private var settings = SettingsModel.shared
     @ObservedObject private var storeManager = StoreKitManager.shared
     @ObservedObject private var tabBarManager = TabBarManager.shared
@@ -54,11 +54,10 @@ struct ExerciseDetailView: View {
                             
                             if currentStep < exercise.solutionSteps.count - 1 {
                                 Button(action: {
-                                    withAnimation {
-                                        currentStep += 1
-                                        if solutionHeights.count <= currentStep {
-                                            solutionHeights.append(100)
-                                        }
+                                    if currentStep + 1 >= freeStepLimit && storeManager.purchasedProductIDs.isEmpty {
+                                        showPaywall = true
+                                    } else {
+                                        advanceStep()
                                     }
                                 }) {
                                     Text(settings.language == .english ? "Next Step" : "Nächster Schritt")
@@ -74,12 +73,7 @@ struct ExerciseDetailView: View {
                         }
                     } else {
                         Button(action: {
-                            if storeManager.purchasedProductIDs.isEmpty {
-                                pendingShowSolutionAfterPaywall = true
-                                showPaywall = true
-                            } else {
-                                revealSolution()
-                            }
+                            revealSolution()
                         }) {
                             Text(settings.language == .english ? "Show Solution" : "Lösung anzeigen")
                                 .font(.headline)
@@ -115,12 +109,19 @@ struct ExerciseDetailView: View {
         }
     }
     
+    private func advanceStep() {
+        withAnimation {
+            currentStep += 1
+            if solutionHeights.count <= currentStep {
+                solutionHeights.append(100)
+            }
+        }
+    }
+    
     private func handlePaywallDismiss() {
-        guard pendingShowSolutionAfterPaywall else { return }
-        pendingShowSolutionAfterPaywall = false
-        
-        if !storeManager.purchasedProductIDs.isEmpty || isFreeExercise {
-            revealSolution()
+        // Nach erfolgreichem Kauf direkt zum nächsten Schritt
+        if !storeManager.purchasedProductIDs.isEmpty && currentStep < exercise.solutionSteps.count - 1 {
+            advanceStep()
         }
     }
 }
