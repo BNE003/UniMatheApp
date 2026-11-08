@@ -3,6 +3,99 @@
         {
             "id": 1,
             "topic": "Grenzwerte",
+            "title": "Asymptoten einer rationalen Funktion",
+            "description": "Bestimmen Sie alle Asymptoten von $f(x) = \\dfrac{2x^2+1}{x^2-4}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nSenkrechte Asymptoten liegen an Nullstellen des Nenners (bei nicht verschwindendem Zähler), waagrechte ergeben sich aus dem Grenzwert für $x \\to \\pm\\infty$.",
+                "Schritt 2: Senkrechte Asymptoten\n$x^2 - 4 = 0 \\iff x = \\pm2$. Der Zähler ist dort $9 \\neq 0$: **Polstellen** bei $x = 2$ und $x = -2$.",
+                "Schritt 3: Verhalten an den Polen\n$x \\to 2^+$: Nenner $\\to 0^+$, $f \\to +\\infty$; $x \\to 2^-$: $f \\to -\\infty$. Bei $x = -2$: $x \\to -2^-$ gibt $f \\to +\\infty$, $x \\to -2^+$ gibt $f \\to -\\infty$.",
+                "Schritt 4: Waagrechte Asymptote\n$f(x) = \\frac{2 + 1/x^2}{1 - 4/x^2} \\to 2$ für $x \\to \\pm\\infty$: $y = 2$.",
+                "Schritt 5: Merke: Worauf es ankommt\nZählergrad $=$ Nennergrad: waagrechte Asymptote mit Wert $=$ Quotient der Leitkoeffizienten. Eine schiefe Asymptote gibt es nur bei Zählergrad $=$ Nennergrad $+ 1$."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Grenzwerte",
+            "title": "Grenzwert durch Kürzen",
+            "description": "Berechnen Sie $\\displaystyle\\lim_{x\\to3}\\frac{x^2-9}{x-3}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nSetzt man $x = 3$ direkt ein, erhält man den unbestimmten Ausdruck $\\frac00$. Wir faktorisieren den Zähler, kürzen den störenden Faktor und setzen danach ein.",
+                "Schritt 2: Direkt einsetzen scheitert\n$\\frac{3^2 - 9}{3 - 3} = \\frac00$ — unbestimmt, aber noch nichts über den Grenzwert gesagt.",
+                "Schritt 3: Faktorisieren und kürzen\n$x^2 - 9 = (x-3)(x+3)$ (dritte binomische Formel). Für $x \\neq 3$ ist $\\frac{(x-3)(x+3)}{x-3} = x + 3$.",
+                "Schritt 4: Grenzwert\n$\\lim_{x\\to3}(x+3) = 6$. Der Grenzwert interessiert sich nur für $x \\neq 3$ nahe $3$, daher darf gekürzt werden.",
+                "Schritt 5: Numerische Probe\n$x = 3{,}01$: $\\frac{9{,}0601 - 9}{0{,}01} = 6{,}01$; $x = 2{,}99$: $5{,}99$ — beide nahe $6$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nDer Grenzwert $\\frac00$-Typ bei rationalen Funktionen: Nullstelle im Zähler und Nenner gemeinsam durch Faktorisieren herauskürzen. Die Funktion hat bei $x = 3$ eine **hebbare Lücke**."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Grenzwerte",
+            "title": "Grenzwert im Unendlichen",
+            "description": "Berechnen Sie $\\displaystyle\\lim_{x\\to\\infty}\\frac{3x^2+x}{x^2-1}$ und $\\displaystyle\\lim_{x\\to\\infty}\\frac{5x+2}{x^2+1}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nBei rationalen Funktionen für $x \\to \\infty$ klammert man die **höchste Potenz** von $x$ im Nenner aus und kürzt. Terme der Form $\\frac{c}{x^k}$ gehen gegen $0$.",
+                "Schritt 2: Erste Funktion\n$\\frac{3x^2 + x}{x^2 - 1} = \\frac{3 + \\frac1x}{1 - \\frac1{x^2}} \\to \\frac{3 + 0}{1 - 0} = 3$.",
+                "Schritt 3: Zweite Funktion\n$\\frac{5x + 2}{x^2 + 1} = \\frac{\\frac5x + \\frac2{x^2}}{1 + \\frac1{x^2}} \\to \\frac{0}{1} = 0$.",
+                "Schritt 4: Faustregel\nZählergrad $=$ Nennergrad: Grenzwert $=$ Quotient der Leitkoeffizienten ($3/1$). Zählergrad $<$ Nennergrad: Grenzwert $0$. Zählergrad $>$ Nennergrad: Divergenz gegen $\\pm\\infty$.",
+                "Schritt 5: Merke: Worauf es ankommt\nDer Grenzwert $3$ bedeutet: Die Gerade $y = 3$ ist waagrechte **Asymptote** der ersten Funktion."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Grenzwerte",
+            "title": "Grenzwert mit Wurzel: Erweitern",
+            "description": "Berechnen Sie $\\displaystyle\\lim_{x\\to0}\\frac{\\sqrt{1+x}-1}{x}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEs liegt der Typ $\\frac00$ vor. Mit der dritten binomischen Formel erweitern wir mit dem **Konjugierten** $\\sqrt{1+x} + 1$, damit die Wurzel im Zähler verschwindet.",
+                "Schritt 2: Erweitern\n$\\frac{\\sqrt{1+x}-1}{x}\\cdot\\frac{\\sqrt{1+x}+1}{\\sqrt{1+x}+1} = \\frac{(1+x) - 1}{x(\\sqrt{1+x}+1)} = \\frac{x}{x(\\sqrt{1+x}+1)}$.",
+                "Schritt 3: Kürzen\nFür $x \\neq 0$: $\\frac{1}{\\sqrt{1+x}+1}$.",
+                "Schritt 4: Grenzwert\n$\\lim_{x\\to0}\\frac{1}{\\sqrt{1+x}+1} = \\frac{1}{1+1} = \\frac12$.",
+                "Schritt 5: Probe\n$x = 0{,}01$: $\\frac{\\sqrt{1{,}01} - 1}{0{,}01} \\approx \\frac{0{,}004988}{0{,}01} = 0{,}4988$ ✓. Das ist die Ableitung von $\\sqrt{1+x}$ in $0$.",
+                "Schritt 6: Merke: Worauf es ankommt\nWurzeln im Zähler oder Nenner: mit dem konjugierten Ausdruck erweitern. Der Grenzwert ist hier der Differentialquotient $\\frac{d}{dx}\\sqrt{1+x}\\big|_{x=0} = \\frac12$."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Grenzwerte",
+            "title": "Einseitige Grenzwerte",
+            "description": "Untersuchen Sie $\\displaystyle\\lim_{x\\to0}\\frac1x$ und $\\displaystyle\\lim_{x\\to0}\\frac{|x|}{x}$ mit einseitigen Grenzwerten.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEin Grenzwert $\\lim_{x\\to a}f(x)$ existiert genau dann, wenn links- und rechtsseitiger Grenzwert existieren und übereinstimmen.",
+                "Schritt 2: $\\frac1x$\nRechtsseitig ($x \\to 0^+$): $\\frac1x \\to +\\infty$. Linksseitig ($x \\to 0^-$): $\\frac1x \\to -\\infty$. Die einseitigen Grenzwerte sind verschieden (uneigentlich): kein Grenzwert; $x = 0$ ist eine **Polstelle** mit Vorzeichenwechsel.",
+                "Schritt 3: $\\frac{|x|}{x}$\nFür $x > 0$: $\\frac{|x|}{x} = 1$. Für $x < 0$: $\\frac{|x|}{x} = -1$. Rechtsseitig $1$, linksseitig $-1$: verschieden, also **kein Grenzwert** (Sprungstelle).",
+                "Schritt 4: Vergleich\nBei $\\frac1x$ divergieren die einseitigen Grenzwerte, bei $\\frac{|x|}{x}$ existieren sie, sind aber verschieden. Beides zerstört den (zweiseitigen) Grenzwert.",
+                "Schritt 5: Merke: Worauf es ankommt\nBei Betrags- oder Fallunterscheidungsfunktionen immer einseitige Grenzwerte betrachten. Stetigkeit in $a$ bedeutet: links- und rechtsseitiger Grenzwert existieren und stimmen mit $f(a)$ überein."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Grenzwerte",
+            "title": "Grenzwert durch Faktorisieren (dritte Potenz)",
+            "description": "Berechnen Sie $\\displaystyle\\lim_{x\\to1}\\frac{x^3-1}{x^2-1}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nZähler und Nenner haben die Nullstelle $x = 1$ (Typ $\\frac00$). Wir spalten in beiden den Faktor $x - 1$ ab und kürzen.",
+                "Schritt 2: Zähler\n$x^3 - 1 = (x-1)(x^2 + x + 1)$ (Polynomdivision oder Formel $a^3 - b^3$).",
+                "Schritt 3: Nenner\n$x^2 - 1 = (x-1)(x+1)$.",
+                "Schritt 4: Kürzen und Grenzwert\n$\\frac{x^3-1}{x^2-1} = \\frac{x^2+x+1}{x+1} \\to \\frac{1+1+1}{1+1} = \\frac32$.",
+                "Schritt 5: Probe mit der Ableitung\nRegel von de l'Hospital: $\\frac{3x^2}{2x}\\big|_{x=1} = \\frac32$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nAllgemein gilt $\\lim_{x\\to1}\\frac{x^m - 1}{x^n - 1} = \\frac mn$. Der Faktor $x - 1$ ist die Nullstelle, die man herauskürzen muss."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Grenzwerte",
             "title": "Einfacher Grenzwert einer rationalen Funktion",
             "description": "Berechnen Sie den Grenzwert $\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2}$.",
             "difficulty": "easy",
@@ -17,7 +110,133 @@
             ]
         },
         {
-            "id": 2,
+            "id": 8,
+            "topic": "Grenzwerte",
+            "title": "Grenzwert einer Polynomfunktion",
+            "description": "Berechnen Sie den Grenzwert $\\lim_{x \\to 3} \\frac{x^3 - 27}{x - 3}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Problems\nDer Grenzwert $\\lim_{x \\to 3} \\frac{x^3 - 27}{x - 3}$ ist zunächst unbestimmt (0/0).",
+                "Schritt 2: Polynomdivision\n$x^3 - 27 = (x - 3)(x^2 + 3x + 9)$\nErklärung: Wir nutzen die Polynomdivision oder die Formel für die Differenz von Kubikzahlen.",
+                "Schritt 3: Kürzen\n$\\frac{x^3 - 27}{x - 3} = \\frac{(x - 3)(x^2 + 3x + 9)}{x - 3} = x^2 + 3x + 9$\nErklärung: Der Term (x - 3) kann gekürzt werden, da x ≠ 3 ist.",
+                "Schritt 4: Grenzwertberechnung\n$\\lim_{x \\to 3} (x^2 + 3x + 9) = 9 + 9 + 9 = 27$\nErklärung: Nach dem Kürzen können wir x = 3 direkt einsetzen.",
+                "Schritt 5: Verifikation\nWir überprüfen durch Einsetzen von Werten nahe bei 3:\nx = 2.9: $\\frac{2.9^3 - 27}{2.9 - 3} \\approx 26.91$\nx = 3.1: $\\frac{3.1^3 - 27}{3.1 - 3} \\approx 27.09$\nDie Werte nähern sich dem Grenzwert 27 an.",
+                "Schritt 6: Zusammenfassung\nDer Grenzwert existiert und ist gleich 27. Die Funktion hat bei x = 3 eine hebbare Definitionslücke."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Grenzwerte",
+            "title": "Grenzwert einer rationalen Funktion mit Quadrat",
+            "description": "Berechnen Sie den Grenzwert $\\lim_{x \\to 1} \\frac{x^2 - 2x + 1}{x - 1}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Problems\nDer Grenzwert $\\lim_{x \\to 1} \\frac{x^2 - 2x + 1}{x - 1}$ ist zunächst unbestimmt (0/0).",
+                "Schritt 2: Umformung des Zählers\n$x^2 - 2x + 1 = (x - 1)^2$\nErklärung: Wir erkennen die zweite binomische Formel.",
+                "Schritt 3: Kürzen\n$\\frac{(x - 1)^2}{x - 1} = x - 1$\nErklärung: Ein Faktor (x - 1) kann gekürzt werden, da x ≠ 1 ist.",
+                "Schritt 4: Grenzwertberechnung\n$\\lim_{x \\to 1} (x - 1) = 0$\nErklärung: Nach dem Kürzen können wir x = 1 direkt einsetzen.",
+                "Schritt 5: Verifikation\nWir überprüfen durch Einsetzen von Werten nahe bei 1:\nx = 0.9: $\\frac{0.9^2 - 2 \\cdot 0.9 + 1}{0.9 - 1} \\approx -0.1$\nx = 1.1: $\\frac{1.1^2 - 2 \\cdot 1.1 + 1}{1.1 - 1} \\approx 0.1$\nDie Werte nähern sich dem Grenzwert 0 an.",
+                "Schritt 6: Zusammenfassung\nDer Grenzwert existiert und ist gleich 0. Die Funktion hat bei x = 1 eine hebbare Definitionslücke."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Grenzwerte",
+            "title": "Grenzwert einer rationalen Funktion mit Kubik",
+            "description": "Berechnen Sie den Grenzwert $\\lim_{x \\to 2} \\frac{x^3 - 8}{x^2 - 4}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Problems\nDer Grenzwert $\\lim_{x \\to 2} \\frac{x^3 - 8}{x^2 - 4}$ ist zunächst unbestimmt (0/0).",
+                "Schritt 2: Umformung des Zählers und Nenners\n$x^3 - 8 = (x - 2)(x^2 + 2x + 4)$\n$x^2 - 4 = (x - 2)(x + 2)$\nErklärung: Wir nutzen die Formeln für die Differenz von Kubik- und Quadratzahlen.",
+                "Schritt 3: Kürzen\n$\\frac{(x - 2)(x^2 + 2x + 4)}{(x - 2)(x + 2)} = \\frac{x^2 + 2x + 4}{x + 2}$\nErklärung: Der Term (x - 2) kann gekürzt werden, da x ≠ 2 ist.",
+                "Schritt 4: Grenzwertberechnung\n$\\lim_{x \\to 2} \\frac{x^2 + 2x + 4}{x + 2} = \\frac{4 + 4 + 4}{4} = 3$\nErklärung: Nach dem Kürzen können wir x = 2 direkt einsetzen.",
+                "Schritt 5: Verifikation\nWir überprüfen durch Einsetzen von Werten nahe bei 2:\nx = 1.9: $\\frac{1.9^3 - 8}{1.9^2 - 4} \\approx 2.95$\nx = 2.1: $\\frac{2.1^3 - 8}{2.1^2 - 4} \\approx 3.05$\nDie Werte nähern sich dem Grenzwert 3 an.",
+                "Schritt 6: Zusammenfassung\nDer Grenzwert existiert und ist gleich 3. Die Funktion hat bei x = 2 eine hebbare Definitionslücke."
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Grenzwerte",
+            "title": "Grenzwert mit l'Hospital",
+            "description": "Berechnen Sie $\\displaystyle\\lim_{x\\to0}\\frac{1-\\cos x}{x^2}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDer Grenzwert hat den Typ $\\frac00$. Die Regel von de l'Hospital besagt: Existiert $\\lim\\frac{f'}{g'}$, so ist $\\lim\\frac fg = \\lim\\frac{f'}{g'}$ (Typ $\\frac00$ oder $\\frac\\infty\\infty$).",
+                "Schritt 2: Typ prüfen\nZähler: $1 - \\cos0 = 0$. Nenner: $0^2 = 0$. Also $\\frac00$, die Regel ist anwendbar.",
+                "Schritt 3: Erste Anwendung\n$\\lim\\frac{\\sin x}{2x}$ — wieder $\\frac00$.",
+                "Schritt 4: Zweite Anwendung\n$\\lim\\frac{\\cos x}{2} = \\frac12$. Also $\\lim_{x\\to0}\\frac{1-\\cos x}{x^2} = \\frac12$.",
+                "Schritt 5: Alternative ohne l'Hospital\nMit $\\sin\\frac x2$: $1 - \\cos x = 2\\sin^2\\frac x2$, also $\\frac{1-\\cos x}{x^2} = \\frac12\\left(\\frac{\\sin(x/2)}{x/2}\\right)^2 \\to \\frac12\\cdot1^2 = \\frac12$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nL'Hospital darf nur bei $\\frac00$ oder $\\frac\\infty\\infty$ verwendet werden, und man leitet Zähler und Nenner **getrennt** ab (nicht den Quotienten). Der Grenzwert $\\frac12$ erklärt $\\cos x \\approx 1 - \\frac{x^2}2$."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Grenzwerte",
+            "title": "Standardgrenzwerte kombinieren",
+            "description": "Berechnen Sie $\\displaystyle\\lim_{x\\to0}\\frac{e^{2x}-1}{\\sin3x}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir führen den Grenzwert auf die Standardgrenzwerte $\\lim\\frac{e^u-1}{u} = 1$ und $\\lim\\frac{\\sin u}{u} = 1$ ($u \\to 0$) zurück, indem wir passend erweitern.",
+                "Schritt 2: Erweitern\n$\\frac{e^{2x}-1}{\\sin3x} = \\frac{e^{2x}-1}{2x}\\cdot\\frac{3x}{\\sin3x}\\cdot\\frac{2x}{3x}$.",
+                "Schritt 3: Grenzwerte der Faktoren\nMit $u = 2x \\to 0$: $\\frac{e^{2x}-1}{2x} \\to 1$. Mit $v = 3x \\to 0$: $\\frac{3x}{\\sin3x} \\to 1$. Der letzte Faktor ist konstant $\\frac23$.",
+                "Schritt 4: Ergebnis\n$\\lim = 1\\cdot1\\cdot\\frac23 = \\frac23$.",
+                "Schritt 5: Probe mit l'Hospital\n$\\frac{2e^{2x}}{3\\cos3x}\\big|_{x=0} = \\frac23$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nMerke: Für kleine $x$ ist $e^{ax} - 1 \\approx ax$ und $\\sin bx \\approx bx$; der Quotient verhält sich daher wie $\\frac ab$."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Grenzwerte",
+            "title": "Exponentialfunktion schlägt Polynom",
+            "description": "Berechnen Sie $\\displaystyle\\lim_{x\\to\\infty}xe^{-x}$ und $\\displaystyle\\lim_{x\\to\\infty}\\frac{x^3}{e^x}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDer Ausdruck $xe^{-x}$ hat den Typ $\\infty\\cdot0$. Wir schreiben ihn als Bruch $\\frac{x}{e^x}$ (Typ $\\frac\\infty\\infty$) und wenden l'Hospital an.",
+                "Schritt 2: $xe^{-x}$\n$xe^{-x} = \\frac{x}{e^x} \\overset{\\text{l'H}}{=} \\lim\\frac{1}{e^x} = 0$.",
+                "Schritt 3: $\\frac{x^3}{e^x}$\nDreimalige Anwendung: $\\frac{x^3}{e^x} \\to \\frac{3x^2}{e^x} \\to \\frac{6x}{e^x} \\to \\frac{6}{e^x} = 0$.",
+                "Schritt 4: Allgemeine Aussage\nFür jedes $n$ gilt $\\frac{x^n}{e^x} \\to 0$ ($x \\to \\infty$): Die Exponentialfunktion wächst schneller als jede Potenz. Analog wächst jede Potenz schneller als $\\ln x$: $\\frac{\\ln x}{x^n} \\to 0$.",
+                "Schritt 5: Merke: Worauf es ankommt\nWachstumshierarchie: $\\ln x \\ll x^a \\ll e^x \\ll x!$. Bei Produkten $\\infty\\cdot0$ zuerst in einen Bruch umschreiben."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Grenzwerte",
+            "title": "Der Grenzwert e²",
+            "description": "Berechnen Sie $\\displaystyle\\lim_{x\\to\\infty}\\left(1+\\frac2x\\right)^x$ und $\\displaystyle\\lim_{n\\to\\infty}\\left(1-\\frac1n\\right)^n$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir benutzen $\\lim_{u\\to\\infty}\\left(1+\\frac1u\\right)^u = e$ und eine passende Substitution. Alternativ nimmt man den Logarithmus und wendet l'Hospital an.",
+                "Schritt 2: Erster Grenzwert per Substitution\nMit $u = \\frac x2$ ($u \\to \\infty$): $\\left(1+\\frac2x\\right)^x = \\left(1+\\frac1u\\right)^{2u} = \\left[\\left(1+\\frac1u\\right)^u\\right]^2 \\to e^2$.",
+                "Schritt 3: Kontrolle mit Logarithmus\n$\\ln\\left(1+\\frac2x\\right)^x = \\frac{\\ln(1 + 2/x)}{1/x} \\overset{\\text{l'H}}{=} \\frac{\\frac{-2/x^2}{1 + 2/x}}{-1/x^2} = \\frac{2}{1 + 2/x} \\to 2$, also Grenzwert $e^2$ ✓.",
+                "Schritt 4: Zweiter Grenzwert\nAllgemein $\\lim\\left(1+\\frac an\\right)^n = e^a$. Mit $a = -1$: $\\lim\\left(1-\\frac1n\\right)^n = e^{-1} = \\frac1e \\approx 0{,}368$.",
+                "Schritt 5: Numerische Probe\n$n = 1000$: $\\left(1 - 0{,}001\\right)^{1000} \\approx 0{,}3677$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nDer Typ $1^\\infty$ ist unbestimmt: Die Basis geht gegen $1$, der Exponent gegen $\\infty$. Entscheidend ist das Produkt aus Exponent und $(\\text{Basis} - 1)$, hier $x\\cdot\\frac2x = 2$."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Grenzwerte",
+            "title": "Der Typ 0·∞: xln x",
+            "description": "Berechnen Sie $\\displaystyle\\lim_{x\\to0^+}x\\ln x$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDer Ausdruck hat den Typ $0\\cdot(-\\infty)$ und ist unbestimmt. Wir schreiben ihn als Bruch $\\frac{\\ln x}{1/x}$ (Typ $\\frac{-\\infty}{\\infty}$) und verwenden l'Hospital.",
+                "Schritt 2: Umschreiben\n$x\\ln x = \\frac{\\ln x}{1/x}$. Für $x \\to 0^+$: Zähler $\\to -\\infty$, Nenner $\\to +\\infty$.",
+                "Schritt 3: L'Hospital\n$\\lim\\frac{(\\ln x)'}{(1/x)'} = \\lim\\frac{1/x}{-1/x^2} = \\lim(-x) = 0$.",
+                "Schritt 4: Ergebnis und Probe\n$\\lim_{x\\to0^+}x\\ln x = 0$. Numerisch: $x = 0{,}01$: $0{,}01\\cdot(-4{,}605) = -0{,}046$; $x = 10^{-6}$: $-0{,}0000138$ ✓.",
+                "Schritt 5: Merke: Worauf es ankommt\nBei $0\\cdot\\infty$ muss man den „flüchtigeren“ Faktor in den Nenner stellen, damit die Ableitungen einfacher werden ($\\ln x$ im Zähler lassen, $x$ als $\\frac1{1/x}$). Die Funktion $x\\ln x$ lässt sich mit $f(0) = 0$ stetig fortsetzen."
+            ]
+        },
+        {
+            "id": 16,
             "topic": "Grenzwerte",
             "title": "Grenzwert mit Wurzel",
             "description": "Berechnen Sie den Grenzwert $\\lim_{x \\to 0} \\frac{\\sqrt{x + 4} - 2}{x}$.",
@@ -34,7 +253,7 @@
             ]
         },
         {
-            "id": 3,
+            "id": 17,
             "topic": "Grenzwerte",
             "title": "Grenzwert mit Exponentialfunktion",
             "description": "Berechnen Sie den Grenzwert $\\lim_{x \\to 0} \\frac{e^x - 1}{x}$.",
@@ -51,7 +270,7 @@
             ]
         },
         {
-            "id": 4,
+            "id": 18,
             "topic": "Grenzwerte",
             "title": "Grenzwert mit trigonometrischer Funktion",
             "description": "Berechnen Sie den Grenzwert $\\lim_{x \\to 0} \\frac{\\sin x}{x}$.",
@@ -68,73 +287,7 @@
             ]
         },
         {
-            "id": 5,
-            "topic": "Grenzwerte",
-            "title": "Grenzwert mit Logarithmus",
-            "description": "Berechnen Sie den Grenzwert $\\lim_{x \\to 1} \\frac{\\ln x}{x - 1}$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Analyse des Problems\nDer Grenzwert $\\lim_{x \\to 1} \\frac{\\ln x}{x - 1}$ ist zunächst unbestimmt (0/0).",
-                "Schritt 2: Substitution\nSei $h = x - 1$, dann $x = 1 + h$ und $h \\to 0$ für $x \\to 1$.\nErklärung: Wir substituieren, um den Grenzwert zu vereinfachen.",
-                "Schritt 3: Umformung\n$\\frac{\\ln(1 + h)}{h}$\nErklärung: Nach der Substitution erhalten wir diese Form.",
-                "Schritt 4: Taylor-Entwicklung\n$\\ln(1 + h) = h - \\frac{h^2}{2} + \\frac{h^3}{3} - ...$\nErklärung: Wir entwickeln den Logarithmus in eine Taylor-Reihe.",
-                "Schritt 5: Einsetzen und Vereinfachen\n$\\frac{h - \\frac{h^2}{2} + \\frac{h^3}{3} - ...}{h} = 1 - \\frac{h}{2} + \\frac{h^2}{3} - ...$\nErklärung: Wir kürzen h und ordnen die Terme.",
-                "Schritt 6: Grenzwertberechnung\n$\\lim_{h \\to 0} (1 - \\frac{h}{2} + \\frac{h^2}{3} - ...) = 1$\nErklärung: Alle Terme mit h konvergieren gegen 0.",
-                "Schritt 7: Verifikation\nWir überprüfen durch Einsetzen von Werten nahe bei 1:\nx = 0.9: $\\frac{\\ln(0.9)}{0.9 - 1} \\approx 1.053$\nx = 1.1: $\\frac{\\ln(1.1)}{1.1 - 1} \\approx 0.953$\nDie Werte nähern sich dem Grenzwert 1 an.",
-                "Schritt 8: Zusammenfassung\nDer Grenzwert existiert und ist gleich 1. Dies ist ein wichtiger Grenzwert für die Ableitung des Logarithmus."
-            ]
-        },
-        {
-            "id": 6,
-            "topic": "Grenzwerte",
-            "title": "Grenzwert einer Polynomfunktion",
-            "description": "Berechnen Sie den Grenzwert $\\lim_{x \\to 3} \\frac{x^3 - 27}{x - 3}$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Analyse des Problems\nDer Grenzwert $\\lim_{x \\to 3} \\frac{x^3 - 27}{x - 3}$ ist zunächst unbestimmt (0/0).",
-                "Schritt 2: Polynomdivision\n$x^3 - 27 = (x - 3)(x^2 + 3x + 9)$\nErklärung: Wir nutzen die Polynomdivision oder die Formel für die Differenz von Kubikzahlen.",
-                "Schritt 3: Kürzen\n$\\frac{x^3 - 27}{x - 3} = \\frac{(x - 3)(x^2 + 3x + 9)}{x - 3} = x^2 + 3x + 9$\nErklärung: Der Term (x - 3) kann gekürzt werden, da x ≠ 3 ist.",
-                "Schritt 4: Grenzwertberechnung\n$\\lim_{x \\to 3} (x^2 + 3x + 9) = 9 + 9 + 9 = 27$\nErklärung: Nach dem Kürzen können wir x = 3 direkt einsetzen.",
-                "Schritt 5: Verifikation\nWir überprüfen durch Einsetzen von Werten nahe bei 3:\nx = 2.9: $\\frac{2.9^3 - 27}{2.9 - 3} \\approx 26.91$\nx = 3.1: $\\frac{3.1^3 - 27}{3.1 - 3} \\approx 27.09$\nDie Werte nähern sich dem Grenzwert 27 an.",
-                "Schritt 6: Zusammenfassung\nDer Grenzwert existiert und ist gleich 27. Die Funktion hat bei x = 3 eine hebbare Definitionslücke."
-            ]
-        },
-        {
-            "id": 7,
-            "topic": "Grenzwerte",
-            "title": "Grenzwert einer rationalen Funktion mit Quadrat",
-            "description": "Berechnen Sie den Grenzwert $\\lim_{x \\to 1} \\frac{x^2 - 2x + 1}{x - 1}$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Analyse des Problems\nDer Grenzwert $\\lim_{x \\to 1} \\frac{x^2 - 2x + 1}{x - 1}$ ist zunächst unbestimmt (0/0).",
-                "Schritt 2: Umformung des Zählers\n$x^2 - 2x + 1 = (x - 1)^2$\nErklärung: Wir erkennen die zweite binomische Formel.",
-                "Schritt 3: Kürzen\n$\\frac{(x - 1)^2}{x - 1} = x - 1$\nErklärung: Ein Faktor (x - 1) kann gekürzt werden, da x ≠ 1 ist.",
-                "Schritt 4: Grenzwertberechnung\n$\\lim_{x \\to 1} (x - 1) = 0$\nErklärung: Nach dem Kürzen können wir x = 1 direkt einsetzen.",
-                "Schritt 5: Verifikation\nWir überprüfen durch Einsetzen von Werten nahe bei 1:\nx = 0.9: $\\frac{0.9^2 - 2 \\cdot 0.9 + 1}{0.9 - 1} \\approx -0.1$\nx = 1.1: $\\frac{1.1^2 - 2 \\cdot 1.1 + 1}{1.1 - 1} \\approx 0.1$\nDie Werte nähern sich dem Grenzwert 0 an.",
-                "Schritt 6: Zusammenfassung\nDer Grenzwert existiert und ist gleich 0. Die Funktion hat bei x = 1 eine hebbare Definitionslücke."
-            ]
-        },
-        {
-            "id": 8,
-            "topic": "Grenzwerte",
-            "title": "Grenzwert einer rationalen Funktion mit Kubik",
-            "description": "Berechnen Sie den Grenzwert $\\lim_{x \\to 2} \\frac{x^3 - 8}{x^2 - 4}$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Analyse des Problems\nDer Grenzwert $\\lim_{x \\to 2} \\frac{x^3 - 8}{x^2 - 4}$ ist zunächst unbestimmt (0/0).",
-                "Schritt 2: Umformung des Zählers und Nenners\n$x^3 - 8 = (x - 2)(x^2 + 2x + 4)$\n$x^2 - 4 = (x - 2)(x + 2)$\nErklärung: Wir nutzen die Formeln für die Differenz von Kubik- und Quadratzahlen.",
-                "Schritt 3: Kürzen\n$\\frac{(x - 2)(x^2 + 2x + 4)}{(x - 2)(x + 2)} = \\frac{x^2 + 2x + 4}{x + 2}$\nErklärung: Der Term (x - 2) kann gekürzt werden, da x ≠ 2 ist.",
-                "Schritt 4: Grenzwertberechnung\n$\\lim_{x \\to 2} \\frac{x^2 + 2x + 4}{x + 2} = \\frac{4 + 4 + 4}{4} = 3$\nErklärung: Nach dem Kürzen können wir x = 2 direkt einsetzen.",
-                "Schritt 5: Verifikation\nWir überprüfen durch Einsetzen von Werten nahe bei 2:\nx = 1.9: $\\frac{1.9^3 - 8}{1.9^2 - 4} \\approx 2.95$\nx = 2.1: $\\frac{2.1^3 - 8}{2.1^2 - 4} \\approx 3.05$\nDie Werte nähern sich dem Grenzwert 3 an.",
-                "Schritt 6: Zusammenfassung\nDer Grenzwert existiert und ist gleich 3. Die Funktion hat bei x = 2 eine hebbare Definitionslücke."
-            ]
-        },
-        {
-            "id": 9,
+            "id": 19,
             "topic": "Grenzwerte",
             "title": "Grenzwert mit trigonometrischer Funktion und Wurzel",
             "description": "Berechnen Sie den Grenzwert $\\lim_{x \\to 0} \\frac{\\sin x}{\\sqrt{x + 1} - 1}$.",
@@ -151,7 +304,7 @@
             ]
         },
         {
-            "id": 10,
+            "id": 20,
             "topic": "Grenzwerte",
             "title": "Grenzwert mit Exponentialfunktion und trigonometrischer Funktion",
             "description": "Berechnen Sie den Grenzwert $\\lim_{x \\to 0} \\frac{e^x - \\cos x}{x}$.",
@@ -168,7 +321,7 @@
             ]
         },
         {
-            "id": 11,
+            "id": 21,
             "topic": "Grenzwerte",
             "title": "Grenzwert mit Logarithmus und Wurzel",
             "description": "Berechnen Sie den Grenzwert $\\lim_{x \\to 1} \\frac{\\ln x}{\\sqrt{x} - 1}$.",
@@ -186,7 +339,120 @@
             ]
         },
         {
-            "id": 12,
+            "id": 22,
+            "topic": "Grenzwerte",
+            "title": "Grenzwert mit mehrfacher l'Hospital-Anwendung",
+            "description": "Berechnen Sie $\\displaystyle\\lim_{x\\to0}\\frac{\\tan x - x}{x^3}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDer Grenzwert hat den Typ $\\frac00$. Wir wenden l'Hospital an und vereinfachen mit $\\tan'x = 1 + \\tan^2x$, bis sich ein bekannter Grenzwert zeigt.",
+                "Schritt 2: Erste Anwendung\n$\\lim\\frac{(\\tan x - x)'}{(x^3)'} = \\lim\\frac{1 + \\tan^2x - 1}{3x^2} = \\lim\\frac{\\tan^2x}{3x^2}$.",
+                "Schritt 3: Standardgrenzwert\n$\\frac{\\tan x}{x} = \\frac{\\sin x}{x}\\cdot\\frac{1}{\\cos x} \\to 1\\cdot1 = 1$, also $\\frac{\\tan^2x}{3x^2} \\to \\frac13$.",
+                "Schritt 4: Ergebnis\n$\\lim_{x\\to0}\\frac{\\tan x - x}{x^3} = \\frac13$.",
+                "Schritt 5: Probe mit Taylor\n$\\tan x = x + \\frac{x^3}{3} + O(x^5)$, also $\\frac{\\tan x - x}{x^3} \\to \\frac13$ ✓. Numerisch: $x = 0{,}1$: $\\frac{0{,}100335 - 0{,}1}{0{,}001} = 0{,}335$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nNach der ersten Anwendung war der Grenzwert bereits einfach lesbar — nicht blind weiter ableiten, sondern zwischendurch vereinfachen. Verglichen mit $\\sin x - \\tan x \\sim -\\frac{x^3}{2}$ zeigt das Taylor-Verhalten beider Funktionen."
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Grenzwerte",
+            "title": "ε-δ-Beweis einer Grenzwertaussage",
+            "description": "Beweisen Sie mit der $\\varepsilon$-$\\delta$-Definition: $\\lim_{x\\to2}(3x - 1) = 5$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDefinition: $\\lim_{x\\to a}f(x) = L$ heißt: Zu jedem $\\varepsilon > 0$ gibt es ein $\\delta > 0$, sodass aus $0 < |x - a| < \\delta$ folgt $|f(x) - L| < \\varepsilon$. Wir suchen $\\delta$ in Abhängigkeit von $\\varepsilon$ (Rückwärtsrechnung) und beweisen dann vorwärts.",
+                "Schritt 2: Rückwärtsrechnung (Entwurf)\n$|f(x) - 5| = |3x - 1 - 5| = |3x - 6| = 3|x - 2|$. Dieser Wert ist $< \\varepsilon$, wenn $|x - 2| < \\frac\\varepsilon3$. Das legt $\\delta = \\frac\\varepsilon3$ nahe.",
+                "Schritt 3: Wahl von $\\delta$\nSei $\\varepsilon > 0$ beliebig. Setze $\\delta := \\frac\\varepsilon3 > 0$.",
+                "Schritt 4: Vorwärtsbeweis\nSei $0 < |x - 2| < \\delta$. Dann $|f(x) - 5| = 3|x-2| < 3\\delta = \\varepsilon$. Damit gilt die Definition für jedes $\\varepsilon$. $\\blacksquare$",
+                "Schritt 5: Konkret\nFür $\\varepsilon = 0{,}03$ genügt $\\delta = 0{,}01$: $x = 2{,}009 \\Rightarrow f(x) = 5{,}027$, Abstand $0{,}027 < 0{,}03$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nBei linearen Funktionen $f(x) = mx + b$ ist $\\delta = \\frac{\\varepsilon}{|m|}$. Bei nichtlinearen Funktionen (z.B. $x^2$) braucht man eine zusätzliche Beschränkung wie $\\delta \\leq 1$, um den Faktor $|x + a|$ abzuschätzen."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Grenzwerte",
+            "title": "Einschließungssatz",
+            "description": "Berechnen Sie $\\displaystyle\\lim_{x\\to0}x\\sin\\frac1x$ und zeigen Sie, dass $\\displaystyle\\lim_{x\\to0}\\sin\\frac1x$ nicht existiert.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEinschließungssatz: Gilt $g(x) \\leq f(x) \\leq h(x)$ und $g, h \\to L$, so folgt $f \\to L$. Der Sinus ist beschränkt, auch wenn er stark oszilliert; ein Faktor $x \\to 0$ drückt alles auf $0$.",
+                "Schritt 2: Abschätzung\n$\\left|\\sin\\frac1x\\right| \\leq 1$ für $x \\neq 0$, also $\\left|x\\sin\\frac1x\\right| \\leq |x|$, d.h. $-|x| \\leq x\\sin\\frac1x \\leq |x|$.",
+                "Schritt 3: Einschließen\nWegen $\\pm|x| \\to 0$ folgt $\\lim_{x\\to0}x\\sin\\frac1x = 0$.",
+                "Schritt 4: Kein Grenzwert von $\\sin\\frac1x$\nWähle $x_n = \\frac{1}{n\\pi}$: $\\sin\\frac1{x_n} = \\sin(n\\pi) = 0$. Wähle $y_n = \\frac{1}{\\pi/2 + 2n\\pi}$: $\\sin\\frac1{y_n} = 1$. Beide Folgen gehen gegen $0$, aber die Funktionswerte gegen $0$ bzw. $1$: Der Grenzwert existiert nicht (Folgenkriterium).",
+                "Schritt 5: Merke: Worauf es ankommt\nDas Folgenkriterium: Gibt es zwei Folgen $x_n, y_n \\to a$ mit verschiedenen Grenzwerten von $f(x_n)$ und $f(y_n)$, existiert $\\lim_{x\\to a}f(x)$ nicht. Die Funktion $x\\sin\\frac1x$ lässt sich in $0$ stetig durch $f(0) = 0$ fortsetzen."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Grenzwerte",
+            "title": "Differenz mit Grenzwert 0",
+            "description": "Berechnen Sie $\\displaystyle\\lim_{x\\to0}\\left(\\frac1x - \\frac1{\\sin x}\\right)$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDer Ausdruck hat den Typ $\\infty - \\infty$. Wir bringen ihn auf einen gemeinsamen Nenner und erhalten einen Bruch vom Typ $\\frac00$, den wir mit l'Hospital oder der Taylorentwicklung behandeln.",
+                "Schritt 2: Gemeinsamer Nenner\n$\\frac1x - \\frac1{\\sin x} = \\frac{\\sin x - x}{x\\sin x}$. Für $x \\to 0$: Zähler $\\to 0$, Nenner $\\to 0$.",
+                "Schritt 3: L'Hospital (erste Anwendung)\n$\\frac{\\cos x - 1}{\\sin x + x\\cos x}$ — wieder $\\frac00$.",
+                "Schritt 4: L'Hospital (zweite Anwendung)\n$\\frac{-\\sin x}{\\cos x + \\cos x - x\\sin x} = \\frac{-\\sin x}{2\\cos x - x\\sin x} \\to \\frac{0}{2} = 0$.",
+                "Schritt 5: Kontrolle mit Taylor\n$\\sin x - x = -\\frac{x^3}{6} + O(x^5)$ und $x\\sin x = x^2 + O(x^4)$, also $\\frac{\\sin x - x}{x\\sin x} \\approx -\\frac{x}{6} \\to 0$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nBei $\\infty - \\infty$ zuerst auf einen Bruch bringen. Die Taylorentwicklung liefert zusätzlich das Verhalten: Die Differenz geht wie $-\\frac x6$ gegen $0$."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Grenzwerte",
+            "title": "Stetige Fortsetzung",
+            "description": "Die Funktion $f(x) = \\dfrac{x^2-1}{x-1}$ ($x \\neq 1$) soll durch $f(1) = c$ stetig fortgesetzt werden. Bestimmen Sie $c$ und prüfen Sie, ob $g(x) = \\frac{|x-1|}{x-1}$ stetig fortsetzbar ist.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEine Funktion ist in $a$ stetig, wenn $\\lim_{x\\to a}f(x) = f(a)$. Eine Lücke lässt sich stetig schließen, wenn der Grenzwert existiert; der Funktionswert wird dann auf diesen Grenzwert gesetzt.",
+                "Schritt 2: Grenzwert von $f$\nFür $x \\neq 1$: $f(x) = \\frac{(x-1)(x+1)}{x-1} = x + 1$. Also $\\lim_{x\\to1}f(x) = 2$.",
+                "Schritt 3: Stetige Fortsetzung\nMit $c = 2$ ist $\\tilde f(x) = x + 1$ für alle $x \\in \\mathbb{R}$ stetig (ein Polynom). Das ist die einzige stetige Fortsetzung.",
+                "Schritt 4: Verhalten von $g$\nFür $x > 1$: $g(x) = 1$; für $x < 1$: $g(x) = -1$. Die einseitigen Grenzwerte $1$ und $-1$ sind verschieden, kein Grenzwert: $g$ ist **nicht** stetig fortsetzbar (Sprungstelle).",
+                "Schritt 5: Klassifikation\nBei $f$ liegt eine **hebbare** Unstetigkeit vor, bei $g$ eine **Sprungstelle**. Beispiel für eine Polstelle: $\\frac{1}{x-1}$ (Grenzwert $\\pm\\infty$).",
+                "Schritt 6: Merke: Worauf es ankommt\nHebbare Unstetigkeit: Grenzwert existiert; Sprungstelle: einseitige Grenzwerte verschieden; Polstelle: uneigentliche Grenzwerte. Stetige Fortsetzung ist nur im ersten Fall möglich."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Grenzwerte",
+            "title": "Wurzel-Differenz im Unendlichen",
+            "description": "Berechnen Sie $\\displaystyle\\lim_{x\\to\\infty}\\left(\\sqrt{x^2+x} - x\\right)$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDer Typ ist $\\infty - \\infty$. Wir erweitern mit dem Konjugierten $\\sqrt{x^2+x} + x$ (dritte binomische Formel), sodass die Wurzeldifferenz zu einem Bruch wird.",
+                "Schritt 2: Erweitern\n$\\sqrt{x^2+x} - x = \\frac{(x^2+x) - x^2}{\\sqrt{x^2+x} + x} = \\frac{x}{\\sqrt{x^2+x} + x}$.",
+                "Schritt 3: $x$ ausklammern\nFür $x > 0$: $\\sqrt{x^2+x} = x\\sqrt{1 + \\frac1x}$. Also $\\frac{x}{x\\sqrt{1+1/x} + x} = \\frac{1}{\\sqrt{1 + 1/x} + 1}$.",
+                "Schritt 4: Grenzwert\n$\\to \\frac{1}{\\sqrt{1} + 1} = \\frac12$.",
+                "Schritt 5: Probe\n$x = 10^4$: $\\sqrt{10^8 + 10^4} - 10^4 \\approx 10000{,}49999 - 10000 = 0{,}49999$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nWurzel minus lineare Funktion: konjugiert erweitern und dann die höchste Potenz ausklammern. Ergebnis: $\\sqrt{x^2 + bx} - x \\to \\frac b2$ (hier $b = 1$)."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Grenzwerte",
+            "title": "Grenzwert mit Logarithmus",
+            "description": "Berechnen Sie den Grenzwert $\\lim_{x \\to 1} \\frac{\\ln x}{x - 1}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Analyse des Problems\nDer Grenzwert $\\lim_{x \\to 1} \\frac{\\ln x}{x - 1}$ ist zunächst unbestimmt (0/0).",
+                "Schritt 2: Substitution\nSei $h = x - 1$, dann $x = 1 + h$ und $h \\to 0$ für $x \\to 1$.\nErklärung: Wir substituieren, um den Grenzwert zu vereinfachen.",
+                "Schritt 3: Umformung\n$\\frac{\\ln(1 + h)}{h}$\nErklärung: Nach der Substitution erhalten wir diese Form.",
+                "Schritt 4: Taylor-Entwicklung\n$\\ln(1 + h) = h - \\frac{h^2}{2} + \\frac{h^3}{3} - ...$\nErklärung: Wir entwickeln den Logarithmus in eine Taylor-Reihe.",
+                "Schritt 5: Einsetzen und Vereinfachen\n$\\frac{h - \\frac{h^2}{2} + \\frac{h^3}{3} - ...}{h} = 1 - \\frac{h}{2} + \\frac{h^2}{3} - ...$\nErklärung: Wir kürzen h und ordnen die Terme.",
+                "Schritt 6: Grenzwertberechnung\n$\\lim_{h \\to 0} (1 - \\frac{h}{2} + \\frac{h^2}{3} - ...) = 1$\nErklärung: Alle Terme mit h konvergieren gegen 0.",
+                "Schritt 7: Verifikation\nWir überprüfen durch Einsetzen von Werten nahe bei 1:\nx = 0.9: $\\frac{\\ln(0.9)}{0.9 - 1} \\approx 1.053$\nx = 1.1: $\\frac{\\ln(1.1)}{1.1 - 1} \\approx 0.953$\nDie Werte nähern sich dem Grenzwert 1 an.",
+                "Schritt 8: Zusammenfassung\nDer Grenzwert existiert und ist gleich 1. Dies ist ein wichtiger Grenzwert für die Ableitung des Logarithmus."
+            ]
+        },
+        {
+            "id": 29,
             "topic": "Grenzwerte",
             "title": "Grenzwert mit mehreren trigonometrischen Funktionen",
             "description": "Berechnen Sie den Grenzwert $\\lim_{x \\to 0} \\frac{\\sin x - \\tan x}{x^3}$.",
@@ -204,7 +470,7 @@
             ]
         },
         {
-            "id": 13,
+            "id": 30,
             "topic": "Grenzwerte",
             "title": "Grenzwert mit Exponentialfunktion und Logarithmus",
             "description": "Berechnen Sie den Grenzwert $\\lim_{x \\to 0} \\frac{e^x - 1 - x - \\frac{x^2}{2}}{x^3}$.",
@@ -221,7 +487,7 @@
             ]
         },
         {
-            "id": 14,
+            "id": 31,
             "topic": "Grenzwerte",
             "title": "Grenzwert mit trigonometrischen und hyperbolischen Funktionen",
             "description": "Berechnen Sie den Grenzwert $\\lim_{x \\to 0} \\frac{\\sin x - \\sinh x}{x^3}$.",
@@ -238,4 +504,4 @@
             ]
         }
     ]
-} 
+}

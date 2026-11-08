@@ -3,7 +3,7 @@
         "title": "Linear Algebra I - Beginner Exam",
         "subtitle": "Fundamentals of linear algebra",
         "duration": 120,
-        "totalPoints": 60,
+        "totalPoints": 100,
         "difficulty": "beginner",
         "language": "en",
         "instructions": "Complete all tasks. Show all calculations and provide the complete solution approach. Permitted aids: non-programmable calculator. Good luck!"
@@ -11,96 +11,88 @@
     "exercises": [
         {
             "id": 1,
-            "topic": "Vector Operations",
-            "title": "Basic Operations with Vectors",
-            "description": "Given the vectors $\\vec{a} = \\begin{pmatrix} 2 \\\\ -1 \\\\ 3 \\end{pmatrix}$ and $\\vec{b} = \\begin{pmatrix} 1 \\\\ 4 \\\\ -2 \\end{pmatrix}$.\n\na) Calculate $\\vec{a} + \\vec{b}$\nb) Calculate $3\\vec{a} - 2\\vec{b}$\nc) Determine the length of $\\vec{a}$",
-            "difficulty": "easy",
-            "points": 8,
+            "topic": "Vector Calculus",
+            "title": "Dot product, angle and cross product",
+            "description": "Let $\\vec a = (1,2,2)$ and $\\vec b = (2,-1,2)$.\na) Compute $\\vec a\\cdot\\vec b$, $|\\vec a|$, $|\\vec b|$ and the angle between the vectors.\nb) Compute $\\vec a\\times\\vec b$ and verify orthogonality to $\\vec a$ and $\\vec b$.",
+            "difficulty": "beginner",
+            "points": 16,
             "solutionSteps": [
-                "Step 1: Vector addition\n$\\vec{a} + \\vec{b} = \\begin{pmatrix} 2 \\\\ -1 \\\\ 3 \\end{pmatrix} + \\begin{pmatrix} 1 \\\\ 4 \\\\ -2 \\end{pmatrix}$\nComponent-wise addition:\n$\\vec{a} + \\vec{b} = \\begin{pmatrix} 2+1 \\\\ -1+4 \\\\ 3+(-2) \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 3 \\\\ 1 \\end{pmatrix}$",
-                "Step 2: Calculate linear combination\n$3\\vec{a} - 2\\vec{b} = 3\\begin{pmatrix} 2 \\\\ -1 \\\\ 3 \\end{pmatrix} - 2\\begin{pmatrix} 1 \\\\ 4 \\\\ -2 \\end{pmatrix}$\n$= \\begin{pmatrix} 6 \\\\ -3 \\\\ 9 \\end{pmatrix} - \\begin{pmatrix} 2 \\\\ 8 \\\\ -4 \\end{pmatrix}$",
-                "Step 3: Perform subtraction\n$3\\vec{a} - 2\\vec{b} = \\begin{pmatrix} 6-2 \\\\ -3-8 \\\\ 9-(-4) \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ -11 \\\\ 13 \\end{pmatrix}$",
-                "Step 4: Calculate length of $\\vec{a}$\n$|\\vec{a}| = \\sqrt{a_1^2 + a_2^2 + a_3^2}$\n$|\\vec{a}| = \\sqrt{2^2 + (-1)^2 + 3^2} = \\sqrt{4 + 1 + 9} = \\sqrt{14}$",
-                "Step 5: Final results\na) $\\vec{a} + \\vec{b} = \\begin{pmatrix} 3 \\\\ 3 \\\\ 1 \\end{pmatrix}$\nb) $3\\vec{a} - 2\\vec{b} = \\begin{pmatrix} 4 \\\\ -11 \\\\ 13 \\end{pmatrix}$\nc) $|\\vec{a}| = \\sqrt{14}$"
+                "Step 1: Part a): Dot product and lengths\n$\\vec a\\cdot\\vec b = 2 - 2 + 4 = 4$. $|\\vec a| = \\sqrt{1 + 4 + 4} = 3$, $|\\vec b| = \\sqrt{4 + 1 + 4} = 3$.",
+                "Step 2: Part a): Angle\n$\\cos\\varphi = \\frac{\\vec a\\cdot\\vec b}{|\\vec a||\\vec b|} = \\frac49$, so $\\varphi = \\arccos\\frac49 \\approx 63.6^\\circ$.",
+                "Step 3: Part b): Cross product\n$\\vec a\\times\\vec b = (2\\cdot2 - 2\\cdot(-1),\\ 2\\cdot2 - 1\\cdot2,\\ 1\\cdot(-1) - 2\\cdot2) = (6, 2, -5)$.",
+                "Step 4: Part b): Orthogonality check\n$(6,2,-5)\\cdot\\vec a = 6 + 4 - 10 = 0$ ✓ and $(6,2,-5)\\cdot\\vec b = 12 - 2 - 10 = 0$ ✓. Extra check: $|\\vec a\\times\\vec b|^2 = 36 + 4 + 25 = 65 = |\\vec a|^2|\\vec b|^2\\sin^2\\varphi = 81\\left(1 - \\frac{16}{81}\\right) = 65$ ✓."
             ]
         },
         {
             "id": 2,
-            "topic": "Dot Product",
-            "title": "Dot Product and Angle",
-            "description": "Given the vectors $\\vec{u} = \\begin{pmatrix} 3 \\\\ 4 \\\\ 0 \\end{pmatrix}$ and $\\vec{v} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 5 \\end{pmatrix}$.\n\na) Calculate the dot product $\\vec{u} \\cdot \\vec{v}$\nb) Determine the angle between the vectors",
-            "difficulty": "easy",
-            "points": 10,
+            "topic": "Linear Systems",
+            "title": "Gaussian elimination",
+            "description": "Solve with Gaussian elimination:\n$x + y + z = 6,\\quad 2x - y + z = 3,\\quad x + 2y - z = 2.$\nState the solution set and check it.",
+            "difficulty": "beginner",
+            "points": 18,
             "solutionSteps": [
-                "Step 1: Calculate dot product\n$\\vec{u} \\cdot \\vec{v} = u_1 \\cdot v_1 + u_2 \\cdot v_2 + u_3 \\cdot v_3$\n$\\vec{u} \\cdot \\vec{v} = 3 \\cdot 1 + 4 \\cdot 2 + 0 \\cdot 5 = 3 + 8 + 0 = 11$",
-                "Step 2: Calculate vector lengths\n$|\\vec{u}| = \\sqrt{3^2 + 4^2 + 0^2} = \\sqrt{9 + 16 + 0} = \\sqrt{25} = 5$\n$|\\vec{v}| = \\sqrt{1^2 + 2^2 + 5^2} = \\sqrt{1 + 4 + 25} = \\sqrt{30}$",
-                "Step 3: Apply angle formula\n$\\cos(\\alpha) = \\frac{\\vec{u} \\cdot \\vec{v}}{|\\vec{u}| \\cdot |\\vec{v}|}$\n$\\cos(\\alpha) = \\frac{11}{5 \\cdot \\sqrt{30}} = \\frac{11}{5\\sqrt{30}}$",
-                "Step 4: Simplify fraction\n$\\cos(\\alpha) = \\frac{11}{5\\sqrt{30}} = \\frac{11\\sqrt{30}}{5 \\cdot 30} = \\frac{11\\sqrt{30}}{150}$",
-                "Step 5: Determine angle\n$\\alpha = \\arccos\\left(\\frac{11\\sqrt{30}}{150}\\right)$\nNumerically: $\\cos(\\alpha) \\approx \\frac{11 \\cdot 5.477}{150} \\approx 0.401$\n$\\alpha \\approx 63.4°$",
-                "Step 6: Final results\na) $\\vec{u} \\cdot \\vec{v} = 11$\nb) $\\alpha = \\arccos\\left(\\frac{11\\sqrt{30}}{150}\\right) \\approx 63.4°$"
+                "Step 1: Augmented matrix\n$\\begin{pmatrix} 1 & 1 & 1 & | & 6 \\\\ 2 & -1 & 1 & | & 3 \\\\ 1 & 2 & -1 & | & 2 \\end{pmatrix}$",
+                "Step 2: Eliminate the first column\n$R_2 \\to R_2 - 2R_1$, $R_3 \\to R_3 - R_1$: $\\begin{pmatrix} 1 & 1 & 1 & | & 6 \\\\ 0 & -3 & -1 & | & -9 \\\\ 0 & 1 & -2 & | & -4 \\end{pmatrix}$.",
+                "Step 3: Eliminate the second column\n$R_3 \\to R_3 + \\frac13R_2$: $(0,\\ 0,\\ -2 - \\tfrac13 \\mid -4 - 3) = (0,0,-\\tfrac73 \\mid -7)$. So $-\\frac73z = -7 \\Rightarrow z = 3$.",
+                "Step 4: Back substitution\nRow 2: $-3y - 3 = -9 \\Rightarrow y = 2$. Row 1: $x + 2 + 3 = 6 \\Rightarrow x = 1$. Solution set: $L = \\{(1,2,3)\\}$.",
+                "Step 5: Check\n$1 + 2 + 3 = 6$ ✓; $2 - 2 + 3 = 3$ ✓; $1 + 4 - 3 = 2$ ✓. Three pivots for three unknowns: uniquely solvable."
             ]
         },
         {
             "id": 3,
-            "topic": "Linear Systems",
-            "title": "Simple Linear System",
-            "description": "Solve the following linear system using Gaussian elimination:\n$\\begin{align}\nx + 2y - z &= 3 \\\\\n2x - y + z &= 1 \\\\\n3x + y + 2z &= 11\n\\end{align}$",
-            "difficulty": "medium",
-            "points": 12,
+            "topic": "Matrices",
+            "title": "Matrix operations",
+            "description": "Let $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$, $B = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$.\na) Compute $AB$, $BA$ and $A^T$.\nb) Verify $(AB)^T = B^TA^T$.\nc) Describe what multiplication with $B$ from the right resp. left does.",
+            "difficulty": "beginner",
+            "points": 16,
             "solutionSteps": [
-                "Step 1: Set up augmented matrix\n$\\left(\\begin{array}{ccc|c}\n1 & 2 & -1 & 3 \\\\\n2 & -1 & 1 & 1 \\\\\n3 & 1 & 2 & 11\n\\end{array}\\right)$",
-                "Step 2: Eliminate first column\n$R_2 - 2R_1$: $(2,-1,1,1) - 2(1,2,-1,3) = (0,-5,3,-5)$\n$R_3 - 3R_1$: $(3,1,2,11) - 3(1,2,-1,3) = (0,-5,5,2)$\n$\\left(\\begin{array}{ccc|c}\n1 & 2 & -1 & 3 \\\\\n0 & -5 & 3 & -5 \\\\\n0 & -5 & 5 & 2\n\\end{array}\\right)$",
-                "Step 3: Eliminate second column\n$R_3 - R_2$: $(0,-5,5,2) - (0,-5,3,-5) = (0,0,2,7)$\n$\\left(\\begin{array}{ccc|c}\n1 & 2 & -1 & 3 \\\\\n0 & -5 & 3 & -5 \\\\\n0 & 0 & 2 & 7\n\\end{array}\\right)$",
-                "Step 4: Back substitution - determine z\nFrom row 3: $2z = 7 \\Rightarrow z = \\frac{7}{2}$",
-                "Step 5: Determine y\nFrom row 2: $-5y + 3z = -5$\n$-5y + 3 \\cdot \\frac{7}{2} = -5$\n$-5y + \\frac{21}{2} = -5$\n$-5y = -5 - \\frac{21}{2} = -\\frac{10}{2} - \\frac{21}{2} = -\\frac{31}{2}$\n$y = \\frac{31}{10}$",
-                "Step 6: Determine x\nFrom row 1: $x + 2y - z = 3$\n$x + 2 \\cdot \\frac{31}{10} - \\frac{7}{2} = 3$\n$x + \\frac{31}{5} - \\frac{7}{2} = 3$\n$x = 3 - \\frac{31}{5} + \\frac{7}{2} = \\frac{30}{10} - \\frac{62}{10} + \\frac{35}{10} = \\frac{3}{10}$",
-                "Step 7: Solution\n$x = \\frac{3}{10}$, $y = \\frac{31}{10}$, $z = \\frac{7}{2}$\nVerification: Substituting into the original equations confirms the solution."
+                "Step 1: Part a): Products and transpose\n$AB = \\begin{pmatrix} 2 & 1 \\\\ 4 & 3 \\end{pmatrix}$, $BA = \\begin{pmatrix} 3 & 4 \\\\ 1 & 2 \\end{pmatrix}$, $A^T = \\begin{pmatrix} 1 & 3 \\\\ 2 & 4 \\end{pmatrix}$.",
+                "Step 2: Part b): Transpose rule\n$(AB)^T = \\begin{pmatrix} 2 & 4 \\\\ 1 & 3 \\end{pmatrix}$. $B^TA^T = BA^T = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}\\begin{pmatrix} 1 & 3 \\\\ 2 & 4 \\end{pmatrix} = \\begin{pmatrix} 2 & 4 \\\\ 1 & 3 \\end{pmatrix}$ ✓. Note the reversed order.",
+                "Step 3: Part c): Interpretation\n$AB$ arises from $A$ by a **column swap**, $BA$ by a **row swap**. That $AB \\neq BA$ shows: matrix multiplication is not commutative.",
+                "Step 4: Extra check\n$B^2 = I$ (swapping twice gives the identity), i.e. $B$ is its own inverse. $\\det B = -1$."
             ]
         },
         {
             "id": 4,
-            "topic": "Matrices",
-            "title": "Matrix Operations",
-            "description": "Given the matrices $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ and $B = \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix}$.\n\na) Calculate $A + B$\nb) Calculate $A \\cdot B$\nc) Determine $\\det(A)$",
-            "difficulty": "easy",
-            "points": 10,
+            "topic": "Linear Independence",
+            "title": "Dependence, basis and dimension",
+            "description": "Let $\\vec v_1 = (1,2,1)$, $\\vec v_2 = (2,1,0)$, $\\vec v_3 = (1,-1,-1)$ in $\\mathbb{R}^3$.\na) Are the vectors linearly independent? If not, give a dependence.\nb) Determine the dimension of $\\operatorname{span}\\{\\vec v_1,\\vec v_2,\\vec v_3\\}$ and a basis.",
+            "difficulty": "beginner",
+            "points": 18,
             "solutionSteps": [
-                "Step 1: Matrix addition\n$A + B = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} + \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix}$\nElement-wise addition:\n$A + B = \\begin{pmatrix} 1+2 & 2+1 \\\\ 3+0 & 4+3 \\end{pmatrix} = \\begin{pmatrix} 3 & 3 \\\\ 3 & 7 \\end{pmatrix}$",
-                "Step 2: Matrix multiplication\n$A \\cdot B = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix}$\nElement (1,1): $1 \\cdot 2 + 2 \\cdot 0 = 2$\nElement (1,2): $1 \\cdot 1 + 2 \\cdot 3 = 7$\nElement (2,1): $3 \\cdot 2 + 4 \\cdot 0 = 6$\nElement (2,2): $3 \\cdot 1 + 4 \\cdot 3 = 15$",
-                "Step 3: Result of multiplication\n$A \\cdot B = \\begin{pmatrix} 2 & 7 \\\\ 6 & 15 \\end{pmatrix}$",
-                "Step 4: Calculate determinant\nFor a 2×2 matrix $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$, $\\det = ad - bc$\n$\\det(A) = 1 \\cdot 4 - 2 \\cdot 3 = 4 - 6 = -2$",
-                "Step 5: Final results\na) $A + B = \\begin{pmatrix} 3 & 3 \\\\ 3 & 7 \\end{pmatrix}$\nb) $A \\cdot B = \\begin{pmatrix} 2 & 7 \\\\ 6 & 15 \\end{pmatrix}$\nc) $\\det(A) = -2$"
+                "Step 1: Part a): Set-up\nWe solve $c_1\\vec v_1 + c_2\\vec v_2 + c_3\\vec v_3 = \\vec0$: $c_1 + 2c_2 + c_3 = 0$, $2c_1 + c_2 - c_3 = 0$, $c_1 - c_3 = 0$.",
+                "Step 2: Part a): Solve\nFrom the third equation $c_3 = c_1$. First: $2c_1 + 2c_2 = 0 \\Rightarrow c_2 = -c_1$. Second: $2c_1 - c_1 - c_1 = 0$ ✓ (automatically satisfied). So there are non-trivial solutions: $(c_1,c_2,c_3) = (1,-1,1)$.",
+                "Step 3: Part a): Check\n$\\vec v_1 - \\vec v_2 + \\vec v_3 = (1 - 2 + 1,\\ 2 - 1 - 1,\\ 1 - 0 - 1) = (0,0,0)$ ✓. The vectors are **linearly dependent**: $\\vec v_3 = \\vec v_2 - \\vec v_1$.",
+                "Step 4: Part b): Basis and dimension\n$\\vec v_3$ is redundant. $\\vec v_1,\\vec v_2$ are not proportional, hence linearly independent. Basis $\\{\\vec v_1,\\vec v_2\\}$, $\\dim\\operatorname{span} = 2$ (a plane in $\\mathbb{R}^3$). Check: $\\det(\\vec v_1,\\vec v_2,\\vec v_3) = 0$."
             ]
         },
         {
             "id": 5,
-            "topic": "Linear Independence",
-            "title": "Linear Independence of Vectors",
-            "description": "Check whether the vectors $\\vec{v_1} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 1 \\end{pmatrix}$, $\\vec{v_2} = \\begin{pmatrix} 2 \\\\ 1 \\\\ 0 \\end{pmatrix}$ and $\\vec{v_3} = \\begin{pmatrix} 1 \\\\ -1 \\\\ -1 \\end{pmatrix}$ are linearly independent.",
-            "difficulty": "medium",
-            "points": 10,
+            "topic": "Inverse Matrix",
+            "title": "Inverse of a 3×3 matrix",
+            "description": "Determine the inverse of $A = \\begin{pmatrix} 1 & 2 & 0 \\\\ 0 & 1 & 1 \\\\ 1 & 0 & 1 \\end{pmatrix}$ with Gauss-Jordan elimination and verify the result.",
+            "difficulty": "beginner",
+            "points": 16,
             "solutionSteps": [
-                "Step 1: Approach for linear independence\nThe vectors are linearly independent if the equation\n$\\alpha_1 \\vec{v_1} + \\alpha_2 \\vec{v_2} + \\alpha_3 \\vec{v_3} = \\vec{0}$\nhas only the trivial solution $\\alpha_1 = \\alpha_2 = \\alpha_3 = 0$.",
-                "Step 2: Set up system of equations\n$\\alpha_1 \\begin{pmatrix} 1 \\\\ 2 \\\\ 1 \\end{pmatrix} + \\alpha_2 \\begin{pmatrix} 2 \\\\ 1 \\\\ 0 \\end{pmatrix} + \\alpha_3 \\begin{pmatrix} 1 \\\\ -1 \\\\ -1 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}$\n\nThis leads to:\n$\\begin{align}\n\\alpha_1 + 2\\alpha_2 + \\alpha_3 &= 0 \\\\\n2\\alpha_1 + \\alpha_2 - \\alpha_3 &= 0 \\\\\n\\alpha_1 + 0\\alpha_2 - \\alpha_3 &= 0\n\\end{align}$",
-                "Step 3: Matrix of the system\n$\\begin{pmatrix} 1 & 2 & 1 \\\\ 2 & 1 & -1 \\\\ 1 & 0 & -1 \\end{pmatrix}$",
-                "Step 4: Gaussian elimination\n$R_2 - 2R_1$: $(0, -3, -3)$\n$R_3 - R_1$: $(0, -2, -2)$\n$\\begin{pmatrix} 1 & 2 & 1 \\\\ 0 & -3 & -3 \\\\ 0 & -2 & -2 \\end{pmatrix}$\n\nDivide $R_2$ by $-3$: $(0, 1, 1)$\n$R_3 + 2R_2$: $(0, 0, 0)$\n$\\begin{pmatrix} 1 & 2 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix}$",
-                "Step 5: Back substitution\nFrom row 2: $\\alpha_2 + \\alpha_3 = 0 \\Rightarrow \\alpha_2 = -\\alpha_3$\nFrom row 1: $\\alpha_1 + 2\\alpha_2 + \\alpha_3 = 0$\n$\\alpha_1 + 2(-\\alpha_3) + \\alpha_3 = 0$\n$\\alpha_1 - \\alpha_3 = 0 \\Rightarrow \\alpha_1 = \\alpha_3$",
-                "Step 6: Conclusion\nThe system has infinitely many solutions with $\\alpha_3$ as a free parameter:\n$\\alpha_1 = \\alpha_3$, $\\alpha_2 = -\\alpha_3$, $\\alpha_3$ arbitrary\n\nSince non-trivial solutions exist (e.g., $\\alpha_1 = 1, \\alpha_2 = -1, \\alpha_3 = 1$), the vectors are linearly dependent.\n\nAnswer: The vectors are linearly dependent."
+                "Step 1: Determinant as a pre-test\nExpansion along the first row: $\\det A = 1(1\\cdot1 - 1\\cdot0) - 2(0\\cdot1 - 1\\cdot1) = 1 + 2 = 3 \\neq 0$. The inverse exists.",
+                "Step 2: Start (A mid I) and forward elimination\n$R_3 \\to R_3 - R_1$: $(0,-2,1 \\mid -1,0,1)$. Then $R_3 \\to R_3 + 2R_2$: $(0,0,3 \\mid -1,2,1)$.",
+                "Step 3: Normalise and eliminate upwards\n$R_3 \\to \\frac13R_3$: $(0,0,1 \\mid -\\tfrac13,\\tfrac23,\\tfrac13)$. $R_2 \\to R_2 - R_3$: $(0,1,0 \\mid \\tfrac13,\\tfrac13,-\\tfrac13)$. $R_1 \\to R_1 - 2R_2$: $(1,0,0 \\mid \\tfrac13,-\\tfrac23,\\tfrac23)$.",
+                "Step 4: Result\n$A^{-1} = \\frac13\\begin{pmatrix} 1 & -2 & 2 \\\\ 1 & 1 & -1 \\\\ -1 & 2 & 1 \\end{pmatrix}$.",
+                "Step 5: Check\nFirst row of $A$ times columns of $3A^{-1}$: $(1,2,0)\\cdot(1,1,-1) = 3$ ✓, $(1,2,0)\\cdot(-2,1,2) = 0$ ✓, $(1,2,0)\\cdot(2,-1,1) = 0$ ✓. So $AA^{-1} = I$ in the first row."
             ]
         },
         {
             "id": 6,
-            "topic": "Matrix Inverse",
-            "title": "Inverse of a 2×2 Matrix",
-            "description": "Determine the inverse of matrix $C = \\begin{pmatrix} 3 & 1 \\\\ 2 & 1 \\end{pmatrix}$, if it exists.",
-            "difficulty": "medium",
-            "points": 10,
+            "topic": "Determinants",
+            "title": "Determinants and Cramer's rule",
+            "description": "a) Compute $\\det\\begin{pmatrix}2&1&0\\\\1&3&2\\\\0&1&1\\end{pmatrix}$ with the rule of Sarrus.\nb) Solve $3x + 2y = 7$, $x - y = 1$ with Cramer's rule.",
+            "difficulty": "beginner",
+            "points": 16,
             "solutionSteps": [
-                "Step 1: Calculate determinant\n$\\det(C) = 3 \\cdot 1 - 1 \\cdot 2 = 3 - 2 = 1$\nSince $\\det(C) \\neq 0$, the inverse exists.",
-                "Step 2: Formula for 2×2 inverse\nFor $\\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$, the inverse is:\n$\\frac{1}{ad-bc} \\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$",
-                "Step 3: Calculate inverse\n$C^{-1} = \\frac{1}{1} \\begin{pmatrix} 1 & -1 \\\\ -2 & 3 \\end{pmatrix} = \\begin{pmatrix} 1 & -1 \\\\ -2 & 3 \\end{pmatrix}$",
-                "Step 4: Verify result\n$C \\cdot C^{-1} = \\begin{pmatrix} 3 & 1 \\\\ 2 & 1 \\end{pmatrix} \\begin{pmatrix} 1 & -1 \\\\ -2 & 3 \\end{pmatrix}$\n$= \\begin{pmatrix} 3-2 & -3+3 \\\\ 2-2 & -2+3 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} = I$",
-                "Step 5: Final result\n$C^{-1} = \\begin{pmatrix} 1 & -1 \\\\ -2 & 3 \\end{pmatrix}$\nThe verification confirms the result."
+                "Step 1: Part a): Sarrus\nDescending diagonals: $2\\cdot3\\cdot1 + 1\\cdot2\\cdot0 + 0\\cdot1\\cdot1 = 6$. Ascending: $0\\cdot3\\cdot0 + 2\\cdot2\\cdot1 + 1\\cdot1\\cdot1 = 5$. $\\det = 6 - 5 = 1$.",
+                "Step 2: Part a): Check\nExpansion along the first row: $2(3 - 2) - 1(1 - 0) + 0 = 2 - 1 = 1$ ✓. Since $\\det \\neq 0$ the matrix is invertible.",
+                "Step 3: Part b): Cramer's rule\n$\\det A = \\begin{vmatrix}3&2\\\\1&-1\\end{vmatrix} = -3 - 2 = -5 \\neq 0$. $x = \\frac{\\begin{vmatrix}7&2\\\\1&-1\\end{vmatrix}}{-5} = \\frac{-7 - 2}{-5} = \\frac95$, $y = \\frac{\\begin{vmatrix}3&7\\\\1&1\\end{vmatrix}}{-5} = \\frac{3 - 7}{-5} = \\frac45$.",
+                "Step 4: Part b): Check\n$3\\cdot\\frac95 + 2\\cdot\\frac45 = \\frac{27 + 8}{5} = 7$ ✓ and $\\frac95 - \\frac45 = 1$ ✓."
             ]
         }
     ]

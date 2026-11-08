@@ -3,6 +3,257 @@
         {
             "id": 1,
             "topic": "Linear Transformations",
+            "title": "Checking linearity",
+            "description": "Decide which of the following maps are linear: (a) $f(x,y) = (x+y,\\ 2x)$, (b) $g(x,y) = (x+1,\\ y)$, (c) $h(x,y) = (xy,\\ x)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe check the two linearity conditions (additivity and homogeneity) or refute them with a counterexample. A quick pre-test is $f(\\vec{0}) = \\vec{0}$.",
+                "Step 2: Definition\n$f: V \\to W$ is linear if $f(\\vec{u}+\\vec{v}) = f(\\vec{u}) + f(\\vec{v})$ and $f(\\lambda\\vec{u}) = \\lambda f(\\vec{u})$ for all $\\vec{u},\\vec{v} \\in V$, $\\lambda \\in \\mathbb{R}$. In particular $f(\\vec{0}) = \\vec{0}$ is necessary.",
+                "Step 3: (a) $f$ is linear\n$f(x,y) = \\begin{pmatrix} 1 & 1 \\\\ 2 & 0 \\end{pmatrix}\\begin{pmatrix} x \\\\ y \\end{pmatrix}$ is a matrix map, and every map $\\vec{x} \\mapsto A\\vec{x}$ is linear.",
+                "Step 4: (b) $g$ is not linear\n$g(0,0) = (1,0) \\neq (0,0)$. The map violates the necessary condition $g(\\vec{0}) = \\vec{0}$. (It is a translation, not a linear map.)",
+                "Step 5: (c) $h$ is not linear\n$h(1,1) = (1,1)$, but $h(2\\cdot(1,1)) = h(2,2) = (4,2) \\neq (2,2) = 2\\,h(1,1)$. Homogeneity fails because $xy$ is not linear in $(x,y)$.",
+                "Step 6: Rule of thumb\nLinear maps $\\mathbb{R}^n \\to \\mathbb{R}^m$ are exactly those where every component is a linear combination of the input variables without a constant term: products like $xy$, powers like $x^2$ or constants are forbidden.",
+                "Step 7: Result\nOnly (a) is linear.",
+                "Step 8: Takeaway: What to remember\nExactly the maps of the form $\\vec{x} \\mapsto A\\vec{x}$ are linear. Constants, products of variables and powers make a map non-linear."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Linear Transformations",
+            "title": "Kernel and image of a map ℝ³ → ℝ²",
+            "description": "Let $f: \\mathbb{R}^3 \\to \\mathbb{R}^2$ with $f(\\vec{x}) = A\\vec{x}$ and $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 1 & 1 \\end{pmatrix}$. Find $\\ker f$, $\\operatorname{im} f$ and verify the rank–nullity theorem.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe kernel consists of all $\\vec{x}$ with $A\\vec{x} = \\vec{0}$ (homogeneous system), the image is the column space of $A$. Afterwards we check both with the rank–nullity theorem.",
+                "Step 2: Kernel: system of equations\n$A\\vec{x} = \\vec{0}$ means $x_1 + 2x_2 + 3x_3 = 0$ and $x_2 + x_3 = 0$.",
+                "Step 3: Kernel: solve\nFrom the second equation: $x_2 = -x_3$. Substituting: $x_1 - 2x_3 + 3x_3 = 0 \\Rightarrow x_1 = -x_3$. With $x_3 = t$: $\\vec{x} = t(-1,-1,1)^T$.",
+                "Step 4: Kernel\n$\\ker f = \\operatorname{span}\\left\\{ \\begin{pmatrix} -1 \\\\ -1 \\\\ 1 \\end{pmatrix} \\right\\}$, so $\\dim\\ker f = 1$. Check: $A(-1,-1,1)^T = (-1-2+3,\\ -1+1)^T = (0,0)^T$ ✓.",
+                "Step 5: Image\nThe image is the column space of $A$. The columns $(1,0)^T$ and $(2,1)^T$ are linearly independent (determinant $1\\cdot1 - 2\\cdot0 = 1 \\neq 0$), so they span all of $\\mathbb{R}^2$. Hence $\\operatorname{im} f = \\mathbb{R}^2$ and $\\dim\\operatorname{im} f = 2$.",
+                "Step 6: Rank–nullity theorem\n$\\dim\\ker f + \\dim\\operatorname{im} f = 1 + 2 = 3 = \\dim\\mathbb{R}^3$ ✓.",
+                "Step 7: Consequence\n$f$ is surjective (image $= \\mathbb{R}^2$) but not injective (kernel $\\neq \\{\\vec{0}\\}$).",
+                "Step 8: Takeaway: What to remember\nRank–nullity theorem: $\\dim\\ker f + \\dim\\operatorname{im} f = \\dim V$. It is a very good self-test of whether kernel and image are correct."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Linear Transformations",
+            "title": "Composition of linear maps",
+            "description": "Let $f(x,y) = (x+y,\\ x-y)$ and $g(x,y) = (2x,\\ x+3y)$. Find the matrices of $g\\circ f$ and $f\\circ g$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe composition $g\\circ f$ means: first $f$, then $g$. On the matrix level this is the product $G\\cdot F$ with $F$ on the right because $F$ acts on the vector first.",
+                "Step 2: Matrices\n$F = \\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$ and $G = \\begin{pmatrix} 2 & 0 \\\\ 1 & 3 \\end{pmatrix}$ (with respect to the standard basis).",
+                "Step 3: Rule\nComposition corresponds to the matrix product: $[g\\circ f] = G\\cdot F$ (first $f$, then $g$ — so $F$ stands on the right!).",
+                "Step 4: $g\\circ f$\n$GF = \\begin{pmatrix} 2\\cdot1+0\\cdot1 & 2\\cdot1+0\\cdot(-1) \\\\ 1\\cdot1+3\\cdot1 & 1\\cdot1+3\\cdot(-1) \\end{pmatrix} = \\begin{pmatrix} 2 & 2 \\\\ 4 & -2 \\end{pmatrix}$.",
+                "Step 5: $f\\circ g$\n$FG = \\begin{pmatrix} 1\\cdot2+1\\cdot1 & 1\\cdot0+1\\cdot3 \\\\ 1\\cdot2+(-1)\\cdot1 & 1\\cdot0+(-1)\\cdot3 \\end{pmatrix} = \\begin{pmatrix} 3 & 3 \\\\ 1 & -3 \\end{pmatrix}$.",
+                "Step 6: Check with a vector\nFor $(1,0)$: $f(1,0) = (1,1)$, $g(1,1) = (2,4)$. The first column of $GF$ is $(2,4)^T$ ✓.",
+                "Step 7: Result\n$[g\\circ f] = \\begin{pmatrix} 2 & 2 \\\\ 4 & -2 \\end{pmatrix}$, $[f\\circ g] = \\begin{pmatrix} 3 & 3 \\\\ 1 & -3 \\end{pmatrix}$. Composition is not commutative: $g\\circ f \\neq f\\circ g$.",
+                "Step 8: Takeaway: What to remember\nThe order is crucial: $g\\circ f \\neq f\\circ g$. Checking with a single vector reveals order mistakes immediately."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Linear Transformations",
+            "title": "Injective, surjective, bijective",
+            "description": "Examine $f: \\mathbb{R}^2 \\to \\mathbb{R}^3$, $f(x,y) = (x,\\ y,\\ x+y)$, for injectivity and surjectivity.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nInjective means “different vectors have different images”, surjective means “every element of the target space is hit”. For linear maps both can be decided via kernel and image dimension.",
+                "Step 2: Matrix\n$f(\\vec{x}) = A\\vec{x}$ with $A = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\\\ 1 & 1 \\end{pmatrix}$.",
+                "Step 3: Find the kernel\n$A\\vec{x} = \\vec{0}$ means $x = 0$, $y = 0$, $x + y = 0$. The only solution is $\\vec{x} = \\vec{0}$, so $\\ker f = \\{\\vec{0}\\}$.",
+                "Step 4: Injectivity\nA linear map is injective if and only if $\\ker f = \\{\\vec{0}\\}$. This holds here, so $f$ is injective.",
+                "Step 5: Image and surjectivity\n$\\dim\\operatorname{im} f = 2 - \\dim\\ker f = 2 < 3 = \\dim\\mathbb{R}^3$. The image is a plane in $\\mathbb{R}^3$ (namely $\\{(x,y,z) \\mid z = x+y\\}$), so $f$ is not surjective. Example: $(0,0,1)$ has no preimage.",
+                "Step 6: Result\n$f$ is injective but not surjective, hence not bijective. (A map $\\mathbb{R}^2 \\to \\mathbb{R}^3$ can never be surjective since $\\dim\\operatorname{im} f \\leq 2 < 3$.)",
+                "Step 7: Takeaway: What to remember\nInjective $\\iff \\ker f = \\{\\vec{0}\\}$, surjective $\\iff \\dim\\operatorname{im} f = \\dim W$. If $\\dim V < \\dim W$, $f$ can never be surjective; if $\\dim V > \\dim W$ it can never be injective."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Linear Transformations",
+            "title": "Simple Transformation",
+            "description": "Determine the representation matrix of the linear transformation $f: \\mathbb{R}^3 \\to \\mathbb{R}^2$ with $f(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} x + y \\\\ y + z \\end{pmatrix}$ with respect to the standard bases.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Images of Basis Vectors\n$f(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}$.",
+                "Step 2: Representation Matrix\n$[f] = \\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\end{pmatrix}$.",
+                "Step 3: Verification\n$[f] \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} x + y \\\\ y + z \\end{pmatrix}$."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Linear Transformations",
+            "title": "Simple Projection",
+            "description": "Determine the representation matrix of the projection $P: \\mathbb{R}^2 \\to \\mathbb{R}^2$ onto the line $g = \\{\\begin{pmatrix} x \\\\ y \\end{pmatrix} \\in \\mathbb{R}^2 \\mid y = x\\}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Direction Vector\nThe line $y = x$ is spanned by $\\vec{v} = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$.",
+                "Step 2: Projection Formula\n$P(\\vec{w}) = \\frac{\\vec{w} \\cdot \\vec{v}}{\\|\\vec{v}\\|^2} \\vec{v}$, where $\\|\\vec{v}\\|^2 = 2$.",
+                "Step 3: Representation Matrix\nFor $\\vec{w} = \\begin{pmatrix} x \\\\ y \\end{pmatrix}$, $\\vec{w} \\cdot \\vec{v} = x + y$, so $P(\\vec{w}) = \\frac{x + y}{2} \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} \\frac{x + y}{2} \\\\ \\frac{x + y}{2} \\end{pmatrix}$.\nThus, $[P] = \\frac{1}{2} \\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix}$.",
+                "Step 4: Verification\n$[P] \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} \\frac{x + y}{2} \\\\ \\frac{x + y}{2} \\end{pmatrix}$, which lies on $y = x$."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Linear Transformations",
+            "title": "Simple Reflection",
+            "description": "Determine the representation matrix of the reflection $S: \\mathbb{R}^2 \\to \\mathbb{R}^2$ across the line $g = \\{\\begin{pmatrix} x \\\\ y \\end{pmatrix} \\in \\mathbb{R}^2 \\mid y = x\\}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Reflection Formula\n$S(\\vec{v}) = 2 P(\\vec{v}) - \\vec{v}$, where $P$ is the projection onto the line.",
+                "Step 2: Representation Matrix\nFrom exercise 8, $[P] = \\frac{1}{2} \\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix}$.\nThus, $[S] = 2 [P] - I_2 = \\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix} - \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$.",
+                "Step 3: Verification\n$S(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} y \\\\ x \\end{pmatrix}$, which reflects across $y = x$."
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Linear Transformations",
+            "title": "Simple Rotation",
+            "description": "Determine the representation matrix of the rotation $R: \\mathbb{R}^2 \\to \\mathbb{R}^2$ by angle $\\frac{\\pi}{4}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Rotation Matrix\n$[R] = \\begin{pmatrix} \\cos \\frac{\\pi}{4} & -\\sin \\frac{\\pi}{4} \\\\ \\sin \\frac{\\pi}{4} & \\cos \\frac{\\pi}{4} \\end{pmatrix}$.",
+                "Step 2: Computation\n$\\cos \\frac{\\pi}{4} = \\sin \\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$, so $[R] = \\begin{pmatrix} \\frac{\\sqrt{2}}{2} & -\\frac{\\sqrt{2}}{2} \\\\ \\frac{\\sqrt{2}}{2} & \\frac{\\sqrt{2}}{2} \\end{pmatrix}$.",
+                "Step 3: Verification\n$R(\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} \\frac{\\sqrt{2}}{2} \\\\ \\frac{\\sqrt{2}}{2} \\end{pmatrix}$, which rotates by $45^\\circ$."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Linear Transformations",
+            "title": "Simple Scaling",
+            "description": "Determine the representation matrix of the scaling $S: \\mathbb{R}^2 \\to \\mathbb{R}^2$ with scaling factors 2 in the x-direction and 3 in the y-direction.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Scaling Matrix\n$[S] = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}$.",
+                "Step 2: Verification\n$S(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} 2x \\\\ 3y \\end{pmatrix}$."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Linear Transformations",
+            "title": "Simple Shear",
+            "description": "Determine the representation matrix of the shear $S: \\mathbb{R}^2 \\to \\mathbb{R}^2$ with shear factor 2 in the x-direction.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Shear Matrix\n$[S] = \\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}$.",
+                "Step 2: Verification\n$S(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} x + 2y \\\\ y \\end{pmatrix}$."
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Linear Transformations",
+            "title": "Rotations and their composition",
+            "description": "Use the matrices $R(\\theta) = \\begin{pmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{pmatrix}$ to show that $R(60^\\circ)R(30^\\circ) = R(90^\\circ)$ and determine $R(30^\\circ)^{-1}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe composition of two rotations is a rotation by the sum of the angles. We confirm this by matrix multiplication with the values $\\cos30^\\circ = \\frac{\\sqrt3}{2}$, $\\sin30^\\circ = \\frac12$, $\\cos60^\\circ = \\frac12$, $\\sin60^\\circ = \\frac{\\sqrt3}{2}$.",
+                "Step 2: The matrices\n$R(30^\\circ) = \\begin{pmatrix}\\frac{\\sqrt3}2&-\\frac12\\\\\\frac12&\\frac{\\sqrt3}2\\end{pmatrix}$, $R(60^\\circ) = \\begin{pmatrix}\\frac12&-\\frac{\\sqrt3}2\\\\\\frac{\\sqrt3}2&\\frac12\\end{pmatrix}$.",
+                "Step 3: Product\nEntry $(1,1)$: $\\frac12\\cdot\\frac{\\sqrt3}2 - \\frac{\\sqrt3}2\\cdot\\frac12 = 0$; $(1,2)$: $-\\frac14 - \\frac34 = -1$; $(2,1)$: $\\frac34 + \\frac14 = 1$; $(2,2)$: $-\\frac{\\sqrt3}4 + \\frac{\\sqrt3}4 = 0$. So $R(60^\\circ)R(30^\\circ) = \\begin{pmatrix}0&-1\\\\1&0\\end{pmatrix} = R(90^\\circ)$ ✓.",
+                "Step 4: Inverse\nThe inverse is the rotation back: $R(30^\\circ)^{-1} = R(-30^\\circ) = R(30^\\circ)^T = \\begin{pmatrix}\\frac{\\sqrt3}2&\\frac12\\\\-\\frac12&\\frac{\\sqrt3}2\\end{pmatrix}$ (rotation matrices are orthogonal, $\\det = 1$).",
+                "Step 5: Takeaway: What to remember\nFrom $R(\\alpha)R(\\beta) = R(\\alpha+\\beta)$ the addition theorems for sine and cosine follow. Rotations in $\\mathbb{R}^2$ commute, in $\\mathbb{R}^3$ they do not."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Linear Transformations",
+            "title": "Matrix with respect to two bases",
+            "description": "Let $f: \\mathbb{R}^2 \\to \\mathbb{R}^2$, $f(x,y) = (x+y,\\ x-y)$. Determine the matrix of $f$ with respect to the basis $B = \\{(1,1),(1,-1)\\}$ in the domain and $C = \\{(1,0),(1,1)\\}$ in the codomain.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe columns of the matrix $[f]_{B}^{C}$ are the $C$-coordinates of the images of the $B$ basis vectors. So we compute $f(\\vec b_j)$ and expand each image in $C$.",
+                "Step 2: Images of the basis vectors\n$f(1,1) = (2,0)$ and $f(1,-1) = (0,2)$.",
+                "Step 3: $C$-coordinates of $(2,0)$\n$(2,0) = a(1,0) + b(1,1) \\Rightarrow a + b = 2$, $b = 0$: $a = 2$. Coordinates $(2,0)^T$.",
+                "Step 4: $C$-coordinates of $(0,2)$\n$(0,2) = a(1,0) + b(1,1) \\Rightarrow a + b = 0$, $b = 2$: $a = -2$. Coordinates $(-2,2)^T$.",
+                "Step 5: Matrix and check\n$[f]_B^C = \\begin{pmatrix}2&-2\\\\0&2\\end{pmatrix}$. Check with $\\vec v = (2,0) = 1\\cdot(1,1) + 1\\cdot(1,-1)$, $B$-coordinates $(1,1)^T$: $[f]_B^C(1,1)^T = (0,2)^T$ corresponds to $0\\cdot(1,0) + 2(1,1) = (2,2)$; directly $f(2,0) = (2,2)$ ✓.",
+                "Step 6: Takeaway: What to remember\nWith different bases in domain and codomain the matrix is not diagonal. In general $[f]_B^C = T_C^{-1}\\,A\\,T_B$ where $A$ is the standard matrix and $T_B,T_C$ are the basis matrices."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Linear Transformations",
+            "title": "Differentiation as a linear map",
+            "description": "Let $P_2$ be the space of polynomials of degree $\\le 2$ with basis $\\{1, x, x^2\\}$ and $P_1$ the space of polynomials of degree $\\le 1$ with basis $\\{1, x\\}$. Find the matrix of the derivative $D: P_2 \\to P_1$, $p \\mapsto p'$, as well as $\\ker D$ and $\\operatorname{im} D$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nPolynomials and differentiation are a nice example of a linear map between non-“classical” vector spaces. We choose bases, determine the images of the basis vectors and write their coordinates as columns.",
+                "Step 2: Linearity\n$D(p+q) = p'+q'$ and $D(\\lambda p) = \\lambda p'$ — differentiation is linear.",
+                "Step 3: Images of the basis vectors\n$D(1) = 0$, $D(x) = 1$, $D(x^2) = 2x$.",
+                "Step 4: Coordinates in the target space\nWith respect to $\\{1,x\\}$: $D(1) = 0\\cdot1 + 0\\cdot x \\to (0,0)^T$; $D(x) = 1\\cdot1 + 0\\cdot x \\to (1,0)^T$; $D(x^2) = 0\\cdot1 + 2\\cdot x \\to (0,2)^T$.",
+                "Step 5: Matrix\nThe coordinate vectors are the columns: $[D] = \\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}$. (It is a $2\\times3$ matrix since $\\dim P_1 = 2$ and $\\dim P_2 = 3$.)",
+                "Step 6: Kernel and image\n$\\ker D$: $a + bx + cx^2 \\mapsto b + 2cx = 0 \\iff b = c = 0$, so $\\ker D = \\{\\text{constant polynomials}\\} = \\operatorname{span}\\{1\\}$ and $\\dim\\ker D = 1$. $\\operatorname{im} D = P_1$ since $D(x) = 1$ and $D(x^2/2) = x$; hence $\\dim\\operatorname{im} D = 2$.",
+                "Step 7: Rank–nullity theorem\n$1 + 2 = 3 = \\dim P_2$ ✓. The result matches calculus: the derivative vanishes exactly for constants, and every polynomial of degree $\\le 1$ is a derivative.",
+                "Step 8: Takeaway: What to remember\nThe columns of the matrix are the coordinates of the images of the basis vectors in the target space. The matrix is $\\dim W \\times \\dim V$."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Linear Transformations",
+            "title": "Rank–nullity theorem and bases of kernel and image",
+            "description": "Let $f: \\mathbb{R}^4 \\to \\mathbb{R}^3$ with $f(\\vec{x}) = A\\vec{x}$, $A = \\begin{pmatrix} 1 & 0 & 1 & 2 \\\\ 0 & 1 & 1 & 1 \\\\ 1 & 1 & 2 & 3 \\end{pmatrix}$. Find bases of $\\ker f$ and $\\operatorname{im} f$ and verify the rank–nullity theorem.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe bring $A$ to row echelon form. The free variables give a basis of the kernel, the pivot columns of the original matrix a basis of the image.",
+                "Step 2: Determine the rank\n$R_3 \\to R_3 - R_1 - R_2$ gives the zero row. The row echelon form is $\\begin{pmatrix} 1 & 0 & 1 & 2 \\\\ 0 & 1 & 1 & 1 \\\\ 0 & 0 & 0 & 0 \\end{pmatrix}$, so $\\operatorname{rank} A = 2$.",
+                "Step 3: Kernel: pivot and free variables\nPivot variables: $x_1, x_2$; free variables: $x_3 = s$, $x_4 = t$. From the rows: $x_1 = -s - 2t$, $x_2 = -s - t$.",
+                "Step 4: Basis of the kernel\n$\\vec{x} = s\\begin{pmatrix} -1 \\\\ -1 \\\\ 1 \\\\ 0 \\end{pmatrix} + t\\begin{pmatrix} -2 \\\\ -1 \\\\ 0 \\\\ 1 \\end{pmatrix}$, so $\\left\\{ \\begin{pmatrix} -1 \\\\ -1 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} -2 \\\\ -1 \\\\ 0 \\\\ 1 \\end{pmatrix} \\right\\}$ is a basis of $\\ker f$ and $\\dim\\ker f = 2$.",
+                "Step 5: Check\n$A(-1,-1,1,0)^T = (-1+1,\\ -1+1,\\ -1-1+2)^T = \\vec{0}$ ✓ and $A(-2,-1,0,1)^T = (-2+2,\\ -1+1,\\ -2-1+3)^T = \\vec{0}$ ✓.",
+                "Step 6: Basis of the image\nThe pivot columns of $A$ (columns 1 and 2) form a basis of the column space: $\\operatorname{im} f = \\operatorname{span}\\left\\{ \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix} \\right\\}$, $\\dim\\operatorname{im} f = 2$.",
+                "Step 7: Rank–nullity theorem\n$\\dim\\ker f + \\dim\\operatorname{im} f = 2 + 2 = 4 = \\dim\\mathbb{R}^4$ ✓. Important: for the basis of the image take the columns of the original matrix $A$, not of the echelon form.",
+                "Step 8: Takeaway: What to remember\nCommon mistake: taking the columns of the echelon form as a basis of the image. Row operations change the column space, so the columns must be taken from $A$ itself."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Linear Transformations",
+            "title": "Reflection in a line through the origin",
+            "description": "Find the matrix of the reflection $S$ of $\\mathbb{R}^2$ in the line $g = \\operatorname{span}\\{(1,2)^T\\}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nA reflection in a line through the origin is obtained from the orthogonal projection $P$ onto that line: the component along the line stays, the perpendicular component changes sign, so $S = 2P - I$.",
+                "Step 2: Idea\nThe reflection can be obtained from the orthogonal projection $P$ onto $g$: a vector $\\vec{v}$ is reflected to $S\\vec{v} = 2P\\vec{v} - \\vec{v}$, i.e. $S = 2P - I$.",
+                "Step 3: Projection matrix\nFor a direction vector $\\vec{a}$ we have $P = \\frac{\\vec{a}\\vec{a}^T}{\\vec{a}^T\\vec{a}}$. Here $\\vec{a} = (1,2)^T$, $\\vec{a}^T\\vec{a} = 5$, $\\vec{a}\\vec{a}^T = \\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\end{pmatrix}$, so $P = \\frac15\\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\end{pmatrix}$.",
+                "Step 4: Reflection matrix\n$S = 2P - I = \\frac15\\begin{pmatrix} 2 & 4 \\\\ 4 & 8 \\end{pmatrix} - \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} = \\frac15\\begin{pmatrix} -3 & 4 \\\\ 4 & 3 \\end{pmatrix}$.",
+                "Step 5: Check: direction vector stays fixed\n$S\\vec{a} = \\frac15\\begin{pmatrix} -3+8 \\\\ 4+6 \\end{pmatrix} = \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} = \\vec{a}$ ✓.",
+                "Step 6: Check: normal vector is reversed\nFor $\\vec{n} = (2,-1)^T \\perp \\vec{a}$: $S\\vec{n} = \\frac15\\begin{pmatrix} -6-4 \\\\ 8-3 \\end{pmatrix} = \\begin{pmatrix} -2 \\\\ 1 \\end{pmatrix} = -\\vec{n}$ ✓.",
+                "Step 7: Check: properties\n$S^2 = I$ (reflecting twice gives the identity), $\\det S = \\frac1{25}(-9-16) = -1$ and $S$ is symmetric and orthogonal.",
+                "Step 8: Takeaway: What to remember\nTypical properties of a reflection: $S^2 = I$, $\\det S = -1$, $S$ is symmetric and orthogonal; vectors on the mirror axis stay fixed. That gives four checks at once."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Linear Transformations",
+            "title": "Change of basis makes a map simple",
+            "description": "The linear map $f: \\mathbb{R}^2 \\to \\mathbb{R}^2$ has the matrix $A = \\begin{pmatrix} 1 & 2 \\\\ 0 & 3 \\end{pmatrix}$ with respect to the standard basis. Find the matrix of $f$ with respect to the basis $B = \\left\\{ \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} \\right\\}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nIn a change of basis only the description of the map changes, not the map itself. With the change-of-basis matrix $T$ (basis vectors as columns) we have $[f]_B = T^{-1}AT$.",
+                "Step 2: Formula\nIf $T$ is the matrix whose columns are the basis vectors of $B$, then $[f]_B = T^{-1}AT$.",
+                "Step 3: $T$ and $T^{-1}$\n$T = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$, $\\det T = 1$, $T^{-1} = \\begin{pmatrix} 1 & -1 \\\\ 0 & 1 \\end{pmatrix}$.",
+                "Step 4: Compute $AT$\n$AT = \\begin{pmatrix} 1 & 2 \\\\ 0 & 3 \\end{pmatrix}\\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix} = \\begin{pmatrix} 1 & 3 \\\\ 0 & 3 \\end{pmatrix}$.",
+                "Step 5: Compute $T^{-1}(AT)$\n$T^{-1}AT = \\begin{pmatrix} 1 & -1 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 1 & 3 \\\\ 0 & 3 \\end{pmatrix} = \\begin{pmatrix} 1-0 & 3-3 \\\\ 0 & 3 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 \\\\ 0 & 3 \\end{pmatrix}$.",
+                "Step 6: Interpretation\nIn the basis $B$ the map $f$ is diagonal: $f(\\vec{b}_1) = 1\\cdot\\vec{b}_1$ and $f(\\vec{b}_2) = 3\\cdot\\vec{b}_2$. Indeed: $A(1,0)^T = (1,0)^T$ and $A(1,1)^T = (3,3)^T = 3(1,1)^T$. The basis vectors are eigenvectors for the eigenvalues $1$ and $3$.",
+                "Step 7: Result\n$[f]_B = \\begin{pmatrix} 1 & 0 \\\\ 0 & 3 \\end{pmatrix}$. A cleverly chosen basis makes the map transparent: it stretches by the factor $3$ in the direction $\\vec{b}_2$ and fixes $\\vec{b}_1$.",
+                "Step 8: Takeaway: What to remember\nRemember: $T$ on the right (translates $B$-coordinates into standard coordinates), $T^{-1}$ on the left. Choosing eigenvectors as a basis makes the matrix diagonal; that is the idea of diagonalisation."
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Linear Transformations",
             "title": "Representation Matrix",
             "description": "Given the linear transformation $f: \\mathbb{R}^3 \\to \\mathbb{R}^2$ with $f(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 3 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 4 \\\\ 2 \\end{pmatrix}$. Determine the representation matrix of $f$ with respect to the standard bases.",
             "difficulty": "medium",
@@ -15,7 +266,121 @@
             ]
         },
         {
-            "id": 2,
+            "id": 18,
+            "topic": "Linear Transformations",
+            "title": "Medium Projection",
+            "description": "Determine the representation matrix of the projection $P: \\mathbb{R}^3 \\to \\mathbb{R}^3$ onto the plane $E = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} \\in \\mathbb{R}^3 \\mid x + y = 0\\}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Normal Vector\nThe plane $x + y = 0$ has normal vector $\\vec{n} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$.",
+                "Step 2: Projection Formula\n$P(\\vec{v}) = \\vec{v} - \\frac{\\vec{v} \\cdot \\vec{n}}{\\|\\vec{n}\\|^2} \\vec{n}$, where $\\|\\vec{n}\\|^2 = 2$.",
+                "Step 3: Representation Matrix\nFor $\\vec{v} = \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}$, $\\vec{v} \\cdot \\vec{n} = x + y$, so:\n$P(\\vec{v}) = \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} - \\frac{x + y}{2} \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} \\frac{x - y}{2} \\\\ \\frac{-x + y}{2} \\\\ z \\end{pmatrix}$.\nThus, $[P] = \\frac{1}{2} \\begin{pmatrix} 1 & -1 & 0 \\\\ -1 & 1 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}$.",
+                "Step 4: Verification\n$[P] \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} \\frac{x - y}{2} \\\\ \\frac{-x + y}{2} \\\\ z \\end{pmatrix}$, and $\\frac{x - y}{2} + \\frac{-x + y}{2} = 0$, which satisfies $x + y = 0$."
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Linear Transformations",
+            "title": "Medium Reflection",
+            "description": "Determine the representation matrix of the reflection $S: \\mathbb{R}^3 \\to \\mathbb{R}^3$ across the plane $E = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} \\in \\mathbb{R}^3 \\mid x + y + z = 0\\}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Normal Vector\nThe plane has normal vector $\\vec{n} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$.",
+                "Step 2: Reflection Formula\n$S(\\vec{v}) = \\vec{v} - 2 \\frac{\\vec{v} \\cdot \\vec{n}}{\\|\\vec{n}\\|^2} \\vec{n}$, where $\\|\\vec{n}\\|^2 = 3$.",
+                "Step 3: Representation Matrix\n$S(\\vec{v}) = \\vec{v} - \\frac{2 (x + y + z)}{3} \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$.\nThus, $[S] = I_3 - \\frac{2}{3} \\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & 1 & 1 \\\\ 1 & 1 & 1 \\end{pmatrix} = \\frac{1}{3} \\begin{pmatrix} 1 & -2 & -2 \\\\ -2 & 1 & -2 \\\\ -2 & -2 & 1 \\end{pmatrix}$.",
+                "Step 4: Verification\n$[S] \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\frac{1}{3} \\begin{pmatrix} x - 2y - 2z \\\\ -2x + y - 2z \\\\ -2x - 2y + z \\end{pmatrix}$.\nCheck reflection property: The plane $E$ is fixed, and vectors orthogonal to $E$ are negated."
+            ]
+        },
+        {
+            "id": 20,
+            "topic": "Linear Transformations",
+            "title": "Medium Rotation",
+            "description": "Determine the representation matrix of the rotation $R: \\mathbb{R}^3 \\to \\mathbb{R}^3$ around the z-axis by angle $\\frac{\\pi}{3}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Rotation Matrix\nRotation around the z-axis by $\\theta$:\n$[R] = \\begin{pmatrix} \\cos \\theta & -\\sin \\theta & 0 \\\\ \\sin \\theta & \\cos \\theta & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$.",
+                "Step 2: Computation\nFor $\\theta = \\frac{\\pi}{3}$, $\\cos \\frac{\\pi}{3} = \\frac{1}{2}$, $\\sin \\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$.\nThus, $[R] = \\begin{pmatrix} \\frac{1}{2} & -\\frac{\\sqrt{3}}{2} & 0 \\\\ \\frac{\\sqrt{3}}{2} & \\frac{1}{2} & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$.",
+                "Step 3: Verification\n$R(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} \\frac{1}{2} \\\\ \\frac{\\sqrt{3}}{2} \\\\ 0 \\end{pmatrix}$, which rotates by $60^\\circ$ in the xy-plane."
+            ]
+        },
+        {
+            "id": 21,
+            "topic": "Linear Transformations",
+            "title": "Proof: kernel and injectivity",
+            "description": "Let $f: V \\to W$ be linear. Prove: (a) $\\ker f$ is a subspace of $V$. (b) $f$ is injective if and only if $\\ker f = \\{\\vec{0}\\}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe prove two fundamental statements about the kernel. In the “$\\Leftarrow$” part of (b) one uses linearity to turn $f(\\vec{u}) = f(\\vec{v})$ into $f(\\vec{u}-\\vec{v}) = \\vec{0}$.",
+                "Step 2: (a) Zero vector\n$f(\\vec{0}) = f(0\\cdot\\vec{0}) = 0\\cdot f(\\vec{0}) = \\vec{0}$, so $\\vec{0} \\in \\ker f$.",
+                "Step 3: (a) Closure\nLet $\\vec{u},\\vec{v} \\in \\ker f$ and $\\lambda \\in \\mathbb{R}$. Then $f(\\vec{u}+\\vec{v}) = f(\\vec{u}) + f(\\vec{v}) = \\vec{0}+\\vec{0} = \\vec{0}$ and $f(\\lambda\\vec{u}) = \\lambda f(\\vec{u}) = \\vec{0}$. So $\\ker f$ is a subspace.",
+                "Step 4: (b) “$\\Rightarrow$”\nLet $f$ be injective and $\\vec{u} \\in \\ker f$. Then $f(\\vec{u}) = \\vec{0} = f(\\vec{0})$, and injectivity gives $\\vec{u} = \\vec{0}$. So $\\ker f = \\{\\vec{0}\\}$.",
+                "Step 5: (b) “$\\Leftarrow$”, idea\nLet $\\ker f = \\{\\vec{0}\\}$ and $f(\\vec{u}) = f(\\vec{v})$. We must show $\\vec{u} = \\vec{v}$.",
+                "Step 6: (b) “$\\Leftarrow$”, execution\nBy linearity: $f(\\vec{u}-\\vec{v}) = f(\\vec{u}) - f(\\vec{v}) = \\vec{0}$, so $\\vec{u}-\\vec{v} \\in \\ker f = \\{\\vec{0}\\}$. Hence $\\vec{u} = \\vec{v}$. $\\blacksquare$",
+                "Step 7: Significance\nTo prove injectivity of a linear map it therefore suffices to solve the homogeneous problem $f(\\vec{x}) = \\vec{0}$ — one does not have to compare all pairs of vectors.",
+                "Step 8: Takeaway: What to remember\nThe trick $f(\\vec{u}) = f(\\vec{v}) \\Rightarrow f(\\vec{u}-\\vec{v}) = \\vec{0}$ appears in many proofs. It reduces statements about pairs of vectors to a statement about the kernel."
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Linear Transformations",
+            "title": "Oblique projection",
+            "description": "Let $P: \\mathbb{R}^2 \\to \\mathbb{R}^2$ be the projection onto the $x$-axis $U = \\operatorname{span}\\{(1,0)^T\\}$ along the line $W = \\operatorname{span}\\{(1,1)^T\\}$. Find the matrix of $P$ and show $P^2 = P$, $\\operatorname{im} P = U$, $\\ker P = W$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nA projection is a linear map with $P^2 = P$; it splits the space into $\\operatorname{im} P \\oplus \\ker P$. For an oblique projection, image and kernel are not perpendicular. We find $P$ from the images of the standard basis vectors.",
+                "Step 2: Definition\nSince $\\mathbb{R}^2 = U \\oplus W$, every vector can be written uniquely as $\\vec{v} = \\vec{u} + \\vec{w}$ with $\\vec{u} \\in U$, $\\vec{w} \\in W$. The projection onto $U$ along $W$ is $P\\vec{v} = \\vec{u}$.",
+                "Step 3: Image of $\\vec{e}_1$\n$\\vec{e}_1 = (1,0)^T \\in U$, so $P\\vec{e}_1 = \\vec{e}_1 = (1,0)^T$.",
+                "Step 4: Image of $\\vec{e}_2$\n$\\vec{e}_2 = (0,1)^T = (1,1)^T - (1,0)^T = \\vec{w} + (-\\vec{e}_1)$ with $\\vec{w} = (1,1)^T \\in W$ and $-\\vec{e}_1 \\in U$. So $P\\vec{e}_2 = -\\vec{e}_1 = (-1,0)^T$.",
+                "Step 5: Matrix\n$P = \\begin{pmatrix} 1 & -1 \\\\ 0 & 0 \\end{pmatrix}$.",
+                "Step 6: $P^2 = P$\n$P^2 = \\begin{pmatrix} 1 & -1 \\\\ 0 & 0 \\end{pmatrix}\\begin{pmatrix} 1 & -1 \\\\ 0 & 0 \\end{pmatrix} = \\begin{pmatrix} 1\\cdot1+(-1)\\cdot0 & 1\\cdot(-1)+(-1)\\cdot0 \\\\ 0 & 0 \\end{pmatrix} = \\begin{pmatrix} 1 & -1 \\\\ 0 & 0 \\end{pmatrix} = P$ ✓.",
+                "Step 7: Image and kernel\n$\\operatorname{im} P = \\operatorname{span}\\{(1,0)^T\\} = U$. $\\ker P$: $x - y = 0 \\iff x = y$, so $\\ker P = \\operatorname{span}\\{(1,1)^T\\} = W$ ✓.",
+                "Step 8: Remark\nIn contrast to an orthogonal projection, $P$ is not symmetric ($P^T \\neq P$) because $W$ is not perpendicular to $U$. Every matrix with $P^2 = P$ is a projection onto $\\operatorname{im} P$ along $\\ker P$.",
+                "Step 9: Takeaway: What to remember\nEvery matrix with $P^2 = P$ is the projection onto $\\operatorname{im} P$ along $\\ker P$. It is an orthogonal projection exactly when additionally $P^T = P$."
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Linear Transformations",
+            "title": "Defining a map by its values on a basis",
+            "description": "(a) Is there a linear map $f: \\mathbb{R}^2 \\to \\mathbb{R}^2$ with $f(1,2) = (1,0)$ and $f(2,4) = (0,1)$? (b) Show that there is exactly one linear map $g: \\mathbb{R}^3 \\to \\mathbb{R}^2$ with $g(1,0,0) = (1,1)$, $g(1,1,0) = (0,2)$, $g(1,1,1) = (1,0)$ and find its matrix.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nA linear map is uniquely determined by the images of a basis. For linearly dependent prescriptions (part a) the images can contradict each other.",
+                "Step 2: (a) Spot the contradiction\nWe have $(2,4) = 2\\cdot(1,2)$. For a linear map this forces $f(2,4) = 2f(1,2) = (2,0)$. But $(0,1) \\neq (2,0)$ is required.",
+                "Step 3: (a) Result\nThere is no such map: prescriptions on linearly dependent vectors must be compatible with the same dependencies.",
+                "Step 4: (b) Show it is a basis\nThe vectors $(1,0,0)$, $(1,1,0)$, $(1,1,1)$ form a basis of $\\mathbb{R}^3$ (triangular matrix with diagonal $1$, $\\det = 1 \\neq 0$). A linear map is uniquely determined by the images of a basis, and any choice of images is possible. So exactly one $g$ exists.",
+                "Step 5: (b) Images of the standard basis vectors\n$g(\\vec{e}_1) = (1,1)$. $\\vec{e}_2 = (1,1,0) - (1,0,0)$, so $g(\\vec{e}_2) = (0,2) - (1,1) = (-1,1)$. $\\vec{e}_3 = (1,1,1) - (1,1,0)$, so $g(\\vec{e}_3) = (1,0) - (0,2) = (1,-2)$.",
+                "Step 6: (b) Matrix\n$[g] = \\begin{pmatrix} 1 & -1 & 1 \\\\ 1 & 1 & -2 \\end{pmatrix}$.",
+                "Step 7: (b) Check\n$g(1,1,1) = (1-1+1,\\ 1+1-2) = (1,0)$ ✓. $g(1,1,0) = (1-1,\\ 1+1) = (0,2)$ ✓.",
+                "Step 8: Takeaway: What to remember\nExistence and uniqueness: if you prescribe the images of a basis arbitrarily, there is exactly one linear map. For dependent vectors the prescriptions must satisfy the same dependencies."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Linear Transformations",
+            "title": "Nilpotent maps: f ∘ f = 0",
+            "description": "Let $V$ be an $n$-dimensional vector space and $f: V \\to V$ linear with $f\\circ f = 0$. Show $\\operatorname{im} f \\subseteq \\ker f$ and $\\operatorname{rank} f \\leq \\frac n2$. Give an example with $n = 2$ and $\\operatorname{rank} f = 1$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nFrom $f\\circ f = 0$ it follows that the image lies in the kernel. Together with the rank–nullity theorem this gives a bound for the rank.",
+                "Step 2: $\\operatorname{im} f \\subseteq \\ker f$\nLet $\\vec{w} \\in \\operatorname{im} f$, i.e. $\\vec{w} = f(\\vec{v})$ for some $\\vec{v} \\in V$. Then $f(\\vec{w}) = f(f(\\vec{v})) = (f\\circ f)(\\vec{v}) = \\vec{0}$, so $\\vec{w} \\in \\ker f$.",
+                "Step 3: Compare dimensions\nFrom $\\operatorname{im} f \\subseteq \\ker f$ we get $\\dim\\operatorname{im} f \\leq \\dim\\ker f$, i.e. $\\operatorname{rank} f \\leq \\dim\\ker f$.",
+                "Step 4: Insert the rank–nullity theorem\nBy the rank–nullity theorem $\\dim\\ker f = n - \\operatorname{rank} f$. So $\\operatorname{rank} f \\leq n - \\operatorname{rank} f$.",
+                "Step 5: Solve\n$2\\operatorname{rank} f \\leq n$, so $\\operatorname{rank} f \\leq \\frac n2$. $\\blacksquare$",
+                "Step 6: Example\n$f(\\vec{x}) = N\\vec{x}$ with $N = \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}$. Then $N^2 = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}$, $\\operatorname{im} N = \\operatorname{span}\\{(1,0)^T\\}$, $\\ker N = \\operatorname{span}\\{(1,0)^T\\}$ — here $\\operatorname{im} N = \\ker N$ and $\\operatorname{rank} N = 1 = \\frac22$.",
+                "Step 7: Remark\nFor odd $n$ we get $\\operatorname{rank} f \\leq \\frac{n-1}{2}$ since the rank is an integer. For example every $3\\times3$ matrix with $N^2 = 0$ must have rank $\\le 1$.",
+                "Step 8: Takeaway: What to remember\nProof structure: show the inclusion, compare dimensions, insert the rank–nullity theorem. The same way of thinking helps with nilpotency, projections and many rank questions."
+            ]
+        },
+        {
+            "id": 25,
             "topic": "Linear Transformations",
             "title": "Kernel and Image",
             "description": "Determine the kernel and image of the linear transformation $f: \\mathbb{R}^3 \\to \\mathbb{R}^3$ with representation matrix $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 3 & 6 & 9 \\end{pmatrix}$.",
@@ -29,7 +394,7 @@
             ]
         },
         {
-            "id": 3,
+            "id": 26,
             "topic": "Linear Transformations",
             "title": "Change of Basis",
             "description": "Given the linear transformation $f: \\mathbb{R}^2 \\to \\mathbb{R}^2$ with representation matrix $[f]_B = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$ with respect to the basis $B = \\left\\{ \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix} \\right\\}$. Determine the representation matrix of $f$ with respect to the standard basis.",
@@ -43,7 +408,7 @@
             ]
         },
         {
-            "id": 4,
+            "id": 27,
             "topic": "Linear Transformations",
             "title": "Isomorphism",
             "description": "Show that the transformation $f: \\mathbb{R}^3 \\to \\mathbb{R}^3$ with $f(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} x + y \\\\ y + z \\\\ z + x \\end{pmatrix}$ is an isomorphism and determine its inverse.",
@@ -58,7 +423,7 @@
             ]
         },
         {
-            "id": 5,
+            "id": 28,
             "topic": "Linear Transformations",
             "title": "Orthogonal Projection",
             "description": "Determine the representation matrix of the orthogonal projection $P: \\mathbb{R}^3 \\to \\mathbb{R}^3$ onto the plane $E = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} \\in \\mathbb{R}^3 \\mid x + y + z = 0\\}$.",
@@ -72,189 +437,7 @@
             ]
         },
         {
-            "id": 6,
-            "topic": "Linear Transformations",
-            "title": "Simple Representation Matrix",
-            "description": "Determine the representation matrix of the linear transformation $f: \\mathbb{R}^2 \\to \\mathbb{R}^2$ with $f(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} 2x + y \\\\ x + 2y \\end{pmatrix}$ with respect to the standard basis.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Images of Basis Vectors\n$f(\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}$.",
-                "Step 2: Representation Matrix\n$[f] = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$.",
-                "Step 3: Verification\n$[f] \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} 2x + y \\\\ x + 2y \\end{pmatrix}$."
-            ]
-        },
-        {
-            "id": 7,
-            "topic": "Linear Transformations",
-            "title": "Simple Transformation",
-            "description": "Determine the representation matrix of the linear transformation $f: \\mathbb{R}^3 \\to \\mathbb{R}^2$ with $f(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} x + y \\\\ y + z \\end{pmatrix}$ with respect to the standard bases.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Images of Basis Vectors\n$f(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}$.",
-                "Step 2: Representation Matrix\n$[f] = \\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\end{pmatrix}$.",
-                "Step 3: Verification\n$[f] \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} x + y \\\\ y + z \\end{pmatrix}$."
-            ]
-        },
-        {
-            "id": 8,
-            "topic": "Linear Transformations",
-            "title": "Simple Projection",
-            "description": "Determine the representation matrix of the projection $P: \\mathbb{R}^2 \\to \\mathbb{R}^2$ onto the line $g = \\{\\begin{pmatrix} x \\\\ y \\end{pmatrix} \\in \\mathbb{R}^2 \\mid y = x\\}$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Direction Vector\nThe line $y = x$ is spanned by $\\vec{v} = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$.",
-                "Step 2: Projection Formula\n$P(\\vec{w}) = \\frac{\\vec{w} \\cdot \\vec{v}}{\\|\\vec{v}\\|^2} \\vec{v}$, where $\\|\\vec{v}\\|^2 = 2$.",
-                "Step 3: Representation Matrix\nFor $\\vec{w} = \\begin{pmatrix} x \\\\ y \\end{pmatrix}$, $\\vec{w} \\cdot \\vec{v} = x + y$, so $P(\\vec{w}) = \\frac{x + y}{2} \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} \\frac{x + y}{2} \\\\ \\frac{x + y}{2} \\end{pmatrix}$.\nThus, $[P] = \\frac{1}{2} \\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix}$.",
-                "Step 4: Verification\n$[P] \\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} \\frac{x + y}{2} \\\\ \\frac{x + y}{2} \\end{pmatrix}$, which lies on $y = x$."
-            ]
-        },
-        {
-            "id": 9,
-            "topic": "Linear Transformations",
-            "title": "Simple Reflection",
-            "description": "Determine the representation matrix of the reflection $S: \\mathbb{R}^2 \\to \\mathbb{R}^2$ across the line $g = \\{\\begin{pmatrix} x \\\\ y \\end{pmatrix} \\in \\mathbb{R}^2 \\mid y = x\\}$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Reflection Formula\n$S(\\vec{v}) = 2 P(\\vec{v}) - \\vec{v}$, where $P$ is the projection onto the line.",
-                "Step 2: Representation Matrix\nFrom exercise 8, $[P] = \\frac{1}{2} \\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix}$.\nThus, $[S] = 2 [P] - I_2 = \\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix} - \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$.",
-                "Step 3: Verification\n$S(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} y \\\\ x \\end{pmatrix}$, which reflects across $y = x$."
-            ]
-        },
-        {
-            "id": 10,
-            "topic": "Linear Transformations",
-            "title": "Simple Rotation",
-            "description": "Determine the representation matrix of the rotation $R: \\mathbb{R}^2 \\to \\mathbb{R}^2$ by angle $\\frac{\\pi}{4}$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Rotation Matrix\n$[R] = \\begin{pmatrix} \\cos \\frac{\\pi}{4} & -\\sin \\frac{\\pi}{4} \\\\ \\sin \\frac{\\pi}{4} & \\cos \\frac{\\pi}{4} \\end{pmatrix}$.",
-                "Step 2: Computation\n$\\cos \\frac{\\pi}{4} = \\sin \\frac{\\pi}{4} = \\frac{\\sqrt{2}}{2}$, so $[R] = \\begin{pmatrix} \\frac{\\sqrt{2}}{2} & -\\frac{\\sqrt{2}}{2} \\\\ \\frac{\\sqrt{2}}{2} & \\frac{\\sqrt{2}}{2} \\end{pmatrix}$.",
-                "Step 3: Verification\n$R(\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} \\frac{\\sqrt{2}}{2} \\\\ \\frac{\\sqrt{2}}{2} \\end{pmatrix}$, which rotates by $45^\\circ$."
-            ]
-        },
-        {
-            "id": 11,
-            "topic": "Linear Transformations",
-            "title": "Simple Scaling",
-            "description": "Determine the representation matrix of the scaling $S: \\mathbb{R}^2 \\to \\mathbb{R}^2$ with scaling factors 2 in the x-direction and 3 in the y-direction.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Scaling Matrix\n$[S] = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}$.",
-                "Step 2: Verification\n$S(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} 2x \\\\ 3y \\end{pmatrix}$."
-            ]
-        },
-        {
-            "id": 12,
-            "topic": "Linear Transformations",
-            "title": "Simple Shear",
-            "description": "Determine the representation matrix of the shear $S: \\mathbb{R}^2 \\to \\mathbb{R}^2$ with shear factor 2 in the x-direction.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Shear Matrix\n$[S] = \\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}$.",
-                "Step 2: Verification\n$S(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} x + 2y \\\\ y \\end{pmatrix}$."
-            ]
-        },
-        {
-            "id": 13,
-            "topic": "Linear Transformations",
-            "title": "Medium Transformation",
-            "description": "Determine the representation matrix of the linear transformation $f: \\mathbb{R}^3 \\to \\mathbb{R}^3$ with $f(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} x + y + z \\\\ x - y + z \\\\ x + y - z \\end{pmatrix}$ with respect to the standard basis.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Step 1: Images of Basis Vectors\n$f(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ -1 \\\\ 1 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\\\ -1 \\end{pmatrix}$.",
-                "Step 2: Representation Matrix\n$[f] = \\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & -1 & 1 \\\\ 1 & 1 & -1 \\end{pmatrix}$.",
-                "Step 3: Verification\n$[f] \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} x + y + z \\\\ x - y + z \\\\ x + y - z \\end{pmatrix}$."
-            ]
-        },
-        {
-            "id": 14,
-            "topic": "Linear Transformations",
-            "title": "Medium Projection",
-            "description": "Determine the representation matrix of the projection $P: \\mathbb{R}^3 \\to \\mathbb{R}^3$ onto the plane $E = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} \\in \\mathbb{R}^3 \\mid x + y = 0\\}$.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Step 1: Normal Vector\nThe plane $x + y = 0$ has normal vector $\\vec{n} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$.",
-                "Step 2: Projection Formula\n$P(\\vec{v}) = \\vec{v} - \\frac{\\vec{v} \\cdot \\vec{n}}{\\|\\vec{n}\\|^2} \\vec{n}$, where $\\|\\vec{n}\\|^2 = 2$.",
-                "Step 3: Representation Matrix\nFor $\\vec{v} = \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}$, $\\vec{v} \\cdot \\vec{n} = x + y$, so:\n$P(\\vec{v}) = \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} - \\frac{x + y}{2} \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} \\frac{x - y}{2} \\\\ \\frac{-x + y}{2} \\\\ z \\end{pmatrix}$.\nThus, $[P] = \\frac{1}{2} \\begin{pmatrix} 1 & -1 & 0 \\\\ -1 & 1 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}$.",
-                "Step 4: Verification\n$[P] \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} \\frac{x - y}{2} \\\\ \\frac{-x + y}{2} \\\\ z \\end{pmatrix}$, and $\\frac{x - y}{2} + \\frac{-x + y}{2} = 0$, which satisfies $x + y = 0$."
-            ]
-        },
-        {
-            "id": 15,
-            "topic": "Linear Transformations",
-            "title": "Medium Reflection",
-            "description": "Determine the representation matrix of the reflection $S: \\mathbb{R}^3 \\to \\mathbb{R}^3$ across the plane $E = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} \\in \\mathbb{R}^3 \\mid x + y + z = 0\\}$.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Step 1: Normal Vector\nThe plane has normal vector $\\vec{n} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$.",
-                "Step 2: Reflection Formula\n$S(\\vec{v}) = \\vec{v} - 2 \\frac{\\vec{v} \\cdot \\vec{n}}{\\|\\vec{n}\\|^2} \\vec{n}$, where $\\|\\vec{n}\\|^2 = 3$.",
-                "Step 3: Representation Matrix\n$S(\\vec{v}) = \\vec{v} - \\frac{2 (x + y + z)}{3} \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$.\nThus, $[S] = I_3 - \\frac{2}{3} \\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & 1 & 1 \\\\ 1 & 1 & 1 \\end{pmatrix} = \\frac{1}{3} \\begin{pmatrix} 1 & -2 & -2 \\\\ -2 & 1 & -2 \\\\ -2 & -2 & 1 \\end{pmatrix}$.",
-                "Step 4: Verification\n$[S] \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\frac{1}{3} \\begin{pmatrix} x - 2y - 2z \\\\ -2x + y - 2z \\\\ -2x - 2y + z \\end{pmatrix}$.\nCheck reflection property: The plane $E$ is fixed, and vectors orthogonal to $E$ are negated."
-            ]
-        },
-        {
-            "id": 16,
-            "topic": "Linear Transformations",
-            "title": "Medium Rotation",
-            "description": "Determine the representation matrix of the rotation $R: \\mathbb{R}^3 \\to \\mathbb{R}^3$ around the z-axis by angle $\\frac{\\pi}{3}$.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Step 1: Rotation Matrix\nRotation around the z-axis by $\\theta$:\n$[R] = \\begin{pmatrix} \\cos \\theta & -\\sin \\theta & 0 \\\\ \\sin \\theta & \\cos \\theta & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$.",
-                "Step 2: Computation\nFor $\\theta = \\frac{\\pi}{3}$, $\\cos \\frac{\\pi}{3} = \\frac{1}{2}$, $\\sin \\frac{\\pi}{3} = \\frac{\\sqrt{3}}{2}$.\nThus, $[R] = \\begin{pmatrix} \\frac{1}{2} & -\\frac{\\sqrt{3}}{2} & 0 \\\\ \\frac{\\sqrt{3}}{2} & \\frac{1}{2} & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$.",
-                "Step 3: Verification\n$R(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} \\frac{1}{2} \\\\ \\frac{\\sqrt{3}}{2} \\\\ 0 \\end{pmatrix}$, which rotates by $60^\\circ$ in the xy-plane."
-            ]
-        },
-        {
-            "id": 17,
-            "topic": "Linear Transformations",
-            "title": "Medium Scaling",
-            "description": "Determine the representation matrix of the scaling $S: \\mathbb{R}^3 \\to \\mathbb{R}^3$ with scaling factors 2, 3, and 4 in the x-, y-, and z-directions.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Step 1: Scaling Matrix\n$[S] = \\begin{pmatrix} 2 & 0 & 0 \\\\ 0 & 3 & 0 \\\\ 0 & 0 & 4 \\end{pmatrix}$.",
-                "Step 2: Verification\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} 2x \\\\ 3y \\\\ 4z \\end{pmatrix}$."
-            ]
-        },
-        {
-            "id": 18,
-            "topic": "Linear Transformations",
-            "title": "Medium Shear",
-            "description": "Determine the representation matrix of the shear $S: \\mathbb{R}^3 \\to \\mathbb{R}^3$ with shear factors 2 in the x-direction and 3 in the y-direction.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Step 1: Shear Matrix\nA shear affecting the x-coordinate based on y and z, and y-coordinate based on z:\n$[S] = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$.",
-                "Step 2: Verification\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} x + 2y + 3z \\\\ y \\\\ z \\end{pmatrix}$.",
-                "Step 3: Clarification\nThe shear factors imply $x$-coordinate shifts by $2y + 3z$, while $y$ and $z$ remain unchanged."
-            ]
-        },
-        {
-            "id": 19,
-            "topic": "Linear Transformations",
-            "title": "Hard Transformation",
-            "description": "Determine the representation matrix of the linear transformation $f: \\mathbb{R}^4 \\to \\mathbb{R}^4$ with $f(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\begin{pmatrix} x + y + z + w \\\\ x - y + z - w \\\\ x + y - z - w \\\\ x - y - z + w \\end{pmatrix}$ with respect to the standard basis.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Step 1: Images of Basis Vectors\n$f(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ -1 \\\\ 1 \\\\ -1 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\\\ -1 \\\\ -1 \\end{pmatrix}$, $f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ -1 \\\\ -1 \\\\ 1 \\end{pmatrix}$.",
-                "Step 2: Representation Matrix\n$[f] = \\begin{pmatrix} 1 & 1 & 1 & 1 \\\\ 1 & -1 & 1 & -1 \\\\ 1 & 1 & -1 & -1 \\\\ 1 & -1 & -1 & 1 \\end{pmatrix}$.",
-                "Step 3: Verification\n$[f] \\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix} = \\begin{pmatrix} x + y + z + w \\\\ x - y + z - w \\\\ x + y - z - w \\\\ x - y - z + w \\end{pmatrix}$."
-            ]
-        },
-        {
-            "id": 20,
+            "id": 29,
             "topic": "Linear Transformations",
             "title": "Hard Projection",
             "description": "Determine the representation matrix of the projection $P: \\mathbb{R}^4 \\to \\mathbb{R}^4$ onto the subspace $U = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix} \\in \\mathbb{R}^4 \\mid x + y + z + w = 0\\}$.",
@@ -268,7 +451,7 @@
             ]
         },
         {
-            "id": 21,
+            "id": 30,
             "topic": "Linear Transformations",
             "title": "Hard Reflection",
             "description": "Determine the representation matrix of the reflection $S: \\mathbb{R}^4 \\to \\mathbb{R}^4$ across the subspace $U = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix} \\in \\mathbb{R}^4 \\mid x + y = z + w = 0\\}$.",
@@ -279,44 +462,6 @@
                 "Step 2: Reflection Formula\nReflection across a subspace is $S(\\vec{v}) = \\vec{v} - 2 \\sum_{i=1}^2 \\frac{\\vec{v} \\cdot \\vec{n}_i}{\\|\\vec{n}_i\\|^2} \\vec{n}_i$, where $\\|\\vec{n}_1\\|^2 = \\|\\vec{n}_2\\|^2 = 2$.",
                 "Step 3: Representation Matrix\nFor $\\vec{v} = \\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}$, $\\vec{v} \\cdot \\vec{n}_1 = x + y$, $\\vec{v} \\cdot \\vec{n}_2 = z + w$.\n$S(\\vec{v}) = \\vec{v} - (x + y) \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\\\ 0 \\end{pmatrix} - (z + w) \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} -y \\\\ -x \\\\ -w \\\\ -z \\end{pmatrix}$.\nThus, $[S] = \\begin{pmatrix} 0 & -1 & 0 & 0 \\\\ -1 & 0 & 0 & 0 \\\\ 0 & 0 & 0 & -1 \\\\ 0 & 0 & -1 & 0 \\end{pmatrix}$.",
                 "Step 4: Verification\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\begin{pmatrix} -y \\\\ -x \\\\ -w \\\\ -z \\end{pmatrix}$. Vectors in $U$ (e.g., $\\begin{pmatrix} -y \\\\ y \\\\ -w \\\\ w \\end{pmatrix}$) are fixed, and orthogonal vectors are negated."
-            ]
-        },
-        {
-            "id": 22,
-            "topic": "Linear Transformations",
-            "title": "Hard Rotation",
-            "description": "Determine the representation matrix of the rotation $R: \\mathbb{R}^4 \\to \\mathbb{R}^4$ around the plane $E = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix} \\in \\mathbb{R}^4 \\mid x = y = 0\\}$ by angle $\\frac{\\pi}{4}$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Step 1: Plane of Rotation\nThe plane $E$ is spanned by $\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix}$, $\\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$. Rotation occurs in the zw-plane, leaving x and y fixed.",
-                "Step 2: Rotation Matrix\nRotation by $\\theta$ in the zw-plane:\n$[R] = \\begin{pmatrix} 1 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & \\cos \\theta & -\\sin \\theta \\\\ 0 & 0 & \\sin \\theta & \\cos \\theta \\end{pmatrix}$.",
-                "Step 3: Computation\nFor $\\theta = \\frac{\\pi}{4}$, $[R] = \\begin{pmatrix} 1 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & \\frac{\\sqrt{2}}{2} & -\\frac{\\sqrt{2}}{2} \\\\ 0 & 0 & \\frac{\\sqrt{2}}{2} & \\frac{\\sqrt{2}}{2} \\end{pmatrix}$.",
-                "Step 4: Verification\n$R(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 0 \\\\ 0 \\\\ \\frac{\\sqrt{2}}{2} \\\\ \\frac{\\sqrt{2}}{2} \\end{pmatrix}$, which rotates by $45^\\circ$ in the zw-plane."
-            ]
-        },
-        {
-            "id": 23,
-            "topic": "Linear Transformations",
-            "title": "Hard Scaling",
-            "description": "Determine the representation matrix of the scaling $S: \\mathbb{R}^4 \\to \\mathbb{R}^4$ with scaling factors 2, 3, 4, and 5 in the x-, y-, z-, and w-directions.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Step 1: Scaling Matrix\n$[S] = \\begin{pmatrix} 2 & 0 & 0 & 0 \\\\ 0 & 3 & 0 & 0 \\\\ 0 & 0 & 4 & 0 \\\\ 0 & 0 & 0 & 5 \\end{pmatrix}$.",
-                "Step 2: Verification\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\begin{pmatrix} 2x \\\\ 3y \\\\ 4z \\\\ 5w \\end{pmatrix}$."
-            ]
-        },
-        {
-            "id": 24,
-            "topic": "Linear Transformations",
-            "title": "Hard Shear",
-            "description": "Determine the representation matrix of the shear $S: \\mathbb{R}^4 \\to \\mathbb{R}^4$ with shear factors 2, 3, and 4 in the x-, y-, and z-directions.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Step 1: Shear Matrix\nThe shear affects the x-coordinate: $x' = x + 2y + 3z + 4w$. Thus:\n$[S] = \\begin{pmatrix} 1 & 2 & 3 & 4 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & 1 & 0 \\\\ 0 & 0 & 0 & 1 \\end{pmatrix}$.",
-                "Step 2: Verification\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\begin{pmatrix} x + 2y + 3z + 4w \\\\ y \\\\ z \\\\ w \\end{pmatrix}$."
             ]
         }
     ]

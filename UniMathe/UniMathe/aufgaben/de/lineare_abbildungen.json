@@ -3,88 +3,76 @@
         {
             "id": 1,
             "topic": "Lineare Abbildungen",
-            "title": "Darstellungsmatrix",
-            "description": "Gegeben sei die lineare Abbildung $f: \\mathbb{R}^3 \\to \\mathbb{R}^2$ mit $f(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}, f(\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 3 \\end{pmatrix}, f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 4 \\\\ 2 \\end{pmatrix}$. Bestimmen Sie die Darstellungsmatrix von $f$ bezüglich der Standardbasen.",
-            "difficulty": "medium",
-            "points": 10,
+            "title": "Linearität prüfen",
+            "description": "Entscheiden Sie, welche der folgenden Abbildungen linear sind: (a) $f(x,y) = (x+y,\\ 2x)$, (b) $g(x,y) = (x+1,\\ y)$, (c) $h(x,y) = (xy,\\ x)$.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Standardbasen\n$B_1 = \\{\\vec{e}_1, \\vec{e}_2, \\vec{e}_3\\}$ für $\\mathbb{R}^3$\n$B_2 = \\{\\vec{e}_1, \\vec{e}_2\\}$ für $\\mathbb{R}^2$\n\nDie Standardbasisvektoren sind:\n$\\vec{e}_1 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\vec{e}_2 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\vec{e}_3 = \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$ für $\\mathbb{R}^3$\n$\\vec{e}_1 = \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}, \\vec{e}_2 = \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}$ für $\\mathbb{R}^2$",
-                "Schritt 2: Bilder der Basisvektoren\nDie Bilder der Basisvektoren sind bereits gegeben:\n$f(\\vec{e}_1) = f(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$\n$f(\\vec{e}_2) = f(\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 3 \\end{pmatrix}$\n$f(\\vec{e}_3) = f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 4 \\\\ 2 \\end{pmatrix}$",
-                "Schritt 3: Darstellungsmatrix\nDie Darstellungsmatrix $[f]_{B_1,B_2}$ wird gebildet, indem die Bilder der Basisvektoren als Spalten in die Matrix eingetragen werden:\n$[f]_{B_1,B_2} = \\begin{pmatrix} 2 & 1 & 4 \\\\ 1 & 3 & 2 \\end{pmatrix}$\n\nDie erste Spalte enthält die Koeffizienten von $f(\\vec{e}_1)$ bezüglich $B_2$\nDie zweite Spalte enthält die Koeffizienten von $f(\\vec{e}_2)$ bezüglich $B_2$\nDie dritte Spalte enthält die Koeffizienten von $f(\\vec{e}_3)$ bezüglich $B_2$",
-                "Schritt 4: Verifikation\nUm zu überprüfen, ob die Darstellungsmatrix korrekt ist, berechnen wir das Bild eines beliebigen Vektors:\n\nSei $\\vec{v} = \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} \\in \\mathbb{R}^3$\n\nDann gilt:\n$f(\\vec{v}) = f(x\\vec{e}_1 + y\\vec{e}_2 + z\\vec{e}_3) = xf(\\vec{e}_1) + yf(\\vec{e}_2) + zf(\\vec{e}_3)$\n$= x\\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix} + y\\begin{pmatrix} 1 \\\\ 3 \\end{pmatrix} + z\\begin{pmatrix} 4 \\\\ 2 \\end{pmatrix}$\n$= \\begin{pmatrix} 2x + y + 4z \\\\ x + 3y + 2z \\end{pmatrix}$\n\nDies stimmt mit der Matrixmultiplikation überein:\n$[f]_{B_1,B_2}\\vec{v} = \\begin{pmatrix} 2 & 1 & 4 \\\\ 1 & 3 & 2 \\end{pmatrix}\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} 2x + y + 4z \\\\ x + 3y + 2z \\end{pmatrix}$"
+                "Schritt 1: Überblick: Was ist gefragt?\nWir prüfen die beiden Linearitätsbedingungen (Additivität und Homogenität) bzw. widerlegen sie mit einem Gegenbeispiel. Als schnellen Vortest dient $f(\\vec{0}) = \\vec{0}$.",
+                "Schritt 2: Definition\n$f: V \\to W$ ist linear, wenn $f(\\vec{u}+\\vec{v}) = f(\\vec{u}) + f(\\vec{v})$ und $f(\\lambda\\vec{u}) = \\lambda f(\\vec{u})$ für alle $\\vec{u},\\vec{v} \\in V$, $\\lambda \\in \\mathbb{R}$. Insbesondere muss $f(\\vec{0}) = \\vec{0}$ gelten.",
+                "Schritt 3: (a) $f$ ist linear\n$f(x,y) = \\begin{pmatrix} 1 & 1 \\\\ 2 & 0 \\end{pmatrix}\\begin{pmatrix} x \\\\ y \\end{pmatrix}$ ist eine Matrixabbildung, und jede Abbildung $\\vec{x} \\mapsto A\\vec{x}$ ist linear.",
+                "Schritt 4: (b) $g$ ist nicht linear\n$g(0,0) = (1,0) \\neq (0,0)$. Die Abbildung verletzt die notwendige Bedingung $g(\\vec{0}) = \\vec{0}$. (Sie ist eine Verschiebung, keine lineare Abbildung.)",
+                "Schritt 5: (c) $h$ ist nicht linear\n$h(1,1) = (1,1)$, aber $h(2\\cdot(1,1)) = h(2,2) = (4,2) \\neq (2,2) = 2\\,h(1,1)$. Die Homogenität ist verletzt, da $xy$ nicht linear in $(x,y)$ ist.",
+                "Schritt 6: Merkregel\nLineare Abbildungen $\\mathbb{R}^n \\to \\mathbb{R}^m$ sind genau diejenigen, bei denen jede Komponente eine Linearkombination der Eingabevariablen ohne konstanten Term ist: Produkte wie $xy$, Potenzen wie $x^2$ oder Konstanten sind verboten.",
+                "Schritt 7: Ergebnis\nNur (a) ist linear.",
+                "Schritt 8: Merke: Worauf es ankommt\nLinear sind genau die Abbildungen der Form $\\vec{x} \\mapsto A\\vec{x}$. Konstanten, Produkte von Variablen und Potenzen machen eine Abbildung nichtlinear."
             ]
         },
         {
             "id": 2,
             "topic": "Lineare Abbildungen",
-            "title": "Kern und Bild",
-            "description": "Bestimmen Sie Kern und Bild der linearen Abbildung $f: \\mathbb{R}^3 \\to \\mathbb{R}^3$ mit der Darstellungsmatrix $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 3 & 6 & 9 \\end{pmatrix}$.",
-            "difficulty": "hard",
-            "points": 15,
+            "title": "Kern und Bild einer Abbildung ℝ³ → ℝ²",
+            "description": "Sei $f: \\mathbb{R}^3 \\to \\mathbb{R}^2$ mit $f(\\vec{x}) = A\\vec{x}$ und $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 1 & 1 \\end{pmatrix}$. Bestimmen Sie $\\ker f$, $\\operatorname{im} f$ und überprüfen Sie die Dimensionsformel.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Kern\nDer Kern von $f$ ist die Menge aller Vektoren $\\vec{x} \\in \\mathbb{R}^3$ mit $f(\\vec{x}) = \\vec{0}$, also:\n$\\ker(f) = \\{\\vec{x} \\in \\mathbb{R}^3 \\mid A\\vec{x} = \\vec{0}\\}$\n\nWir lösen das homogene lineare Gleichungssystem:\n$\\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 3 & 6 & 9 \\end{pmatrix} \\vec{x} = \\vec{0}$",
-                "Schritt 2: Gauß-Elimination\nWir führen die Gauß-Elimination durch:\n\n1. Subtrahiere das 2-fache der ersten Zeile von der zweiten Zeile:\n$\\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 0 & 0 \\\\ 3 & 6 & 9 \\end{pmatrix}$\n\n2. Subtrahiere das 3-fache der ersten Zeile von der dritten Zeile:\n$\\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}$\n\nDie Matrix hat Rang 1, also gibt es 2 freie Parameter.\n\nLösung des Gleichungssystems:\n$x_1 + 2x_2 + 3x_3 = 0$\n\nWählen wir $x_2 = t$ und $x_3 = s$ als Parameter, so folgt:\n$x_1 = -2t - 3s$\n\nAlso ist der Kern:\n$\\ker(f) = \\{\\begin{pmatrix} -2t - 3s \\\\ t \\\\ s \\end{pmatrix} \\mid t,s \\in \\mathbb{R}\\}$\n$= \\text{span}\\{\\begin{pmatrix} -2 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} -3 \\\\ 0 \\\\ 1 \\end{pmatrix}\\}$",
-                "Schritt 3: Bild\nDas Bild von $f$ ist der Spaltenraum der Matrix $A$:\n$\\text{im}(f) = \\text{span}\\{A\\vec{e}_1, A\\vec{e}_2, A\\vec{e}_3\\}$\n\nBerechnung der Bilder der Standardbasisvektoren:\n$A\\vec{e}_1 = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$\n$A\\vec{e}_2 = \\begin{pmatrix} 2 \\\\ 4 \\\\ 6 \\end{pmatrix} = 2\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$\n$A\\vec{e}_3 = \\begin{pmatrix} 3 \\\\ 6 \\\\ 9 \\end{pmatrix} = 3\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$\n\nDa $A\\vec{e}_2$ und $A\\vec{e}_3$ Vielfache von $A\\vec{e}_1$ sind, ist:\n$\\text{im}(f) = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}\\}$",
-                "Schritt 4: Dimensionen und Verifikation\n\n1. Dimension des Kerns:\n$\\dim(\\ker(f)) = 2$ (zwei linear unabhängige Vektoren im Kern)\n\n2. Dimension des Bildes:\n$\\dim(\\text{im}(f)) = 1$ (ein linear unabhängiger Vektor im Bild)\n\n3. Dimensionsformel:\n$\\dim(\\ker(f)) + \\dim(\\text{im}(f)) = 2 + 1 = 3 = \\dim(\\mathbb{R}^3)$\n\n4. Verifikation der Kernvektoren:\n$A\\begin{pmatrix} -2 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 3 & 6 & 9 \\end{pmatrix}\\begin{pmatrix} -2 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}$\n\n$A\\begin{pmatrix} -3 \\\\ 0 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 3 & 6 & 9 \\end{pmatrix}\\begin{pmatrix} -3 \\\\ 0 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}$"
+                "Schritt 1: Überblick: Was ist gefragt?\nDer Kern besteht aus allen $\\vec{x}$ mit $A\\vec{x} = \\vec{0}$ (homogenes System), das Bild ist der Spaltenraum von $A$. Anschließend kontrollieren wir beides mit der Dimensionsformel.",
+                "Schritt 2: Kern: Gleichungssystem\n$A\\vec{x} = \\vec{0}$ bedeutet $x_1 + 2x_2 + 3x_3 = 0$ und $x_2 + x_3 = 0$.",
+                "Schritt 3: Kern: Lösen\nAus der zweiten Gleichung: $x_2 = -x_3$. Einsetzen: $x_1 - 2x_3 + 3x_3 = 0 \\Rightarrow x_1 = -x_3$. Mit $x_3 = t$: $\\vec{x} = t(-1,-1,1)^T$.",
+                "Schritt 4: Kern\n$\\ker f = \\operatorname{span}\\left\\{ \\begin{pmatrix} -1 \\\\ -1 \\\\ 1 \\end{pmatrix} \\right\\}$, also $\\dim\\ker f = 1$. Probe: $A(-1,-1,1)^T = (-1-2+3,\\ -1+1)^T = (0,0)^T$ ✓.",
+                "Schritt 5: Bild\nDas Bild ist der Spaltenraum von $A$. Die Spalten $(1,0)^T$ und $(2,1)^T$ sind linear unabhängig (Determinante $1\\cdot1 - 2\\cdot0 = 1 \\neq 0$), erzeugen also ganz $\\mathbb{R}^2$. Somit $\\operatorname{im} f = \\mathbb{R}^2$ und $\\dim\\operatorname{im} f = 2$.",
+                "Schritt 6: Dimensionsformel\n$\\dim\\ker f + \\dim\\operatorname{im} f = 1 + 2 = 3 = \\dim\\mathbb{R}^3$ ✓.",
+                "Schritt 7: Folgerung\n$f$ ist surjektiv (Bild $= \\mathbb{R}^2$), aber nicht injektiv (Kern $\\neq \\{\\vec{0}\\}$).",
+                "Schritt 8: Merke: Worauf es ankommt\nDimensionsformel: $\\dim\\ker f + \\dim\\operatorname{im} f = \\dim V$. Sie ist ein sehr guter Selbsttest, ob Kern und Bild stimmen."
             ]
         },
         {
             "id": 3,
             "topic": "Lineare Abbildungen",
-            "title": "Basiswechsel",
-            "description": "Gegeben sei die lineare Abbildung $f: \\mathbb{R}^2 \\to \\mathbb{R}^2$ mit der Darstellungsmatrix $[f]_B = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$ bezüglich der Basis $B = \\{\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}\\}$. Bestimmen Sie die Darstellungsmatrix von $f$ bezüglich der Standardbasis.",
-            "difficulty": "hard",
-            "points": 15,
+            "title": "Verkettung linearer Abbildungen",
+            "description": "Seien $f(x,y) = (x+y,\\ x-y)$ und $g(x,y) = (2x,\\ x+3y)$. Bestimmen Sie die Darstellungsmatrizen von $g\\circ f$ und $f\\circ g$.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Basiswechselmatrix\n$T = \\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$",
-                "Schritt 2: Inverse der Basiswechselmatrix\n$T^{-1} = \\frac{1}{2}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$",
-                "Schritt 3: Darstellungsmatrix\n$[f]_E = T[f]_BT^{-1}$\n$= \\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix} \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\frac{1}{2}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$",
-                "Schritt 4: Berechnung\n$[f]_E = \\begin{pmatrix} 3 & 0 \\\\ 0 & 1 \\end{pmatrix}$"
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Verkettung $g\\circ f$ bedeutet: erst $f$, dann $g$. Auf Matrixebene entspricht das dem Produkt $G\\cdot F$ mit $F$ rechts, weil $F$ zuerst auf den Vektor wirkt.",
+                "Schritt 2: Darstellungsmatrizen\n$F = \\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$ und $G = \\begin{pmatrix} 2 & 0 \\\\ 1 & 3 \\end{pmatrix}$ (bezüglich der Standardbasis).",
+                "Schritt 3: Regel\nDie Verkettung entspricht dem Matrixprodukt: $[g\\circ f] = G\\cdot F$ (zuerst $f$, dann $g$ — also steht $F$ rechts!).",
+                "Schritt 4: $g\\circ f$\n$GF = \\begin{pmatrix} 2\\cdot1+0\\cdot1 & 2\\cdot1+0\\cdot(-1) \\\\ 1\\cdot1+3\\cdot1 & 1\\cdot1+3\\cdot(-1) \\end{pmatrix} = \\begin{pmatrix} 2 & 2 \\\\ 4 & -2 \\end{pmatrix}$.",
+                "Schritt 5: $f\\circ g$\n$FG = \\begin{pmatrix} 1\\cdot2+1\\cdot1 & 1\\cdot0+1\\cdot3 \\\\ 1\\cdot2+(-1)\\cdot1 & 1\\cdot0+(-1)\\cdot3 \\end{pmatrix} = \\begin{pmatrix} 3 & 3 \\\\ 1 & -3 \\end{pmatrix}$.",
+                "Schritt 6: Probe an einem Vektor\nFür $(1,0)$: $f(1,0) = (1,1)$, $g(1,1) = (2,4)$. Die erste Spalte von $GF$ ist $(2,4)^T$ ✓.",
+                "Schritt 7: Ergebnis\n$[g\\circ f] = \\begin{pmatrix} 2 & 2 \\\\ 4 & -2 \\end{pmatrix}$, $[f\\circ g] = \\begin{pmatrix} 3 & 3 \\\\ 1 & -3 \\end{pmatrix}$. Die Verkettung ist nicht kommutativ: $g\\circ f \\neq f\\circ g$.",
+                "Schritt 8: Merke: Worauf es ankommt\nDie Reihenfolge ist entscheidend: $g\\circ f \\neq f\\circ g$. Die Probe an einem einzelnen Vektor deckt Reihenfolgefehler sofort auf."
             ]
         },
         {
             "id": 4,
             "topic": "Lineare Abbildungen",
-            "title": "Isomorphismus",
-            "description": "Zeigen Sie, dass die Abbildung $f: \\mathbb{R}^3 \\to \\mathbb{R}^3$ mit $f(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} x + y \\\\ y + z \\\\ z + x \\end{pmatrix}$ ein Isomorphismus ist und bestimmen Sie ihre Umkehrabbildung.",
-            "difficulty": "hard",
-            "points": 15,
+            "title": "Injektiv, surjektiv, bijektiv",
+            "description": "Untersuchen Sie $f: \\mathbb{R}^2 \\to \\mathbb{R}^3$, $f(x,y) = (x,\\ y,\\ x+y)$, auf Injektivität und Surjektivität.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Linearität\n$f$ ist linear, da sie durch eine Matrix beschrieben werden kann",
-                "Schritt 2: Darstellungsmatrix\n$[f] = \\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\\\ 1 & 0 & 1 \\end{pmatrix}$",
-                "Schritt 3: Determinante\n$\\det([f]) = 2 \\neq 0$, also ist $f$ bijektiv",
-                "Schritt 4: Umkehrabbildung\n$[f^{-1}] = [f]^{-1} = \\frac{1}{2}\\begin{pmatrix} 1 & -1 & 1 \\\\ 1 & 1 & -1 \\\\ -1 & 1 & 1 \\end{pmatrix}$"
+                "Schritt 1: Überblick: Was ist gefragt?\nInjektiv bedeutet „verschiedene Vektoren haben verschiedene Bilder“, surjektiv bedeutet „jedes Element des Zielraums wird getroffen“. Bei linearen Abbildungen lässt sich beides über Kern und Bilddimension entscheiden.",
+                "Schritt 2: Darstellungsmatrix\n$f(\\vec{x}) = A\\vec{x}$ mit $A = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\\\ 1 & 1 \\end{pmatrix}$.",
+                "Schritt 3: Kern bestimmen\n$A\\vec{x} = \\vec{0}$ bedeutet $x = 0$, $y = 0$, $x + y = 0$. Die einzige Lösung ist $\\vec{x} = \\vec{0}$, also $\\ker f = \\{\\vec{0}\\}$.",
+                "Schritt 4: Injektivität\nEine lineare Abbildung ist genau dann injektiv, wenn $\\ker f = \\{\\vec{0}\\}$. Hier gilt das, also ist $f$ injektiv.",
+                "Schritt 5: Bild und Surjektivität\n$\\dim\\operatorname{im} f = 2 - \\dim\\ker f = 2 < 3 = \\dim\\mathbb{R}^3$. Das Bild ist eine Ebene in $\\mathbb{R}^3$ (nämlich $\\{(x,y,z) \\mid z = x+y\\}$), also ist $f$ nicht surjektiv. Beispiel: $(0,0,1)$ hat kein Urbild.",
+                "Schritt 6: Ergebnis\n$f$ ist injektiv, aber nicht surjektiv, also nicht bijektiv. (Eine Abbildung $\\mathbb{R}^2 \\to \\mathbb{R}^3$ kann nie surjektiv sein, da $\\dim\\operatorname{im} f \\leq 2 < 3$.)",
+                "Schritt 7: Merke: Worauf es ankommt\nInjektiv $\\iff \\ker f = \\{\\vec{0}\\}$, surjektiv $\\iff \\dim\\operatorname{im} f = \\dim W$. Bei $\\dim V < \\dim W$ kann $f$ nie surjektiv sein, bei $\\dim V > \\dim W$ nie injektiv."
             ]
         },
         {
             "id": 5,
-            "topic": "Lineare Abbildungen",
-            "title": "Projektion",
-            "description": "Bestimmen Sie die Darstellungsmatrix der orthogonalen Projektion $P: \\mathbb{R}^3 \\to \\mathbb{R}^3$ auf die Ebene $E = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} \\in \\mathbb{R}^3 \\mid x + y + z = 0\\}$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Normalenvektor\n$\\vec{n} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$",
-                "Schritt 2: Projektionsformel\n$P(\\vec{v}) = \\vec{v} - \\frac{\\vec{v} \\cdot \\vec{n}}{\\|\\vec{n}\\|^2}\\vec{n}$",
-                "Schritt 3: Darstellungsmatrix\n$[P] = I_3 - \\frac{1}{3}\\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & 1 & 1 \\\\ 1 & 1 & 1 \\end{pmatrix}$",
-                "Schritt 4: Berechnung\n$[P] = \\frac{1}{3}\\begin{pmatrix} 2 & -1 & -1 \\\\ -1 & 2 & -1 \\\\ -1 & -1 & 2 \\end{pmatrix}$"
-            ]
-        },
-        {
-            "id": 6,
-            "topic": "Lineare Abbildungen",
-            "title": "Einfache Darstellungsmatrix",
-            "description": "Bestimmen Sie die Darstellungsmatrix der linearen Abbildung $f: \\mathbb{R}^2 \\to \\mathbb{R}^2$ mit $f(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} 2x + y \\\\ x + 2y \\end{pmatrix}$ bezüglich der Standardbasis.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Bilder der Basisvektoren\n$f(\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$\n$f(\\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}$",
-                "Schritt 2: Darstellungsmatrix\n$[f] = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$",
-                "Schritt 3: Verifikation\n$f(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}\\begin{pmatrix} x \\\\ y \\end{pmatrix} = \\begin{pmatrix} 2x + y \\\\ x + 2y \\end{pmatrix}$"
-            ]
-        },
-        {
-            "id": 7,
             "topic": "Lineare Abbildungen",
             "title": "Einfache Abbildung",
             "description": "Bestimmen Sie die Darstellungsmatrix der linearen Abbildung $f: \\mathbb{R}^3 \\to \\mathbb{R}^2$ mit $f(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} x + y \\\\ y + z \\end{pmatrix}$ bezüglich der Standardbasen.",
@@ -97,7 +85,7 @@
             ]
         },
         {
-            "id": 8,
+            "id": 6,
             "topic": "Lineare Abbildungen",
             "title": "Einfache Projektion",
             "description": "Bestimmen Sie die Darstellungsmatrix der Projektion $P: \\mathbb{R}^2 \\to \\mathbb{R}^2$ auf die Gerade $g = \\{\\begin{pmatrix} x \\\\ y \\end{pmatrix} \\in \\mathbb{R}^2 \\mid y = x\\}$.",
@@ -111,7 +99,7 @@
             ]
         },
         {
-            "id": 9,
+            "id": 7,
             "topic": "Lineare Abbildungen",
             "title": "Einfache Spiegelung",
             "description": "Bestimmen Sie die Darstellungsmatrix der Spiegelung $S: \\mathbb{R}^2 \\to \\mathbb{R}^2$ an der Geraden $g = \\{\\begin{pmatrix} x \\\\ y \\end{pmatrix} \\in \\mathbb{R}^2 \\mid y = x\\}$.",
@@ -124,7 +112,7 @@
             ]
         },
         {
-            "id": 10,
+            "id": 8,
             "topic": "Lineare Abbildungen",
             "title": "Einfache Rotation",
             "description": "Bestimmen Sie die Darstellungsmatrix der Rotation $R: \\mathbb{R}^2 \\to \\mathbb{R}^2$ um den Winkel $\\frac{\\pi}{4}$.",
@@ -137,7 +125,7 @@
             ]
         },
         {
-            "id": 11,
+            "id": 9,
             "topic": "Lineare Abbildungen",
             "title": "Einfache Streckung",
             "description": "Bestimmen Sie die Darstellungsmatrix der Streckung $S: \\mathbb{R}^2 \\to \\mathbb{R}^2$ mit Streckfaktor 2 in x-Richtung und 3 in y-Richtung.",
@@ -149,7 +137,7 @@
             ]
         },
         {
-            "id": 12,
+            "id": 10,
             "topic": "Lineare Abbildungen",
             "title": "Einfache Scherung",
             "description": "Bestimmen Sie die Darstellungsmatrix der Scherung $S: \\mathbb{R}^2 \\to \\mathbb{R}^2$ mit Scherfaktor 2 in x-Richtung.",
@@ -161,20 +149,124 @@
             ]
         },
         {
-            "id": 13,
+            "id": 11,
             "topic": "Lineare Abbildungen",
-            "title": "Mittelschwere Abbildung",
-            "description": "Bestimmen Sie die Darstellungsmatrix der linearen Abbildung $f: \\mathbb{R}^3 \\to \\mathbb{R}^3$ mit $f(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} x + y + z \\\\ x - y + z \\\\ x + y - z \\end{pmatrix}$ bezüglich der Standardbasis.",
+            "title": "Drehungen und ihre Verkettung",
+            "description": "Zeigen Sie mit den Matrizen $R(\\theta) = \\begin{pmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{pmatrix}$, dass $R(60^\\circ)R(30^\\circ) = R(90^\\circ)$ gilt, und bestimmen Sie $R(30^\\circ)^{-1}$.",
             "difficulty": "medium",
             "points": 8,
             "solutionSteps": [
-                "Schritt 1: Bilder der Basisvektoren\n$f(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$\n$f(\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ -1 \\\\ 1 \\end{pmatrix}$\n$f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\\\ -1 \\end{pmatrix}$",
-                "Schritt 2: Darstellungsmatrix\n$[f] = \\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & -1 & 1 \\\\ 1 & 1 & -1 \\end{pmatrix}$",
-                "Schritt 3: Verifikation\n$f(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & -1 & 1 \\\\ 1 & 1 & -1 \\end{pmatrix}\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} x + y + z \\\\ x - y + z \\\\ x + y - z \\end{pmatrix}$"
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Verkettung zweier Drehungen ist eine Drehung um die Summe der Winkel. Wir bestätigen das durch Matrixmultiplikation mit den Werten $\\cos30^\\circ = \\frac{\\sqrt3}{2}$, $\\sin30^\\circ = \\frac12$, $\\cos60^\\circ = \\frac12$, $\\sin60^\\circ = \\frac{\\sqrt3}{2}$.",
+                "Schritt 2: Die Matrizen\n$R(30^\\circ) = \\begin{pmatrix}\\frac{\\sqrt3}2&-\\frac12\\\\\\frac12&\\frac{\\sqrt3}2\\end{pmatrix}$, $R(60^\\circ) = \\begin{pmatrix}\\frac12&-\\frac{\\sqrt3}2\\\\\\frac{\\sqrt3}2&\\frac12\\end{pmatrix}$.",
+                "Schritt 3: Produkt\nEintrag $(1,1)$: $\\frac12\\cdot\\frac{\\sqrt3}2 - \\frac{\\sqrt3}2\\cdot\\frac12 = 0$; $(1,2)$: $-\\frac14 - \\frac34 = -1$; $(2,1)$: $\\frac34 + \\frac14 = 1$; $(2,2)$: $-\\frac{\\sqrt3}4 + \\frac{\\sqrt3}4 = 0$. Also $R(60^\\circ)R(30^\\circ) = \\begin{pmatrix}0&-1\\\\1&0\\end{pmatrix} = R(90^\\circ)$ ✓.",
+                "Schritt 4: Inverse\nDie Umkehrung ist die Drehung zurück: $R(30^\\circ)^{-1} = R(-30^\\circ) = R(30^\\circ)^T = \\begin{pmatrix}\\frac{\\sqrt3}2&\\frac12\\\\-\\frac12&\\frac{\\sqrt3}2\\end{pmatrix}$ (Drehmatrizen sind orthogonal, $\\det = 1$).",
+                "Schritt 5: Merke: Worauf es ankommt\nAus $R(\\alpha)R(\\beta) = R(\\alpha+\\beta)$ folgen die Additionstheoreme für Sinus und Kosinus. Drehungen im $\\mathbb{R}^2$ sind kommutativ, im $\\mathbb{R}^3$ nicht."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Lineare Abbildungen",
+            "title": "Darstellungsmatrix bezüglich zweier Basen",
+            "description": "Sei $f: \\mathbb{R}^2 \\to \\mathbb{R}^2$, $f(x,y) = (x+y,\\ x-y)$. Bestimmen Sie die Darstellungsmatrix von $f$ bezüglich der Basis $B = \\{(1,1),(1,-1)\\}$ im Urbildraum und $C = \\{(1,0),(1,1)\\}$ im Bildraum.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Spalten der Darstellungsmatrix $[f]_{B}^{C}$ sind die $C$-Koordinaten der Bilder der $B$-Basisvektoren. Wir bilden also $f(\\vec b_j)$ und entwickeln jedes Bild nach $C$.",
+                "Schritt 2: Bilder der Basisvektoren\n$f(1,1) = (2,0)$ und $f(1,-1) = (0,2)$.",
+                "Schritt 3: $C$-Koordinaten von $(2,0)$\n$(2,0) = a(1,0) + b(1,1) \\Rightarrow a + b = 2$, $b = 0$: $a = 2$. Koordinaten $(2,0)^T$.",
+                "Schritt 4: $C$-Koordinaten von $(0,2)$\n$(0,2) = a(1,0) + b(1,1) \\Rightarrow a + b = 0$, $b = 2$: $a = -2$. Koordinaten $(-2,2)^T$.",
+                "Schritt 5: Darstellungsmatrix und Probe\n$[f]_B^C = \\begin{pmatrix}2&-2\\\\0&2\\end{pmatrix}$. Probe mit $\\vec v = (2,0) = 1\\cdot(1,1) + 1\\cdot(1,-1)$, $B$-Koordinaten $(1,1)^T$: $[f]_B^C(1,1)^T = (0,2)^T$ entspricht $0\\cdot(1,0) + 2(1,1) = (2,2)$; direkt $f(2,0) = (2,2)$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nBei verschiedenen Basen in Urbild und Bild wird die Matrix nicht diagonal. Allgemein gilt $[f]_B^C = T_C^{-1}\\,A\\,T_B$, wobei $A$ die Standardmatrix ist und $T_B,T_C$ die Basismatrizen sind."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Lineare Abbildungen",
+            "title": "Ableitung als lineare Abbildung",
+            "description": "Sei $P_2$ der Raum der Polynome vom Grad $\\le 2$ mit Basis $\\{1, x, x^2\\}$ und $P_1$ der Raum der Polynome vom Grad $\\le 1$ mit Basis $\\{1, x\\}$. Bestimmen Sie die Darstellungsmatrix der Ableitung $D: P_2 \\to P_1$, $p \\mapsto p'$, sowie $\\ker D$ und $\\operatorname{im} D$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nPolynome und Ableitung sind ein schönes Beispiel für eine lineare Abbildung zwischen nicht-„klassischen“ Vektorräumen. Wir wählen Basen, bestimmen die Bilder der Basisvektoren und schreiben deren Koordinaten als Spalten.",
+                "Schritt 2: Linearität\n$D(p+q) = p'+q'$ und $D(\\lambda p) = \\lambda p'$ — die Ableitung ist linear.",
+                "Schritt 3: Bilder der Basisvektoren\n$D(1) = 0$, $D(x) = 1$, $D(x^2) = 2x$.",
+                "Schritt 4: Koordinaten im Zielraum\nBezüglich $\\{1,x\\}$: $D(1) = 0\\cdot1 + 0\\cdot x \\to (0,0)^T$; $D(x) = 1\\cdot1 + 0\\cdot x \\to (1,0)^T$; $D(x^2) = 0\\cdot1 + 2\\cdot x \\to (0,2)^T$.",
+                "Schritt 5: Darstellungsmatrix\nDie Koordinatenvektoren stehen als Spalten: $[D] = \\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}$. (Es ist eine $2\\times3$-Matrix, da $\\dim P_1 = 2$ und $\\dim P_2 = 3$.)",
+                "Schritt 6: Kern und Bild\n$\\ker D$: $a + bx + cx^2 \\mapsto b + 2cx = 0 \\iff b = c = 0$, also $\\ker D = \\{\\text{konstante Polynome}\\} = \\operatorname{span}\\{1\\}$ und $\\dim\\ker D = 1$. $\\operatorname{im} D = P_1$, da $D(x) = 1$ und $D(x^2/2) = x$; also $\\dim\\operatorname{im} D = 2$.",
+                "Schritt 7: Dimensionsformel\n$1 + 2 = 3 = \\dim P_2$ ✓. Das Ergebnis passt zur Analysis: Die Ableitung verschwindet genau für Konstanten, und jedes Polynom vom Grad $\\le 1$ ist eine Ableitung.",
+                "Schritt 8: Merke: Worauf es ankommt\nDie Spalten der Darstellungsmatrix sind die Koordinaten der Bilder der Basisvektoren im Zielraum. Die Matrix ist $\\dim W \\times \\dim V$."
             ]
         },
         {
             "id": 14,
+            "topic": "Lineare Abbildungen",
+            "title": "Dimensionssatz und Basis von Kern und Bild",
+            "description": "Sei $f: \\mathbb{R}^4 \\to \\mathbb{R}^3$ mit $f(\\vec{x}) = A\\vec{x}$, $A = \\begin{pmatrix} 1 & 0 & 1 & 2 \\\\ 0 & 1 & 1 & 1 \\\\ 1 & 1 & 2 & 3 \\end{pmatrix}$. Bestimmen Sie Basen von $\\ker f$ und $\\operatorname{im} f$ und prüfen Sie die Dimensionsformel.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir bringen $A$ auf Zeilenstufenform. Die freien Variablen liefern eine Basis des Kerns, die Pivotspalten der ursprünglichen Matrix eine Basis des Bildes.",
+                "Schritt 2: Rang bestimmen\n$Z_3 \\to Z_3 - Z_1 - Z_2$ ergibt die Nullzeile. Die Zeilenstufenform ist $\\begin{pmatrix} 1 & 0 & 1 & 2 \\\\ 0 & 1 & 1 & 1 \\\\ 0 & 0 & 0 & 0 \\end{pmatrix}$, also $\\operatorname{rang} A = 2$.",
+                "Schritt 3: Kern: Pivot- und freie Variablen\nPivotvariablen: $x_1, x_2$; freie Variablen: $x_3 = s$, $x_4 = t$. Aus den Zeilen: $x_1 = -s - 2t$, $x_2 = -s - t$.",
+                "Schritt 4: Basis des Kerns\n$\\vec{x} = s\\begin{pmatrix} -1 \\\\ -1 \\\\ 1 \\\\ 0 \\end{pmatrix} + t\\begin{pmatrix} -2 \\\\ -1 \\\\ 0 \\\\ 1 \\end{pmatrix}$, also ist $\\left\\{ \\begin{pmatrix} -1 \\\\ -1 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} -2 \\\\ -1 \\\\ 0 \\\\ 1 \\end{pmatrix} \\right\\}$ eine Basis von $\\ker f$ und $\\dim\\ker f = 2$.",
+                "Schritt 5: Probe\n$A(-1,-1,1,0)^T = (-1+1,\\ -1+1,\\ -1-1+2)^T = \\vec{0}$ ✓ und $A(-2,-1,0,1)^T = (-2+2,\\ -1+1,\\ -2-1+3)^T = \\vec{0}$ ✓.",
+                "Schritt 6: Basis des Bildes\nDie Pivotspalten von $A$ (Spalte 1 und 2) bilden eine Basis des Spaltenraums: $\\operatorname{im} f = \\operatorname{span}\\left\\{ \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix} \\right\\}$, $\\dim\\operatorname{im} f = 2$.",
+                "Schritt 7: Dimensionsformel\n$\\dim\\ker f + \\dim\\operatorname{im} f = 2 + 2 = 4 = \\dim\\mathbb{R}^4$ ✓. Wichtig: Für die Basis des Bildes nimmt man die Spalten der ursprünglichen Matrix $A$, nicht der Stufenform.",
+                "Schritt 8: Merke: Worauf es ankommt\nHäufiger Fehler: Spalten der Stufenform als Basis des Bildes zu nehmen. Die Zeilenumformungen verändern den Spaltenraum, deshalb müssen die Spalten aus $A$ selbst genommen werden."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Lineare Abbildungen",
+            "title": "Spiegelung an einer Ursprungsgeraden",
+            "description": "Bestimmen Sie die Darstellungsmatrix der Spiegelung $S$ des $\\mathbb{R}^2$ an der Geraden $g = \\operatorname{span}\\{(1,2)^T\\}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEine Spiegelung an einer Ursprungsgeraden entsteht aus der Orthogonalprojektion $P$ auf diese Gerade: Der Anteil entlang der Geraden bleibt, der dazu senkrechte Anteil wechselt das Vorzeichen, also $S = 2P - I$.",
+                "Schritt 2: Idee\nDie Spiegelung lässt sich aus der Orthogonalprojektion $P$ auf $g$ gewinnen: Ein Vektor $\\vec{v}$ wird zu $S\\vec{v} = 2P\\vec{v} - \\vec{v}$ gespiegelt, also $S = 2P - I$.",
+                "Schritt 3: Projektionsmatrix\nFür einen Richtungsvektor $\\vec{a}$ gilt $P = \\frac{\\vec{a}\\vec{a}^T}{\\vec{a}^T\\vec{a}}$. Hier $\\vec{a} = (1,2)^T$, $\\vec{a}^T\\vec{a} = 5$, $\\vec{a}\\vec{a}^T = \\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\end{pmatrix}$, also $P = \\frac15\\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\end{pmatrix}$.",
+                "Schritt 4: Spiegelungsmatrix\n$S = 2P - I = \\frac15\\begin{pmatrix} 2 & 4 \\\\ 4 & 8 \\end{pmatrix} - \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} = \\frac15\\begin{pmatrix} -3 & 4 \\\\ 4 & 3 \\end{pmatrix}$.",
+                "Schritt 5: Probe: Richtungsvektor bleibt fest\n$S\\vec{a} = \\frac15\\begin{pmatrix} -3+8 \\\\ 4+6 \\end{pmatrix} = \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} = \\vec{a}$ ✓.",
+                "Schritt 6: Probe: Normalenvektor wird umgekehrt\nFür $\\vec{n} = (2,-1)^T \\perp \\vec{a}$: $S\\vec{n} = \\frac15\\begin{pmatrix} -6-4 \\\\ 8-3 \\end{pmatrix} = \\begin{pmatrix} -2 \\\\ 1 \\end{pmatrix} = -\\vec{n}$ ✓.",
+                "Schritt 7: Probe: Eigenschaften\n$S^2 = I$ (zweimal spiegeln ergibt die Identität), $\\det S = \\frac1{25}(-9-16) = -1$ und $S$ ist symmetrisch und orthogonal.",
+                "Schritt 8: Merke: Worauf es ankommt\nTypische Eigenschaften einer Spiegelung: $S^2 = I$, $\\det S = -1$, $S$ ist symmetrisch und orthogonal; Vektoren auf der Spiegelachse bleiben fest. Damit hat man gleich vier Proben."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Lineare Abbildungen",
+            "title": "Basiswechsel macht eine Abbildung einfach",
+            "description": "Die lineare Abbildung $f: \\mathbb{R}^2 \\to \\mathbb{R}^2$ hat bezüglich der Standardbasis die Matrix $A = \\begin{pmatrix} 1 & 2 \\\\ 0 & 3 \\end{pmatrix}$. Bestimmen Sie die Darstellungsmatrix von $f$ bezüglich der Basis $B = \\left\\{ \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} \\right\\}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nBeim Basiswechsel ändert sich nur die Beschreibung der Abbildung, nicht die Abbildung selbst. Mit der Wechselmatrix $T$ (Basisvektoren als Spalten) gilt $[f]_B = T^{-1}AT$.",
+                "Schritt 2: Formel\nIst $T$ die Matrix, deren Spalten die Basisvektoren von $B$ sind, so gilt $[f]_B = T^{-1}AT$.",
+                "Schritt 3: $T$ und $T^{-1}$\n$T = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$, $\\det T = 1$, $T^{-1} = \\begin{pmatrix} 1 & -1 \\\\ 0 & 1 \\end{pmatrix}$.",
+                "Schritt 4: $AT$ berechnen\n$AT = \\begin{pmatrix} 1 & 2 \\\\ 0 & 3 \\end{pmatrix}\\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix} = \\begin{pmatrix} 1 & 3 \\\\ 0 & 3 \\end{pmatrix}$.",
+                "Schritt 5: $T^{-1}(AT)$ berechnen\n$T^{-1}AT = \\begin{pmatrix} 1 & -1 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 1 & 3 \\\\ 0 & 3 \\end{pmatrix} = \\begin{pmatrix} 1-0 & 3-3 \\\\ 0 & 3 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 \\\\ 0 & 3 \\end{pmatrix}$.",
+                "Schritt 6: Deutung\nIn der Basis $B$ ist $f$ diagonal: $f(\\vec{b}_1) = 1\\cdot\\vec{b}_1$ und $f(\\vec{b}_2) = 3\\cdot\\vec{b}_2$. Tatsächlich: $A(1,0)^T = (1,0)^T$ und $A(1,1)^T = (3,3)^T = 3(1,1)^T$. Die Basisvektoren sind Eigenvektoren zu den Eigenwerten $1$ und $3$.",
+                "Schritt 7: Ergebnis\n$[f]_B = \\begin{pmatrix} 1 & 0 \\\\ 0 & 3 \\end{pmatrix}$. Eine geschickt gewählte Basis macht die Abbildung durchsichtig: Sie streckt in Richtung $\\vec{b}_2$ um den Faktor $3$ und lässt $\\vec{b}_1$ fest.",
+                "Schritt 8: Merke: Worauf es ankommt\nMerke: Rechts steht $T$ (übersetzt $B$-Koordinaten in Standardkoordinaten), links $T^{-1}$. Wählt man als Basis Eigenvektoren, wird die Matrix diagonal; das ist die Idee der Diagonalisierung."
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Lineare Abbildungen",
+            "title": "Darstellungsmatrix",
+            "description": "Gegeben sei die lineare Abbildung $f: \\mathbb{R}^3 \\to \\mathbb{R}^2$ mit $f(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}, f(\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 3 \\end{pmatrix}, f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 4 \\\\ 2 \\end{pmatrix}$. Bestimmen Sie die Darstellungsmatrix von $f$ bezüglich der Standardbasen.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Schritt 1: Standardbasen\n$B_1 = \\{\\vec{e}_1, \\vec{e}_2, \\vec{e}_3\\}$ für $\\mathbb{R}^3$\n$B_2 = \\{\\vec{e}_1, \\vec{e}_2\\}$ für $\\mathbb{R}^2$\n\nDie Standardbasisvektoren sind:\n$\\vec{e}_1 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\vec{e}_2 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\vec{e}_3 = \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$ für $\\mathbb{R}^3$\n$\\vec{e}_1 = \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}, \\vec{e}_2 = \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}$ für $\\mathbb{R}^2$",
+                "Schritt 2: Bilder der Basisvektoren\nDie Bilder der Basisvektoren sind bereits gegeben:\n$f(\\vec{e}_1) = f(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$\n$f(\\vec{e}_2) = f(\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 3 \\end{pmatrix}$\n$f(\\vec{e}_3) = f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 4 \\\\ 2 \\end{pmatrix}$",
+                "Schritt 3: Darstellungsmatrix\nDie Darstellungsmatrix $[f]_{B_1,B_2}$ wird gebildet, indem die Bilder der Basisvektoren als Spalten in die Matrix eingetragen werden:\n$[f]_{B_1,B_2} = \\begin{pmatrix} 2 & 1 & 4 \\\\ 1 & 3 & 2 \\end{pmatrix}$\n\nDie erste Spalte enthält die Koeffizienten von $f(\\vec{e}_1)$ bezüglich $B_2$\nDie zweite Spalte enthält die Koeffizienten von $f(\\vec{e}_2)$ bezüglich $B_2$\nDie dritte Spalte enthält die Koeffizienten von $f(\\vec{e}_3)$ bezüglich $B_2$",
+                "Schritt 4: Verifikation\nUm zu überprüfen, ob die Darstellungsmatrix korrekt ist, berechnen wir das Bild eines beliebigen Vektors:\n\nSei $\\vec{v} = \\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} \\in \\mathbb{R}^3$\n\nDann gilt:\n$f(\\vec{v}) = f(x\\vec{e}_1 + y\\vec{e}_2 + z\\vec{e}_3) = xf(\\vec{e}_1) + yf(\\vec{e}_2) + zf(\\vec{e}_3)$\n$= x\\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix} + y\\begin{pmatrix} 1 \\\\ 3 \\end{pmatrix} + z\\begin{pmatrix} 4 \\\\ 2 \\end{pmatrix}$\n$= \\begin{pmatrix} 2x + y + 4z \\\\ x + 3y + 2z \\end{pmatrix}$\n\nDies stimmt mit der Matrixmultiplikation überein:\n$[f]_{B_1,B_2}\\vec{v} = \\begin{pmatrix} 2 & 1 & 4 \\\\ 1 & 3 & 2 \\end{pmatrix}\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} 2x + y + 4z \\\\ x + 3y + 2z \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 18,
             "topic": "Lineare Abbildungen",
             "title": "Mittelschwere Projektion",
             "description": "Bestimmen Sie die Darstellungsmatrix der Projektion $P: \\mathbb{R}^3 \\to \\mathbb{R}^3$ auf die Ebene $E = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} \\in \\mathbb{R}^3 \\mid x + y = 0\\}$.",
@@ -188,7 +280,7 @@
             ]
         },
         {
-            "id": 15,
+            "id": 19,
             "topic": "Lineare Abbildungen",
             "title": "Mittelschwere Spiegelung",
             "description": "Bestimmen Sie die Darstellungsmatrix der Spiegelung $S: \\mathbb{R}^3 \\to \\mathbb{R}^3$ an der Ebene $E = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} \\in \\mathbb{R}^3 \\mid x + y + z = 0\\}$.",
@@ -202,7 +294,7 @@
             ]
         },
         {
-            "id": 16,
+            "id": 20,
             "topic": "Lineare Abbildungen",
             "title": "Mittelschwere Rotation",
             "description": "Bestimmen Sie die Darstellungsmatrix der Rotation $R: \\mathbb{R}^3 \\to \\mathbb{R}^3$ um die z-Achse mit Winkel $\\frac{\\pi}{3}$.",
@@ -215,44 +307,136 @@
             ]
         },
         {
-            "id": 17,
+            "id": 21,
             "topic": "Lineare Abbildungen",
-            "title": "Mittelschwere Streckung",
-            "description": "Bestimmen Sie die Darstellungsmatrix der Streckung $S: \\mathbb{R}^3 \\to \\mathbb{R}^3$ mit Streckfaktoren 2, 3 und 4 in x-, y- und z-Richtung.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Schritt 1: Streckungsmatrix\n$[S] = \\begin{pmatrix} 2 & 0 & 0 \\\\ 0 & 3 & 0 \\\\ 0 & 0 & 4 \\end{pmatrix}$",
-                "Schritt 2: Verifikation\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} 2x \\\\ 3y \\\\ 4z \\end{pmatrix}$"
-            ]
-        },
-        {
-            "id": 18,
-            "topic": "Lineare Abbildungen",
-            "title": "Mittelschwere Scherung",
-            "description": "Bestimmen Sie die Darstellungsmatrix der Scherung $S: \\mathbb{R}^3 \\to \\mathbb{R}^3$ mit Scherfaktor 2 in x-Richtung und 3 in y-Richtung.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Schritt 1: Scherungsmatrix\n$[S] = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$",
-                "Schritt 2: Verifikation\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} x + 2y + 3z \\\\ y \\\\ z \\end{pmatrix}$"
-            ]
-        },
-        {
-            "id": 19,
-            "topic": "Lineare Abbildungen",
-            "title": "Schwere Abbildung",
-            "description": "Bestimmen Sie die Darstellungsmatrix der linearen Abbildung $f: \\mathbb{R}^4 \\to \\mathbb{R}^4$ mit $f(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\begin{pmatrix} x + y + z + w \\\\ x - y + z - w \\\\ x + y - z - w \\\\ x - y - z + w \\end{pmatrix}$ bezüglich der Standardbasis.",
+            "title": "Beweis: Kern, Injektivität und lineare Unabhängigkeit",
+            "description": "Sei $f: V \\to W$ linear. Beweisen Sie: (a) $\\ker f$ ist ein Unterraum von $V$. (b) $f$ ist genau dann injektiv, wenn $\\ker f = \\{\\vec{0}\\}$.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Schritt 1: Bilder der Basisvektoren\n$f(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$\n$f(\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ -1 \\\\ 1 \\\\ -1 \\end{pmatrix}$\n$f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ 1 \\\\ -1 \\\\ -1 \\end{pmatrix}$\n$f(\\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\\\ 1 \\end{pmatrix}) = \\begin{pmatrix} 1 \\\\ -1 \\\\ -1 \\\\ 1 \\end{pmatrix}$",
-                "Schritt 2: Darstellungsmatrix\n$[f] = \\begin{pmatrix} 1 & 1 & 1 & 1 \\\\ 1 & -1 & 1 & -1 \\\\ 1 & 1 & -1 & -1 \\\\ 1 & -1 & -1 & 1 \\end{pmatrix}$",
-                "Schritt 3: Verifikation\n$f(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\begin{pmatrix} 1 & 1 & 1 & 1 \\\\ 1 & -1 & 1 & -1 \\\\ 1 & 1 & -1 & -1 \\\\ 1 & -1 & -1 & 1 \\end{pmatrix}\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix} = \\begin{pmatrix} x + y + z + w \\\\ x - y + z - w \\\\ x + y - z - w \\\\ x - y - z + w \\end{pmatrix}$"
+                "Schritt 1: Überblick: Was ist gefragt?\nWir beweisen zwei grundlegende Aussagen über den Kern. Beim „$\\Leftarrow$“-Teil von (b) nutzt man die Linearität, um aus $f(\\vec{u}) = f(\\vec{v})$ die Aussage $f(\\vec{u}-\\vec{v}) = \\vec{0}$ zu machen.",
+                "Schritt 2: (a) Nullvektor\n$f(\\vec{0}) = f(0\\cdot\\vec{0}) = 0\\cdot f(\\vec{0}) = \\vec{0}$, also $\\vec{0} \\in \\ker f$.",
+                "Schritt 3: (a) Abgeschlossenheit\nSeien $\\vec{u},\\vec{v} \\in \\ker f$ und $\\lambda \\in \\mathbb{R}$. Dann $f(\\vec{u}+\\vec{v}) = f(\\vec{u}) + f(\\vec{v}) = \\vec{0}+\\vec{0} = \\vec{0}$ und $f(\\lambda\\vec{u}) = \\lambda f(\\vec{u}) = \\vec{0}$. Also ist $\\ker f$ ein Unterraum.",
+                "Schritt 4: (b) „$\\Rightarrow$“\nSei $f$ injektiv und $\\vec{u} \\in \\ker f$. Dann $f(\\vec{u}) = \\vec{0} = f(\\vec{0})$, und Injektivität liefert $\\vec{u} = \\vec{0}$. Also $\\ker f = \\{\\vec{0}\\}$.",
+                "Schritt 5: (b) „$\\Leftarrow$“, Idee\nSei $\\ker f = \\{\\vec{0}\\}$ und $f(\\vec{u}) = f(\\vec{v})$. Wir müssen $\\vec{u} = \\vec{v}$ zeigen.",
+                "Schritt 6: (b) „$\\Leftarrow$“, Durchführung\nAus der Linearität: $f(\\vec{u}-\\vec{v}) = f(\\vec{u}) - f(\\vec{v}) = \\vec{0}$, also $\\vec{u}-\\vec{v} \\in \\ker f = \\{\\vec{0}\\}$. Somit $\\vec{u} = \\vec{v}$. $\\blacksquare$",
+                "Schritt 7: Bedeutung\nUm Injektivität einer linearen Abbildung nachzuweisen, genügt es also, das homogene Problem $f(\\vec{x}) = \\vec{0}$ zu lösen — man muss nicht alle Paare von Vektoren vergleichen.",
+                "Schritt 8: Merke: Worauf es ankommt\nDer Trick $f(\\vec{u}) = f(\\vec{v}) \\Rightarrow f(\\vec{u}-\\vec{v}) = \\vec{0}$ taucht in vielen Beweisen auf. Er reduziert Aussagen über Paare von Vektoren auf eine Aussage über den Kern."
             ]
         },
         {
-            "id": 20,
+            "id": 22,
+            "topic": "Lineare Abbildungen",
+            "title": "Schiefe Projektion",
+            "description": "Sei $P: \\mathbb{R}^2 \\to \\mathbb{R}^2$ die Projektion auf die $x$-Achse $U = \\operatorname{span}\\{(1,0)^T\\}$ entlang der Geraden $W = \\operatorname{span}\\{(1,1)^T\\}$. Bestimmen Sie die Darstellungsmatrix von $P$ und zeigen Sie $P^2 = P$, $\\operatorname{im} P = U$, $\\ker P = W$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEine Projektion ist eine lineare Abbildung mit $P^2 = P$; sie zerlegt den Raum in $\\operatorname{im} P \\oplus \\ker P$. Bei einer schiefen Projektion stehen Bild und Kern nicht senkrecht aufeinander. Wir bestimmen $P$ über die Bilder der Standardbasisvektoren.",
+                "Schritt 2: Definition\nWegen $\\mathbb{R}^2 = U \\oplus W$ lässt sich jeder Vektor eindeutig als $\\vec{v} = \\vec{u} + \\vec{w}$ mit $\\vec{u} \\in U$, $\\vec{w} \\in W$ schreiben. Die Projektion auf $U$ entlang $W$ ist $P\\vec{v} = \\vec{u}$.",
+                "Schritt 3: Bild von $\\vec{e}_1$\n$\\vec{e}_1 = (1,0)^T \\in U$, also $P\\vec{e}_1 = \\vec{e}_1 = (1,0)^T$.",
+                "Schritt 4: Bild von $\\vec{e}_2$\n$\\vec{e}_2 = (0,1)^T = (1,1)^T - (1,0)^T = \\vec{w} + (-\\vec{e}_1)$ mit $\\vec{w} = (1,1)^T \\in W$ und $-\\vec{e}_1 \\in U$. Also $P\\vec{e}_2 = -\\vec{e}_1 = (-1,0)^T$.",
+                "Schritt 5: Darstellungsmatrix\n$P = \\begin{pmatrix} 1 & -1 \\\\ 0 & 0 \\end{pmatrix}$.",
+                "Schritt 6: $P^2 = P$\n$P^2 = \\begin{pmatrix} 1 & -1 \\\\ 0 & 0 \\end{pmatrix}\\begin{pmatrix} 1 & -1 \\\\ 0 & 0 \\end{pmatrix} = \\begin{pmatrix} 1\\cdot1+(-1)\\cdot0 & 1\\cdot(-1)+(-1)\\cdot0 \\\\ 0 & 0 \\end{pmatrix} = \\begin{pmatrix} 1 & -1 \\\\ 0 & 0 \\end{pmatrix} = P$ ✓.",
+                "Schritt 7: Bild und Kern\n$\\operatorname{im} P = \\operatorname{span}\\{(1,0)^T\\} = U$. $\\ker P$: $x - y = 0 \\iff x = y$, also $\\ker P = \\operatorname{span}\\{(1,1)^T\\} = W$ ✓.",
+                "Schritt 8: Bemerkung\nIm Gegensatz zur Orthogonalprojektion ist $P$ nicht symmetrisch ($P^T \\neq P$), denn $W$ steht nicht senkrecht auf $U$. Jede Matrix mit $P^2 = P$ ist eine Projektion auf $\\operatorname{im} P$ entlang $\\ker P$.",
+                "Schritt 9: Merke: Worauf es ankommt\nJede Matrix mit $P^2 = P$ ist die Projektion auf $\\operatorname{im} P$ entlang $\\ker P$. Genau dann ist sie eine Orthogonalprojektion, wenn zusätzlich $P^T = P$ gilt."
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Lineare Abbildungen",
+            "title": "Abbildung durch Bilder auf einer Basis festlegen",
+            "description": "(a) Gibt es eine lineare Abbildung $f: \\mathbb{R}^2 \\to \\mathbb{R}^2$ mit $f(1,2) = (1,0)$ und $f(2,4) = (0,1)$? (b) Zeigen Sie, dass es genau eine lineare Abbildung $g: \\mathbb{R}^3 \\to \\mathbb{R}^2$ mit $g(1,0,0) = (1,1)$, $g(1,1,0) = (0,2)$, $g(1,1,1) = (1,0)$ gibt, und bestimmen Sie deren Matrix.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEine lineare Abbildung ist durch die Bilder einer Basis eindeutig festgelegt. Bei linear abhängigen Vorgaben (Teil a) können die Bilder dagegen im Widerspruch zueinander stehen.",
+                "Schritt 2: (a) Widerspruch erkennen\nEs ist $(2,4) = 2\\cdot(1,2)$. Für eine lineare Abbildung müsste daher $f(2,4) = 2f(1,2) = (2,0)$ gelten. Verlangt ist aber $(0,1) \\neq (2,0)$.",
+                "Schritt 3: (a) Ergebnis\nEs gibt keine solche Abbildung: Die Vorgaben auf linear abhängigen Vektoren müssen mit denselben Abhängigkeiten verträglich sein.",
+                "Schritt 4: (b) Basis nachweisen\nDie Vektoren $(1,0,0)$, $(1,1,0)$, $(1,1,1)$ bilden eine Basis des $\\mathbb{R}^3$ (Dreiecksmatrix mit Diagonale $1$, $\\det = 1 \\neq 0$). Eine lineare Abbildung ist durch die Bilder einer Basis eindeutig festgelegt und jede Wahl der Bilder ist möglich. Also existiert genau ein $g$.",
+                "Schritt 5: (b) Bilder der Standardbasisvektoren\n$g(\\vec{e}_1) = (1,1)$. $\\vec{e}_2 = (1,1,0) - (1,0,0)$, also $g(\\vec{e}_2) = (0,2) - (1,1) = (-1,1)$. $\\vec{e}_3 = (1,1,1) - (1,1,0)$, also $g(\\vec{e}_3) = (1,0) - (0,2) = (1,-2)$.",
+                "Schritt 6: (b) Darstellungsmatrix\n$[g] = \\begin{pmatrix} 1 & -1 & 1 \\\\ 1 & 1 & -2 \\end{pmatrix}$.",
+                "Schritt 7: (b) Probe\n$g(1,1,1) = (1-1+1,\\ 1+1-2) = (1,0)$ ✓. $g(1,1,0) = (1-1,\\ 1+1) = (0,2)$ ✓.",
+                "Schritt 8: Merke: Worauf es ankommt\nExistenz und Eindeutigkeit: Gibt man die Bilder einer Basis beliebig vor, gibt es genau eine lineare Abbildung. Bei abhängigen Vektoren müssen die Vorgaben dieselben Abhängigkeiten erfüllen."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Lineare Abbildungen",
+            "title": "Nilpotente Abbildungen: f ∘ f = 0",
+            "description": "Sei $V$ ein $n$-dimensionaler Vektorraum und $f: V \\to V$ linear mit $f\\circ f = 0$. Zeigen Sie $\\operatorname{im} f \\subseteq \\ker f$ und $\\operatorname{rang} f \\leq \\frac n2$. Geben Sie ein Beispiel mit $n = 2$ und $\\operatorname{rang} f = 1$ an.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nAus $f\\circ f = 0$ folgt, dass das Bild im Kern liegt. Zusammen mit der Dimensionsformel erhält man eine Schranke für den Rang.",
+                "Schritt 2: $\\operatorname{im} f \\subseteq \\ker f$\nSei $\\vec{w} \\in \\operatorname{im} f$, also $\\vec{w} = f(\\vec{v})$ für ein $\\vec{v} \\in V$. Dann $f(\\vec{w}) = f(f(\\vec{v})) = (f\\circ f)(\\vec{v}) = \\vec{0}$, also $\\vec{w} \\in \\ker f$.",
+                "Schritt 3: Dimensionen vergleichen\nAus $\\operatorname{im} f \\subseteq \\ker f$ folgt $\\dim\\operatorname{im} f \\leq \\dim\\ker f$, d.h. $\\operatorname{rang} f \\leq \\dim\\ker f$.",
+                "Schritt 4: Dimensionsformel einsetzen\nNach der Dimensionsformel ist $\\dim\\ker f = n - \\operatorname{rang} f$. Also $\\operatorname{rang} f \\leq n - \\operatorname{rang} f$.",
+                "Schritt 5: Auflösen\n$2\\operatorname{rang} f \\leq n$, also $\\operatorname{rang} f \\leq \\frac n2$. $\\blacksquare$",
+                "Schritt 6: Beispiel\n$f(\\vec{x}) = N\\vec{x}$ mit $N = \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}$. Dann $N^2 = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}$, $\\operatorname{im} N = \\operatorname{span}\\{(1,0)^T\\}$, $\\ker N = \\operatorname{span}\\{(1,0)^T\\}$ — hier ist $\\operatorname{im} N = \\ker N$ und $\\operatorname{rang} N = 1 = \\frac22$.",
+                "Schritt 7: Bemerkung\nFür ungerades $n$ ist $\\operatorname{rang} f \\leq \\frac{n-1}{2}$, da der Rang eine ganze Zahl ist. Zum Beispiel muss jede $3\\times3$-Matrix mit $N^2 = 0$ Rang $\\le 1$ haben.",
+                "Schritt 8: Merke: Worauf es ankommt\nBeweisstruktur: Inklusion zeigen, Dimensionen vergleichen, Dimensionsformel einsetzen. Dieselbe Denkweise hilft bei Nilpotenz, Projektionen und vielen Rangfragen."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Lineare Abbildungen",
+            "title": "Kern und Bild",
+            "description": "Bestimmen Sie Kern und Bild der linearen Abbildung $f: \\mathbb{R}^3 \\to \\mathbb{R}^3$ mit der Darstellungsmatrix $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 3 & 6 & 9 \\end{pmatrix}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Kern\nDer Kern von $f$ ist die Menge aller Vektoren $\\vec{x} \\in \\mathbb{R}^3$ mit $f(\\vec{x}) = \\vec{0}$, also:\n$\\ker(f) = \\{\\vec{x} \\in \\mathbb{R}^3 \\mid A\\vec{x} = \\vec{0}\\}$\n\nWir lösen das homogene lineare Gleichungssystem:\n$\\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 3 & 6 & 9 \\end{pmatrix} \\vec{x} = \\vec{0}$",
+                "Schritt 2: Gauß-Elimination\nWir führen die Gauß-Elimination durch:\n\n1. Subtrahiere das 2-fache der ersten Zeile von der zweiten Zeile:\n$\\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 0 & 0 \\\\ 3 & 6 & 9 \\end{pmatrix}$\n\n2. Subtrahiere das 3-fache der ersten Zeile von der dritten Zeile:\n$\\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}$\n\nDie Matrix hat Rang 1, also gibt es 2 freie Parameter.\n\nLösung des Gleichungssystems:\n$x_1 + 2x_2 + 3x_3 = 0$\n\nWählen wir $x_2 = t$ und $x_3 = s$ als Parameter, so folgt:\n$x_1 = -2t - 3s$\n\nAlso ist der Kern:\n$\\ker(f) = \\{\\begin{pmatrix} -2t - 3s \\\\ t \\\\ s \\end{pmatrix} \\mid t,s \\in \\mathbb{R}\\}$\n$= \\text{span}\\{\\begin{pmatrix} -2 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} -3 \\\\ 0 \\\\ 1 \\end{pmatrix}\\}$",
+                "Schritt 3: Bild\nDas Bild von $f$ ist der Spaltenraum der Matrix $A$:\n$\\text{im}(f) = \\text{span}\\{A\\vec{e}_1, A\\vec{e}_2, A\\vec{e}_3\\}$\n\nBerechnung der Bilder der Standardbasisvektoren:\n$A\\vec{e}_1 = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$\n$A\\vec{e}_2 = \\begin{pmatrix} 2 \\\\ 4 \\\\ 6 \\end{pmatrix} = 2\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$\n$A\\vec{e}_3 = \\begin{pmatrix} 3 \\\\ 6 \\\\ 9 \\end{pmatrix} = 3\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$\n\nDa $A\\vec{e}_2$ und $A\\vec{e}_3$ Vielfache von $A\\vec{e}_1$ sind, ist:\n$\\text{im}(f) = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}\\}$",
+                "Schritt 4: Dimensionen und Verifikation\n\n1. Dimension des Kerns:\n$\\dim(\\ker(f)) = 2$ (zwei linear unabhängige Vektoren im Kern)\n\n2. Dimension des Bildes:\n$\\dim(\\text{im}(f)) = 1$ (ein linear unabhängiger Vektor im Bild)\n\n3. Dimensionsformel:\n$\\dim(\\ker(f)) + \\dim(\\text{im}(f)) = 2 + 1 = 3 = \\dim(\\mathbb{R}^3)$\n\n4. Verifikation der Kernvektoren:\n$A\\begin{pmatrix} -2 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 3 & 6 & 9 \\end{pmatrix}\\begin{pmatrix} -2 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}$\n\n$A\\begin{pmatrix} -3 \\\\ 0 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 3 & 6 & 9 \\end{pmatrix}\\begin{pmatrix} -3 \\\\ 0 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Lineare Abbildungen",
+            "title": "Basiswechsel",
+            "description": "Gegeben sei die lineare Abbildung $f: \\mathbb{R}^2 \\to \\mathbb{R}^2$ mit der Darstellungsmatrix $[f]_B = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$ bezüglich der Basis $B = \\{\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}\\}$. Bestimmen Sie die Darstellungsmatrix von $f$ bezüglich der Standardbasis.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Basiswechselmatrix\n$T = \\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$",
+                "Schritt 2: Inverse der Basiswechselmatrix\n$T^{-1} = \\frac{1}{2}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$",
+                "Schritt 3: Darstellungsmatrix\n$[f]_E = T[f]_BT^{-1}$\n$= \\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix} \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix} \\frac{1}{2}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$",
+                "Schritt 4: Berechnung\n$[f]_E = \\begin{pmatrix} 3 & 0 \\\\ 0 & 1 \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Lineare Abbildungen",
+            "title": "Isomorphismus",
+            "description": "Zeigen Sie, dass die Abbildung $f: \\mathbb{R}^3 \\to \\mathbb{R}^3$ mit $f(\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix}) = \\begin{pmatrix} x + y \\\\ y + z \\\\ z + x \\end{pmatrix}$ ein Isomorphismus ist und bestimmen Sie ihre Umkehrabbildung.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Linearität\n$f$ ist linear, da sie durch eine Matrix beschrieben werden kann",
+                "Schritt 2: Darstellungsmatrix\n$[f] = \\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\\\ 1 & 0 & 1 \\end{pmatrix}$",
+                "Schritt 3: Determinante\n$\\det([f]) = 2 \\neq 0$, also ist $f$ bijektiv",
+                "Schritt 4: Umkehrabbildung\n$[f^{-1}] = [f]^{-1} = \\frac{1}{2}\\begin{pmatrix} 1 & -1 & 1 \\\\ 1 & 1 & -1 \\\\ -1 & 1 & 1 \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Lineare Abbildungen",
+            "title": "Projektion",
+            "description": "Bestimmen Sie die Darstellungsmatrix der orthogonalen Projektion $P: \\mathbb{R}^3 \\to \\mathbb{R}^3$ auf die Ebene $E = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} \\in \\mathbb{R}^3 \\mid x + y + z = 0\\}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Normalenvektor\n$\\vec{n} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 2: Projektionsformel\n$P(\\vec{v}) = \\vec{v} - \\frac{\\vec{v} \\cdot \\vec{n}}{\\|\\vec{n}\\|^2}\\vec{n}$",
+                "Schritt 3: Darstellungsmatrix\n$[P] = I_3 - \\frac{1}{3}\\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & 1 & 1 \\\\ 1 & 1 & 1 \\end{pmatrix}$",
+                "Schritt 4: Berechnung\n$[P] = \\frac{1}{3}\\begin{pmatrix} 2 & -1 & -1 \\\\ -1 & 2 & -1 \\\\ -1 & -1 & 2 \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 29,
             "topic": "Lineare Abbildungen",
             "title": "Schwere Projektion",
             "description": "Bestimmen Sie die Darstellungsmatrix der Projektion $P: \\mathbb{R}^4 \\to \\mathbb{R}^4$ auf den Unterraum $U = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix} \\in \\mathbb{R}^4 \\mid x + y + z + w = 0\\}$.",
@@ -266,7 +450,7 @@
             ]
         },
         {
-            "id": 21,
+            "id": 30,
             "topic": "Lineare Abbildungen",
             "title": "Schwere Spiegelung",
             "description": "Bestimmen Sie die Darstellungsmatrix der Spiegelung $S: \\mathbb{R}^4 \\to \\mathbb{R}^4$ an dem Unterraum $U = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix} \\in \\mathbb{R}^4 \\mid x + y = z + w = 0\\}$.",
@@ -278,43 +462,6 @@
                 "Schritt 3: Darstellungsmatrix\n$[S] = \\begin{pmatrix} 0 & -1 & 0 & 0 \\\\ -1 & 0 & 0 & 0 \\\\ 0 & 0 & 0 & -1 \\\\ 0 & 0 & -1 & 0 \\end{pmatrix}$",
                 "Schritt 4: Verifikation\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\begin{pmatrix} -y \\\\ -x \\\\ -w \\\\ -z \\end{pmatrix}$"
             ]
-        },
-        {
-            "id": 22,
-            "topic": "Lineare Abbildungen",
-            "title": "Schwere Rotation",
-            "description": "Bestimmen Sie die Darstellungsmatrix der Rotation $R: \\mathbb{R}^4 \\to \\mathbb{R}^4$ um die Ebene $E = \\{\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix} \\in \\mathbb{R}^4 \\mid x = y = 0\\}$ mit Winkel $\\frac{\\pi}{4}$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Rotationsmatrix\n$[R] = \\begin{pmatrix} 1 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & \\cos(\\frac{\\pi}{4}) & -\\sin(\\frac{\\pi}{4}) \\\\ 0 & 0 & \\sin(\\frac{\\pi}{4}) & \\cos(\\frac{\\pi}{4}) \\end{pmatrix}$",
-                "Schritt 2: Berechnung\n$[R] = \\begin{pmatrix} 1 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & \\frac{1}{\\sqrt{2}} & -\\frac{1}{\\sqrt{2}} \\\\ 0 & 0 & \\frac{1}{\\sqrt{2}} & \\frac{1}{\\sqrt{2}} \\end{pmatrix}$",
-                "Schritt 3: Verifikation\n$R(\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix}) = \\begin{pmatrix} 0 \\\\ 0 \\\\ \\frac{1}{\\sqrt{2}} \\\\ \\frac{1}{\\sqrt{2}} \\end{pmatrix}$"
-            ]
-        },
-        {
-            "id": 23,
-            "topic": "Lineare Abbildungen",
-            "title": "Schwere Streckung",
-            "description": "Bestimmen Sie die Darstellungsmatrix der Streckung $S: \\mathbb{R}^4 \\to \\mathbb{R}^4$ mit Streckfaktoren 2, 3, 4 und 5 in x-, y-, z- und w-Richtung.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Streckungsmatrix\n$[S] = \\begin{pmatrix} 2 & 0 & 0 & 0 \\\\ 0 & 3 & 0 & 0 \\\\ 0 & 0 & 4 & 0 \\\\ 0 & 0 & 0 & 5 \\end{pmatrix}$",
-                "Schritt 2: Verifikation\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\begin{pmatrix} 2x \\\\ 3y \\\\ 4z \\\\ 5w \\end{pmatrix}$"
-            ]
-        },
-        {
-            "id": 24,
-            "topic": "Lineare Abbildungen",
-            "title": "Schwere Scherung",
-            "description": "Bestimmen Sie die Darstellungsmatrix der Scherung $S: \\mathbb{R}^4 \\to \\mathbb{R}^4$ mit Scherfaktoren 2, 3 und 4 in x-, y- und z-Richtung.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Scherungsmatrix\n$[S] = \\begin{pmatrix} 1 & 2 & 3 & 4 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & 1 & 0 \\\\ 0 & 0 & 0 & 1 \\end{pmatrix}$",
-                "Schritt 2: Verifikation\n$S(\\begin{pmatrix} x \\\\ y \\\\ z \\\\ w \\end{pmatrix}) = \\begin{pmatrix} x + 2y + 3z + 4w \\\\ y \\\\ z \\\\ w \\end{pmatrix}$"
-            ]
         }
     ]
-} 
+}

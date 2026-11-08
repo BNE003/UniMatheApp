@@ -12,82 +12,72 @@
         {
             "id": 1,
             "topic": "Nullstellenbestimmung",
-            "title": "Newton-Verfahren mit Konvergenzanalyse",
-            "description": "Gegeben sei die Funktion $f(x) = x^3 - 2x - 5$.\n\na) Zeigen Sie, dass $f$ eine Nullstelle im Intervall $[2, 3]$ besitzt\nb) Führen Sie drei Iterationen des Newton-Verfahrens mit Startwert $x_0 = 2.5$ durch\nc) Schätzen Sie den absoluten Fehler nach der dritten Iteration ab\nd) Bestimmen Sie die Konvergenzordnung des Newton-Verfahrens für diese Aufgabe",
-            "difficulty": "medium",
+            "title": "Newton-Verfahren",
+            "description": "Bestimmen Sie $\\sqrt3$ als Nullstelle von $f(x) = x^2 - 3$ mit dem Newton-Verfahren und Startwert $x_0 = 2$ (zwei Schritte). Geben Sie die Iterationsvorschrift und den Fehler an.",
+            "difficulty": "advanced",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Teil a) - Existenz der Nullstelle\n$f(2) = 2^3 - 2 \\cdot 2 - 5 = 8 - 4 - 5 = -1 < 0$\n$f(3) = 3^3 - 2 \\cdot 3 - 5 = 27 - 6 - 5 = 16 > 0$\nDa $f$ stetig ist und $f(2) < 0 < f(3)$, existiert nach dem Zwischenwertsatz mindestens eine Nullstelle in $[2,3]$.",
-                "Schritt 2: Newton-Verfahren vorbereiten\n$f(x) = x^3 - 2x - 5$\n$f'(x) = 3x^2 - 2$\nNewton-Iteration: $x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)} = x_n - \\frac{x_n^3 - 2x_n - 5}{3x_n^2 - 2}$",
-                "Schritt 3: Teil b) - Erste Iteration\n$x_0 = 2.5$\n$f(2.5) = (2.5)^3 - 2 \\cdot 2.5 - 5 = 15.625 - 5 - 5 = 5.625$\n$f'(2.5) = 3 \\cdot (2.5)^2 - 2 = 3 \\cdot 6.25 - 2 = 16.75$\n$x_1 = 2.5 - \\frac{5.625}{16.75} \\approx 2.164$",
-                "Schritt 4: Zweite und dritte Iteration\nZweite Iteration:\n$f(2.164) \\approx 0.815$, $f'(2.164) \\approx 12.05$\n$x_2 \\approx 2.164 - \\frac{0.815}{12.05} \\approx 2.097$\nDritte Iteration:\n$f(2.097) \\approx 0.028$, $f'(2.097) \\approx 11.17$\n$x_3 \\approx 2.097 - \\frac{0.028}{11.17} \\approx 2.094$",
-                "Schritt 5: Teil c) - Fehlerabschätzung\nFür das Newton-Verfahren gilt bei hinreichend guter Näherung:\n$|x_{n+1} - x^*| \\leq \\frac{M}{2m} |x_n - x^*|^2$\nwobei $M = \\max|f''(x)|$ und $m = \\min|f'(x)|$ im relevanten Bereich.\n$f''(x) = 6x$, also $f''(2.094) \\approx 12.56$\nAbschätzung: $|x_3 - x^*| \\leq 0.56|x_2 - x^*|^2$",
-                "Schritt 6: Teil d) - Konvergenzordnung\nDas Newton-Verfahren hat bei einfachen Nullstellen quadratische Konvergenz.\nDa $f'(x^*) = 3(x^*)^2 - 2 \\neq 0$ für die Nullstelle $x^* \\approx 2.094$, ist die Konvergenzordnung $p = 2$.\nDies bedeutet: $|x_{n+1} - x^*| = O(|x_n - x^*|^2)$ für $n \\to \\infty$."
+                "Schritt 1: Iterationsvorschrift\n$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)} = x_n - \\frac{x_n^2 - 3}{2x_n} = \\frac12\\left(x_n + \\frac{3}{x_n}\\right)$.",
+                "Schritt 2: Zwei Schritte\n$x_1 = \\frac12\\left(2 + \\frac32\\right) = 1{,}75$. $x_2 = \\frac12\\left(1{,}75 + \\frac{3}{1{,}75}\\right) = \\frac12(1{,}75 + 1{,}714286) = 1{,}732143$.",
+                "Schritt 3: Fehler\n$\\sqrt3 = 1{,}7320508$. Fehler: $x_0$: $0{,}268$; $x_1$: $0{,}0179$; $x_2$: $9{,}2\\cdot10^{-5}$. Die Zahl der korrekten Stellen verdoppelt sich etwa pro Schritt: **quadratische Konvergenz**.",
+                "Schritt 4: Probe und Voraussetzungen\n$1{,}732143^2 = 3{,}000319$, also $|f(x_2)| \\approx 3\\cdot10^{-4}$ ✓. Newton braucht einen guten Startwert und $f'(x_n) \\neq 0$; für $f(x) = x^2 - a$ ist es das Heron-Verfahren."
             ]
         },
         {
             "id": 2,
             "topic": "Interpolation",
-            "title": "Lagrange-Interpolation mit Fehleranalyse",
-            "description": "Gegeben seien die Stützstellen und Funktionswerte:\n$(x_0, y_0) = (0, 1)$, $(x_1, y_1) = (1, 2)$, $(x_2, y_2) = (2, 5)$, $(x_3, y_3) = (3, 10)$\n\na) Bestimmen Sie das Lagrange-Interpolationspolynom $p_3(x)$\nb) Schätzen Sie den Interpolationsfehler für $f(x) = x^2 + 1$ im Punkt $x = 1.5$ ab\nc) Berechnen Sie die dividierten Differenzen und das Newton-Interpolationspolynom",
-            "difficulty": "hard",
-            "points": 18,
+            "title": "Lagrange-Interpolation",
+            "description": "Bestimmen Sie das Interpolationspolynom durch $(0,1), (1,3), (2,2)$ in Lagrange-Form und in Monomform und werten Sie es in $x = 0{,}5$ aus.",
+            "difficulty": "advanced",
+            "points": 20,
             "solutionSteps": [
-                "Schritt 1: Teil a) - Lagrange-Basispolynome\n$L_0(x) = \\frac{(x-1)(x-2)(x-3)}{(0-1)(0-2)(0-3)} = \\frac{(x-1)(x-2)(x-3)}{-6}$\n$L_1(x) = \\frac{x(x-2)(x-3)}{(1-0)(1-2)(1-3)} = \\frac{x(x-2)(x-3)}{2}$\n$L_2(x) = \\frac{x(x-1)(x-3)}{(2-0)(2-1)(2-3)} = \\frac{x(x-1)(x-3)}{-2}$\n$L_3(x) = \\frac{x(x-1)(x-2)}{(3-0)(3-1)(3-2)} = \\frac{x(x-1)(x-2)}{6}$",
-                "Schritt 2: Lagrange-Interpolationspolynom\n$p_3(x) = y_0L_0(x) + y_1L_1(x) + y_2L_2(x) + y_3L_3(x)$\n$= 1 \\cdot L_0(x) + 2 \\cdot L_1(x) + 5 \\cdot L_2(x) + 10 \\cdot L_3(x)$\nNach Ausmultiplikation und Vereinfachung:\n$p_3(x) = x^2 + 1$",
-                "Schritt 3: Teil b) - Fehleranalyse\nDa $f(x) = x^2 + 1$ und $p_3(x) = x^2 + 1$ übereinstimmen, ist der Interpolationsfehler genau null.\nAllgemeine Fehlerformel: $|f(x) - p_n(x)| \\leq \\frac{M_{n+1}}{(n+1)!} |\\omega(x)|$\nwobei $\\omega(x) = \\prod(x - x_i)$ und $M_{n+1} = \\max|f^{(n+1)}(\\xi)|$\nFür $f(x) = x^2 + 1$: $f'''(x) = 0$, daher ist der Fehler exakt null.",
-                "Schritt 4: Teil c) - Dividierte Differenzen Schema\n$f[x_0] = f(0) = 1$\n$f[x_1] = f(1) = 2$\n$f[x_0,x_1] = \\frac{f[x_1] - f[x_0]}{x_1 - x_0} = \\frac{2-1}{1-0} = 1$\n$f[x_1,x_2] = \\frac{5-2}{2-1} = 3$\n$f[x_2,x_3] = \\frac{10-5}{3-2} = 5$",
-                "Schritt 5: Dividierte Differenzen höherer Ordnung\n$f[x_0,x_1,x_2] = \\frac{f[x_1,x_2] - f[x_0,x_1]}{x_2 - x_0} = \\frac{3-1}{2-0} = 1$\n$f[x_1,x_2,x_3] = \\frac{f[x_2,x_3] - f[x_1,x_2]}{x_3 - x_1} = \\frac{5-3}{3-1} = 1$\n$f[x_0,x_1,x_2,x_3] = \\frac{f[x_1,x_2,x_3] - f[x_0,x_1,x_2]}{x_3 - x_0} = \\frac{1-1}{3-0} = 0$",
-                "Schritt 6: Newton-Interpolationspolynom\n$p_3(x) = f[x_0] + f[x_0,x_1](x-x_0) + f[x_0,x_1,x_2](x-x_0)(x-x_1) + f[x_0,x_1,x_2,x_3](x-x_0)(x-x_1)(x-x_2)$\n$= 1 + 1 \\cdot x + 1 \\cdot x(x-1) + 0 \\cdot x(x-1)(x-2)$\n$= 1 + x + x^2 - x = x^2 + 1$\nDas Newton-Polynom stimmt mit dem Lagrange-Polynom überein."
+                "Schritt 1: Lagrange-Basispolynome\n$L_0 = \\frac{(x-1)(x-2)}{(0-1)(0-2)} = \\frac{(x-1)(x-2)}{2}$, $L_1 = \\frac{x(x-2)}{(1)(-1)} = -x(x-2)$, $L_2 = \\frac{x(x-1)}{2}$. Eigenschaft: $L_i(x_j) = \\delta_{ij}$.",
+                "Schritt 2: Lagrange-Form\n$p(x) = 1\\cdot L_0 + 3\\cdot L_1 + 2\\cdot L_2 = \\frac{(x-1)(x-2)}{2} - 3x(x-2) + x(x-1)$.",
+                "Schritt 3: Monomform\nAusmultiplizieren: $\\frac12x^2 - \\frac32x + 1 - 3x^2 + 6x + x^2 - x = -\\frac32x^2 + \\frac72x + 1$.",
+                "Schritt 4: Probe und Auswertung\n$p(0) = 1$ ✓, $p(1) = -1{,}5 + 3{,}5 + 1 = 3$ ✓, $p(2) = -6 + 7 + 1 = 2$ ✓. $p(0{,}5) = -0{,}375 + 1{,}75 + 1 = 2{,}375$. Merke: Durch $n + 1$ Punkte mit verschiedenen $x$-Werten gibt es genau ein Polynom vom Grad $\\leq n$."
             ]
         },
         {
             "id": 3,
             "topic": "Numerische Integration",
-            "title": "Zusammengesetzte Quadraturformeln",
-            "description": "Approximieren Sie das Integral $I = \\int_0^2 e^{-x^2} dx$ mit $n = 4$ Teilintervallen.\n\na) Verwenden Sie die zusammengesetzte Trapezregel\nb) Verwenden Sie die zusammengesetzte Simpson-Regel\nc) Schätzen Sie die Fehler beider Verfahren ab\nd) Vergleichen Sie die Ergebnisse mit dem exakten Wert $I \\approx 0.8821$",
-            "difficulty": "hard",
+            "title": "Trapez- und Simpson-Regel",
+            "description": "Berechnen Sie $\\int_0^1\\frac{dx}{1+x^2}$ näherungsweise mit der Trapezregel und der Simpson-Regel mit jeweils $2$ Teilintervallen und vergleichen Sie mit dem exakten Wert $\\frac\\pi4$.",
+            "difficulty": "advanced",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Vorbereitung - Stützstellen\nSchrittweite: $h = \\frac{b-a}{n} = \\frac{2-0}{4} = 0.5$\nStützstellen: $x_0 = 0$, $x_1 = 0.5$, $x_2 = 1.0$, $x_3 = 1.5$, $x_4 = 2.0$\nFunktionswerte:\n$f(0) = e^0 = 1$\n$f(0.5) = e^{-0.25} \\approx 0.7788$\n$f(1.0) = e^{-1} \\approx 0.3679$\n$f(1.5) = e^{-2.25} \\approx 0.1054$\n$f(2.0) = e^{-4} \\approx 0.0183$",
-                "Schritt 2: Teil a) - Zusammengesetzte Trapezregel\n$T_n = \\frac{h}{2}[f(a) + 2\\sum_{i=1}^{n-1} f(x_i) + f(b)]$\n$T_4 = \\frac{0.5}{2}[f(0) + 2(f(0.5) + f(1.0) + f(1.5)) + f(2.0)]$\n$= 0.25[1 + 2(0.7788 + 0.3679 + 0.1054) + 0.0183]$\n$= 0.25[1 + 2.5042 + 0.0183] = 0.25 \\cdot 3.5225 \\approx 0.8806$",
-                "Schritt 3: Teil b) - Zusammengesetzte Simpson-Regel\n$S_n = \\frac{h}{3}[f(a) + 4\\sum_{i \\text{ ungerade}} f(x_i) + 2\\sum_{i \\text{ gerade, } i\\neq0,n} f(x_i) + f(b)]$\n$S_4 = \\frac{0.5}{3}[f(0) + 4(f(0.5) + f(1.5)) + 2f(1.0) + f(2.0)]$\n$= \\frac{0.5}{3}[1 + 4(0.7788 + 0.1054) + 2 \\cdot 0.3679 + 0.0183]$\n$= \\frac{0.5}{3}[1 + 3.5368 + 0.7358 + 0.0183] \\approx 0.8818$",
-                "Schritt 4: Teil c) - Fehlerabschätzung Trapezregel\nFehler der Trapezregel: $|E_T| \\leq \\frac{(b-a)h^2}{12} \\max_{x \\in [a,b]} |f''(x)|$\n$f(x) = e^{-x^2}$, $f'(x) = -2xe^{-x^2}$, $f''(x) = (4x^2 - 2)e^{-x^2}$\nMaximum von $|f''(x)|$ auf $[0,2]$: $|f''(0)| = 2$\n$|E_T| \\leq \\frac{2 \\cdot (0.5)^2 \\cdot 2}{12} = \\frac{1}{12} \\approx 0.0833$",
-                "Schritt 5: Fehlerabschätzung Simpson-Regel\nFehler der Simpson-Regel: $|E_S| \\leq \\frac{(b-a)h^4}{180} \\max_{x \\in [a,b]} |f^{(4)}(x)|$\nNach Berechnung der vierten Ableitung:\n$|E_S| \\leq \\frac{2 \\cdot (0.5)^4 \\cdot M_4}{180}$ wo $M_4 \\approx 12$\n$|E_S| \\leq \\frac{2 \\cdot 0.0625 \\cdot 12}{180} \\approx 0.0083$",
-                "Schritt 6: Teil d) - Vergleich mit exaktem Wert\nExakter Wert: $I \\approx 0.8821$\nTrapezregel: $T_4 \\approx 0.8806$, Fehler $\\approx 0.0015$\nSimpson-Regel: $S_4 \\approx 0.8818$, Fehler $\\approx 0.0003$\nDie Simpson-Regel ist deutlich genauer, da sie Ordnung $O(h^4)$ hat gegenüber $O(h^2)$ der Trapezregel."
+                "Schritt 1: Stützstellen\n$h = 0{,}5$: $f(0) = 1$, $f(0{,}5) = \\frac{1}{1{,}25} = 0{,}8$, $f(1) = 0{,}5$.",
+                "Schritt 2: Trapezregel\n$T = \\frac h2\\big(f_0 + 2f_1 + f_2\\big) = 0{,}25\\cdot(1 + 1{,}6 + 0{,}5) = 0{,}775$.",
+                "Schritt 3: Simpson-Regel\n$S = \\frac h3\\big(f_0 + 4f_1 + f_2\\big) = \\frac{0{,}5}{3}(1 + 3{,}2 + 0{,}5) = 0{,}78333$.",
+                "Schritt 4: Fehlervergleich\nExakt: $\\frac\\pi4 \\approx 0{,}785398$. Fehler Trapez: $0{,}0104$, Fehler Simpson: $0{,}0021$. Simpson ist wesentlich genauer (Fehler $\\sim h^4$ gegenüber $\\sim h^2$; exakt für Polynome bis Grad $3$).",
+                "Schritt 5: Probe an einem bekannten Integral\n$\\int_0^2x^2\\,dx = \\frac83 \\approx 2{,}667$: Simpson mit $h = 1$: $\\frac13(0 + 4 + 4) = \\frac83$ exakt ✓; Trapez: $\\frac12(0 + 2 + 4) = 3$ (Fehler $0{,}33$)."
             ]
         },
         {
             "id": 4,
             "topic": "Lineare Gleichungssysteme",
-            "title": "LU-Zerlegung mit Pivotisierung",
-            "description": "Lösen Sie das lineare Gleichungssystem $Ax = b$ mit\n$A = \\begin{pmatrix} 2 & 1 & 1 \\\\ 4 & 3 & 3 \\\\ 8 & 7 & 9 \\end{pmatrix}$, $b = \\begin{pmatrix} 4 \\\\ 10 \\\\ 24 \\end{pmatrix}$\n\na) Führen Sie die LU-Zerlegung ohne Pivotisierung durch\nb) Lösen Sie die Systeme $Ly = b$ und $Ux = y$\nc) Berechnen Sie die Konditionszahl $\\kappa_\\infty(A) = \\|A\\|_\\infty \\cdot \\|A^{-1}\\|_\\infty$",
-            "difficulty": "hard",
-            "points": 22,
+            "title": "LR-Zerlegung mit Pivotisierung",
+            "description": "Lösen Sie $A\\vec x = \\vec b$ mit $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$, $\\vec b = (5,6)^T$ mit LR-Zerlegung und Spaltenpivotisierung.",
+            "difficulty": "advanced",
+            "points": 20,
             "solutionSteps": [
-                "Schritt 1: Teil a) - LU-Zerlegung vorbereiten\nWir zerlegen $A = LU$ mit $L$ untere Dreiecksmatrix (Diagonale = 1) und $U$ obere Dreiecksmatrix.\nAusgangssystem:\n$A^{(0)} = \\begin{pmatrix} 2 & 1 & 1 \\\\ 4 & 3 & 3 \\\\ 8 & 7 & 9 \\end{pmatrix}$",
-                "Schritt 2: Erste Elimination (Spalte 1)\nMultiplikatoren: $l_{21} = \\frac{a_{21}}{a_{11}} = \\frac{4}{2} = 2$, $l_{31} = \\frac{a_{31}}{a_{11}} = \\frac{8}{2} = 4$\nZeile 2 neu: $(4,3,3) - 2 \\cdot (2,1,1) = (0,1,1)$\nZeile 3 neu: $(8,7,9) - 4 \\cdot (2,1,1) = (0,3,5)$\n$A^{(1)} = \\begin{pmatrix} 2 & 1 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 3 & 5 \\end{pmatrix}$",
-                "Schritt 3: Zweite Elimination (Spalte 2)\nMultiplikator: $l_{32} = \\frac{a_{32}^{(1)}}{a_{22}^{(1)}} = \\frac{3}{1} = 3$\nZeile 3 neu: $(0,3,5) - 3 \\cdot (0,1,1) = (0,0,2)$\n$U = A^{(2)} = \\begin{pmatrix} 2 & 1 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}$",
-                "Schritt 4: L-Matrix aufstellen\n$L = \\begin{pmatrix} 1 & 0 & 0 \\\\ l_{21} & 1 & 0 \\\\ l_{31} & l_{32} & 1 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 & 0 \\\\ 2 & 1 & 0 \\\\ 4 & 3 & 1 \\end{pmatrix}$",
-                "Schritt 5: Teil b) - Lösung der Hilfssysteme\nErst $Ly = b$ lösen:\n$\\begin{pmatrix} 1 & 0 & 0 \\\\ 2 & 1 & 0 \\\\ 4 & 3 & 1 \\end{pmatrix} \\begin{pmatrix} y_1 \\\\ y_2 \\\\ y_3 \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 10 \\\\ 24 \\end{pmatrix}$\nVorwärtssubstitution:\n$y_1 = 4$\n$y_2 = 10 - 2y_1 = 10 - 8 = 2$\n$y_3 = 24 - 4y_1 - 3y_2 = 24 - 16 - 6 = 2$",
-                "Schritt 6: Dann $Ux = y$ lösen\n$\\begin{pmatrix} 2 & 1 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix} \\begin{pmatrix} x_1 \\\\ x_2 \\\\ x_3 \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 2 \\\\ 2 \\end{pmatrix}$\nRückwärtssubstitution:\n$x_3 = \\frac{2}{2} = 1$\n$x_2 = 2 - 1 \\cdot x_3 = 2 - 1 = 1$\n$x_1 = \\frac{4 - 1 \\cdot x_2 - 1 \\cdot x_3}{2} = \\frac{4 - 1 - 1}{2} = 1$\nLösung: $x = (1, 1, 1)^T$",
-                "Schritt 7: Teil c) - Konditionszahl berechnen\n$\\|A\\|_\\infty = \\max$ der Zeilensummen $= \\max\\{4, 10, 24\\} = 24$\nFür $A^{-1}$ (Berechnung mit Gauß-Jordan):\n$A^{-1} = \\begin{pmatrix} 0 & -0.5 & 0 \\\\ -6 & 5 & -1 \\\\ 2 & -1.5 & 1 \\end{pmatrix}$\n$\\|A^{-1}\\|_\\infty = \\max\\{0.5, 12, 4.5\\} = 12$\n$\\kappa_\\infty(A) = \\|A\\|_\\infty \\cdot \\|A^{-1}\\|_\\infty = 24 \\cdot 12 = 288$"
+                "Schritt 1: Pivotisierung\nDas betragsgrößte Element der ersten Spalte ist $3$ (Zeile 2). Zeilentausch: $PA = \\begin{pmatrix} 3 & 4 \\\\ 1 & 2 \\end{pmatrix}$, $P\\vec b = (6,5)^T$. (Das verhindert große Multiplikatoren und Rundungsfehler.)",
+                "Schritt 2: Zerlegung PA = LR\nMultiplikator $l_{21} = \\frac13$. $Z_2 \\to Z_2 - \\frac13Z_1$: $(0,\\ 2 - \\tfrac43) = (0,\\tfrac23)$. $L = \\begin{pmatrix} 1 & 0 \\\\ \\tfrac13 & 1 \\end{pmatrix}$, $R = \\begin{pmatrix} 3 & 4 \\\\ 0 & \\tfrac23 \\end{pmatrix}$. Probe: $LR = \\begin{pmatrix} 3 & 4 \\\\ 1 & \\tfrac43 + \\tfrac23 \\end{pmatrix} = \\begin{pmatrix} 3 & 4 \\\\ 1 & 2 \\end{pmatrix}$ ✓.",
+                "Schritt 3: Vorwärts- und Rückwärtssubstitution\n$L\\vec y = P\\vec b$: $y_1 = 6$, $\\frac13\\cdot6 + y_2 = 5 \\Rightarrow y_2 = 3$. $R\\vec x = \\vec y$: $\\frac23x_2 = 3 \\Rightarrow x_2 = \\frac92$; $3x_1 + 4\\cdot\\frac92 = 6 \\Rightarrow x_1 = -4$.",
+                "Schritt 4: Probe\n$\\vec x = (-4;\\ 4{,}5)^T$: $-4 + 2\\cdot4{,}5 = 5$ ✓ und $3\\cdot(-4) + 4\\cdot4{,}5 = 6$ ✓. Vorteil der LR-Zerlegung: Für weitere rechte Seiten genügen zwei Dreieckslösungen."
             ]
         },
         {
             "id": 5,
             "topic": "Gewöhnliche Differentialgleichungen",
-            "title": "Runge-Kutta-Verfahren",
-            "description": "Lösen Sie das Anfangswertproblem $y' = -2y + x$, $y(0) = 1$ numerisch im Intervall $[0, 1]$ mit Schrittweite $h = 0.2$.\n\na) Wenden Sie das klassische Runge-Kutta-Verfahren 4. Ordnung an\nb) Vergleichen Sie mit der exakten Lösung $y(x) = \\frac{x-1}{2} + \\frac{3e^{-2x}}{2}$\nc) Analysieren Sie die Stabilität des Verfahrens für dieses Problem",
-            "difficulty": "hard",
+            "title": "Euler- und Runge-Kutta-Verfahren",
+            "description": "Betrachten Sie $y' = y$, $y(0) = 1$ (exakt $y = e^x$). Berechnen Sie $y(0{,}1)$ mit einem Schritt $h = 0{,}1$ nach (a) Euler, (b) Heun, (c) klassischem Runge-Kutta ($4$. Ordnung) und vergleichen Sie mit $e^{0{,}1} = 1{,}105171$.",
+            "difficulty": "advanced",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Runge-Kutta 4. Ordnung vorbereiten\nGegeben: $y' = f(x,y) = -2y + x$, $y(0) = 1$, $h = 0.2$\nRK4-Formeln:\n$k_1 = hf(x_n, y_n)$\n$k_2 = hf(x_n + h/2, y_n + k_1/2)$\n$k_3 = hf(x_n + h/2, y_n + k_2/2)$\n$k_4 = hf(x_n + h, y_n + k_3)$\n$y_{n+1} = y_n + \\frac{k_1 + 2k_2 + 2k_3 + k_4}{6}$",
-                "Schritt 2: Erste Iteration ($x_0 = 0$, $y_0 = 1$)\n$k_1 = 0.2 \\cdot f(0,1) = 0.2 \\cdot (-2 \\cdot 1 + 0) = -0.4$\n$k_2 = 0.2 \\cdot f(0.1, 0.8) = 0.2 \\cdot (-2 \\cdot 0.8 + 0.1) = -0.3$\n$k_3 = 0.2 \\cdot f(0.1, 0.85) = 0.2 \\cdot (-2 \\cdot 0.85 + 0.1) = -0.32$\n$k_4 = 0.2 \\cdot f(0.2, 0.68) = 0.2 \\cdot (-2 \\cdot 0.68 + 0.2) = -0.232$\n$y_1 = 1 + \\frac{-0.4 + 2(-0.3) + 2(-0.32) + (-0.232)}{6} \\approx 0.689$",
-                "Schritt 3: Weitere Iterationen\nZweite Iteration ($x_1 = 0.2$, $y_1 \\approx 0.689$):\nAnaloge Berechnungen führen zu $y_2 \\approx 0.524$\nDritte Iteration: $y_3 \\approx 0.449$\nVierte Iteration: $y_4 \\approx 0.419$\nFünfte Iteration: $y_5 \\approx 0.418$",
-                "Schritt 4: Teil b) - Vergleich mit exakter Lösung\nExakte Lösung: $y(x) = \\frac{x-1}{2} + \\frac{3e^{-2x}}{2}$\nExakte Werte:\n$y(0.2) \\approx 0.607$\n$y(0.4) \\approx 0.375$\n$y(0.6) \\approx 0.249$\n$y(0.8) \\approx 0.181$\n$y(1.0) \\approx 0.153$",
-                "Schritt 5: Fehleranalyse\nFehler bei $x = 0.2$: $|0.689 - 0.607| \\approx 0.082$\nFehler bei $x = 0.4$: $|0.524 - 0.375| \\approx 0.149$\nGlobaler Fehler von RK4: $O(h^4)$, lokaler Fehler: $O(h^5)$",
-                "Schritt 6: Teil c) - Stabilitätsanalyse\nFür die Modellgleichung $y' = \\lambda y$ mit $\\lambda = -2$ ist das Stabilitätsgebiet relevant.\nRK4-Stabilitätsbedingung: $\\left|1 + h\\lambda + \\frac{(h\\lambda)^2}{2} + \\frac{(h\\lambda)^3}{6} + \\frac{(h\\lambda)^4}{24}\\right| < 1$\nMit $h\\lambda = 0.2 \\cdot (-2) = -0.4$:\n$|1 - 0.4 + 0.08 - 0.011 + 0.0007| = |0.670| < 1$\nDas Verfahren ist stabil für diese Schrittweite."
+                "Schritt 1: Teil a): Euler\n$y_1 = y_0 + hf(x_0,y_0) = 1 + 0{,}1\\cdot1 = 1{,}1$. Fehler $5{,}2\\cdot10^{-3}$.",
+                "Schritt 2: Teil b): Heun\nPrädiktor $\\tilde y = 1{,}1$; $k_1 = 1$, $k_2 = f(0{,}1;1{,}1) = 1{,}1$. $y_1 = 1 + 0{,}05(1 + 1{,}1) = 1{,}105$. Fehler $1{,}7\\cdot10^{-4}$.",
+                "Schritt 3: Teil c): Runge-Kutta 4\n$k_1 = 1$, $k_2 = 1 + 0{,}05\\cdot1 = 1{,}05$, $k_3 = 1 + 0{,}05\\cdot1{,}05 = 1{,}0525$, $k_4 = 1 + 0{,}1\\cdot1{,}0525 = 1{,}10525$. $y_1 = 1 + \\frac{0{,}1}{6}(1 + 2\\cdot1{,}05 + 2\\cdot1{,}0525 + 1{,}10525) = 1 + \\frac{0{,}1}{6}\\cdot6{,}31025 = 1{,}1051708$.",
+                "Schritt 4: Vergleich der Ordnungen\nFehler: Euler $5\\cdot10^{-3}$ (Ordnung $1$), Heun $2\\cdot10^{-4}$ (Ordnung $2$), RK4 $\\approx 8\\cdot10^{-8}$ (Ordnung $4$). Halbiert man $h$, schrumpft der globale Fehler um $2$, $4$ bzw. $16$."
             ]
         }
     ]

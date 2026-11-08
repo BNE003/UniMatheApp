@@ -12,66 +12,71 @@
         {
             "id": 1,
             "topic": "Power Series",
-            "title": "Radius of Convergence",
-            "description": "Determine the radius and interval of convergence of\n$\\sum_{n=1}^{\\infty} \\frac{n^2}{3^n}x^n$.",
-            "difficulty": "medium",
+            "title": "Radius of convergence and sum",
+            "description": "Consider $\\sum_{n=1}^\\infty\\frac{x^n}{n\\,2^n}$.\na) Determine the radius of convergence.\nb) Examine the boundary points.\nc) Determine the sum function.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Ratio test\n$\\lim_{n\\to\\infty}\\left|\\frac{a_{n+1}}{a_n}\\right|=\\lim\\frac{(n+1)^2}{n^2}\\cdot\\frac{|x|}{3}=\\frac{|x|}{3}$",
-                "Step 2: Radius\nConvergence if $|x|/3<1 \\Rightarrow R=3$",
-                "Step 3: Endpoints\nAt $x=3$: terms $n^2$ → diverges\nAt $x=-3$: terms $(-1)^n n^2$ → diverges\nInterval: $(-3,3)$"
+                "Step 1: Part a): Radius of convergence\n$a_n = \\frac{1}{n2^n}$. $\\left|\\frac{a_n}{a_{n+1}}\\right| = \\frac{(n+1)2^{n+1}}{n2^n} = 2\\cdot\\frac{n+1}{n} \\to 2$. So $R = 2$.",
+                "Step 2: Part b): Boundary points\n$x = 2$: $\\sum\\frac1n$ (harmonic series) **diverges**. $x = -2$: $\\sum\\frac{(-1)^n}{n}$ **converges** by Leibniz. Interval of convergence: $[-2, 2)$.",
+                "Step 3: Part c): Sum by integration\nWith $u = \\frac x2$: $\\sum\\frac{u^n}{n} = \\int_0^u\\sum t^{n-1}\\,dt = \\int_0^u\\frac{dt}{1-t} = -\\ln(1-u)$. So $\\sum_{n=1}^\\infty\\frac{x^n}{n2^n} = -\\ln\\left(1 - \\frac x2\\right)$ for $x \\in [-2,2)$.",
+                "Step 4: Check\nFor $x = 1$: $-\\ln\\frac12 = \\ln2 \\approx 0.6931$. Partial sum: $\\frac12 + \\frac18 + \\frac1{24} + \\frac1{64} + \\frac1{160} \\approx 0.6886$ ✓. For $x = -2$: $-\\ln2$, the alternating harmonic series ✓."
             ]
         },
         {
             "id": 2,
             "topic": "Improper Integrals",
-            "title": "Convergence and Value",
-            "description": "Analyze and compute\n$I = \\int_1^{\\infty} \\frac{1}{x^2+1}\\,dx$.",
-            "difficulty": "medium",
+            "title": "Convergence and value",
+            "description": "Examine for convergence and compute the value if possible:\na) $\\int_1^\\infty\\frac{dx}{x^2}$ and $\\int_1^\\infty\\frac{dx}{x}$\nb) $\\int_0^1\\ln x\\,dx$\nc) $\\int_0^\\infty xe^{-x}\\,dx$",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Convergence\n$\\frac{1}{x^2+1} \\le \\frac{1}{x^2}$ for $x\\ge1$, so the integral converges.",
-                "Step 2: Evaluation\n$\\int \\frac{1}{x^2+1}\\,dx = \\arctan(x)$\n$I = \\lim_{b\\to\\infty}[\\arctan(b)-\\arctan(1)] = \\frac{\\pi}{2}-\\frac{\\pi}{4}=\\frac{\\pi}{4}$"
+                "Step 1: Part a): Unbounded interval\n$\\int_1^R x^{-2}dx = 1 - \\frac1R \\to 1$: **convergent**, value $1$. $\\int_1^R\\frac{dx}x = \\ln R \\to \\infty$: **divergent**.",
+                "Step 2: Part b): Unbounded integrand\nAntiderivative $x\\ln x - x$. $\\int_\\varepsilon^1\\ln x\\,dx = (0 - 1) - (\\varepsilon\\ln\\varepsilon - \\varepsilon) \\to -1$ for $\\varepsilon \\to 0^+$ (since $\\varepsilon\\ln\\varepsilon \\to 0$). **Convergent**, value $-1$.",
+                "Step 3: Part c): Integration by parts\n$\\int xe^{-x}dx = -xe^{-x} - e^{-x}$. $\\int_0^R = \\big(-Re^{-R} - e^{-R}\\big) - (0 - 1) = 1 - (R+1)e^{-R} \\to 1$ (the exponential beats every polynomial). **Convergent**, value $1$ ($= \\Gamma(2)$).",
+                "Step 4: Summary\nConvergence depends on how fast the integrand tends to $0$ or $\\infty$: $\\int_1^\\infty x^{-p}$ converges for $p > 1$, $\\int_0^1x^{-p}$ for $p < 1$. Check for b): the integral is negative since $\\ln x < 0$ on $(0,1)$ ✓."
             ]
         },
         {
             "id": 3,
             "topic": "Line Integrals",
-            "title": "Potential Field",
-            "description": "Given $\\vec{F}(x,y)=(2xy, x^2+2y)$.\n\na) Show that $\\vec{F}$ is conservative.\nb) Find a potential function.\nc) Compute the line integral from $(0,0)$ to $(1,1)$.",
-            "difficulty": "medium",
+            "title": "Potential field",
+            "description": "Let $\\vec F(x,y) = (2xy + 1,\\ x^2 + 3)$.\na) Show that $\\vec F$ has a potential and determine it.\nb) Compute $\\int_C\\vec F\\cdot d\\vec r$ from $(0,0)$ to $(1,2)$ and verify path independence with the straight line $\\gamma(t) = (t,2t)$.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Curl-free check\n$P=2xy$, $Q=x^2+2y$\n$\\partial P/\\partial y = 2x$, $\\partial Q/\\partial x = 2x$ $\\Rightarrow$ conservative.",
-                "Step 2: Potential\nIntegrate $P$ w.r.t. $x$: $\\phi(x,y)=x^2y+g(y)$\nThen $\\phi_y = x^2+g'(y) = Q = x^2+2y \\Rightarrow g'(y)=2y$, $g(y)=y^2$\nPotential: $\\phi(x,y)=x^2y+y^2$",
-                "Step 3: Line integral\n$\\int_C \\vec{F}\\cdot d\\vec{r} = \\phi(1,1)-\\phi(0,0) = 1+1=2$"
+                "Step 1: Part a): Integrability condition\n$\\partial_yF_1 = 2x = \\partial_xF_2$ ✓. The domain $\\mathbb{R}^2$ is simply connected, so a potential exists.",
+                "Step 2: Part a): Determine the potential\nFrom $\\varphi_x = 2xy + 1$: $\\varphi = x^2y + x + h(y)$. From $\\varphi_y = x^2 + h'(y) = x^2 + 3$: $h' = 3$, $h = 3y$. Potential: $\\varphi(x,y) = x^2y + x + 3y$.",
+                "Step 3: Part b): With the potential\n$\\int_C\\vec F\\cdot d\\vec r = \\varphi(1,2) - \\varphi(0,0) = (2 + 1 + 6) - 0 = 9$.",
+                "Step 4: Part b): Direct computation\n$\\dot\\gamma = (1,2)$, $\\vec F(\\gamma(t)) = (4t^2 + 1,\\ t^2 + 3)$. $\\int_0^1\\big(4t^2 + 1 + 2t^2 + 6\\big)dt = \\int_0^1(6t^2 + 7)\\,dt = 2 + 7 = 9$ ✓. Agrees with the potential (path independence)."
             ]
         },
         {
             "id": 4,
             "topic": "Polar Coordinates",
-            "title": "Integral over the Unit Disk",
-            "description": "Compute\n$\\iint_{x^2+y^2\\le1} (x^2+y^2)\\,dA$.",
-            "difficulty": "medium",
+            "title": "Integral over a disc and an annulus",
+            "description": "a) Compute $\\iint_Ee^{-(x^2+y^2)}\\,dA$ over $E = \\{x^2 + y^2 \\leq 1\\}$.\nb) Compute $\\iint_A\\frac{1}{x^2+y^2}\\,dA$ over the annulus $A = \\{1 \\leq x^2 + y^2 \\leq 4\\}$.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Polar coordinates\n$x^2+y^2=r^2$, $dA = r\\,dr\\,d\\theta$",
-                "Step 2: Integral\n$\\int_0^{2\\pi}\\int_0^1 r^2\\cdot r\\,dr\\,d\\theta = \\int_0^{2\\pi}\\left[\\frac{r^4}{4}\\right]_0^1 d\\theta = \\int_0^{2\\pi} \\frac{1}{4} d\\theta$",
-                "Step 3: Result\n$= \\frac{1}{4}\\cdot 2\\pi = \\frac{\\pi}{2}$"
+                "Step 1: Transformation\n$x = r\\cos\\varphi$, $y = r\\sin\\varphi$, $dA = r\\,dr\\,d\\varphi$, $x^2 + y^2 = r^2$.",
+                "Step 2: Part a)\n$\\int_0^{2\\pi}\\int_0^1e^{-r^2}r\\,dr\\,d\\varphi = 2\\pi\\left[-\\frac12e^{-r^2}\\right]_0^1 = \\pi(1 - e^{-1}) \\approx 1.986$.",
+                "Step 3: Part b)\n$\\int_0^{2\\pi}\\int_1^2\\frac{1}{r^2}r\\,dr\\,d\\varphi = 2\\pi\\int_1^2\\frac{dr}{r} = 2\\pi\\ln2 \\approx 4.355$.",
+                "Step 4: Check\na) The integrand lies between $e^{-1}$ and $1$, the area is $\\pi$: result between $1.16$ and $3.14$ ✓. b) The integrand lies between $\\frac14$ and $1$, the area is $3\\pi \\approx 9.42$: result between $2.36$ and $9.42$ ✓. Without the factor $r$ b) would give $2\\pi(1 - \\frac12) = \\pi$ — wrong."
             ]
         },
         {
             "id": 5,
             "topic": "Differential Equations",
-            "title": "First-Order Linear ODE",
-            "description": "Solve the initial value problem\n$y' + 2y = x$, $y(0)=0$.",
-            "difficulty": "medium",
+            "title": "Linear and separable first-order ODE",
+            "description": "a) Solve $y' + 2y = e^{-x}$ with $y(0) = 2$.\nb) Solve $y' = xy$ with $y(0) = 3$.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Integrating factor\n$\\mu(x)=e^{2x}$, then $(e^{2x}y)' = xe^{2x}$",
-                "Step 2: Integrate\n$\\int xe^{2x}dx = \\frac{1}{2}xe^{2x} - \\frac{1}{4}e^{2x} + C$",
-                "Step 3: Solution form\n$e^{2x}y = \\frac{1}{2}xe^{2x} - \\frac{1}{4}e^{2x} + C \\Rightarrow y = \\frac{1}{2}x - \\frac{1}{4} + Ce^{-2x}$",
-                "Step 4: Initial condition\n$y(0)=0 \\Rightarrow C=\\frac{1}{4}$\n$y(x)=\\frac{1}{2}x - \\frac{1}{4} + \\frac{1}{4}e^{-2x}$"
+                "Step 1: Part a): Homogeneous solution\n$y' + 2y = 0 \\Rightarrow y_h = Ce^{-2x}$.",
+                "Step 2: Part a): Particular solution\nAnsatz $y_p = Ae^{-x}$: $-Ae^{-x} + 2Ae^{-x} = Ae^{-x} = e^{-x} \\Rightarrow A = 1$. General solution: $y = e^{-x} + Ce^{-2x}$.",
+                "Step 3: Part a): Initial value and check\n$y(0) = 1 + C = 2 \\Rightarrow C = 1$. $y = e^{-x} + e^{-2x}$. Check: $y' = -e^{-x} - 2e^{-2x}$, $y' + 2y = -e^{-x} - 2e^{-2x} + 2e^{-x} + 2e^{-2x} = e^{-x}$ ✓.",
+                "Step 4: Part b): Separation of variables\n$\\frac{dy}{y} = x\\,dx \\Rightarrow \\ln|y| = \\frac{x^2}{2} + c \\Rightarrow y = Ke^{x^2/2}$. With $y(0) = 3$: $K = 3$, so $y = 3e^{x^2/2}$. Check: $y' = 3xe^{x^2/2} = xy$ ✓."
             ]
         }
     ]

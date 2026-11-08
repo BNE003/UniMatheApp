@@ -1,7 +1,83 @@
 {
     "exercises": [
         {
-            "id": 16,
+            "id": 1,
+            "topic": "Logik",
+            "title": "Wahrheitstafel mit drei Aussagen",
+            "description": "Erstellen Sie die Wahrheitstafel für $(A \\land B) \\rightarrow C$. Für welche Belegungen ist die Aussage falsch?",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nBei drei Aussagen gibt es $2^3 = 8$ Belegungen. Wir berechnen zuerst die Teilaussage $A \\land B$ und werten dann die Implikation aus.",
+                "Schritt 2: Implikation wiederholen\n$P \\rightarrow Q$ ist nur dann falsch, wenn $P$ wahr und $Q$ falsch ist; sonst ist sie wahr.",
+                "Schritt 3: Wahrheitstafel\n$\\begin{array}{c|c|c|c|c} A & B & C & A \\land B & (A \\land B) \\rightarrow C \\\\ \\hline w & w & w & w & w \\\\ w & w & f & w & f \\\\ w & f & w & f & w \\\\ w & f & f & f & w \\\\ f & w & w & f & w \\\\ f & w & f & f & w \\\\ f & f & w & f & w \\\\ f & f & f & f & w \\end{array}$",
+                "Schritt 4: Ablesen\nDie Aussage ist nur bei $A = w$, $B = w$, $C = f$ falsch (zweite Zeile). In allen anderen $7$ Fällen ist sie wahr.",
+                "Schritt 5: Merke: Worauf es ankommt\nEine Implikation ist falsch, wenn die Voraussetzung wahr und die Folgerung falsch ist. Äquivalent: $(A \\land B) \\rightarrow C \\equiv A \\rightarrow (B \\rightarrow C)$ (Currying)."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Logik",
+            "title": "Negation einer Implikation",
+            "description": "Bestimmen Sie die Negation von „Wenn es regnet, wird die Straße nass.“ und zeigen Sie mit einer Wahrheitstafel $\\neg(A \\rightarrow B) \\equiv A \\land \\neg B$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEine Implikation $A \\rightarrow B$ wird widerlegt durch einen Fall, in dem $A$ gilt, aber $B$ nicht. Genau das drückt $A \\land \\neg B$ aus.",
+                "Schritt 2: Wahrheitstafel\n$\\begin{array}{c|c|c|c} A & B & \\neg(A \\rightarrow B) & A \\land \\neg B \\\\ \\hline w & w & f & f \\\\ w & f & w & w \\\\ f & w & f & f \\\\ f & f & f & f \\end{array}$",
+                "Schritt 3: Vergleich\nDie beiden letzten Spalten stimmen in allen Zeilen überein, also $\\neg(A \\rightarrow B) \\equiv A \\land \\neg B$.",
+                "Schritt 4: Anwendung auf den Satz\nNegation: „Es regnet, **und** die Straße wird nicht nass.“ — nicht etwa „Wenn es regnet, wird die Straße nicht nass.“ (das ist keine Negation, denn bei $A = f$ sind beide Aussagen wahr).",
+                "Schritt 5: Merke: Worauf es ankommt\nHäufiger Fehler: die Negation einer Implikation wieder als Implikation zu schreiben. Merkregel: „Gegenbeispiel = Voraussetzung wahr, Behauptung falsch“."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Logik",
+            "title": "Notwendig und hinreichend",
+            "description": "Sei $A$: „$n$ ist durch $6$ teilbar“ und $B$: „$n$ ist gerade“ (für $n \\in \\mathbb{N}$). Gilt $A \\Rightarrow B$? Gilt $B \\Rightarrow A$? Formulieren Sie mit „notwendig“ und „hinreichend“.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir prüfen beide Richtungen: Eine Richtung begründen wir allgemein, bei der anderen suchen wir ein Gegenbeispiel.",
+                "Schritt 2: $A \\Rightarrow B$\nIst $n = 6k$, so ist $n = 2\\cdot(3k)$ gerade. Die Implikation gilt.",
+                "Schritt 3: $B \\Rightarrow A$\nGegenbeispiel: $n = 4$ ist gerade, aber nicht durch $6$ teilbar. Die Umkehrung gilt nicht.",
+                "Schritt 4: Sprechweise\n$A$ ist **hinreichend** für $B$ (wer durch $6$ teilbar ist, ist gerade), und $B$ ist **notwendig** für $A$ (wer nicht gerade ist, kann nicht durch $6$ teilbar sein). $A$ ist nicht notwendig für $B$, $B$ nicht hinreichend für $A$.",
+                "Schritt 5: Merke: Worauf es ankommt\nBei $A \\Rightarrow B$ ist die Voraussetzung hinreichend, die Folgerung notwendig. Ein einziges Gegenbeispiel widerlegt eine Allaussage, aber viele Beispiele beweisen sie nicht."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Logik",
+            "title": "Tautologie, Kontradiktion, erfüllbar",
+            "description": "Klassifizieren Sie als Tautologie, Kontradiktion oder erfüllbar (aber keine Tautologie): (a) $(A \\rightarrow B) \\lor (B \\rightarrow A)$, (b) $A \\land \\neg A$, (c) $A \\rightarrow \\neg A$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEine Aussage ist eine **Tautologie**, wenn sie bei jeder Belegung wahr ist, eine **Kontradiktion**, wenn sie nie wahr ist, und **erfüllbar**, wenn sie bei mindestens einer Belegung wahr ist.",
+                "Schritt 2: (a)\nIst $A = f$, so ist $A \\rightarrow B$ wahr; ist $A = w$, so ist $B \\rightarrow A$ wahr. In jedem Fall ist eine der Teilaussagen wahr, die Disjunktion also immer wahr: **Tautologie**.",
+                "Schritt 3: (b)\n$A$ und $\\neg A$ sind nie gleichzeitig wahr: **Kontradiktion**.",
+                "Schritt 4: (c)\nFür $A = w$ ist $A \\rightarrow \\neg A$ gleich $w \\rightarrow f = f$. Für $A = f$ ist sie $f \\rightarrow w = w$. Also wahr für $A = f$, falsch für $A = w$: **erfüllbar, aber keine Tautologie** (sie ist äquivalent zu $\\neg A$).",
+                "Schritt 5: Merke: Worauf es ankommt\n$\\varphi$ ist genau dann eine Tautologie, wenn $\\neg\\varphi$ eine Kontradiktion ist. Man kann die Klasse auch ohne vollständige Tabelle durch Fallunterscheidung bestimmen."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Logik",
+            "title": "Quantoren und ihre Reihenfolge",
+            "description": "Entscheiden Sie, welche Aussagen über $\\mathbb{R}$ wahr sind: (a) $\\forall x\\, \\exists y: x + y = 0$, (b) $\\exists y\\, \\forall x: x + y = 0$, (c) $\\forall x\\, \\exists y: y^2 = x$, (d) $\\exists x\\, \\forall y: x \\leq y^2$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Reihenfolge von Quantoren ist entscheidend: Bei $\\forall x\\, \\exists y$ darf $y$ von $x$ abhängen, bei $\\exists y\\, \\forall x$ muss ein einziges $y$ für alle $x$ funktionieren.",
+                "Schritt 2: (a) wahr\nZu jedem $x$ wähle $y = -x$. Dann $x + y = 0$.",
+                "Schritt 3: (b) falsch\nEin festes $y$ müsste $x + y = 0$ für alle $x$ erfüllen. Für $x = -y$ stimmt es, für $x = -y + 1$ nicht. Also falsch.",
+                "Schritt 4: (c) falsch\nFür $x = -1$ gibt es kein reelles $y$ mit $y^2 = -1$. Also falsch (über $\\mathbb{R}$; über $\\mathbb{C}$ wäre sie wahr).",
+                "Schritt 5: (d) wahr\nWähle $x = 0$. Dann gilt $0 \\leq y^2$ für alle $y \\in \\mathbb{R}$.",
+                "Schritt 6: Merke: Worauf es ankommt\nAus $\\exists y\\, \\forall x\\, P$ folgt $\\forall x\\, \\exists y\\, P$, aber nicht umgekehrt ((a) und (b) zeigen das). Zum Widerlegen einer Allaussage genügt ein Gegenbeispiel, zum Beweisen einer Existenzaussage ein Beispiel."
+            ]
+        },
+        {
+            "id": 6,
             "topic": "Logik",
             "title": "Wahrheitstafeln zu logischen Operatorenn",
             "description": "Erstellen Sie die Wahrheitstafel für die Operatoren $\\land$ (UND), $\\lor$ (ODER) und $\\rightarrow$ (Implikation) für die Aussagen $A$ und $B$.",
@@ -12,6 +88,148 @@
                 "Schritt 2: Wahrheitstafel für $A \\land B$:\n\n\\begin{array}{c|c|c}\nA & B & A \\land B \\\\\\hline\nw & w & w \\\\\nw & f & f \\\\\nf & w & f \\\\\nf & f & f \\\\\n\\end{array}",
                 "Schritt 3: Wahrheitstafel für $A \\lor B$:\n\n\\begin{array}{c|c|c}\nA & B & A \\lor B \\\\\\hline\nw & w & w \\\\\nw & f & w \\\\\nf & w & w \\\\\nf & f & f \\\\\n\\end{array}",
                 "Schritt 4: Wahrheitstafel für $A \\rightarrow B$:\n\n\\begin{array}{c|c|c}\nA & B & A \\rightarrow B \\\\\\hline\nw & w & w \\\\\nw & f & f \\\\\nf & w & w \\\\\nf & f & w \\\\\n\\end{array}"
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Logik",
+            "title": "Logische Äquivalenz mit Wahrheitstafeln überprüfen",
+            "description": "Überprüfen Sie, ob die Aussagen $A \\rightarrow B$ und $\\neg A \\lor B$ logisch äquivalent sind, indem Sie eine Wahrheitstafel erstellen.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Wahrheitstafel für $A$, $B$, $A \\rightarrow B$ und $\\neg A \\lor B$ aufstellen:\n\\begin{array}{c|c|c|c|c}\nA & B & \\neg A & A \\rightarrow B & \\neg A \\lor B \\\\\\hline\nw & w & f & w & w \\\\\nw & f & f & f & f \\\\\nf & w & w & w & w \\\\\nf & f & w & w & w \\\\\n\\end{array}",
+                "Schritt 2: Vergleich der Spalten $A \\rightarrow B$ und $\\neg A \\lor B$:\nDie Spalten sind identisch.",
+                "Schritt 3: Die Aussagen sind logisch äquivalent."
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Logik",
+            "title": "Tautologie",
+            "description": "Zeigen Sie, dass $A \\lor \\neg A$ eine Tautologie ist.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Erstellen Sie die Wahrheitstafel für $A$ und $\\neg A$.",
+                "Schritt 2: Tabelle:\n\\begin{array}{c|c|c}\nA & \\neg A & A \\lor \\neg A \\\\ \\hline\nw & f & w \\\\f & w & w \\\\\\end{array}",
+                "Schritt 3: Die Aussage ist immer wahr, also eine Tautologie."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Logik",
+            "title": "Logische Äquivalenz von Implikationen",
+            "description": "Zeigen Sie, dass die Aussagen $A \\rightarrow B$ und $\\neg B \\rightarrow \\neg A$ logisch äquivalent sind.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Wahrheitstafel für beide Aussagen erstellen:\n\\begin{array}{c|c|c|c|c}\nA & B & A \\rightarrow B & \\neg B & \\neg A & \\neg B \\rightarrow \\neg A \\\\\\hline\nw & w & w & f & f & w \\\\\nw & f & f & w & f & f \\\\\nf & w & w & f & w & w \\\\\nf & f & w & w & w & w \\\\\n\\end{array}",
+                "Schritt 2: Vergleich der Spalten\nDie Spalten für $A \\rightarrow B$ und $\\neg B \\rightarrow \\neg A$ sind identisch.",
+                "Schritt 3: Die Aussagen sind logisch äquivalent."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Logik",
+            "title": "Kontravalenz",
+            "description": "Zeigen Sie, dass die Kontravalenz $A \\oplus B$ (entweder-oder) äquivalent ist zu $(A \\lor B) \\land \\neg (A \\land B)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Wahrheitstafel erstellen:\n\\begin{array}{c|c|c|c|c|c}\nA & B & A \\oplus B & A \\lor B & A \\land B & \\neg (A \\land B) & (A \\lor B) \\land \\neg (A \\land B) \\\\\\hline\nw & w & f & w & w & f & f \\\\\nw & f & w & w & f & w & w \\\\\nf & w & w & w & f & w & w \\\\\nf & f & f & f & f & w & f \\\\\n\\end{array}",
+                "Schritt 2: Vergleich der Spalten\nDie Spalten für $A \\oplus B$ und $(A \\lor B) \\land \\neg (A \\land B)$ sind identisch.",
+                "Schritt 3: Die Äquivalenz ist bewiesen."
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Logik",
+            "title": "Bikonditional",
+            "description": "Zeigen Sie, dass das Bikonditional $A \\leftrightarrow B$ äquivalent ist zu $(A \\rightarrow B) \\land (B \\rightarrow A)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Wahrheitstafel erstellen:\n\\begin{array}{c|c|c|c|c|c}\nA & B & A \\leftrightarrow B & A \\rightarrow B & B \\rightarrow A & (A \\rightarrow B) \\land (B \\rightarrow A) \\\\\\hline\nw & w & w & w & w & w \\\\\nw & f & f & f & w & f \\\\\nf & w & f & w & f & f \\\\\nf & f & w & w & w & w \\\\\n\\end{array}",
+                "Schritt 2: Vergleich der Spalten\nDie Spalten für $A \\leftrightarrow B$ und $(A \\rightarrow B) \\land (B \\rightarrow A)$ sind identisch.",
+                "Schritt 3: Die Äquivalenz ist bewiesen."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Logik",
+            "title": "Normalformen bestimmen",
+            "description": "Bestimmen Sie für $A \\rightarrow (B \\land C)$ eine disjunktive Normalform (DNF) und eine konjunktive Normalform (KNF).",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEine DNF ist eine Disjunktion von Konjunktionen (ODER von UNDs), eine KNF eine Konjunktion von Disjunktionen (UND von ODERs). Wir formen zunächst die Implikation um: $A \\rightarrow X \\equiv \\neg A \\lor X$.",
+                "Schritt 2: DNF\n$A \\rightarrow (B \\land C) \\equiv \\neg A \\lor (B \\land C)$. Das ist bereits eine DNF (Klauseln $\\neg A$ und $B \\land C$).",
+                "Schritt 3: KNF durch Distributivgesetz\n$\\neg A \\lor (B \\land C) \\equiv (\\neg A \\lor B) \\land (\\neg A \\lor C)$. Das ist eine KNF mit zwei Klauseln.",
+                "Schritt 4: Kontrolle an einer Belegung\nFür $A = w$, $B = w$, $C = f$: Original $w \\rightarrow (w \\land f) = w \\rightarrow f = f$. KNF: $(f \\lor w) \\land (f \\lor f) = w \\land f = f$ ✓. DNF: $f \\lor (w \\land f) = f$ ✓.",
+                "Schritt 5: Merke: Worauf es ankommt\nJede Aussage besitzt eine DNF und eine KNF (z.B. aus den wahren bzw. falschen Zeilen der Wahrheitstafel). Das zweite Distributivgesetz $X \\lor (Y \\land Z) \\equiv (X \\lor Y) \\land (X \\lor Z)$ ist der Weg von DNF zu KNF."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Logik",
+            "title": "Vereinfachen mit Rechengesetzen",
+            "description": "Vereinfachen Sie (a) $(A \\lor B) \\land (A \\lor \\neg B)$ und (b) $(A \\land B) \\lor (A \\land \\neg B) \\lor (\\neg A \\land B)$ mit Rechengesetzen.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir wenden Distributivität, Komplementgesetze ($X \\lor \\neg X \\equiv w$, $X \\land \\neg X \\equiv f$) und Identitätsgesetze ($X \\land w \\equiv X$, $X \\lor f \\equiv X$) an.",
+                "Schritt 2: (a) Umformen\nAusklammern von $A$ (Distributivgesetz rückwärts): $(A \\lor B) \\land (A \\lor \\neg B) \\equiv A \\lor (B \\land \\neg B) \\equiv A \\lor f \\equiv A$.",
+                "Schritt 3: (b) Erste zwei Klauseln\n$(A \\land B) \\lor (A \\land \\neg B) \\equiv A \\land (B \\lor \\neg B) \\equiv A \\land w \\equiv A$.",
+                "Schritt 4: (b) Dritte Klausel\nDamit ist der Ausdruck $\\equiv A \\lor (\\neg A \\land B)$. Distributivgesetz: $\\equiv (A \\lor \\neg A) \\land (A \\lor B) \\equiv w \\land (A \\lor B) \\equiv A \\lor B$.",
+                "Schritt 5: Probe mit Wahrheitswerten\n(b): Für $A = f$, $B = w$ ist der Originalausdruck wahr (dritte Klausel) und $A \\lor B = w$ ✓; für $A = B = f$ sind alle Klauseln falsch und $A \\lor B = f$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nDer Trick „Ausklammern, dann $X \\lor \\neg X$ bzw. $X \\land \\neg X$ ausnutzen“ vereinfacht viele Ausdrücke. Eine Wahrheitstafel dient immer als unabhängige Kontrolle."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Logik",
+            "title": "Negation der Stetigkeit",
+            "description": "Die Stetigkeit von $f$ in $a$ lautet $\\forall \\varepsilon > 0\\ \\exists \\delta > 0\\ \\forall x: (|x - a| < \\delta \\rightarrow |f(x) - f(a)| < \\varepsilon)$. Bilden Sie die Negation und zeigen Sie damit, dass die Vorzeichenfunktion $f(x) = 1$ für $x \\geq 0$, $f(x) = -1$ für $x < 0$ in $a = 0$ nicht stetig ist.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nBei der Negation vertauscht man jeden Quantor ($\\forall \\leftrightarrow \\exists$) von außen nach innen und negiert zuletzt die Aussage. Die Negation einer Implikation ist $P \\land \\neg Q$.",
+                "Schritt 2: Schrittweise negieren\n$\\neg\\forall\\varepsilon\\,\\exists\\delta\\,\\forall x\\,(P \\rightarrow Q) \\equiv \\exists\\varepsilon\\,\\forall\\delta\\,\\exists x\\,\\neg(P \\rightarrow Q) \\equiv \\exists\\varepsilon\\,\\forall\\delta\\,\\exists x\\,(P \\land \\neg Q)$.",
+                "Schritt 3: Negation in Worten\n„Es gibt ein $\\varepsilon > 0$, sodass für jedes $\\delta > 0$ ein $x$ existiert mit $|x - a| < \\delta$ und $|f(x) - f(a)| \\geq \\varepsilon$.“",
+                "Schritt 4: Anwendung auf die Sprungfunktion\nWähle $\\varepsilon = 1$. Sei $\\delta > 0$ beliebig. Wähle $x = -\\frac{\\delta}{2}$. Dann $|x - 0| = \\frac\\delta2 < \\delta$, aber $|f(x) - f(0)| = |-1 - 1| = 2 \\geq 1$.",
+                "Schritt 5: Schluss\nDie Negation der Stetigkeit ist erfüllt, also ist $f$ in $0$ nicht stetig.",
+                "Schritt 6: Merke: Worauf es ankommt\nVom Negieren von Quantorenketten hängt jede Widerlegung in der Analysis ab (Nicht-Stetigkeit, Divergenz, …). Die Reihenfolge von $\\varepsilon$ (zuerst) und $\\delta$ (danach, darf von $\\varepsilon$ abhängen) bleibt dabei in dualer Form erhalten."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Logik",
+            "title": "Direkter Beweis mit Fallunterscheidung",
+            "description": "Beweisen Sie: Für jedes $n \\in \\mathbb{N}$ ist $n^2 + n$ gerade.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir führen einen direkten Beweis. Da jede natürliche Zahl gerade oder ungerade ist, genügt eine Fallunterscheidung mit zwei Fällen.",
+                "Schritt 2: Fall 1: $n$ gerade\nSei $n = 2k$. Dann $n^2 + n = 4k^2 + 2k = 2(2k^2 + k)$. Das ist durch $2$ teilbar.",
+                "Schritt 3: Fall 2: $n$ ungerade\nSei $n = 2k + 1$. Dann $n^2 + n = (4k^2 + 4k + 1) + (2k + 1) = 4k^2 + 6k + 2 = 2(2k^2 + 3k + 1)$. Auch das ist gerade.",
+                "Schritt 4: Alternative Begründung\n$n^2 + n = n(n+1)$ ist ein Produkt zweier aufeinanderfolgender Zahlen. Eine von beiden ist gerade, also ist das Produkt gerade.",
+                "Schritt 5: Merke: Worauf es ankommt\nFallunterscheidungen müssen **vollständig** sein (hier: gerade/ungerade). Gerade Zahlen schreibt man als $2k$, ungerade als $2k+1$. Ein Beweis ist erst fertig, wenn alle Fälle behandelt sind."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Logik",
+            "title": "Gültige und ungültige Schlüsse",
+            "description": "Prüfen Sie, ob folgende Schlüsse gültig sind: (a) $A \\rightarrow B,\\ \\neg B \\ \\therefore\\ \\neg A$ (Modus tollens), (b) $A \\rightarrow B,\\ B \\ \\therefore\\ A$. Begründen Sie mit einer Belegung bzw. Wahrheitstafel.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEin Schluss ist **gültig**, wenn in jeder Belegung, in der alle Prämissen wahr sind, auch die Konklusion wahr ist. Ein einziges Gegenbeispiel (Prämissen wahr, Konklusion falsch) macht ihn ungültig.",
+                "Schritt 2: (a) Modus tollens\nSeien $A \\rightarrow B$ und $\\neg B$ wahr. Wäre $A$ wahr, dann müsste wegen $A \\rightarrow B$ auch $B$ wahr sein, im Widerspruch zu $\\neg B$. Also ist $A$ falsch, d.h. $\\neg A$ wahr: **gültig**.",
+                "Schritt 3: (b) Folgerung aus der Folgerung\nWähle $A = f$, $B = w$. Dann ist $A \\rightarrow B$ wahr ($f \\rightarrow w$), $B$ ist wahr, aber die Konklusion $A$ ist falsch. Gegenbeispiel: **ungültig** (Fehlschluss „Affirmieren des Konsequens“).",
+                "Schritt 4: Beispiel aus dem Alltag\n(a) „Wenn es regnet, ist die Straße nass. Die Straße ist nicht nass. Also regnet es nicht.“ ✓ (b) „Wenn es regnet, ist die Straße nass. Die Straße ist nass. Also regnet es.“ ✗ (die Straße könnte auch wegen eines Rohrbruchs nass sein).",
+                "Schritt 5: Merke: Worauf es ankommt\nGültig: Modus ponens ($A, A \\rightarrow B \\therefore B$) und Modus tollens. Typische Fehlschlüsse: Affirmieren des Konsequens und Negieren des Antezedens ($A \\rightarrow B, \\neg A \\therefore \\neg B$)."
             ]
         },
         {
@@ -61,46 +279,6 @@
         {
             "id": 20,
             "topic": "Logik",
-            "title": "Logische Äquivalenz mit Wahrheitstafeln überprüfen",
-            "description": "Überprüfen Sie, ob die Aussagen $A \\rightarrow B$ und $\\neg A \\lor B$ logisch äquivalent sind, indem Sie eine Wahrheitstafel erstellen.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Wahrheitstafel für $A$, $B$, $A \\rightarrow B$ und $\\neg A \\lor B$ aufstellen:\n\\begin{array}{c|c|c|c|c}\nA & B & \\neg A & A \\rightarrow B & \\neg A \\lor B \\\\\\hline\nw & w & f & w & w \\\\\nw & f & f & f & f \\\\\nf & w & w & w & w \\\\\nf & f & w & w & w \\\\\n\\end{array}",
-                "Schritt 2: Vergleich der Spalten $A \\rightarrow B$ und $\\neg A \\lor B$:\nDie Spalten sind identisch.",
-                "Schritt 3: Die Aussagen sind logisch äquivalent."
-            ]
-        },
-        {
-            "id": 21,
-            "topic": "Logik",
-            "title": "Tautologie",
-            "description": "Zeigen Sie, dass $A \\lor \\neg A$ eine Tautologie ist.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Erstellen Sie die Wahrheitstafel für $A$ und $\\neg A$.",
-                "Schritt 2: Tabelle:\n\\begin{array}{c|c|c}\nA & \\neg A & A \\lor \\neg A \\\\ \\hline\nw & f & w \\\\f & w & w \\\\\\end{array}",
-                "Schritt 3: Die Aussage ist immer wahr, also eine Tautologie."
-            ]
-        },
-        {
-            "id": 23,
-            "topic": "Logik",
-            "title": "Beweis durch Kontraposition und Widerspruch",
-            "description": "Beweisen Sie durch Kontraposition und durch Widerspruch: \"Wenn $n^2$ gerade ist, dann ist $n$ gerade.\"",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Kontraposition:\nDie Kontraposition der Aussage ist:\n\"Wenn $n$ ungerade ist, dann ist $n^2$ ungerade.\"",
-                "Beweis:\nSei $n = 2k + 1$ (ungerade).\nDann $n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$ (ungerade).",
-                "Schritt 2: Widerspruchsbeweis:\nAngenommen, $n^2$ ist gerade, aber $n$ ist ungerade.\nDann wie oben: $n^2$ wäre ungerade, Widerspruch.",
-                "Schritt 3: Beide Beweisarten zeigen: Ist $n^2$ gerade, so ist $n$ gerade."
-            ]
-        },
-        {
-            "id": 24,
-            "topic": "Logik",
             "title": "Vereinfachung logischer Ausdrücke",
             "description": "Vereinfachen Sie den Ausdruck $\\neg (A \\lor (\\neg A \\land B))$.",
             "difficulty": "medium",
@@ -113,130 +291,7 @@
             ]
         },
         {
-            "id": 25,
-            "topic": "Logik",
-            "title": "Gesetze der booleschen Algebra: Idempotenzgesetz",
-            "description": "Beweisen Sie das Idempotenzgesetz der booleschen Algebra: $A \\lor A = A$ und $A \\land A = A$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Erstellen Sie die Wahrheitstafeln für beide Gesetze.",
-                "Für $A \\lor A$:\n\\begin{array}{c|c}\nA & A \\lor A \\\\\\hline\nw & w \\\\\nf & f \\\\\n\\end{array}",
-                "Für $A \\land A$:\n\\begin{array}{c|c}\nA & A \\land A \\\\\\hline\nw & w \\\\\nf & f \\\\\n\\end{array}",
-                "Schritt 2: In beiden Fällen stimmt der Wahrheitswert mit $A$ überein.",
-                "Schritt 3: Das Idempotenzgesetz ist bewiesen."
-            ]
-        },
-        {
-            "id": 26,
-            "topic": "Logik",
-            "title": "Logische Äquivalenz von Implikationen",
-            "description": "Zeigen Sie, dass die Aussagen $A \\rightarrow B$ und $\\neg B \\rightarrow \\neg A$ logisch äquivalent sind.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Wahrheitstafel für beide Aussagen erstellen:\n\\begin{array}{c|c|c|c|c}\nA & B & A \\rightarrow B & \\neg B & \\neg A & \\neg B \\rightarrow \\neg A \\\\\\hline\nw & w & w & f & f & w \\\\\nw & f & f & w & f & f \\\\\nf & w & w & f & w & w \\\\\nf & f & w & w & w & w \\\\\n\\end{array}",
-                "Schritt 2: Vergleich der Spalten\nDie Spalten für $A \\rightarrow B$ und $\\neg B \\rightarrow \\neg A$ sind identisch.",
-                "Schritt 3: Die Aussagen sind logisch äquivalent."
-            ]
-        },
-        {
-            "id": 27,
-            "topic": "Logik",
-            "title": "Distributivgesetze der Logik",
-            "description": "Beweisen Sie die Distributivgesetze der Logik:\n1. $A \\lor (B \\land C) \\equiv (A \\lor B) \\land (A \\lor C)$\n2. $A \\land (B \\lor C) \\equiv (A \\land B) \\lor (A \\land C)$",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Wahrheitstafel für das erste Gesetz:\n\\begin{array}{c|c|c|c|c|c|c}\nA & B & C & B \\land C & A \\lor (B \\land C) & A \\lor B & A \\lor C & (A \\lor B) \\land (A \\lor C) \\\\\\hline\nw & w & w & w & w & w & w & w \\\\\nw & w & f & f & w & w & w & w \\\\\nw & f & w & f & w & w & w & w \\\\\nw & f & f & f & w & w & w & w \\\\\nf & w & w & w & w & w & w & w \\\\\nf & w & f & f & f & w & f & f \\\\\nf & f & w & f & f & f & w & f \\\\\nf & f & f & f & f & f & f & f \\\\\n\\end{array}",
-                "Schritt 2: Wahrheitstafel für das zweite Gesetz:\n\\begin{array}{c|c|c|c|c|c|c}\nA & B & C & B \\lor C & A \\land (B \\lor C) & A \\land B & A \\land C & (A \\land B) \\lor (A \\land C) \\\\\\hline\nw & w & w & w & w & w & w & w \\\\\nw & w & f & w & w & w & f & w \\\\\nw & f & w & w & w & f & w & w \\\\\nw & f & f & f & f & f & f & f \\\\\nf & w & w & w & f & f & f & f \\\\\nf & w & f & w & f & f & f & f \\\\\nf & f & w & w & f & f & f & f \\\\\nf & f & f & f & f & f & f & f \\\\\n\\end{array}",
-                "Schritt 3: Vergleich der Spalten\nIn beiden Fällen stimmen die entsprechenden Spalten überein.",
-                "Schritt 4: Die Distributivgesetze sind bewiesen."
-            ]
-        },
-        {
-            "id": 28,
-            "topic": "Logik",
-            "title": "Assoziativgesetze der Logik",
-            "description": "Beweisen Sie die Assoziativgesetze der Logik:\n1. $(A \\lor B) \\lor C \\equiv A \\lor (B \\lor C)$\n2. $(A \\land B) \\land C \\equiv A \\land (B \\land C)$",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Wahrheitstafel für das erste Gesetz:\n\\begin{array}{c|c|c|c|c|c}\nA & B & C & (A \\lor B) \\lor C & A \\lor (B \\lor C) \\\\\\hline\nw & w & w & w & w \\\\\nw & w & f & w & w \\\\\nw & f & w & w & w \\\\\nw & f & f & w & w \\\\\nf & w & w & w & w \\\\\nf & w & f & w & w \\\\\nf & f & w & w & w \\\\\nf & f & f & f & f \\\\\n\\end{array}",
-                "Schritt 2: Wahrheitstafel für das zweite Gesetz:\n\\begin{array}{c|c|c|c|c|c}\nA & B & C & (A \\land B) \\land C & A \\land (B \\land C) \\\\\\hline\nw & w & w & w & w \\\\\nw & w & f & f & f \\\\\nw & f & w & f & f \\\\\nw & f & f & f & f \\\\\nf & w & w & f & f \\\\\nf & w & f & f & f \\\\\nf & f & w & f & f \\\\\nf & f & f & f & f \\\\\n\\end{array}",
-                "Schritt 3: Vergleich der Spalten\nIn beiden Fällen stimmen die entsprechenden Spalten überein.",
-                "Schritt 4: Die Assoziativgesetze sind bewiesen."
-            ]
-        },
-        {
-            "id": 29,
-            "topic": "Logik",
-            "title": "Kommutativgesetze der Logik",
-            "description": "Beweisen Sie die Kommutativgesetze der Logik:\n1. $A \\lor B \\equiv B \\lor A$\n2. $A \\land B \\equiv B \\land A$",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Wahrheitstafel für das erste Gesetz:\n\\begin{array}{c|c|c|c}\nA & B & A \\lor B & B \\lor A \\\\\\hline\nw & w & w & w \\\\\nw & f & w & w \\\\\nf & w & w & w \\\\\nf & f & f & f \\\\\n\\end{array}",
-                "Schritt 2: Wahrheitstafel für das zweite Gesetz:\n\\begin{array}{c|c|c|c}\nA & B & A \\land B & B \\land A \\\\\\hline\nw & w & w & w \\\\\nw & f & f & f \\\\\nf & w & f & f \\\\\nf & f & f & f \\\\\n\\end{array}",
-                "Schritt 3: Vergleich der Spalten\nIn beiden Fällen stimmen die entsprechenden Spalten überein.",
-                "Schritt 4: Die Kommutativgesetze sind bewiesen."
-            ]
-        },
-        {
-            "id": 30,
-            "topic": "Logik",
-            "title": "Absorptionsgesetze der Logik",
-            "description": "Beweisen Sie die Absorptionsgesetze der Logik:\n1. $A \\lor (A \\land B) \\equiv A$\n2. $A \\land (A \\lor B) \\equiv A$",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Wahrheitstafel für das erste Gesetz:\n\\begin{array}{c|c|c|c|c}\nA & B & A \\land B & A \\lor (A \\land B) \\\\\\hline\nw & w & w & w \\\\\nw & f & f & w \\\\\nf & w & f & f \\\\\nf & f & f & f \\\\\n\\end{array}",
-                "Schritt 2: Wahrheitstafel für das zweite Gesetz:\n\\begin{array}{c|c|c|c|c}\nA & B & A \\lor B & A \\land (A \\lor B) \\\\\\hline\nw & w & w & w \\\\\nw & f & w & w \\\\\nf & w & w & f \\\\\nf & f & f & f \\\\\n\\end{array}",
-                "Schritt 3: Vergleich der Spalten\nIn beiden Fällen stimmt das Ergebnis mit $A$ überein.",
-                "Schritt 4: Die Absorptionsgesetze sind bewiesen."
-            ]
-        },
-        {
-            "id": 31,
-            "topic": "Logik",
-            "title": "Doppelte Negation",
-            "description": "Beweisen Sie das Gesetz der doppelten Negation: $\\neg (\\neg A) \\equiv A$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Wahrheitstafel erstellen:\n\\begin{array}{c|c|c}\nA & \\neg A & \\neg (\\neg A) \\\\\\hline\nw & f & w \\\\\nf & w & f \\\\\n\\end{array}",
-                "Schritt 2: Vergleich der Spalten\nDie Spalte für $\\neg (\\neg A)$ stimmt mit der Spalte für $A$ überein.",
-                "Schritt 3: Das Gesetz der doppelten Negation ist bewiesen."
-            ]
-        },
-        {
-            "id": 32,
-            "topic": "Logik",
-            "title": "Kontravalenz",
-            "description": "Zeigen Sie, dass die Kontravalenz $A \\oplus B$ (entweder-oder) äquivalent ist zu $(A \\lor B) \\land \\neg (A \\land B)$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Wahrheitstafel erstellen:\n\\begin{array}{c|c|c|c|c|c}\nA & B & A \\oplus B & A \\lor B & A \\land B & \\neg (A \\land B) & (A \\lor B) \\land \\neg (A \\land B) \\\\\\hline\nw & w & f & w & w & f & f \\\\\nw & f & w & w & f & w & w \\\\\nf & w & w & w & f & w & w \\\\\nf & f & f & f & f & w & f \\\\\n\\end{array}",
-                "Schritt 2: Vergleich der Spalten\nDie Spalten für $A \\oplus B$ und $(A \\lor B) \\land \\neg (A \\land B)$ sind identisch.",
-                "Schritt 3: Die Äquivalenz ist bewiesen."
-            ]
-        },
-        {
-            "id": 33,
-            "topic": "Logik",
-            "title": "Bikonditional",
-            "description": "Zeigen Sie, dass das Bikonditional $A \\leftrightarrow B$ äquivalent ist zu $(A \\rightarrow B) \\land (B \\rightarrow A)$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Wahrheitstafel erstellen:\n\\begin{array}{c|c|c|c|c|c}\nA & B & A \\leftrightarrow B & A \\rightarrow B & B \\rightarrow A & (A \\rightarrow B) \\land (B \\rightarrow A) \\\\\\hline\nw & w & w & w & w & w \\\\\nw & f & f & f & w & f \\\\\nf & w & f & w & f & f \\\\\nf & f & w & w & w & w \\\\\n\\end{array}",
-                "Schritt 2: Vergleich der Spalten\nDie Spalten für $A \\leftrightarrow B$ und $(A \\rightarrow B) \\land (B \\rightarrow A)$ sind identisch.",
-                "Schritt 3: Die Äquivalenz ist bewiesen."
-            ]
-        },
-        {
-            "id": 34,
+            "id": 21,
             "topic": "Logik",
             "title": "Logische Folgerung",
             "description": "Zeigen Sie, dass aus den Prämissen $A \\rightarrow B$ und $B \\rightarrow C$ die Konklusion $A \\rightarrow C$ logisch folgt.",
@@ -249,21 +304,7 @@
             ]
         },
         {
-            "id": 35,
-            "topic": "Logik",
-            "title": "Logische Äquivalenz komplexer Ausdrücke",
-            "description": "Vereinfachen Sie den Ausdruck $(A \\rightarrow B) \\land (\\neg A \\rightarrow C)$ zu einer möglichst einfachen Form.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Schritt 1: Umformung der Implikationen\n$(A \\rightarrow B) \\land (\\neg A \\rightarrow C) \\equiv (\\neg A \\lor B) \\land (A \\lor C)$",
-                "Schritt 2: Anwendung des Distributivgesetzes\n$(\\neg A \\lor B) \\land (A \\lor C) \\equiv (\\neg A \\land A) \\lor (\\neg A \\land C) \\lor (B \\land A) \\lor (B \\land C)$",
-                "Schritt 3: Vereinfachung\n$(\\neg A \\land A)$ ist immer falsch\nAlso: $(\\neg A \\land C) \\lor (B \\land A) \\lor (B \\land C)$",
-                "Schritt 4: Weitere Vereinfachung\n$(\\neg A \\land C) \\lor (B \\land A) \\lor (B \\land C) \\equiv (\\neg A \\land C) \\lor (B \\land (A \\lor C))$"
-            ]
-        },
-        {
-            "id": 36,
+            "id": 22,
             "topic": "Logik",
             "title": "Quantoren und ihre Negation",
             "description": "Formulieren Sie die Negation der Aussage: $\\forall x \\in \\mathbb{R}: \\exists y \\in \\mathbb{R}: x^2 + y^2 = 1$ und vereinfachen Sie diese.",
@@ -277,7 +318,7 @@
             ]
         },
         {
-            "id": 37,
+            "id": 23,
             "topic": "Logik",
             "title": "Logische Folgerung mit Quantoren",
             "description": "Zeigen Sie, dass aus $\\forall x: P(x) \\rightarrow Q(x)$ und $\\exists x: P(x)$ die Konklusion $\\exists x: Q(x)$ logisch folgt.",
@@ -291,7 +332,7 @@
             ]
         },
         {
-            "id": 38,
+            "id": 24,
             "topic": "Logik",
             "title": "Logische Äquivalenz mit Quantoren",
             "description": "Zeigen Sie, dass $\\forall x: (P(x) \\land Q(x))$ und $(\\forall x: P(x)) \\land (\\forall x: Q(x))$ logisch äquivalent sind.",
@@ -305,21 +346,7 @@
             ]
         },
         {
-            "id": 39,
-            "topic": "Logik",
-            "title": "Logische Folgerung mit mehreren Quantoren",
-            "description": "Zeigen Sie, dass aus $\\forall x \\forall y: P(x,y)$ die Aussage $\\forall y \\forall x: P(x,y)$ logisch folgt.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Schritt 1: Analyse der Prämisse\n$\\forall x \\forall y: P(x,y)$ bedeutet: Für alle x und y gilt P(x,y)",
-                "Schritt 2: Analyse der Konklusion\n$\\forall y \\forall x: P(x,y)$ bedeutet: Für alle y und x gilt P(x,y)",
-                "Schritt 3: Beweis der Folgerung\nDie Reihenfolge der Quantoren spielt bei der Allquantifikation keine Rolle\nBeide Aussagen behaupten dasselbe: P(x,y) gilt für alle Paare (x,y)",
-                "Schritt 4: Die logische Folgerung ist bewiesen."
-            ]
-        },
-        {
-            "id": 40,
+            "id": 25,
             "topic": "Logik",
             "title": "Logische Äquivalenz mit Existenzquantor",
             "description": "Zeigen Sie, dass $\\exists x: (P(x) \\lor Q(x))$ und $(\\exists x: P(x)) \\lor (\\exists x: Q(x))$ logisch äquivalent sind.",
@@ -333,21 +360,103 @@
             ]
         },
         {
-            "id": 41,
+            "id": 26,
             "topic": "Logik",
-            "title": "Logische Folgerung mit komplexen Quantoren",
-            "description": "Zeigen Sie, dass aus $\\forall x: (P(x) \\rightarrow Q(x))$ und $\\exists x: (Q(x) \\rightarrow R(x))$ die Konklusion $\\exists x: (P(x) \\rightarrow R(x))$ logisch folgt.",
+            "title": "Irrationalität von √2",
+            "description": "Beweisen Sie durch Widerspruch, dass $\\sqrt{2}$ irrational ist.",
             "difficulty": "hard",
-            "points": 15,
+            "points": 12,
             "solutionSteps": [
-                "Schritt 1: Analyse der Prämissen\n1. $\\forall x: (P(x) \\rightarrow Q(x))$ bedeutet: Für alle x gilt: Wenn P(x), dann Q(x)\n2. $\\exists x: (Q(x) \\rightarrow R(x))$ bedeutet: Es gibt ein x mit: Wenn Q(x), dann R(x)",
-                "Schritt 2: Logische Folgerung\nAus der Existenz eines x mit Q(x) → R(x) und der Allquantifikation P(x) → Q(x) folgt die Existenz eines x mit P(x) → R(x)",
-                "Schritt 3: Formaler Beweis\nSei a ein Element mit Q(a) → R(a) (existiert nach Prämisse 2)\nDann gilt P(a) → Q(a) (nach Prämisse 1)\nAlso gilt P(a) → R(a) (Transitivität der Implikation)\nDaher existiert ein x mit P(x) → R(x)",
-                "Schritt 4: Die logische Folgerung ist bewiesen."
+                "Schritt 1: Überblick: Was ist gefragt?\nBeim Widerspruchsbeweis nimmt man das Gegenteil der Behauptung an und leitet daraus einen Widerspruch her. Hier: Annahme $\\sqrt2 \\in \\mathbb{Q}$, dargestellt als vollständig gekürzter Bruch.",
+                "Schritt 2: Annahme\nAngenommen $\\sqrt2 = \\frac pq$ mit $p,q \\in \\mathbb{N}$ und $\\operatorname{ggT}(p,q) = 1$.",
+                "Schritt 3: Quadrieren\n$2 = \\frac{p^2}{q^2}$, also $p^2 = 2q^2$. Damit ist $p^2$ gerade.",
+                "Schritt 4: Hilfssatz: $p^2$ gerade $\\Rightarrow$ $p$ gerade\nKontraposition: Ist $p$ ungerade, $p = 2k+1$, so ist $p^2 = 4k^2 + 4k + 1$ ungerade. Also: $p^2$ gerade $\\Rightarrow$ $p$ gerade.",
+                "Schritt 5: Widerspruch\nAus dem Hilfssatz folgt $p = 2m$. Einsetzen: $4m^2 = 2q^2$, also $q^2 = 2m^2$ und damit ist auch $q$ gerade. Dann teilt $2$ sowohl $p$ als auch $q$, im Widerspruch zu $\\operatorname{ggT}(p,q) = 1$.",
+                "Schritt 6: Schluss\nDie Annahme ist falsch, also ist $\\sqrt2$ irrational. $\\blacksquare$",
+                "Schritt 7: Merke: Worauf es ankommt\nEin Widerspruchsbeweis zeigt $\\neg A \\Rightarrow f$, also $A$. Der gekürzte Bruch ist der Kniff, der den Widerspruch erst ermöglicht."
             ]
         },
         {
-            "id": 42,
+            "id": 27,
+            "topic": "Logik",
+            "title": "Unendlich viele Primzahlen",
+            "description": "Beweisen Sie den Satz von Euklid: Es gibt unendlich viele Primzahlen.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir zeigen: Zu jeder endlichen Liste von Primzahlen gibt es eine weitere Primzahl, die nicht in der Liste steht. Dafür brauchen wir, dass jede Zahl $> 1$ einen Primteiler besitzt.",
+                "Schritt 2: Annahme\nAngenommen, es gäbe nur endlich viele Primzahlen $p_1, p_2, \\dots, p_n$.",
+                "Schritt 3: Konstruktion\nBetrachte $N = p_1 p_2 \\cdots p_n + 1$. Es gilt $N > 1$, also hat $N$ einen Primteiler $q$ (z.B. den kleinsten Teiler $> 1$).",
+                "Schritt 4: $q$ ist nicht in der Liste\nWäre $q = p_i$ für ein $i$, so teilte $q$ das Produkt $p_1 \\cdots p_n$ und $N$, also auch die Differenz $N - p_1 \\cdots p_n = 1$. Das ist unmöglich.",
+                "Schritt 5: Widerspruch\nAlso ist $q$ eine Primzahl, die nicht unter $p_1,\\dots,p_n$ vorkommt — im Widerspruch zur Annahme, dass die Liste alle Primzahlen enthält. $\\blacksquare$",
+                "Schritt 6: Merke: Worauf es ankommt\nWichtig: $N$ muss selbst nicht prim sein (z.B. $2\\cdot3\\cdot5\\cdot7\\cdot11\\cdot13 + 1 = 30031 = 59 \\cdot 509$); nur sein Primteiler ist neu. Das ist ein Klassiker des Widerspruchsbeweises."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Logik",
+            "title": "Injektivität formal: Quantoren und Negation",
+            "description": "Schreiben Sie „$f: \\mathbb{R} \\to \\mathbb{R}$ ist injektiv“ mit Quantoren, bilden Sie die Negation und widerlegen Sie damit die Injektivität von $f(x) = x^2$. Beweisen Sie die Injektivität von $g(x) = 3x - 5$ aus der Definition.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir formalisieren die Definition, negieren sie systematisch und wenden beides auf konkrete Funktionen an: Widerlegen durch Gegenbeispiel, Beweisen durch Rechnung.",
+                "Schritt 2: Definition\n$f$ injektiv $\\iff \\forall x\\, \\forall y: (f(x) = f(y) \\rightarrow x = y)$.",
+                "Schritt 3: Negation\n$\\neg\\forall x\\,\\forall y\\,(P \\rightarrow Q) \\equiv \\exists x\\,\\exists y\\,(P \\land \\neg Q)$, also: $f$ nicht injektiv $\\iff \\exists x\\, \\exists y: (f(x) = f(y) \\land x \\neq y)$.",
+                "Schritt 4: Widerlegung für $x^2$\nWähle $x = 2$, $y = -2$. Dann $f(x) = 4 = f(y)$, aber $x \\neq y$. Die Negation ist erfüllt, also ist $f$ nicht injektiv.",
+                "Schritt 5: Beweis für $3x - 5$\nSeien $x,y \\in \\mathbb{R}$ beliebig mit $g(x) = g(y)$, d.h. $3x - 5 = 3y - 5$. Addiere $5$ und teile durch $3$: $x = y$. Damit gilt die Definition für alle $x,y$: $g$ ist injektiv.",
+                "Schritt 6: Merke: Worauf es ankommt\nBeweis (Allaussage): beliebige Elemente wählen und die Behauptung herleiten. Widerlegung (Existenzaussage der Negation): **ein** konkretes Gegenbeispiel angeben."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Logik",
+            "title": "Funktionale Vollständigkeit: NAND",
+            "description": "Zeigen Sie: (a) $A \\lor B$ und $A \\rightarrow B$ lassen sich allein mit $\\neg$ und $\\land$ ausdrücken. (b) Mit dem Shefferstrich $A \\mid B := \\neg(A \\land B)$ lassen sich $\\neg A$ und $A \\land B$ darstellen.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir führen neue Verknüpfungen auf wenige Grundverknüpfungen zurück und weisen die Äquivalenzen mit den de Morganschen Gesetzen und Wahrheitstafeln nach.",
+                "Schritt 2: (a) $A \\lor B$\nDe Morgan: $\\neg(\\neg A \\land \\neg B) \\equiv \\neg\\neg A \\lor \\neg\\neg B \\equiv A \\lor B$. Also $A \\lor B \\equiv \\neg(\\neg A \\land \\neg B)$.",
+                "Schritt 3: (a) $A \\rightarrow B$\n$A \\rightarrow B \\equiv \\neg A \\lor B \\equiv \\neg(A \\land \\neg B)$. Dieses Ergebnis nutzt nur $\\neg$ und $\\land$.",
+                "Schritt 4: (b) $\\neg A$\n$A \\mid A = \\neg(A \\land A) \\equiv \\neg A$.",
+                "Schritt 5: (b) $A \\land B$\n$(A \\mid B) \\mid (A \\mid B) \\equiv \\neg(A \\mid B) \\equiv \\neg\\neg(A \\land B) \\equiv A \\land B$.",
+                "Schritt 6: Probe mit Wahrheitstafel\nFür $A = w$, $B = f$: $A \\mid B = w$ (denn $A \\land B = f$), $(A \\mid B)\\mid(A \\mid B) = \\neg(w \\land w) = f = A \\land B$ ✓.",
+                "Schritt 7: Merke: Worauf es ankommt\nDie Verknüpfungen $\\{\\neg,\\land\\}$ (und ebenso $\\{\\neg,\\lor\\}$) sind **funktional vollständig**; sogar der Shefferstrich allein genügt. Deshalb kann man jede Schaltung aus NAND-Gattern bauen."
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Logik",
+            "title": "Leere Menge und „leere Wahrheit“",
+            "description": "Bestimmen Sie die Wahrheitswerte: (a) $\\forall x \\in \\emptyset: x > 5$, (b) $\\exists x \\in \\emptyset: x > 5$, (c) „Jede Primzahl zwischen $24$ und $28$ ist gerade.“ (d) $\\emptyset \\subseteq A$ für jede Menge $A$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nAllaussagen über leeren Mengen sind **vakuum wahr**: Es gibt kein Gegenbeispiel. Existenzaussagen über leeren Mengen sind falsch: Es gibt kein Beispiel.",
+                "Schritt 2: (a) wahr\n$\\forall x \\in \\emptyset: P(x)$ bedeutet „für alle $x$: $x \\in \\emptyset \\rightarrow P(x)$“. Die Voraussetzung $x \\in \\emptyset$ ist immer falsch, die Implikation also immer wahr.",
+                "Schritt 3: (b) falsch\n$\\exists x \\in \\emptyset: P(x)$ verlangt ein $x$ mit $x \\in \\emptyset \\land P(x)$. Es gibt kein $x \\in \\emptyset$, also ist die Aussage falsch.",
+                "Schritt 4: (c) wahr\nZwischen $24$ und $28$ liegen $25,26,27$; keine davon ist prim. Die Menge der Primzahlen dort ist leer, die Allaussage also (vakuum) wahr.",
+                "Schritt 5: (d) wahr\n$\\emptyset \\subseteq A$ bedeutet $\\forall x\\,(x \\in \\emptyset \\rightarrow x \\in A)$, wieder vakuum wahr. Die leere Menge ist Teilmenge jeder Menge.",
+                "Schritt 6: Merke: Worauf es ankommt\nDer Wahrheitswert „$f \\rightarrow Q$ ist wahr“ ist der Grund. Das Prinzip erklärt, warum $\\emptyset \\subseteq A$ und $\\sum_{k \\in \\emptyset} a_k = 0$ sinnvolle Konventionen sind. Man sagt: „Alle Einhörner sind rosa“ ist wahr."
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Logik",
+            "title": "Beweis durch Kontraposition und Widerspruch",
+            "description": "Beweisen Sie durch Kontraposition und durch Widerspruch: \"Wenn $n^2$ gerade ist, dann ist $n$ gerade.\"",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Kontraposition:\nDie Kontraposition der Aussage ist:\n\"Wenn $n$ ungerade ist, dann ist $n^2$ ungerade.\"",
+                "Beweis:\nSei $n = 2k + 1$ (ungerade).\nDann $n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$ (ungerade).",
+                "Schritt 2: Widerspruchsbeweis:\nAngenommen, $n^2$ ist gerade, aber $n$ ist ungerade.\nDann wie oben: $n^2$ wäre ungerade, Widerspruch.",
+                "Schritt 3: Beide Beweisarten zeigen: Ist $n^2$ gerade, so ist $n$ gerade."
+            ]
+        },
+        {
+            "id": 32,
             "topic": "Logik",
             "title": "Logische Äquivalenz mit verschachtelten Quantoren",
             "description": "Zeigen Sie, dass $\\forall x \\exists y: P(x,y)$ und $\\neg \\exists x \\forall y: \\neg P(x,y)$ logisch äquivalent sind.",
@@ -361,21 +470,7 @@
             ]
         },
         {
-            "id": 43,
-            "topic": "Logik",
-            "title": "Logische Folgerung mit mehreren verschachtelten Quantoren",
-            "description": "Zeigen Sie, dass aus $\\forall x \\forall y: (P(x,y) \\rightarrow Q(x,y))$ und $\\exists x \\exists y: P(x,y)$ die Konklusion $\\exists x \\exists y: Q(x,y)$ logisch folgt.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Analyse der Prämissen\n1. $\\forall x \\forall y: (P(x,y) \\rightarrow Q(x,y))$ bedeutet: Für alle x,y gilt: Wenn P(x,y), dann Q(x,y)\n2. $\\exists x \\exists y: P(x,y)$ bedeutet: Es gibt x,y mit P(x,y)",
-                "Schritt 2: Logische Folgerung\nAus der Existenz von x,y mit P(x,y) und der Allquantifikation P(x,y) → Q(x,y) folgt die Existenz von x,y mit Q(x,y)",
-                "Schritt 3: Formaler Beweis\nSeien a,b Elemente mit P(a,b) (existieren nach Prämisse 2)\nDann gilt P(a,b) → Q(a,b) (nach Prämisse 1)\nAlso gilt Q(a,b)\nDaher existieren x,y mit Q(x,y)",
-                "Schritt 4: Die logische Folgerung ist bewiesen."
-            ]
-        },
-        {
-            "id": 44,
+            "id": 33,
             "topic": "Logik",
             "title": "Logische Äquivalenz mit komplexen Quantorenkombinationen",
             "description": "Zeigen Sie, dass $\\forall x: (P(x) \\rightarrow \\exists y: Q(x,y))$ und $\\forall x \\exists y: (P(x) \\rightarrow Q(x,y))$ logisch äquivalent sind.",
@@ -389,21 +484,7 @@
             ]
         },
         {
-            "id": 45,
-            "topic": "Logik",
-            "title": "Logische Folgerung mit verschachtelten Implikationen",
-            "description": "Zeigen Sie, dass aus $\\forall x: (P(x) \\rightarrow (Q(x) \\rightarrow R(x)))$ und $\\exists x: (P(x) \\land Q(x))$ die Konklusion $\\exists x: R(x)$ logisch folgt.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Analyse der Prämissen\n1. $\\forall x: (P(x) \\rightarrow (Q(x) \\rightarrow R(x)))$ bedeutet: Für alle x gilt: Wenn P(x), dann (wenn Q(x), dann R(x))\n2. $\\exists x: (P(x) \\land Q(x))$ bedeutet: Es gibt ein x mit P(x) und Q(x)",
-                "Schritt 2: Logische Folgerung\nAus der Existenz eines x mit P(x) und Q(x) und der Allquantifikation P(x) → (Q(x) → R(x)) folgt die Existenz eines x mit R(x)",
-                "Schritt 3: Formaler Beweis\nSei a ein Element mit P(a) und Q(a) (existiert nach Prämisse 2)\nDann gilt P(a) → (Q(a) → R(a)) (nach Prämisse 1)\nAlso gilt Q(a) → R(a)\nDa Q(a) gilt, folgt R(a)\nDaher existiert ein x mit R(x)",
-                "Schritt 4: Die logische Folgerung ist bewiesen."
-            ]
-        },
-        {
-            "id": 46,
+            "id": 34,
             "topic": "Logik",
             "title": "Logische Äquivalenz mit komplexen Quantoren und Negationen",
             "description": "Zeigen Sie, dass $\\neg \\forall x: (P(x) \\rightarrow Q(x))$ und $\\exists x: (P(x) \\land \\neg Q(x))$ logisch äquivalent sind.",
@@ -417,21 +498,7 @@
             ]
         },
         {
-            "id": 47,
-            "topic": "Logik",
-            "title": "Logische Folgerung mit komplexen Quantorenkombinationen",
-            "description": "Zeigen Sie, dass aus $\\forall x: (P(x) \\rightarrow \\forall y: Q(x,y))$ und $\\exists x: P(x)$ die Konklusion $\\forall y \\exists x: Q(x,y)$ logisch folgt.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Analyse der Prämissen\n1. $\\forall x: (P(x) \\rightarrow \\forall y: Q(x,y))$ bedeutet: Für alle x gilt: Wenn P(x), dann für alle y gilt Q(x,y)\n2. $\\exists x: P(x)$ bedeutet: Es gibt ein x mit P(x)",
-                "Schritt 2: Logische Folgerung\nAus der Existenz eines x mit P(x) und der Allquantifikation P(x) → ∀y: Q(x,y) folgt die Allquantifikation ∀y ∃x: Q(x,y)",
-                "Schritt 3: Formaler Beweis\nSei a ein Element mit P(a) (existiert nach Prämisse 2)\nDann gilt P(a) → ∀y: Q(a,y) (nach Prämisse 1)\nAlso gilt ∀y: Q(a,y)\nDaher gilt ∀y ∃x: Q(x,y)",
-                "Schritt 4: Die logische Folgerung ist bewiesen."
-            ]
-        },
-        {
-            "id": 48,
+            "id": 35,
             "topic": "Logik",
             "title": "Logische Äquivalenz mit verschachtelten Quantoren und Implikationen",
             "description": "Zeigen Sie, dass $\\forall x: (P(x) \\rightarrow \\forall y: (Q(y) \\rightarrow R(x,y)))$ und $\\forall x \\forall y: ((P(x) \\land Q(y)) \\rightarrow R(x,y))$ logisch äquivalent sind.",
@@ -443,20 +510,6 @@
                 "Schritt 3: Beweis der Äquivalenz\nWenn für alle x gilt: Wenn P(x), dann für alle y gilt: Wenn Q(y), dann R(x,y), dann gilt für alle x,y: Wenn P(x) und Q(y), dann R(x,y)\nUmgekehrt: Wenn für alle x,y gilt: Wenn P(x) und Q(y), dann R(x,y), dann gilt für alle x: Wenn P(x), dann für alle y gilt: Wenn Q(y), dann R(x,y)",
                 "Schritt 4: Die Äquivalenz ist bewiesen."
             ]
-        },
-        {
-            "id": 49,
-            "topic": "Logik",
-            "title": "Logische Folgerung mit komplexen Quantoren und Negationen",
-            "description": "Zeigen Sie, dass aus $\\forall x: (\\neg P(x) \\rightarrow Q(x))$ und $\\exists x: \\neg Q(x)$ die Konklusion $\\exists x: P(x)$ logisch folgt.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Analyse der Prämissen\n1. $\\forall x: (\\neg P(x) \\rightarrow Q(x))$ bedeutet: Für alle x gilt: Wenn nicht P(x), dann Q(x)\n2. $\\exists x: \\neg Q(x)$ bedeutet: Es gibt ein x mit nicht Q(x)",
-                "Schritt 2: Logische Folgerung\nAus der Existenz eines x mit nicht Q(x) und der Allquantifikation ¬P(x) → Q(x) folgt die Existenz eines x mit P(x)",
-                "Schritt 3: Formaler Beweis\nSei a ein Element mit ¬Q(a) (existiert nach Prämisse 2)\nDann gilt ¬P(a) → Q(a) (nach Prämisse 1)\nDa Q(a) nicht gilt, kann ¬P(a) nicht gelten\nAlso gilt P(a)\nDaher existiert ein x mit P(x)",
-                "Schritt 4: Die logische Folgerung ist bewiesen."
-            ]
         }
     ]
-} 
+}

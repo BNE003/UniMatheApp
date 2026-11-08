@@ -1,7 +1,83 @@
 {
     "exercises": [
         {
-            "id": 16,
+            "id": 1,
+            "topic": "Logic",
+            "title": "Truth table with three statements",
+            "description": "Create the truth table for $(A \\land B) \\rightarrow C$. For which assignments is the statement false?",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWith three statements there are $2^3 = 8$ assignments. We first compute the part $A \\land B$ and then evaluate the implication.",
+                "Step 2: Recall the implication\n$P \\rightarrow Q$ is false only if $P$ is true and $Q$ is false; otherwise it is true.",
+                "Step 3: Truth table\n$\\begin{array}{c|c|c|c|c} A & B & C & A \\land B & (A \\land B) \\rightarrow C \\\\ \\hline T & T & T & T & T \\\\ T & T & F & T & F \\\\ T & F & T & F & T \\\\ T & F & F & F & T \\\\ F & T & T & F & T \\\\ F & T & F & F & T \\\\ F & F & T & F & T \\\\ F & F & F & F & T \\end{array}$",
+                "Step 4: Reading off\nThe statement is false only for $A = T$, $B = T$, $C = F$ (second row). In all other $7$ cases it is true.",
+                "Step 5: Takeaway: What to remember\nAn implication is false when the hypothesis is true and the conclusion false. Equivalently: $(A \\land B) \\rightarrow C \\equiv A \\rightarrow (B \\rightarrow C)$ (currying)."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Logic",
+            "title": "Negation of an implication",
+            "description": "Determine the negation of “If it rains, the street gets wet.” and show with a truth table that $\\neg(A \\rightarrow B) \\equiv A \\land \\neg B$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nAn implication $A \\rightarrow B$ is refuted by a case in which $A$ holds but $B$ does not. This is exactly what $A \\land \\neg B$ expresses.",
+                "Step 2: Truth table\n$\\begin{array}{c|c|c|c} A & B & \\neg(A \\rightarrow B) & A \\land \\neg B \\\\ \\hline T & T & F & F \\\\ T & F & T & T \\\\ F & T & F & F \\\\ F & F & F & F \\end{array}$",
+                "Step 3: Comparison\nThe last two columns agree in all rows, so $\\neg(A \\rightarrow B) \\equiv A \\land \\neg B$.",
+                "Step 4: Application to the sentence\nNegation: “It rains **and** the street does not get wet.” — not “If it rains, the street does not get wet.” (that is not a negation because for $A = F$ both statements are true).",
+                "Step 5: Takeaway: What to remember\nCommon mistake: writing the negation of an implication as an implication again. Rule of thumb: “counterexample = hypothesis true, claim false”."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Logic",
+            "title": "Necessary and sufficient",
+            "description": "Let $A$: “$n$ is divisible by $6$” and $B$: “$n$ is even” (for $n \\in \\mathbb{N}$). Does $A \\Rightarrow B$ hold? Does $B \\Rightarrow A$ hold? Phrase this with “necessary” and “sufficient”.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe check both directions: one direction we justify in general, for the other we look for a counterexample.",
+                "Step 2: $A \\Rightarrow B$\nIf $n = 6k$ then $n = 2\\cdot(3k)$ is even. The implication holds.",
+                "Step 3: $B \\Rightarrow A$\nCounterexample: $n = 4$ is even but not divisible by $6$. The converse does not hold.",
+                "Step 4: Wording\n$A$ is **sufficient** for $B$ (anyone divisible by $6$ is even), and $B$ is **necessary** for $A$ (anyone not even cannot be divisible by $6$). $A$ is not necessary for $B$, $B$ is not sufficient for $A$.",
+                "Step 5: Takeaway: What to remember\nFor $A \\Rightarrow B$ the hypothesis is sufficient, the conclusion necessary. A single counterexample refutes a universal statement, but many examples do not prove it."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Logic",
+            "title": "Tautology, contradiction, satisfiable",
+            "description": "Classify as tautology, contradiction or satisfiable (but not a tautology): (a) $(A \\rightarrow B) \\lor (B \\rightarrow A)$, (b) $A \\land \\neg A$, (c) $A \\rightarrow \\neg A$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nA statement is a **tautology** if it is true under every assignment, a **contradiction** if it is never true, and **satisfiable** if it is true under at least one assignment.",
+                "Step 2: (a)\nIf $A = F$ then $A \\rightarrow B$ is true; if $A = T$ then $B \\rightarrow A$ is true. In every case one part is true, so the disjunction is always true: **tautology**.",
+                "Step 3: (b)\n$A$ and $\\neg A$ are never true simultaneously: **contradiction**.",
+                "Step 4: (c)\nFor $A = T$, $A \\rightarrow \\neg A$ equals $T \\rightarrow F = F$. For $A = F$ it is $F \\rightarrow T = T$. So true for $A = F$, false for $A = T$: **satisfiable but not a tautology** (it is equivalent to $\\neg A$).",
+                "Step 5: Takeaway: What to remember\n$\\varphi$ is a tautology exactly when $\\neg\\varphi$ is a contradiction. The class can also be determined without a full table by case distinction."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Logic",
+            "title": "Quantifiers and their order",
+            "description": "Decide which statements over $\\mathbb{R}$ are true: (a) $\\forall x\\, \\exists y: x + y = 0$, (b) $\\exists y\\, \\forall x: x + y = 0$, (c) $\\forall x\\, \\exists y: y^2 = x$, (d) $\\exists x\\, \\forall y: x \\leq y^2$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe order of quantifiers is crucial: in $\\forall x\\, \\exists y$ the $y$ may depend on $x$, in $\\exists y\\, \\forall x$ a single $y$ must work for all $x$.",
+                "Step 2: (a) true\nFor each $x$ choose $y = -x$. Then $x + y = 0$.",
+                "Step 3: (b) false\nA fixed $y$ would have to satisfy $x + y = 0$ for all $x$. For $x = -y$ it holds, for $x = -y + 1$ it does not. So false.",
+                "Step 4: (c) false\nFor $x = -1$ there is no real $y$ with $y^2 = -1$. So false (over $\\mathbb{R}$; over $\\mathbb{C}$ it would be true).",
+                "Step 5: (d) true\nChoose $x = 0$. Then $0 \\leq y^2$ for all $y \\in \\mathbb{R}$.",
+                "Step 6: Takeaway: What to remember\nFrom $\\exists y\\, \\forall x\\, P$ it follows that $\\forall x\\, \\exists y\\, P$, but not conversely ((a) and (b) show this). To refute a universal statement a counterexample suffices, to prove an existence statement an example suffices."
+            ]
+        },
+        {
+            "id": 6,
             "topic": "Logic",
             "title": "Truth Tables for Logical Operators",
             "description": "Construct the truth table for the operators $\\land$ (AND), $\\lor$ (OR), and $\\rightarrow$ (implication) for the propositions $A$ and $B$.",
@@ -12,6 +88,148 @@
                 "Step 2: Truth table for $A \\land B$ (AND):\n\n\\begin{array}{c|c|c}\nA & B & A \\land B \\\\\\hline\nT & T & T \\\\\nT & F & F \\\\\nF & T & F \\\\\nF & F & F \\\\\n\\end{array}",
                 "Step 3: Truth table for $A \\lor B$ (OR):\n\n\\begin{array}{c|c|c}\nA & B & A \\lor B \\\\\\hline\nT & T & T \\\\\nT & F & T \\\\\nF & T & T \\\\\nF & F & F \\\\\n\\end{array}",
                 "Step 4: Truth table for $A \\rightarrow B$ (implication):\n\n\\begin{array}{c|c|c}\nA & B & A \\rightarrow B \\\\\\hline\nT & T & T \\\\\nT & F & F \\\\\nF & T & T \\\\\nF & F & T \\\\\n\\end{array}"
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Logic",
+            "title": "Verifying Logical Equivalence with Truth Tables",
+            "description": "Verify whether the propositions $A \\rightarrow B$ and $\\neg A \\lor B$ are logically equivalent by constructing a truth table.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Construct the truth table:\n\n\\begin{array}{c|c|c|c|c}\nA & B & \\neg A & A \\rightarrow B & \\neg A \\lor B \\\\\\hline\nT & T & F & T & T \\\\\nT & F & F & F & F \\\\\nF & T & T & T & T \\\\\nF & F & T & T & T \\\\\n\\end{array}",
+                "Step 2: Compare columns:\nThe columns for $A \\rightarrow B$ and $\\neg A \\lor B$ are identical.",
+                "Step 3: Conclusion:\nThe propositions $A \\rightarrow B$ and $\\neg A \\lor B$ are logically equivalent."
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Logic",
+            "title": "Tautology",
+            "description": "Show that $A \\lor \\neg A$ is a tautology.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Construct the truth table:\n\n\\begin{array}{c|c|c}\nA & \\neg A & A \\lor \\neg A \\\\\\hline\nT & F & T \\\\\nF & T & T \\\\\n\\end{array}",
+                "Step 2: Analyze the result:\nThe column for $A \\lor \\neg A$ is always true.",
+                "Step 3: Conclusion:\n$A \\lor \\neg A$ is a tautology."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Logic",
+            "title": "Logical Equivalence of Implications",
+            "description": "Show that the propositions $A \\rightarrow B$ and $\\neg B \\rightarrow \\neg A$ are logically equivalent.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Construct the truth table:\n\n\\begin{array}{c|c|c|c|c|c}\nA & B & \\neg A & \\neg B & A \\rightarrow B & \\neg B \\rightarrow \\neg A \\\\\\hline\nT & T & F & F & T & T \\\\\nT & F & F & T & F & F \\\\\nF & T & T & F & T & T \\\\\nF & F & T & T & T & T \\\\\n\\end{array}",
+                "Step 2: Compare columns:\nThe columns for $A \\rightarrow B$ and $\\neg B \\rightarrow \\neg A$ are identical.",
+                "Step 3: Conclusion:\nThe propositions are logically equivalent."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Logic",
+            "title": "Exclusive OR",
+            "description": "Show that the exclusive OR $A \\oplus B$ is equivalent to $(A \\lor B) \\land \\neg (A \\land B)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Construct the truth table:\n\n\\begin{array}{c|c|c|c|c|c|c}\nA & B & A \\oplus B & A \\lor B & A \\land B & \\neg (A \\land B) & (A \\lor B) \\land \\neg (A \\land B) \\\\\\hline\nT & T & F & T & T & F & F \\\\\nT & F & T & T & F & T & T \\\\\nF & T & T & T & F & T & T \\\\\nF & F & F & F & F & T & F \\\\\n\\end{array}",
+                "Step 2: Compare columns:\nThe columns for $A \\oplus B$ and $(A \\lor B) \\land \\neg (A \\land B)$ are identical.",
+                "Step 3: Conclusion:\nThe equivalence is proven."
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Logic",
+            "title": "Biconditional",
+            "description": "Show that the biconditional $A \\leftrightarrow B$ is equivalent to $(A \\rightarrow B) \\land (B \\rightarrow A)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Construct the truth table:\n\n\\begin{array}{c|c|c|c|c|c}\nA & B & A \\leftrightarrow B & A \\rightarrow B & B \\rightarrow A & (A \\rightarrow B) \\land (B \\rightarrow A) \\\\\\hline\nT & T & T & T & T & T \\\\\nT & F & F & F & T & F \\\\\nF & T & F & T & F & F \\\\\nF & F & T & T & T & T \\\\\n\\end{array}",
+                "Step 2: Compare columns:\nThe columns for $A \\leftrightarrow B$ and $(A \\rightarrow B) \\land (B \\rightarrow A)$ are identical.",
+                "Step 3: Conclusion:\nThe equivalence is proven."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Logic",
+            "title": "Determining normal forms",
+            "description": "Determine a disjunctive normal form (DNF) and a conjunctive normal form (CNF) for $A \\rightarrow (B \\land C)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nA DNF is a disjunction of conjunctions (OR of ANDs), a CNF a conjunction of disjunctions (AND of ORs). First we rewrite the implication: $A \\rightarrow X \\equiv \\neg A \\lor X$.",
+                "Step 2: DNF\n$A \\rightarrow (B \\land C) \\equiv \\neg A \\lor (B \\land C)$. This already is a DNF (clauses $\\neg A$ and $B \\land C$).",
+                "Step 3: CNF via distributive law\n$\\neg A \\lor (B \\land C) \\equiv (\\neg A \\lor B) \\land (\\neg A \\lor C)$. This is a CNF with two clauses.",
+                "Step 4: Check with an assignment\nFor $A = T$, $B = T$, $C = F$: original $T \\rightarrow (T \\land F) = T \\rightarrow F = F$. CNF: $(F \\lor T) \\land (F \\lor F) = T \\land F = F$ ✓. DNF: $F \\lor (T \\land F) = F$ ✓.",
+                "Step 5: Takeaway: What to remember\nEvery statement has a DNF and a CNF (e.g. from the true or false rows of the truth table). The second distributive law $X \\lor (Y \\land Z) \\equiv (X \\lor Y) \\land (X \\lor Z)$ is the way from DNF to CNF."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Logic",
+            "title": "Simplifying with laws of logic",
+            "description": "Simplify (a) $(A \\lor B) \\land (A \\lor \\neg B)$ and (b) $(A \\land B) \\lor (A \\land \\neg B) \\lor (\\neg A \\land B)$ using laws of logic.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe apply distributivity, complement laws ($X \\lor \\neg X \\equiv T$, $X \\land \\neg X \\equiv F$) and identity laws ($X \\land T \\equiv X$, $X \\lor F \\equiv X$).",
+                "Step 2: (a) Transform\nFactoring out $A$ (distributive law backwards): $(A \\lor B) \\land (A \\lor \\neg B) \\equiv A \\lor (B \\land \\neg B) \\equiv A \\lor F \\equiv A$.",
+                "Step 3: (b) First two clauses\n$(A \\land B) \\lor (A \\land \\neg B) \\equiv A \\land (B \\lor \\neg B) \\equiv A \\land T \\equiv A$.",
+                "Step 4: (b) Third clause\nSo the expression is $\\equiv A \\lor (\\neg A \\land B)$. Distributive law: $\\equiv (A \\lor \\neg A) \\land (A \\lor B) \\equiv T \\land (A \\lor B) \\equiv A \\lor B$.",
+                "Step 5: Check with truth values\n(b): For $A = F$, $B = T$ the original expression is true (third clause) and $A \\lor B = T$ ✓; for $A = B = F$ all clauses are false and $A \\lor B = F$ ✓.",
+                "Step 6: Takeaway: What to remember\nThe trick “factor out, then use $X \\lor \\neg X$ or $X \\land \\neg X$” simplifies many expressions. A truth table always serves as an independent check."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Logic",
+            "title": "Negating continuity",
+            "description": "Continuity of $f$ at $a$ reads $\\forall \\varepsilon > 0\\ \\exists \\delta > 0\\ \\forall x: (|x - a| < \\delta \\rightarrow |f(x) - f(a)| < \\varepsilon)$. Form the negation and use it to show that the step function $f(x) = 1$ for $x \\geq 0$, $f(x) = -1$ for $x < 0$ is not continuous at $a = 0$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWhen negating, swap every quantifier ($\\forall \\leftrightarrow \\exists$) from the outside in and finally negate the statement. The negation of an implication is $P \\land \\neg Q$.",
+                "Step 2: Negate step by step\n$\\neg\\forall\\varepsilon\\,\\exists\\delta\\,\\forall x\\,(P \\rightarrow Q) \\equiv \\exists\\varepsilon\\,\\forall\\delta\\,\\exists x\\,\\neg(P \\rightarrow Q) \\equiv \\exists\\varepsilon\\,\\forall\\delta\\,\\exists x\\,(P \\land \\neg Q)$.",
+                "Step 3: Negation in words\n“There is an $\\varepsilon > 0$ such that for every $\\delta > 0$ there is an $x$ with $|x - a| < \\delta$ and $|f(x) - f(a)| \\geq \\varepsilon$.”",
+                "Step 4: Application to the step function\nChoose $\\varepsilon = 1$. Let $\\delta > 0$ be arbitrary. Choose $x = -\\frac{\\delta}{2}$. Then $|x - 0| = \\frac\\delta2 < \\delta$, but $|f(x) - f(0)| = |-1 - 1| = 2 \\geq 1$.",
+                "Step 5: Conclusion\nThe negation of continuity holds, so $f$ is not continuous at $0$.",
+                "Step 6: Takeaway: What to remember\nEvery refutation in analysis depends on negating quantifier chains (discontinuity, divergence, …). The order of $\\varepsilon$ (first) and $\\delta$ (afterwards, may depend on $\\varepsilon$) is preserved in dual form."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Logic",
+            "title": "Direct proof by cases",
+            "description": "Prove: for every $n \\in \\mathbb{N}$, $n^2 + n$ is even.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe give a direct proof. Since every natural number is even or odd, a case distinction with two cases suffices.",
+                "Step 2: Case 1: $n$ even\nLet $n = 2k$. Then $n^2 + n = 4k^2 + 2k = 2(2k^2 + k)$. This is divisible by $2$.",
+                "Step 3: Case 2: $n$ odd\nLet $n = 2k + 1$. Then $n^2 + n = (4k^2 + 4k + 1) + (2k + 1) = 4k^2 + 6k + 2 = 2(2k^2 + 3k + 1)$. This is even as well.",
+                "Step 4: Alternative argument\n$n^2 + n = n(n+1)$ is a product of two consecutive numbers. One of them is even, so the product is even.",
+                "Step 5: Takeaway: What to remember\nCase distinctions must be **exhaustive** (here: even/odd). Even numbers are written $2k$, odd numbers $2k+1$. A proof is complete only when all cases are treated."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Logic",
+            "title": "Valid and invalid arguments",
+            "description": "Check whether the following arguments are valid: (a) $A \\rightarrow B,\\ \\neg B \\ \\therefore\\ \\neg A$ (modus tollens), (b) $A \\rightarrow B,\\ B \\ \\therefore\\ A$. Justify with an assignment or truth table.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nAn argument is **valid** if in every assignment in which all premises are true the conclusion is true as well. A single counterexample (premises true, conclusion false) makes it invalid.",
+                "Step 2: (a) Modus tollens\nLet $A \\rightarrow B$ and $\\neg B$ be true. If $A$ were true then $A \\rightarrow B$ would force $B$ to be true, contradicting $\\neg B$. So $A$ is false, i.e. $\\neg A$ is true: **valid**.",
+                "Step 3: (b) Affirming the consequent\nChoose $A = F$, $B = T$. Then $A \\rightarrow B$ is true ($F \\rightarrow T$), $B$ is true, but the conclusion $A$ is false. Counterexample: **invalid** (the fallacy “affirming the consequent”).",
+                "Step 4: Everyday example\n(a) “If it rains the street is wet. The street is not wet. So it is not raining.” ✓ (b) “If it rains the street is wet. The street is wet. So it is raining.” ✗ (the street could also be wet because of a burst pipe).",
+                "Step 5: Takeaway: What to remember\nValid: modus ponens ($A, A \\rightarrow B \\therefore B$) and modus tollens. Typical fallacies: affirming the consequent and denying the antecedent ($A \\rightarrow B, \\neg A \\therefore \\neg B$)."
             ]
         },
         {
@@ -61,45 +279,6 @@
         {
             "id": 20,
             "topic": "Logic",
-            "title": "Verifying Logical Equivalence with Truth Tables",
-            "description": "Verify whether the propositions $A \\rightarrow B$ and $\\neg A \\lor B$ are logically equivalent by constructing a truth table.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Construct the truth table:\n\n\\begin{array}{c|c|c|c|c}\nA & B & \\neg A & A \\rightarrow B & \\neg A \\lor B \\\\\\hline\nT & T & F & T & T \\\\\nT & F & F & F & F \\\\\nF & T & T & T & T \\\\\nF & F & T & T & T \\\\\n\\end{array}",
-                "Step 2: Compare columns:\nThe columns for $A \\rightarrow B$ and $\\neg A \\lor B$ are identical.",
-                "Step 3: Conclusion:\nThe propositions $A \\rightarrow B$ and $\\neg A \\lor B$ are logically equivalent."
-            ]
-        },
-        {
-            "id": 21,
-            "topic": "Logic",
-            "title": "Tautology",
-            "description": "Show that $A \\lor \\neg A$ is a tautology.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Construct the truth table:\n\n\\begin{array}{c|c|c}\nA & \\neg A & A \\lor \\neg A \\\\\\hline\nT & F & T \\\\\nF & T & T \\\\\n\\end{array}",
-                "Step 2: Analyze the result:\nThe column for $A \\lor \\neg A$ is always true.",
-                "Step 3: Conclusion:\n$A \\lor \\neg A$ is a tautology."
-            ]
-        },
-        {
-            "id": 23,
-            "topic": "Logic",
-            "title": "Proof by Contraposition and Contradiction",
-            "description": "Prove by contraposition and by contradiction: 'If $n^2$ is even, then $n$ is even.'",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Step 1: Proof by contraposition:\nThe contrapositive is: 'If $n$ is odd, then $n^2$ is odd.'\nLet $n = 2k + 1$ (odd).\nThen $n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$, which is odd.\nThus, the contrapositive holds, proving the original statement.",
-                "Step 2: Proof by contradiction:\nAssume $n^2$ is even and $n$ is odd.\nIf $n$ is odd, $n = 2k + 1$, so $n^2 = 4k^2 + 4k + 1$, which is odd.\nThis contradicts the assumption that $n^2$ is even.\nThus, $n$ must be even.",
-                "Step 3: Conclusion:\nBoth proof methods confirm that if $n^2$ is even, then $n$ is even."
-            ]
-        },
-        {
-            "id": 24,
-            "topic": "Logic",
             "title": "Simplification of Logical Expressions",
             "description": "Simplify the expression $\\neg (A \\lor (\\neg A \\land B))$.",
             "difficulty": "medium",
@@ -114,129 +293,7 @@
             ]
         },
         {
-            "id": 25,
-            "topic": "Logic",
-            "title": "Laws of Boolean Algebra: Idempotence",
-            "description": "Prove the idempotence laws of Boolean algebra: $A \\lor A = A$ and $A \\land A = A$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Truth table for $A \\lor A$:\n\n\\begin{array}{c|c}\nA & A \\lor A \\\\\\hline\nT & T \\\\\nF & F \\\\\n\\end{array}",
-                "Step 2: Truth table for $A \\land A$:\n\n\\begin{array}{c|c}\nA & A \\land A \\\\\\hline\nT & T \\\\\nF & F \\\\\n\\end{array}",
-                "Step 3: Comparison:\nIn both cases, the result equals $A$.",
-                "Step 4: Conclusion:\nThe idempotence laws $A \\lor A = A$ and $A \\land A = A$ are proven."
-            ]
-        },
-        {
-            "id": 26,
-            "topic": "Logic",
-            "title": "Logical Equivalence of Implications",
-            "description": "Show that the propositions $A \\rightarrow B$ and $\\neg B \\rightarrow \\neg A$ are logically equivalent.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Construct the truth table:\n\n\\begin{array}{c|c|c|c|c|c}\nA & B & \\neg A & \\neg B & A \\rightarrow B & \\neg B \\rightarrow \\neg A \\\\\\hline\nT & T & F & F & T & T \\\\\nT & F & F & T & F & F \\\\\nF & T & T & F & T & T \\\\\nF & F & T & T & T & T \\\\\n\\end{array}",
-                "Step 2: Compare columns:\nThe columns for $A \\rightarrow B$ and $\\neg B \\rightarrow \\neg A$ are identical.",
-                "Step 3: Conclusion:\nThe propositions are logically equivalent."
-            ]
-        },
-        {
-            "id": 27,
-            "topic": "Logic",
-            "title": "Distributive Laws of Logic",
-            "description": "Prove the distributive laws of logic:\n1. $A \\lor (B \\land C) \\equiv (A \\lor B) \\land (A \\lor C)$\n2. $A \\land (B \\lor C) \\equiv (A \\land B) \\lor (A \\land C)$",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Truth table for the first law:\n\n\\begin{array}{c|c|c|c|c|c|c|c}\nA & B & C & B \\land C & A \\lor (B \\land C) & A \\lor B & A \\lor C & (A \\lor B) \\land (A \\lor C) \\\\\\hline\nT & T & T & T & T & T & T & T \\\\\nT & T & F & F & T & T & T & T \\\\\nT & F & T & F & T & T & T & T \\\\\nT & F & F & F & T & T & T & T \\\\\nF & T & T & T & T & T & T & T \\\\\nF & T & F & F & F & T & F & F \\\\\nF & F & T & F & F & F & T & F \\\\\nF & F & F & F & F & F & F & F \\\\\n\\end{array}",
-                "Step 2: Truth table for the second law:\n\n\\begin{array}{c|c|c|c|c|c|c|c}\nA & B & C & B \\lor C & A \\land (B \\lor C) & A \\land B & A \\land C & (A \\land B) \\lor (A \\land C) \\\\\\hline\nT & T & T & T & T & T & T & T \\\\\nT & T & F & T & T & T & F & T \\\\\nT & F & T & T & T & F & T & T \\\\\nT & F & F & F & F & F & F & F \\\\\nF & T & T & T & F & F & F & F \\\\\nF & T & F & T & F & F & F & F \\\\\nF & F & T & T & F & F & F & F \\\\\nF & F & F & F & F & F & F & F \\\\\n\\end{array}",
-                "Step 3: Compare columns:\nIn both cases, the columns for the left and right sides match.",
-                "Step 4: Conclusion:\nThe distributive laws are proven."
-            ]
-        },
-        {
-            "id": 28,
-            "topic": "Logic",
-            "title": "Associative Laws of Logic",
-            "description": "Prove the associative laws of logic:\n1. $(A \\lor B) \\lor C \\equiv A \\lor (B \\lor C)$\n2. $(A \\land B) \\land C \\equiv A \\land (B \\land C)$",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Truth table for the first law:\n\n\\begin{array}{c|c|c|c|c}\nA & B & C & (A \\lor B) \\lor C & A \\lor (B \\lor C) \\\\\\hline\nT & T & T & T & T \\\\\nT & T & F & T & T \\\\\nT & F & T & T & T \\\\\nT & F & F & T & T \\\\\nF & T & T & T & T \\\\\nF & T & F & T & T \\\\\nF & F & T & T & T \\\\\nF & F & F & F & F \\\\\n\\end{array}",
-                "Step 2: Truth table for the second law:\n\n\\begin{array}{c|c|c|c|c}\nA & B & C & (A \\land B) \\land C & A \\land (B \\land C) \\\\\\hline\nT & T & T & T & T \\\\\nT & T & F & F & F \\\\\nT & F & T & F & F \\\\\nT & F & F & F & F \\\\\nF & T & T & F & F \\\\\nF & T & F & F & F \\\\\nF & F & T & F & F \\\\\nF & F & F & F & F \\\\\n\\end{array}",
-                "Step 3: Compare columns:\nIn both cases, the columns for the left and right sides match.",
-                "Step 4: Conclusion:\nThe associative laws are proven."
-            ]
-        },
-        {
-            "id": 29,
-            "topic": "Logic",
-            "title": "Commutative Laws of Logic",
-            "description": "Prove the commutative laws of logic:\n1. $A \\lor B \\equiv B \\lor A$\n2. $A \\land B \\equiv B \\land A$",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Truth table for the first law:\n\n\\begin{array}{c|c|c|c}\nA & B & A \\lor B & B \\lor A \\\\\\hline\nT & T & T & T \\\\\nT & F & T & T \\\\\nF & T & T & T \\\\\nF & F & F & F \\\\\n\\end{array}",
-                "Step 2: Truth table for the second law:\n\n\\begin{array}{c|c|c|c}\nA & B & A \\land B & B \\land A \\\\\\hline\nT & T & T & T \\\\\nT & F & F & F \\\\\nF & T & F & F \\\\\nF & F & F & F \\\\\n\\end{array}",
-                "Step 3: Compare columns:\nIn both cases, the columns for the left and right sides match.",
-                "Step 4: Conclusion:\nThe commutative laws are proven."
-            ]
-        },
-        {
-            "id": 30,
-            "topic": "Logic",
-            "title": "Absorption Laws of Logic",
-            "description": "Prove the absorption laws of logic:\n1. $A \\lor (A \\land B) \\equiv A$\n2. $A \\land (A \\lor B) \\equiv A$",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Truth table for the first law:\n\n\\begin{array}{c|c|c|c}\nA & B & A \\land B & A \\lor (A \\land B) \\\\\\hline\nT & T & T & T \\\\\nT & F & F & T \\\\\nF & T & F & F \\\\\nF & F & F & F \\\\\n\\end{array}",
-                "Step 2: Truth table for the second law:\n\n\\begin{array}{c|c|c|c}\nA & B & A \\lor B & A \\land (A \\lor B) \\\\\\hline\nT & T & T & T \\\\\nT & F & T & T \\\\\nF & T & T & F \\\\\nF & F & F & F \\\\\n\\end{array}",
-                "Step 3: Compare columns:\nIn both cases, the result matches $A$.",
-                "Step 4: Conclusion:\nThe absorption laws are proven."
-            ]
-        },
-        {
-            "id": 31,
-            "topic": "Logic",
-            "title": "Double Negation",
-            "description": "Prove the law of double negation: $\\neg (\\neg A) \\equiv A$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Construct the truth table:\n\n\\begin{array}{c|c|c}\nA & \\neg A & \\neg (\\neg A) \\\\\\hline\nT & F & T \\\\\nF & T & F \\\\\n\\end{array}",
-                "Step 2: Compare columns:\nThe column for $\\neg (\\neg A)$ matches $A$.",
-                "Step 3: Conclusion:\nThe law of double negation is proven."
-            ]
-        },
-        {
-            "id": 32,
-            "topic": "Logic",
-            "title": "Exclusive OR",
-            "description": "Show that the exclusive OR $A \\oplus B$ is equivalent to $(A \\lor B) \\land \\neg (A \\land B)$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Construct the truth table:\n\n\\begin{array}{c|c|c|c|c|c|c}\nA & B & A \\oplus B & A \\lor B & A \\land B & \\neg (A \\land B) & (A \\lor B) \\land \\neg (A \\land B) \\\\\\hline\nT & T & F & T & T & F & F \\\\\nT & F & T & T & F & T & T \\\\\nF & T & T & T & F & T & T \\\\\nF & F & F & F & F & T & F \\\\\n\\end{array}",
-                "Step 2: Compare columns:\nThe columns for $A \\oplus B$ and $(A \\lor B) \\land \\neg (A \\land B)$ are identical.",
-                "Step 3: Conclusion:\nThe equivalence is proven."
-            ]
-        },
-        {
-            "id": 33,
-            "topic": "Logic",
-            "title": "Biconditional",
-            "description": "Show that the biconditional $A \\leftrightarrow B$ is equivalent to $(A \\rightarrow B) \\land (B \\rightarrow A)$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Construct the truth table:\n\n\\begin{array}{c|c|c|c|c|c}\nA & B & A \\leftrightarrow B & A \\rightarrow B & B \\rightarrow A & (A \\rightarrow B) \\land (B \\rightarrow A) \\\\\\hline\nT & T & T & T & T & T \\\\\nT & F & F & F & T & F \\\\\nF & T & F & T & F & F \\\\\nF & F & T & T & T & T \\\\\n\\end{array}",
-                "Step 2: Compare columns:\nThe columns for $A \\leftrightarrow B$ and $(A \\rightarrow B) \\land (B \\rightarrow A)$ are identical.",
-                "Step 3: Conclusion:\nThe equivalence is proven."
-            ]
-        },
-        {
-            "id": 34,
+            "id": 21,
             "topic": "Logic",
             "title": "Logical Inference",
             "description": "Show that from the premises $A \\rightarrow B$ and $B \\rightarrow C$, the conclusion $A \\rightarrow C$ logically follows.",
@@ -249,23 +306,7 @@
             ]
         },
         {
-            "id": 35,
-            "topic": "Logic",
-            "title": "Simplification of Complex Logical Expressions",
-            "description": "Simplify the expression $(A \\rightarrow B) \\land (\\neg A \\rightarrow C)$ to its simplest form.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Step 1: Rewrite implications:\n$(A \\rightarrow B) \\land (\\neg A \\rightarrow C) \\equiv (\\neg A \\lor B) \\land (A \\lor C)$.",
-                "Step 2: Apply distributive law:\n$(\\neg A \\lor B) \\land (A \\lor C) \\equiv ((\\neg A \\lor B) \\land A) \\lor ((\\neg A \\lor B) \\land C)$.\nSimplify each term:\n- $(\\neg A \\lor B) \\land A \\equiv (\\neg A \\land A) \\lor (B \\land A) = F \\lor (A \\land B) = A \\land B$.\n- $(\\ WINDOWS 11 Home, 16 GB, 512 GB SSD, 15,6 FHD, Schwarz \\lor B) \\land C \\equiv (\\neg A \\land C) \\lor (B \\land C)$.",
-                "Step 3: Combine:\n$(A \\land B) \\lor ((\\neg A \\land C) \\lor (B \\land C)) \\equiv (A \\land B) \\lor (\\neg A \\land C) \\lor (B \\land C)$.",
-                "Step 4: Check for further simplification:\nThe expression $(A \\land B) \\lor (\\neg A \\land C) \\lor (B \\land C)$ is minimal, as no further logical identities apply.",
-                "Step 5: Verification via truth table (optional, summarized):\nThe truth table confirms the expression matches the original, with true values when both implications hold.",
-                "Step 6: Final result:\n$(A \\rightarrow B) \\land (\\neg A \\rightarrow C) \\equiv (A \\land B) \\lor (\\neg A \\land C) \\lor (B \\land C)$."
-            ]
-        },
-        {
-            "id": 36,
+            "id": 22,
             "topic": "Logic",
             "title": "Quantifiers and Their Negation",
             "description": "Formulate the negation of the statement: $\\forall x \\in \\mathbb{R}: \\exists y \\in \\mathbb{R}: x^2 + y^2 = 1$ and simplify it.",
@@ -280,7 +321,7 @@
             ]
         },
         {
-            "id": 37,
+            "id": 23,
             "topic": "Logic",
             "title": "Logical Inference with Quantifiers",
             "description": "Show that from $\\forall x: P(x) \\rightarrow Q(x)$ and $\\exists x: P(x)$, the conclusion $\\exists x: Q(x)$ logically follows.",
@@ -294,7 +335,7 @@
             ]
         },
         {
-            "id": 38,
+            "id": 24,
             "topic": "Logic",
             "title": "Logical Equivalence with Quantifiers",
             "description": "Show that $\\forall x: (P(x) \\land Q(x))$ and $(\\forall x: P(x)) \\land (\\forall x: Q(x))$ are logically equivalent.",
@@ -308,21 +349,7 @@
             ]
         },
         {
-            "id": 39,
-            "topic": "Logic",
-            "title": "Logical Inference with Multiple Quantifiers",
-            "description": "Show that from $\\forall x \\forall y: P(x,y)$, the statement $\\forall y \\forall x: P(x,y)$ logically follows.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Step 1: Analyze the premise:\n$\\forall x \\forall y: P(x,y)$ means: For all $x$ and $y$, $P(x,y)$ holds.",
-                "Step 2: Analyze the conclusion:\n$\\forall y \\forall x: P(x,y)$ means: For all $y$ and $x$, $P(x,y)$ holds.",
-                "Step 3: Prove the inference:\nSince $\\forall x \\forall y: P(x,y)$ asserts $P(x,y)$ for every pair $(x,y)$, the order of quantification does not affect the truth, as universal quantifiers are commutative.\nThus, $\\forall y \\forall x: P(x,y)$ holds.",
-                "Step 4: Conclusion:\nThe inference is valid."
-            ]
-        },
-        {
-            "id": 40,
+            "id": 25,
             "topic": "Logic",
             "title": "Logical Equivalence with Existential Quantifier",
             "description": "Show that $\\exists x: (P(x) \\lor Q(x))$ and $(\\exists x: P(x)) \\lor (\\exists x: Q(x))$ are logically equivalent.",
@@ -336,21 +363,102 @@
             ]
         },
         {
-            "id": 41,
+            "id": 26,
             "topic": "Logic",
-            "title": "Logical Inference with Complex Quantifiers",
-            "description": "Show that from $\\forall x: (P(x) \\rightarrow Q(x))$ and $\\exists x: (Q(x) \\rightarrow R(x))$, the conclusion $\\exists x: (P(x) \\rightarrow R(x))$ logically follows.",
+            "title": "Irrationality of √2",
+            "description": "Prove by contradiction that $\\sqrt{2}$ is irrational.",
             "difficulty": "hard",
-            "points": 15,
+            "points": 12,
             "solutionSteps": [
-                "Step 1: Analyze the premises:\n1. $\\forall x: (P(x) \\rightarrow Q(x))$: For all $x$, if $P(x)$, then $Q(x)$.\n2. $\\exists x: (Q(x) \\rightarrow R(x))$: There exists an $x$ such that if $Q(x)$, then $R(x)$.",
-                "Step 2: Rewrite implications:\n$Q(x) \\rightarrow R(x) \\equiv \\neg Q(x) \\lor R(x)$, and $P(x) \\rightarrow Q(x) \\equiv \\neg P(x) \\lor Q(x)$.",
-                "Step 3: Logical inference:\nLet $a$ be such that $Q(a) \\rightarrow R(a)$ (from premise 2), i.e., $\\neg Q(a) \\lor R(a)$.\nConsider $P(a) \\rightarrow R(a) \\equiv \\neg P(a) \\lor R(a)$.\nFrom premise 1, $\\neg P(a) \\lor Q(a)$.\nCases:\n- If $Q(a)$ is false, then $R(a)$ must be true (since $\\neg Q(a) \\lor R(a)$), so $\\neg P(a) \\lor R(a)$ is true.\n- If $Q(a)$ is true, then $\\neg P(a) \\lor Q(a)$ implies $\\neg P(a) \\lor R(a)$ (since $Q(a) \\rightarrow R(a)$).\nThus, $P(a) \\rightarrow R(a)$ holds for some $a$.",
-                "Step 4: Conclusion:\nThere exists an $x$ such that $P(x) \\rightarrow R(x)$, so the inference is valid."
+                "Step 1: Overview: What is asked?\nIn a proof by contradiction one assumes the opposite of the claim and derives a contradiction. Here: assume $\\sqrt2 \\in \\mathbb{Q}$, written as a fully reduced fraction.",
+                "Step 2: Assumption\nSuppose $\\sqrt2 = \\frac pq$ with $p,q \\in \\mathbb{N}$ and $\\gcd(p,q) = 1$.",
+                "Step 3: Square\n$2 = \\frac{p^2}{q^2}$, so $p^2 = 2q^2$. Hence $p^2$ is even.",
+                "Step 4: Lemma: $p^2$ even $\\Rightarrow$ $p$ even\nContrapositive: if $p$ is odd, $p = 2k+1$, then $p^2 = 4k^2 + 4k + 1$ is odd. Hence: $p^2$ even $\\Rightarrow$ $p$ even.",
+                "Step 5: Contradiction\nBy the lemma $p = 2m$. Substituting: $4m^2 = 2q^2$, so $q^2 = 2m^2$ and thus $q$ is even too. Then $2$ divides both $p$ and $q$, contradicting $\\gcd(p,q) = 1$.",
+                "Step 6: Conclusion\nThe assumption is false, so $\\sqrt2$ is irrational. $\\blacksquare$",
+                "Step 7: Takeaway: What to remember\nA proof by contradiction shows $\\neg A \\Rightarrow F$, hence $A$. The reduced fraction is the trick that makes the contradiction possible."
             ]
         },
         {
-            "id": 42,
+            "id": 27,
+            "topic": "Logic",
+            "title": "Infinitely many primes",
+            "description": "Prove Euclid's theorem: there are infinitely many primes.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe show: for every finite list of primes there is another prime not on the list. For this we need that every number $> 1$ has a prime divisor.",
+                "Step 2: Assumption\nSuppose there were only finitely many primes $p_1, p_2, \\dots, p_n$.",
+                "Step 3: Construction\nConsider $N = p_1 p_2 \\cdots p_n + 1$. We have $N > 1$, so $N$ has a prime divisor $q$ (e.g. the smallest divisor $> 1$).",
+                "Step 4: $q$ is not on the list\nIf $q = p_i$ for some $i$, then $q$ would divide the product $p_1 \\cdots p_n$ and $N$, hence also the difference $N - p_1 \\cdots p_n = 1$. Impossible.",
+                "Step 5: Contradiction\nSo $q$ is a prime not among $p_1,\\dots,p_n$ — contradicting the assumption that the list contains all primes. $\\blacksquare$",
+                "Step 6: Takeaway: What to remember\nImportant: $N$ itself need not be prime (e.g. $2\\cdot3\\cdot5\\cdot7\\cdot11\\cdot13 + 1 = 30031 = 59 \\cdot 509$); only its prime divisor is new. A classic proof by contradiction."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Logic",
+            "title": "Injectivity formally: quantifiers and negation",
+            "description": "Write “$f: \\mathbb{R} \\to \\mathbb{R}$ is injective” with quantifiers, form the negation and use it to refute the injectivity of $f(x) = x^2$. Prove the injectivity of $g(x) = 3x - 5$ from the definition.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe formalise the definition, negate it systematically and apply both to concrete functions: refuting by counterexample, proving by calculation.",
+                "Step 2: Definition\n$f$ injective $\\iff \\forall x\\, \\forall y: (f(x) = f(y) \\rightarrow x = y)$.",
+                "Step 3: Negation\n$\\neg\\forall x\\,\\forall y\\,(P \\rightarrow Q) \\equiv \\exists x\\,\\exists y\\,(P \\land \\neg Q)$, so: $f$ not injective $\\iff \\exists x\\, \\exists y: (f(x) = f(y) \\land x \\neq y)$.",
+                "Step 4: Refutation for $x^2$\nChoose $x = 2$, $y = -2$. Then $f(x) = 4 = f(y)$ but $x \\neq y$. The negation holds, so $f$ is not injective.",
+                "Step 5: Proof for $3x - 5$\nLet $x,y \\in \\mathbb{R}$ be arbitrary with $g(x) = g(y)$, i.e. $3x - 5 = 3y - 5$. Add $5$ and divide by $3$: $x = y$. So the definition holds for all $x,y$: $g$ is injective.",
+                "Step 6: Takeaway: What to remember\nProof (universal statement): pick arbitrary elements and derive the claim. Refutation (existential statement of the negation): give **one** concrete counterexample."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Logic",
+            "title": "Functional completeness: NAND",
+            "description": "Show: (a) $A \\lor B$ and $A \\rightarrow B$ can be expressed using only $\\neg$ and $\\land$. (b) With the Sheffer stroke $A \\mid B := \\neg(A \\land B)$ one can express $\\neg A$ and $A \\land B$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe reduce new connectives to a few basic ones and prove the equivalences using De Morgan's laws and truth tables.",
+                "Step 2: (a) $A \\lor B$\nDe Morgan: $\\neg(\\neg A \\land \\neg B) \\equiv \\neg\\neg A \\lor \\neg\\neg B \\equiv A \\lor B$. So $A \\lor B \\equiv \\neg(\\neg A \\land \\neg B)$.",
+                "Step 3: (a) $A \\rightarrow B$\n$A \\rightarrow B \\equiv \\neg A \\lor B \\equiv \\neg(A \\land \\neg B)$. This result uses only $\\neg$ and $\\land$.",
+                "Step 4: (b) $\\neg A$\n$A \\mid A = \\neg(A \\land A) \\equiv \\neg A$.",
+                "Step 5: (b) $A \\land B$\n$(A \\mid B) \\mid (A \\mid B) \\equiv \\neg(A \\mid B) \\equiv \\neg\\neg(A \\land B) \\equiv A \\land B$.",
+                "Step 6: Check with truth table\nFor $A = T$, $B = F$: $A \\mid B = T$ (since $A \\land B = F$), $(A \\mid B)\\mid(A \\mid B) = \\neg(T \\land T) = F = A \\land B$ ✓.",
+                "Step 7: Takeaway: What to remember\nThe connectives $\\{\\neg,\\land\\}$ (and likewise $\\{\\neg,\\lor\\}$) are **functionally complete**; even the Sheffer stroke alone suffices. That is why every circuit can be built from NAND gates."
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Logic",
+            "title": "The empty set and vacuous truth",
+            "description": "Determine the truth values: (a) $\\forall x \\in \\emptyset: x > 5$, (b) $\\exists x \\in \\emptyset: x > 5$, (c) “Every prime between $24$ and $28$ is even.” (d) $\\emptyset \\subseteq A$ for every set $A$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nUniversal statements about empty sets are **vacuously true**: there is no counterexample. Existential statements about empty sets are false: there is no example.",
+                "Step 2: (a) true\n$\\forall x \\in \\emptyset: P(x)$ means “for all $x$: $x \\in \\emptyset \\rightarrow P(x)$”. The hypothesis $x \\in \\emptyset$ is always false, so the implication is always true.",
+                "Step 3: (b) false\n$\\exists x \\in \\emptyset: P(x)$ demands an $x$ with $x \\in \\emptyset \\land P(x)$. There is no $x \\in \\emptyset$, so the statement is false.",
+                "Step 4: (c) true\nBetween $24$ and $28$ lie $25,26,27$; none of them is prime. The set of such primes is empty, so the universal statement is (vacuously) true.",
+                "Step 5: (d) true\n$\\emptyset \\subseteq A$ means $\\forall x\\,(x \\in \\emptyset \\rightarrow x \\in A)$, again vacuously true. The empty set is a subset of every set.",
+                "Step 6: Takeaway: What to remember\nThe truth value “$F \\rightarrow Q$ is true” is the reason. The principle explains why $\\emptyset \\subseteq A$ and $\\sum_{k \\in \\emptyset} a_k = 0$ are sensible conventions. One says: “All unicorns are pink” is true."
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Logic",
+            "title": "Proof by Contraposition and Contradiction",
+            "description": "Prove by contraposition and by contradiction: 'If $n^2$ is even, then $n$ is even.'",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Proof by contraposition:\nThe contrapositive is: 'If $n$ is odd, then $n^2$ is odd.'\nLet $n = 2k + 1$ (odd).\nThen $n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$, which is odd.\nThus, the contrapositive holds, proving the original statement.",
+                "Step 2: Proof by contradiction:\nAssume $n^2$ is even and $n$ is odd.\nIf $n$ is odd, $n = 2k + 1$, so $n^2 = 4k^2 + 4k + 1$, which is odd.\nThis contradicts the assumption that $n^2$ is even.\nThus, $n$ must be even.",
+                "Step 3: Conclusion:\nBoth proof methods confirm that if $n^2$ is even, then $n$ is even."
+            ]
+        },
+        {
+            "id": 32,
             "topic": "Logic",
             "title": "Logical Equivalence with Nested Quantifiers",
             "description": "Show that $\\forall x \\exists y: P(x,y)$ and $\\neg \\exists x \\forall y: \\neg P(x,y)$ are logically equivalent.",
@@ -364,21 +472,7 @@
             ]
         },
         {
-            "id": 43,
-            "topic": "Logic",
-            "title": "Logical Inference with Multiple Nested Quantifiers",
-            "description": "Show that from $\\forall x \\forall y: (P(x,y) \\rightarrow Q(x,y))$ and $\\exists x \\exists y: P(x,y)$, the conclusion $\\exists x \\exists y: Q(x,y)$ logically follows.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Step 1: Analyze the premises:\n1. $\\forall x \\forall y: (P(x,y) \\rightarrow Q(x,y))$: For all $x,y$, if $P(x,y)$, then $Q(x,y)$.\n2. $\\exists x \\exists y: P(x,y)$: There exist $x,y$ such that $P(x,y)$.",
-                "Step 2: Logical inference:\nLet $a,b$ be such that $P(a,b)$ (from premise 2).\nFrom premise 1, $P(a,b) \\rightarrow Q(a,b)$.\nSince $P(a,b)$ is true, $Q(a,b)$ follows by modus ponens.\nThus, there exist $x,y$ such that $Q(x,y)$.",
-                "Step 3: Formal proof:\n- Premise 2: There exist $a,b$ with $P(a,b)$.\n- Premise 1: $P(a,b) \\rightarrow Q(a,b)$.\n- Since $P(a,b)$, we have $Q(a,b)$.\n- Therefore, $\\exists x \\exists y: Q(x,y)$.",
-                "Step 4: Conclusion:\nThe inference is valid."
-            ]
-        },
-        {
-            "id": 44,
+            "id": 33,
             "topic": "Logic",
             "title": "Logical Equivalence with Complex Quantifier Combinations",
             "description": "Show that $\\forall x: (P(x) \\rightarrow \\exists y: Q(x,y))$ and $\\forall x \\exists y: (P(x) \\rightarrow Q(x,y))$ are logically equivalent.",
@@ -392,21 +486,7 @@
             ]
         },
         {
-            "id": 45,
-            "topic": "Logic",
-            "title": "Logical Inference with Nested Implications",
-            "description": "Show that from $\\forall x: (P(x) \\rightarrow (Q(x) \\rightarrow R(x)))$ and $\\exists x: (P(x) \\land Q(x))$, the conclusion $\\exists x: R(x)$ logically follows.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Step 1: Analyze the premises:\n1. $\\forall x: (P(x) \\rightarrow (Q(x) \\rightarrow R(x)))$: For all $x$, if $P(x)$, then if $Q(x)$, then $R(x)$.\n2. $\\exists x: (P(x) \\land Q(x))$: There exists an $x$ such that $P(x)$ and $Q(x)$.",
-                "Step 2: Logical inference:\nLet $a$ be such that $P(a) \\land Q(a)$ (from premise 2).\nFrom premise 1, $P(a) \\rightarrow (Q(a) \\rightarrow R(a))$.\nSince $P(a)$ is true, $Q(a) \\rightarrow R(a)$ follows.\nSince $Q(a)$ is true, $R(a)$ follows by modus ponens.\nThus, there exists an $x$ such that $R(x)$.",
-                "Step 3: Formal proof:\n- Premise 2: There exists $a$ with $P(a) \\land Q(a)$.\n- Premise 1: $P(a) \\rightarrow (Q(a) \\rightarrow R(a))$.\n- Since $P(a)$, we have $Q(a) \\rightarrow R(a)$.\n- Since $Q(a)$, we have $R(a)$.\n- Therefore, $\\exists x: R(x)$.",
-                "Step 4: Conclusion:\nThe inference is valid."
-            ]
-        },
-        {
-            "id": 46,
+            "id": 34,
             "topic": "Logic",
             "title": "Logical Equivalence with Complex Quantifiers and Negations",
             "description": "Show that $\\neg \\forall x: (P(x) \\rightarrow Q(x))$ and $\\exists x: (P(x) \\land \\neg Q(x))$ are logically equivalent.",
@@ -420,21 +500,7 @@
             ]
         },
         {
-            "id": 47,
-            "topic": "Logic",
-            "title": "Logical Inference with Complex Quantifier Combinations",
-            "description": "Show that from $\\forall x: (P(x) \\rightarrow \\forall y: Q(x,y))$ and $\\exists x: P(x)$, the conclusion $\\forall y \\exists x: Q(x,y)$ logically follows.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Step 1: Analyze the premises:\n1. $\\forall x: (P(x) \\rightarrow \\forall y: Q(x,y))$: For all $x$, if $P(x)$, then for all $y$, $Q(x,y)$.\n2. $\\exists x: P(x)$: There exists an $x$ such that $P(x)$.",
-                "Step 2: Logical inference:\nLet $a$ be such that $P(a)$ (from premise 2).\nFrom premise 1, $P(a) \\rightarrow \\forall y: Q(a,y)$.\nSince $P(a)$ is true, $\\forall y: Q(a,y)$ follows.\nThus, for every $y$, there exists an $x$ (namely $a$) such that $Q(x,y)$.",
-                "Step 3: Formal proof:\n- Premise 2: There exists $a$ with $P(a)$.\n- Premise 1: $P(a) \\rightarrow \\forall y: Q(a,y)$.\n- Since $P(a)$, we have $\\forall y: Q(a,y)$.\n- Therefore, $\\forall y \\exists x: Q(x,y)$ (with $x = a$).",
-                "Step 4: Conclusion:\nThe inference is valid."
-            ]
-        },
-        {
-            "id": 48,
+            "id": 35,
             "topic": "Logic",
             "title": "Logical Equivalence with Nested Quantifiers and Implications",
             "description": "Show that $\\forall x: (P(x) \\rightarrow \\forall y: (Q(y) \\rightarrow R(x,y)))$ and $\\forall x \\forall y: ((P(x) \\land Q(y)) \\rightarrow R(x,y))$ are logically equivalent.",
@@ -445,21 +511,6 @@
                 "Step 2: Analyze the second statement:\n$\\forall x \\forall y: ((P(x) \\land Q(y)) \\rightarrow R(x,y))$ means: For all $x,y$, if $P(x)$ and $Q(y)$, then $R(x,y)$.",
                 "Step 3: Prove equivalence:\n- Forward: Assume the first statement. For any $x,y$, if $P(x) \\land Q(y)$, then from $P(x)$, we have $\\forall y: (Q(y) \\rightarrow R(x,y))$, so $Q(y) \\rightarrow R(x,y)$. Since $Q(y)$, $R(x,y)$ follows.\n- Backward: Assume the second statement. For any $x$, if $P(x)$, then for any $y$, if $Q(y)$, then $P(x) \\land Q(y)$, so $R(x,y)$ by the second statement. Thus, $\\forall y: (Q(y) \\rightarrow R(x,y))$.",
                 "Step 4: Conclusion:\nThe statements are logically equivalent."
-            ]
-        },
-        {
-            "id": 49,
-            "topic": "Logic",
-            "title": "Logical Inference with Complex Quantifiers and Negations",
-            "description": "Show that from $\\forall x: (\\neg P(x) \\rightarrow Q(x))$ and $\\exists x: \\neg Q(x)$, the conclusion $\\exists x: P(x)$ logically follows.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Step 1: Analyze the premises:\n1. $\\forall x: (\\neg P(x) \\rightarrow Q(x))$: For all $x$, if $\\neg P(x)$, then $Q(x)$.\n2. $\\exists x: \\neg Q(x)$: There exists an $x$ such that $\\neg Q(x)$.",
-                "Step 2: Rewrite the implication:\n$\\neg P(x) \\rightarrow Q(x) \\equiv P(x) \\lor Q(x)$.",
-                "Step 3: Logical inference:\nLet $a$ be such that $\\neg Q(a)$ (from premise 2).\nFrom premise 1, $P(a) \\lor Q(a)$.\nSince $\\neg Q(a)$, $Q(a)$ is false, so $P(a)$ must be true.\nThus, there exists an $x$ such that $P(x)$.",
-                "Step 4: Formal proof:\n- Premise 2: There exists $a$ with $\\neg Q(a)$.\n- Premise 1: $P(a) \\lor Q(a)$.\n- Since $\\neg Q(a)$, $P(a)$ follows.\n- Therefore, $\\exists x: P(x)$.",
-                "Step 5: Conclusion:\nThe inference is valid."
             ]
         }
     ]

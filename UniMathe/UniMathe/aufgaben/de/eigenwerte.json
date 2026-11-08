@@ -3,75 +3,76 @@
         {
             "id": 1,
             "topic": "Eigenwerte",
-            "title": "Eigenwerte und Eigenvektoren",
-            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 3 & 1 & 0 \\\\ 1 & 3 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}$.",
-            "difficulty": "medium",
-            "points": 12,
+            "title": "Eigenwerte und Eigenvektoren einer 2×2-Matrix",
+            "description": "Bestimmen Sie alle Eigenwerte und Eigenvektoren von $A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}$.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Charakteristisches Polynom\nBerechnung der Determinante von $A - \\lambda I$:\n$\\det(A - \\lambda I) = \\begin{vmatrix} 3-\\lambda & 1 & 0 \\\\ 1 & 3-\\lambda & 0 \\\\ 0 & 0 & 2-\\lambda \\end{vmatrix}$\n\nEntwicklung nach der letzten Zeile:\n$= (2-\\lambda)\\begin{vmatrix} 3-\\lambda & 1 \\\\ 1 & 3-\\lambda \\end{vmatrix}$\n$= (2-\\lambda)((3-\\lambda)^2 - 1)$\n$= (2-\\lambda)(\\lambda^2 - 6\\lambda + 8)$\n$= (2-\\lambda)(\\lambda - 4)(\\lambda - 2)$",
-                "Schritt 2: Eigenwerte\nSetze das charakteristische Polynom gleich 0:\n$(2-\\lambda)(\\lambda - 4)(\\lambda - 2) = 0$\n\nDie Nullstellen sind:\n$\\lambda_1 = 2$ (doppelte Nullstelle)\n$\\lambda_2 = 4$ (einfache Nullstelle)",
-                "Schritt 3: Eigenvektoren\nFür $\\lambda = 2$:\n$(A - 2I)\\vec{x} = \\begin{pmatrix} 1 & 1 & 0 \\\\ 1 & 1 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}\\vec{x} = \\vec{0}$\n\nGauß-Elimination:\n$\\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}\\vec{x} = \\vec{0}$\n\nLösung:\n$\\vec{x} = \\begin{pmatrix} -t \\\\ t \\\\ s \\end{pmatrix} = t\\begin{pmatrix} -1 \\\\ 1 \\\\ 0 \\end{pmatrix} + s\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$\n\nAlso sind $\\begin{pmatrix} -1 \\\\ 1 \\\\ 0 \\end{pmatrix}$ und $\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$ linear unabhängige Eigenvektoren zum Eigenwert 2.\n\nFür $\\lambda = 4$:\n$(A - 4I)\\vec{x} = \\begin{pmatrix} -1 & 1 & 0 \\\\ 1 & -1 & 0 \\\\ 0 & 0 & -2 \\end{pmatrix}\\vec{x} = \\vec{0}$\n\nGauß-Elimination:\n$\\begin{pmatrix} -1 & 1 & 0 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & -2 \\end{pmatrix}\\vec{x} = \\vec{0}$\n\nLösung:\n$\\vec{x} = \\begin{pmatrix} t \\\\ t \\\\ 0 \\end{pmatrix} = t\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$\n\nAlso ist $\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$ ein Eigenvektor zum Eigenwert 4.",
-                "Schritt 4: Verifikation\nÜberprüfung der Eigenvektoren durch Einsetzen:\n\nFür $\\lambda = 2$:\n$A\\begin{pmatrix} -1 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} 3 & 1 & 0 \\\\ 1 & 3 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}\\begin{pmatrix} -1 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} -2 \\\\ 2 \\\\ 0 \\end{pmatrix} = 2\\begin{pmatrix} -1 \\\\ 1 \\\\ 0 \\end{pmatrix}$\n\n$A\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} 3 & 1 & 0 \\\\ 1 & 3 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 2 \\end{pmatrix} = 2\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$\n\nFür $\\lambda = 4$:\n$A\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} 3 & 1 & 0 \\\\ 1 & 3 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 4 \\\\ 0 \\end{pmatrix} = 4\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$\n\nAlle Eigenvektoren erfüllen die Eigenwertgleichung $A\\vec{v} = \\lambda\\vec{v}$."
+                "Schritt 1: Überblick: Was ist gefragt?\nEigenwerte sind die Nullstellen des charakteristischen Polynoms $\\det(A - \\lambda I)$. Zu jedem Eigenwert bestimmt man die Eigenvektoren als Lösungen des homogenen Systems $(A - \\lambda I)\\vec{v} = \\vec{0}$.",
+                "Schritt 2: Charakteristisches Polynom\n$\\det(A - \\lambda I) = \\begin{vmatrix} 4-\\lambda & 1 \\\\ 2 & 3-\\lambda \\end{vmatrix} = (4-\\lambda)(3-\\lambda) - 2 = \\lambda^2 - 7\\lambda + 10$.",
+                "Schritt 3: Eigenwerte\n$\\lambda^2 - 7\\lambda + 10 = (\\lambda-2)(\\lambda-5) = 0$, also $\\lambda_1 = 2$ und $\\lambda_2 = 5$.",
+                "Schritt 4: Eigenvektor zu $\\lambda_1 = 2$\n$(A - 2I)\\vec{v} = \\begin{pmatrix} 2 & 1 \\\\ 2 & 1 \\end{pmatrix}\\vec{v} = \\vec{0}$ liefert $2v_1 + v_2 = 0$, also $v_2 = -2v_1$. Ein Eigenvektor: $\\vec{v}_1 = (1,-2)^T$.",
+                "Schritt 5: Eigenvektor zu $\\lambda_2 = 5$\n$(A - 5I)\\vec{v} = \\begin{pmatrix} -1 & 1 \\\\ 2 & -2 \\end{pmatrix}\\vec{v} = \\vec{0}$ liefert $-v_1 + v_2 = 0$, also $v_2 = v_1$. Ein Eigenvektor: $\\vec{v}_2 = (1,1)^T$.",
+                "Schritt 6: Probe\n$A\\vec{v}_1 = (4-2,\\ 2-6)^T = (2,-4)^T = 2\\vec{v}_1$ ✓ und $A\\vec{v}_2 = (4+1,\\ 2+3)^T = (5,5)^T = 5\\vec{v}_2$ ✓.",
+                "Schritt 7: Ergebnis\nEigenwerte $2$ und $5$ mit den Eigenräumen $E_2 = \\operatorname{span}\\{(1,-2)^T\\}$ und $E_5 = \\operatorname{span}\\{(1,1)^T\\}$. Jedes Vielfache $\\neq \\vec{0}$ eines Eigenvektors ist wieder ein Eigenvektor.",
+                "Schritt 8: Merke: Worauf es ankommt\nDas System $(A - \\lambda I)\\vec{v} = \\vec{0}$ hat für einen Eigenwert immer unendlich viele Lösungen (der Eigenraum); die Zeilen der Matrix sind dann linear abhängig. Ist das nicht der Fall, ist ein Rechenfehler passiert."
             ]
         },
         {
             "id": 2,
             "topic": "Eigenwerte",
-            "title": "Diagonalisierung",
-            "description": "Untersuchen Sie, ob die Matrix $A = \\begin{pmatrix} 2 & 1 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}$ diagonalisierbar ist und bestimmen Sie gegebenenfalls eine Diagonalmatrix $D$ und eine invertierbare Matrix $S$ mit $A = SDS^{-1}$.",
-            "difficulty": "hard",
-            "points": 15,
+            "title": "Eigenwerte mit Spur und Determinante",
+            "description": "Bestimmen Sie die Eigenwerte von $A = \\begin{pmatrix} 5 & 2 \\\\ -1 & 2 \\end{pmatrix}$ mithilfe von Spur und Determinante und berechnen Sie je einen Eigenvektor.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Eigenwerte\nBerechnung des charakteristischen Polynoms:\n$\\det(A - \\lambda I) = \\begin{vmatrix} 2-\\lambda & 1 & 0 \\\\ 0 & 2-\\lambda & 1 \\\\ 0 & 0 & 2-\\lambda \\end{vmatrix}$\n\nEntwicklung nach der ersten Spalte:\n$= (2-\\lambda)\\begin{vmatrix} 2-\\lambda & 1 \\\\ 0 & 2-\\lambda \\end{vmatrix}$\n$= (2-\\lambda)^3$\n\nSetze gleich 0:\n$(2-\\lambda)^3 = 0$\n\nAlso ist $\\lambda = 2$ der einzige Eigenwert mit algebraischer Vielfachheit 3.",
-                "Schritt 2: Eigenraum\nBerechnung des Eigenraums zum Eigenwert $\\lambda = 2$:\n$(A - 2I)\\vec{x} = \\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix}\\vec{x} = \\vec{0}$\n\nGauß-Elimination:\n$\\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix}\\vec{x} = \\vec{0}$\n\nLösung:\n$x_2 = 0, x_3 = 0$\n$x_1$ ist frei wählbar\n\nAlso ist der Eigenraum:\n$\\ker(A - 2I) = \\{\\begin{pmatrix} t \\\\ 0 \\\\ 0 \\end{pmatrix} \\mid t \\in \\mathbb{R}\\}$\n$= \\text{span}\\{\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}\\}$",
-                "Schritt 3: Geometrische Vielfachheit\nDie geometrische Vielfachheit des Eigenwerts $\\lambda = 2$ ist die Dimension des Eigenraums:\n$\\dim(\\ker(A - 2I)) = 1$\n\nVergleich mit der algebraischen Vielfachheit:\nAlgebraische Vielfachheit = 3\nGeometrische Vielfachheit = 1\n\nDa die geometrische Vielfachheit kleiner ist als die algebraische Vielfachheit, ist die Matrix nicht diagonalisierbar.",
-                "Schritt 4: Jordansche Normalform\nDa die Matrix nicht diagonalisierbar ist, können wir sie in Jordansche Normalform überführen.\n\nDie Jordansche Normalform von $A$ ist:\n$J = \\begin{pmatrix} 2 & 1 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}$\n\nDies ist bereits die Jordansche Normalform, da $A$ bereits in dieser Form vorliegt.\n\nDie Transformationsmatrix $S$ wäre die Einheitsmatrix $I_3$, da $A$ bereits in Jordanscher Normalform ist:\n$A = I_3JI_3^{-1} = J$"
+                "Schritt 1: Überblick: Was ist gefragt?\nBei $2\\times2$-Matrizen ist das charakteristische Polynom $\\lambda^2 - \\operatorname{tr}(A)\\lambda + \\det(A)$. Das erspart die Determinante von $A - \\lambda I$.",
+                "Schritt 2: Merkregel für $2\\times2$\nDas charakteristische Polynom einer $2\\times2$-Matrix ist $\\lambda^2 - \\operatorname{tr}(A)\\,\\lambda + \\det(A)$.",
+                "Schritt 3: Spur und Determinante\n$\\operatorname{tr}(A) = 5 + 2 = 7$, $\\det(A) = 5\\cdot2 - 2\\cdot(-1) = 12$.",
+                "Schritt 4: Eigenwerte\n$\\lambda^2 - 7\\lambda + 12 = (\\lambda-3)(\\lambda-4) = 0$, also $\\lambda_1 = 3$, $\\lambda_2 = 4$. Kontrolle: Summe $= 7 = \\operatorname{tr}A$, Produkt $= 12 = \\det A$.",
+                "Schritt 5: Eigenvektor zu $3$\n$A - 3I = \\begin{pmatrix} 2 & 2 \\\\ -1 & -1 \\end{pmatrix}$: $2v_1 + 2v_2 = 0$, also $\\vec{v}_1 = (1,-1)^T$.",
+                "Schritt 6: Eigenvektor zu $4$\n$A - 4I = \\begin{pmatrix} 1 & 2 \\\\ -1 & -2 \\end{pmatrix}$: $v_1 + 2v_2 = 0$, also $\\vec{v}_2 = (2,-1)^T$.",
+                "Schritt 7: Probe\n$A(1,-1)^T = (5-2,\\ -1-2)^T = (3,-3)^T = 3(1,-1)^T$ ✓ und $A(2,-1)^T = (10-2,\\ -2-2)^T = (8,-4)^T = 4(2,-1)^T$ ✓.",
+                "Schritt 8: Merke: Worauf es ankommt\nAllgemein gilt: Summe der Eigenwerte $= \\operatorname{tr}(A)$, Produkt der Eigenwerte $= \\det(A)$. Damit hat man eine schnelle Kontrolle."
             ]
         },
         {
             "id": 3,
             "topic": "Eigenwerte",
-            "title": "Spektralsatz",
-            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der symmetrischen Matrix $A = \\begin{pmatrix} 2 & 1 & 1 \\\\ 1 & 2 & 1 \\\\ 1 & 1 & 2 \\end{pmatrix}$ und zeigen Sie, dass die Eigenvektoren orthogonal sind.",
-            "difficulty": "hard",
-            "points": 15,
+            "title": "Ist das ein Eigenvektor?",
+            "description": "Sei $A = \\begin{pmatrix} 2 & 0 & 1 \\\\ 0 & 3 & 0 \\\\ 1 & 0 & 2 \\end{pmatrix}$. Entscheiden Sie, welche der Vektoren $\\vec{a} = (1,0,1)^T$, $\\vec{b} = (1,0,-1)^T$, $\\vec{c} = (1,1,0)^T$ Eigenvektoren von $A$ sind, und geben Sie gegebenenfalls den Eigenwert an.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Eigenwerte\n$\\det(A - \\lambda I) = -\\lambda^3 + 6\\lambda^2 - 9\\lambda + 4 = 0$\n$\\lambda_1 = 1, \\lambda_2 = 1, \\lambda_3 = 4$",
-                "Schritt 2: Eigenvektoren\nFür $\\lambda = 1$: $\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix}$\nFür $\\lambda = 4$: $\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$",
-                "Schritt 3: Orthogonalität\n$\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\end{pmatrix} \\cdot \\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix} = 0$\n$\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\end{pmatrix} \\cdot \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix} = 0$\n$\\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix} \\cdot \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix} = 0$",
-                "Schritt 4: Diagonalisierung\n$A = S\\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 4 \\end{pmatrix}S^T$"
+                "Schritt 1: Überblick: Was ist gefragt?\nOb ein Vektor ein Eigenvektor ist, entscheidet man ohne charakteristisches Polynom: Man berechnet $A\\vec{v}$ und prüft, ob das Ergebnis ein Vielfaches von $\\vec{v}$ ist.",
+                "Schritt 2: Methode\n$\\vec{v} \\neq \\vec{0}$ ist genau dann ein Eigenvektor, wenn $A\\vec{v} = \\lambda\\vec{v}$ für ein $\\lambda \\in \\mathbb{R}$, d.h. wenn $A\\vec{v}$ ein Vielfaches von $\\vec{v}$ ist. Man berechnet also einfach $A\\vec{v}$ und vergleicht.",
+                "Schritt 3: Vektor $\\vec{a}$\n$A\\vec{a} = (2\\cdot1 + 1\\cdot1,\\ 0,\\ 1\\cdot1 + 2\\cdot1)^T = (3,0,3)^T = 3\\vec{a}$. Eigenvektor zum Eigenwert $3$.",
+                "Schritt 4: Vektor $\\vec{b}$\n$A\\vec{b} = (2 - 1,\\ 0,\\ 1 - 2)^T = (1,0,-1)^T = 1\\cdot\\vec{b}$. Eigenvektor zum Eigenwert $1$.",
+                "Schritt 5: Vektor $\\vec{c}$\n$A\\vec{c} = (2,\\ 3,\\ 1)^T$. Gäbe es ein $\\lambda$ mit $A\\vec{c} = \\lambda\\vec{c}$, so wäre $2 = \\lambda$ (1. Komponente), $3 = \\lambda$ (2. Komponente) — Widerspruch. Kein Eigenvektor.",
+                "Schritt 6: Ergebnis\n$\\vec{a}$ (Eigenwert $3$) und $\\vec{b}$ (Eigenwert $1$) sind Eigenvektoren, $\\vec{c}$ nicht. Zusatz: Auch $(0,1,0)^T$ ist ein Eigenvektor zum Eigenwert $3$; der Eigenraum zu $3$ ist daher zweidimensional.",
+                "Schritt 7: Merke: Worauf es ankommt\nDer Nullvektor ist nie ein Eigenvektor. Gehören mehrere Eigenvektoren zum selben Eigenwert, spannen sie zusammen den Eigenraum auf."
             ]
         },
         {
             "id": 4,
             "topic": "Eigenwerte",
-            "title": "Potenz einer Matrix",
-            "description": "Berechnen Sie $A^{100}$ für die Matrix $A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 2 \\end{pmatrix}$ mit Hilfe der Eigenwerte und Eigenvektoren.",
-            "difficulty": "hard",
-            "points": 15,
+            "title": "Eigenwerte von A², A⁻¹ und A + 5I",
+            "description": "Die Matrix $A = \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix}$ hat die Eigenwerte $2$ und $3$. Bestimmen Sie die Eigenwerte von A², A⁻¹ und A + 5I, ohne diese Matrizen im Detail zu berechnen, und überprüfen Sie das Ergebnis für $A^2$.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Eigenwerte\n$\\det(A - \\lambda I) = (1-\\lambda)(2-\\lambda) = 0$\n$\\lambda_1 = 1, \\lambda_2 = 2$",
-                "Schritt 2: Eigenvektoren\nFür $\\lambda = 1$: $\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$\nFür $\\lambda = 2$: $\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$",
-                "Schritt 3: Diagonalisierung\n$A = S\\begin{pmatrix} 1 & 0 \\\\ 0 & 2 \\end{pmatrix}S^{-1}$\n$S = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$",
-                "Schritt 4: Potenz\n$A^{100} = S\\begin{pmatrix} 1 & 0 \\\\ 0 & 2^{100} \\end{pmatrix}S^{-1} = \\begin{pmatrix} 1 & 2^{100}-1 \\\\ 0 & 2^{100} \\end{pmatrix}$"
+                "Schritt 1: Überblick: Was ist gefragt?\nEigenvektoren bleiben beim Übergang zu Funktionen von $A$ erhalten, nur die Eigenwerte ändern sich entsprechend: $A\\vec{v} = \\lambda\\vec{v}$ impliziert $f(A)\\vec{v} = f(\\lambda)\\vec{v}$ für Polynome $f$ (und für $A^{-1}$ mit $f(\\lambda) = 1/\\lambda$).",
+                "Schritt 2: Grundprinzip\nGilt $A\\vec{v} = \\lambda\\vec{v}$, so folgt $A^2\\vec{v} = A(\\lambda\\vec{v}) = \\lambda^2\\vec{v}$, $A^{-1}\\vec{v} = \\frac1\\lambda\\vec{v}$ (für $\\lambda \\neq 0$) und $(A+5I)\\vec{v} = (\\lambda+5)\\vec{v}$. Die Eigenvektoren bleiben also gleich, die Eigenwerte ändern sich entsprechend.",
+                "Schritt 3: $A^2$\nEigenwerte $2^2 = 4$ und $3^2 = 9$.",
+                "Schritt 4: $A^{-1}$\n$A$ ist invertierbar ($\\det A = 6 \\neq 0$, alle Eigenwerte $\\neq 0$). Eigenwerte $\\frac12$ und $\\frac13$.",
+                "Schritt 5: $A + 5I$\nEigenwerte $2 + 5 = 7$ und $3 + 5 = 8$.",
+                "Schritt 6: Kontrolle für $A^2$\n$A^2 = \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix}\\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\end{pmatrix} = \\begin{pmatrix} 4 & 5 \\\\ 0 & 9 \\end{pmatrix}$. Das ist eine obere Dreiecksmatrix, ihre Eigenwerte stehen auf der Diagonalen: $4$ und $9$ ✓.",
+                "Schritt 7: Ergebnis\n$A^2$: $\\{4, 9\\}$; $A^{-1}$: $\\{\\tfrac12, \\tfrac13\\}$; $A + 5I$: $\\{7, 8\\}$.",
+                "Schritt 8: Merke: Worauf es ankommt\nDas Prinzip spart viel Rechenarbeit: Statt $A^{10}$ auszumultiplizieren, genügt es, die Eigenwerte zu potenzieren. Für $A^{-1}$ muss $0$ als Eigenwert ausgeschlossen sein."
             ]
         },
         {
             "id": 5,
-            "topic": "Eigenwerte",
-            "title": "Stabilität",
-            "description": "Untersuchen Sie die Stabilität des linearen Differentialgleichungssystems $\\dot{\\vec{x}} = A\\vec{x}$ mit $A = \\begin{pmatrix} -2 & 1 \\\\ 1 & -2 \\end{pmatrix}$ anhand der Eigenwerte.",
-            "difficulty": "medium",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Eigenwerte\n$\\det(A - \\lambda I) = \\lambda^2 + 4\\lambda + 3 = 0$\n$\\lambda_1 = -1, \\lambda_2 = -3$",
-                "Schritt 2: Eigenvektoren\nFür $\\lambda = -1$: $\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$\nFür $\\lambda = -3$: $\\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}$",
-                "Schritt 3: Stabilitätsanalyse\nAlle Eigenwerte haben negativen Realteil, also ist das System asymptotisch stabil",
-                "Schritt 4: Allgemeine Lösung\n$\\vec{x}(t) = c_1e^{-t}\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} + c_2e^{-3t}\\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}$"
-            ]
-        },
-        {
-            "id": 6,
             "topic": "Eigenwerte",
             "title": "Einfache Eigenwerte",
             "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 2 & 0 \\\\ 0 & 3 \\end{pmatrix}$.",
@@ -85,21 +86,7 @@
             ]
         },
         {
-            "id": 7,
-            "topic": "Eigenwerte",
-            "title": "Diagonalmatrix",
-            "description": "Bestimmen Sie die Eigenwerte der Matrix $A = \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & 2 & 0 \\\\ 0 & 0 & 3 \\end{pmatrix}$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = (1-\\lambda)(2-\\lambda)(3-\\lambda) = 0$",
-                "Schritt 2: Eigenwerte\n$\\lambda_1 = 1, \\lambda_2 = 2, \\lambda_3 = 3$",
-                "Schritt 3: Eigenvektoren\nFür $\\lambda = 1$: $\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}$\nFür $\\lambda = 2$: $\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}$\nFür $\\lambda = 3$: $\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$",
-                "Schritt 4: Verifikation\nDie Eigenwerte sind die Diagonaleinträge der Matrix"
-            ]
-        },
-        {
-            "id": 8,
+            "id": 6,
             "topic": "Eigenwerte",
             "title": "Einfache Matrix",
             "description": "Bestimmen Sie die Eigenwerte der Matrix $A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$.",
@@ -113,7 +100,7 @@
             ]
         },
         {
-            "id": 9,
+            "id": 7,
             "topic": "Eigenwerte",
             "title": "Dreiecksmatrix",
             "description": "Bestimmen Sie die Eigenwerte der Matrix $A = \\begin{pmatrix} 2 & 1 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}$.",
@@ -127,7 +114,7 @@
             ]
         },
         {
-            "id": 10,
+            "id": 8,
             "topic": "Eigenwerte",
             "title": "Symmetrische Matrix",
             "description": "Bestimmen Sie die Eigenwerte der Matrix $A = \\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix}$.",
@@ -141,7 +128,7 @@
             ]
         },
         {
-            "id": 11,
+            "id": 9,
             "topic": "Eigenwerte",
             "title": "Einfache Eigenwerte",
             "description": "Bestimmen Sie die Eigenwerte der Matrix $A = \\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix}$.",
@@ -155,7 +142,7 @@
             ]
         },
         {
-            "id": 12,
+            "id": 10,
             "topic": "Eigenwerte",
             "title": "Einfache Matrix",
             "description": "Bestimmen Sie die Eigenwerte der Matrix $A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 1 \\end{pmatrix}$.",
@@ -169,7 +156,139 @@
             ]
         },
         {
+            "id": 11,
+            "topic": "Eigenwerte",
+            "title": "Eigenwerte geometrischer Abbildungen",
+            "description": "Bestimmen Sie Eigenwerte und Eigenvektoren von (a) der Streckung $S = \\operatorname{diag}(2,3)$, (b) der Spiegelung $T = \\begin{pmatrix}0&1\\\\1&0\\end{pmatrix}$ an $y = x$, (c) der Projektion $P = \\begin{pmatrix}1&0\\\\0&0\\end{pmatrix}$ auf die $x$-Achse.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEin Eigenvektor ist eine Richtung, die von der Abbildung nur gestreckt (oder gespiegelt/gestaucht) wird. Wir lesen die Eigenvektoren zuerst geometrisch ab und bestätigen sie dann rechnerisch.",
+                "Schritt 2: (a) Streckung\nDie Achsenrichtungen bleiben erhalten: $(1,0)$ mit $\\lambda = 2$, $(0,1)$ mit $\\lambda = 3$.",
+                "Schritt 3: (b) Spiegelung\nVektoren auf der Spiegelachse bleiben fest: $(1,1)$ mit $\\lambda = 1$ ($T(1,1) = (1,1)$). Vektoren senkrecht dazu werden umgekehrt: $(1,-1)$ mit $\\lambda = -1$ ($T(1,-1) = (-1,1)$).",
+                "Schritt 4: (c) Projektion\nDie $x$-Achse bleibt fest: $(1,0)$ mit $\\lambda = 1$. Die $y$-Achse wird auf $\\vec0$ abgebildet: $(0,1)$ mit $\\lambda = 0$ (Kern).",
+                "Schritt 5: Rechnerische Kontrolle\n(b): $\\det(T - \\lambda I) = \\lambda^2 - 1 = 0 \\Rightarrow \\lambda = \\pm1$ ✓. (c): $\\lambda^2 - \\lambda = 0 \\Rightarrow \\lambda \\in \\{0,1\\}$ ✓. Spur und Determinante: (b) $0 = 1 + (-1)$, $-1 = 1\\cdot(-1)$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nEigenwert $1$: Richtung bleibt fest; $-1$: Richtung wird umgekehrt; $0$: Richtung wird ausgelöscht (Kern); $>1$ bzw. $<1$: Streckung bzw. Stauchung. Eine Drehung (außer um $0^\\circ,180^\\circ$) hat keine reellen Eigenvektoren."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Eigenwerte",
+            "title": "Nicht diagonalisierbar: Eigenräume bestimmen",
+            "description": "Bestimmen Sie Eigenwerte, Eigenräume und die Vielfachheiten von $A = \\begin{pmatrix}2&1&0\\\\0&2&0\\\\1&0&3\\end{pmatrix}$. Ist $A$ diagonalisierbar?",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir berechnen das charakteristische Polynom, dann für jeden Eigenwert den Eigenraum $\\ker(A - \\lambda I)$ und vergleichen algebraische und geometrische Vielfachheit.",
+                "Schritt 2: Charakteristisches Polynom\nEntwicklung nach der dritten Spalte: $\\det(A - \\lambda I) = (3-\\lambda)\\begin{vmatrix}2-\\lambda&1\\\\0&2-\\lambda\\end{vmatrix} = (3-\\lambda)(2-\\lambda)^2$. Eigenwerte: $\\lambda = 3$ (einfach) und $\\lambda = 2$ (algebraisch doppelt).",
+                "Schritt 3: Eigenraum zu $\\lambda = 3$\n$A - 3I = \\begin{pmatrix}-1&1&0\\\\0&-1&0\\\\1&0&0\\end{pmatrix}$ liefert $v_2 = 0$, $v_1 = 0$: $E_3 = \\operatorname{span}\\{(0,0,1)\\}$. Probe: $A(0,0,1)^T = (0,0,3)^T$ ✓.",
+                "Schritt 4: Eigenraum zu $\\lambda = 2$\n$A - 2I = \\begin{pmatrix}0&1&0\\\\0&0&0\\\\1&0&1\\end{pmatrix}$ hat Rang $2$. Aus den Zeilen: $v_2 = 0$, $v_1 + v_3 = 0$: $E_2 = \\operatorname{span}\\{(1,0,-1)\\}$, Dimension $1$. Probe: $A(1,0,-1)^T = (2,0,-2)^T$ ✓.",
+                "Schritt 5: Diagonalisierbarkeit\nFür $\\lambda = 2$: algebraische Vielfachheit $2 >$ geometrische Vielfachheit $1$. Es gibt nur $2$ linear unabhängige Eigenvektoren in $\\mathbb{R}^3$: $A$ ist **nicht diagonalisierbar** (Jordan-Block zu $\\lambda = 2$).",
+                "Schritt 6: Merke: Worauf es ankommt\nDie Dimension des Eigenraums ist $n - \\operatorname{rang}(A - \\lambda I)$. Diagonalisierbar $\\iff$ für jeden Eigenwert geometrische $=$ algebraische Vielfachheit (Summe der Eigenraumdimensionen $= n$)."
+            ]
+        },
+        {
             "id": 13,
+            "topic": "Eigenwerte",
+            "title": "Diagonalisieren und Matrixpotenzen berechnen",
+            "description": "Diagonalisieren Sie $A = \\begin{pmatrix} 3 & 2 \\\\ 1 & 4 \\end{pmatrix}$, d.h. bestimmen Sie $S$ und $D$ mit $A = SDS^{-1}$, und berechnen Sie damit $A^3$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDiagonalisieren heißt, $A = SDS^{-1}$ zu schreiben: $D$ enthält die Eigenwerte, die Spalten von $S$ die zugehörigen Eigenvektoren (in gleicher Reihenfolge). Damit werden Potenzen einfach: $A^n = SD^nS^{-1}$.",
+                "Schritt 2: Eigenwerte\n$\\operatorname{tr}A = 7$, $\\det A = 12 - 2 = 10$, also $\\lambda^2 - 7\\lambda + 10 = (\\lambda-2)(\\lambda-5) = 0$: $\\lambda_1 = 5$, $\\lambda_2 = 2$.",
+                "Schritt 3: Eigenvektoren\n$\\lambda = 5$: $A - 5I = \\begin{pmatrix} -2 & 2 \\\\ 1 & -1 \\end{pmatrix}$, also $\\vec{v}_1 = (1,1)^T$. $\\lambda = 2$: $A - 2I = \\begin{pmatrix} 1 & 2 \\\\ 1 & 2 \\end{pmatrix}$, also $\\vec{v}_2 = (2,-1)^T$.",
+                "Schritt 4: $S$ und $D$\n$S = \\begin{pmatrix} 1 & 2 \\\\ 1 & -1 \\end{pmatrix}$, $D = \\begin{pmatrix} 5 & 0 \\\\ 0 & 2 \\end{pmatrix}$, $\\det S = -3$, $S^{-1} = \\frac13\\begin{pmatrix} 1 & 2 \\\\ 1 & -1 \\end{pmatrix}$.",
+                "Schritt 5: Diagonalisierbarkeit\nZwei verschiedene Eigenwerte liefern zwei linear unabhängige Eigenvektoren, daher ist $A$ diagonalisierbar: $A = SDS^{-1}$.",
+                "Schritt 6: Potenz\n$A^3 = SD^3S^{-1}$ mit $D^3 = \\begin{pmatrix} 125 & 0 \\\\ 0 & 8 \\end{pmatrix}$. $SD^3 = \\begin{pmatrix} 125 & 16 \\\\ 125 & -8 \\end{pmatrix}$. Dann $A^3 = \\frac13\\begin{pmatrix} 125 & 16 \\\\ 125 & -8 \\end{pmatrix}\\begin{pmatrix} 1 & 2 \\\\ 1 & -1 \\end{pmatrix} = \\frac13\\begin{pmatrix} 141 & 234 \\\\ 117 & 258 \\end{pmatrix} = \\begin{pmatrix} 47 & 78 \\\\ 39 & 86 \\end{pmatrix}$.",
+                "Schritt 7: Kontrolle durch direktes Multiplizieren\n$A^2 = \\begin{pmatrix} 11 & 14 \\\\ 7 & 18 \\end{pmatrix}$ und $A^3 = A^2A = \\begin{pmatrix} 33+14 & 22+56 \\\\ 21+18 & 14+72 \\end{pmatrix} = \\begin{pmatrix} 47 & 78 \\\\ 39 & 86 \\end{pmatrix}$ ✓.",
+                "Schritt 8: Merke: Worauf es ankommt\nReihenfolge beachten: Die $i$-te Spalte von $S$ gehört zum $i$-ten Diagonaleintrag von $D$. Die Kontrolle durch direktes Multiplizieren zeigt, ob die Diagonalisierung stimmt."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Eigenwerte",
+            "title": "Algebraische und geometrische Vielfachheit",
+            "description": "Untersuchen Sie, ob $A = \\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}$ und $B = \\begin{pmatrix} 1 & 0 & 1 \\\\ 0 & 1 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}$ diagonalisierbar sind.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDiagonalisierbar ist eine Matrix genau dann, wenn es eine Basis aus Eigenvektoren gibt, d.h. wenn für jeden Eigenwert die geometrische gleich der algebraischen Vielfachheit ist. Wir bestimmen beide Vielfachheiten.",
+                "Schritt 2: Kriterium\nEine Matrix ist genau dann diagonalisierbar, wenn für jeden Eigenwert die geometrische Vielfachheit ($\\dim$ des Eigenraums) gleich der algebraischen Vielfachheit (Vielfachheit als Nullstelle des charakteristischen Polynoms) ist.",
+                "Schritt 3: Eigenwerte\nBeide Matrizen sind obere Dreiecksmatrizen mit Diagonale $(1,1,2)$. Eigenwerte: $\\lambda = 1$ (algebraische Vielfachheit $2$) und $\\lambda = 2$ (algebraische Vielfachheit $1$).",
+                "Schritt 4: Matrix $A$\n$A - I = \\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$ hat Rang $2$, also $\\dim\\ker(A-I) = 3 - 2 = 1 < 2$. Die geometrische Vielfachheit ist zu klein: $A$ ist nicht diagonalisierbar.",
+                "Schritt 5: Matrix $B$\n$B - I = \\begin{pmatrix} 0 & 0 & 1 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$ hat Rang $1$, also $\\dim\\ker(B-I) = 3 - 1 = 2$. Eigenvektoren zu $1$: $(1,0,0)^T$ und $(0,1,0)^T$.",
+                "Schritt 6: Eigenvektor zu $2$ für $B$\n$B - 2I = \\begin{pmatrix} -1 & 0 & 1 \\\\ 0 & -1 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}$ liefert $v_1 = v_3$, $v_2 = 0$, also $(1,0,1)^T$.",
+                "Schritt 7: Ergebnis\n$B$ hat drei linear unabhängige Eigenvektoren $(1,0,0)^T, (0,1,0)^T, (1,0,1)^T$ und ist diagonalisierbar: $B = SDS^{-1}$ mit $D = \\operatorname{diag}(1,1,2)$. $A$ ist nicht diagonalisierbar, obwohl beide Matrizen dieselben Eigenwerte haben.",
+                "Schritt 8: Merke: Worauf es ankommt\nDie geometrische Vielfachheit ist stets $\\leq$ der algebraischen. Gleiche Eigenwerte garantieren nicht gleiches Verhalten: Zwei Matrizen mit denselben Eigenwerten können sich in der Diagonalisierbarkeit unterscheiden."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Eigenwerte",
+            "title": "Komplexe Eigenwerte: Drehstreckung",
+            "description": "Bestimmen Sie die komplexen Eigenwerte und Eigenvektoren von $A = \\begin{pmatrix} 1 & -1 \\\\ 1 & 1 \\end{pmatrix}$ und deuten Sie die Abbildung geometrisch.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEine reelle Matrix kann komplexe Eigenwerte haben, z.B. Drehungen. Sie treten dann als konjugiert komplexe Paare auf, und die Eigenvektoren sind ebenfalls zueinander konjugiert.",
+                "Schritt 2: Charakteristisches Polynom\n$\\operatorname{tr}A = 2$, $\\det A = 1\\cdot1 - (-1)\\cdot1 = 2$. Also $\\lambda^2 - 2\\lambda + 2 = 0$.",
+                "Schritt 3: Eigenwerte\n$\\lambda_{1,2} = \\frac{2 \\pm \\sqrt{4-8}}{2} = 1 \\pm i$. Die Matrix hat keine reellen Eigenwerte, aber zwei konjugiert komplexe.",
+                "Schritt 4: Eigenvektor zu $1+i$\n$A - (1+i)I = \\begin{pmatrix} -i & -1 \\\\ 1 & -i \\end{pmatrix}$. Erste Zeile: $-iv_1 - v_2 = 0 \\Rightarrow v_2 = -iv_1$. Mit $v_1 = 1$: $\\vec{v} = (1,-i)^T$.",
+                "Schritt 5: Eigenvektor zu $1-i$\nDa $A$ reell ist, ist der Eigenvektor zum konjugierten Eigenwert der konjugierte Vektor: $\\bar{\\vec{v}} = (1,i)^T$.",
+                "Schritt 6: Probe\n$A(1,-i)^T = (1 + i,\\ 1 - i)^T$ und $(1+i)\\cdot(1,-i)^T = (1+i,\\ -i - i^2)^T = (1+i,\\ 1-i)^T$ ✓.",
+                "Schritt 7: Geometrische Deutung\n$|1+i| = \\sqrt2$ und $\\arg(1+i) = 45^\\circ$. Die Abbildung ist eine Drehung um $45^\\circ$ kombiniert mit einer Streckung um $\\sqrt2$: $A = \\sqrt2\\begin{pmatrix} \\cos 45^\\circ & -\\sin 45^\\circ \\\\ \\sin 45^\\circ & \\cos 45^\\circ \\end{pmatrix}$. Deshalb gibt es keine reelle Richtung, die auf sich selbst abgebildet wird.",
+                "Schritt 8: Merke: Worauf es ankommt\nDer Betrag des komplexen Eigenwerts ist der Streckfaktor, sein Argument der Drehwinkel. Deshalb haben Drehstreckungen im $\\mathbb{R}^2$ keine reellen Eigenrichtungen."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Eigenwerte",
+            "title": "Orthogonale Diagonalisierung (Spektralsatz)",
+            "description": "Bestimmen Sie für die symmetrische Matrix $A = \\begin{pmatrix} 2 & 0 & 0 \\\\ 0 & 3 & 1 \\\\ 0 & 1 & 3 \\end{pmatrix}$ eine Orthonormalbasis aus Eigenvektoren und eine orthogonale Matrix $Q$ mit $Q^TAQ = D$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nNach dem Spektralsatz ist jede symmetrische reelle Matrix orthogonal diagonalisierbar: Es gibt eine Orthonormalbasis aus Eigenvektoren. Eigenvektoren zu verschiedenen Eigenwerten sind automatisch orthogonal; innerhalb eines mehrdimensionalen Eigenraums muss man gegebenenfalls orthogonalisieren.",
+                "Schritt 2: Charakteristisches Polynom\nBlockstruktur: $\\det(A-\\lambda I) = (2-\\lambda)\\cdot\\big((3-\\lambda)^2 - 1\\big) = (2-\\lambda)(\\lambda-2)(\\lambda-4)$.",
+                "Schritt 3: Eigenwerte\n$\\lambda_1 = 2$ (algebraische Vielfachheit $2$) und $\\lambda_2 = 4$.",
+                "Schritt 4: Eigenraum zu $2$\n$A - 2I = \\begin{pmatrix} 0 & 0 & 0 \\\\ 0 & 1 & 1 \\\\ 0 & 1 & 1 \\end{pmatrix}$ liefert $v_2 + v_3 = 0$, $v_1$ frei. Basis: $(1,0,0)^T$ und $(0,1,-1)^T$. Diese beiden sind bereits orthogonal; normiert: $\\vec{q}_1 = (1,0,0)^T$, $\\vec{q}_2 = \\frac1{\\sqrt2}(0,1,-1)^T$.",
+                "Schritt 5: Eigenraum zu $4$\n$A - 4I = \\begin{pmatrix} -2 & 0 & 0 \\\\ 0 & -1 & 1 \\\\ 0 & 1 & -1 \\end{pmatrix}$ liefert $v_1 = 0$, $v_2 = v_3$. Normiert: $\\vec{q}_3 = \\frac1{\\sqrt2}(0,1,1)^T$.",
+                "Schritt 6: Orthogonalität\n$\\vec{q}_3\\cdot\\vec{q}_1 = 0$ und $\\vec{q}_3\\cdot\\vec{q}_2 = \\frac12(1\\cdot(-1) + 1\\cdot1) = 0$. Eigenvektoren zu verschiedenen Eigenwerten einer symmetrischen Matrix sind stets orthogonal; innerhalb des Eigenraums zu $2$ wurde die Orthogonalität hier durch die Wahl der Basis erreicht.",
+                "Schritt 7: Ergebnis\n$Q = \\begin{pmatrix} 1 & 0 & 0 \\\\ 0 & \\tfrac1{\\sqrt2} & \\tfrac1{\\sqrt2} \\\\ 0 & -\\tfrac1{\\sqrt2} & \\tfrac1{\\sqrt2} \\end{pmatrix}$ und $Q^TAQ = D = \\operatorname{diag}(2,2,4)$. Da $Q^{-1} = Q^T$, kann man $A = QDQ^T$ bequem ohne Invertieren schreiben.",
+                "Schritt 8: Merke: Worauf es ankommt\nMit $Q^{-1} = Q^T$ wird $A = QDQ^T$ ohne Invertieren berechnet. Nicht vergessen, die Eigenvektoren zu normieren, sonst ist $Q$ nicht orthogonal."
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Eigenwerte",
+            "title": "Eigenwerte und Eigenvektoren",
+            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 3 & 1 & 0 \\\\ 1 & 3 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}$.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Charakteristisches Polynom\nBerechnung der Determinante von $A - \\lambda I$:\n$\\det(A - \\lambda I) = \\begin{vmatrix} 3-\\lambda & 1 & 0 \\\\ 1 & 3-\\lambda & 0 \\\\ 0 & 0 & 2-\\lambda \\end{vmatrix}$\n\nEntwicklung nach der letzten Zeile:\n$= (2-\\lambda)\\begin{vmatrix} 3-\\lambda & 1 \\\\ 1 & 3-\\lambda \\end{vmatrix}$\n$= (2-\\lambda)((3-\\lambda)^2 - 1)$\n$= (2-\\lambda)(\\lambda^2 - 6\\lambda + 8)$\n$= (2-\\lambda)(\\lambda - 4)(\\lambda - 2)$",
+                "Schritt 2: Eigenwerte\nSetze das charakteristische Polynom gleich 0:\n$(2-\\lambda)(\\lambda - 4)(\\lambda - 2) = 0$\n\nDie Nullstellen sind:\n$\\lambda_1 = 2$ (doppelte Nullstelle)\n$\\lambda_2 = 4$ (einfache Nullstelle)",
+                "Schritt 3: Eigenvektoren\nFür $\\lambda = 2$:\n$(A - 2I)\\vec{x} = \\begin{pmatrix} 1 & 1 & 0 \\\\ 1 & 1 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}\\vec{x} = \\vec{0}$\n\nGauß-Elimination:\n$\\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}\\vec{x} = \\vec{0}$\n\nLösung:\n$\\vec{x} = \\begin{pmatrix} -t \\\\ t \\\\ s \\end{pmatrix} = t\\begin{pmatrix} -1 \\\\ 1 \\\\ 0 \\end{pmatrix} + s\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$\n\nAlso sind $\\begin{pmatrix} -1 \\\\ 1 \\\\ 0 \\end{pmatrix}$ und $\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$ linear unabhängige Eigenvektoren zum Eigenwert 2.\n\nFür $\\lambda = 4$:\n$(A - 4I)\\vec{x} = \\begin{pmatrix} -1 & 1 & 0 \\\\ 1 & -1 & 0 \\\\ 0 & 0 & -2 \\end{pmatrix}\\vec{x} = \\vec{0}$\n\nGauß-Elimination:\n$\\begin{pmatrix} -1 & 1 & 0 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & -2 \\end{pmatrix}\\vec{x} = \\vec{0}$\n\nLösung:\n$\\vec{x} = \\begin{pmatrix} t \\\\ t \\\\ 0 \\end{pmatrix} = t\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$\n\nAlso ist $\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$ ein Eigenvektor zum Eigenwert 4.",
+                "Schritt 4: Verifikation\nÜberprüfung der Eigenvektoren durch Einsetzen:\n\nFür $\\lambda = 2$:\n$A\\begin{pmatrix} -1 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} 3 & 1 & 0 \\\\ 1 & 3 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}\\begin{pmatrix} -1 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} -2 \\\\ 2 \\\\ 0 \\end{pmatrix} = 2\\begin{pmatrix} -1 \\\\ 1 \\\\ 0 \\end{pmatrix}$\n\n$A\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} 3 & 1 & 0 \\\\ 1 & 3 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 2 \\end{pmatrix} = 2\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$\n\nFür $\\lambda = 4$:\n$A\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} 3 & 1 & 0 \\\\ 1 & 3 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 4 \\\\ 0 \\end{pmatrix} = 4\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$\n\nAlle Eigenvektoren erfüllen die Eigenwertgleichung $A\\vec{v} = \\lambda\\vec{v}$."
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Eigenwerte",
+            "title": "Stabilität",
+            "description": "Untersuchen Sie die Stabilität des linearen Differentialgleichungssystems $\\dot{\\vec{x}} = A\\vec{x}$ mit $A = \\begin{pmatrix} -2 & 1 \\\\ 1 & -2 \\end{pmatrix}$ anhand der Eigenwerte.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Eigenwerte\n$\\det(A - \\lambda I) = \\lambda^2 + 4\\lambda + 3 = 0$\n$\\lambda_1 = -1, \\lambda_2 = -3$",
+                "Schritt 2: Eigenvektoren\nFür $\\lambda = -1$: $\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$\nFür $\\lambda = -3$: $\\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}$",
+                "Schritt 3: Stabilitätsanalyse\nAlle Eigenwerte haben negativen Realteil, also ist das System asymptotisch stabil",
+                "Schritt 4: Allgemeine Lösung\n$\\vec{x}(t) = c_1e^{-t}\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} + c_2e^{-3t}\\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 19,
             "topic": "Eigenwerte",
             "title": "Mittelschwere Matrix",
             "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 2 & 1 & 0 \\\\ 1 & 2 & 1 \\\\ 0 & 1 & 2 \\end{pmatrix}$.",
@@ -183,49 +302,7 @@
             ]
         },
         {
-            "id": 14,
-            "topic": "Eigenwerte",
-            "title": "Mittelschwere Matrix",
-            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 1 & 1 & 1 \\\\ 1 & 1 & 1 \\\\ 1 & 1 & 1 \\end{pmatrix}$.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = -\\lambda^3 + 3\\lambda^2 = 0$",
-                "Schritt 2: Eigenwerte\n$\\lambda_1 = 0$ (doppelt), $\\lambda_2 = 3$",
-                "Schritt 3: Eigenvektoren\nFür $\\lambda = 0$: $\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix}$\nFür $\\lambda = 3$: $\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$",
-                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
-            ]
-        },
-        {
-            "id": 15,
-            "topic": "Eigenwerte",
-            "title": "Mittelschwere Matrix",
-            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 0 & 1 & 0 \\\\ -1 & 0 & 0 \\\\ 0 & 0 & 1 \\end{pmatrix}$.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = (1-\\lambda)(\\lambda^2 + 1) = 0$",
-                "Schritt 2: Eigenwerte\n$\\lambda_1 = 1, \\lambda_2 = i, \\lambda_3 = -i$",
-                "Schritt 3: Eigenvektoren\nFür $\\lambda = 1$: $\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$\nFür $\\lambda = i$: $\\begin{pmatrix} 1 \\\\ i \\\\ 0 \\end{pmatrix}$\nFür $\\lambda = -i$: $\\begin{pmatrix} 1 \\\\ -i \\\\ 0 \\end{pmatrix}$",
-                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
-            ]
-        },
-        {
-            "id": 16,
-            "topic": "Eigenwerte",
-            "title": "Mittelschwere Matrix",
-            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 2 & 1 & 1 \\\\ 1 & 2 & 1 \\\\ 1 & 1 & 2 \\end{pmatrix}$.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = -\\lambda^3 + 6\\lambda^2 - 9\\lambda + 4 = 0$",
-                "Schritt 2: Eigenwerte\n$\\lambda_1 = 1$ (doppelt), $\\lambda_2 = 4$",
-                "Schritt 3: Eigenvektoren\nFür $\\lambda = 1$: $\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix}$\nFür $\\lambda = 4$: $\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$",
-                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
-            ]
-        },
-        {
-            "id": 17,
+            "id": 20,
             "topic": "Eigenwerte",
             "title": "Mittelschwere Matrix",
             "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 1 & 2 & 0 \\\\ 2 & 1 & 0 \\\\ 0 & 0 & 3 \\end{pmatrix}$.",
@@ -239,49 +316,156 @@
             ]
         },
         {
-            "id": 18,
-            "topic": "Eigenwerte",
-            "title": "Mittelschwere Matrix",
-            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 0 & 1 & 1 \\\\ 1 & 0 & 1 \\\\ 1 & 1 & 0 \\end{pmatrix}$.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = -\\lambda^3 + 3\\lambda + 2 = 0$",
-                "Schritt 2: Eigenwerte\n$\\lambda_1 = 2, \\lambda_2 = -1$ (doppelt)",
-                "Schritt 3: Eigenvektoren\nFür $\\lambda = 2$: $\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$\nFür $\\lambda = -1$: $\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix}$",
-                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
-            ]
-        },
-        {
-            "id": 19,
-            "topic": "Eigenwerte",
-            "title": "Schwere Matrix",
-            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 2 & 1 & 1 & 1 \\\\ 1 & 2 & 1 & 1 \\\\ 1 & 1 & 2 & 1 \\\\ 1 & 1 & 1 & 2 \\end{pmatrix}$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = \\lambda^4 - 8\\lambda^3 + 20\\lambda^2 - 16\\lambda = 0$",
-                "Schritt 2: Eigenwerte\n$\\lambda_1 = 0, \\lambda_2 = 2$ (dreifach), $\\lambda_3 = 5$",
-                "Schritt 3: Eigenvektoren\nFür $\\lambda = 0$: $\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\\\ 0 \\end{pmatrix}$\nFür $\\lambda = 2$: $\\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ -1 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 1 \\\\ -1 \\\\ 0 \\end{pmatrix}$\nFür $\\lambda = 5$: $\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$",
-                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
-            ]
-        },
-        {
-            "id": 20,
-            "topic": "Eigenwerte",
-            "title": "Schwere Matrix",
-            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 1 & 1 & 1 & 1 \\\\ 1 & 1 & 1 & 1 \\\\ 1 & 1 & 1 & 1 \\\\ 1 & 1 & 1 & 1 \\end{pmatrix}$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = \\lambda^4 - 4\\lambda^3 = 0$",
-                "Schritt 2: Eigenwerte\n$\\lambda_1 = 0$ (dreifach), $\\lambda_2 = 4$",
-                "Schritt 3: Eigenvektoren\nFür $\\lambda = 0$: $\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ -1 \\end{pmatrix}$\nFür $\\lambda = 4$: $\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$",
-                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
-            ]
-        },
-        {
             "id": 21,
+            "topic": "Eigenwerte",
+            "title": "Definitheit über Eigenwerte",
+            "description": "Zeigen Sie, dass $A = \\begin{pmatrix}2&-1&0\\\\-1&2&-1\\\\0&-1&2\\end{pmatrix}$ positiv definit ist, (a) über die Eigenwerte, (b) mit dem Hauptminorenkriterium.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEine symmetrische Matrix ist genau dann positiv definit, wenn alle Eigenwerte $> 0$ sind, d.h. $\\vec x^TA\\vec x > 0$ für alle $\\vec x \\neq \\vec0$. Alternativ müssen alle führenden Hauptminoren positiv sein (Hurwitz-Kriterium).",
+                "Schritt 2: (a) Charakteristisches Polynom\n$\\det(A - \\lambda I) = (2-\\lambda)\\big((2-\\lambda)^2 - 1\\big) - (-1)\\cdot\\big((-1)(2-\\lambda) - 0\\big) = (2-\\lambda)\\big((2-\\lambda)^2 - 2\\big)$. Nullstellen: $\\lambda = 2$ und $(2-\\lambda)^2 = 2$, d.h. $\\lambda = 2 \\pm \\sqrt2$.",
+                "Schritt 3: (a) Vorzeichen\nDie Eigenwerte $2 - \\sqrt2 \\approx 0{,}586$, $2$, $2 + \\sqrt2 \\approx 3{,}414$ sind alle positiv: $A$ ist positiv definit.",
+                "Schritt 4: (b) Hauptminoren\n$\\Delta_1 = 2 > 0$; $\\Delta_2 = \\begin{vmatrix}2&-1\\\\-1&2\\end{vmatrix} = 3 > 0$; $\\Delta_3 = \\det A = 2(4-1) + 1\\cdot(-2) = 4 > 0$. Alle positiv: positiv definit ✓.",
+                "Schritt 5: Konsistenzprobe\nProdukt der Eigenwerte: $(2 - \\sqrt2)\\cdot2\\cdot(2 + \\sqrt2) = 2\\cdot(4 - 2) = 4 = \\det A$ ✓; Summe $6 = \\operatorname{tr}A$ ✓. Quadratische Form: $\\vec x^TA\\vec x = x_1^2 + (x_1 - x_2)^2 + (x_2 - x_3)^2 + x_3^2 > 0$.",
+                "Schritt 6: Merke: Worauf es ankommt\nPositiv definite Matrizen beschreiben Ellipsoide $\\vec x^TA\\vec x = 1$ (Halbachsen $\\frac{1}{\\sqrt{\\lambda_i}}$) und sind Voraussetzung für Cholesky-Zerlegung und Minimumstellen (Hesse-Matrix). Das Hauptminorenkriterium vermeidet das Berechnen der Eigenwerte."
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Eigenwerte",
+            "title": "Dreiecksmatrix: Eigenwerte, Spur, Determinante",
+            "description": "Sei $A = \\begin{pmatrix}2&0&0\\\\1&3&0\\\\4&5&6\\end{pmatrix}$. Bestimmen Sie Eigenwerte, $\\operatorname{tr}A$, $\\det A$, die Eigenwerte von $A^{-1}$ und von $A^2 - 3A$. Ist $A^2 - 3A$ invertierbar?",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nBei einer Dreiecksmatrix stehen die Eigenwerte auf der Diagonale. Spur $=$ Summe, Determinante $=$ Produkt der Eigenwerte. Für ein Polynom $p$ hat $p(A)$ die Eigenwerte $p(\\lambda_i)$.",
+                "Schritt 2: Eigenwerte, Spur, Determinante\n$\\lambda \\in \\{2, 3, 6\\}$ (untere Dreiecksmatrix). $\\operatorname{tr}A = 2 + 3 + 6 = 11$, $\\det A = 2\\cdot3\\cdot6 = 36$.",
+                "Schritt 3: Eigenwerte von $A^{-1}$\n$A$ ist invertierbar ($\\det A \\neq 0$); die Eigenwerte von $A^{-1}$ sind die Kehrwerte $\\frac12, \\frac13, \\frac16$.",
+                "Schritt 4: Eigenwerte von $A^2 - 3A$\n$p(\\lambda) = \\lambda^2 - 3\\lambda$: $p(2) = -2$, $p(3) = 0$, $p(6) = 18$. Eigenwerte: $-2, 0, 18$.",
+                "Schritt 5: Invertierbarkeit\nDa $0$ ein Eigenwert ist, ist $\\det(A^2 - 3A) = (-2)\\cdot0\\cdot18 = 0$: $A^2 - 3A$ ist **nicht** invertierbar. Probe: $A^2 - 3A = A(A - 3I)$ und $A - 3I$ hat die Diagonale $(-1,0,3)$, ist also singulär ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nDie Regel $p(A)\\vec v = p(\\lambda)\\vec v$ für Eigenvektoren erspart das Berechnen von $A^2$. $A - 3I$ ist singulär genau deshalb, weil $3$ ein Eigenwert von $A$ ist."
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Eigenwerte",
+            "title": "Lineares Differentialgleichungssystem",
+            "description": "Lösen Sie das Anfangswertproblem $\\dot{\\vec x} = A\\vec x$, $\\vec x(0) = (2,0)^T$ mit $A = \\begin{pmatrix}1&2\\\\2&1\\end{pmatrix}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nFür diagonalisierbares $A$ mit Eigenpaaren $(\\lambda_i,\\vec v_i)$ ist die allgemeine Lösung $\\vec x(t) = \\sum c_ie^{\\lambda_it}\\vec v_i$. Die Konstanten $c_i$ folgen aus der Anfangsbedingung.",
+                "Schritt 2: Eigenwerte und Eigenvektoren\n$\\lambda^2 - 2\\lambda - 3 = 0 \\Rightarrow \\lambda_1 = 3$, $\\lambda_2 = -1$. Eigenvektoren: $\\lambda = 3$: $(1,1)^T$; $\\lambda = -1$: $(1,-1)^T$.",
+                "Schritt 3: Allgemeine Lösung\n$\\vec x(t) = c_1e^{3t}\\begin{pmatrix}1\\\\1\\end{pmatrix} + c_2e^{-t}\\begin{pmatrix}1\\\\-1\\end{pmatrix}$.",
+                "Schritt 4: Anfangsbedingung\n$\\vec x(0) = c_1(1,1) + c_2(1,-1) = (2,0)$: $c_1 + c_2 = 2$ und $c_1 - c_2 = 0$, also $c_1 = c_2 = 1$.",
+                "Schritt 5: Lösung und Probe\n$\\vec x(t) = \\begin{pmatrix}e^{3t} + e^{-t}\\\\ e^{3t} - e^{-t}\\end{pmatrix}$. Probe: $\\dot{\\vec x}(0) = (3 - 1,\\ 3 + 1) = (2,4)$ und $A\\vec x(0) = (2,\\ 4)$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nWegen $\\lambda_1 = 3 > 0$ wächst die Lösung exponentiell: Der Ursprung ist ein Sattelpunkt (instabil). Die Eigenvektoren bestimmen die Richtungen, in denen die Lösung rein exponentiell verläuft."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Eigenwerte",
+            "title": "Fibonacci-Zahlen mit Eigenwerten",
+            "description": "Die Fibonacci-Zahlen erfüllen $F_0 = 0$, $F_1 = 1$, $F_{n+1} = F_n + F_{n-1}$. Zeigen Sie mit $A = \\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \\end{pmatrix}$, dass $F_n = \\frac{\\varphi^n - \\psi^n}{\\sqrt5}$ mit $\\varphi = \\frac{1+\\sqrt5}{2}$, $\\psi = \\frac{1-\\sqrt5}{2}$ gilt.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir bilden die Rekursion als Matrixpotenz ab: $(F_{n+1},F_n)^T = A^n(1,0)^T$. Mit Diagonalisierung (Eigenwerte und Eigenvektoren) lässt sich $A^n$ in geschlossener Form berechnen.",
+                "Schritt 2: Matrixform der Rekursion\n$\\begin{pmatrix} F_{n+1} \\\\ F_n \\end{pmatrix} = \\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \\end{pmatrix}\\begin{pmatrix} F_n \\\\ F_{n-1} \\end{pmatrix}$, also $\\begin{pmatrix} F_{n+1} \\\\ F_n \\end{pmatrix} = A^n\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$.",
+                "Schritt 3: Eigenwerte\n$\\lambda^2 - \\operatorname{tr}A\\cdot\\lambda + \\det A = \\lambda^2 - \\lambda - 1 = 0$, also $\\lambda_{1,2} = \\frac{1\\pm\\sqrt5}{2}$, d.h. $\\varphi$ und $\\psi$. Es gilt $\\varphi + \\psi = 1$, $\\varphi\\psi = -1$, $\\varphi - \\psi = \\sqrt5$.",
+                "Schritt 4: Eigenvektoren\nAus $(A - \\lambda I)\\vec{v} = \\vec{0}$ folgt $(1-\\lambda)v_1 + v_2 = 0$ und $v_1 - \\lambda v_2 = 0$. Mit $v_2 = 1$ ist $v_1 = \\lambda$: $\\vec{v}_\\varphi = (\\varphi,1)^T$, $\\vec{v}_\\psi = (\\psi,1)^T$. (Probe: $A\\vec{v}_\\varphi = (\\varphi+1,\\ \\varphi)^T = (\\varphi^2,\\varphi)^T = \\varphi\\vec{v}_\\varphi$, da $\\varphi^2 = \\varphi+1$.)",
+                "Schritt 5: Startvektor zerlegen\n$\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} = c_1\\begin{pmatrix} \\varphi \\\\ 1 \\end{pmatrix} + c_2\\begin{pmatrix} \\psi \\\\ 1 \\end{pmatrix}$ liefert $c_1 + c_2 = 0$ und $c_1\\varphi + c_2\\psi = 1$. Also $c_2 = -c_1$ und $c_1(\\varphi-\\psi) = 1$, d.h. $c_1 = \\frac1{\\sqrt5}$, $c_2 = -\\frac1{\\sqrt5}$.",
+                "Schritt 6: Potenz anwenden\n$A^n\\vec{e}_1 = c_1\\varphi^n\\vec{v}_\\varphi + c_2\\psi^n\\vec{v}_\\psi = \\frac1{\\sqrt5}\\Big(\\varphi^n\\vec{v}_\\varphi - \\psi^n\\vec{v}_\\psi\\Big)$. Die zweite Komponente ist $F_n = \\frac{\\varphi^n - \\psi^n}{\\sqrt5}$. $\\blacksquare$",
+                "Schritt 7: Zahlenprobe\n$n=10$: $\\varphi^{10} \\approx 122{,}9919$, $\\psi^{10} \\approx 0{,}0081$, Differenz $\\approx 122{,}9837$, geteilt durch $\\sqrt5 \\approx 2{,}2361$ ergibt $55 = F_{10}$ ✓. Wegen $|\\psi| < 1$ gilt $F_n \\approx \\varphi^n/\\sqrt5$ und $F_{n+1}/F_n \\to \\varphi$ (goldener Schnitt).",
+                "Schritt 8: Merke: Worauf es ankommt\nDie Methode funktioniert für jede lineare Rekursion mit konstanten Koeffizienten. Die Eigenwerte bestimmen das Wachstum; hier der goldene Schnitt."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Eigenwerte",
+            "title": "Beweis: Eigenwerte einer Projektionsmatrix",
+            "description": "Sei $P \\in \\mathbb{R}^{n\\times n}$ mit $P^2 = P$. Zeigen Sie, dass jeder Eigenwert von $P$ gleich $0$ oder $1$ ist, und überprüfen Sie dies für $P = \\frac12\\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nBeweise über Eigenwerte beginnen fast immer mit einem Eigenpaar $A\\vec{v} = \\lambda\\vec{v}$, $\\vec{v} \\neq \\vec{0}$. Man wendet die vorausgesetzte Matrixeigenschaft ($P^2 = P$) auf $\\vec{v}$ an und vergleicht.",
+                "Schritt 2: Ansatz\nSei $\\lambda$ ein Eigenwert mit Eigenvektor $\\vec{v} \\neq \\vec{0}$, also $P\\vec{v} = \\lambda\\vec{v}$.",
+                "Schritt 3: $P^2$ auf $\\vec{v}$ anwenden\n$P^2\\vec{v} = P(P\\vec{v}) = P(\\lambda\\vec{v}) = \\lambda P\\vec{v} = \\lambda^2\\vec{v}$.",
+                "Schritt 4: Voraussetzung $P^2 = P$ einsetzen\nWegen $P^2 = P$ ist $P^2\\vec{v} = P\\vec{v} = \\lambda\\vec{v}$. Also $\\lambda^2\\vec{v} = \\lambda\\vec{v}$ und somit $(\\lambda^2 - \\lambda)\\vec{v} = \\vec{0}$.",
+                "Schritt 5: Folgerung\nDa $\\vec{v} \\neq \\vec{0}$, muss $\\lambda^2 - \\lambda = \\lambda(\\lambda-1) = 0$ gelten, also $\\lambda \\in \\{0,1\\}$. $\\blacksquare$",
+                "Schritt 6: Beispiel: $P^2 = P$\n$P = \\frac12\\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix}$: $P^2 = \\frac14\\begin{pmatrix} 2 & 2 \\\\ 2 & 2 \\end{pmatrix} = \\frac12\\begin{pmatrix} 1 & 1 \\\\ 1 & 1 \\end{pmatrix} = P$ ✓.",
+                "Schritt 7: Beispiel: Eigenwerte\n$\\operatorname{tr}P = 1$, $\\det P = \\frac14 - \\frac14 = 0$, also $\\lambda^2 - \\lambda = 0$ und $\\lambda \\in \\{0,1\\}$. Eigenvektoren: $(1,1)^T$ zu $\\lambda = 1$ (das Bild von $P$) und $(1,-1)^T$ zu $\\lambda = 0$ (der Kern von $P$).",
+                "Schritt 8: Zusatz\nFür eine Projektion ist $\\operatorname{tr}P$ gleich der Summe der Eigenwerte, also gleich der Anzahl der Einsen: $\\operatorname{tr}P = \\operatorname{rang}P$. Hier $1 = 1$ ✓.",
+                "Schritt 9: Merke: Worauf es ankommt\nWichtig ist, dass $\\vec{v} \\neq \\vec{0}$ vorausgesetzt wird; nur dann darf man aus $(\\lambda^2-\\lambda)\\vec{v} = \\vec{0}$ auf $\\lambda^2 - \\lambda = 0$ schließen."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Eigenwerte",
+            "title": "Markov-Kette und stationäre Verteilung",
+            "description": "Ein Anbieter hat zwei Tarife $A$ und $B$. Jeden Monat bleiben $90\\,\\%$ der Kunden von $A$ bei $A$ (der Rest wechselt zu $B$), und $50\\,\\%$ der Kunden von $B$ wechseln zu $A$. Der Zustandsvektor $\\vec{x}_n = (a_n, b_n)^T$ (Anteile) entwickelt sich nach $\\vec{x}_{n+1} = P\\vec{x}_n$ mit $P = \\begin{pmatrix} 0{,}9 & 0{,}5 \\\\ 0{,}1 & 0{,}5 \\end{pmatrix}$. Bestimmen Sie die Eigenwerte von $P$ und die stationäre Verteilung, gegen die $\\vec{x}_n$ konvergiert.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEin Markov-Prozess $\\vec{x}_{n+1} = P\\vec{x}_n$ hat eine stationäre Verteilung, wenn $P$ den Eigenwert $1$ besitzt. Alle anderen Eigenwerte entscheiden darüber, wie schnell man dorthin konvergiert.",
+                "Schritt 2: Eigenwerte\n$\\operatorname{tr}P = 1{,}4$, $\\det P = 0{,}45 - 0{,}05 = 0{,}4$. Also $\\lambda^2 - 1{,}4\\lambda + 0{,}4 = 0$, d.h. $(\\lambda - 1)(\\lambda - 0{,}4) = 0$: $\\lambda_1 = 1$, $\\lambda_2 = 0{,}4$. (Jede spaltenstochastische Matrix hat den Eigenwert $1$.)",
+                "Schritt 3: Eigenvektor zu $\\lambda_1 = 1$\n$P - I = \\begin{pmatrix} -0{,}1 & 0{,}5 \\\\ 0{,}1 & -0{,}5 \\end{pmatrix}$ liefert $-0{,}1\\,v_1 + 0{,}5\\,v_2 = 0$, also $v_1 = 5v_2$: $\\vec{v}_1 = (5,1)^T$.",
+                "Schritt 4: Eigenvektor zu $\\lambda_2 = 0{,}4$\n$P - 0{,}4I = \\begin{pmatrix} 0{,}5 & 0{,}5 \\\\ 0{,}1 & 0{,}1 \\end{pmatrix}$ liefert $v_1 + v_2 = 0$: $\\vec{v}_2 = (1,-1)^T$.",
+                "Schritt 5: Stationäre Verteilung\nDer Anteilsvektor muss Summe $1$ haben: $\\vec{x}^* = \\frac16(5,1)^T = (\\tfrac56, \\tfrac16)^T$. Probe: $P\\vec{x}^* = (0{,}9\\cdot\\tfrac56 + 0{,}5\\cdot\\tfrac16,\\ 0{,}1\\cdot\\tfrac56 + 0{,}5\\cdot\\tfrac16)^T = (\\tfrac{4{,}5+0{,}5}{6}, \\tfrac{0{,}5+0{,}5}{6})^T = (\\tfrac56, \\tfrac16)^T$ ✓.",
+                "Schritt 6: Konvergenz\nStartet man mit $\\vec{x}_0 = c_1\\vec{v}_1 + c_2\\vec{v}_2$, so ist $\\vec{x}_n = c_1\\cdot1^n\\vec{v}_1 + c_2\\cdot0{,}4^n\\vec{v}_2 \\to c_1\\vec{v}_1$, da $0{,}4^n \\to 0$. Weil die Summe der Anteile erhalten bleibt, ist $c_1\\vec{v}_1 = \\vec{x}^*$, unabhängig vom Startwert.",
+                "Schritt 7: Ergebnis\nAuf lange Sicht entfallen $\\tfrac56 \\approx 83{,}3\\,\\%$ der Kunden auf Tarif $A$ und $\\tfrac16 \\approx 16{,}7\\,\\%$ auf Tarif $B$. Die Konvergenz ist schnell, da der zweite Eigenwert $0{,}4$ betragsmäßig deutlich kleiner als $1$ ist.",
+                "Schritt 8: Merke: Worauf es ankommt\nSpaltenstochastische Matrizen haben immer den Eigenwert $1$; ist jeder andere Eigenwert betragsmäßig kleiner als $1$, konvergiert jeder Startvektor gegen die stationäre Verteilung. Der Eigenvektor muss so skaliert werden, dass die Anteile die Summe $1$ haben."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Eigenwerte",
+            "title": "Satz von Cayley-Hamilton anwenden",
+            "description": "Sei $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$. Bestimmen Sie das charakteristische Polynom $p_A$, zeigen Sie $p_A(A) = 0$ und berechnen Sie damit $A^{-1}$ sowie $A^3$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDer Satz von Cayley-Hamilton besagt, dass jede Matrix ihr eigenes charakteristisches Polynom erfüllt: $p_A(A) = 0$. Daraus lassen sich Inverse und höhere Potenzen ohne weitere Rechnung gewinnen.",
+                "Schritt 2: Charakteristisches Polynom\n$\\operatorname{tr}A = 5$, $\\det A = 4 - 6 = -2$, also $p_A(\\lambda) = \\lambda^2 - 5\\lambda - 2$.",
+                "Schritt 3: Cayley-Hamilton prüfen\nDer Satz besagt $p_A(A) = A^2 - 5A - 2I = 0$. Nachrechnen: $A^2 = \\begin{pmatrix} 1+6 & 2+8 \\\\ 3+12 & 6+16 \\end{pmatrix} = \\begin{pmatrix} 7 & 10 \\\\ 15 & 22 \\end{pmatrix}$ und $5A + 2I = \\begin{pmatrix} 7 & 10 \\\\ 15 & 22 \\end{pmatrix}$ ✓. Also $A^2 = 5A + 2I$.",
+                "Schritt 4: Inverse herleiten\nAus $A^2 - 5A = 2I$ folgt $A(A - 5I) = 2I$, also $A^{-1} = \\frac12(A - 5I)$ (möglich, weil $\\det A = -2 \\neq 0$, d.h. der konstante Term von $p_A$ nicht $0$ ist).",
+                "Schritt 5: Inverse berechnen\n$A^{-1} = \\frac12\\begin{pmatrix} -4 & 2 \\\\ 3 & -1 \\end{pmatrix} = \\begin{pmatrix} -2 & 1 \\\\ \\tfrac32 & -\\tfrac12 \\end{pmatrix}$. Probe mit der $2\\times2$-Formel: $\\frac{1}{-2}\\begin{pmatrix} 4 & -2 \\\\ -3 & 1 \\end{pmatrix} = \\begin{pmatrix} -2 & 1 \\\\ \\tfrac32 & -\\tfrac12 \\end{pmatrix}$ ✓.",
+                "Schritt 6: $A^3$ ohne weiteres Multiplizieren großer Matrizen\n$A^3 = A\\cdot A^2 = A(5A + 2I) = 5A^2 + 2A = 5(5A + 2I) + 2A = 27A + 10I$.",
+                "Schritt 7: Ergebnis\n$A^3 = 27\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} + 10I = \\begin{pmatrix} 37 & 54 \\\\ 81 & 118 \\end{pmatrix}$. Kontrolle: $A^2A = \\begin{pmatrix} 7 & 10 \\\\ 15 & 22 \\end{pmatrix}\\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix} = \\begin{pmatrix} 7+30 & 14+40 \\\\ 15+66 & 30+88 \\end{pmatrix} = \\begin{pmatrix} 37 & 54 \\\\ 81 & 118 \\end{pmatrix}$ ✓. Jede Potenz $A^k$ einer $2\\times2$-Matrix lässt sich so als $\\alpha A + \\beta I$ schreiben.",
+                "Schritt 8: Merke: Worauf es ankommt\nMit $A^2 = 5A + 2I$ lässt sich jede Potenz auf die Form $\\alpha A + \\beta I$ reduzieren. Die Inverse existiert genau dann, wenn der konstante Term $\\det A$ des charakteristischen Polynoms nicht $0$ ist."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Eigenwerte",
+            "title": "Diagonalisierung",
+            "description": "Untersuchen Sie, ob die Matrix $A = \\begin{pmatrix} 2 & 1 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}$ diagonalisierbar ist und bestimmen Sie gegebenenfalls eine Diagonalmatrix $D$ und eine invertierbare Matrix $S$ mit $A = SDS^{-1}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Eigenwerte\nBerechnung des charakteristischen Polynoms:\n$\\det(A - \\lambda I) = \\begin{vmatrix} 2-\\lambda & 1 & 0 \\\\ 0 & 2-\\lambda & 1 \\\\ 0 & 0 & 2-\\lambda \\end{vmatrix}$\n\nEntwicklung nach der ersten Spalte:\n$= (2-\\lambda)\\begin{vmatrix} 2-\\lambda & 1 \\\\ 0 & 2-\\lambda \\end{vmatrix}$\n$= (2-\\lambda)^3$\n\nSetze gleich 0:\n$(2-\\lambda)^3 = 0$\n\nAlso ist $\\lambda = 2$ der einzige Eigenwert mit algebraischer Vielfachheit 3.",
+                "Schritt 2: Eigenraum\nBerechnung des Eigenraums zum Eigenwert $\\lambda = 2$:\n$(A - 2I)\\vec{x} = \\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix}\\vec{x} = \\vec{0}$\n\nGauß-Elimination:\n$\\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix}\\vec{x} = \\vec{0}$\n\nLösung:\n$x_2 = 0, x_3 = 0$\n$x_1$ ist frei wählbar\n\nAlso ist der Eigenraum:\n$\\ker(A - 2I) = \\{\\begin{pmatrix} t \\\\ 0 \\\\ 0 \\end{pmatrix} \\mid t \\in \\mathbb{R}\\}$\n$= \\text{span}\\{\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}\\}$",
+                "Schritt 3: Geometrische Vielfachheit\nDie geometrische Vielfachheit des Eigenwerts $\\lambda = 2$ ist die Dimension des Eigenraums:\n$\\dim(\\ker(A - 2I)) = 1$\n\nVergleich mit der algebraischen Vielfachheit:\nAlgebraische Vielfachheit = 3\nGeometrische Vielfachheit = 1\n\nDa die geometrische Vielfachheit kleiner ist als die algebraische Vielfachheit, ist die Matrix nicht diagonalisierbar.",
+                "Schritt 4: Jordansche Normalform\nDa die Matrix nicht diagonalisierbar ist, können wir sie in Jordansche Normalform überführen.\n\nDie Jordansche Normalform von $A$ ist:\n$J = \\begin{pmatrix} 2 & 1 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}$\n\nDies ist bereits die Jordansche Normalform, da $A$ bereits in dieser Form vorliegt.\n\nDie Transformationsmatrix $S$ wäre die Einheitsmatrix $I_3$, da $A$ bereits in Jordanscher Normalform ist:\n$A = I_3JI_3^{-1} = J$"
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Eigenwerte",
+            "title": "Potenz einer Matrix",
+            "description": "Berechnen Sie $A^{100}$ für die Matrix $A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 2 \\end{pmatrix}$ mit Hilfe der Eigenwerte und Eigenvektoren.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Eigenwerte\n$\\det(A - \\lambda I) = (1-\\lambda)(2-\\lambda) = 0$\n$\\lambda_1 = 1, \\lambda_2 = 2$",
+                "Schritt 2: Eigenvektoren\nFür $\\lambda = 1$: $\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}$\nFür $\\lambda = 2$: $\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 3: Diagonalisierung\n$A = S\\begin{pmatrix} 1 & 0 \\\\ 0 & 2 \\end{pmatrix}S^{-1}$\n$S = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$",
+                "Schritt 4: Potenz\n$A^{100} = S\\begin{pmatrix} 1 & 0 \\\\ 0 & 2^{100} \\end{pmatrix}S^{-1} = \\begin{pmatrix} 1 & 2^{100}-1 \\\\ 0 & 2^{100} \\end{pmatrix}$"
+            ]
+        },
+        {
+            "id": 30,
             "topic": "Eigenwerte",
             "title": "Schwere Matrix",
             "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 0 & 1 & 0 & 0 \\\\ -1 & 0 & 0 & 0 \\\\ 0 & 0 & 0 & 1 \\\\ 0 & 0 & -1 & 0 \\end{pmatrix}$.",
@@ -293,48 +477,6 @@
                 "Schritt 3: Eigenvektoren\nFür $\\lambda = i$: $\\begin{pmatrix} 1 \\\\ i \\\\ 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ i \\end{pmatrix}$\nFür $\\lambda = -i$: $\\begin{pmatrix} 1 \\\\ -i \\\\ 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ -i \\end{pmatrix}$",
                 "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
             ]
-        },
-        {
-            "id": 22,
-            "topic": "Eigenwerte",
-            "title": "Schwere Matrix",
-            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 2 & 1 & 0 & 0 \\\\ 1 & 2 & 1 & 0 \\\\ 0 & 1 & 2 & 1 \\\\ 0 & 0 & 1 & 2 \\end{pmatrix}$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = \\lambda^4 - 8\\lambda^3 + 20\\lambda^2 - 16\\lambda + 3 = 0$",
-                "Schritt 2: Eigenwerte\n$\\lambda_1 = 2 + \\sqrt{2 + \\sqrt{2}}, \\lambda_2 = 2 + \\sqrt{2 - \\sqrt{2}}, \\lambda_3 = 2 - \\sqrt{2 + \\sqrt{2}}, \\lambda_4 = 2 - \\sqrt{2 - \\sqrt{2}}$",
-                "Schritt 3: Eigenvektoren\nFür $\\lambda_1$: $\\begin{pmatrix} 1 \\\\ \\sqrt{2 + \\sqrt{2}} \\\\ \\sqrt{2} \\\\ 1 \\end{pmatrix}$\nFür $\\lambda_2$: $\\begin{pmatrix} 1 \\\\ \\sqrt{2 - \\sqrt{2}} \\\\ -\\sqrt{2} \\\\ 1 \\end{pmatrix}$\nFür $\\lambda_3$: $\\begin{pmatrix} 1 \\\\ -\\sqrt{2 + \\sqrt{2}} \\\\ \\sqrt{2} \\\\ 1 \\end{pmatrix}$\nFür $\\lambda_4$: $\\begin{pmatrix} 1 \\\\ -\\sqrt{2 - \\sqrt{2}} \\\\ -\\sqrt{2} \\\\ 1 \\end{pmatrix}$",
-                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
-            ]
-        },
-        {
-            "id": 23,
-            "topic": "Eigenwerte",
-            "title": "Schwere Matrix",
-            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 1 & 1 & 1 & 1 \\\\ 1 & 2 & 2 & 2 \\\\ 1 & 2 & 3 & 3 \\\\ 1 & 2 & 3 & 4 \\end{pmatrix}$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = \\lambda^4 - 10\\lambda^3 + 35\\lambda^2 - 50\\lambda + 24 = 0$",
-                "Schritt 2: Eigenwerte\n$\\lambda_1 = 1, \\lambda_2 = 2, \\lambda_3 = 3, \\lambda_4 = 4$",
-                "Schritt 3: Eigenvektoren\nFür $\\lambda = 1$: $\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\\\ 0 \\end{pmatrix}$\nFür $\\lambda = 2$: $\\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\\\ 0 \\end{pmatrix}$\nFür $\\lambda = 3$: $\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ -1 \\end{pmatrix}$\nFür $\\lambda = 4$: $\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$",
-                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
-            ]
-        },
-        {
-            "id": 24,
-            "topic": "Eigenwerte",
-            "title": "Schwere Matrix",
-            "description": "Bestimmen Sie die Eigenwerte und Eigenvektoren der Matrix $A = \\begin{pmatrix} 0 & 1 & 1 & 1 \\\\ 1 & 0 & 1 & 1 \\\\ 1 & 1 & 0 & 1 \\\\ 1 & 1 & 1 & 0 \\end{pmatrix}$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Charakteristisches Polynom\n$\\det(A - \\lambda I) = \\lambda^4 - 6\\lambda^2 - 8\\lambda - 3 = 0$",
-                "Schritt 2: Eigenwerte\n$\\lambda_1 = 3, \\lambda_2 = -1$ (dreifach)",
-                "Schritt 3: Eigenvektoren\nFür $\\lambda = 3$: $\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$\nFür $\\lambda = -1$: $\\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ -1 \\end{pmatrix}$",
-                "Schritt 4: Verifikation\nDie Eigenvektoren sind orthogonal"
-            ]
         }
     ]
-} 
+}

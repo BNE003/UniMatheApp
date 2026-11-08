@@ -12,71 +12,71 @@
         {
             "id": 1,
             "topic": "Iterative Verfahren",
-            "title": "Jacobi-Verfahren und Konvergenz",
-            "description": "Gegeben ist das lineare Gleichungssystem $Ax=b$ mit\n$A = \\begin{pmatrix} 4 & -1 & 0 \\\\ -1 & 4 & -1 \\\\ 0 & -1 & 3 \\end{pmatrix}$, $b = \\begin{pmatrix} 15 \\\\ 10 \\\\ 10 \\end{pmatrix}$.\n\na) Stellen Sie die Jacobi-Iteration auf.\nb) Begründen Sie die Konvergenz.\nc) Führen Sie zwei Iterationen mit $x^{(0)} = (0,0,0)^T$ aus.",
-            "difficulty": "medium",
+            "title": "Jacobi-Verfahren",
+            "description": "Gegeben ist $4x - y = 3$, $-x + 4y = 3$ (exakte Lösung $(1,1)$).\na) Führen Sie zwei Schritte des Jacobi-Verfahrens mit $\\vec x^{(0)} = (0,0)$ aus.\nb) Begründen Sie die Konvergenz und geben Sie die Konvergenzrate an.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Zerlegung $A = D + L + U$\n$D = \\mathrm{diag}(4,4,3)$, $L+U$ enthält die Nicht-Diagonaleinträge.\nJacobi-Formel: $x^{(k+1)} = D^{-1}(b - (L+U)x^{(k)})$",
-                "Schritt 2: Komponentenform der Iteration\nAus den Zeilen von $A$ folgt:\n$x_1 = \\frac{15 + x_2}{4}$\n$x_2 = \\frac{10 + x_1 + x_3}{4}$\n$x_3 = \\frac{10 + x_2}{3}$",
-                "Schritt 3: Konvergenz\n$A$ ist strikt diagonaldominant: $4>1$, $4>2$, $3>1$.\nDamit konvergiert das Jacobi-Verfahren (z.B. nach dem Diagonaldominanz-Kriterium).",
-                "Schritt 4: Erste Iteration ($x^{(0)}=0$)\n$x^{(1)} = \\left(\\frac{15}{4}, \\frac{10}{4}, \\frac{10}{3}\\right)^T \\approx (3{,}75, 2{,}50, 3{,}33)^T$",
-                "Schritt 5: Zweite Iteration\n$x_1^{(2)} = \\frac{15 + 2{,}50}{4} = 4{,}375$\n$x_2^{(2)} = \\frac{10 + 3{,}75 + 3{,}33}{4} \\approx 4{,}271$\n$x_3^{(2)} = \\frac{10 + 2{,}50}{3} \\approx 4{,}167$\nDamit $x^{(2)} \\approx (4{,}375, 4{,}271, 4{,}167)^T$"
+                "Schritt 1: Iterationsvorschrift\nAuflösen der $i$-ten Gleichung nach $x_i$: $x^{(k+1)} = \\frac{3 + y^{(k)}}{4}$, $y^{(k+1)} = \\frac{3 + x^{(k)}}{4}$.",
+                "Schritt 2: Teil a): Zwei Schritte\n$\\vec x^{(1)} = \\left(\\frac34,\\frac34\\right) = (0{,}75;\\ 0{,}75)$. $\\vec x^{(2)} = \\left(\\frac{3 + 0{,}75}{4},\\ \\frac{3 + 0{,}75}{4}\\right) = (0{,}9375;\\ 0{,}9375)$.",
+                "Schritt 3: Teil b): Konvergenz\nDie Matrix ist **streng diagonaldominant** ($4 > |{-1}|$ in jeder Zeile), also konvergiert das Jacobi-Verfahren. Iterationsmatrix $B = \\begin{pmatrix} 0 & \\tfrac14 \\\\ \\tfrac14 & 0 \\end{pmatrix}$ mit Spektralradius $\\rho(B) = \\frac14 < 1$.",
+                "Schritt 4: Teil b): Fehlerverlauf\nDer Fehler $\\vec e^{(k)} = \\vec x^{(k)} - (1,1)$ wird pro Schritt mit $\\frac14$ multipliziert: $0{,}25 \\to 0{,}0625 \\to 0{,}0156$. Tatsächlich $1 - 0{,}75 = 0{,}25$, $1 - 0{,}9375 = 0{,}0625$ ✓."
             ]
         },
         {
             "id": 2,
             "topic": "Interpolation",
-            "title": "Quadratische Lagrange-Interpolation",
-            "description": "Gegeben seien die Stützstellen $(0,1)$, $(1,3)$, $(2,2)$.\n\na) Bestimmen Sie das Interpolationspolynom $p_2(x)$.\nb) Berechnen Sie $p_2(1{,}5)$.",
-            "difficulty": "medium",
+            "title": "Quadratische Interpolation",
+            "description": "Bestimmen Sie das Polynom zweiten Grades durch $(-1,2), (0,1), (1,2)$ in Lagrange-Form, vereinfachen Sie es und erklären Sie, warum es symmetrisch ist. Werten Sie es in $x = 0{,}5$ aus.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Lagrange-Basispolynome\n$L_0(x) = \\frac{(x-1)(x-2)}{(0-1)(0-2)} = \\frac{(x-1)(x-2)}{2}$\n$L_1(x) = \\frac{x(x-2)}{(1-0)(1-2)} = -x(x-2)$\n$L_2(x) = \\frac{x(x-1)}{(2-0)(2-1)} = \\frac{x(x-1)}{2}$",
-                "Schritt 2: Interpolationspolynom\n$p_2(x) = 1\\cdot L_0(x) + 3\\cdot L_1(x) + 2\\cdot L_2(x)$\n$= -1{,}5x^2 + 3{,}5x + 1$",
-                "Schritt 3: Auswertung bei $x=1{,}5$\n$p_2(1{,}5) = -1{,}5\\cdot 2{,}25 + 3{,}5\\cdot 1{,}5 + 1 = 2{,}875$"
+                "Schritt 1: Lagrange-Basis\n$L_{-1} = \\frac{x(x-1)}{2}$, $L_0 = -(x+1)(x-1) = 1 - x^2$, $L_1 = \\frac{(x+1)x}{2}$. ($L_i(x_j) = \\delta_{ij}$.)",
+                "Schritt 2: Interpolationspolynom\n$p(x) = 2\\cdot\\frac{x(x-1)}{2} + 1\\cdot(1 - x^2) + 2\\cdot\\frac{x(x+1)}{2} = x^2 - x + 1 - x^2 + x^2 + x = x^2 + 1$.",
+                "Schritt 3: Symmetrie\nDie Daten sind symmetrisch zur $y$-Achse ($f(-1) = f(1)$), und das interpolierende Polynom ist eindeutig; deshalb muss es gerade sein: $p(x) = x^2 + 1$.",
+                "Schritt 4: Probe und Auswertung\n$p(-1) = 2$ ✓, $p(0) = 1$ ✓, $p(1) = 2$ ✓. $p(0{,}5) = 1{,}25$. Hinweis: Zwischen den Stützstellen kann die Funktion, aus der die Daten stammen, abweichen; der Interpolationsfehler ist $\\frac{f'''(\\xi)}{3!}(x+1)x(x-1)$."
             ]
         },
         {
             "id": 3,
             "topic": "Numerische Integration",
-            "title": "Trapez- und Simpson-Regel",
-            "description": "Approximieren Sie das Integral $I = \\int_0^1 \\ln(1+x)\\,dx$ mit $n=2$ Teilintervallen.\n\na) Trapezregel\nb) Simpson-Regel\nc) Vergleich mit dem exakten Wert $I = 2\\ln 2 - 1$.",
-            "difficulty": "medium",
+            "title": "Trapez- und Simpson-Regel für sin x",
+            "description": "Berechnen Sie $\\int_0^\\pi\\sin x\\,dx = 2$ näherungsweise mit $n = 4$ Teilintervallen nach der Trapez- und der Simpson-Regel und bestimmen Sie die Fehler.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Vorbereitung\nSchrittweite $h=0{,}5$\n$f(0)=0$, $f(0{,}5)=\\ln(1{,}5)\\approx 0{,}4055$, $f(1)=\\ln 2\\approx 0{,}6931$",
-                "Schritt 2: Trapezregel\n$T_2 = \\frac{h}{2}[f(0)+2f(0{,}5)+f(1)]$\n$=0{,}25\\cdot(0+2\\cdot0{,}4055+0{,}6931)\\approx 0{,}3760$",
-                "Schritt 3: Simpson-Regel\n$S_2 = \\frac{h}{3}[f(0)+4f(0{,}5)+f(1)]$\n$=\\frac{0{,}5}{3}\\cdot(0+4\\cdot0{,}4055+0{,}6931)\\approx 0{,}3858$",
-                "Schritt 4: Vergleich\nExakt: $I=2\\ln 2-1\\approx 0{,}3863$\nFehler: $|T_2-I|\\approx 0{,}0103$, $|S_2-I|\\approx 0{,}0005$"
+                "Schritt 1: Stützstellen\n$h = \\frac\\pi4$: $f_0 = 0$, $f_1 = \\frac{\\sqrt2}{2} \\approx 0{,}7071$, $f_2 = 1$, $f_3 \\approx 0{,}7071$, $f_4 = 0$.",
+                "Schritt 2: Trapezregel\n$T = \\frac h2\\big(f_0 + 2f_1 + 2f_2 + 2f_3 + f_4\\big) = \\frac\\pi8(2\\cdot0{,}7071 + 2 + 2\\cdot0{,}7071) = \\frac\\pi8\\cdot4{,}8284 \\approx 1{,}8961$. Fehler $\\approx 0{,}104$.",
+                "Schritt 3: Simpson-Regel\n$S = \\frac h3\\big(f_0 + 4f_1 + 2f_2 + 4f_3 + f_4\\big) = \\frac\\pi{12}(4\\cdot0{,}7071 + 2 + 4\\cdot0{,}7071) = \\frac\\pi{12}\\cdot7{,}6569 \\approx 2{,}0046$. Fehler $\\approx 0{,}0046$.",
+                "Schritt 4: Interpretation\nSimpson ist hier etwa $22$-mal genauer als die Trapezregel (Fehlerordnung $h^4$ vs. $h^2$). Die Trapezregel unterschätzt, weil $\\sin$ auf $[0,\\pi]$ konkav ist (die Sehnen liegen unter dem Graphen). Probe: $\\frac\\pi8(2 + 2\\sqrt2) \\approx 1{,}896$ ✓."
             ]
         },
         {
             "id": 4,
             "topic": "Ausgleichsrechnung",
-            "title": "Lineare Regression (Kleinste Quadrate)",
-            "description": "Gegeben sind Messpunkte $(1,2{,}0)$, $(2,2{,}9)$, $(3,3{,}7)$, $(4,4{,}1)$.\nBestimmen Sie die Ausgleichsgerade $y = a + bx$.",
-            "difficulty": "medium",
+            "title": "Lineare Regression nach der Methode der kleinsten Quadrate",
+            "description": "Bestimmen Sie die Ausgleichsgerade $y = a + bx$ durch $(1,2), (2,2), (3,4), (4,5)$ und berechnen Sie die Summe der Fehlerquadrate.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Summen\n$n=4$, $\\sum x = 10$, $\\sum y = 12{,}7$, $\\sum x^2 = 30$, $\\sum xy = 35{,}3$",
-                "Schritt 2: Steigung\n$b = \\frac{n\\sum xy - (\\sum x)(\\sum y)}{n\\sum x^2 - (\\sum x)^2}$\n$= \\frac{4\\cdot35{,}3 - 10\\cdot12{,}7}{4\\cdot30 - 100} = \\frac{14{,}2}{20} = 0{,}71$",
-                "Schritt 3: Achsenabschnitt\n$\\bar{x}=2{,}5$, $\\bar{y}=3{,}175$\n$a = \\bar{y} - b\\bar{x} = 3{,}175 - 0{,}71\\cdot2{,}5 = 1{,}4$",
-                "Schritt 4: Ergebnis\nAusgleichsgerade: $y = 1{,}4 + 0{,}71x$"
+                "Schritt 1: Mittelwerte und Summen\n$\\bar x = 2{,}5$, $\\bar y = 3{,}25$. $S_{xx} = (-1{,}5)^2 + (-0{,}5)^2 + 0{,}5^2 + 1{,}5^2 = 5$. $S_{xy} = (-1{,}5)(-1{,}25) + (-0{,}5)(-1{,}25) + 0{,}5\\cdot0{,}75 + 1{,}5\\cdot1{,}75 = 5{,}5$.",
+                "Schritt 2: Koeffizienten\n$b = \\frac{5{,}5}{5} = 1{,}1$, $a = \\bar y - b\\bar x = 3{,}25 - 2{,}75 = 0{,}5$. Gerade: $y = 0{,}5 + 1{,}1x$.",
+                "Schritt 3: Residuen\nVorhersagen $1{,}6;\\ 2{,}7;\\ 3{,}8;\\ 4{,}9$. Residuen $0{,}4;\\ -0{,}7;\\ 0{,}2;\\ 0{,}1$. Summe $0$ ✓.",
+                "Schritt 4: Fehlerquadratsumme und Probe\n$\\sum r_i^2 = 0{,}16 + 0{,}49 + 0{,}04 + 0{,}01 = 0{,}70$. Orthogonalität: $\\sum x_ir_i = 0{,}4 - 1{,}4 + 0{,}6 + 0{,}4 = 0$ ✓. Keine andere Gerade hat eine kleinere Fehlerquadratsumme (z.B. $y = x + 1$: $0{,}0 \\to$ Residuen $0; -1; 0; 0$, Summe der Quadrate $1{,}0 > 0{,}70$)."
             ]
         },
         {
             "id": 5,
             "topic": "Anfangswertprobleme",
-            "title": "Explizites Euler-Verfahren",
-            "description": "Lösen Sie numerisch $y' = y - x^2 + 1$, $y(0)=0{,}5$ mit Schrittweite $h=0{,}2$.\n\na) Berechnen Sie $y(0{,}2)$ und $y(0{,}4)$ mit Euler.\nb) Vergleichen Sie mit der exakten Lösung $y(x) = (x+1)^2 - 0{,}5e^x$ bei $x=0{,}4$.",
-            "difficulty": "medium",
+            "title": "Euler-Verfahren und Stabilität",
+            "description": "Betrachten Sie $y' = -2y$, $y(0) = 1$ (exakt $y = e^{-2x}$).\na) Berechnen Sie zwei Schritte des expliziten Euler-Verfahrens mit $h = 0{,}1$.\nb) Berechnen Sie zwei Schritte des impliziten Euler-Verfahrens und vergleichen Sie mit $e^{-0{,}4}$.\nc) Für welche $h$ ist das explizite Verfahren stabil?",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Euler-Formel\n$y_{n+1} = y_n + h f(x_n, y_n)$ mit $f(x,y)=y-x^2+1$",
-                "Schritt 2: Erste Iteration\n$x_0=0$, $y_0=0{,}5$\n$f(0,0{,}5)=1{,}5$\n$y_1 = 0{,}5 + 0{,}2\\cdot1{,}5 = 0{,}8$",
-                "Schritt 3: Zweite Iteration\n$x_1=0{,}2$, $y_1=0{,}8$\n$f(0{,}2,0{,}8)=0{,}8-0{,}04+1=1{,}76$\n$y_2 = 0{,}8 + 0{,}2\\cdot1{,}76 = 1{,}152$",
-                "Schritt 4: Vergleich mit exakter Lösung\n$y(0{,}4) = (1{,}4)^2 - 0{,}5e^{0{,}4} \\approx 1{,}2141$\nFehler: $|1{,}152 - 1{,}2141| \\approx 0{,}0621$"
+                "Schritt 1: Teil a): Explizites Euler-Verfahren\n$y_{n+1} = y_n + h(-2y_n) = (1 - 2h)y_n = 0{,}8y_n$. $y_1 = 0{,}8$, $y_2 = 0{,}64$.",
+                "Schritt 2: Teil b): Implizites Euler-Verfahren\n$y_{n+1} = y_n + h(-2y_{n+1}) \\Rightarrow y_{n+1} = \\frac{y_n}{1 + 2h} = \\frac{y_n}{1{,}2}$. $y_1 = 0{,}8333$, $y_2 = 0{,}6944$.",
+                "Schritt 3: Vergleich mit der exakten Lösung\n$e^{-0{,}4} = 0{,}6703$. Fehler: explizit $0{,}64 - 0{,}6703 = -0{,}030$, implizit $0{,}6944 - 0{,}6703 = +0{,}024$. Beide Verfahren haben Ordnung $1$; das explizite unterschätzt, das implizite überschätzt.",
+                "Schritt 4: Teil c): Stabilität\nExplizit gilt $y_n = (1 - 2h)^ny_0$. Das Verfahren ist stabil (Lösung klingt ab) genau für $|1 - 2h| < 1 \\iff 0 < h < 1$. Für $h = 1{,}2$: Faktor $-1{,}4$, die Lösung oszilliert und wächst — obwohl die exakte Lösung abklingt. Das implizite Verfahren ist für alle $h > 0$ stabil: Faktor $\\frac{1}{1 + 2h} \\in (0,1)$."
             ]
         }
     ]

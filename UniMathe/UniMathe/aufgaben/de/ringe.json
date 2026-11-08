@@ -3,6 +3,81 @@
         {
             "id": 1,
             "topic": "Ringe",
+            "title": "Nullteiler und Einheiten in ℤ₆",
+            "description": "Bestimmen Sie alle Nullteiler und alle Einheiten des Rings $\\mathbb{Z}_6$. Ist $\\mathbb{Z}_6$ ein Integritätsbereich oder ein Körper?",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEine **Einheit** ist ein Element mit multiplikativem Inverse. Ein **Nullteiler** ist ein Element $a \\neq 0$, für das ein $b \\neq 0$ mit $ab = 0$ existiert.",
+                "Schritt 2: Einheiten\n$a$ ist Einheit $\\iff \\operatorname{ggT}(a,6) = 1$. Das sind $1$ und $5$ ($1\\cdot1 = 1$, $5\\cdot5 = 25 \\equiv 1$). Einheitengruppe: $\\{1,5\\}$.",
+                "Schritt 3: Nullteiler\n$2\\cdot3 = 6 \\equiv 0$, $3\\cdot4 = 12 \\equiv 0$. Nullteiler sind $2, 3, 4$.",
+                "Schritt 4: Strukturaussage\nEs gibt Nullteiler, also ist $\\mathbb{Z}_6$ **kein** Integritätsbereich und damit kein Körper. Jedes Element $\\neq 0$ ist entweder Einheit oder Nullteiler: $\\{1,5\\} \\cup \\{2,3,4\\}$.",
+                "Schritt 5: Merke: Worauf es ankommt\nIn $\\mathbb{Z}_n$ gilt: $a$ Einheit $\\iff \\operatorname{ggT}(a,n) = 1$; sonst Nullteiler. $\\mathbb{Z}_n$ ist genau dann ein Körper, wenn $n$ prim ist."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Ringe",
+            "title": "Ist ℤ₇ ein Körper?",
+            "description": "Zeigen Sie, dass $\\mathbb{Z}_7$ ein Körper ist, indem Sie zu jedem Element $\\neq 0$ das multiplikative Inverse angeben.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEin kommutativer Ring mit $1 \\neq 0$ ist ein Körper, wenn jedes Element $\\neq 0$ ein multiplikatives Inverses hat. Wir suchen zu jedem $a \\in \\{1,\\dots,6\\}$ ein $b$ mit $ab \\equiv 1 \\pmod 7$.",
+                "Schritt 2: Inverse\n$1\\cdot1 = 1$; $2\\cdot4 = 8 \\equiv 1$; $3\\cdot5 = 15 \\equiv 1$; $6\\cdot6 = 36 \\equiv 1$. Also $1^{-1} = 1$, $2^{-1} = 4$, $3^{-1} = 5$, $4^{-1} = 2$, $5^{-1} = 3$, $6^{-1} = 6$.",
+                "Schritt 3: Schluss\nJedes Element $\\neq 0$ ist invertierbar, $\\mathbb{Z}_7$ ist ein kommutativer Ring mit Eins: **Körper** $\\mathbb{F}_7$.",
+                "Schritt 4: Warum es klappt\nWeil $7$ prim ist, gilt $\\operatorname{ggT}(a,7) = 1$ für alle $a \\in \\{1,\\dots,6\\}$ — das garantiert die Inverse.",
+                "Schritt 5: Merke: Worauf es ankommt\nAllgemeiner Satz: $\\mathbb{Z}_n$ ist genau dann ein Körper, wenn $n$ prim ist. Die Inversen lassen sich mit dem erweiterten euklidischen Algorithmus berechnen."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Ringe",
+            "title": "Rechnen in ℤ₂[x]",
+            "description": "Berechnen Sie in $\\mathbb{Z}_2[x]$: $(x+1)(x^2+x+1)$ und $(x+1)^2$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nIn $\\mathbb{Z}_2[x]$ rechnet man wie gewohnt mit Polynomen, aber die Koeffizienten werden modulo $2$ gerechnet: $1 + 1 = 0$, also $2 = 0$ und $-1 = 1$.",
+                "Schritt 2: Erstes Produkt\n$(x+1)(x^2+x+1) = x^3 + x^2 + x + x^2 + x + 1 = x^3 + 2x^2 + 2x + 1 = x^3 + 1$.",
+                "Schritt 3: Zweites Produkt\n$(x+1)^2 = x^2 + 2x + 1 = x^2 + 1$ (mittleres Glied verschwindet).",
+                "Schritt 4: Folgerung\nAus $x^3 + 1 = (x+1)(x^2+x+1)$ folgt: $x^3 + 1$ ist in $\\mathbb{Z}_2[x]$ reduzibel. Auch $x^2 + 1 = (x+1)^2$ ist reduzibel, obwohl $x^2 + 1$ über $\\mathbb{R}$ irreduzibel wäre.",
+                "Schritt 5: Merke: Worauf es ankommt\nOb ein Polynom irreduzibel ist, hängt vom Koeffizientenring ab. In $\\mathbb{Z}_p[x]$ gilt der „Frobenius-Trick“ $(x+y)^p = x^p + y^p$."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Ringe",
+            "title": "Ringaxiome: Ein Ring ohne Eins",
+            "description": "Zeigen Sie, dass $2\\mathbb{Z}$ mit der üblichen Addition und Multiplikation ein kommutativer Ring ist, aber kein Einselement besitzt.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir prüfen: $(2\\mathbb{Z},+)$ ist eine abelsche Gruppe, die Multiplikation ist abgeschlossen und assoziativ, die Distributivgesetze gelten. Danach suchen wir ein Einselement.",
+                "Schritt 2: Additive Gruppe\n$2\\mathbb{Z}$ ist Untergruppe von $(\\mathbb{Z},+)$ (Differenz gerader Zahlen ist gerade): abelsche Gruppe.",
+                "Schritt 3: Multiplikation\n$(2a)(2b) = 4ab = 2(2ab) \\in 2\\mathbb{Z}$: abgeschlossen. Assoziativität, Kommutativität und Distributivität erbt $2\\mathbb{Z}$ von $\\mathbb{Z}$.",
+                "Schritt 4: Kein Einselement\nEin Einselement $e \\in 2\\mathbb{Z}$ müsste $e\\cdot2 = 2$ erfüllen, also $e = 1$. Aber $1 \\notin 2\\mathbb{Z}$. Also hat $2\\mathbb{Z}$ keine Eins.",
+                "Schritt 5: Merke: Worauf es ankommt\nJe nach Lehrbuch verlangt der Ringbegriff ein Einselement oder nicht; in vielen Vorlesungen gehört es dazu. $2\\mathbb{Z}$ ist ein **Ideal** von $\\mathbb{Z}$ — Ideale sind typischerweise Ringe ohne Eins."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Ringe",
+            "title": "Einheitengruppe von ℤ₁₂",
+            "description": "Bestimmen Sie die Einheitengruppe $\\mathbb{Z}_{12}^\\times$ und stellen Sie die Verknüpfungstafel auf. Ist sie zyklisch?",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Einheiten von $\\mathbb{Z}_{12}$ sind die zu $12$ teilerfremden Reste. Sie bilden bezüglich der Multiplikation eine Gruppe.",
+                "Schritt 2: Einheiten\n$\\operatorname{ggT}(a,12) = 1$ für $a \\in \\{1,5,7,11\\}$. Also $\\mathbb{Z}_{12}^\\times = \\{1,5,7,11\\}$ mit $\\varphi(12) = 4$ Elementen.",
+                "Schritt 3: Verknüpfungstafel\n$\\begin{array}{c|cccc} \\cdot & 1 & 5 & 7 & 11 \\\\ \\hline 1 & 1 & 5 & 7 & 11 \\\\ 5 & 5 & 1 & 11 & 7 \\\\ 7 & 7 & 11 & 1 & 5 \\\\ 11 & 11 & 7 & 5 & 1 \\end{array}$ (z.B. $5\\cdot7 = 35 \\equiv 11$).",
+                "Schritt 4: Zyklisch?\nJedes Element $\\neq 1$ hat Ordnung $2$ ($5^2 = 25 \\equiv 1$, $7^2 = 49 \\equiv 1$, $11^2 = 121 \\equiv 1$). Es gibt kein Element der Ordnung $4$: die Gruppe ist **nicht zyklisch**, sondern die Kleinsche Vierergruppe $\\mathbb{Z}_2\\times\\mathbb{Z}_2$.",
+                "Schritt 5: Merke: Worauf es ankommt\nDie Einheitengruppe $\\mathbb{Z}_n^\\times$ ist nicht immer zyklisch (zyklisch z.B. für $n = 5, 7, 9$, nicht für $n = 8, 12$). Nach dem Chinesischen Restsatz $\\mathbb{Z}_{12}^\\times \\cong \\mathbb{Z}_3^\\times\\times\\mathbb{Z}_4^\\times \\cong \\mathbb{Z}_2\\times\\mathbb{Z}_2$."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Ringe",
             "title": "Ringaxiome für algebraische Zahlen überprüfen",
             "description": "Überprüfen Sie, ob die Menge $\\mathbb{Z}[\\sqrt{2}] = \\{a + b\\sqrt{2} \\mid a,b \\in \\mathbb{Z}\\}$ mit der üblichen Addition und Multiplikation einen Ring bildet. Zeigen Sie, dass es sich um einen kommutativen Ring mit Einselement handelt, und untersuchen Sie, ob jedes Element ein multiplikatives Inverses hat.",
             "difficulty": "easy",
@@ -17,7 +92,7 @@
             ]
         },
         {
-            "id": 2,
+            "id": 7,
             "topic": "Ringe",
             "title": "Integritätsring-Eigenschaft",
             "description": "Untersuchen Sie, ob die Menge $\\mathbb{Z}_4$ mit der üblichen Addition und Multiplikation ein Integritätsring ist.",
@@ -30,7 +105,7 @@
             ]
         },
         {
-            "id": 3,
+            "id": 8,
             "topic": "Ringe",
             "title": "Einheiten und Körperstruktur",
             "description": "Bestimmen Sie die Einheiten im Ring $\\mathbb{Z}_9$ und prüfen Sie, ob $\\mathbb{Z}_9$ ein Körper ist.",
@@ -43,21 +118,109 @@
             ]
         },
         {
-            "id": 4,
+            "id": 9,
             "topic": "Ringe",
-            "title": "Irreduzible Polynome und Faktorringe",
-            "description": "Zeigen Sie, dass der Polynomring $\\mathbb{Z}_3[X]$ irreduzible Polynome vom Grad 2 enthält und bestimmen Sie diese.",
-            "difficulty": "medium",
-            "points": 10,
+            "title": "Polynomringe",
+            "description": "Bestimmen Sie alle Polynome vom Grad 1 im Ring $\\mathbb{Z}_3[X]$.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Alle normierten Polynome vom Grad 2 in $\\mathbb{Z}_3[X]$ sind $X^2, X^2+1, X^2+2, X^2+X, X^2+2X, X^2+X+1, X^2+X+2, X^2+2X+1, X^2+2X+2$.",
-                "Schritt 2: Überprüfung auf Irreduzibilität\nEin Polynom $f(X)$ vom Grad 2 ist genau dann irreduzibel, wenn es keine Nullstelle in $\\mathbb{Z}_3$ hat.",
-                "Schritt 3: Bestimmung der irreduziblen Polynome\n$X^2+1$ und $X^2+2$ haben keine Nullstelle in $\\mathbb{Z}_3$ und sind daher irreduzibel.",
-                "Schritt 4: Zusammenfassung\nDie irreduziblen Polynome vom Grad 2 in $\\mathbb{Z}_3[X]$ sind $X^2+1$ und $X^2+2$."
+                "Schritt 1: Polynome vom Grad 1\n$X$\n$X + 1$\n$X + 2$\n$2X$\n$2X + 1$\n$2X + 2$",
+                "Schritt 2: Verifikation\nAlle Polynome haben Grad 1\nKeine zwei Polynome sind gleich"
             ]
         },
         {
-            "id": 5,
+            "id": 10,
+            "topic": "Ringe",
+            "title": "Integritätsbereiche",
+            "description": "Zeigen Sie, dass $\\mathbb{Z}_5$ ein Integritätsbereich ist.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Elemente von $\\mathbb{Z}_5$\n$\\mathbb{Z}_5 = \\{0,1,2,3,4\\}$",
+                "Schritt 2: Überprüfung der Nullteiler\n$1 \\cdot 1 = 1$\n$2 \\cdot 3 = 1$\n$4 \\cdot 4 = 1$\nEs gibt keine Nullteiler",
+                "Schritt 3: Schlussfolgerung\n$\\mathbb{Z}_5$ ist ein Integritätsbereich"
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Ringe",
+            "title": "Ideale in ℤ: Summe und Durchschnitt",
+            "description": "Bestimmen Sie $(6) + (10)$ und $(6) \\cap (10)$ in $\\mathbb{Z}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\n$\\mathbb{Z}$ ist ein Hauptidealring: Jedes Ideal ist von der Form $(n) = n\\mathbb{Z}$. Die Summe zweier Ideale entspricht dem ggT, der Durchschnitt dem kgV.",
+                "Schritt 2: Summe\n$(6) + (10) = \\{6a + 10b\\}$. Nach dem Lemma von Bézout sind das genau die Vielfachen von $\\operatorname{ggT}(6,10) = 2$. Also $(6) + (10) = (2)$.",
+                "Schritt 3: Durchschnitt\n$x \\in (6) \\cap (10)$ heißt: $6 \\mid x$ und $10 \\mid x$, d.h. $x$ ist gemeinsames Vielfaches, also Vielfaches von $\\operatorname{kgV}(6,10) = 30$. Also $(6) \\cap (10) = (30)$.",
+                "Schritt 4: Probe\n$6\\cdot2 - 10\\cdot1 = 2 \\in (6)+(10)$ ✓. $30 = 5\\cdot6 = 3\\cdot10$ liegt in beiden Idealen ✓. Und $(2)\\cdot(30) = (60) = (6)(10)$.",
+                "Schritt 5: Merke: Worauf es ankommt\nMerke: $(a) + (b) = (\\operatorname{ggT}(a,b))$ und $(a) \\cap (b) = (\\operatorname{kgV}(a,b))$; das Produktideal $(a)(b) = (ab)$. Teilbarkeit entspricht umgekehrter Inklusion: $a \\mid b \\iff (b) \\subseteq (a)$."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Ringe",
+            "title": "Chinesischer Restsatz als Ringisomorphismus",
+            "description": "Zeigen Sie $\\mathbb{Z}_6 \\cong \\mathbb{Z}_2\\times\\mathbb{Z}_3$ als Ringe, indem Sie die Abbildung $\\varphi(x) = (x \\bmod 2,\\ x \\bmod 3)$ untersuchen.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEin Ringhomomorphismus muss Addition, Multiplikation und die Eins erhalten. Dann zeigen wir Bijektivität durch Aufzählen der Bilder.",
+                "Schritt 2: Wohldefiniert und homomorph\nAus $x \\equiv x' \\pmod 6$ folgt $x \\equiv x'$ modulo $2$ und modulo $3$. Rechenregeln für Reste liefern $\\varphi(x+y) = \\varphi(x)+\\varphi(y)$ und $\\varphi(xy) = \\varphi(x)\\varphi(y)$ komponentenweise. Außerdem $\\varphi(1) = (1,1)$.",
+                "Schritt 3: Bilder\n$\\varphi(0) = (0,0)$, $\\varphi(1) = (1,1)$, $\\varphi(2) = (0,2)$, $\\varphi(3) = (1,0)$, $\\varphi(4) = (0,1)$, $\\varphi(5) = (1,2)$.",
+                "Schritt 4: Bijektivität\nDie sechs Bilder sind paarweise verschieden und $|\\mathbb{Z}_2\\times\\mathbb{Z}_3| = 6$, also ist $\\varphi$ bijektiv. Daher ist $\\varphi$ ein Ringisomorphismus.",
+                "Schritt 5: Folgerung\nEinheiten: $(\\mathbb{Z}_2\\times\\mathbb{Z}_3)^\\times = \\{1\\}\\times\\{1,2\\}$ hat $2$ Elemente $\\leftrightarrow$ $\\mathbb{Z}_6^\\times = \\{1,5\\}$ ✓. Nullteiler gibt es dennoch, z.B. $(1,0)\\cdot(0,1) = (0,0)$.",
+                "Schritt 6: Merke: Worauf es ankommt\nChinesischer Restsatz: $\\mathbb{Z}_{mn} \\cong \\mathbb{Z}_m\\times\\mathbb{Z}_n$ für $\\operatorname{ggT}(m,n) = 1$. Ein Ringproblem wird in kleinere zerlegt. Ein Produktring ist nie ein Integritätsbereich."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Ringe",
+            "title": "Norm und Einheiten in ℤ[i]",
+            "description": "Im Ring der Gaußschen Zahlen $\\mathbb{Z}[i]$ ist $N(a+bi) = a^2 + b^2$. Zeigen Sie $N(zw) = N(z)N(w)$, bestimmen Sie die Einheiten und prüfen Sie, ob $1 + i$ irreduzibel ist.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Norm ist das Quadrat des Betrags, $N(z) = |z|^2$. Weil der Betrag multiplikativ ist, ist es auch die Norm. Einheiten und Irreduzibilität lassen sich damit an Normen ablesen.",
+                "Schritt 2: Multiplikativität\n$N(z) = z\\bar z$, also $N(zw) = zw\\,\\overline{zw} = z\\bar z\\, w\\bar w = N(z)N(w)$.",
+                "Schritt 3: Einheiten\n$u$ ist Einheit $\\Rightarrow$ $N(u)N(u^{-1}) = N(1) = 1$ mit $N \\in \\mathbb{N}_0$, also $N(u) = 1$. $a^2 + b^2 = 1$ hat die Lösungen $\\pm1, \\pm i$. Einheitengruppe: $\\{1,-1,i,-i\\}$ (zyklisch der Ordnung $4$).",
+                "Schritt 4: $1+i$ irreduzibel?\n$N(1+i) = 2$. Wäre $1 + i = zw$ mit Nichteinheiten, dann $N(z)N(w) = 2$ mit $N(z),N(w) \\geq 2$ — unmöglich, da $2$ prim ist. Also ist $1+i$ irreduzibel.",
+                "Schritt 5: Merke: Worauf es ankommt\nEin Element mit **Primzahl-Norm** ist stets irreduzibel. Es gilt $2 = -i(1+i)^2$, also ist $2$ in $\\mathbb{Z}[i]$ nicht mehr irreduzibel."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Ringe",
+            "title": "Irreduzible Polynome über ℤ₃",
+            "description": "Entscheiden Sie, ob $x^2 + 1$ und $x^2 + 2$ in $\\mathbb{Z}_3[x]$ irreduzibel sind.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEin Polynom vom Grad $2$ oder $3$ über einem Körper ist genau dann irreduzibel, wenn es **keine Nullstelle** im Körper hat. Wir testen alle Elemente $0,1,2$ von $\\mathbb{Z}_3$.",
+                "Schritt 2: $x^2 + 1$\n$0^2 + 1 = 1$, $1^2 + 1 = 2$, $2^2 + 1 = 5 \\equiv 2$. Keine Nullstelle, also **irreduzibel**.",
+                "Schritt 3: $x^2 + 2$\n$0 + 2 = 2$, $1 + 2 = 3 \\equiv 0$ — Nullstelle $x = 1$. Also **reduzibel**: $x^2 + 2 = x^2 - 1 = (x-1)(x+1)$.",
+                "Schritt 4: Folgerung\n$\\mathbb{Z}_3[x]/(x^2+1)$ ist ein Körper mit $3^2 = 9$ Elementen ($\\mathbb{F}_9$), während $\\mathbb{Z}_3[x]/(x^2+2)$ Nullteiler enthält.",
+                "Schritt 5: Merke: Worauf es ankommt\nDer Nullstellentest funktioniert nur bis Grad $3$. Bei Grad $4$ (z.B. $x^4+1$) kann ein Polynom ohne Nullstelle in zwei Faktoren vom Grad $2$ zerfallen."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Ringe",
+            "title": "Ringhomomorphismus und Kern",
+            "description": "Zeigen Sie, dass $\\varphi: \\mathbb{Z}[x] \\to \\mathbb{Z}$, $p \\mapsto p(2)$ ein Ringhomomorphismus ist, und bestimmen Sie $\\ker\\varphi$ und $\\operatorname{im}\\varphi$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDas Einsetzen einer Zahl ist verträglich mit Addition und Multiplikation von Polynomen. Der Kern besteht aus allen Polynomen mit Nullstelle $2$; nach dem Satz vom Abspalten von Linearfaktoren sind das die Vielfachen von $x - 2$.",
+                "Schritt 2: Homomorphie\n$(p+q)(2) = p(2) + q(2)$, $(pq)(2) = p(2)q(2)$ und $\\varphi(1) = 1$.",
+                "Schritt 3: Kern\n$p \\in \\ker\\varphi \\iff p(2) = 0$. Polynomdivision durch $x - 2$ liefert $p = (x-2)q + p(2)$ mit konstantem Rest $p(2)$. Also $\\ker\\varphi = \\{(x-2)q \\mid q \\in \\mathbb{Z}[x]\\} = (x-2)$.",
+                "Schritt 4: Bild\nDie konstanten Polynome $c$ werden auf $c$ abgebildet: $\\operatorname{im}\\varphi = \\mathbb{Z}$ (surjektiv).",
+                "Schritt 5: Homomorphiesatz\n$\\mathbb{Z}[x]/(x-2) \\cong \\mathbb{Z}$. Da $\\mathbb{Z}$ ein Integritätsbereich ist, ist $(x-2)$ ein Primideal.",
+                "Schritt 6: Merke: Worauf es ankommt\nDer Kern eines Ringhomomorphismus ist ein **Ideal**; der Homomorphiesatz identifiziert den Faktorring mit dem Bild. Hier ist $(x-2)$ kein maximales Ideal (da $\\mathbb{Z}$ kein Körper ist)."
+            ]
+        },
+        {
+            "id": 16,
             "topic": "Ringe",
             "title": "Faktorringe und Körperstruktur",
             "description": "Bestimmen Sie die Struktur des Faktorrings $\\mathbb{Z}[X]/(X^2 - 2)$ und zeigen Sie, dass dieser Ring kein Körper ist.",
@@ -71,7 +234,7 @@
             ]
         },
         {
-            "id": 6,
+            "id": 17,
             "topic": "Ringe",
             "title": "Ringstruktur und Einheiten",
             "description": "Zeigen Sie, dass die Menge $\\mathbb{Z}[\\omega] = \\{a + b\\omega \\mid a,b \\in \\mathbb{Z}\\}$ mit $\\omega = e^{2\\pi i / 3}$ ein Ring ist und untersuchen Sie die Einheitengruppe.",
@@ -85,88 +248,7 @@
             ]
         },
         {
-            "id": 7,
-            "topic": "Ringe",
-            "title": "Nicht-Hauptidealring-Beweis",
-            "description": "Beweisen Sie, dass der Ring $\\mathbb{Z}[\\sqrt{-3}]$ kein Hauptidealring ist, indem Sie ein Ideal konstruieren, das kein Hauptideal ist.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Betrachte das Ideal $I = (2, 1 + \\sqrt{-3})$ in $\\mathbb{Z}[\\sqrt{-3}]$.",
-                "Schritt 2: Angenommen, $I$ wäre ein Hauptideal, also $I = (a + b\\sqrt{-3})$ für ein $a, b \\in \\mathbb{Z}$.",
-                "Schritt 3: Dann müsste $a + b\\sqrt{-3}$ sowohl $2$ als auch $1 + \\sqrt{-3}$ teilen. Das ist nicht möglich, da die Normen nicht zusammenpassen.",
-                "Schritt 4: Also ist $I$ kein Hauptideal. Daher ist $\\mathbb{Z}[\\sqrt{-3}]$ kein Hauptidealring."
-            ]
-        },
-        {
-            "id": 8,
-            "topic": "Ringe",
-            "title": "Faktorringstruktur",
-            "description": "Zeigen Sie, dass der Faktorring $\\mathbb{Q}[X]/(X^3 - 2)$ ein Körper ist und bestimmen Sie die Anzahl der Elemente.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: $X^3 - 2$ ist irreduzibel in $\\mathbb{Q}[X]$ (Eisenstein-Kriterium für $p=2$).",
-                "Schritt 2: Das Ideal $(X^3 - 2)$ ist maximal, daher ist der Faktorring $\\mathbb{Q}[X]/(X^3 - 2)$ ein Körper.",
-                "Schritt 3: Die Elemente sind der Form $a + bX + cX^2$ mit $a,b,c \\in \\mathbb{Q}$.",
-                "Schritt 4: Da $\\mathbb{Q}$ unendlich viele Elemente hat, ist $\\mathbb{Q}[X]/(X^3 - 2)$ ein unendlicher Körper."
-            ]
-        },
-        {
-            "id": 9,
-            "topic": "Ringe",
-            "title": "Eindeutigkeit der Primfaktorzerlegung",
-            "description": "Untersuchen Sie die eindeutige Primfaktorzerlegung im Ring $\\mathbb{Z}[\\sqrt{-6}]$ und geben Sie ein Beispiel für eine Zahl mit nicht eindeutiger Zerlegung an.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: $\\mathbb{Z}[\\sqrt{-6}]$ ist kein eindeutiger Faktorzerlegungsring.",
-                "Schritt 2: Beispiel: $10 = 2 \\cdot 5 = (2 + \\sqrt{-6})(2 - \\sqrt{-6})$.",
-                "Schritt 3: $2, 5, 2 + \\sqrt{-6}, 2 - \\sqrt{-6}$ sind irreduzibel, aber nicht assoziiert.",
-                "Schritt 4: Die Zahl $10$ hat somit zwei verschiedene Zerlegungen in irreduzible Faktoren."
-            ]
-        },
-        {
-            "id": 10,
-            "topic": "Ringe",
-            "title": "Polynomringe",
-            "description": "Bestimmen Sie alle Polynome vom Grad 1 im Ring $\\mathbb{Z}_3[X]$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Polynome vom Grad 1\n$X$\n$X + 1$\n$X + 2$\n$2X$\n$2X + 1$\n$2X + 2$",
-                "Schritt 2: Verifikation\nAlle Polynome haben Grad 1\nKeine zwei Polynome sind gleich"
-            ]
-        },
-        {
-            "id": 11,
-            "topic": "Ringe",
-            "title": "Ringhomomorphismen",
-            "description": "Zeigen Sie, dass die Abbildung $\\varphi: \\mathbb{Z}_6 \\rightarrow \\mathbb{Z}_6$ mit $\\varphi(x) = 2x$ ein Ringhomomorphismus ist.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Additivität\n$\\varphi(x + y) = 2(x + y) = 2x + 2y = \\varphi(x) + \\varphi(y)$",
-                "Schritt 2: Multiplikativität\n$\\varphi(x \\cdot y) = 2(x \\cdot y) = (2x) \\cdot y = \\varphi(x) \\cdot y$",
-                "Schritt 3: Bild\n$\\text{im}(\\varphi) = \\{0,2,4\\}$",
-                "Schritt 4: Kern\n$\\ker(\\varphi) = \\{0,3\\}$"
-            ]
-        },
-        {
-            "id": 12,
-            "topic": "Ringe",
-            "title": "Integritätsbereiche",
-            "description": "Zeigen Sie, dass $\\mathbb{Z}_5$ ein Integritätsbereich ist.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Elemente von $\\mathbb{Z}_5$\n$\\mathbb{Z}_5 = \\{0,1,2,3,4\\}$",
-                "Schritt 2: Überprüfung der Nullteiler\n$1 \\cdot 1 = 1$\n$2 \\cdot 3 = 1$\n$4 \\cdot 4 = 1$\nEs gibt keine Nullteiler",
-                "Schritt 3: Schlussfolgerung\n$\\mathbb{Z}_5$ ist ein Integritätsbereich"
-            ]
-        },
-        {
-            "id": 13,
+            "id": 18,
             "topic": "Ringe",
             "title": "Euklidische Ringe",
             "description": "Zeigen Sie, dass $\\mathbb{Z}$ mit der euklidischen Norm $|\\cdot|$ ein euklidischer Ring ist.",
@@ -180,7 +262,7 @@
             ]
         },
         {
-            "id": 14,
+            "id": 19,
             "topic": "Ringe",
             "title": "Hauptidealringe",
             "description": "Zeigen Sie, dass $\\mathbb{Z}[i]$ ein Hauptidealring ist.",
@@ -193,7 +275,7 @@
             ]
         },
         {
-            "id": 15,
+            "id": 20,
             "topic": "Ringe",
             "title": "Faktorisierung",
             "description": "Bestimmen Sie die Primfaktorzerlegung von $2$ in $\\mathbb{Z}[i]$.",
@@ -207,7 +289,7 @@
             ]
         },
         {
-            "id": 16,
+            "id": 21,
             "topic": "Ringe",
             "title": "Polynomfaktorisierung",
             "description": "Faktorisieren Sie $X^4 + 1$ in $\\mathbb{Z}_2[X]$.",
@@ -221,7 +303,7 @@
             ]
         },
         {
-            "id": 17,
+            "id": 22,
             "topic": "Ringe",
             "title": "Ideale und Faktorringe",
             "description": "Bestimmen Sie die Struktur des Faktorrings $\\mathbb{Z}[X]/(X^2 + 1)$.",
@@ -235,7 +317,7 @@
             ]
         },
         {
-            "id": 18,
+            "id": 23,
             "topic": "Ringe",
             "title": "Ringhomomorphismen und Ideale",
             "description": "Bestimmen Sie alle Ringhomomorphismen von $\\mathbb{Z}_6$ nach $\\mathbb{Z}_6$.",
@@ -249,7 +331,130 @@
             ]
         },
         {
-            "id": 19,
+            "id": 24,
+            "topic": "Ringe",
+            "title": "Endliche Integritätsbereiche sind Körper",
+            "description": "Beweisen Sie: Jeder endliche Integritätsbereich $R$ ist ein Körper.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir müssen zu jedem $a \\neq 0$ ein multiplikatives Inverses finden. Die Idee: Die Abbildung „Multiplikation mit $a$“ ist injektiv, auf einer endlichen Menge also auch surjektiv.",
+                "Schritt 2: Die Abbildung\nSei $a \\in R$, $a \\neq 0$, und $\\mu_a: R \\to R$, $x \\mapsto ax$.",
+                "Schritt 3: Injektivität\nAus $ax = ay$ folgt $a(x-y) = 0$. Da $R$ nullteilerfrei ist und $a \\neq 0$, folgt $x - y = 0$. Also ist $\\mu_a$ injektiv.",
+                "Schritt 4: Surjektivität\nEine injektive Abbildung einer **endlichen** Menge in sich ist surjektiv. Also gibt es $b \\in R$ mit $ab = 1$.",
+                "Schritt 5: Schluss\nJedes $a \\neq 0$ hat ein Inverses; $R$ ist kommutativ mit $1 \\neq 0$. Also ist $R$ ein Körper. $\\blacksquare$ Beispiel: $\\mathbb{Z}_p$ ($p$ prim) ist ein endlicher Integritätsbereich und ein Körper; $\\mathbb{Z}$ ist ein unendlicher Integritätsbereich, aber kein Körper.",
+                "Schritt 6: Merke: Worauf es ankommt\nDie Endlichkeit ist wesentlich: $\\mathbb{Z}$ zeigt, dass der Satz für unendliche Ringe falsch ist. Das Argument (injektiv $\\Rightarrow$ surjektiv) ist das **Schubfachprinzip**."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Ringe",
+            "title": "Nullteiler in ℤ_n",
+            "description": "Zeigen Sie: $a \\in \\mathbb{Z}_n$ ist genau dann ein Nullteiler, wenn $1 < \\operatorname{ggT}(a,n) < n$ gilt (für $a \\neq 0$). Folgern Sie, dass $\\mathbb{Z}_n$ genau dann ein Körper ist, wenn $n$ prim ist.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir setzen $d = \\operatorname{ggT}(a,n)$ und unterscheiden $d = 1$ (Einheit) und $d > 1$ (Nullteiler). Für $a \\neq 0$ in $\\mathbb{Z}_n$ ist $d < n$ automatisch.",
+                "Schritt 2: $d > 1 \\Rightarrow$ Nullteiler\nSei $b = \\frac nd$. Dann $0 < b < n$, also $b \\neq 0$ in $\\mathbb{Z}_n$, und $ab = \\frac{a}{d}\\cdot n \\equiv 0$. Also ist $a$ Nullteiler.",
+                "Schritt 3: $d = 1 \\Rightarrow$ Einheit\nNach Bézout gibt es $x,y$ mit $ax + ny = 1$, also $ax \\equiv 1 \\pmod n$. $a$ ist Einheit und damit kein Nullteiler (aus $ab = 0$ folgt $b = x\\,ab = 0$).",
+                "Schritt 4: Körpercharakterisierung\n$\\mathbb{Z}_n$ ist genau dann ein Körper, wenn alle $a \\neq 0$ Einheiten sind, d.h. $\\operatorname{ggT}(a,n) = 1$ für $a = 1,\\dots,n-1$. Das gilt genau dann, wenn $n$ keinen echten Teiler $> 1$ hat, d.h. $n$ prim ist. $\\blacksquare$",
+                "Schritt 5: Beispiel $n = 12$\nNullteiler: $a \\in \\{2,3,4,6,8,9,10\\}$ (mit $1 < \\operatorname{ggT} < 12$), Einheiten $\\{1,5,7,11\\}$. Zu $a = 8$: $d = 4$, $b = 3$ und $8\\cdot3 = 24 \\equiv 0$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nIn $\\mathbb{Z}_n$ ist **jedes** Element $\\neq 0$ Einheit oder Nullteiler (dichotom). Das gilt in allen endlichen kommutativen Ringen."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Ringe",
+            "title": "Charakteristik eines Integritätsbereichs",
+            "description": "Die Charakteristik von $R$ ist die kleinste Zahl $n \\geq 1$ mit $n\\cdot 1_R = 0$ (sonst $0$). Zeigen Sie: Ist $R$ ein Integritätsbereich, so ist $\\operatorname{char} R = 0$ oder eine Primzahl.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir nehmen an, $n = \\operatorname{char} R > 0$ sei zusammengesetzt, $n = ab$ mit $1 < a,b < n$, und führen das zu einem Widerspruch zur Nullteilerfreiheit.",
+                "Schritt 2: Annahme\nSei $n = ab$ mit $1 < a,b < n$. Dann $0 = n\\cdot 1 = (a\\cdot1)(b\\cdot1)$ (Distributivgesetz).",
+                "Schritt 3: Nullteilerfreiheit\nDa $R$ nullteilerfrei ist, folgt $a\\cdot1 = 0$ oder $b\\cdot1 = 0$. Beides widerspricht der Minimalität von $n$ (denn $a,b < n$).",
+                "Schritt 4: Folgerung\nAlso ist $n$ prim oder die Charakteristik ist $0$ (wenn kein $n \\geq 1$ existiert). $\\blacksquare$",
+                "Schritt 5: Beispiele\n$\\operatorname{char}\\mathbb{Z} = \\operatorname{char}\\mathbb{Q} = 0$, $\\operatorname{char}\\mathbb{Z}_p = p$, $\\operatorname{char}\\mathbb{F}_p[x] = p$. Aber $\\operatorname{char}\\mathbb{Z}_6 = 6$ ist zusammengesetzt — $\\mathbb{Z}_6$ hat Nullteiler und ist kein Integritätsbereich.",
+                "Schritt 6: Merke: Worauf es ankommt\nIn Körpern der Charakteristik $p$ gilt $(a+b)^p = a^p + b^p$ (Frobenius). Die Charakteristik bestimmt den Primkörper: $\\mathbb{Q}$ bei $0$, $\\mathbb{F}_p$ bei $p$."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Ringe",
+            "title": "Irreduzibilität in ℤ[√{-5}]",
+            "description": "Zeigen Sie mit der Norm $N(a + b\\sqrt{-5}) = a^2 + 5b^2$, dass $2$, $3$, $1 + \\sqrt{-5}$ und $1 - \\sqrt{-5}$ irreduzibel in $\\mathbb{Z}[\\sqrt{-5}]$ sind, und folgern Sie, dass $6$ keine eindeutige Zerlegung hat.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Norm ist multiplikativ, $N(zw) = N(z)N(w)$, und Einheiten haben Norm $1$. Die Norm eines Faktors muss die Norm des Produkts teilen. Wir zeigen, dass keine passenden Faktornormen existieren.",
+                "Schritt 2: Einheiten\n$a^2 + 5b^2 = 1$ hat nur die Lösungen $a = \\pm1$, $b = 0$. Einheiten: $\\pm1$. Außerdem kommen die Normen $2$ und $3$ nicht vor: $a^2 + 5b^2 = 2$ und $= 3$ sind unlösbar ($b = 0$ gibt $a^2 \\in \\{2,3\\}$, $b \\neq 0$ gibt $\\geq 5$).",
+                "Schritt 3: $2$ und $3$\n$N(2) = 4$: Eine Zerlegung in Nichteinheiten hätte Faktoren der Norm $2$ — unmöglich. $N(3) = 9$: Faktoren der Norm $3$ — unmöglich. Also sind $2$ und $3$ irreduzibel.",
+                "Schritt 4: $1 \\pm \\sqrt{-5}$\n$N(1 \\pm \\sqrt{-5}) = 1 + 5 = 6$. Faktoren müssten Normen $2$ und $3$ haben — unmöglich. Also irreduzibel.",
+                "Schritt 5: Zwei Zerlegungen von $6$\n$6 = 2\\cdot3 = (1 + \\sqrt{-5})(1 - \\sqrt{-5})$: $(1+\\sqrt{-5})(1-\\sqrt{-5}) = 1 + 5 = 6$ ✓. Die Faktoren sind irreduzibel und nicht assoziiert (Einheiten sind nur $\\pm1$). Keine eindeutige Primfaktorzerlegung.",
+                "Schritt 6: Merke: Worauf es ankommt\nIrreduzibel heißt nicht prim: $2$ teilt $(1+\\sqrt{-5})(1-\\sqrt{-5})$, aber keinen der Faktoren. Der Ring ist daher kein Hauptidealring (nicht faktoriell). Das war historisch der Anlass für den Begriff des Ideals (Kummer, Dedekind)."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Ringe",
+            "title": "Ein Körper mit 9 Elementen als Quotientenring",
+            "description": "Zeigen Sie, dass $\\mathbb{Z}_3[x]/(x^2+1)$ ein Körper mit $9$ Elementen ist, und berechnen Sie in diesem Körper $(1+x)^2$ sowie das Inverse von $1 + x$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\n$\\mathbb{Z}_3[x]$ ist ein Hauptidealring. Der Faktorring nach $(f)$ ist genau dann ein Körper, wenn $f$ irreduzibel ist. Die Elemente sind die Reste $a + bx$ mit $a,b \\in \\mathbb{Z}_3$, gerechnet mit $x^2 = -1$.",
+                "Schritt 2: Irreduzibilität\n$x^2 + 1$ hat in $\\mathbb{Z}_3$ keine Nullstelle ($0 \\to 1$, $1 \\to 2$, $2 \\to 2$) und Grad $2$, ist also irreduzibel. Damit ist $(x^2+1)$ maximal und der Faktorring ein Körper.",
+                "Schritt 3: Anzahl der Elemente\nJede Restklasse hat einen Vertreter $a + bx$ mit $a,b \\in \\{0,1,2\\}$: $3^2 = 9$ Elemente. Der Körper heißt $\\mathbb{F}_9$.",
+                "Schritt 4: $(1+x)^2$\n$(1+x)^2 = 1 + 2x + x^2 = 1 + 2x - 1 = 2x$.",
+                "Schritt 5: Inverses von $1+x$\nAnsatz $(1+x)(a+bx) = a + (a+b)x + bx^2 = (a - b) + (a+b)x = 1$. Also $a + b = 0$ und $a - b = 1$. Aus $b = -a$: $2a = 1$, $a = 2$ (da $2\\cdot2 = 4 \\equiv 1$), $b = -2 = 1$. Inverse: $2 + x$.",
+                "Schritt 6: Probe\n$(1+x)(2+x) = 2 + x + 2x + x^2 = 2 + 3x - 1 = 1$ ✓.",
+                "Schritt 7: Merke: Worauf es ankommt\nEndliche Körper entstehen als $\\mathbb{F}_p[x]/(f)$ mit irreduziblem $f$ vom Grad $n$; sie haben $p^n$ Elemente. Man rechnet mit „Rest-Polynomen“ und der Relation $f(x) = 0$ (hier $x^2 = -1$, ähnlich wie $i^2 = -1$ in $\\mathbb{C}$)."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Ringe",
+            "title": "Nicht-Hauptidealring-Beweis",
+            "description": "Beweisen Sie, dass der Ring $\\mathbb{Z}[\\sqrt{-3}]$ kein Hauptidealring ist, indem Sie ein Ideal konstruieren, das kein Hauptideal ist.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Betrachte das Ideal $I = (2, 1 + \\sqrt{-3})$ in $\\mathbb{Z}[\\sqrt{-3}]$.",
+                "Schritt 2: Angenommen, $I$ wäre ein Hauptideal, also $I = (a + b\\sqrt{-3})$ für ein $a, b \\in \\mathbb{Z}$.",
+                "Schritt 3: Dann müsste $a + b\\sqrt{-3}$ sowohl $2$ als auch $1 + \\sqrt{-3}$ teilen. Das ist nicht möglich, da die Normen nicht zusammenpassen.",
+                "Schritt 4: Also ist $I$ kein Hauptideal. Daher ist $\\mathbb{Z}[\\sqrt{-3}]$ kein Hauptidealring."
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Ringe",
+            "title": "Faktorringstruktur",
+            "description": "Zeigen Sie, dass der Faktorring $\\mathbb{Q}[X]/(X^3 - 2)$ ein Körper ist und bestimmen Sie die Anzahl der Elemente.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: $X^3 - 2$ ist irreduzibel in $\\mathbb{Q}[X]$ (Eisenstein-Kriterium für $p=2$).",
+                "Schritt 2: Das Ideal $(X^3 - 2)$ ist maximal, daher ist der Faktorring $\\mathbb{Q}[X]/(X^3 - 2)$ ein Körper.",
+                "Schritt 3: Die Elemente sind der Form $a + bX + cX^2$ mit $a,b,c \\in \\mathbb{Q}$.",
+                "Schritt 4: Da $\\mathbb{Q}$ unendlich viele Elemente hat, ist $\\mathbb{Q}[X]/(X^3 - 2)$ ein unendlicher Körper."
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Ringe",
+            "title": "Eindeutigkeit der Primfaktorzerlegung",
+            "description": "Untersuchen Sie die eindeutige Primfaktorzerlegung im Ring $\\mathbb{Z}[\\sqrt{-6}]$ und geben Sie ein Beispiel für eine Zahl mit nicht eindeutiger Zerlegung an.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: $\\mathbb{Z}[\\sqrt{-6}]$ ist kein eindeutiger Faktorzerlegungsring.",
+                "Schritt 2: Beispiel: $10 = 2 \\cdot 5 = (2 + \\sqrt{-6})(2 - \\sqrt{-6})$.",
+                "Schritt 3: $2, 5, 2 + \\sqrt{-6}, 2 - \\sqrt{-6}$ sind irreduzibel, aber nicht assoziiert.",
+                "Schritt 4: Die Zahl $10$ hat somit zwei verschiedene Zerlegungen in irreduzible Faktoren."
+            ]
+        },
+        {
+            "id": 32,
             "topic": "Ringe",
             "title": "Komplexe Ringhomomorphismen",
             "description": "Bestimmen Sie alle Ringhomomorphismen von $\\mathbb{Z}[i]$ nach $\\mathbb{Z}_5$.",
@@ -263,7 +468,7 @@
             ]
         },
         {
-            "id": 20,
+            "id": 33,
             "topic": "Ringe",
             "title": "Komplexe Ideale",
             "description": "Zeigen Sie, dass das Ideal $(2,1+\\sqrt{-5})$ in $\\mathbb{Z}[\\sqrt{-5}]$ kein Hauptideal ist.",
@@ -277,7 +482,7 @@
             ]
         },
         {
-            "id": 21,
+            "id": 34,
             "topic": "Ringe",
             "title": "Komplexe Faktorisierung",
             "description": "Zeigen Sie, dass $\\mathbb{Z}[\\sqrt{-5}]$ keine eindeutige Primfaktorzerlegung besitzt.",
@@ -291,7 +496,7 @@
             ]
         },
         {
-            "id": 22,
+            "id": 35,
             "topic": "Ringe",
             "title": "Komplexe Polynomringe",
             "description": "Zeigen Sie, dass $\\mathbb{Z}_2[X]/(X^3 + X + 1)$ ein Körper ist.",
@@ -305,21 +510,7 @@
             ]
         },
         {
-            "id": 23,
-            "topic": "Ringe",
-            "title": "Komplexe Ringhomomorphismen und Ideale",
-            "description": "Bestimmen Sie alle maximalen Ideale in $\\mathbb{Z}[X]$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Primideale\n$(p)$ mit $p$ Primzahl\n$(f)$ mit $f$ irreduzibel in $\\mathbb{Q}[X]$",
-                "Schritt 2: Maximale Ideale\n$(p)$ mit $p$ Primzahl\n$(f)$ mit $f$ irreduzibel in $\\mathbb{Q}[X]$ und primitiv",
-                "Schritt 3: Verifikation\n$(p)$ ist maximal in $\\mathbb{Z}[X]/(p) \\cong \\mathbb{Z}_p[X]$\n$(f)$ ist maximal in $\\mathbb{Z}[X]/(f) \\cong \\mathbb{Z}[\\alpha]$",
-                "Schritt 4: Schlussfolgerung\nDie maximalen Ideale sind $(p)$ und $(f)$ wie oben beschrieben"
-            ]
-        },
-        {
-            "id": 24,
+            "id": 36,
             "topic": "Ringe",
             "title": "Komplexe Faktorringe",
             "description": "Bestimmen Sie die Struktur des Faktorrings $\\mathbb{Z}[X]/(X^2 + 1, 2)$.",
@@ -333,7 +524,7 @@
             ]
         },
         {
-            "id": 25,
+            "id": 37,
             "topic": "Ringe",
             "title": "Komplexe euklidische Ringe",
             "description": "Zeigen Sie, dass $\\mathbb{Z}[\\sqrt{2}]$ ein euklidischer Ring ist.",
@@ -347,21 +538,7 @@
             ]
         },
         {
-            "id": 26,
-            "topic": "Ringe",
-            "title": "Komplexe Hauptidealringe",
-            "description": "Zeigen Sie, dass $\\mathbb{Z}[\\sqrt{2}]$ ein Hauptidealring ist.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Euklidischer Ring\n$\\mathbb{Z}[\\sqrt{2}]$ ist ein euklidischer Ring",
-                "Schritt 2: Hauptidealring\nJeder euklidische Ring ist ein Hauptidealring",
-                "Schritt 3: Schlussfolgerung\n$\\mathbb{Z}[\\sqrt{2}]$ ist ein Hauptidealring",
-                "Schritt 4: Anwendung\nJedes Ideal in $\\mathbb{Z}[\\sqrt{2}]$ ist ein Hauptideal"
-            ]
-        },
-        {
-            "id": 27,
+            "id": 38,
             "topic": "Ringe",
             "title": "Komplexe Faktorisierung in Hauptidealringen",
             "description": "Bestimmen Sie die Primfaktorzerlegung von $7$ in $\\mathbb{Z}[\\sqrt{2}]$.",
@@ -375,7 +552,7 @@
             ]
         },
         {
-            "id": 28,
+            "id": 39,
             "topic": "Ringe",
             "title": "Komplexe Polynomringe und Körper",
             "description": "Zeigen Sie, dass $\\mathbb{Z}_3[X]/(X^2 + 1)$ ein Körper ist und bestimmen Sie seine Ordnung.",
@@ -389,7 +566,7 @@
             ]
         },
         {
-            "id": 29,
+            "id": 40,
             "topic": "Ringe",
             "title": "Komplexe Ringhomomorphismen und Automorphismen",
             "description": "Bestimmen Sie die Automorphismengruppe von $\\mathbb{Z}[\\sqrt{2}]$.",
@@ -403,7 +580,7 @@
             ]
         },
         {
-            "id": 30,
+            "id": 41,
             "topic": "Ringe",
             "title": "Komplexe Ideale und Faktorringe",
             "description": "Bestimmen Sie die Struktur des Faktorrings $\\mathbb{Z}[\\sqrt{2}]/(3)$.",
@@ -417,4 +594,4 @@
             ]
         }
     ]
-} 
+}

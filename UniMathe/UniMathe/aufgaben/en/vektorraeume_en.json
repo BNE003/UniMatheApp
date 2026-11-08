@@ -3,75 +3,102 @@
         {
             "id": 1,
             "topic": "Vector Spaces",
-            "title": "Subspaces and Linear Independence",
-            "description": "Examine whether the vectors $\\vec{v}_1 = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}, \\vec{v}_2 = \\begin{pmatrix} 2 \\\\ 4 \\\\ 6 \\end{pmatrix}, \\vec{v}_3 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$ are linearly independent and determine the dimension of the subspace they span.",
-            "difficulty": "medium",
-            "points": 12,
+            "title": "Is a vector in the span?",
+            "description": "Does $\\vec w = (5,7)$ lie in $\\operatorname{span}\\{(1,1),(1,2)\\}$? If so, give the linear combination.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Step 1: Linear Independence\nWe examine the equation $\\lambda_1\\vec{v}_1 + \\lambda_2\\vec{v}_2 + \\lambda_3\\vec{v}_3 = \\vec{0}$",
-                "Step 2: System of Equations\n$\\begin{pmatrix} 1 & 2 & 1 \\\\ 2 & 4 & 1 \\\\ 3 & 6 & 1 \\end{pmatrix} \\begin{pmatrix} \\lambda_1 \\\\ \\lambda_2 \\\\ \\lambda_3 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}$",
-                "Step 3: Gaussian Elimination\n$\\vec{v}_2 = 2\\vec{v}_1}$, so the vectors are linearly dependent",
-                "Step 4: Dimension\n$\\dim(\\text{span}\\{\\vec{v}_1, \\vec{v}_2, \\vec{v}_3\\}) = 2$, since $\\vec{v}_1$ and $\\vec{v}_3$ are linearly independent"
+                "Step 1: Overview: What is asked?\n$\\vec w$ lies in the span if there are scalars $a,b$ with $a(1,1) + b(1,2) = (5,7)$. This is a linear system.",
+                "Step 2: System of equations\n$a + b = 5$ and $a + 2b = 7$.",
+                "Step 3: Solve\nSubtracting: $b = 2$, then $a = 3$.",
+                "Step 4: Check\n$3(1,1) + 2(1,2) = (3+2,\\ 3+4) = (5,7)$ ✓.",
+                "Step 5: Takeaway: What to remember\nSince the two vectors are linearly independent ($\\det\\begin{pmatrix}1&1\\\\1&2\\end{pmatrix} = 1 \\neq 0$) they span all of $\\mathbb{R}^2$: every vector lies in the span. The question becomes interesting for dependent vectors."
             ]
         },
         {
             "id": 2,
             "topic": "Vector Spaces",
-            "title": "Basis and Coordinates",
-            "description": "Given the vector space $V = \\mathbb{R}^3$ with the basis $B = \\{\\vec{b}_1 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}, \\vec{b}_2 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\vec{b}_3 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}\\}$. Determine the coordinates of the vector $\\vec{v} = \\begin{pmatrix} 2 \\\\ 3 \\\\ 4 \\end{pmatrix}$ with respect to the basis $B$.",
-            "difficulty": "hard",
-            "points": 15,
+            "title": "Subspace or not?",
+            "description": "Decide which sets are subspaces: (a) $U = \\{(x,y,z) \\mid x = y\\}\\subseteq\\mathbb{R}^3$, (b) $V = \\{(x,y) \\mid xy = 0\\}\\subseteq\\mathbb{R}^2$.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Step 1: Coordinate Equation\n$\\vec{v} = x_1\\vec{b}_1 + x_2\\vec{b}_2 + x_3\\vec{b}_3$",
-                "Step 2: System of Equations\n$\\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\\\ 1 & 0 & 1 \\end{pmatrix} \\begin{pmatrix} x_1 \\\\ x_2 \\\\ x_3 \\end{pmatrix} = \\begin{pmatrix} 2 \\\\ 3 \\\\ 4 \\end{pmatrix}$",
-                "Step 3: Solution\n$x_1 = 1, x_2 = 1, x_3 = 2$",
-                "Step 4: Coordinate Vector\n$[\\vec{v}]_B = \\begin{pmatrix} 1 \\\\ 1 \\\\ 2 \\end{pmatrix}$"
+                "Step 1: Overview: What is asked?\nWe check the zero vector, closure under addition and under scalar multiplication; for non-subspaces a counterexample suffices.",
+                "Step 2: (a) Subspace\n$(0,0,0) \\in U$. If $(a,a,c)$ and $(b,b,d)$ are in $U$ then the sum $(a+b,\\ a+b,\\ c+d) \\in U$ and $\\lambda(a,a,c) = (\\lambda a,\\lambda a,\\lambda c) \\in U$. Basis: $(1,1,0)$, $(0,0,1)$; $\\dim U = 2$ (a plane through the origin).",
+                "Step 3: (b) not a subspace\n$(1,0) \\in V$ and $(0,1) \\in V$ (since $1\\cdot0 = 0$) but the sum $(1,1)$ has $1\\cdot1 = 1 \\neq 0$, so $(1,1) \\notin V$. Not closed under addition.",
+                "Step 4: Geometric interpretation\n$V$ is the union of the two coordinate axes. The union of two subspaces is a subspace only if one lies in the other.",
+                "Step 5: Takeaway: What to remember\n(Homogeneous) linear equations define subspaces, nonlinear conditions like $xy = 0$ generally do not."
             ]
         },
         {
             "id": 3,
             "topic": "Vector Spaces",
-            "title": "Dual Spaces",
-            "description": "Let $V = \\mathbb{R}^3$ and $\\varphi: V \\to \\mathbb{R}$ be a linear mapping with $\\varphi(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = 1, \\varphi(\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}) = 2, \\varphi(\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}) = 3$. Determine the representation matrix of $\\varphi$ with respect to the standard basis.",
-            "difficulty": "hard",
-            "points": 15,
+            "title": "Subspace criterion: when is it not a subspace?",
+            "description": "Decide whether $U = \\{(x,y) \\in \\mathbb{R}^2 \\mid y = x + 1\\}$ is a subspace of $\\mathbb{R}^2$ and justify your answer.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Step 1: Basis Vectors\n$\\vec{e}_1 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\vec{e}_2 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\vec{e}_3 = \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$",
-                "Step 2: Linear Independence\n$\\vec{e}_2 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} - \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}$\n$\\vec{e}_3 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix} - \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$",
-                "Step 3: Function Values\n$\\varphi(\\vec{e}_1) = 1$\n$\\varphi(\\vec{e}_2) = 2 - 1 = 1$\n$\\varphi(\\vec{e}_3) = 3 - 2 = 1$",
-                "Step 4: Representation Matrix\n$[\\varphi] = (1, 1, 1)$"
+                "Step 1: Overview: What is asked?\nThe question is whether a subset is a subspace. You check three things: zero vector, closure under addition and closure under scalar multiplication. To disprove it, a single counterexample is enough.",
+                "Step 2: State the subspace criterion\nA subset $U \\subseteq V$ is a subspace if (1) $\\vec{0} \\in U$, (2) $\\vec{u}+\\vec{v} \\in U$ for all $\\vec{u},\\vec{v} \\in U$ and (3) $\\lambda\\vec{u} \\in U$ for all $\\lambda \\in \\mathbb{R}$, $\\vec{u} \\in U$. Failing a single condition is enough to show that $U$ is not a subspace.",
+                "Step 3: Test the zero vector\nFor $\\vec{0} = (0,0)$ we would need $0 = 0 + 1$. This is false, so $\\vec{0} \\notin U$.",
+                "Step 4: Second check\nAddition also leaves $U$: $(1,2) \\in U$ and $(2,3) \\in U$, but $(1,2)+(2,3) = (3,5)$ gives $5 \\neq 3+1$, so $(3,5) \\notin U$.",
+                "Step 5: Conclusion\n$U$ is not a subspace of $\\mathbb{R}^2$. Geometrically $U$ is a line that does not pass through the origin. The subspaces of $\\mathbb{R}^2$ are only $\\{\\vec{0}\\}$, lines through the origin and $\\mathbb{R}^2$ itself.",
+                "Step 6: Takeaway: What to remember\nThe zero-vector test is the fastest way to disprove it. An equation of the form “left side $= c$” with $c \\neq 0$ never describes a subspace but a shifted line or plane."
             ]
         },
         {
             "id": 4,
             "topic": "Vector Spaces",
-            "title": "Quotient Vector Spaces",
-            "description": "Let $V = \\mathbb{R}^4$ and $U = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 1 \\end{pmatrix}\\}$. Determine a basis of the quotient vector space $V/U$ and the dimension of $V/U$.",
-            "difficulty": "hard",
-            "points": 15,
+            "title": "Linear independence using Gaussian elimination",
+            "description": "Check whether the vectors $\\vec{a} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\vec{b} = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}, \\vec{c} = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}$ are linearly independent in $\\mathbb{R}^3$.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Step 1: Dimension of U\n$\\dim(U) = 2$, since the vectors are linearly independent",
-                "Step 2: Dimension of V/U\n$\\dim(V/U) = \\dim(V) - \\dim(U) = 4 - 2 = 2$",
-                "Step 3: Basis of V/U\n$\\{\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ 0 \\end{pmatrix} + U, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix} + U\\}$",
-                "Step 4: Verification\nThe vectors are linearly independent modulo U and form a basis of V/U"
+                "Step 1: Overview: What is asked?\nLinear independence means: only the trivial linear combination gives the zero vector. This translates into a homogeneous system of equations that we solve.",
+                "Step 2: Set-up\nWe look for all $\\alpha,\\beta,\\gamma$ with $\\alpha\\vec{a}+\\beta\\vec{b}+\\gamma\\vec{c} = \\vec{0}$. Only the trivial solution $\\alpha=\\beta=\\gamma=0$ means linear independence.",
+                "Step 3: System of equations\nComponent-wise: $\\alpha + \\gamma = 0$, $\\alpha + \\beta = 0$, $\\beta + \\gamma = 0$.",
+                "Step 4: Solve\nThe first equation gives $\\gamma = -\\alpha$, the second $\\beta = -\\alpha$. Substituting into the third gives $-\\alpha - \\alpha = 0$, so $\\alpha = 0$ and hence $\\beta = \\gamma = 0$.",
+                "Step 5: Check with the determinant\nThe matrix with columns $\\vec{a},\\vec{b},\\vec{c}$ has $\\det = \\begin{vmatrix} 1 & 0 & 1 \\\\ 1 & 1 & 0 \\\\ 0 & 1 & 1 \\end{vmatrix} = 1\\cdot(1-0) - 0 + 1\\cdot(1-0) = 2 \\neq 0$.",
+                "Step 6: Result\nThe three vectors are linearly independent and therefore even form a basis of $\\mathbb{R}^3$.",
+                "Step 7: Takeaway: What to remember\nThree vectors in $\\mathbb{R}^3$ are linearly independent exactly when $\\det \\neq 0$. The system and the determinant give the same statement; the determinant is faster, while the system also reveals a concrete dependence if there is one."
             ]
         },
         {
             "id": 5,
             "topic": "Vector Spaces",
-            "title": "Convex Sets",
-            "description": "Show that the set $K = \\{(x,y) \\in \\mathbb{R}^2 \\mid x^2 + y^2 \\leq 1\\}$ is convex and determine its extreme points.",
-            "difficulty": "medium",
-            "points": 12,
+            "title": "Finding coordinates with respect to a basis",
+            "description": "Show that $B = \\left\\{ \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}, \\begin{pmatrix} 3 \\\\ 5 \\end{pmatrix} \\right\\}$ is a basis of $\\mathbb{R}^2$ and find the coordinates of $\\vec{v} = \\begin{pmatrix} 5 \\\\ 9 \\end{pmatrix}$ with respect to $B$.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Step 1: Convexity\nLet $\\vec{p}, \\vec{q} \\in K$ and $\\lambda \\in [0,1]$\n$\\||\\lambda\\vec{p} + (1-\\lambda)\\vec{q}\\| \\leq \\lambda\\|\\vec{p}\\| + (1-\\lambda)\\|\\vec{q}\\| \\leq 1$",
-                "Step 2: Extreme Points\nThe extreme points are the points on the boundary $\\{(x,y) \\mid x^2 + y^2 = 1\\}$",
-                "Step 3: Justification\nEvery point in the interior can be represented as a convex combination of two other points",
-                "Step 4: Parametrization\n$\\{(\\cos(\\phi), \\sin(\\phi)) \\mid \\phi \\in [0,2\\pi]\\}$"
+                "Step 1: Overview: What is asked?\nThe coordinates of a vector are the coefficients of its linear combination of the basis vectors. So first make sure $B$ really is a basis; then solve a linear system.",
+                "Step 2: Show it is a basis\nTwo vectors form a basis of $\\mathbb{R}^2$ exactly when they are linearly independent, i.e. when the determinant is non-zero: $\\det\\begin{pmatrix} 1 & 3 \\\\ 2 & 5 \\end{pmatrix} = 1\\cdot 5 - 3\\cdot 2 = -1 \\neq 0$.",
+                "Step 3: Coordinate equation\nWe look for $x,y$ with $x\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} + y\\begin{pmatrix} 3 \\\\ 5 \\end{pmatrix} = \\begin{pmatrix} 5 \\\\ 9 \\end{pmatrix}$. This gives $x + 3y = 5$ and $2x + 5y = 9$.",
+                "Step 4: Solve\nFrom the first equation: $x = 5 - 3y$. Substituting: $2(5-3y) + 5y = 9 \\Rightarrow 10 - y = 9 \\Rightarrow y = 1$, so $x = 2$.",
+                "Step 5: Check\n$2\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} + 1\\begin{pmatrix} 3 \\\\ 5 \\end{pmatrix} = \\begin{pmatrix} 5 \\\\ 9 \\end{pmatrix}$ ✓",
+                "Step 6: Result\n$[\\vec{v}]_B = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$. The coordinates depend on the chosen basis, the vector $\\vec{v}$ itself does not.",
+                "Step 7: Takeaway: What to remember\nAlways check: compute the linear combination and compare it with $\\vec{v}$. Note that the coordinates $(2,1)^T$ are not the vector itself but only its description with respect to $B$."
             ]
         },
         {
             "id": 6,
+            "topic": "Vector Spaces",
+            "title": "Basis and dimension of a subspace",
+            "description": "Find a basis and the dimension of the subspace $U = \\{(x,y,z) \\in \\mathbb{R}^3 \\mid x - 2y + z = 0\\}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nA subspace described by an equation is parametrised: choose the free variables as parameters and express the others through them. The vectors in front of the parameters form a spanning set.",
+                "Step 2: Solve the equation for one variable\nFrom $x - 2y + z = 0$ we get $x = 2y - z$. The variables $y$ and $z$ can be chosen freely.",
+                "Step 3: Write a general vector of $U$\n$\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} 2y - z \\\\ y \\\\ z \\end{pmatrix} = y\\begin{pmatrix} 2 \\\\ 1 \\\\ 0 \\end{pmatrix} + z\\begin{pmatrix} -1 \\\\ 0 \\\\ 1 \\end{pmatrix}$.",
+                "Step 4: Spanning set\nHence $U = \\operatorname{span}\\left\\{ \\begin{pmatrix} 2 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} -1 \\\\ 0 \\\\ 1 \\end{pmatrix} \\right\\}$.",
+                "Step 5: Linear independence\nFrom $y\\begin{pmatrix} 2 \\\\ 1 \\\\ 0 \\end{pmatrix} + z\\begin{pmatrix} -1 \\\\ 0 \\\\ 1 \\end{pmatrix} = \\vec{0}$ the second and third components give $y = 0$ and $z = 0$. So the two vectors are linearly independent.",
+                "Step 6: Result\nA basis of $U$ is $\\left\\{ \\begin{pmatrix} 2 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} -1 \\\\ 0 \\\\ 1 \\end{pmatrix} \\right\\}$, so $\\dim U = 2$. This matches the fact that one equation in $\\mathbb{R}^3$ lowers the dimension by 1: $3 - 1 = 2$.",
+                "Step 7: Takeaway: What to remember\nRule of thumb: every independent linear equation lowers the dimension by $1$. One equation in $\\mathbb{R}^3$ gives a plane (dimension $2$), two independent equations a line (dimension $1$)."
+            ]
+        },
+        {
+            "id": 7,
             "topic": "Vector Spaces",
             "title": "Linear Independence in R³",
             "description": "Examine the linear independence of the vectors $\\vec{v}_1 = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}, \\vec{v}_2 = \\begin{pmatrix} 4 \\\\ 5 \\\\ 6 \\end{pmatrix}, \\vec{v}_3 = \\begin{pmatrix} 7 \\\\ 8 \\\\ 9 \\end{pmatrix}$.",
@@ -82,20 +109,6 @@
                 "Step 2: Calculation\n$\\det = 1 \\cdot (5 \\cdot 9 - 6 \\cdot 8) - 4 \\cdot (2 \\cdot 9 - 3 \\cdot 8) + 7 \\cdot (2 \\cdot 6 - 3 \\cdot 5) = 0$",
                 "Step 3: Interpretation\nThe determinant is 0, so the vectors are linearly dependent",
                 "Step 4: Verification\n$\\vec{v}_3 = 2\\vec{v}_2 - \\vec{v}_1$"
-            ]
-        },
-        {
-            "id": 7,
-            "topic": "Vector Spaces",
-            "title": "Generating System",
-            "description": "Show that the vectors $\\vec{v}_1 = \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}, \\vec{v}_2 = \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}$ form a generating system of $\\mathbb{R}^2$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: General Vector\nLet $\\vec{v} = \\begin{pmatrix} x \\\\ y \\end{pmatrix} \\in \\mathbb{R}^2$",
-                "Step 2: Linear Combination\n$\\vec{v} = x\\vec{v}_1 + y\\vec{v}_2$",
-                "Step 3: Verification\n$\\begin{pmatrix} x \\\\ y \\end{pmatrix} = x\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} + y\\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}$",
-                "Step 4: Conclusion\nThe vectors form a generating system, as every vector in $\\mathbb{R}^2$ can be represented as a linear combination"
             ]
         },
         {
@@ -129,20 +142,6 @@
         {
             "id": 10,
             "topic": "Vector Spaces",
-            "title": "Coordinate Transformation",
-            "description": "Given the bases $B_1 = \\{\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}\\}$ and $B_2 = \\{\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}\\}$ of $\\mathbb{R}^2$. Determine the transformation matrix from $B_1$ to $B_2$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Basis Change Matrix\n$T = \\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$",
-                "Step 2: Inversion\n$T^{-1} = \\frac{1}{2}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$",
-                "Step 3: Verification\n$T \\cdot T^{-1} = I_2$",
-                "Step 4: Application\n$[\\vec{v}]_{B_2} = T^{-1}[\\vec{v}]_{B_1}$"
-            ]
-        },
-        {
-            "id": 11,
-            "topic": "Vector Spaces",
             "title": "Orthogonal Complement",
             "description": "Determine the orthogonal complement of $U = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}\\}$ in $\\mathbb{R}^3$.",
             "difficulty": "easy",
@@ -155,21 +154,104 @@
             ]
         },
         {
+            "id": 11,
+            "topic": "Vector Spaces",
+            "title": "A subspace of the polynomial space",
+            "description": "Let $P_2$ be the vector space of polynomials of degree $\\le 2$. Show that $U = \\{p \\in P_2 \\mid p(1) = 0\\}$ is a subspace and find a basis of $U$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nPolynomials are vectors: they are added and multiplied by numbers coefficient-wise. So the subspace criterion and the notion of a basis work exactly as in $\\mathbb{R}^n$. We check the criteria and then find a basis via the coefficients.",
+                "Step 2: Zero vector\nThe zero polynomial satisfies $0(1) = 0$, so it lies in $U$.",
+                "Step 3: Closure\nLet $p,q \\in U$ and $\\lambda \\in \\mathbb{R}$. Then $(p+q)(1) = p(1) + q(1) = 0 + 0 = 0$ and $(\\lambda p)(1) = \\lambda p(1) = 0$. Hence $U$ is a subspace of $P_2$.",
+                "Step 4: General element\nLet $p(x) = a + bx + cx^2$. The condition $p(1) = a + b + c = 0$ gives $a = -b - c$. So $p(x) = -b - c + bx + cx^2 = b(x - 1) + c(x^2 - 1)$.",
+                "Step 5: Basis\nThus $U = \\operatorname{span}\\{x - 1,\\ x^2 - 1\\}$. The two polynomials are linearly independent because they have different degrees (from $b(x-1) + c(x^2-1) = 0$ we get first $c = 0$ and then $b = 0$).",
+                "Step 6: Result\n$\\{x-1,\\ x^2-1\\}$ is a basis of $U$ and $\\dim U = 2 = \\dim P_2 - 1$. The single condition $p(1) = 0$ removes exactly one degree of freedom.",
+                "Step 7: Takeaway: What to remember\nConditions like $p(1) = 0$ are linear in the coefficients and therefore define a subspace. The condition $p(1) = 1$, in contrast, would not give a subspace because the zero polynomial violates it."
+            ]
+        },
+        {
             "id": 12,
             "topic": "Vector Spaces",
-            "title": "Sum of Subspaces",
-            "description": "Let $U_1 = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}\\}$ and $U_2 = \\text{span}\\{\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}\\}$ be subspaces of $\\mathbb{R}^3$. Determine $U_1 + U_2$.",
-            "difficulty": "easy",
-            "points": 5,
+            "title": "Linear independence with a parameter",
+            "description": "For which $t \\in \\mathbb{R}$ are the vectors $\\vec{v}_1 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}, \\vec{v}_2 = \\begin{pmatrix} 1 \\\\ 1 \\\\ t \\end{pmatrix}, \\vec{v}_3 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}$ linearly dependent?",
+            "difficulty": "medium",
+            "points": 8,
             "solutionSteps": [
-                "Step 1: Definition\n$U_1 + U_2 = \\{\\vec{u}_1 + \\vec{u}_2 \\mid \\vec{u}_1 \\in U_1, \\vec{u}_2 \\in U_2\\}$",
-                "Step 2: Basis\n$U_1 + U_2 = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}\\}$",
-                "Step 3: Dimension\n$\\dim(U_1 + U_2) = 2$",
-                "Step 4: Verification\nThe sum is a subspace of $\\mathbb{R}^3$"
+                "Step 1: Overview: What is asked?\nWe look for the parameter values at which the three vectors become dependent. This happens exactly where the determinant of the column matrix vanishes. The determinant is a polynomial in $t$; its roots are the critical values.",
+                "Step 2: Idea\nThree vectors in $\\mathbb{R}^3$ are linearly dependent exactly when the determinant of the matrix of their columns equals $0$.",
+                "Step 3: Compute the determinant\n$\\det\\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\\\ 1 & t & 1 \\end{pmatrix}$. Expanding along the first row: $1\\cdot(1\\cdot 1 - 1\\cdot t) - 1\\cdot(0\\cdot 1 - 1\\cdot 1) + 0 = (1 - t) + 1 = 2 - t$.",
+                "Step 4: Root\n$2 - t = 0 \\iff t = 2$.",
+                "Step 5: Check for $t=2$\nFor $t = 2$ we have $\\vec{v}_2 = \\vec{v}_1 + \\vec{v}_3$: $\\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix} + \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 2 \\end{pmatrix}$ ✓",
+                "Step 6: Result\nThe vectors are linearly dependent exactly for $t = 2$ and linearly independent for all other $t \\in \\mathbb{R}$.",
+                "Step 7: Takeaway: What to remember\nFor parameter problems always confirm the critical values with a check (here the explicit dependence) and state clearly what holds for all other values."
             ]
         },
         {
             "id": 13,
+            "topic": "Vector Spaces",
+            "title": "Extending to a basis",
+            "description": "Extend the linearly independent vectors $\\vec{u}_1 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$ and $\\vec{u}_2 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}$ to a basis of $\\mathbb{R}^3$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nA basis of $\\mathbb{R}^3$ needs three linearly independent vectors. We have two, so exactly one is missing, and it must not lie in the plane $\\operatorname{span}\\{\\vec{u}_1,\\vec{u}_2\\}$.",
+                "Step 2: Preliminary remark\nA basis of $\\mathbb{R}^3$ consists of $3$ vectors. So we need exactly one more vector $\\vec{u}_3$ that does not lie in $\\operatorname{span}\\{\\vec{u}_1,\\vec{u}_2\\}$.",
+                "Step 3: Choose a candidate\nA standard basis vector is often a good candidate. We test $\\vec{u}_3 = \\vec{e}_3 = \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$.",
+                "Step 4: Test with the determinant\n$\\det\\begin{pmatrix} 1 & 0 & 0 \\\\ 1 & 1 & 0 \\\\ 0 & 1 & 1 \\end{pmatrix} = 1\\cdot(1\\cdot 1 - 0\\cdot 1) = 1 \\neq 0$ (lower triangular matrix, product of the diagonal entries).",
+                "Step 5: Justification\nThe determinant is non-zero, so $\\vec{u}_1,\\vec{u}_2,\\vec{u}_3$ are linearly independent. Three linearly independent vectors in $\\mathbb{R}^3$ form a basis.",
+                "Step 6: Warning\nNot every candidate works: $\\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix}$ equals $\\vec{u}_1 - \\vec{u}_2$, so it lies in $\\operatorname{span}\\{\\vec{u}_1,\\vec{u}_2\\}$ and would be unsuitable. This is why one always has to check.",
+                "Step 7: Takeaway: What to remember\nThe basis extension theorem guarantees that every linearly independent set can be extended to a basis. Which vector works must always be checked, best with the determinant."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Vector Spaces",
+            "title": "Dimension formula for subspaces",
+            "description": "Let $U_1 = \\operatorname{span}\\left\\{ \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\\\ 1 \\end{pmatrix} \\right\\}$ and $U_2 = \\operatorname{span}\\left\\{ \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 1 \\end{pmatrix} \\right\\}$ be subspaces of $\\mathbb{R}^4$. Determine $U_1 \\cap U_2$, $\\dim(U_1 \\cap U_2)$ and $\\dim(U_1 + U_2)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe first determine the intersection $U_1 \\cap U_2$ (by equating general elements) and then get $\\dim(U_1+U_2)$ from the dimension formula $\\dim(U_1+U_2) = \\dim U_1 + \\dim U_2 - \\dim(U_1\\cap U_2)$.",
+                "Step 2: General elements\n$U_1$: $a\\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix} + b\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\\\ 1 \\end{pmatrix} = (a,\\ b,\\ a,\\ b)^T$. $U_2$: $c\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix} + d\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 1 \\end{pmatrix} = (c,\\ c,\\ c+d,\\ c+d)^T$.",
+                "Step 3: Find the intersection\nEquate: $a = c$, $b = c$, $a = c + d$, $b = c + d$. From $a = c$ and $a = c + d$ we get $d = 0$. Then $a = b = c$.",
+                "Step 4: Intersection space\nThe elements of the intersection are $(c,c,c,c)^T$, so $U_1 \\cap U_2 = \\operatorname{span}\\left\\{ \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix} \\right\\}$ and $\\dim(U_1 \\cap U_2) = 1$.",
+                "Step 5: Dimensions of the individual spaces\nEach has two linearly independent generators, so $\\dim U_1 = \\dim U_2 = 2$.",
+                "Step 6: Dimension formula\n$\\dim(U_1 + U_2) = \\dim U_1 + \\dim U_2 - \\dim(U_1 \\cap U_2) = 2 + 2 - 1 = 3$.",
+                "Step 7: Result\n$U_1 \\cap U_2 = \\operatorname{span}\\{(1,1,1,1)^T\\}$, $\\dim(U_1\\cap U_2) = 1$, $\\dim(U_1+U_2) = 3$. In particular the sum is not direct because the intersection is non-trivial.",
+                "Step 8: Takeaway: What to remember\nEquating general elements is the standard method for the intersection of spans. The dimension formula saves you from computing the sum explicitly; it follows the principle “subtract what was counted twice”."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Vector Spaces",
+            "title": "Subspaces and Linear Independence",
+            "description": "Examine whether the vectors $\\vec{v}_1 = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}, \\vec{v}_2 = \\begin{pmatrix} 2 \\\\ 4 \\\\ 6 \\end{pmatrix}, \\vec{v}_3 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$ are linearly independent and determine the dimension of the subspace they span.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Linear Independence\nWe examine the equation $\\lambda_1\\vec{v}_1 + \\lambda_2\\vec{v}_2 + \\lambda_3\\vec{v}_3 = \\vec{0}$",
+                "Step 2: System of Equations\n$\\begin{pmatrix} 1 & 2 & 1 \\\\ 2 & 4 & 1 \\\\ 3 & 6 & 1 \\end{pmatrix} \\begin{pmatrix} \\lambda_1 \\\\ \\lambda_2 \\\\ \\lambda_3 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}$",
+                "Step 3: Gaussian Elimination\n$\\vec{v}_2 = 2\\vec{v}_1$, so the vectors are linearly dependent",
+                "Step 4: Dimension\n$\\dim(\\text{span}\\{\\vec{v}_1, \\vec{v}_2, \\vec{v}_3\\}) = 2$, since $\\vec{v}_1$ and $\\vec{v}_3$ are linearly independent"
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Vector Spaces",
+            "title": "Convex Sets",
+            "description": "Show that the set $K = \\{(x,y) \\in \\mathbb{R}^2 \\mid x^2 + y^2 \\leq 1\\}$ is convex and determine its extreme points.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Convexity\nLet $\\vec{p}, \\vec{q} \\in K$ and $\\lambda \\in [0,1]$\n$\\|\\lambda\\vec{p} + (1-\\lambda)\\vec{q}\\| \\leq \\lambda\\|\\vec{p}\\| + (1-\\lambda)\\|\\vec{q}\\| \\leq 1$",
+                "Step 2: Extreme Points\nThe extreme points are the points on the boundary $\\{(x,y) \\mid x^2 + y^2 = 1\\}$",
+                "Step 3: Justification\nEvery point in the interior can be represented as a convex combination of two other points",
+                "Step 4: Parametrization\n$\\{(\\cos(\\phi), \\sin(\\phi)) \\mid \\phi \\in [0,2\\pi]\\}$"
+            ]
+        },
+        {
+            "id": 17,
             "topic": "Vector Spaces",
             "title": "Intersection of Subspaces",
             "description": "Let $U_1 = \\{(x,y,z) \\in \\mathbb{R}^3 \\mid x + y = 0\\}$ and $U_2 = \\{(x,y,z) \\in \\mathbb{R}^3 \\mid y + z = 0\\}$. Determine $U_1 \\cap U_2$.",
@@ -183,7 +265,7 @@
             ]
         },
         {
-            "id": 14,
+            "id": 18,
             "topic": "Vector Spaces",
             "title": "Direct Sum",
             "description": "Show that $\\mathbb{R}^3 = U_1 \\oplus U_2$ with $U_1 = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}\\}$ and $U_2 = \\text{span}\\{\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}\\}$.",
@@ -197,7 +279,7 @@
             ]
         },
         {
-            "id": 15,
+            "id": 19,
             "topic": "Vector Spaces",
             "title": "Orthogonal Projection",
             "description": "Determine the orthogonal projection of the vector $\\vec{v} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$ onto the subspace $U = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}\\}$.",
@@ -211,7 +293,7 @@
             ]
         },
         {
-            "id": 16,
+            "id": 20,
             "topic": "Vector Spaces",
             "title": "Gram-Schmidt Process",
             "description": "Apply the Gram-Schmidt process to the vectors $\\vec{v}_1 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\vec{v}_2 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}, \\vec{v}_3 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}$.",
@@ -225,21 +307,7 @@
             ]
         },
         {
-            "id": 17,
-            "topic": "Vector Spaces",
-            "title": "QR Decomposition",
-            "description": "Determine the QR decomposition of the matrix $A = \\begin{pmatrix} 1 & 1 & 0 \\\\ 1 & 0 & 1 \\\\ 0 & 1 & 1 \\end{pmatrix}$.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Step 1: Gram-Schmidt\n$Q = \\begin{pmatrix} \\frac{1}{\\sqrt{2}} & \\frac{1}{\\sqrt{6}} & -\\frac{1}{\\sqrt{3}} \\\\ \\frac{1}{\\sqrt{2}} & -\\frac{1}{\\sqrt{6}} & \\frac{1}{\\sqrt{3}} \\\\ 0 & \\frac{2}{\\sqrt{6}} & \\frac{1}{\\sqrt{3}} \\end{pmatrix}$",
-                "Step 2: Calculate R\n$R = Q^T A = \\begin{pmatrix} \\sqrt{2} & \\frac{1}{\\sqrt{2}} & \\frac{1}{\\sqrt{2}} \\\\ 0 & \\frac{\\sqrt{6}}{2} & \\frac{\\sqrt{6}}{2} \\\\ 0 & 0 & \\sqrt{3} \\end{pmatrix}$",
-                "Step 3: Verification\n$A = QR$",
-                "Step 4: Properties\n$Q$ is orthogonal, $R$ is upper triangular matrix"
-            ]
-        },
-        {
-            "id": 18,
+            "id": 21,
             "topic": "Vector Spaces",
             "title": "Dual Basis",
             "description": "Determine the dual basis to the basis $B = \\{\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}\\}$ of $\\mathbb{R}^2$.",
@@ -253,171 +321,162 @@
             ]
         },
         {
-            "id": 19,
-            "topic": "Vector Spaces",
-            "title": "Tensor Product",
-            "description": "Calculate the tensor product $\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} \\otimes \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Step 1: Definition\n$\\vec{v} \\otimes \\vec{w} = \\begin{pmatrix} v_1\\vec{w} \\\\ v_2\\vec{w} \\end{pmatrix}$",
-                "Step 2: Calculation\n$\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} \\otimes \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix} = \\begin{pmatrix} 1 \\cdot 3 \\\\ 1 \\cdot 4 \\\\ 2 \\cdot 3 \\\\ 2 \\cdot 4 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 4 \\\\ 6 \\\\ 8 \\end{pmatrix}$",
-                "Step 3: Dimension\n$\\dim(\\vec{v} \\otimes \\vec{w}) = \\dim(\\vec{v}) \\cdot \\dim(\\vec{w}) = 2 \\cdot 2 = 4$",
-                "Step 4: Verification\nThe result is a vector in $\\mathbb{R}^4$"
-            ]
-        },
-        {
-            "id": 20,
-            "topic": "Vector Spaces",
-            "title": "Exterior Product",
-            "description": "Calculate the exterior product $\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix} \\wedge \\begin{pmatrix} 4 \\\\ 5 \\\\ 6 \\end{pmatrix}$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Step 1: Definition\n$\\vec{v} \\wedge \\vec{w} = \\vec{v} \\otimes \\vec{w} - \\vec{w} \\otimes \\vec{v}$",
-                "Step 2: Calculation\n$\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix} \\wedge \\begin{pmatrix} 4 \\\\ 5 \\\\ 6 \\end{pmatrix} = \\begin{pmatrix} -3 \\\\ 6 \\\\ -3 \\end{pmatrix}$",
-                "Step 3: Properties\n$\\vec{v} \\wedge \\vec{w} = -\\vec{w} \\wedge \\vec{v}$",
-                "Step 4: Verification\nThe result is a vector in $\\mathbb{R}^3$"
-            ]
-        },
-        {
-            "id": 21,
-            "topic": "Vector Spaces",
-            "title": "Tensor Product of Mappings",
-            "description": "Let $f: \\mathbb{R}^2 \\to \\mathbb{R}^2$ and $g: \\mathbb{R}^2 \\to \\mathbb{R}^2$ be linear mappings with the matrices $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ and $B = \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix}$. Determine the matrix of $f \\otimes g$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Step 1: Definition\n$(f \\otimes g)(\\vec{v} \\otimes \\vec{w}) = f(\\vec{v}) \\otimes g(\\vec{w})$",
-                "Step 2: Matrix\n$A \\otimes B = \\begin{pmatrix} 5A & 6A \\\\ 7A & 8A \\end{pmatrix}$",
-                "Step 3: Calculation\n$A \\otimes B = \\begin{pmatrix} 5 & 10 & 6 & 12 \\\\ 15 & 20 & 18 & 24 \\\\ 7 & 14 & 8 & 16 \\\\ 21 & 28 & 24 & 32 \\end{pmatrix}$",
-                "Step 4: Verification\n$\\dim(A \\otimes B) = \\dim(A) \\cdot \\dim(B) = 4 \\cdot 4 = 16$"
-            ]
-        },
-        {
             "id": 22,
             "topic": "Vector Spaces",
-            "title": "Exterior Algebra",
-            "description": "Calculate $\\bigwedge^2 \\mathbb{R}^3$ and determine a basis.",
+            "title": "n+1 vectors in ℝⁿ are dependent",
+            "description": "Show: any $n+1$ vectors in $\\mathbb{R}^n$ are linearly dependent. Give a dependence relation for $(1,2),(3,4),(5,6) \\in \\mathbb{R}^2$.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Step 1: Dimension\n$\\dim(\\bigwedge^2 \\mathbb{R}^3) = \\binom{3}{2} = 3$",
-                "Step 2: Basis\n$\\{\\vec{e}_1 \\wedge \\vec{e}_2, \\vec{e}_1 \\wedge \\vec{e}_3, \\vec{e}_2 \\wedge \\vec{e}_3\\}$",
-                "Step 3: Calculation\n$\\vec{e}_1 \\wedge \\vec{e}_2 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix} \\wedge \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$",
-                "Step 4: Verification\nThe vectors are linearly independent"
+                "Step 1: Overview: What is asked?\nThe equation $c_1\\vec v_1 + \\dots + c_{n+1}\\vec v_{n+1} = \\vec0$ is a homogeneous linear system with $n$ equations and $n+1$ unknowns $c_i$. Such a system always has non-trivial solutions.",
+                "Step 2: General argument\nThe rank of the coefficient matrix is at most $n$ (number of rows), the number of unknowns is $n+1$. So there is at least $n + 1 - n = 1$ free variable, i.e. a non-trivial solution. $\\blacksquare$",
+                "Step 3: Example: the system\n$c_1(1,2) + c_2(3,4) + c_3(5,6) = (0,0)$: $c_1 + 3c_2 + 5c_3 = 0$ and $2c_1 + 4c_2 + 6c_3 = 0$.",
+                "Step 4: Solve\nSecond minus $2\\times$ first: $-2c_2 - 4c_3 = 0 \\Rightarrow c_2 = -2c_3$. Then $c_1 = -3c_2 - 5c_3 = 6c_3 - 5c_3 = c_3$. With $c_3 = 1$: $(c_1,c_2,c_3) = (1,-2,1)$.",
+                "Step 5: Check\n$(1,2) - 2(3,4) + (5,6) = (1 - 6 + 5,\\ 2 - 8 + 6) = (0,0)$ ✓. So $(3,4)$ is the average of $(1,2)$ and $(5,6)$.",
+                "Step 6: Takeaway: What to remember\nConsequence: a basis of $\\mathbb{R}^n$ has exactly $n$ elements; more vectors are dependent, fewer do not span the whole space. This is the foundation of the notion of dimension."
             ]
         },
         {
             "id": 23,
             "topic": "Vector Spaces",
-            "title": "Tensor Product of Vector Spaces",
-            "description": "Let $V = \\mathbb{R}^2$ and $W = \\mathbb{R}^3$. Determine a basis of $V \\otimes W$.",
+            "title": "Complement: ℝ³ = U ⊕ W",
+            "description": "Let $U = \\{(x,y,z) \\mid x + y + z = 0\\}$ and $W = \\operatorname{span}\\{(1,1,1)\\}$. Show $\\mathbb{R}^3 = U \\oplus W$ and decompose $\\vec v = (1,2,3)$.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Step 1: Dimension\n$\\dim(V \\otimes W) = \\dim(V) \\cdot \\dim(W) = 2 \\cdot 3 = 6$",
-                "Step 2: Basis\n$\\{\\vec{e}_1 \\otimes \\vec{f}_1, \\vec{e}_1 \\otimes \\vec{f}_2, \\vec{e}_1 \\otimes \\vec{f}_3, \\vec{e}_2 \\otimes \\vec{f}_1, \\vec{e}_2 \\otimes \\vec{f}_2, \\vec{e}_2 \\otimes \\vec{f}_3\\}$",
-                "Step 3: Calculation\n$\\vec{e}_1 \\otimes \\vec{f}_1 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\end{pmatrix}$",
-                "Step 4: Verification\nThe vectors are linearly independent"
+                "Step 1: Overview: What is asked?\nDirect sum: $\\mathbb{R}^3 = U + W$ and $U \\cap W = \\{\\vec0\\}$ (equivalently: every vector decomposes uniquely). Additionally one can check dimensions: $\\dim U + \\dim W = 2 + 1 = 3$.",
+                "Step 2: Trivial intersection\nAn element of $W$ is $s(1,1,1)$. If it lies in $U$ then $3s = 0$, so $s = 0$. Hence $U \\cap W = \\{\\vec0\\}$.",
+                "Step 3: Decomposing an arbitrary vector\nFor $\\vec v = (a,b,c)$ put $s = \\frac{a+b+c}{3}$ and $\\vec u = \\vec v - s(1,1,1)$. Then $\\vec u \\in U$ because the coordinate sum of $\\vec u$ is $(a+b+c) - 3s = 0$. So $\\vec v = \\vec u + s(1,1,1)$ with $\\vec u \\in U$.",
+                "Step 4: Example $\\vec v = (1,2,3)$\n$s = \\frac63 = 2$, $\\vec u = (1,2,3) - (2,2,2) = (-1,0,1)$. Check: $-1 + 0 + 1 = 0$, so $\\vec u \\in U$, and $\\vec u + 2(1,1,1) = (1,2,3)$ ✓.",
+                "Step 5: Takeaway: What to remember\n$s$ is the mean of the coordinates; the decomposition is unique (direct sum). Here even $W = U^\\perp$, so the decomposition is the orthogonal projection onto $U$. A complement is not unique: $\\operatorname{span}\\{(1,0,0)\\}$ is also a complement to $U$."
             ]
         },
         {
             "id": 24,
             "topic": "Vector Spaces",
-            "title": "Exterior Power",
-            "description": "Calculate $\\bigwedge^3 \\mathbb{R}^4$ and determine a basis.",
+            "title": "Linear independence of functions",
+            "description": "Show that in $C(\\mathbb{R})$ (continuous functions) the functions (a) $1, x, x^2$ and (b) $\\sin x, \\cos x$ are linearly independent.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Step 1: Dimension\n$\\dim(\\bigwedge^3 \\mathbb{R}^4) = \\binom{4}{3} = 4$",
-                "Step 2: Basis\n$\\{\\vec{e}_1 \\wedge \\vec{e}_2 \\wedge \\vec{e}_3, \\vec{e}_1 \\wedge \\vec{e}_2 \\wedge \\vec{e}_4, \\vec{e}_1 \\wedge \\vec{e}_3 \\wedge \\vec{e}_4, \\vec{e}_2 \\wedge \\vec{e}_3 \\wedge \\vec{e}_4\\}$",
-                "Step 3: Calculation\n$\\vec{e}_1 \\wedge \\vec{e}_2 \\wedge \\vec{e}_3 = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$",
-                "Step 4: Verification\nThe vectors are linearly independent"
+                "Step 1: Overview: What is asked?\nFunctions are linearly independent if $c_1f_1 + \\dots + c_nf_n = 0$ (as a function, i.e. for **all** $x$) implies $c_1 = \\dots = c_n = 0$. Since the equation holds for all $x$ we may plug in special $x$ values.",
+                "Step 2: (a) $1, x, x^2$\nFrom $a + bx + cx^2 = 0$ for all $x$: $x = 0$ gives $a = 0$; $x = 1$ gives $b + c = 0$; $x = -1$ gives $-b + c = 0$. Adding: $c = 0$, then $b = 0$.",
+                "Step 3: (b) $\\sin x, \\cos x$\nFrom $a\\sin x + b\\cos x = 0$ for all $x$: $x = 0$ gives $b = 0$; $x = \\frac\\pi2$ gives $a = 0$.",
+                "Step 4: Counterexample: dependent functions\n$1, \\cos2x, \\cos^2x$ are linearly dependent: $\\cos2x = 2\\cos^2x - 1$, so $2\\cos^2x - \\cos2x - 1\\cdot1 = 0$ (non-trivial relation).",
+                "Step 5: Takeaway: What to remember\nIn $C(\\mathbb{R})$ the dimension is infinite: $1, x, x^2, x^3, \\dots$ are linearly independent. A general criterion is given by the Wronskian determinant. Here too: finitely many suitable $x$ values suffice to prove independence."
             ]
         },
         {
             "id": 25,
             "topic": "Vector Spaces",
-            "title": "Tensor Product of Dual Spaces",
-            "description": "Let $V = \\mathbb{R}^2$ and $W = \\mathbb{R}^2$. Determine a basis of $V^* \\otimes W^*$.",
+            "title": "Solution space of a homogeneous system",
+            "description": "Determine a basis and the dimension of the solution space of $x_1 + x_2 + x_3 + x_4 = 0$, $x_1 - x_2 + x_3 - x_4 = 0$.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Step 1: Dimension\n$\\dim(V^* \\otimes W^*) = \\dim(V^*) \\cdot \\dim(W^*) = 2 \\cdot 2 = 4$",
-                "Step 2: Basis\n$\\{\\varphi_1 \\otimes \\psi_1, \\varphi_1 \\otimes \\psi_2, \\varphi_2 \\otimes \\psi_1, \\varphi_2 \\otimes \\psi_2\\}$",
-                "Step 3: Calculation\n$\\varphi_1 \\otimes \\psi_1 = \\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}$",
-                "Step 4: Verification\nThe mappings are linearly independent"
+                "Step 1: Overview: What is asked?\nThe solution set of a homogeneous system $A\\vec x = \\vec0$ is a subspace (the kernel of $A$). By the rank–nullity theorem $\\dim\\ker A = n - \\operatorname{rank}A$. We solve the system and read off a basis.",
+                "Step 2: Eliminate\nAdding: $2x_1 + 2x_3 = 0 \\Rightarrow x_3 = -x_1$. Subtracting: $2x_2 + 2x_4 = 0 \\Rightarrow x_4 = -x_2$.",
+                "Step 3: General solution\nFree: $x_1 = a$, $x_2 = b$. Solution: $(a,\\ b,\\ -a,\\ -b) = a(1,0,-1,0) + b(0,1,0,-1)$.",
+                "Step 4: Basis and dimension\n$\\{(1,0,-1,0),\\ (0,1,0,-1)\\}$ is linearly independent (entries $1$ in different positions) and spanning. $\\dim = 2$.",
+                "Step 5: Check with the rank–nullity theorem\nThe coefficient matrix has rank $2$ (the two rows are not proportional). $\\dim\\ker = 4 - 2 = 2$ ✓. Substituting: $(1,0,-1,0)$: $1 + 0 - 1 + 0 = 0$ ✓ and $1 - 0 - 1 - 0 = 0$ ✓.",
+                "Step 6: Takeaway: What to remember\nNumber of free variables $=$ dimension of the solution space. Each independent equation lowers the dimension by $1$. The solutions are exactly the vectors orthogonal to both rows of $A$."
             ]
         },
         {
             "id": 26,
             "topic": "Vector Spaces",
-            "title": "Exterior Power of Dual Spaces",
-            "description": "Calculate $\\bigwedge^2 (\\mathbb{R}^3)^*$ and determine a basis.",
+            "title": "Trace-free matrices: basis and dimension",
+            "description": "Show that $W = \\{A \\in \\mathbb{R}^{2\\times 2} \\mid \\operatorname{tr}(A) = 0\\}$ is a subspace of $\\mathbb{R}^{2\\times 2}$ and find a basis and $\\dim W$.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Step 1: Dimension\n$\\dim(\\bigwedge^2 (\\mathbb{R}^3)^*) = \\binom{3}{2} = 3$",
-                "Step 2: Basis\n$\\{\\varphi_1 \\wedge \\varphi_2, \\varphi_1 \\wedge \\varphi_3, \\varphi_2 \\wedge \\varphi_3\\}$",
-                "Step 3: Calculation\n$\\varphi_1 \\wedge \\varphi_2 = \\begin{pmatrix} 0 & 1 & 0 \\\\ -1 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}$",
-                "Step 4: Verification\nThe mappings are linearly independent"
+                "Step 1: Overview: What is asked?\nMatrices themselves form a vector space (here $\\mathbb{R}^{2\\times2}$ with $\\dim = 4$). The condition $\\operatorname{tr}(A) = 0$ is linear, so we expect a subspace of dimension $4 - 1 = 3$. We verify this and give a basis.",
+                "Step 2: Show it is a subspace\n$\\operatorname{tr}(0) = 0$, so $0 \\in W$. For $A,B \\in W$ and $\\lambda \\in \\mathbb{R}$ we have $\\operatorname{tr}(A+B) = \\operatorname{tr}(A)+\\operatorname{tr}(B) = 0$ and $\\operatorname{tr}(\\lambda A) = \\lambda\\operatorname{tr}(A) = 0$. So $W$ is a subspace.",
+                "Step 3: General matrix in $W$\n$A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ with $a + d = 0$, i.e. $d = -a$: $A = \\begin{pmatrix} a & b \\\\ c & -a \\end{pmatrix}$.",
+                "Step 4: Decomposition\n$A = a\\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix} + b\\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix} + c\\begin{pmatrix} 0 & 0 \\\\ 1 & 0 \\end{pmatrix}$. Put $H = \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}$, $E = \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}$, $F = \\begin{pmatrix} 0 & 0 \\\\ 1 & 0 \\end{pmatrix}$.",
+                "Step 5: Linear independence\nFrom $aH + bE + cF = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}$ comparing entries gives $a = 0$ (entry $(1,1)$), $b = 0$ (entry $(1,2)$) and $c = 0$ (entry $(2,1)$).",
+                "Step 6: Result\n$\\{H, E, F\\}$ is a basis of $W$ and $\\dim W = 3$. This fits $\\dim \\mathbb{R}^{2\\times 2} = 4$ and the single condition $\\operatorname{tr}(A) = 0$: $4 - 1 = 3$.",
+                "Step 7: Takeaway: What to remember\nA basis is found by writing the general matrix of the subspace as a linear combination of fixed matrices and proving independence by comparing coefficients. The dimension can be estimated beforehand with the rule of thumb."
             ]
         },
         {
             "id": 27,
             "topic": "Vector Spaces",
-            "title": "Tensor Product of Quotient Spaces",
-            "description": "Let $V = \\mathbb{R}^3/U_1$ and $W = \\mathbb{R}^3/U_2$ with $U_1 = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}\\}$ and $U_2 = \\text{span}\\{\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}\\}$. Determine a basis of $V \\otimes W$.",
+            "title": "Proof: linear independence of sum vectors",
+            "description": "Let $\\vec{u},\\vec{v},\\vec{w}$ be linearly independent vectors in a real vector space $V$. Prove that $\\vec{u}+\\vec{v},\\ \\vec{v}+\\vec{w},\\ \\vec{u}+\\vec{w}$ are also linearly independent.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Step 1: Dimension\n$\\dim(V) = 2, \\dim(W) = 2$\n$\\dim(V \\otimes W) = 2 \\cdot 2 = 4$",
-                "Step 2: Basis\n$\\{\\vec{v}_1 \\otimes \\vec{w}_1, \\vec{v}_1 \\otimes \\vec{w}_2, \\vec{v}_2 \\otimes \\vec{w}_1, \\vec{v}_2 \\otimes \\vec{w}_2\\}$",
-                "Step 3: Calculation\n$\\vec{v}_1 = \\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\end{pmatrix} + U_1$\n$\\vec{w}_1 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix} + U_2$",
-                "Step 4: Verification\nThe vectors are linearly independent"
+                "Step 1: Overview: What is asked?\nProofs about linear independence start with a linear combination equal to the zero vector and show that all coefficients must be $0$. The trick: the hypothesis (independence of $\\vec{u},\\vec{v},\\vec{w}$) is applied to the rearranged equation.",
+                "Step 2: Proof idea\nWe take a linear combination of the new vectors that equals $\\vec{0}$ and show that all coefficients must be $0$.",
+                "Step 3: Set-up\nLet $\\alpha,\\beta,\\gamma \\in \\mathbb{R}$ with $\\alpha(\\vec{u}+\\vec{v}) + \\beta(\\vec{v}+\\vec{w}) + \\gamma(\\vec{u}+\\vec{w}) = \\vec{0}$.",
+                "Step 4: Sort by the original vectors\n$(\\alpha + \\gamma)\\vec{u} + (\\alpha + \\beta)\\vec{v} + (\\beta + \\gamma)\\vec{w} = \\vec{0}$.",
+                "Step 5: Use independence of $\u000bec{u},\u000bec{v},\u000bec{w}$\nSince $\\vec{u},\\vec{v},\\vec{w}$ are linearly independent, all coefficients must vanish: $\\alpha + \\gamma = 0$, $\\alpha + \\beta = 0$, $\\beta + \\gamma = 0$.",
+                "Step 6: Solve the system\nAdding all three equations: $2(\\alpha+\\beta+\\gamma) = 0$, so $\\alpha+\\beta+\\gamma = 0$. Subtracting the equation $\\beta+\\gamma = 0$ gives $\\alpha = 0$; similarly $\\gamma = 0$ (from $\\alpha+\\beta=0$) and $\\beta = 0$ (from $\\alpha+\\gamma=0$).",
+                "Step 7: Conclusion\nOnly the trivial linear combination gives $\\vec{0}$, so $\\vec{u}+\\vec{v},\\ \\vec{v}+\\vec{w},\\ \\vec{u}+\\vec{w}$ are linearly independent. $\\blacksquare$ (Note: the argument uses that $2$ is invertible in $\\mathbb{R}$.)",
+                "Step 8: Takeaway: What to remember\nTypical structure: set-up, rearrange by the known vectors, use the hypothesis, solve the resulting system. The same structure carries many independence proofs."
             ]
         },
         {
             "id": 28,
             "topic": "Vector Spaces",
-            "title": "Exterior Power of Quotient Spaces",
-            "description": "Let $V = \\mathbb{R}^4/U$ with $U = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 1 \\end{pmatrix}\\}$. Determine a basis of $\\bigwedge^2 V$.",
+            "title": "Change of basis: coordinates in a new basis",
+            "description": "Let $B = \\{\\vec{b}_1, \\vec{b}_2, \\vec{b}_3\\}$ with $\\vec{b}_1 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\vec{b}_2 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}, \\vec{b}_3 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}$. (a) Show that $B$ is a basis of $\\mathbb{R}^3$. (b) Find the coordinates of $\\vec{v} = \\begin{pmatrix} 4 \\\\ 5 \\\\ 3 \\end{pmatrix}$ with respect to $B$.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Step 1: Dimension\n$\\dim(V) = 2$\n$\\dim(\\bigwedge^2 V) = \\binom{2}{2} = 1$",
-                "Step 2: Basis\n$\\{\\vec{v}_1 \\wedge \\vec{v}_2\\}$",
-                "Step 3: Calculation\n$\\vec{v}_1 = \\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\\\ 0 \\end{pmatrix} + U$\n$\\vec{v}_2 = \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ -1 \\end{pmatrix} + U$",
-                "Step 4: Verification\nThe vectors are linearly independent"
+                "Step 1: Overview: What is asked?\nWe need the coordinates of $\\vec{v}$ in the new basis. With the matrix $M$ whose columns are the basis vectors, the equation is $M\\vec{x} = \\vec{v}$. First we show that $M$ is invertible (so we have a basis), then we solve.",
+                "Step 2: (a) Show it is a basis\nWith $M = \\begin{pmatrix} 1 & 0 & 1 \\\\ 1 & 1 & 0 \\\\ 0 & 1 & 1 \\end{pmatrix}$ (columns $\\vec{b}_1,\\vec{b}_2,\\vec{b}_3$) we get $\\det M = 1\\cdot(1-0) - 0 + 1\\cdot(1-0) = 2 \\neq 0$. So the three vectors are linearly independent and form a basis.",
+                "Step 3: (b) Set-up\nWe need $x_1,x_2,x_3$ with $x_1\\vec{b}_1 + x_2\\vec{b}_2 + x_3\\vec{b}_3 = \\vec{v}$, i.e. $M\\vec{x} = \\vec{v}$. Component-wise: $x_1 + x_3 = 4$, $x_1 + x_2 = 5$, $x_2 + x_3 = 3$.",
+                "Step 4: Solve\nAdding all three equations: $2(x_1+x_2+x_3) = 12$, so $x_1+x_2+x_3 = 6$. Hence $x_2 = 6 - 4 = 2$, $x_3 = 6 - 5 = 1$, $x_1 = 6 - 3 = 3$.",
+                "Step 5: Check\n$3\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} + 2\\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix} + 1\\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} 3+0+1 \\\\ 3+2+0 \\\\ 0+2+1 \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 5 \\\\ 3 \\end{pmatrix}$ ✓",
+                "Step 6: Result\n$[\\vec{v}]_B = \\begin{pmatrix} 3 \\\\ 2 \\\\ 1 \\end{pmatrix}$. The matrix $M$ converts $B$-coordinates into standard coordinates: $\\vec{v} = M[\\vec{v}]_B$; conversely $[\\vec{v}]_B = M^{-1}\\vec{v}$.",
+                "Step 7: Takeaway: What to remember\nRemember: standard coordinates $= M\\cdot$ ($B$-coordinates). For the opposite direction you need $M^{-1}$. The direction is the most common source of mistakes in basis changes, so always check."
             ]
         },
         {
             "id": 29,
             "topic": "Vector Spaces",
-            "title": "Tensor Product of Polynomial Spaces",
-            "description": "Let $V = \\mathbb{R}[x]_{\\leq 1}$ and $W = \\mathbb{R}[x]_{\\leq 1}$. Determine a basis of $V \\otimes W$.",
+            "title": "Direct sum: symmetric and skew-symmetric matrices",
+            "description": "Let $\\operatorname{Sym} = \\{A \\in \\mathbb{R}^{2\\times 2} \\mid A^T = A\\}$ and $\\operatorname{Skew} = \\{A \\in \\mathbb{R}^{2\\times 2} \\mid A^T = -A\\}$. Show that $\\mathbb{R}^{2\\times 2} = \\operatorname{Sym} \\oplus \\operatorname{Skew}$.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Step 1: Dimension\n$\\dim(V \\otimes W) = \\dim(V) \\cdot \\dim(W) = 2 \\cdot 2 = 4$",
-                "Step 2: Basis\n$\\{1 \\otimes 1, 1 \\otimes x, x \\otimes 1, x \\otimes x\\}$",
-                "Step 3: Calculation\n$1 \\otimes 1 = 1$\n$1 \\otimes x = x$\n$x \\otimes 1 = x$\n$x \\otimes x = x^2$",
-                "Step 4: Verification\nThe polynomials are linearly independent"
+                "Step 1: Overview: What is asked?\n“Direct sum” means: every vector can be written in exactly one way as the sum of an element of $\\operatorname{Sym}$ and one of $\\operatorname{Skew}$. We show existence of the decomposition and that the intersection is trivial.",
+                "Step 2: Both sets are subspaces\nThe zero matrix lies in both sets. From $A^T = \\pm A$ and $B^T = \\pm B$ we get $(A+B)^T = A^T+B^T = \\pm(A+B)$ and $(\\lambda A)^T = \\pm\\lambda A$.",
+                "Step 3: Decomposition exists\nFor arbitrary $A$ let $S = \\tfrac12(A + A^T)$ and $K = \\tfrac12(A - A^T)$. Then $S^T = \\tfrac12(A^T + A) = S$, so $S \\in \\operatorname{Sym}$, and $K^T = \\tfrac12(A^T - A) = -K$, so $K \\in \\operatorname{Skew}$. Moreover $S + K = A$.",
+                "Step 4: The intersection is trivial\nLet $A \\in \\operatorname{Sym}\\cap\\operatorname{Skew}$. Then $A^T = A$ and $A^T = -A$, so $A = -A$ and hence $A = 0$.",
+                "Step 5: Dimension check\n$\\operatorname{Sym}$ has the basis $\\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}, \\begin{pmatrix} 0 & 0 \\\\ 0 & 1 \\end{pmatrix}, \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$, so $\\dim = 3$. $\\operatorname{Skew}$ has the basis $\\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix}$, so $\\dim = 1$. Indeed $3 + 1 = 4 = \\dim\\mathbb{R}^{2\\times 2}$.",
+                "Step 6: Result\nEvery matrix can be written uniquely as the sum of a symmetric and a skew-symmetric matrix: $\\mathbb{R}^{2\\times 2} = \\operatorname{Sym} \\oplus \\operatorname{Skew}$. $\\blacksquare$ (The proof works the same way for $n\\times n$ matrices.)",
+                "Step 7: Takeaway: What to remember\nDecomposition criterion: $V = U \\oplus W \\iff V = U + W$ and $U \\cap W = \\{\\vec{0}\\}$. The dimension check $\\dim U + \\dim W = \\dim V$ is a good plausibility test but does not replace the proof."
             ]
         },
         {
             "id": 30,
             "topic": "Vector Spaces",
-            "title": "Exterior Power of Polynomial Spaces",
-            "description": "Let $V = \\mathbb{R}[x]_{\\leq 2}$. Determine a basis of $\\bigwedge^2 V$.",
+            "title": "Dual Spaces",
+            "description": "Let $V = \\mathbb{R}^3$ and $\\varphi: V \\to \\mathbb{R}$ be a linear mapping with $\\varphi(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = 1, \\varphi(\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}) = 2, \\varphi(\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}) = 3$. Determine the representation matrix of $\\varphi$ with respect to the standard basis.",
             "difficulty": "hard",
-            "points": 12,
+            "points": 15,
             "solutionSteps": [
-                "Step 1: Dimension\n$\\dim(V) = 3$\n$\\dim(\\bigwedge^2 V) = \\binom{3}{2} = 3$",
-                "Step 2: Basis\n$\\{1 \\wedge x, 1 \\wedge x^2, x \\wedge x^2\\}$",
-                "Step 3: Calculation\n$1 \\wedge x = x - 1$\n$1 \\wedge x^2 = x^2 - 1$\n$x \\wedge x^2 = x^2 - x$",
-                "Step 4: Verification\nThe polynomials are linearly independent"
+                "Step 1: Basis Vectors\n$\\vec{e}_1 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\vec{e}_2 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\vec{e}_3 = \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$",
+                "Step 2: Linear Independence\n$\\vec{e}_2 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} - \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}$\n$\\vec{e}_3 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix} - \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$",
+                "Step 3: Function Values\n$\\varphi(\\vec{e}_1) = 1$\n$\\varphi(\\vec{e}_2) = 2 - 1 = 1$\n$\\varphi(\\vec{e}_3) = 3 - 2 = 1$",
+                "Step 4: Representation Matrix\n$[\\varphi] = (1, 1, 1)$"
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Vector Spaces",
+            "title": "Quotient Vector Spaces",
+            "description": "Let $V = \\mathbb{R}^4$ and $U = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 1 \\end{pmatrix}\\}$. Determine a basis of the quotient vector space $V/U$ and the dimension of $V/U$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Dimension of U\n$\\dim(U) = 2$, since the vectors are linearly independent",
+                "Step 2: Dimension of V/U\n$\\dim(V/U) = \\dim(V) - \\dim(U) = 4 - 2 = 2$",
+                "Step 3: Basis of V/U\n$\\{\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ 0 \\end{pmatrix} + U, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix} + U\\}$",
+                "Step 4: Verification\nThe vectors are linearly independent modulo U and form a basis of V/U"
             ]
         }
     ]

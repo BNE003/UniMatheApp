@@ -12,80 +12,89 @@
         {
             "id": 1,
             "topic": "Complex Numbers",
-            "title": "Polar Form and Powers",
-            "description": "Let $z = 1 - \\sqrt{3}i$.\n\na) Write $z$ in polar form.\nb) Compute $z^5$.",
-            "difficulty": "medium",
+            "title": "Polar form and powers",
+            "description": "Let $z = 1 - \\sqrt3\\,i$.\na) Determine $|z|$ and $\\arg z$ and write $z$ in polar form.\nb) Compute $z^5$ in the form $a + bi$.",
+            "difficulty": "intermediate",
             "points": 15,
             "solutionSteps": [
-                "Step 1: Modulus and argument\n$|z| = \\sqrt{1^2 + (\\sqrt{3})^2} = 2$\nArgument: $\\varphi = -\\pi/3$ (fourth quadrant)",
-                "Step 2: Polar form\n$z = 2(\\cos(-\\pi/3) + i\\sin(-\\pi/3))$",
-                "Step 3: Power\n$z^5 = 2^5(\\cos(-5\\pi/3) + i\\sin(-5\\pi/3))$\n$= 32(\\cos(\\pi/3) + i\\sin(\\pi/3))$\n$= 32(1/2 + i\\sqrt{3}/2) = 16 + 16\\sqrt{3}i$"
+                "Step 1: Part a): Absolute value\n$|z| = \\sqrt{1^2 + (\\sqrt3)^2} = 2$.",
+                "Step 2: Part a): Argument (mind the quadrant)\n$z$ lies in the fourth quadrant. The reference angle is $\\arctan\\sqrt3 = \\frac\\pi3$, so $\\arg z = -\\frac\\pi3$. Polar form: $z = 2\\left(\\cos\\left(-\\frac\\pi3\\right) + i\\sin\\left(-\\frac\\pi3\\right)\\right) = 2e^{-i\\pi/3}$.",
+                "Step 3: Part b): De Moivre's formula\n$z^5 = 2^5e^{-5i\\pi/3} = 32\\left(\\cos\\frac{5\\pi}{3} - i\\sin\\frac{5\\pi}{3}\\right)$. Since $-\\frac{5\\pi}3 \\equiv \\frac\\pi3 \\pmod{2\\pi}$: $z^5 = 32\\left(\\cos\\frac\\pi3 + i\\sin\\frac\\pi3\\right) = 32\\left(\\frac12 + \\frac{\\sqrt3}{2}i\\right) = 16 + 16\\sqrt3\\,i$.",
+                "Step 4: Check\n$|z^5| = 32 = 2^5$ ✓. Directly: $z^2 = 1 - 2\\sqrt3i - 3 = -2 - 2\\sqrt3i$, $z^4 = (z^2)^2 = 4 + 8\\sqrt3i - 12 = -8 + 8\\sqrt3i$, $z^5 = z^4z = (-8 + 8\\sqrt3i)(1 - \\sqrt3i) = -8 + 8\\sqrt3i + 8\\sqrt3i + 24 = 16 + 16\\sqrt3i$ ✓."
             ]
         },
         {
             "id": 2,
             "topic": "Linear Systems",
-            "title": "Determinant and Solving",
-            "description": "Given\n$A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 1 & 4 \\\\ 2 & 0 & 1 \\end{pmatrix}$, $b = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$.\n\na) Compute $\\det(A)$.\nb) Solve $Ax=b$.",
-            "difficulty": "medium",
+            "title": "Determinant and solving a linear system",
+            "description": "Let $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 1 & 4 \\\\ 2 & 0 & 1 \\end{pmatrix}$ and $\\vec b = (1,2,3)^T$.\na) Compute $\\det A$ and justify that $A\\vec x = \\vec b$ is uniquely solvable.\nb) Solve the system.",
+            "difficulty": "intermediate",
             "points": 15,
             "solutionSteps": [
-                "Step 1: Determinant\n$\\det(A) = 1\\cdot\\det\\begin{pmatrix}1&4\\0&1\\end{pmatrix} - 2\\cdot\\det\\begin{pmatrix}0&4\\2&1\\end{pmatrix} + 3\\cdot\\det\\begin{pmatrix}0&1\\2&0\\end{pmatrix}$\n$= 1 - 2(-8) + 3(-2) = 11$",
-                "Step 2: Solve the system\nFrom $y + 4z = 2$ we get $y = 2 - 4z$\nFrom $2x + z = 3$ we get $x = (3 - z)/2$",
-                "Step 3: Substitute into the first equation\n$(3 - z)/2 + 2(2 - 4z) + 3z = 1 \\Rightarrow z = 9/11$",
-                "Step 4: Back substitution\n$x = 12/11$, $y = -14/11$\nSolution: $x = (12/11, -14/11, 9/11)^T$"
+                "Step 1: Part a): Determinant\nExpansion along the first column: $\\det A = 1\\cdot\\begin{vmatrix}1&4\\\\0&1\\end{vmatrix} + 2\\cdot\\begin{vmatrix}2&3\\\\1&4\\end{vmatrix} = 1\\cdot1 + 2\\cdot(8 - 3) = 11$. (The $2$ sits in position $(3,1)$ with sign $+$.)",
+                "Step 2: Part a): Consequence\n$\\det A = 11 \\neq 0$: $A$ is invertible, the system has exactly one solution $\\vec x = A^{-1}\\vec b$.",
+                "Step 3: Part b): Gaussian elimination\nThe second row gives $y = 2 - 4z$, the third $x = \\frac{3 - z}{2}$. Substituting into the first equation: $\\frac{3-z}{2} + 2(2 - 4z) + 3z = 1 \\iff 3 - z + 8 - 16z + 6z = 2 \\iff 11 - 11z = 2 \\iff z = \\frac{9}{11}$.",
+                "Step 4: Part b): Back substitution\n$y = 2 - \\frac{36}{11} = -\\frac{14}{11}$, $x = \\frac{3 - 9/11}{2} = \\frac{24/11}{2} = \\frac{12}{11}$. Solution: $\\vec x = \\left(\\frac{12}{11}, -\\frac{14}{11}, \\frac{9}{11}\\right)^T$.",
+                "Step 5: Check\nFirst row: $\\frac{12}{11} - \\frac{28}{11} + \\frac{27}{11} = \\frac{11}{11} = 1$ ✓. Second: $-\\frac{14}{11} + \\frac{36}{11} = 2$ ✓. Third: $\\frac{24}{11} + \\frac{9}{11} = 3$ ✓."
             ]
         },
         {
             "id": 3,
             "topic": "Vector Spaces",
-            "title": "Subspace, Basis, Dimension",
-            "description": "Let $U = \\{(x,y,z,w) \\in \\mathbb{R}^4 : x+y+z+w=0,\\ 2x-y+w=0\\}$.\n\na) Show that $U$ is a subspace.\nb) Find a basis and the dimension.",
-            "difficulty": "medium",
+            "title": "Subspace, basis and dimension",
+            "description": "Let $U = \\{(x,y,z,w) \\in \\mathbb{R}^4 \\mid x + y + z + w = 0,\\ 2x - y + w = 0\\}$.\na) Show that $U$ is a subspace.\nb) Determine a basis and $\\dim U$.",
+            "difficulty": "intermediate",
             "points": 15,
             "solutionSteps": [
-                "Step 1: Subspace criterion\n$U$ is defined by homogeneous linear equations, hence it is a subspace of $\\mathbb{R}^4$.",
-                "Step 2: Parametrization\nFrom $2x-y+w=0$ we get $y=2x+w$.\nInsert into $x+y+z+w=0$: $3x+z+2w=0 \\Rightarrow z=-3x-2w$",
-                "Step 3: Basis and dimension\n$(x,y,z,w) = x(1,2,-3,0) + w(0,1,-2,1)$\nBasis: $\\{(1,2,-3,0),(0,1,-2,1)\\}$, dimension $=2$"
+                "Step 1: Part a): Subspace\n$U$ is the solution set of a homogeneous linear system, i.e. $U = \\ker A$ with $A = \\begin{pmatrix} 1 & 1 & 1 & 1 \\\\ 2 & -1 & 0 & 1 \\end{pmatrix}$. Kernels of linear maps are subspaces (zero vector, sums, multiples still satisfy the equations).",
+                "Step 2: Part b): Parametrise\nFrom the second equation $y = 2x + w$. Substituting into the first: $x + 2x + w + z + w = 0 \\Rightarrow z = -3x - 2w$. Free variables: $x, w$.",
+                "Step 3: Part b): Basis\n$(x,y,z,w) = x(1,2,-3,0) + w(0,1,-2,1)$. The two vectors are linearly independent (the entries $x$ and $w$ are in positions 1 and 4). Basis $\\{(1,2,-3,0),(0,1,-2,1)\\}$, $\\dim U = 2$.",
+                "Step 4: Check with the rank–nullity theorem\nThe rank of $A$ is $2$ (rows not proportional), so $\\dim\\ker A = 4 - 2 = 2$ ✓. Substituting: $(1,2,-3,0)$: $1 + 2 - 3 + 0 = 0$ ✓, $2 - 2 + 0 = 0$ ✓."
             ]
         },
         {
             "id": 4,
             "topic": "Eigenvalues",
-            "title": "Diagonalization of a 2×2 Matrix",
-            "description": "Given $B = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$.\n\na) Find eigenvalues and eigenvectors.\nb) Provide a diagonalization.",
-            "difficulty": "medium",
+            "title": "Diagonalisation and matrix power",
+            "description": "Let $B = \\begin{pmatrix} 2 & 1 & 0 \\\\ 1 & 2 & 0 \\\\ 0 & 0 & 3 \\end{pmatrix}$.\na) Determine the eigenvalues and a basis of eigenvectors.\nb) Diagonalise $B$ and compute $B^5$.",
+            "difficulty": "intermediate",
             "points": 15,
             "solutionSteps": [
-                "Step 1: Characteristic polynomial\n$\\det(B-\\lambda I) = (2-\\lambda)^2-1 = \\lambda^2-4\\lambda+3$\nEigenvalues: $\\lambda_1=3$, $\\lambda_2=1$",
-                "Step 2: Eigenvectors\nFor $\\lambda=3$: $v=(1,1)^T$\nFor $\\lambda=1$: $v=(1,-1)^T$",
-                "Step 3: Diagonalization\n$P = \\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$, $D=\\mathrm{diag}(3,1)$\n$B = P D P^{-1}$"
+                "Step 1: Part a): Eigenvalues\nBlock structure: $\\det(B - \\lambda I) = (3 - \\lambda)\\big((2-\\lambda)^2 - 1\\big) = (3-\\lambda)(\\lambda - 1)(\\lambda - 3)$. Eigenvalues: $\\lambda = 3$ (double) and $\\lambda = 1$.",
+                "Step 2: Part a): Eigenvectors\n$\\lambda = 3$: $B - 3I = \\begin{pmatrix} -1 & 1 & 0 \\\\ 1 & -1 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}$ gives $v_1 = v_2$, $v_3$ free: $(1,1,0)^T$ and $(0,0,1)^T$ (two-dimensional eigenspace). $\\lambda = 1$: $B - I = \\begin{pmatrix} 1 & 1 & 0 \\\\ 1 & 1 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}$ gives $v_1 = -v_2$, $v_3 = 0$: $(1,-1,0)^T$.",
+                "Step 3: Part b): Diagonalisation\nThree linearly independent eigenvectors: $B$ is diagonalisable. With $P = \\begin{pmatrix} 1 & 0 & 1 \\\\ 1 & 0 & -1 \\\\ 0 & 1 & 0 \\end{pmatrix}$ and $D = \\operatorname{diag}(3,3,1)$ we have $B = PDP^{-1}$.",
+                "Step 4: Part b): Power\n$B^5 = PD^5P^{-1}$. In the $(x,y)$ block the eigenvalues $3$ (direction $(1,1)$) and $1$ (direction $(1,-1)$) act: $\\frac{3^5 + 1}{2} = 122$ on the diagonal and $\\frac{3^5 - 1}{2} = 121$ beside it; on $e_3$ acts $3^5 = 243$. $B^5 = \\begin{pmatrix} 122 & 121 & 0 \\\\ 121 & 122 & 0 \\\\ 0 & 0 & 243 \\end{pmatrix}$.",
+                "Step 5: Check\nTrace: $\\operatorname{tr}B^5 = 122 + 122 + 243 = 487 = 3^5 + 3^5 + 1^5 = 243 + 243 + 1$ ✓."
             ]
         },
         {
             "id": 5,
             "topic": "Groups",
-            "title": "Subgroup in $\\mathbb{Z}_8$",
-            "description": "Consider the group $(\\mathbb{Z}_8,+)$.\n\na) Determine the subgroup generated by 6.\nb) Give the order of the subgroup.\nc) Is the subgroup cyclic?",
-            "difficulty": "medium",
+            "title": "Subgroups of ℤ₈",
+            "description": "Consider $(\\mathbb{Z}_8,+)$.\na) Determine $\\langle6\\rangle$ and its order.\nb) Determine the cosets of $H = \\langle6\\rangle$ and the index $[\\mathbb{Z}_8:H]$.\nc) Is $\\mathbb{Z}_8/H$ cyclic? How many generators does $\\mathbb{Z}_8$ have?",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Generated elements\n$\\langle 6 \\rangle = \\{0,6,12,18,\\dots\\} \\mod 8$",
-                "Step 2: Subgroup explicitly\n$6\\mod 8=6$, $2\\cdot6=12\\mod 8=4$, $3\\cdot6=18\\mod 8=2$, $4\\cdot6=24\\mod 8=0 \\Rightarrow \\langle 6 \\rangle = \\{0,6,4,2\\}$",
-                "Step 3: Order and cyclicity\nOrder = 4.\nThe subgroup is cyclic since it is generated by 6."
+                "Step 1: Part a): Generated subgroup\nMultiples of $6$ modulo $8$: $6$, $12 \\equiv 4$, $18 \\equiv 2$, $24 \\equiv 0$. So $H = \\langle6\\rangle = \\{0,2,4,6\\}$ with $|H| = 4$. Formula: $\\operatorname{ord}(6) = \\frac{8}{\\gcd(6,8)} = \\frac82 = 4$ ✓.",
+                "Step 2: Part b): Cosets\n$0 + H = \\{0,2,4,6\\}$ and $1 + H = \\{1,3,5,7\\}$. There are no more ($2 + H = H$). Index $[\\mathbb{Z}_8:H] = 2 = \\frac{8}{4}$ (Lagrange's theorem).",
+                "Step 3: Part c): Quotient group\n$\\mathbb{Z}_8/H = \\{H, 1 + H\\}$ has $2$ elements and is therefore cyclic, $\\cong \\mathbb{Z}_2$ (every group of prime order is cyclic).",
+                "Step 4: Part c): Generators of ℤ₈\n$k$ generates $\\mathbb{Z}_8$ exactly when $\\gcd(k,8) = 1$: $k \\in \\{1,3,5,7\\}$, so $\\varphi(8) = 4$ generators. The element $6$ is not among them: its order is only $4$.",
+                "Step 5: Check\nAll subgroup orders $1,2,4,8$ divide $8$ ✓. $\\mathbb{Z}_8$ has exactly one subgroup for each divisor: $\\{0\\}$, $\\{0,4\\}$, $\\{0,2,4,6\\}$, $\\mathbb{Z}_8$."
             ]
         },
         {
             "id": 6,
             "topic": "Linear Maps",
-            "title": "Kernel and Image",
-            "description": "Let $T: \\mathbb{R}^3 \\to \\mathbb{R}^3$, $T(x,y,z) = (x+y,\\ y+z,\\ x+z)$.\n\na) Determine the matrix of $T$.\nb) Determine $\\ker(T)$ and $\\mathrm{rank}(T)$.\nc) Describe the image.",
-            "difficulty": "medium",
+            "title": "Kernel, image and rank–nullity theorem",
+            "description": "Let $T: \\mathbb{R}^3 \\to \\mathbb{R}^3$, $T(x,y,z) = (x + y,\\ y + z,\\ x - z)$.\na) Determine the matrix.\nb) Determine $\\ker T$ and $\\operatorname{im} T$ with dimensions.\nc) Is $T$ injective or surjective?",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Matrix representation\n$T(e_1)=(1,0,1)$, $T(e_2)=(1,1,0)$, $T(e_3)=(0,1,1)$\n$[T] = \\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\\\ 1 & 0 & 1 \\end{pmatrix}$",
-                "Step 2: Kernel\nSolve $T(x,y,z)=0$: $x+y=0$, $y+z=0$, $x+z=0$\nHence $x=y=z=0$\n$\\ker(T)=\\{0\\}$",
-                "Step 3: Rank and image\n$\\det([T])=2\\ne0$, so rank $=3$\nImage $= \\mathbb{R}^3$"
+                "Step 1: Part a): Matrix\nImages of the basis vectors: $T(e_1) = (1,0,1)$, $T(e_2) = (1,1,0)$, $T(e_3) = (0,1,-1)$. As columns: $[T] = \\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\\\ 1 & 0 & -1 \\end{pmatrix}$.",
+                "Step 2: Part b): Kernel\n$T(x,y,z) = \\vec0$: $x + y = 0$, $y + z = 0$, $x - z = 0$. From the first two $y = -x$, $z = x$; the third equation $x - x = 0$ is automatically satisfied. $\\ker T = \\operatorname{span}\\{(1,-1,1)\\}$, $\\dim\\ker T = 1$.",
+                "Step 3: Part b): Image\nThe image is spanned by the columns. We have $T(e_3) = T(e_2) - T(e_1)$: $(1,1,0) - (1,0,1) = (0,1,-1)$ ✓. So $\\operatorname{im} T = \\operatorname{span}\\{(1,0,1),(1,1,0)\\}$, $\\dim = 2$. Rank–nullity: $1 + 2 = 3$ ✓.",
+                "Step 4: Part c): Injectivity and surjectivity\n$\\ker T \\neq \\{\\vec0\\}$: $T$ is **not injective**. $\\dim\\operatorname{im} T = 2 < 3$: $T$ is **not surjective**. Equivalently: $\\det[T] = 0$ (row 3 $=$ row 1 $-$ row 2).",
+                "Step 5: Check\n$T(1,-1,1) = (0,0,0)$ ✓. The vector $(1,1,1)$ is not in the image because $a(1,0,1) + b(1,1,0) = (a+b,\\ b,\\ a) = (1,1,1)$ would require $b = 1$, $a = 1$ and $a + b = 2 \\neq 1$."
             ]
         }
     ]

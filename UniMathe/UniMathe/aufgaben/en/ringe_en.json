@@ -3,6 +3,81 @@
         {
             "id": 1,
             "topic": "Rings",
+            "title": "Zero divisors and units in ℤ₆",
+            "description": "Determine all zero divisors and all units of the ring $\\mathbb{Z}_6$. Is $\\mathbb{Z}_6$ an integral domain or a field?",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nA **unit** is an element with a multiplicative inverse. A **zero divisor** is an element $a \\neq 0$ for which some $b \\neq 0$ with $ab = 0$ exists.",
+                "Step 2: Units\n$a$ is a unit $\\iff \\gcd(a,6) = 1$. These are $1$ and $5$ ($1\\cdot1 = 1$, $5\\cdot5 = 25 \\equiv 1$). Unit group: $\\{1,5\\}$.",
+                "Step 3: Zero divisors\n$2\\cdot3 = 6 \\equiv 0$, $3\\cdot4 = 12 \\equiv 0$. Zero divisors are $2, 3, 4$.",
+                "Step 4: Structural statement\nThere are zero divisors, so $\\mathbb{Z}_6$ is **not** an integral domain and hence not a field. Every non-zero element is either a unit or a zero divisor: $\\{1,5\\} \\cup \\{2,3,4\\}$.",
+                "Step 5: Takeaway: What to remember\nIn $\\mathbb{Z}_n$: $a$ is a unit $\\iff \\gcd(a,n) = 1$; otherwise a zero divisor. $\\mathbb{Z}_n$ is a field exactly when $n$ is prime."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Rings",
+            "title": "Is ℤ₇ a field?",
+            "description": "Show that $\\mathbb{Z}_7$ is a field by giving the multiplicative inverse of every non-zero element.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nA commutative ring with $1 \\neq 0$ is a field if every non-zero element has a multiplicative inverse. For each $a \\in \\{1,\\dots,6\\}$ we look for $b$ with $ab \\equiv 1 \\pmod 7$.",
+                "Step 2: Inverses\n$1\\cdot1 = 1$; $2\\cdot4 = 8 \\equiv 1$; $3\\cdot5 = 15 \\equiv 1$; $6\\cdot6 = 36 \\equiv 1$. So $1^{-1} = 1$, $2^{-1} = 4$, $3^{-1} = 5$, $4^{-1} = 2$, $5^{-1} = 3$, $6^{-1} = 6$.",
+                "Step 3: Conclusion\nEvery non-zero element is invertible and $\\mathbb{Z}_7$ is a commutative ring with identity: **field** $\\mathbb{F}_7$.",
+                "Step 4: Why it works\nBecause $7$ is prime, $\\gcd(a,7) = 1$ for all $a \\in \\{1,\\dots,6\\}$ — this guarantees the inverses.",
+                "Step 5: Takeaway: What to remember\nGeneral theorem: $\\mathbb{Z}_n$ is a field exactly when $n$ is prime. The inverses can be computed with the extended Euclidean algorithm."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Rings",
+            "title": "Computing in ℤ₂[x]",
+            "description": "Compute in $\\mathbb{Z}_2[x]$: $(x+1)(x^2+x+1)$ and $(x+1)^2$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nIn $\\mathbb{Z}_2[x]$ one computes with polynomials as usual, but coefficients are taken modulo $2$: $1 + 1 = 0$, so $2 = 0$ and $-1 = 1$.",
+                "Step 2: First product\n$(x+1)(x^2+x+1) = x^3 + x^2 + x + x^2 + x + 1 = x^3 + 2x^2 + 2x + 1 = x^3 + 1$.",
+                "Step 3: Second product\n$(x+1)^2 = x^2 + 2x + 1 = x^2 + 1$ (the middle term vanishes).",
+                "Step 4: Consequence\nFrom $x^3 + 1 = (x+1)(x^2+x+1)$ we see: $x^3 + 1$ is reducible in $\\mathbb{Z}_2[x]$. Also $x^2 + 1 = (x+1)^2$ is reducible although $x^2 + 1$ would be irreducible over $\\mathbb{R}$.",
+                "Step 5: Takeaway: What to remember\nWhether a polynomial is irreducible depends on the coefficient ring. In $\\mathbb{Z}_p[x]$ the “Frobenius trick” $(x+y)^p = x^p + y^p$ holds."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Rings",
+            "title": "Ring axioms: a ring without identity",
+            "description": "Show that $2\\mathbb{Z}$ with the usual addition and multiplication is a commutative ring but has no identity element.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe check: $(2\\mathbb{Z},+)$ is an abelian group, multiplication is closed and associative, the distributive laws hold. Then we look for an identity element.",
+                "Step 2: Additive group\n$2\\mathbb{Z}$ is a subgroup of $(\\mathbb{Z},+)$ (the difference of even numbers is even): abelian group.",
+                "Step 3: Multiplication\n$(2a)(2b) = 4ab = 2(2ab) \\in 2\\mathbb{Z}$: closed. Associativity, commutativity and distributivity are inherited from $\\mathbb{Z}$.",
+                "Step 4: No identity element\nAn identity $e \\in 2\\mathbb{Z}$ would have to satisfy $e\\cdot2 = 2$, i.e. $e = 1$. But $1 \\notin 2\\mathbb{Z}$. So $2\\mathbb{Z}$ has no identity.",
+                "Step 5: Takeaway: What to remember\nDepending on the textbook a ring needs an identity element or not; in many courses it does. $2\\mathbb{Z}$ is an **ideal** of $\\mathbb{Z}$ — ideals are typically rings without identity."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Rings",
+            "title": "Unit group of ℤ₁₂",
+            "description": "Determine the unit group $\\mathbb{Z}_{12}^\\times$ and set up its operation table. Is it cyclic?",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe units of $\\mathbb{Z}_{12}$ are the residues coprime to $12$. With respect to multiplication they form a group.",
+                "Step 2: Units\n$\\gcd(a,12) = 1$ for $a \\in \\{1,5,7,11\\}$. So $\\mathbb{Z}_{12}^\\times = \\{1,5,7,11\\}$ with $\\varphi(12) = 4$ elements.",
+                "Step 3: Operation table\n$\\begin{array}{c|cccc} \\cdot & 1 & 5 & 7 & 11 \\\\ \\hline 1 & 1 & 5 & 7 & 11 \\\\ 5 & 5 & 1 & 11 & 7 \\\\ 7 & 7 & 11 & 1 & 5 \\\\ 11 & 11 & 7 & 5 & 1 \\end{array}$ (e.g. $5\\cdot7 = 35 \\equiv 11$).",
+                "Step 4: Cyclic?\nEvery element $\\neq 1$ has order $2$ ($5^2 = 25 \\equiv 1$, $7^2 = 49 \\equiv 1$, $11^2 = 121 \\equiv 1$). There is no element of order $4$: the group is **not cyclic** but the Klein four-group $\\mathbb{Z}_2\\times\\mathbb{Z}_2$.",
+                "Step 5: Takeaway: What to remember\nThe unit group $\\mathbb{Z}_n^\\times$ is not always cyclic (cyclic e.g. for $n = 5, 7, 9$, not for $n = 8, 12$). By the Chinese remainder theorem $\\mathbb{Z}_{12}^\\times \\cong \\mathbb{Z}_3^\\times\\times\\mathbb{Z}_4^\\times \\cong \\mathbb{Z}_2\\times\\mathbb{Z}_2$."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Rings",
             "title": "Check Ring Axioms for Algebraic Numbers",
             "description": "Check whether the set $\\mathbb{Z}[\\sqrt{2}] = \\{a + b\\sqrt{2} \\mid a,b \\in \\mathbb{Z}\\}$ with the usual addition and multiplication forms a ring. Show that it is a commutative ring with unity and investigate whether every element has a multiplicative inverse.",
             "difficulty": "easy",
@@ -17,7 +92,7 @@
             ]
         },
         {
-            "id": 2,
+            "id": 7,
             "topic": "Rings",
             "title": "Integral Domain Property",
             "description": "Examine whether the set $\\mathbb{Z}_4$ with the usual addition and multiplication forms an integral domain.",
@@ -30,7 +105,7 @@
             ]
         },
         {
-            "id": 3,
+            "id": 8,
             "topic": "Rings",
             "title": "Units and Field Structure",
             "description": "Determine the units in the ring $\\mathbb{Z}_9$ and check whether $\\mathbb{Z}_9$ is a field.",
@@ -43,21 +118,109 @@
             ]
         },
         {
-            "id": 4,
+            "id": 9,
             "topic": "Rings",
-            "title": "Irreducible Polynomials and Factor Rings",
-            "description": "Show that the polynomial ring $\\mathbb{Z}_3[X]$ contains irreducible polynomials of degree 2 and determine these.",
-            "difficulty": "medium",
-            "points": 10,
+            "title": "Polynomial Rings",
+            "description": "Determine all polynomials of degree 1 in the ring $\\mathbb{Z}_3[X]$.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Step 1: All normalized polynomials of degree 2 in $\\mathbb{Z}_3[X]$ are $X^2, X^2+1, X^2+2, X^2+X, X^2+2X, X^2+X+1, X^2+X+2, X^2+2X+1, X^2+2X+2$.",
-                "Step 2: Check for irreducibility\nA polynomial $f(X)$ of degree 2 is irreducible if and only if it has no root in $\\mathbb{Z}_3$.",
-                "Step 3: Determine the irreducible polynomials\n$X^2+1$ and $X^2+2$ have no root in $\\mathbb{Z}_3$ and are therefore irreducible.",
-                "Step 4: Summary\nThe irreducible polynomials of degree 2 in $\\mathbb{Z}_3[X]$ are $X^2+1$ and $X^2+2$."
+                "Step 1: Polynomials of degree 1\n$X$\n$X + 1$\n$X + 2$\n$2X$\n$2X + 1$\n$2X + 2$",
+                "Step 2: Verification\nAll polynomials have degree 1\nNo two polynomials are equal"
             ]
         },
         {
-            "id": 5,
+            "id": 10,
+            "topic": "Rings",
+            "title": "Integral Domains",
+            "description": "Show that $\\mathbb{Z}_5$ is an integral domain.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Elements of $\\mathbb{Z}_5$\n$\\mathbb{Z}_5 = \\{0,1,2,3,4\\}$",
+                "Step 2: Check for zero divisors\n$1 \\cdot 1 = 1$\n$2 \\cdot 3 = 1$\n$4 \\cdot 4 = 1$\nThere are no zero divisors",
+                "Step 3: Conclusion\n$\\mathbb{Z}_5$ is an integral domain"
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Rings",
+            "title": "Ideals in ℤ: sum and intersection",
+            "description": "Determine $(6) + (10)$ and $(6) \\cap (10)$ in $\\mathbb{Z}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\n$\\mathbb{Z}$ is a principal ideal domain: every ideal has the form $(n) = n\\mathbb{Z}$. The sum of two ideals corresponds to the gcd, the intersection to the lcm.",
+                "Step 2: Sum\n$(6) + (10) = \\{6a + 10b\\}$. By Bézout's lemma these are exactly the multiples of $\\gcd(6,10) = 2$. So $(6) + (10) = (2)$.",
+                "Step 3: Intersection\n$x \\in (6) \\cap (10)$ means $6 \\mid x$ and $10 \\mid x$, i.e. $x$ is a common multiple, hence a multiple of $\\operatorname{lcm}(6,10) = 30$. So $(6) \\cap (10) = (30)$.",
+                "Step 4: Check\n$6\\cdot2 - 10\\cdot1 = 2 \\in (6)+(10)$ ✓. $30 = 5\\cdot6 = 3\\cdot10$ lies in both ideals ✓. And $(2)\\cdot(30) = (60) = (6)(10)$.",
+                "Step 5: Takeaway: What to remember\nRemember: $(a) + (b) = (\\gcd(a,b))$ and $(a) \\cap (b) = (\\operatorname{lcm}(a,b))$; the product ideal $(a)(b) = (ab)$. Divisibility corresponds to reversed inclusion: $a \\mid b \\iff (b) \\subseteq (a)$."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Rings",
+            "title": "Chinese remainder theorem as ring isomorphism",
+            "description": "Show $\\mathbb{Z}_6 \\cong \\mathbb{Z}_2\\times\\mathbb{Z}_3$ as rings by examining the map $\\varphi(x) = (x \\bmod 2,\\ x \\bmod 3)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nA ring homomorphism must preserve addition, multiplication and the identity. Then we show bijectivity by listing the images.",
+                "Step 2: Well-defined and homomorphic\nFrom $x \\equiv x' \\pmod 6$ it follows $x \\equiv x'$ modulo $2$ and modulo $3$. Rules for residues give $\\varphi(x+y) = \\varphi(x)+\\varphi(y)$ and $\\varphi(xy) = \\varphi(x)\\varphi(y)$ componentwise. Also $\\varphi(1) = (1,1)$.",
+                "Step 3: Images\n$\\varphi(0) = (0,0)$, $\\varphi(1) = (1,1)$, $\\varphi(2) = (0,2)$, $\\varphi(3) = (1,0)$, $\\varphi(4) = (0,1)$, $\\varphi(5) = (1,2)$.",
+                "Step 4: Bijectivity\nThe six images are pairwise distinct and $|\\mathbb{Z}_2\\times\\mathbb{Z}_3| = 6$, so $\\varphi$ is bijective. Hence $\\varphi$ is a ring isomorphism.",
+                "Step 5: Consequence\nUnits: $(\\mathbb{Z}_2\\times\\mathbb{Z}_3)^\\times = \\{1\\}\\times\\{1,2\\}$ has $2$ elements $\\leftrightarrow$ $\\mathbb{Z}_6^\\times = \\{1,5\\}$ ✓. Zero divisors still exist, e.g. $(1,0)\\cdot(0,1) = (0,0)$.",
+                "Step 6: Takeaway: What to remember\nChinese remainder theorem: $\\mathbb{Z}_{mn} \\cong \\mathbb{Z}_m\\times\\mathbb{Z}_n$ for $\\gcd(m,n) = 1$. A ring problem splits into smaller ones. A product ring is never an integral domain."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Rings",
+            "title": "Norm and units in ℤ[i]",
+            "description": "In the ring of Gaussian integers $\\mathbb{Z}[i]$ let $N(a+bi) = a^2 + b^2$. Show $N(zw) = N(z)N(w)$, determine the units and check whether $1 + i$ is irreducible.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe norm is the square of the absolute value, $N(z) = |z|^2$. Because the absolute value is multiplicative, so is the norm. Units and irreducibility can be read off from norms.",
+                "Step 2: Multiplicativity\n$N(z) = z\\bar z$, so $N(zw) = zw\\,\\overline{zw} = z\\bar z\\, w\\bar w = N(z)N(w)$.",
+                "Step 3: Units\n$u$ a unit $\\Rightarrow$ $N(u)N(u^{-1}) = N(1) = 1$ with $N \\in \\mathbb{N}_0$, so $N(u) = 1$. $a^2 + b^2 = 1$ has the solutions $\\pm1, \\pm i$. Unit group: $\\{1,-1,i,-i\\}$ (cyclic of order $4$).",
+                "Step 4: Is $1+i$ irreducible?\n$N(1+i) = 2$. If $1 + i = zw$ with non-units, then $N(z)N(w) = 2$ with $N(z),N(w) \\geq 2$ — impossible since $2$ is prime. So $1+i$ is irreducible.",
+                "Step 5: Takeaway: What to remember\nAn element with **prime norm** is always irreducible. We have $2 = -i(1+i)^2$, so $2$ is no longer irreducible in $\\mathbb{Z}[i]$."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Rings",
+            "title": "Irreducible polynomials over ℤ₃",
+            "description": "Decide whether $x^2 + 1$ and $x^2 + 2$ are irreducible in $\\mathbb{Z}_3[x]$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nA polynomial of degree $2$ or $3$ over a field is irreducible exactly when it has **no root** in the field. We test all elements $0,1,2$ of $\\mathbb{Z}_3$.",
+                "Step 2: $x^2 + 1$\n$0^2 + 1 = 1$, $1^2 + 1 = 2$, $2^2 + 1 = 5 \\equiv 2$. No root, so **irreducible**.",
+                "Step 3: $x^2 + 2$\n$0 + 2 = 2$, $1 + 2 = 3 \\equiv 0$ — root $x = 1$. So **reducible**: $x^2 + 2 = x^2 - 1 = (x-1)(x+1)$.",
+                "Step 4: Consequence\n$\\mathbb{Z}_3[x]/(x^2+1)$ is a field with $3^2 = 9$ elements ($\\mathbb{F}_9$), while $\\mathbb{Z}_3[x]/(x^2+2)$ contains zero divisors.",
+                "Step 5: Takeaway: What to remember\nThe root test works only up to degree $3$. For degree $4$ (e.g. $x^4+1$) a polynomial without roots can split into two factors of degree $2$."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Rings",
+            "title": "Ring homomorphism and kernel",
+            "description": "Show that $\\varphi: \\mathbb{Z}[x] \\to \\mathbb{Z}$, $p \\mapsto p(2)$ is a ring homomorphism and determine $\\ker\\varphi$ and $\\operatorname{im}\\varphi$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nSubstituting a number is compatible with addition and multiplication of polynomials. The kernel consists of all polynomials with root $2$; by factoring out linear factors these are the multiples of $x - 2$.",
+                "Step 2: Homomorphism\n$(p+q)(2) = p(2) + q(2)$, $(pq)(2) = p(2)q(2)$ and $\\varphi(1) = 1$.",
+                "Step 3: Kernel\n$p \\in \\ker\\varphi \\iff p(2) = 0$. Polynomial division by $x - 2$ gives $p = (x-2)q + p(2)$ with constant remainder $p(2)$. So $\\ker\\varphi = \\{(x-2)q \\mid q \\in \\mathbb{Z}[x]\\} = (x-2)$.",
+                "Step 4: Image\nThe constant polynomials $c$ are mapped to $c$: $\\operatorname{im}\\varphi = \\mathbb{Z}$ (surjective).",
+                "Step 5: First isomorphism theorem\n$\\mathbb{Z}[x]/(x-2) \\cong \\mathbb{Z}$. Since $\\mathbb{Z}$ is an integral domain, $(x-2)$ is a prime ideal.",
+                "Step 6: Takeaway: What to remember\nThe kernel of a ring homomorphism is an **ideal**; the first isomorphism theorem identifies the quotient ring with the image. Here $(x-2)$ is not maximal (since $\\mathbb{Z}$ is not a field)."
+            ]
+        },
+        {
+            "id": 16,
             "topic": "Rings",
             "title": "Factor Rings and Field Structure",
             "description": "Determine the structure of the factor ring $\\mathbb{Z}[X]/(X^2 - 2)$ and show that this ring is not a field.",
@@ -71,7 +234,7 @@
             ]
         },
         {
-            "id": 6,
+            "id": 17,
             "topic": "Rings",
             "title": "Ring Structure and Units",
             "description": "Show that the set $\\mathbb{Z}[\\omega] = \\{a + b\\omega \\mid a,b \\in \\mathbb{Z}\\}$ with $\\omega = e^{2\\pi i / 3}$ forms a ring and investigate the group of units.",
@@ -85,88 +248,7 @@
             ]
         },
         {
-            "id": 7,
-            "topic": "Rings",
-            "title": "Non-Principal Ideal Domain Proof",
-            "description": "Prove that the ring $\\mathbb{Z}[\\sqrt{-3}]$ is not a principal ideal domain by constructing an ideal that is not a principal ideal.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Step 1: Consider the ideal $I = (2, 1 + \\sqrt{-3})$ in $\\mathbb{Z}[\\sqrt{-3}]$.",
-                "Step 2: Assume $I$ is a principal ideal, so $I = (a + b\\sqrt{-3})$ for some $a, b \\in \\mathbb{Z}$.",
-                "Step 3: Then $a + b\\sqrt{-3}$ must divide both $2$ and $1 + \\sqrt{-3}$. This is not possible, as the norms do not match.",
-                "Step 4: Thus, $I$ is not a principal ideal. Therefore, $\\mathbb{Z}[\\sqrt{-3}]$ is not a principal ideal domain."
-            ]
-        },
-        {
-            "id": 8,
-            "topic": "Rings",
-            "title": "Factor Ring Structure",
-            "description": "Show that the factor ring $\\mathbb{Q}[X]/(X^3 - 2)$ is a field and determine the number of elements.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Step 1: $X^3 - 2$ is irreducible in $\\mathbb{Q}[X]$ (Eisenstein's criterion for $p=2$).",
-                "Step 2: The ideal $(X^3 - 2)$ is maximal, hence the factor ring $\\mathbb{Q}[X]/(X^3 - 2)$ is a field.",
-                "Step 3: The elements are of the form $a + bX + cX^2$ with $a,b,c \\in \\mathbb{Q}$.",
-                "Step 4: Since $\\mathbb{Q}$ has infinitely many elements, $\\mathbb{Q}[X]/(X^3 - 2)$ is an infinite field."
-            ]
-        },
-        {
-            "id": 9,
-            "topic": "Rings",
-            "title": "Uniqueness of Prime Factorization",
-            "description": "Examine the unique prime factorization in the ring $\\mathbb{Z}[\\sqrt{-6}]$ and provide an example of a number with non-unique factorization.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Step 1: $\\mathbb{Z}[\\sqrt{-6}]$ is not a unique factorization domain.",
-                "Step 2: Example: $10 = 2 \\cdot 5 = (2 + \\sqrt{-6})(2 - \\sqrt{-6})$.",
-                "Step 3: $2, 5, 2 + \\sqrt{-6}, 2 - \\sqrt{-6}$ are irreducible.",
-                "Step 4: The number $10$ thus has two different factorizations into irreducible factors."
-            ]
-        },
-        {
-            "id": 10,
-            "topic": "Rings",
-            "title": "Polynomial Rings",
-            "description": "Determine all polynomials of degree 1 in the ring $\\mathbb{Z}_3[X]$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Polynomials of degree 1\n$X$\n$X + 1$\n$X + 2$\n$2X$\n$2X + 1$\n$2X + 2$",
-                "Step 2: Verification\nAll polynomials have degree 1\nNo two polynomials are equal"
-            ]
-        },
-        {
-            "id": 11,
-            "topic": "Rings",
-            "title": "Ring Homomorphisms",
-            "description": "Show that the mapping $\\varphi: \\mathbb{Z}_6 \\rightarrow \\mathbb{Z}_6$ with $\\varphi(x) = 2x$ is a ring homomorphism.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Additivity\n$\\varphi(x + y) = 2(x + y) = 2x + 2y = \\varphi(x) + \\varphi(y)$",
-                "Step 2: Multiplicativity\n$\\varphi(x \\cdot y) = 2(x \\cdot y) = (2x) \\cdot y = \\varphi(x) \\cdot y$",
-                "Step 3: Image\n$\\text{im}(\\varphi) = \\{0,2,4\\}$",
-                "Step 4: Kernel\n$\\ker(\\varphi) = \\{0,3\\}$"
-            ]
-        },
-        {
-            "id": 12,
-            "topic": "Rings",
-            "title": "Integral Domains",
-            "description": "Show that $\\mathbb{Z}_5$ is an integral domain.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Elements of $\\mathbb{Z}_5$\n$\\mathbb{Z}_5 = \\{0,1,2,3,4\\}$",
-                "Step 2: Check for zero divisors\n$1 \\cdot 1 = 1$\n$2 \\cdot 3 = 1$\n$4 \\cdot 4 = 1$\nThere are no zero divisors",
-                "Step 3: Conclusion\n$\\mathbb{Z}_5$ is an integral domain"
-            ]
-        },
-        {
-            "id": 13,
+            "id": 18,
             "topic": "Rings",
             "title": "Euclidean Rings",
             "description": "Show that $\\mathbb{Z}$ with the Euclidean norm $|\\cdot|$ is a Euclidean ring.",
@@ -180,7 +262,7 @@
             ]
         },
         {
-            "id": 14,
+            "id": 19,
             "topic": "Rings",
             "title": "Principal Ideal Domains",
             "description": "Show that $\\mathbb{Z}[i]$ is a principal ideal domain.",
@@ -193,7 +275,7 @@
             ]
         },
         {
-            "id": 15,
+            "id": 20,
             "topic": "Rings",
             "title": "Factorization",
             "description": "Determine the prime factorization of $2$ in $\\mathbb{Z}[i]$.",
@@ -207,7 +289,7 @@
             ]
         },
         {
-            "id": 16,
+            "id": 21,
             "topic": "Rings",
             "title": "Polynomial Factorization",
             "description": "Factorize $X^4 + 1$ in $\\mathbb{Z}_2[X]$.",
@@ -221,7 +303,7 @@
             ]
         },
         {
-            "id": 17,
+            "id": 22,
             "topic": "Rings",
             "title": "Ideals and Factor Rings",
             "description": "Determine the structure of the factor ring $\\mathbb{Z}[X]/(X^2 + 1)$.",
@@ -235,7 +317,7 @@
             ]
         },
         {
-            "id": 18,
+            "id": 23,
             "topic": "Rings",
             "title": "Ring Homomorphisms and Ideals",
             "description": "Determine all ring homomorphisms from $\\mathbb{Z}_6$ to $\\mathbb{Z}_6$.",
@@ -249,7 +331,130 @@
             ]
         },
         {
-            "id": 19,
+            "id": 24,
+            "topic": "Rings",
+            "title": "Finite integral domains are fields",
+            "description": "Prove: every finite integral domain $R$ is a field.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe must find a multiplicative inverse for every $a \\neq 0$. The idea: the map “multiplication by $a$” is injective, hence on a finite set also surjective.",
+                "Step 2: The map\nLet $a \\in R$, $a \\neq 0$, and $\\mu_a: R \\to R$, $x \\mapsto ax$.",
+                "Step 3: Injectivity\nFrom $ax = ay$ we get $a(x-y) = 0$. Since $R$ has no zero divisors and $a \\neq 0$, $x - y = 0$. So $\\mu_a$ is injective.",
+                "Step 4: Surjectivity\nAn injective map from a **finite** set to itself is surjective. So there is $b \\in R$ with $ab = 1$.",
+                "Step 5: Conclusion\nEvery $a \\neq 0$ has an inverse; $R$ is commutative with $1 \\neq 0$. So $R$ is a field. $\\blacksquare$ Example: $\\mathbb{Z}_p$ ($p$ prime) is a finite integral domain and a field; $\\mathbb{Z}$ is an infinite integral domain but not a field.",
+                "Step 6: Takeaway: What to remember\nFiniteness is essential: $\\mathbb{Z}$ shows that the statement fails for infinite rings. The argument (injective $\\Rightarrow$ surjective) is the **pigeonhole principle**."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Rings",
+            "title": "Zero divisors in ℤₙ",
+            "description": "Show: $a \\in \\mathbb{Z}_n$ is a zero divisor exactly when $1 < \\gcd(a,n) < n$ holds (for $a \\neq 0$). Conclude that $\\mathbb{Z}_n$ is a field exactly when $n$ is prime.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe put $d = \\gcd(a,n)$ and distinguish $d = 1$ (unit) and $d > 1$ (zero divisor). For $a \\neq 0$ in $\\mathbb{Z}_n$, $d < n$ is automatic.",
+                "Step 2: $d > 1 \\Rightarrow$ zero divisor\nLet $b = \\frac nd$. Then $0 < b < n$, so $b \\neq 0$ in $\\mathbb{Z}_n$, and $ab = \\frac{a}{d}\\cdot n \\equiv 0$. So $a$ is a zero divisor.",
+                "Step 3: $d = 1 \\Rightarrow$ unit\nBy Bézout there are $x,y$ with $ax + ny = 1$, so $ax \\equiv 1 \\pmod n$. $a$ is a unit and thus not a zero divisor (from $ab = 0$ it follows $b = x\\,ab = 0$).",
+                "Step 4: Characterising fields\n$\\mathbb{Z}_n$ is a field exactly when all $a \\neq 0$ are units, i.e. $\\gcd(a,n) = 1$ for $a = 1,\\dots,n-1$. This holds exactly when $n$ has no proper divisor $> 1$, i.e. $n$ is prime. $\\blacksquare$",
+                "Step 5: Example $n = 12$\nZero divisors: $a \\in \\{2,3,4,6,8,9,10\\}$ (with $1 < \\gcd < 12$), units $\\{1,5,7,11\\}$. For $a = 8$: $d = 4$, $b = 3$ and $8\\cdot3 = 24 \\equiv 0$ ✓.",
+                "Step 6: Takeaway: What to remember\nIn $\\mathbb{Z}_n$ **every** non-zero element is a unit or a zero divisor (dichotomy). This holds in all finite commutative rings."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Rings",
+            "title": "Characteristic of an integral domain",
+            "description": "The characteristic of $R$ is the smallest $n \\geq 1$ with $n\\cdot 1_R = 0$ (otherwise $0$). Show: if $R$ is an integral domain then $\\operatorname{char} R = 0$ or a prime number.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe assume $n = \\operatorname{char} R > 0$ is composite, $n = ab$ with $1 < a,b < n$, and derive a contradiction to the absence of zero divisors.",
+                "Step 2: Assumption\nLet $n = ab$ with $1 < a,b < n$. Then $0 = n\\cdot 1 = (a\\cdot1)(b\\cdot1)$ (distributive law).",
+                "Step 3: No zero divisors\nSince $R$ has no zero divisors, $a\\cdot1 = 0$ or $b\\cdot1 = 0$. Both contradict the minimality of $n$ (as $a,b < n$).",
+                "Step 4: Consequence\nSo $n$ is prime or the characteristic is $0$ (if no $n \\geq 1$ exists). $\\blacksquare$",
+                "Step 5: Examples\n$\\operatorname{char}\\mathbb{Z} = \\operatorname{char}\\mathbb{Q} = 0$, $\\operatorname{char}\\mathbb{Z}_p = p$, $\\operatorname{char}\\mathbb{F}_p[x] = p$. But $\\operatorname{char}\\mathbb{Z}_6 = 6$ is composite — $\\mathbb{Z}_6$ has zero divisors and is not an integral domain.",
+                "Step 6: Takeaway: What to remember\nIn fields of characteristic $p$ we have $(a+b)^p = a^p + b^p$ (Frobenius). The characteristic determines the prime field: $\\mathbb{Q}$ for $0$, $\\mathbb{F}_p$ for $p$."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Rings",
+            "title": "Irreducibility in ℤ[√−5]",
+            "description": "Using the norm $N(a + b\\sqrt{-5}) = a^2 + 5b^2$ show that $2$, $3$, $1 + \\sqrt{-5}$ and $1 - \\sqrt{-5}$ are irreducible in $\\mathbb{Z}[\\sqrt{-5}]$ and conclude that $6$ has no unique factorisation.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe norm is multiplicative, $N(zw) = N(z)N(w)$, and units have norm $1$. The norm of a factor must divide the norm of the product. We show that no suitable factor norms exist.",
+                "Step 2: Units\n$a^2 + 5b^2 = 1$ has only the solutions $a = \\pm1$, $b = 0$. Units: $\\pm1$. Also the norms $2$ and $3$ do not occur: $a^2 + 5b^2 = 2$ and $= 3$ are unsolvable ($b = 0$ gives $a^2 \\in \\{2,3\\}$, $b \\neq 0$ gives $\\geq 5$).",
+                "Step 3: $2$ and $3$\n$N(2) = 4$: a factorisation into non-units would need factors of norm $2$ — impossible. $N(3) = 9$: factors of norm $3$ — impossible. So $2$ and $3$ are irreducible.",
+                "Step 4: $1 \\pm \\sqrt{-5}$\n$N(1 \\pm \\sqrt{-5}) = 1 + 5 = 6$. Factors would need norms $2$ and $3$ — impossible. So irreducible.",
+                "Step 5: Two factorisations of $6$\n$6 = 2\\cdot3 = (1 + \\sqrt{-5})(1 - \\sqrt{-5})$: $(1+\\sqrt{-5})(1-\\sqrt{-5}) = 1 + 5 = 6$ ✓. The factors are irreducible and not associates (units are only $\\pm1$). No unique prime factorisation.",
+                "Step 6: Takeaway: What to remember\nIrreducible does not mean prime: $2$ divides $(1+\\sqrt{-5})(1-\\sqrt{-5})$ but neither factor. The ring is therefore not a principal ideal domain (not factorial). This was the historic motivation for the notion of an ideal (Kummer, Dedekind)."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Rings",
+            "title": "A field with 9 elements as a quotient ring",
+            "description": "Show that $\\mathbb{Z}_3[x]/(x^2+1)$ is a field with $9$ elements and compute $(1+x)^2$ and the inverse of $1 + x$ in this field.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\n$\\mathbb{Z}_3[x]$ is a principal ideal domain. The quotient ring by $(f)$ is a field exactly when $f$ is irreducible. The elements are the residues $a + bx$ with $a,b \\in \\mathbb{Z}_3$, computed with $x^2 = -1$.",
+                "Step 2: Irreducibility\n$x^2 + 1$ has no root in $\\mathbb{Z}_3$ ($0 \\to 1$, $1 \\to 2$, $2 \\to 2$) and degree $2$, so it is irreducible. Hence $(x^2+1)$ is maximal and the quotient ring is a field.",
+                "Step 3: Number of elements\nEvery residue class has a representative $a + bx$ with $a,b \\in \\{0,1,2\\}$: $3^2 = 9$ elements. The field is called $\\mathbb{F}_9$.",
+                "Step 4: $(1+x)^2$\n$(1+x)^2 = 1 + 2x + x^2 = 1 + 2x - 1 = 2x$.",
+                "Step 5: Inverse of $1+x$\nAnsatz $(1+x)(a+bx) = a + (a+b)x + bx^2 = (a - b) + (a+b)x = 1$. So $a + b = 0$ and $a - b = 1$. From $b = -a$: $2a = 1$, $a = 2$ (since $2\\cdot2 = 4 \\equiv 1$), $b = -2 = 1$. Inverse: $2 + x$.",
+                "Step 6: Check\n$(1+x)(2+x) = 2 + x + 2x + x^2 = 2 + 3x - 1 = 1$ ✓.",
+                "Step 7: Takeaway: What to remember\nFinite fields arise as $\\mathbb{F}_p[x]/(f)$ with irreducible $f$ of degree $n$; they have $p^n$ elements. One computes with “remainder polynomials” and the relation $f(x) = 0$ (here $x^2 = -1$, like $i^2 = -1$ in $\\mathbb{C}$)."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Rings",
+            "title": "Non-Principal Ideal Domain Proof",
+            "description": "Prove that the ring $\\mathbb{Z}[\\sqrt{-3}]$ is not a principal ideal domain by constructing an ideal that is not a principal ideal.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Consider the ideal $I = (2, 1 + \\sqrt{-3})$ in $\\mathbb{Z}[\\sqrt{-3}]$.",
+                "Step 2: Assume $I$ is a principal ideal, so $I = (a + b\\sqrt{-3})$ for some $a, b \\in \\mathbb{Z}$.",
+                "Step 3: Then $a + b\\sqrt{-3}$ must divide both $2$ and $1 + \\sqrt{-3}$. This is not possible, as the norms do not match.",
+                "Step 4: Thus, $I$ is not a principal ideal. Therefore, $\\mathbb{Z}[\\sqrt{-3}]$ is not a principal ideal domain."
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Rings",
+            "title": "Factor Ring Structure",
+            "description": "Show that the factor ring $\\mathbb{Q}[X]/(X^3 - 2)$ is a field and determine the number of elements.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: $X^3 - 2$ is irreducible in $\\mathbb{Q}[X]$ (Eisenstein's criterion for $p=2$).",
+                "Step 2: The ideal $(X^3 - 2)$ is maximal, hence the factor ring $\\mathbb{Q}[X]/(X^3 - 2)$ is a field.",
+                "Step 3: The elements are of the form $a + bX + cX^2$ with $a,b,c \\in \\mathbb{Q}$.",
+                "Step 4: Since $\\mathbb{Q}$ has infinitely many elements, $\\mathbb{Q}[X]/(X^3 - 2)$ is an infinite field."
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Rings",
+            "title": "Uniqueness of Prime Factorization",
+            "description": "Examine the unique prime factorization in the ring $\\mathbb{Z}[\\sqrt{-6}]$ and provide an example of a number with non-unique factorization.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: $\\mathbb{Z}[\\sqrt{-6}]$ is not a unique factorization domain.",
+                "Step 2: Example: $10 = 2 \\cdot 5 = (2 + \\sqrt{-6})(2 - \\sqrt{-6})$.",
+                "Step 3: $2, 5, 2 + \\sqrt{-6}, 2 - \\sqrt{-6}$ are irreducible.",
+                "Step 4: The number $10$ thus has two different factorizations into irreducible factors."
+            ]
+        },
+        {
+            "id": 32,
             "topic": "Rings",
             "title": "Complex Ring Homomorphisms",
             "description": "Determine all ring homomorphisms from $\\mathbb{Z}[i]$ to $\\mathbb{Z}_5$.",
@@ -263,7 +468,7 @@
             ]
         },
         {
-            "id": 20,
+            "id": 33,
             "topic": "Rings",
             "title": "Complex Ideals",
             "description": "Show that the ideal $(2,1+\\sqrt{-5})$ in $\\mathbb{Z}[\\sqrt{-5}]$ is not a principal ideal.",
@@ -277,7 +482,7 @@
             ]
         },
         {
-            "id": 21,
+            "id": 34,
             "topic": "Rings",
             "title": "Complex Factorization",
             "description": "Show that $\\mathbb{Z}[\\sqrt{-5}]$ does not have unique prime factorization.",
@@ -291,7 +496,7 @@
             ]
         },
         {
-            "id": 22,
+            "id": 35,
             "topic": "Rings",
             "title": "Complex Polynomial Rings",
             "description": "Show that $\\mathbb{Z}_2[X]/(X^3 + X + 1)$ is a field.",
@@ -305,21 +510,7 @@
             ]
         },
         {
-            "id": 23,
-            "topic": "Rings",
-            "title": "Complex Ring Homomorphisms and Ideals",
-            "description": "Determine all maximal ideals in $\\mathbb{Z}[X]$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Step 1: Prime ideals\n$(p)$ with $p$ prime number\n$(f)$ with $f$ irreducible in $\\mathbb{Q}[X]$",
-                "Step 2: Maximal ideals\n$(p)$ with $p$ prime number\n$(f)$ with $f$ irreducible in $\\mathbb{Q}[X]$ and primitive",
-                "Step 3: Verification\n$(p)$ is maximal in $\\mathbb{Z}[X]/(p) \\cong \\mathbb{Z}_p[X]$\n$(f)$ is maximal in $\\mathbb{Z}[X]/(f) \\cong \\mathbb{Z}[\\alpha]$",
-                "Step 4: Conclusion\nThe maximal ideals are $(p)$ and $(f)$ as described above"
-            ]
-        },
-        {
-            "id": 24,
+            "id": 36,
             "topic": "Rings",
             "title": "Complex Factor Rings",
             "description": "Determine the structure of the factor ring $\\mathbb{Z}[X]/(X^2 + 1, 2)$.",
@@ -333,7 +524,7 @@
             ]
         },
         {
-            "id": 25,
+            "id": 37,
             "topic": "Rings",
             "title": "Complex Euclidean Rings",
             "description": "Show that $\\mathbb{Z}[\\sqrt{2}]$ is a Euclidean ring.",
@@ -347,21 +538,7 @@
             ]
         },
         {
-            "id": 26,
-            "topic": "Rings",
-            "title": "Complex Principal Ideal Domains",
-            "description": "Show that $\\mathbb{Z}[\\sqrt{2}]$ is a principal ideal domain.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Step 1: Euclidean ring\n$\\mathbb{Z}[\\sqrt{2}]$ is a Euclidean ring",
-                "Step 2: Principal ideal domain\nEvery Euclidean ring is a principal ideal domain",
-                "Step 3: Conclusion\n$\\mathbb{Z}[\\sqrt{2}]$ is a principal ideal domain",
-                "Step 4: Application\nEvery ideal in $\\mathbb{Z}[\\sqrt{2}]$ is a principal ideal"
-            ]
-        },
-        {
-            "id": 27,
+            "id": 38,
             "topic": "Rings",
             "title": "Complex Factorization in Principal Ideal Domains",
             "description": "Determine the prime factorization of $7$ in $\\mathbb{Z}[\\sqrt{2}]$.",
@@ -375,7 +552,7 @@
             ]
         },
         {
-            "id": 28,
+            "id": 39,
             "topic": "Rings",
             "title": "Complex Polynomial Rings and Fields",
             "description": "Show that $\\mathbb{Z}_3[X]/(X^2 + 1)$ is a field and determine its order.",
@@ -389,7 +566,7 @@
             ]
         },
         {
-            "id": 29,
+            "id": 40,
             "topic": "Rings",
             "title": "Complex Ring Homomorphisms and Automorphisms",
             "description": "Determine the automorphism group of $\\mathbb{Z}[\\sqrt{2}]$.",
@@ -403,7 +580,7 @@
             ]
         },
         {
-            "id": 30,
+            "id": 41,
             "topic": "Rings",
             "title": "Complex Ideals and Factor Rings",
             "description": "Determine the structure of the factor ring $\\mathbb{Z}[\\sqrt{2}]/(3)$.",

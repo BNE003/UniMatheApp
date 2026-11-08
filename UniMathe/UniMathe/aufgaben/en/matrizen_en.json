@@ -3,24 +3,76 @@
         {
             "id": 1,
             "topic": "Matrices",
-            "title": "Gaussian Elimination Method (Easy)",
-            "description": "Solve the following system of linear equations using the Gaussian elimination method:\n$\\begin{cases} 2x + y - z = 5 \\\\ x - y + 2z = 0 \\\\ 3x + 2y + z = 9 \\end{cases}$",
+            "title": "Matrix multiplication is not commutative",
+            "description": "For $A = \\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}$ and $B = \\begin{pmatrix} 1 & 0 \\\\ 3 & 1 \\end{pmatrix}$ compute the products $AB$ and $BA$. What do you notice?",
             "difficulty": "easy",
             "points": 5,
             "solutionSteps": [
-                "Step 1: Set up the augmented coefficient matrix\n$\\begin{pmatrix} 2 & 1 & -1 & | & 5 \\\\ 1 & -1 & 2 & | & 0 \\\\ 3 & 2 & 1 & | & 9 \\end{pmatrix}$",
-                "Step 2: Multiply the first row by $\\frac{1}{2}$\n$\\begin{pmatrix} 1 & \\frac{1}{2} & -\\frac{1}{2} & | & \\frac{5}{2} \\\\ 1 & -1 & 2 & | & 0 \\\\ 3 & 2 & 1 & | & 9 \\end{pmatrix}$",
-                "Step 3: Subtract the first row from the second row\n$\\begin{pmatrix} 1 & \\frac{1}{2} & -\\frac{1}{2} & | & \\frac{5}{2} \\\\ 0 & -\\frac{3}{2} & \\frac{5}{2} & | & -\\frac{5}{2} \\\\ 3 & 2 & 1 & | & 9 \\end{pmatrix}$",
-                "Step 4: Subtract three times the first row from the third row\n$\\begin{pmatrix} 1 & \\frac{1}{2} & -\\frac{1}{2} & | & \\frac{5}{2} \\\\ 0 & -\\frac{3}{2} & \\frac{5}{2} & | & -\\frac{5}{2} \\\\ 0 & \\frac{1}{2} & \\frac{5}{2} & | & \\frac{9}{2} \\end{pmatrix}$",
-                "Step 5: Multiply the second row by $-\\frac{2}{3}$\n$\\begin{pmatrix} 1 & \\frac{1}{2} & -\\frac{1}{2} & | & \\frac{5}{2} \\\\ 0 & 1 & -\\frac{5}{3} & | & \\frac{5}{3} \\\\ 0 & \\frac{1}{2} & \\frac{5}{2} & | & \\frac{9}{2} \\end{pmatrix}$",
-                "Step 6: Subtract $\\frac{1}{2}$ times the second row from the third row\n$\\begin{pmatrix} 1 & \\frac{1}{2} & -\\frac{1}{2} & | & \\frac{5}{2} \\\\ 0 & 1 & -\\frac{5}{3} & | & \\frac{5}{3} \\\\ 0 & 0 & \\frac{10}{3} & | & \\frac{25}{6} \\end{pmatrix}$",
-                "Step 7: Multiply the third row by $\\frac{3}{10}$\n$\\begin{pmatrix} 1 & \\frac{1}{2} & -\\frac{1}{2} & | & \\frac{5}{2} \\\\ 0 & 1 & -\\frac{5}{3} & | & \\frac{5}{3} \\\\ 0 & 0 & 1 & | & \\frac{5}{4} \\end{pmatrix}$",
-                "Step 8: Back substitution\nFrom the third row: $z = \\frac{5}{4}$\nFrom the second row: $y -\\frac{5}{3} \\cdot \\frac{5}{4} = \\frac{5}{3} \\Rightarrow y = \\frac{5}{3} + \\frac{25}{12} = 3$\nFrom the first row: $x + \\frac{1}{2} \\cdot 3 - \\frac{1}{2} \\cdot \\frac{5}{4} = \\frac{5}{2} \\Rightarrow x = \\frac{5}{2} - \\frac{3}{2} + \\frac{5}{8} = \\frac{5}{2} - \\frac{12}{8} + \\frac{5}{8} = \\frac{20 - 12 + 5}{8} = \\frac{13}{8}$",
-                "Step 9: Solution\nThe solution to the system of equations is $x = \\frac{13}{8}$, $y = 3$, and $z = \\frac{5}{4}$"
+                "Step 1: Overview: What is asked?\nWe compute both products with the “row times column” rule and compare the results. This shows that the order of the factors matters.",
+                "Step 2: The “row times column” rule\nThe entry $(AB)_{ij}$ is the dot product of the $i$-th row of $A$ with the $j$-th column of $B$.",
+                "Step 3: Compute $AB$\n$AB = \\begin{pmatrix} 1\\cdot1+2\\cdot3 & 1\\cdot0+2\\cdot1 \\\\ 0\\cdot1+1\\cdot3 & 0\\cdot0+1\\cdot1 \\end{pmatrix} = \\begin{pmatrix} 7 & 2 \\\\ 3 & 1 \\end{pmatrix}$.",
+                "Step 4: Compute $BA$\n$BA = \\begin{pmatrix} 1\\cdot1+0\\cdot0 & 1\\cdot2+0\\cdot1 \\\\ 3\\cdot1+1\\cdot0 & 3\\cdot2+1\\cdot1 \\end{pmatrix} = \\begin{pmatrix} 1 & 2 \\\\ 3 & 7 \\end{pmatrix}$.",
+                "Step 5: Comparison\nWe have $AB \\neq BA$. Matrix multiplication is therefore not commutative in general; the order of the factors must never be swapped.",
+                "Step 6: Rule of thumb\nThis is also why $(A+B)^2 = A^2 + 2AB + B^2$ does not hold in general; only $(A+B)^2 = A^2 + AB + BA + B^2$ is true.",
+                "Step 7: Takeaway: What to remember\nBecause $AB \\neq BA$ can happen, manipulations like $(A+B)^2 = A^2 + 2AB + B^2$ or $AB = BA$ are not allowed unless commutativity has been shown."
             ]
         },
         {
             "id": 2,
+            "topic": "Matrices",
+            "title": "Solving a linear system with Gaussian elimination",
+            "description": "Solve the system $\\begin{cases} x + 2y - z = 2 \\\\ 2x + y + z = 7 \\\\ x + y + z = 6 \\end{cases}$",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe bring the augmented coefficient matrix into row echelon form with row operations and then solve from the bottom up. Goal of each stage: create zeros below the pivot.",
+                "Step 2: Augmented coefficient matrix\n$\\begin{pmatrix} 1 & 2 & -1 & | & 2 \\\\ 2 & 1 & 1 & | & 7 \\\\ 1 & 1 & 1 & | & 6 \\end{pmatrix}$",
+                "Step 3: Eliminate column 1\n$R_2 \\to R_2 - 2R_1$ and $R_3 \\to R_3 - R_1$ give $\\begin{pmatrix} 1 & 2 & -1 & | & 2 \\\\ 0 & -3 & 3 & | & 3 \\\\ 0 & -1 & 2 & | & 4 \\end{pmatrix}$.",
+                "Step 4: Normalise the second row\n$R_2 \\to -\\frac13 R_2$ gives $(0,\\ 1,\\ -1 \\mid -1)$.",
+                "Step 5: Eliminate column 2\n$R_3 \\to R_3 + R_2$ gives $(0,\\ 0,\\ 1 \\mid 3)$. The row echelon form is $\\begin{pmatrix} 1 & 2 & -1 & | & 2 \\\\ 0 & 1 & -1 & | & -1 \\\\ 0 & 0 & 1 & | & 3 \\end{pmatrix}$.",
+                "Step 6: Back substitution\nRow 3: $z = 3$. Row 2: $y - 3 = -1 \\Rightarrow y = 2$. Row 1: $x + 4 - 3 = 2 \\Rightarrow x = 1$.",
+                "Step 7: Solution\n$L = \\{(1,\\ 2,\\ 3)\\}$ — three pivots, hence exactly one solution.",
+                "Step 8: Check\n$1 + 4 - 3 = 2$ ✓, $2 + 2 + 3 = 7$ ✓, $1 + 2 + 3 = 6$ ✓.",
+                "Step 9: Takeaway: What to remember\nThe rank decides solvability: three pivots with three unknowns mean exactly one solution. Checking in all equations protects against arithmetic errors."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Matrices",
+            "title": "Rules for the transpose",
+            "description": "Let $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ and $B = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$. Compute $(AB)^T$ and $B^TA^T$ and compare.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe compute $(AB)^T$ directly and via the rule $B^TA^T$ and compare. This shows that transposing a product reverses the order.",
+                "Step 2: Rule\nFor matrices $(AB)^T = B^TA^T$ — the order reverses!",
+                "Step 3: Product $AB$\n$AB = \\begin{pmatrix} 1\\cdot0+2\\cdot1 & 1\\cdot1+2\\cdot0 \\\\ 3\\cdot0+4\\cdot1 & 3\\cdot1+4\\cdot0 \\end{pmatrix} = \\begin{pmatrix} 2 & 1 \\\\ 4 & 3 \\end{pmatrix}$ (Multiplying by $B$ from the right swaps the columns of $A$.)",
+                "Step 4: $(AB)^T$\n$(AB)^T = \\begin{pmatrix} 2 & 4 \\\\ 1 & 3 \\end{pmatrix}$.",
+                "Step 5: $B^TA^T$\n$B^T = B = \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$, $A^T = \\begin{pmatrix} 1 & 3 \\\\ 2 & 4 \\end{pmatrix}$. So $B^TA^T = \\begin{pmatrix} 0\\cdot1+1\\cdot2 & 0\\cdot3+1\\cdot4 \\\\ 1\\cdot1+0\\cdot2 & 1\\cdot3+0\\cdot4 \\end{pmatrix} = \\begin{pmatrix} 2 & 4 \\\\ 1 & 3 \\end{pmatrix}$.",
+                "Step 6: Result\n$(AB)^T = B^TA^T = \\begin{pmatrix} 2 & 4 \\\\ 1 & 3 \\end{pmatrix}$. In contrast $A^TB^T = \\begin{pmatrix} 3 & 1 \\\\ 4 & 2 \\end{pmatrix} \\neq (AB)^T$ — the order matters.",
+                "Step 7: Takeaway: What to remember\nReversing the order is the central rule: $(AB)^T = B^TA^T$. It holds analogously for inverses: $(AB)^{-1} = B^{-1}A^{-1}$."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Matrices",
+            "title": "Inverse of a 2×2 matrix and linear system",
+            "description": "Find the inverse of $A = \\begin{pmatrix} 3 & 5 \\\\ 1 & 2 \\end{pmatrix}$ using the formula for $2\\times 2$ matrices and use it to solve $A\\vec{x} = \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nFor $2\\times2$ matrices there is a direct formula for the inverse. With $A^{-1}$ every system $A\\vec{x} = \\vec{b}$ can also be solved by $\\vec{x} = A^{-1}\\vec{b}$, as long as $\\det A \\neq 0$.",
+                "Step 2: Formula\nFor $A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ with $\\det A = ad - bc \\neq 0$ we have $A^{-1} = \\frac{1}{ad-bc}\\begin{pmatrix} d & -b \\\\ -c & a \\end{pmatrix}$.",
+                "Step 3: Determinant\n$\\det A = 3\\cdot 2 - 5\\cdot 1 = 1 \\neq 0$, so $A$ is invertible.",
+                "Step 4: Inverse\n$A^{-1} = \\frac{1}{1}\\begin{pmatrix} 2 & -5 \\\\ -1 & 3 \\end{pmatrix} = \\begin{pmatrix} 2 & -5 \\\\ -1 & 3 \\end{pmatrix}$.",
+                "Step 5: Check\n$AA^{-1} = \\begin{pmatrix} 3\\cdot2+5\\cdot(-1) & 3\\cdot(-5)+5\\cdot3 \\\\ 1\\cdot2+2\\cdot(-1) & 1\\cdot(-5)+2\\cdot3 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$ ✓",
+                "Step 6: Solve the system\n$\\vec{x} = A^{-1}\\vec{b} = \\begin{pmatrix} 2 & -5 \\\\ -1 & 3 \\end{pmatrix}\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} = \\begin{pmatrix} 2-10 \\\\ -1+6 \\end{pmatrix} = \\begin{pmatrix} -8 \\\\ 5 \\end{pmatrix}$.",
+                "Step 7: Verification\n$3\\cdot(-8) + 5\\cdot 5 = 1$ ✓ and $-8 + 2\\cdot 5 = 2$ ✓.",
+                "Step 8: Takeaway: What to remember\nRule for $2\\times2$: swap the diagonal entries, negate the off-diagonal entries, divide by the determinant. For larger systems Gaussian elimination is more efficient than the inverse."
+            ]
+        },
+        {
+            "id": 5,
             "topic": "Matrices",
             "title": "Gauss-Jordan Algorithm (Easy)",
             "description": "Solve the following system of linear equations using the Gauss-Jordan algorithm:\n$\\begin{cases} x + 2y + z = 8 \\\\ 2x + y - z = 1 \\\\ 3x - y - z = 2 \\end{cases}$",
@@ -40,7 +92,7 @@
             ]
         },
         {
-            "id": 3,
+            "id": 6,
             "topic": "Matrices",
             "title": "Matrix Multiplication",
             "description": "Calculate the product of the matrices $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 4 & 5 & 6 \\end{pmatrix}$ and $B = \\begin{pmatrix} 2 & 1 \\\\ 0 & 3 \\\\ -1 & 2 \\end{pmatrix}$.",
@@ -57,7 +109,7 @@
             ]
         },
         {
-            "id": 4,
+            "id": 7,
             "topic": "Matrices",
             "title": "Matrix Inversion (Easy)",
             "description": "Calculate the inverse of the matrix $A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 1 \\end{pmatrix}$ using the Gauss-Jordan algorithm.",
@@ -73,7 +125,7 @@
             ]
         },
         {
-            "id": 5,
+            "id": 8,
             "topic": "Matrices",
             "title": "Characteristic Polynomial",
             "description": "Determine the characteristic polynomial of the matrix $A = \\begin{pmatrix} 3 & 1 \\\\ 2 & 2 \\end{pmatrix}$.",
@@ -88,7 +140,7 @@
             ]
         },
         {
-            "id": 6,
+            "id": 9,
             "topic": "Matrices",
             "title": "Rank of a Matrix (Easy)",
             "description": "Determine the rank of the matrix $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & 6 \\\\ 3 & 6 & 9 \\end{pmatrix}$ by transforming it into row echelon form.",
@@ -103,7 +155,7 @@
             ]
         },
         {
-            "id": 7,
+            "id": 10,
             "topic": "Matrices",
             "title": "System of Equations with Multiple Solutions",
             "description": "Solve the following system of linear equations and give the general solution set:\n$\\begin{cases} x + 2y - z = 3 \\\\ 2x + 4y - 2z = 6 \\end{cases}$",
@@ -119,7 +171,7 @@
             ]
         },
         {
-            "id": 8,
+            "id": 11,
             "topic": "Matrices",
             "title": "Unsolvable System of Linear Equations",
             "description": "Examine whether the following system of linear equations has a solution and justify your answer:\n$\\begin{cases} x + 2y - z = 3 \\\\ 2x + 4y - 2z = 5 \\\\ 3x + 6y - 3z = 8 \\end{cases}$",
@@ -135,7 +187,94 @@
             ]
         },
         {
-            "id": 9,
+            "id": 12,
+            "topic": "Matrices",
+            "title": "Coordinate Transformation",
+            "description": "Given the basis $B = \\{\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}\\}$ for $\\mathbb{R}^2$. Calculate the coordinates of the vector $\\vec{v} = \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$ with respect to the basis $B$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Approach for coordinate transformation\nWe seek coefficients $\\alpha$ and $\\beta$ such that $\\vec{v} = \\alpha \\vec{b}_1 + \\beta \\vec{b}_2$, where $\\vec{b}_1 = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$ and $\\vec{b}_2 = \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}$ are the basis vectors.",
+                "Step 2: Set up the system of equations\n$\\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix} = \\alpha \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} + \\beta \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}$\n\nThis leads to the equations:\n$\\alpha + \\beta = 3$\n$\\alpha - \\beta = 1$",
+                "Step 3: Solve the system of equations\nAdding the two equations, we get $2\\alpha = 4$, so $\\alpha = 2$.\nFrom the first equation, we get $2 + \\beta = 3$, so $\\beta = 1$.",
+                "Step 4: Coordinates with respect to the basis $B$\nThe coordinates of the vector $\\vec{v}$ with respect to the basis $B$ are $(\\alpha, \\beta) = (2, 1)$.",
+                "Step 5: Verification\nWe verify the result:\n$2 \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} + 1 \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix} = \\begin{pmatrix} 2 \\\\ 2 \\end{pmatrix} + \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix} = \\vec{v}$ ✓"
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Matrices",
+            "title": "Discussing a system with parameters",
+            "description": "For which $a, b \\in \\mathbb{R}$ does the system $\\begin{cases} x + y + z = 1 \\\\ x + 2y + 3z = 2 \\\\ x + 3y + az = b \\end{cases}$ have exactly one, no, or infinitely many solutions?",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe eliminate and read off solvability from the last row: it has the form “coefficient $\\cdot\\, z$ = right-hand side”. Depending on whether the coefficient and the right-hand side vanish, three cases arise.",
+                "Step 2: Augmented matrix\n$\\begin{pmatrix} 1 & 1 & 1 & | & 1 \\\\ 1 & 2 & 3 & | & 2 \\\\ 1 & 3 & a & | & b \\end{pmatrix}$",
+                "Step 3: Eliminate\n$R_2 \\to R_2 - R_1$, $R_3 \\to R_3 - R_1$: $\\begin{pmatrix} 1 & 1 & 1 & | & 1 \\\\ 0 & 1 & 2 & | & 1 \\\\ 0 & 2 & a-1 & | & b-1 \\end{pmatrix}$.",
+                "Step 4: Second stage\n$R_3 \\to R_3 - 2R_2$: $\\begin{pmatrix} 1 & 1 & 1 & | & 1 \\\\ 0 & 1 & 2 & | & 1 \\\\ 0 & 0 & a-5 & | & b-3 \\end{pmatrix}$. The last row reads $(a-5)\\,z = b - 3$.",
+                "Step 5: Case 1: $a \\neq 5$\nThen $z = \\frac{b-3}{a-5}$ is uniquely determined, and $y$, $x$ follow by back substitution: exactly one solution (for every $b$).",
+                "Step 6: Case 2: $a = 5$, $b \\neq 3$\nThe last row reads $0 = b - 3 \\neq 0$, a contradiction: no solution.",
+                "Step 7: Case 3: $a = 5$, $b = 3$\nThe last row reads $0 = 0$; $z$ is free: infinitely many solutions (a line). Here: $z = t$, $y = 1 - 2t$, $x = 1 - y - z = t$.",
+                "Step 8: Result\nUnique solution for $a \\neq 5$; no solution for $a = 5, b \\neq 3$; infinitely many solutions for $a = 5, b = 3$.",
+                "Step 9: Takeaway: What to remember\nThe scheme for parameter problems: last row $\\alpha z = \\beta$. $\\alpha \\neq 0$: unique solution. $\\alpha = 0, \\beta \\neq 0$: no solution. $\\alpha = 0, \\beta = 0$: infinitely many solutions."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Matrices",
+            "title": "Rank of a matrix with a parameter",
+            "description": "Determine the rank of $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 2 & 4 & t \\\\ 1 & 1 & 1 \\end{pmatrix}$ depending on $t \\in \\mathbb{R}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe rank is the number of pivots in the row echelon form. We reduce and examine for which $t$ the last row becomes a zero row.",
+                "Step 2: Row operations\n$R_2 \\to R_2 - 2R_1$ and $R_3 \\to R_3 - R_1$ give $\\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 0 & t-6 \\\\ 0 & -1 & -2 \\end{pmatrix}$.",
+                "Step 3: Swap rows\nSwapping $R_2$ and $R_3$ gives the row echelon form $\\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & -1 & -2 \\\\ 0 & 0 & t-6 \\end{pmatrix}$.",
+                "Step 4: Case $t \\neq 6$\nAll three rows are non-zero (three pivots), so $\\operatorname{rank}(A) = 3$.",
+                "Step 5: Case $t = 6$\nThe third row is the zero row, two pivots remain: $\\operatorname{rank}(A) = 2$.",
+                "Step 6: Result\n$\\operatorname{rank}(A) = 3$ for $t \\neq 6$ and $\\operatorname{rank}(A) = 2$ for $t = 6$. Equivalently: $A$ is invertible exactly for $t \\neq 6$.",
+                "Step 7: Takeaway: What to remember\nThe rank can only jump where a pivot depends on the parameter and vanishes. That is also where the transition between invertible and non-invertible happens."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Matrices",
+            "title": "Inverse of a 3×3 matrix with Gauss-Jordan elimination",
+            "description": "Find the inverse of $A = \\begin{pmatrix} 2 & 1 & 0 \\\\ 1 & 2 & 1 \\\\ 0 & 1 & 2 \\end{pmatrix}$ using Gauss-Jordan elimination.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nIn Gauss-Jordan elimination you write $A$ and the identity matrix side by side and transform until the left side is the identity; the right side is then $A^{-1}$. You work down first (echelon form) and then up (zeros above the pivots).",
+                "Step 2: Idea\nWe transform $(A \\mid I)$ by row operations into the form $(I \\mid A^{-1})$.",
+                "Step 3: Start\n$\\begin{pmatrix} 2 & 1 & 0 & | & 1 & 0 & 0 \\\\ 1 & 2 & 1 & | & 0 & 1 & 0 \\\\ 0 & 1 & 2 & | & 0 & 0 & 1 \\end{pmatrix}$",
+                "Step 4: Swap $R_1$ and $R_2$, then eliminate\nAfter swapping: $R_1 = (1,2,1 \\mid 0,1,0)$, $R_2 = (2,1,0 \\mid 1,0,0)$. $R_2 \\to R_2 - 2R_1$ gives $(0,-3,-2 \\mid 1,-2,0)$.",
+                "Step 5: Continue eliminating\nSwap $R_2$ and $R_3$ (now $R_2 = (0,1,2 \\mid 0,0,1)$, $R_3 = (0,-3,-2 \\mid 1,-2,0)$). $R_3 \\to R_3 + 3R_2$: $(0,0,4 \\mid 1,-2,3)$. Then $R_3 \\to \\frac14 R_3$: $(0,0,1 \\mid \\tfrac14,-\\tfrac12,\\tfrac34)$.",
+                "Step 6: Eliminate upwards\n$R_2 \\to R_2 - 2R_3$: $(0,1,0 \\mid -\\tfrac12, 1, -\\tfrac12)$. $R_1 \\to R_1 - 2R_2 - R_3$: $(1,0,0 \\mid \\tfrac34, -\\tfrac12, \\tfrac14)$",
+                "Step 7: Result\n$A^{-1} = \\frac14\\begin{pmatrix} 3 & -2 & 1 \\\\ -2 & 4 & -2 \\\\ 1 & -2 & 3 \\end{pmatrix}$.",
+                "Step 8: Check\nFirst row of $A$ times first column of $4A^{-1}$: $2\\cdot3 + 1\\cdot(-2) + 0\\cdot1 = 4$ ✓ (diagonal $= 4$); first row times second column: $2\\cdot(-2) + 1\\cdot4 + 0 = 0$ ✓.",
+                "Step 9: Takeaway: What to remember\nThe check $AA^{-1} = I$ reveals arithmetic errors immediately. If $A$ cannot be reduced to $I$, then $A$ is not invertible."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Matrices",
+            "title": "Matrix powers and mathematical induction",
+            "description": "Let $A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$. Show by mathematical induction that $A^n = \\begin{pmatrix} 1 & n \\\\ 0 & 1 \\end{pmatrix}$ for all $n \\in \\mathbb{N}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe conjecture a formula for $A^n$ by computing the first few powers and then prove it by mathematical induction. This is the standard method for matrix powers with a pattern.",
+                "Step 2: Confirm the conjecture\n$A^2 = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix} = \\begin{pmatrix} 1 & 2 \\\\ 0 & 1 \\end{pmatrix}$, $A^3 = A^2A = \\begin{pmatrix} 1 & 3 \\\\ 0 & 1 \\end{pmatrix}$. The conjecture $A^n = \\begin{pmatrix} 1 & n \\\\ 0 & 1 \\end{pmatrix}$ suggests itself.",
+                "Step 3: Base case ($n=1$)\n$A^1 = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$ — matches the formula.",
+                "Step 4: Induction hypothesis\nFor a fixed $n$ assume $A^n = \\begin{pmatrix} 1 & n \\\\ 0 & 1 \\end{pmatrix}$.",
+                "Step 5: Induction step\n$A^{n+1} = A^n\\cdot A = \\begin{pmatrix} 1 & n \\\\ 0 & 1 \\end{pmatrix}\\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix} = \\begin{pmatrix} 1\\cdot1+n\\cdot0 & 1\\cdot1+n\\cdot1 \\\\ 0\\cdot1+1\\cdot0 & 0\\cdot1+1\\cdot1 \\end{pmatrix} = \\begin{pmatrix} 1 & n+1 \\\\ 0 & 1 \\end{pmatrix}$.",
+                "Step 6: Conclusion\nThe formula holds for $n+1$ whenever it holds for $n$. By the principle of mathematical induction $A^n = \\begin{pmatrix} 1 & n \\\\ 0 & 1 \\end{pmatrix}$ for all $n \\in \\mathbb{N}$. $\\blacksquare$",
+                "Step 7: Takeaway: What to remember\nInduction procedure: base case, hypothesis, step from $n$ to $n+1$ (here by multiplying with $A$), conclusion. Spotting the pattern first is the creative part."
+            ]
+        },
+        {
+            "id": 17,
             "topic": "Matrices",
             "title": "LU Decomposition",
             "description": "Determine the LU decomposition of the matrix $A = \\begin{pmatrix} 2 & -1 & 0 \\\\ -1 & 2 & -1 \\\\ 0 & -1 & 2 \\end{pmatrix}$.",
@@ -152,7 +291,7 @@
             ]
         },
         {
-            "id": 10,
+            "id": 18,
             "topic": "Matrices",
             "title": "Eigenvalues and Eigenvectors",
             "description": "Determine the eigenvalues and corresponding eigenvectors of the matrix $A = \\begin{pmatrix} 4 & -2 \\\\ 1 & 1 \\end{pmatrix}$.",
@@ -167,7 +306,7 @@
             ]
         },
         {
-            "id": 11,
+            "id": 19,
             "topic": "Matrices",
             "title": "Diagonalization of a Matrix",
             "description": "Diagonalize the matrix $A = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$, i.e., find an invertible matrix $S$ and a diagonal matrix $D$ with $A = SDS^{-1}$.",
@@ -182,7 +321,7 @@
             ]
         },
         {
-            "id": 12,
+            "id": 20,
             "topic": "Matrices",
             "title": "Matrix of a Linear Transformation",
             "description": "Determine the representation matrix of the linear transformation $f: \\mathbb{R}^2 \\to \\mathbb{R}^2$ with $f(\\begin{pmatrix} x \\\\ y \\end{pmatrix}) = \\begin{pmatrix} 2x - y \\\\ x + 3y \\end{pmatrix}$ with respect to the basis $B = \\{\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}, \\begin{pmatrix} 2 \\\\ -1 \\end{pmatrix}\\}$.",
@@ -198,84 +337,7 @@
             ]
         },
         {
-            "id": 13,
-            "topic": "Matrices",
-            "title": "QR Decomposition",
-            "description": "Calculate the QR decomposition of the matrix $A = \\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$ using the Gram-Schmidt process.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Step 1: Gram-Schmidt process\nWe consider the columns of $A$ as vectors $\\vec{a}_1 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$ and $\\vec{a}_2 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}$ and apply the Gram-Schmidt process to obtain an orthonormal basis.",
-                "Step 2: Orthogonalization\nWe set $\\vec{v}_1 = \\vec{a}_1 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$.\n\nFor $\\vec{v}_2$, we calculate the projection of $\\vec{a}_2$ onto $\\vec{v}_1$ and subtract this from $\\vec{a}_2$:\n$\\vec{v}_2 = \\vec{a}_2 - \\frac{\\langle \\vec{a}_2, \\vec{v}_1 \\rangle}{\\langle \\vec{v}_1, \\vec{v}_1 \\rangle} \\vec{v}_1$\n\n$\\langle \\vec{a}_2, \\vec{v}_1 \\rangle = 1 \\cdot 1 + 0 \\cdot 1 + 1 \\cdot 0 = 1$\n$\\langle \\vec{v}_1, \\vec{v}_1 \\rangle = 1^2 + 1^2 + 0^2 = 2$\n\n$\\vec{v}_2 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix} - \\frac{1}{2} \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} \\frac{1}{2} \\\\ -\\frac{1}{2} \\\\ 1 \\end{pmatrix}$",
-                "Step 3: Normalization\nWe normalize the orthogonal vectors $\\vec{v}_1$ and $\\vec{v}_2$:\n\n$\\vec{q}_1 = \\frac{\\vec{v}_1}{\\|\\vec{v}_1\\|} = \\frac{\\vec{v}_1}{\\sqrt{2}} = \\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$\n\n$\\vec{q}_2 = \\frac{\\vec{v}_2}{\\|\\vec{v}_2\\|} = \\frac{\\vec{v}_2}{\\sqrt{\\frac{1}{4} + \\frac{1}{4} + 1}} = \\frac{\\vec{v}_2}{\\sqrt{\\frac{6}{4}}} = \\frac{\\vec{v}_2}{\\frac{\\sqrt{6}}{2}} = \\frac{2}{\\sqrt{6}}\\begin{pmatrix} \\frac{1}{2} \\\\ -\\frac{1}{2} \\\\ 1 \\end{pmatrix} = \\frac{1}{\\sqrt{6}}\\begin{pmatrix} 1 \\\\ -1 \\\\ 2 \\end{pmatrix}$",
-                "Step 4: Form the matrix $Q$\nThe matrix $Q$ contains the orthonormal vectors as columns:\n$Q = \\begin{pmatrix} \\frac{1}{\\sqrt{2}} & \\frac{1}{\\sqrt{6}} \\\\ \\frac{1}{\\sqrt{2}} & \\frac{-1}{\\sqrt{6}} \\\\ 0 & \\frac{2}{\\sqrt{6}} \\end{pmatrix}$",
-                "Step 5: Calculate the matrix $R$\nThe matrix $R$ is an upper triangular matrix that contains the coefficients of the representation of the original columns in the new orthonormal basis:\n\n$r_{11} = \\langle \\vec{a}_1, \\vec{q}_1 \\rangle = 1 \\cdot \\frac{1}{\\sqrt{2}} + 1 \\cdot \\frac{1}{\\sqrt{2}} + 0 \\cdot 0 = \\sqrt{2}$\n\n$r_{12} = \\langle \\vec{a}_2, \\vec{q}_1 \\rangle = 1 \\cdot \\frac{1}{\\sqrt{2}} + 0 \\cdot \\frac{1}{\\sqrt{2}} + 1 \\cdot 0 = \\frac{1}{\\sqrt{2}}$\n\n$r_{22} = \\langle \\vec{a}_2, \\vec{q}_2 \\rangle = 1 \\cdot \\frac{1}{\\sqrt{6}} + 0 \\cdot \\frac{-1}{\\sqrt{6}} + 1 \\cdot \\frac{2}{\\sqrt{6}} = \\frac{3}{\\sqrt{6}} = \\frac{\\sqrt{6}}{2}$\n\nThus, we obtain $R = \\begin{pmatrix} \\sqrt{2} & \\frac{1}{\\sqrt{2}} \\\\ 0 & \\frac{\\sqrt{6}}{2} \\end{pmatrix}$",
-                "Step 6: Verification\nWe verify whether $A = Q \\cdot R$:\n\n$Q \\cdot R = \\begin{pmatrix} \\frac{1}{\\sqrt{2}} & \\frac{1}{\\sqrt{6}} \\\\ \\frac{1}{\\sqrt{2}} & \\frac{-1}{\\sqrt{6}} \\\\ 0 & \\frac{2}{\\sqrt{6}} \\end{pmatrix} \\cdot \\begin{pmatrix} \\sqrt{2} & \\frac{1}{\\sqrt{2}} \\\\ 0 & \\frac{\\sqrt{6}}{2} \\end{pmatrix}$\n\nAfter performing the matrix multiplication, we obtain the original matrix $A = \\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$."
-            ]
-        },
-        {
-            "id": 14,
-            "topic": "Matrices",
-            "title": "Singular Value Decomposition",
-            "description": "Determine the singular value decomposition of the matrix $A = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix}$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Step 1: Calculate $A^TA$ and $AA^T$\nFor the singular value decomposition $A = U\\Sigma V^T$, we first need to calculate the matrices $A^TA$ and $AA^T$ and determine their eigenvalues and eigenvectors.\n\n$A^TA = \\begin{pmatrix} 1 & 0 \\\\ 1 & 1 \\end{pmatrix} \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix} = \\begin{pmatrix} 1 & 1 \\\\ 1 & 2 \\end{pmatrix}$\n\n$AA^T = \\begin{pmatrix} 1 & 1 \\\\ 0 & 1 \\end{pmatrix} \\begin{pmatrix} 1 & 0 \\\\ 1 & 1 \\end{pmatrix} = \\begin{pmatrix} 2 & 1 \\\\ 1 & 1 \\end{pmatrix}$",
-                "Step 2: Eigenvalues and eigenvectors of $A^TA$\nThe characteristic polynomial of $A^TA$ is:\n$p_{A^TA}(\\lambda) = \\det(A^TA - \\lambda I) = \\det\\begin{pmatrix} 1 - \\lambda & 1 \\\\ 1 & 2 - \\lambda \\end{pmatrix} = (1-\\lambda)(2-\\lambda) - 1 = \\lambda^2 - 3\\lambda + 1$\n\nThe roots are $\\lambda_1 = \\frac{3 + \\sqrt{5}}{2} \\approx 2.618$ and $\\lambda_2 = \\frac{3 - \\sqrt{5}}{2} \\approx 0.382$.\n\nFor $\\lambda_1 = \\frac{3 + \\sqrt{5}}{2}$, we calculate the eigenvector $\\vec{v}_1$ of $A^TA$:\n$(A^TA - \\lambda_1 I)\\vec{v}_1 = \\vec{0}$\n\nAfter normalization, we obtain $\\vec{v}_1 = \\frac{1}{\\sqrt{1 + \\alpha_1^2}}\\begin{pmatrix} \\alpha_1 \\\\ 1 \\end{pmatrix}$ with $\\alpha_1 = \\frac{1}{\\lambda_1 - 1}$.\n\nFor $\\lambda_2 = \\frac{3 - \\sqrt{5}}{2}$, we obtain analogously $\\vec{v}_2 = \\frac{1}{\\sqrt{1 + \\alpha_2^2}}\\begin{pmatrix} \\alpha_2 \\\\ 1 \\end{pmatrix}$ with $\\alpha_2 = \\frac{1}{\\lambda_2 - 1}$.",
-                "Step 3: Eigenvalues and eigenvectors of $AA^T$\nThe characteristic polynomial of $AA^T$ is:\n$p_{AA^T}(\\lambda) = \\det(AA^T - \\lambda I) = \\det\\begin{pmatrix} 2 - \\lambda & 1 \\\\ 1 & 1 - \\lambda \\end{pmatrix} = (2-\\lambda)(1-\\lambda) - 1 = \\lambda^2 - 3\\lambda + 1$\n\nThis is the same polynomial as for $A^TA$, so the eigenvalues are identical: $\\sigma_1 = \\sqrt{\\lambda_1} = \\sqrt{\\frac{3 + \\sqrt{5}}{2}}$ and $\\sigma_2 = \\sqrt{\\lambda_2} = \\sqrt{\\frac{3 - \\sqrt{5}}{2}}$.",
-                "Step 4: Form the matrices $U$, $\\Sigma$, and $V$\n$U$ contains the normalized eigenvectors of $AA^T$ as columns.\n$V$ contains the normalized eigenvectors of $A^TA$ as columns.\n$\\Sigma$ is a diagonal matrix with the singular values (square roots of the eigenvalues) on the diagonal.",
-                "Step 5: Calculate the singular value decomposition\nWe obtain the decomposition $A = U\\Sigma V^T$, where:\n\n$U = \\begin{pmatrix} \\vec{u}_1 & \\vec{u}_2 \\end{pmatrix}$\n$\\Sigma = \\begin{pmatrix} \\sigma_1 & 0 \\\\ 0 & \\sigma_2 \\end{pmatrix}$\n$V = \\begin{pmatrix} \\vec{v}_1 & \\vec{v}_2 \\end{pmatrix}$\n\nWith the exact values for the eigenvectors, we obtain the complete singular value decomposition.",
-                "Step 6: Verification\nWe verify the correctness by multiplication: $A = U\\Sigma V^T$."
-            ]
-        },
-        {
-            "id": 15,
-            "topic": "Matrices",
-            "title": "Norm Calculation",
-            "description": "Calculate the Frobenius norm, the spectral norm, and the row sum norm of the matrix $A = \\begin{pmatrix} 3 & -1 \\\\ 2 & 4 \\end{pmatrix}$.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Step 1: Frobenius norm\nThe Frobenius norm is defined as the square root of the sum of the squares of all entries: $\\|A\\|_F = \\sqrt{\\sum_{i,j} |a_{ij}|^2}$.\n\n$\\|A\\|_F = \\sqrt{3^2 + (-1)^2 + 2^2 + 4^2} = \\sqrt{9 + 1 + 4 + 16} = \\sqrt{30} \\approx 5.477$",
-                "Step 2: Spectral norm\nThe spectral norm is defined as the largest singular value (or the square root of the largest eigenvalue of $A^TA$).\n\n$A^TA = \\begin{pmatrix} 3 & 2 \\\\ -1 & 4 \\end{pmatrix} \\begin{pmatrix} 3 & -1 \\\\ 2 & 4 \\end{pmatrix} = \\begin{pmatrix} 13 & 5 \\\\ 5 & 17 \\end{pmatrix}$\n\nWe calculate the eigenvalues of $A^TA$ using the characteristic polynomial:\n$p_{A^TA}(\\lambda) = \\det(A^TA - \\lambda I) = \\det\\begin{pmatrix} 13 - \\lambda & 5 \\\\ 5 & 17 - \\lambda \\end{pmatrix} = (13-\\lambda)(17-\\lambda) - 5^2 = \\lambda^2 - 30\\lambda + 196$\n\nThe eigenvalues are $\\lambda_1 = 20.14$ and $\\lambda_2 = 9.86$.\n\nThus, the spectral norm is $\\|A\\|_2 = \\sqrt{\\lambda_1} \\approx \\sqrt{20.14} \\approx 4.488$.",
-                "Step 3: Row sum norm\nThe row sum norm is defined as the maximum of the sums of the absolute values of the entries in each row: $\\|A\\|_{\\infty} = \\max_i \\sum_j |a_{ij}|$.\n\nFor the first row: $|3| + |-1| = 4$\nFor the second row: $|2| + |4| = 6$\n\nThe maximum is 6, so $\\|A\\|_{\\infty} = 6$.",
-                "Step 4: Summary\nFrobenius norm: $\\|A\\|_F = \\sqrt{30} \\approx 5.477$\nSpectral norm: $\\|A\\|_2 \\approx 4.488$\nRow sum norm: $\\|A\\|_{\\infty} = 6$",
-                "Step 5: Application and interpretation\nThe different matrix norms are useful for different applications. The Frobenius norm is easy to compute and is often used in numerical applications. The spectral norm provides information about the amplification behavior of a matrix as a linear operator. The row sum norm is important for analyzing the stability of numerical methods."
-            ]
-        },
-        {
-            "id": 16,
-            "topic": "Matrices",
-            "title": "Orthogonal Matrix",
-            "description": "Show that the matrix $A = \\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$ is orthogonal and determine its inverse.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Step 1: Definition of an orthogonal matrix\nA matrix $A$ is orthogonal if its columns form an orthonormal basis, i.e., if $A^TA = I$ holds. Equivalently, $A^T = A^{-1}$.",
-                "Step 2: Verify orthogonality\nWe calculate $A^TA$:\n$A^T = \\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}^T = \\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$\n\n$A^TA = \\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix} \\cdot \\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$\n$= \\frac{1}{2}\\begin{pmatrix} 1 \\cdot 1 + 1 \\cdot 1 & 1 \\cdot 1 + 1 \\cdot (-1) \\\\ 1 \\cdot 1 + (-1) \\cdot 1 & 1 \\cdot 1 + (-1) \\cdot (-1) \\end{pmatrix}$\n$= \\frac{1}{2}\\begin{pmatrix} 2 & 0 \\\\ 0 & 2 \\end{pmatrix} = \\begin{pmatrix} 1 & 0 \\\\ 0 & 1 \\end{pmatrix} = I$",
-                "Step 3: Determine the inverse\nSince $A$ is orthogonal, $A^{-1} = A^T$. Since in this case $A^T = A$ (the matrix is symmetric), we have $A^{-1} = A = \\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$.",
-                "Step 4: Verification\nWe verify the result by multiplication:\n$A \\cdot A^{-1} = A \\cdot A = \\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix} \\cdot \\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix} = I$ ✓",
-                "Step 5: Geometric interpretation\nAn orthogonal matrix represents a length- and angle-preserving transformation in Euclidean space, i.e., a rotation, reflection, or a combination of both. The given matrix $A$ represents a rotation by 45 degrees."
-            ]
-        },
-        {
-            "id": 17,
-            "topic": "Matrices",
-            "title": "Coordinate Transformation",
-            "description": "Given the basis $B = \\{\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}\\}$ for $\\mathbb{R}^2$. Calculate the coordinates of the vector $\\vec{v} = \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix}$ with respect to the basis $B$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Approach for coordinate transformation\nWe seek coefficients $\\alpha$ and $\\beta$ such that $\\vec{v} = \\alpha \\vec{b}_1 + \\beta \\vec{b}_2$, where $\\vec{b}_1 = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}$ and $\\vec{b}_2 = \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}$ are the basis vectors.",
-                "Step 2: Set up the system of equations\n$\\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix} = \\alpha \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} + \\beta \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}$\n\nThis leads to the equations:\n$\\alpha + \\beta = 3$\n$\\alpha - \\beta = 1$",
-                "Step 3: Solve the system of equations\nAdding the two equations, we get $2\\alpha = 4$, so $\\alpha = 2$.\nFrom the first equation, we get $2 + \\beta = 3$, so $\\beta = 1$.",
-                "Step 4: Coordinates with respect to the basis $B$\nThe coordinates of the vector $\\vec{v}$ with respect to the basis $B$ are $(\\alpha, \\beta) = (2, 1)$.",
-                "Step 5: Verification\nWe verify the result:\n$2 \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix} + 1 \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix} = \\begin{pmatrix} 2 \\\\ 2 \\end{pmatrix} + \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 1 \\end{pmatrix} = \\vec{v}$ ✓"
-            ]
-        },
-        {
-            "id": 18,
+            "id": 21,
             "topic": "Matrices",
             "title": "Gauss-Jordan Algorithm (Medium)",
             "description": "Solve the following system of linear equations using the Gauss-Jordan algorithm:\n$\\begin{cases} x + y + z = 6 \\\\ 2x - y + z = 3 \\\\ 3x + y - z = 4 \\end{cases}$",
@@ -291,7 +353,7 @@
             ]
         },
         {
-            "id": 19,
+            "id": 22,
             "topic": "Matrices",
             "title": "Linear Independence",
             "description": "Examine whether the vectors $\\vec{v}_1 = \\begin{pmatrix} 1 \\\\ 2 \\\\ 0 \\\\ 1 \\end{pmatrix}$, $\\vec{v}_2 = \\begin{pmatrix} 2 \\\\ 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$, $\\vec{v}_3 = \\begin{pmatrix} 3 \\\\ 3 \\\\ 1 \\\\ 1 \\end{pmatrix}$ and $\\vec{v}_4 = \\begin{pmatrix} 1 \\\\ -1 \\\\ 2 \\\\ -1 \\end{pmatrix}$ are linearly independent.",
@@ -306,7 +368,7 @@
             ]
         },
         {
-            "id": 20,
+            "id": 23,
             "topic": "Matrices",
             "title": "Matrix Inversion (Medium)",
             "description": "Calculate the inverse of the matrix $A = \\begin{pmatrix} 1 & 1 & 1 \\\\ 0 & 2 & 1 \\\\ 1 & 0 & 2 \\end{pmatrix}$ using the Gauss-Jordan algorithm.",
@@ -321,7 +383,127 @@
             ]
         },
         {
-            "id": 21,
+            "id": 24,
+            "topic": "Matrices",
+            "title": "Matrix equation XA = B",
+            "description": "Solve $XA = B$ with $A = \\begin{pmatrix}1&2\\\\3&5\\end{pmatrix}$ and $B = \\begin{pmatrix}1&0\\\\2&1\\end{pmatrix}$ for $X$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nSince matrix multiplication is not commutative one must multiply by $A^{-1}$ from the **right**: $XA = B \\Rightarrow X = BA^{-1}$. First determine the inverse.",
+                "Step 2: Inverse of $A$\n$\\det A = 5 - 6 = -1 \\neq 0$. $A^{-1} = \\frac{1}{-1}\\begin{pmatrix}5&-2\\\\-3&1\\end{pmatrix} = \\begin{pmatrix}-5&2\\\\3&-1\\end{pmatrix}$.",
+                "Step 3: Multiply from the right\n$X = BA^{-1} = \\begin{pmatrix}1&0\\\\2&1\\end{pmatrix}\\begin{pmatrix}-5&2\\\\3&-1\\end{pmatrix} = \\begin{pmatrix}-5&2\\\\-10+3&4-1\\end{pmatrix} = \\begin{pmatrix}-5&2\\\\-7&3\\end{pmatrix}$.",
+                "Step 4: Check\n$XA = \\begin{pmatrix}-5&2\\\\-7&3\\end{pmatrix}\\begin{pmatrix}1&2\\\\3&5\\end{pmatrix} = \\begin{pmatrix}-5+6&-10+10\\\\-7+9&-14+15\\end{pmatrix} = \\begin{pmatrix}1&0\\\\2&1\\end{pmatrix} = B$ ✓.",
+                "Step 5: Comparison with $AX = B$\nThe solution of $AX = B$ would be $A^{-1}B = \\begin{pmatrix}-5&2\\\\3&-1\\end{pmatrix}\\begin{pmatrix}1&0\\\\2&1\\end{pmatrix} = \\begin{pmatrix}-1&2\\\\1&-1\\end{pmatrix} \\neq X$: the order matters.",
+                "Step 6: Takeaway: What to remember\nFor matrix equations always check on which side $A$ stands and multiply with $A^{-1}$ from the same side. If $A$ is not invertible the equation is not uniquely solvable or not solvable at all."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Matrices",
+            "title": "Trace: tr(AB) = tr(BA)",
+            "description": "Prove $\\operatorname{tr}(AB) = \\operatorname{tr}(BA)$ for $A,B \\in \\mathbb{R}^{n\\times n}$ and conclude that no matrices with $AB - BA = I_n$ exist. Check the statement on an example.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe write the trace of a product with the index formula $(AB)_{ii} = \\sum_ka_{ik}b_{ki}$ and swap the order of summation.",
+                "Step 2: Proof\n$\\operatorname{tr}(AB) = \\sum_{i=1}^n\\sum_{k=1}^na_{ik}b_{ki} = \\sum_{k=1}^n\\sum_{i=1}^nb_{ki}a_{ik} = \\sum_{k=1}^n(BA)_{kk} = \\operatorname{tr}(BA)$. $\\blacksquare$",
+                "Step 3: Consequence\nSuppose $AB - BA = I_n$. Then $\\operatorname{tr}(AB - BA) = \\operatorname{tr}(AB) - \\operatorname{tr}(BA) = 0$ but $\\operatorname{tr}(I_n) = n \\neq 0$. Contradiction: no such matrices exist.",
+                "Step 4: Example\n$A = \\begin{pmatrix}1&2\\\\0&1\\end{pmatrix}$, $B = \\begin{pmatrix}1&0\\\\3&1\\end{pmatrix}$: $AB = \\begin{pmatrix}7&2\\\\3&1\\end{pmatrix}$ with $\\operatorname{tr} = 8$, $BA = \\begin{pmatrix}1&2\\\\3&7\\end{pmatrix}$ with $\\operatorname{tr} = 8$ ✓. Although $AB \\neq BA$ the traces agree.",
+                "Step 5: Takeaway: What to remember\nFrom cyclicity it follows that $\\operatorname{tr}(P^{-1}AP) = \\operatorname{tr}(A)$: the trace is basis independent (sum of eigenvalues). The statement fails in infinite dimensions — that is the Heisenberg commutation relation $[x,p] = i\\hbar$."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Matrices",
+            "title": "LU decomposition and solving a linear system",
+            "description": "Find the LU decomposition of $A = \\begin{pmatrix} 2 & 1 & 1 \\\\ 4 & 3 & 3 \\\\ 8 & 7 & 9 \\end{pmatrix}$ (no row swaps) and use it to solve $A\\vec{x} = \\begin{pmatrix} 3 \\\\ 7 \\\\ 19 \\end{pmatrix}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe LU decomposition is Gaussian elimination in which you remember the elimination factors: $A = LU$ with lower triangular $L$ (factors) and upper triangular $U$ (result of the elimination). Afterwards you solve $A\\vec{x} = \\vec{b}$ in two easy steps.",
+                "Step 2: Elimination factors\nFirst column: $l_{21} = \\frac{4}{2} = 2$, $l_{31} = \\frac{8}{2} = 4$. $R_2 \\to R_2 - 2R_1$ gives $(0,1,1)$, $R_3 \\to R_3 - 4R_1$ gives $(0,3,5)$.",
+                "Step 3: Second column\n$l_{32} = \\frac{3}{1} = 3$. $R_3 \\to R_3 - 3R_2$: $(0,0,5-3) = (0,0,2)$.",
+                "Step 4: Read off the factors\n$L = \\begin{pmatrix} 1 & 0 & 0 \\\\ 2 & 1 & 0 \\\\ 4 & 3 & 1 \\end{pmatrix}$, $U = \\begin{pmatrix} 2 & 1 & 1 \\\\ 0 & 1 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}$. (The elimination factors sit below the diagonal of $L$.)",
+                "Step 5: Check\nFirst row of $LU$: $(2,1,1)$ ✓. Third row: $4\\cdot(2,1,1) + 3\\cdot(0,1,1) + 1\\cdot(0,0,2) = (8,\\ 4+3,\\ 4+3+2) = (8,7,9)$ ✓.",
+                "Step 6: Forward substitution $L\\vec{y} = \\vec{b}$\n$y_1 = 3$, $2y_1 + y_2 = 7 \\Rightarrow y_2 = 1$, $4y_1 + 3y_2 + y_3 = 19 \\Rightarrow y_3 = 19 - 12 - 3 = 4$.",
+                "Step 7: Back substitution $U\\vec{x} = \\vec{y}$\n$2x_3 = 4 \\Rightarrow x_3 = 2$; $x_2 + x_3 = 1 \\Rightarrow x_2 = -1$; $2x_1 + x_2 + x_3 = 3 \\Rightarrow x_1 = 1$.",
+                "Step 8: Result\n$\\vec{x} = \\begin{pmatrix} 1 \\\\ -1 \\\\ 2 \\end{pmatrix}$. Advantage of the LU decomposition: for further right-hand sides $\\vec{b}$ only the two simple triangular systems have to be solved.",
+                "Step 9: Takeaway: What to remember\nThe advantage: the expensive elimination is done only once; for each new right-hand side only forward and back substitution are needed. Without row swaps the decomposition only works if no pivot becomes $0$."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Matrices",
+            "title": "General solution of an underdetermined system",
+            "description": "Find the solution set of $\\begin{cases} x_1 + x_2 + x_3 + x_4 = 4 \\\\ x_1 + 2x_2 + 3x_3 + 4x_4 = 10 \\\\ 2x_1 + 3x_2 + 4x_3 + 5x_4 = 14 \\end{cases}$ in the form “particular solution + solutions of the homogeneous system”.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe system has fewer independent equations than unknowns. We determine the rank, choose parameters for the non-pivot variables and describe the solution set as “particular solution + homogeneous solutions”.",
+                "Step 2: Augmented matrix\n$\\begin{pmatrix} 1 & 1 & 1 & 1 & | & 4 \\\\ 1 & 2 & 3 & 4 & | & 10 \\\\ 2 & 3 & 4 & 5 & | & 14 \\end{pmatrix}$",
+                "Step 3: Eliminate\n$R_2 \\to R_2 - R_1$: $(0,1,2,3 \\mid 6)$. $R_3 \\to R_3 - 2R_1$: $(0,1,2,3 \\mid 6)$. Then $R_3 \\to R_3 - R_2$: $(0,0,0,0 \\mid 0)$. (The third equation is the sum of the first two.)",
+                "Step 4: Rank and degrees of freedom\n$\\operatorname{rank} = 2$, four unknowns, hence $4 - 2 = 2$ free parameters. Pivot variables: $x_1, x_2$; free variables: $x_3 = s$, $x_4 = t$.",
+                "Step 5: Back substitution\nRow 2: $x_2 = 6 - 2s - 3t$. Row 1: $x_1 = 4 - x_2 - s - t = 4 - 6 + 2s + 3t - s - t = -2 + s + 2t$.",
+                "Step 6: Solution set\n$L = \\left\\{ \\begin{pmatrix} -2 \\\\ 6 \\\\ 0 \\\\ 0 \\end{pmatrix} + s\\begin{pmatrix} 1 \\\\ -2 \\\\ 1 \\\\ 0 \\end{pmatrix} + t\\begin{pmatrix} 2 \\\\ -3 \\\\ 0 \\\\ 1 \\end{pmatrix} \\;\\middle|\\; s,t \\in \\mathbb{R} \\right\\}$.",
+                "Step 7: Check\nParticular solution $(-2,6,0,0)$: $-2+6 = 4$ ✓, $-2+12 = 10$ ✓. Homogeneous direction $(1,-2,1,0)$: $1-2+1 = 0$ ✓, $1-4+3 = 0$ ✓. Direction $(2,-3,0,1)$: $2-3+1 = 0$ ✓, $2-6+4 = 0$ ✓.",
+                "Step 8: Takeaway: What to remember\nStructure of the solution set: $L = \\vec{x}_p + \\ker A$. The number of parameters is $n - \\operatorname{rank} A$. Every direction must solve the homogeneous system; that is the best check."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Matrices",
+            "title": "Nilpotent matrices and the inverse of I − N",
+            "description": "Let $N = \\begin{pmatrix} 0 & 1 & 2 \\\\ 0 & 0 & 3 \\\\ 0 & 0 & 0 \\end{pmatrix}$. Compute $N^2$ and $N^3$ and show that $I - N$ is invertible with $(I - N)^{-1} = I + N + N^2$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nA matrix $N$ is called nilpotent if some power $N^k = 0$. We compute the powers and use the geometric sum formula for matrices to find the inverse of $I - N$ without Gaussian elimination.",
+                "Step 2: Compute $N^2$\n$N^2 = N\\cdot N = \\begin{pmatrix} 0 & 0 & 3 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}$. (Entry $(1,3)$: $0\\cdot2 + 1\\cdot3 + 2\\cdot0 = 3$.)",
+                "Step 3: Compute $N^3$\n$N^3 = N^2\\cdot N = \\begin{pmatrix} 0 & 0 & 0 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}$. The matrix is nilpotent: $N^3 = 0$.",
+                "Step 4: Geometric series for matrices\nFor arbitrary matrices $(I - N)(I + N + N^2) = I + N + N^2 - N - N^2 - N^3 = I - N^3$. This is the finite geometric sum formula.",
+                "Step 5: Apply it\nSince $N^3 = 0$ we get $(I - N)(I + N + N^2) = I$. So $I - N$ is invertible with $(I-N)^{-1} = I + N + N^2$.",
+                "Step 6: Explicit inverse\n$I + N + N^2 = \\begin{pmatrix} 1 & 1 & 5 \\\\ 0 & 1 & 3 \\\\ 0 & 0 & 1 \\end{pmatrix}$.",
+                "Step 7: Check\n$I - N = \\begin{pmatrix} 1 & -1 & -2 \\\\ 0 & 1 & -3 \\\\ 0 & 0 & 1 \\end{pmatrix}$. First row times the columns: $(1,\\ 1-1,\\ 5-3-2) = (1,0,0)$ ✓; second row: $(0,\\ 1,\\ 3-3) = (0,1,0)$ ✓.",
+                "Step 8: Takeaway: What to remember\nThe formula $(I-N)^{-1} = I + N + N^2 + \\dots$ is the matrix analogue of the geometric series $\\frac1{1-x} = 1 + x + x^2 + \\dots$ and terminates for nilpotent matrices."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Matrices",
+            "title": "Least-squares line via the normal equations",
+            "description": "Find the best-fit line $y = a + bx$ through the data points $(0,1)$, $(1,2)$, $(2,2)$ using the normal equations $A^TA\\vec{c} = A^T\\vec{y}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWith more data points than parameters the system $A\\vec{c} = \\vec{y}$ is overdetermined. The method of least squares minimises the distance $\\|A\\vec{c} - \\vec{y}\\|$; the solution satisfies the normal equations $A^TA\\vec{c} = A^T\\vec{y}$.",
+                "Step 2: Overdetermined system\nThe line should satisfy $a + b\\cdot x_i = y_i$: $\\begin{cases} a = 1 \\\\ a + b = 2 \\\\ a + 2b = 2 \\end{cases}$. Three equations, two unknowns — generally not solvable.",
+                "Step 3: Matrix form\n$A = \\begin{pmatrix} 1 & 0 \\\\ 1 & 1 \\\\ 1 & 2 \\end{pmatrix}$, $\\vec{c} = \\begin{pmatrix} a \\\\ b \\end{pmatrix}$, $\\vec{y} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 2 \\end{pmatrix}$. We minimise $\\|A\\vec{c} - \\vec{y}\\|^2$.",
+                "Step 4: Set up the normal equations\n$A^TA = \\begin{pmatrix} 3 & 3 \\\\ 3 & 5 \\end{pmatrix}$, $A^T\\vec{y} = \\begin{pmatrix} 5 \\\\ 6 \\end{pmatrix}$. (E.g. $5 = 1 + 2 + 2$ and $6 = 0\\cdot1 + 1\\cdot2 + 2\\cdot2$.)",
+                "Step 5: Solve\n$\\det(A^TA) = 15 - 9 = 6$, $(A^TA)^{-1} = \\frac16\\begin{pmatrix} 5 & -3 \\\\ -3 & 3 \\end{pmatrix}$. Hence $\\vec{c} = \\frac16\\begin{pmatrix} 5 & -3 \\\\ -3 & 3 \\end{pmatrix}\\begin{pmatrix} 5 \\\\ 6 \\end{pmatrix} = \\frac16\\begin{pmatrix} 25-18 \\\\ -15+18 \\end{pmatrix} = \\begin{pmatrix} \\tfrac76 \\\\ \\tfrac12 \\end{pmatrix}$.",
+                "Step 6: Result\nThe best-fit line is $y = \\frac76 + \\frac12 x$.",
+                "Step 7: Check the residual\nResiduals: $1 - \\frac76 = -\\frac16$, $2 - \\frac{5}{3} = \\frac13$, $2 - \\frac{13}{6} = -\\frac16$. Their sum is $0$, and $\\sum x_i r_i = 0\\cdot(-\\frac16) + 1\\cdot\\frac13 + 2\\cdot(-\\frac16) = 0$ — the residual is orthogonal to the columns of $A$, as the normal equations require.",
+                "Step 8: Takeaway: What to remember\nGeometrically $A\\vec{c}$ is the orthogonal projection of $\\vec{y}$ onto the column space of $A$. The residual is therefore orthogonal to the columns of $A$, which can be used as a check."
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Matrices",
+            "title": "QR Decomposition",
+            "description": "Calculate the QR decomposition of the matrix $A = \\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$ using the Gram-Schmidt process.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Gram-Schmidt process\nWe consider the columns of $A$ as vectors $\\vec{a}_1 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$ and $\\vec{a}_2 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}$ and apply the Gram-Schmidt process to obtain an orthonormal basis.",
+                "Step 2: Orthogonalization\nWe set $\\vec{v}_1 = \\vec{a}_1 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$.\n\nFor $\\vec{v}_2$, we calculate the projection of $\\vec{a}_2$ onto $\\vec{v}_1$ and subtract this from $\\vec{a}_2$:\n$\\vec{v}_2 = \\vec{a}_2 - \\frac{\\langle \\vec{a}_2, \\vec{v}_1 \\rangle}{\\langle \\vec{v}_1, \\vec{v}_1 \\rangle} \\vec{v}_1$\n\n$\\langle \\vec{a}_2, \\vec{v}_1 \\rangle = 1 \\cdot 1 + 0 \\cdot 1 + 1 \\cdot 0 = 1$\n$\\langle \\vec{v}_1, \\vec{v}_1 \\rangle = 1^2 + 1^2 + 0^2 = 2$\n\n$\\vec{v}_2 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix} - \\frac{1}{2} \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} \\frac{1}{2} \\\\ -\\frac{1}{2} \\\\ 1 \\end{pmatrix}$",
+                "Step 3: Normalization\nWe normalize the orthogonal vectors $\\vec{v}_1$ and $\\vec{v}_2$:\n\n$\\vec{q}_1 = \\frac{\\vec{v}_1}{\\|\\vec{v}_1\\|} = \\frac{\\vec{v}_1}{\\sqrt{2}} = \\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$\n\n$\\vec{q}_2 = \\frac{\\vec{v}_2}{\\|\\vec{v}_2\\|} = \\frac{\\vec{v}_2}{\\sqrt{\\frac{1}{4} + \\frac{1}{4} + 1}} = \\frac{\\vec{v}_2}{\\sqrt{\\frac{6}{4}}} = \\frac{\\vec{v}_2}{\\frac{\\sqrt{6}}{2}} = \\frac{2}{\\sqrt{6}}\\begin{pmatrix} \\frac{1}{2} \\\\ -\\frac{1}{2} \\\\ 1 \\end{pmatrix} = \\frac{1}{\\sqrt{6}}\\begin{pmatrix} 1 \\\\ -1 \\\\ 2 \\end{pmatrix}$",
+                "Step 4: Form the matrix $Q$\nThe matrix $Q$ contains the orthonormal vectors as columns:\n$Q = \\begin{pmatrix} \\frac{1}{\\sqrt{2}} & \\frac{1}{\\sqrt{6}} \\\\ \\frac{1}{\\sqrt{2}} & \\frac{-1}{\\sqrt{6}} \\\\ 0 & \\frac{2}{\\sqrt{6}} \\end{pmatrix}$",
+                "Step 5: Calculate the matrix $R$\nThe matrix $R$ is an upper triangular matrix that contains the coefficients of the representation of the original columns in the new orthonormal basis:\n\n$r_{11} = \\langle \\vec{a}_1, \\vec{q}_1 \\rangle = 1 \\cdot \\frac{1}{\\sqrt{2}} + 1 \\cdot \\frac{1}{\\sqrt{2}} + 0 \\cdot 0 = \\sqrt{2}$\n\n$r_{12} = \\langle \\vec{a}_2, \\vec{q}_1 \\rangle = 1 \\cdot \\frac{1}{\\sqrt{2}} + 0 \\cdot \\frac{1}{\\sqrt{2}} + 1 \\cdot 0 = \\frac{1}{\\sqrt{2}}$\n\n$r_{22} = \\langle \\vec{a}_2, \\vec{q}_2 \\rangle = 1 \\cdot \\frac{1}{\\sqrt{6}} + 0 \\cdot \\frac{-1}{\\sqrt{6}} + 1 \\cdot \\frac{2}{\\sqrt{6}} = \\frac{3}{\\sqrt{6}} = \\frac{\\sqrt{6}}{2}$\n\nThus, we obtain $R = \\begin{pmatrix} \\sqrt{2} & \\frac{1}{\\sqrt{2}} \\\\ 0 & \\frac{\\sqrt{6}}{2} \\end{pmatrix}$",
+                "Step 6: Verification\nWe verify whether $A = Q \\cdot R$:\n\n$Q \\cdot R = \\begin{pmatrix} \\frac{1}{\\sqrt{2}} & \\frac{1}{\\sqrt{6}} \\\\ \\frac{1}{\\sqrt{2}} & \\frac{-1}{\\sqrt{6}} \\\\ 0 & \\frac{2}{\\sqrt{6}} \\end{pmatrix} \\cdot \\begin{pmatrix} \\sqrt{2} & \\frac{1}{\\sqrt{2}} \\\\ 0 & \\frac{\\sqrt{6}}{2} \\end{pmatrix}$\n\nAfter performing the matrix multiplication, we obtain the original matrix $A = \\begin{pmatrix} 1 & 1 \\\\ 1 & 0 \\\\ 0 & 1 \\end{pmatrix}$."
+            ]
+        },
+        {
+            "id": 31,
             "topic": "Matrices",
             "title": "Moore-Penrose Pseudoinverse",
             "description": "Calculate the Moore-Penrose pseudoinverse of the matrix $A = \\begin{pmatrix} 1 & 2 \\\\ 2 & 4 \\end{pmatrix}$.",
@@ -337,7 +519,7 @@
             ]
         },
         {
-            "id": 22,
+            "id": 32,
             "topic": "Matrices",
             "title": "Gaussian Elimination Method (Hard)",
             "description": "Solve the following system of linear equations using the Gaussian elimination method and discuss the solution set:\n$\\begin{cases} x_1 + 2x_2 + x_3 - x_4 = 1 \\\\ 2x_1 + 4x_2 + x_3 + x_4 = 2 \\\\ x_1 + 2x_2 + 2x_3 - 3x_4 = -1 \\\\ 3x_1 + 6x_2 + 3x_3 - 2x_4 = 3 \\end{cases}$",
@@ -353,7 +535,7 @@
             ]
         },
         {
-            "id": 23,
+            "id": 33,
             "topic": "Matrices",
             "title": "Rank of a Matrix (Hard)",
             "description": "Determine the rank of the matrix $A = \\begin{pmatrix} 1 & 2 & 3 & 4 \\\\ 2 & 5 & 7 & 8 \\\\ 3 & 8 & 10 & 11 \\\\ 4 & 11 & 13 & 14 \\end{pmatrix}$ and give a basis for the column space.",

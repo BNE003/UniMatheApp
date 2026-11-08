@@ -3,6 +3,85 @@
         {
             "id": 1,
             "topic": "Differentialrechnung",
+            "title": "Ableitung und Tangente",
+            "description": "Bestimmen Sie die Ableitung von $f(x) = x^3 - 3x^2 + 2$ und die Gleichung der Tangente an der Stelle $x_0 = 1$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Tangente an $f$ in $x_0$ ist $y = f(x_0) + f'(x_0)(x - x_0)$. Wir brauchen also den Funktionswert und die Steigung $f'(x_0)$. Die Ableitung ergibt sich gliedweise mit der Potenzregel $(x^n)' = nx^{n-1}$.",
+                "Schritt 2: Ableitung\n$f'(x) = 3x^2 - 6x$ (die Konstante $2$ fällt weg).",
+                "Schritt 3: Funktionswert und Steigung\n$f(1) = 1 - 3 + 2 = 0$ und $f'(1) = 3 - 6 = -3$.",
+                "Schritt 4: Tangente\n$y = 0 + (-3)(x - 1) = -3x + 3$.",
+                "Schritt 5: Probe\nBei $x = 1{,}01$: $f \\approx 1{,}030301 - 3{,}0603 + 2 = -0{,}029999$; Tangente: $-3\\cdot1{,}01 + 3 = -0{,}03$. Sehr nahe ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nDie Ableitung ist die lokale Steigung; die Tangente ist die beste lineare Näherung. Faustregel: Funktionswert $f(x_0)$ nicht vergessen, sonst ist es die Steigung allein."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung aus der Definition",
+            "description": "Berechnen Sie die Ableitung von $f(x) = x^2$ mit dem Differentialquotienten.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Ableitung ist der Grenzwert des Differenzenquotienten: $f'(x) = \\lim_{h\\to0}\\frac{f(x+h) - f(x)}{h}$. Wir vereinfachen den Bruch so weit, dass $h$ gekürzt werden kann.",
+                "Schritt 2: Einsetzen\n$\\frac{(x+h)^2 - x^2}{h} = \\frac{x^2 + 2xh + h^2 - x^2}{h} = \\frac{2xh + h^2}{h}$ (erste binomische Formel).",
+                "Schritt 3: Kürzen\n$\\frac{h(2x + h)}{h} = 2x + h$ für $h \\neq 0$.",
+                "Schritt 4: Grenzwert\n$\\lim_{h\\to0}(2x + h) = 2x$. Also $(x^2)' = 2x$.",
+                "Schritt 5: Numerische Probe\nBei $x = 3$, $h = 0{,}001$: $\\frac{9{,}006001 - 9}{0{,}001} = 6{,}001 \\approx 2\\cdot3$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nDie Regeln der Differentiation (Potenz-, Produktregel, …) sind Abkürzungen für diesen Grenzwert. Geometrisch ist der Differenzenquotient die Sekantensteigung, der Grenzwert die Tangentensteigung."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung mit negativen und gebrochenen Exponenten",
+            "description": "Berechnen Sie die Ableitung von $f(x) = \\frac{1}{x^2} + \\sqrt x + \\frac{3}{\\sqrt[3]{x}}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir schreiben alle Terme als Potenzen $x^a$ und wenden die Potenzregel $(x^a)' = ax^{a-1}$ an, die für **alle** reellen $a$ gilt.",
+                "Schritt 2: Umschreiben\n$f(x) = x^{-2} + x^{1/2} + 3x^{-1/3}$ für $x > 0$.",
+                "Schritt 3: Ableiten\n$f'(x) = -2x^{-3} + \\frac12x^{-1/2} + 3\\cdot\\left(-\\frac13\\right)x^{-4/3} = -2x^{-3} + \\frac12x^{-1/2} - x^{-4/3}$.",
+                "Schritt 4: Zurückschreiben\n$f'(x) = -\\frac{2}{x^3} + \\frac{1}{2\\sqrt x} - \\frac{1}{x\\sqrt[3]{x}}$.",
+                "Schritt 5: Probe bei $x = 1$\n$f'(1) = -2 + \\frac12 - 1 = -2{,}5$. Numerisch: $f(1) = 1 + 1 + 3 = 5$; $f(1{,}001) \\approx 0{,}998004 + 1{,}0005 + 2{,}999 = 4{,}9975$; Steigung $\\approx -2{,}5$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nErst in Potenzschreibweise bringen, dann ableiten, am Ende (falls gewünscht) zurückschreiben. Der Exponent wird um $1$ verringert; bei negativen Exponenten wird er also **negativer**."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Differentialrechnung",
+            "title": "Produktregel",
+            "description": "Leiten Sie $f(x) = (x^2 + 1)(x - 3)$ auf zwei Arten ab.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Produktregel lautet $(uv)' = u'v + uv'$. Als Kontrolle multiplizieren wir zuerst aus und leiten dann das Polynom ab; beide Wege müssen übereinstimmen.",
+                "Schritt 2: Weg 1: Produktregel\n$u = x^2 + 1$, $v = x - 3$, $u' = 2x$, $v' = 1$. $f' = 2x(x - 3) + (x^2 + 1)\\cdot1 = 2x^2 - 6x + x^2 + 1 = 3x^2 - 6x + 1$.",
+                "Schritt 3: Weg 2: Ausmultiplizieren\n$f(x) = x^3 - 3x^2 + x - 3$, also $f'(x) = 3x^2 - 6x + 1$ ✓.",
+                "Schritt 4: Warnung\nFalsch wäre $(uv)' = u'v'$: Das ergäbe $2x\\cdot1 = 2x \\neq 3x^2 - 6x + 1$.",
+                "Schritt 5: Merke: Worauf es ankommt\nBei Polynomprodukten ist Ausmultiplizieren eine gute Kontrolle; bei Produkten mit $\\sin x$, $e^x$ oder $\\ln x$ ist die Produktregel unverzichtbar."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Differentialrechnung",
+            "title": "Kettenregel",
+            "description": "Berechnen Sie die Ableitung von (a) $f(x) = (2x+1)^5$, (b) $g(x) = \\sin(3x^2)$, (c) $h(x) = e^{-x^2}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nKettenregel: $\\big(f(g(x))\\big)' = f'(g(x))\\cdot g'(x)$ — „äußere Ableitung mal innere Ableitung“. Wir erkennen jeweils äußere und innere Funktion.",
+                "Schritt 2: (a)\nAußen $u^5$, innen $2x+1$: $f'(x) = 5(2x+1)^4\\cdot2 = 10(2x+1)^4$.",
+                "Schritt 3: (b)\nAußen $\\sin u$, innen $3x^2$: $g'(x) = \\cos(3x^2)\\cdot6x = 6x\\cos(3x^2)$.",
+                "Schritt 4: (c)\nAußen $e^u$, innen $-x^2$: $h'(x) = e^{-x^2}\\cdot(-2x) = -2xe^{-x^2}$.",
+                "Schritt 5: Probe an (a)\n$f(0) = 1$, $f'(0) = 10$. $f(0{,}001) = 1{,}002^5 \\approx 1{,}01004$; Steigung $\\approx 10{,}04$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nDie **innere Ableitung** wird am häufigsten vergessen. Bei mehrfacher Verkettung multipliziert man alle Ableitungen von außen nach innen."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Differentialrechnung",
             "title": "Ableitung einer Polynomfunktion",
             "description": "Berechnen Sie die Ableitung der Funktion $f(x) = 3x^4 - 2x^3 + 5x^2 - 7x + 2$.",
             "difficulty": "easy",
@@ -17,7 +96,7 @@
             ]
         },
         {
-            "id": 2,
+            "id": 7,
             "topic": "Differentialrechnung",
             "title": "Ableitung einer Wurzelfunktion",
             "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\sqrt{x}$.",
@@ -33,7 +112,7 @@
             ]
         },
         {
-            "id": 3,
+            "id": 8,
             "topic": "Differentialrechnung",
             "title": "Ableitung einer Exponentialfunktion",
             "description": "Berechnen Sie die Ableitung der Funktion $f(x) = e^x$.",
@@ -47,7 +126,7 @@
             ]
         },
         {
-            "id": 4,
+            "id": 9,
             "topic": "Differentialrechnung",
             "title": "Ableitung einer trigonometrischen Funktion",
             "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\sin x$.",
@@ -61,7 +140,7 @@
             ]
         },
         {
-            "id": 5,
+            "id": 10,
             "topic": "Differentialrechnung",
             "title": "Ableitung einer Logarithmusfunktion",
             "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\ln x$.",
@@ -75,51 +154,86 @@
             ]
         },
         {
-            "id": 6,
+            "id": 11,
             "topic": "Differentialrechnung",
-            "title": "Ableitung einer konstanten Funktion",
-            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = 5$.",
-            "difficulty": "easy",
-            "points": 5,
+            "title": "Quotientenregel: Ableitung von tan x",
+            "description": "Leiten Sie $\\tan x = \\frac{\\sin x}{\\cos x}$ mit der Quotientenregel ab und berechnen Sie die Ableitung von $f(x) = \\frac{x^2}{x+1}$.",
+            "difficulty": "medium",
+            "points": 8,
             "solutionSteps": [
-                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = 5$ ist eine konstante Funktion.",
-                "Schritt 2: Anwendung der Ableitungsregel\nFür $f(x) = c$ gilt: $f'(x) = 0$\nErklärung: Die Ableitung einer konstanten Funktion ist immer 0.",
-                "Schritt 3: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 2:\n$f(2) = 5$\n$f'(2) = 0$\nDie Steigung der Tangente ist überall 0.",
-                "Schritt 4: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = 0$."
+                "Schritt 1: Überblick: Was ist gefragt?\nQuotientenregel: $\\left(\\frac uv\\right)' = \\frac{u'v - uv'}{v^2}$ („Nenner mal Ableitung des Zählers minus Zähler mal Ableitung des Nenners, durch Nenner zum Quadrat“).",
+                "Schritt 2: $\\tan x$\n$(\\tan x)' = \\frac{\\cos x\\cos x - \\sin x(-\\sin x)}{\\cos^2x} = \\frac{\\cos^2x + \\sin^2x}{\\cos^2x} = \\frac{1}{\\cos^2x} = 1 + \\tan^2x$.",
+                "Schritt 3: $\\frac{x^2}{x+1}$\n$u = x^2$, $v = x + 1$: $f'(x) = \\frac{2x(x+1) - x^2\\cdot1}{(x+1)^2} = \\frac{x^2 + 2x}{(x+1)^2} = \\frac{x(x+2)}{(x+1)^2}$.",
+                "Schritt 4: Probe bei $x = 1$\n$f(x) = \\frac{x^2}{x+1}$: $f(1) = 0{,}5$, $f(1{,}001) = \\frac{1{,}002001}{2{,}001} \\approx 0{,}500750$; Steigung $\\approx 0{,}75$; Formel: $\\frac{1\\cdot3}{4} = 0{,}75$ ✓.",
+                "Schritt 5: Merke: Worauf es ankommt\nDie Reihenfolge im Zähler ist wichtig (Minuszeichen!). Merkhilfe: „NAZ minus ZAN durch N²“. Alternativ als Produkt $u\\cdot v^{-1}$ mit Produkt- und Kettenregel."
             ]
         },
         {
-            "id": 7,
+            "id": 12,
             "topic": "Differentialrechnung",
-            "title": "Ableitung einer linearen Funktion",
-            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = 3x + 2$.",
-            "difficulty": "easy",
-            "points": 5,
+            "title": "Kurvendiskussion",
+            "description": "Untersuchen Sie $f(x) = x^3 - 3x$ auf Nullstellen, Extrema, Wendepunkte und Symmetrie.",
+            "difficulty": "medium",
+            "points": 8,
             "solutionSteps": [
-                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = 3x + 2$ ist eine lineare Funktion.",
-                "Schritt 2: Anwendung der Ableitungsregeln\nFür $f(x) = ax + b$ gilt: $f'(x) = a$\nErklärung: Die Ableitung einer linearen Funktion ist der Koeffizient von x.",
-                "Schritt 3: Ableitung berechnen\n$f'(x) = 3$\nErklärung: Der Koeffizient von x ist 3.",
-                "Schritt 4: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 1:\n$f(1) = 3 \\cdot 1 + 2 = 5$\n$f'(1) = 3$\nDie Steigung der Tangente ist überall 3.",
-                "Schritt 5: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = 3$."
+                "Schritt 1: Überblick: Was ist gefragt?\nWir bestimmen der Reihe nach: Symmetrie, Nullstellen, Ableitungen $f'$ und $f''$, kritische Punkte ($f' = 0$) und deren Art (Vorzeichen von $f''$), Wendepunkte ($f'' = 0$).",
+                "Schritt 2: Symmetrie und Nullstellen\n$f(-x) = -x^3 + 3x = -f(x)$: punktsymmetrisch zum Ursprung. $f(x) = x(x^2 - 3) = 0 \\iff x \\in \\{0, \\pm\\sqrt3\\}$.",
+                "Schritt 3: Ableitungen\n$f'(x) = 3x^2 - 3$, $f''(x) = 6x$.",
+                "Schritt 4: Extrema\n$f'(x) = 0 \\iff x = \\pm1$. $f''(1) = 6 > 0$: lokales **Minimum** bei $(1,-2)$. $f''(-1) = -6 < 0$: lokales **Maximum** bei $(-1,2)$.",
+                "Schritt 5: Wendepunkt\n$f''(x) = 0 \\iff x = 0$ mit Vorzeichenwechsel von $f''$: **Wendepunkt** $(0,0)$ (Wendetangente $y = -3x$).",
+                "Schritt 6: Monotonie\n$f' > 0$ für $|x| > 1$ (wachsend), $f' < 0$ für $|x| < 1$ (fallend). Für $x \\to \\pm\\infty$ gilt $f \\to \\pm\\infty$.",
+                "Schritt 7: Merke: Worauf es ankommt\nNotwendig für ein Extremum: $f'(x_0) = 0$. Hinreichend: zusätzlich $f''(x_0) \\neq 0$. Ein Wendepunkt braucht $f''(x_0) = 0$ **und** Vorzeichenwechsel (hinreichend: $f'''(x_0) \\neq 0$)."
             ]
         },
         {
-            "id": 8,
+            "id": 13,
             "topic": "Differentialrechnung",
-            "title": "Ableitung einer quadratischen Funktion",
-            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = x^2 + 3x - 4$.",
-            "difficulty": "easy",
-            "points": 5,
+            "title": "Optimierung: Rechteck mit festem Umfang",
+            "description": "Unter allen Rechtecken mit Umfang $40$ soll dasjenige mit maximalem Flächeninhalt bestimmt werden.",
+            "difficulty": "medium",
+            "points": 8,
             "solutionSteps": [
-                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = x^2 + 3x - 4$ ist eine quadratische Funktion.",
-                "Schritt 2: Anwendung der Potenzregel\nFür jeden Summanden $ax^n$ gilt: $(ax^n)' = n \\cdot ax^{n-1}$",
-                "Schritt 3: Ableitung berechnen\n$f'(x) = 2x + 3$\nErklärung: Wir wenden die Potenzregel auf jeden Summanden an.",
-                "Schritt 4: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 2:\n$f(2) = 4 + 6 - 4 = 6$\n$f'(2) = 4 + 3 = 7$\nDie Steigung der Tangente bei x = 2 ist 7.",
-                "Schritt 5: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = 2x + 3$."
+                "Schritt 1: Überblick: Was ist gefragt?\nBei Optimierungsaufgaben stellt man eine **Zielfunktion** auf (Fläche), nutzt die **Nebenbedingung** (Umfang), um sie auf eine Variable zu reduzieren, und bestimmt das Maximum mit der Ableitung. Danach prüft man den Randwert.",
+                "Schritt 2: Zielfunktion und Nebenbedingung\nSeiten $a$, $b$: $A = ab$ und $2a + 2b = 40$, also $b = 20 - a$ mit $0 < a < 20$.",
+                "Schritt 3: Eine Variable\n$A(a) = a(20 - a) = 20a - a^2$.",
+                "Schritt 4: Ableiten\n$A'(a) = 20 - 2a = 0 \\iff a = 10$. $A''(a) = -2 < 0$: Maximum.",
+                "Schritt 5: Ergebnis und Randprüfung\n$a = b = 10$ (Quadrat) mit $A = 100$. Am Rand ($a \\to 0$ oder $a \\to 20$) geht $A \\to 0$, das Maximum ist global.",
+                "Schritt 6: Merke: Worauf es ankommt\nAblauf: Skizze, Zielfunktion, Nebenbedingung einsetzen, Ableitung $= 0$, Art prüfen, Randwerte prüfen, Antwortsatz. Das Quadrat maximiert die Fläche bei gegebenem Umfang (Isoperimetrie unter Rechtecken)."
             ]
         },
         {
-            "id": 9,
+            "id": 14,
+            "topic": "Differentialrechnung",
+            "title": "Newton-Verfahren",
+            "description": "Berechnen Sie $\\sqrt2$ näherungsweise mit dem Newton-Verfahren für $f(x) = x^2 - 2$ und Startwert $x_0 = 1$ (drei Schritte).",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDas Newton-Verfahren ersetzt $f$ durch die Tangente und nimmt deren Nullstelle als nächste Näherung: $x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$.",
+                "Schritt 2: Iterationsvorschrift\n$f'(x) = 2x$, also $x_{n+1} = x_n - \\frac{x_n^2 - 2}{2x_n} = \\frac{x_n}{2} + \\frac{1}{x_n}$.",
+                "Schritt 3: Drei Schritte\n$x_1 = \\frac12 + 1 = 1{,}5$; $x_2 = 0{,}75 + \\frac{1}{1{,}5} = 1{,}41667$; $x_3 = 0{,}708333 + \\frac{1}{1{,}41667} = 1{,}414216$.",
+                "Schritt 4: Fehler\n$\\sqrt2 = 1{,}41421356\\ldots$. Fehler: $x_1$: $8{,}6\\cdot10^{-2}$; $x_2$: $2{,}5\\cdot10^{-3}$; $x_3$: $2{,}1\\cdot10^{-6}$. Die Anzahl korrekter Stellen verdoppelt sich etwa in jedem Schritt (quadratische Konvergenz).",
+                "Schritt 5: Merke: Worauf es ankommt\nDas Verfahren braucht einen Startwert nahe der Nullstelle und $f'(x_n) \\neq 0$. Für $f(x) = x^2 - a$ ist es das babylonische Wurzelziehen $x_{n+1} = \\frac12\\left(x_n + \\frac{a}{x_n}\\right)$."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Differentialrechnung",
+            "title": "Ableitung der Umkehrfunktion",
+            "description": "Sei $f(x) = x^3 + x$. Zeigen Sie, dass $f$ umkehrbar ist, und berechnen Sie $(f^{-1})'(2)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Umkehrregel lautet $(f^{-1})'(y) = \\frac{1}{f'(f^{-1}(y))}$. Wir brauchen den Punkt $x$ mit $f(x) = y$, auch wenn wir $f^{-1}$ nicht explizit kennen.",
+                "Schritt 2: Umkehrbarkeit\n$f'(x) = 3x^2 + 1 > 0$ für alle $x$. Also ist $f$ streng monoton wachsend und damit bijektiv auf $\\mathbb{R}$ ($f \\to \\pm\\infty$ für $x \\to \\pm\\infty$).",
+                "Schritt 3: Urbild von $2$\n$f(x) = 2 \\iff x^3 + x - 2 = 0$. Durch Probieren $x = 1$: $1 + 1 - 2 = 0$ ✓. Also $f^{-1}(2) = 1$.",
+                "Schritt 4: Anwenden der Umkehrregel\n$(f^{-1})'(2) = \\frac{1}{f'(1)} = \\frac{1}{3\\cdot1 + 1} = \\frac14$.",
+                "Schritt 5: Probe\nDie Spiegelung des Graphen an $y = x$ vertauscht Steigung $m$ mit $\\frac1m$: Tangentensteigung von $f$ in $(1,2)$ ist $4$, die von $f^{-1}$ in $(2,1)$ ist $\\frac14$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nMit der Umkehrregel leitet man z.B. $(\\ln x)' = \\frac1x$ aus $(e^x)' = e^x$ und $(\\arcsin x)' = \\frac{1}{\\sqrt{1-x^2}}$ aus $(\\sin x)' = \\cos x$ her."
+            ]
+        },
+        {
+            "id": 16,
             "topic": "Differentialrechnung",
             "title": "Ableitung mit Produktregel",
             "description": "Berechnen Sie die Ableitung der Funktion $f(x) = x^2 \\cdot e^x$.",
@@ -136,7 +250,7 @@
             ]
         },
         {
-            "id": 10,
+            "id": 17,
             "topic": "Differentialrechnung",
             "title": "Ableitung mit Quotientenregel",
             "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\frac{x^2 + 1}{x - 1}$.",
@@ -153,7 +267,7 @@
             ]
         },
         {
-            "id": 11,
+            "id": 18,
             "topic": "Differentialrechnung",
             "title": "Ableitung mit Kettenregel",
             "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\sin(x^2)$.",
@@ -170,7 +284,7 @@
             ]
         },
         {
-            "id": 12,
+            "id": 19,
             "topic": "Differentialrechnung",
             "title": "Ableitung mit mehrfacher Verkettung",
             "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\ln(\\sin x)$.",
@@ -187,7 +301,7 @@
             ]
         },
         {
-            "id": 13,
+            "id": 20,
             "topic": "Differentialrechnung",
             "title": "Ableitung mit Produkt- und Kettenregel",
             "description": "Berechnen Sie die Ableitung der Funktion $f(x) = x \\cdot \\ln(x^2)$.",
@@ -205,7 +319,7 @@
             ]
         },
         {
-            "id": 14,
+            "id": 21,
             "topic": "Differentialrechnung",
             "title": "Ableitung mit Quotienten- und Kettenregel",
             "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\frac{e^x}{\\sin x}$.",
@@ -222,7 +336,7 @@
             ]
         },
         {
-            "id": 15,
+            "id": 22,
             "topic": "Differentialrechnung",
             "title": "Ableitung mit mehrfacher Produktregel",
             "description": "Berechnen Sie die Ableitung der Funktion $f(x) = x^2 \\cdot e^x \\cdot \\sin x$.",
@@ -239,7 +353,7 @@
             ]
         },
         {
-            "id": 16,
+            "id": 23,
             "topic": "Differentialrechnung",
             "title": "Ableitung mit Quotienten- und Produktregel",
             "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\frac{x \\cdot e^x}{\\ln x}$.",
@@ -257,146 +371,162 @@
             ]
         },
         {
-            "id": 17,
-            "topic": "Differentialrechnung",
-            "title": "Ableitung mit mehrfacher Verkettung und Produktregel",
-            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = e^{\\sin(x^2)} \\cdot \\ln(\\cos x)$.",
-            "difficulty": "hard",
-            "points": 10,
-            "solutionSteps": [
-                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = e^{\\sin(x^2)} \\cdot \\ln(\\cos x)$ ist ein Produkt aus zwei verketteten Funktionen.",
-                "Schritt 2: Anwendung der Produktregel\n$(u \\cdot v)' = u' \\cdot v + u \\cdot v'$\nErklärung: Wir beginnen mit der Produktregel.",
-                "Schritt 3: Ableitung des ersten Faktors\n$u(x) = e^{\\sin(x^2)}$ ist eine dreifache Verkettung.\nMit der Kettenregel: $u'(x) = e^{\\sin(x^2)} \\cdot \\cos(x^2) \\cdot 2x$\nErklärung: Wir wenden die Kettenregel dreimal an.",
-                "Schritt 4: Ableitung des zweiten Faktors\n$v(x) = \\ln(\\cos x)$ ist eine Verkettung.\nMit der Kettenregel: $v'(x) = \\frac{1}{\\cos x} \\cdot (-\\sin x) = -\\tan x$\nErklärung: Wir wenden die Kettenregel an.",
-                "Schritt 5: Einsetzen in die Produktregel\n$f'(x) = e^{\\sin(x^2)} \\cdot \\cos(x^2) \\cdot 2x \\cdot \\ln(\\cos x) + e^{\\sin(x^2)} \\cdot (-\\tan x)$\nErklärung: Wir setzen die Ableitungen in die Produktregel ein.",
-                "Schritt 6: Vereinfachung\n$f'(x) = e^{\\sin(x^2)}(2x \\cos(x^2) \\ln(\\cos x) - \\tan x)$\nErklärung: Wir klammern $e^{\\sin(x^2)}$ aus.",
-                "Schritt 7: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 0:\n$f(0) = e^0 \\cdot \\ln(1) = 0$\n$f'(0) = 1(0 - 0) = 0$\nDie Steigung der Tangente bei x = 0 ist 0.",
-                "Schritt 8: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = e^{\\sin(x^2)}(2x \\cos(x^2) \\ln(\\cos x) - \\tan x)$."
-            ]
-        },
-        {
-            "id": 18,
-            "topic": "Differentialrechnung",
-            "title": "Ableitung mit Quotientenregel und mehrfacher Verkettung",
-            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\frac{\\sin(e^x)}{\\ln(\\sqrt{x})}$.",
-            "difficulty": "hard",
-            "points": 10,
-            "solutionSteps": [
-                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = \\frac{\\sin(e^x)}{\\ln(\\sqrt{x})}$ ist ein Quotient aus zwei verketteten Funktionen.",
-                "Schritt 2: Anwendung der Quotientenregel\n$(\\frac{u}{v})' = \\frac{u' \\cdot v - u \\cdot v'}{v^2}$\nErklärung: Wir beginnen mit der Quotientenregel.",
-                "Schritt 3: Ableitung des Zählers\n$u(x) = \\sin(e^x)$ ist eine Verkettung.\nMit der Kettenregel: $u'(x) = \\cos(e^x) \\cdot e^x$\nErklärung: Wir wenden die Kettenregel an.",
-                "Schritt 4: Ableitung des Nenners\n$v(x) = \\ln(\\sqrt{x})$ ist eine Verkettung.\nMit der Kettenregel: $v'(x) = \\frac{1}{\\sqrt{x}} \\cdot \\frac{1}{2\\sqrt{x}} = \\frac{1}{2x}$\nErklärung: Wir wenden die Kettenregel an.",
-                "Schritt 5: Einsetzen in die Quotientenregel\n$f'(x) = \\frac{\\cos(e^x) \\cdot e^x \\cdot \\ln(\\sqrt{x}) - \\sin(e^x) \\cdot \\frac{1}{2x}}{(\\ln(\\sqrt{x}))^2}$\nErklärung: Wir setzen die Ableitungen in die Quotientenregel ein.",
-                "Schritt 6: Vereinfachung\n$f'(x) = \\frac{2x \\cos(e^x) \\cdot e^x \\cdot \\ln(\\sqrt{x}) - \\sin(e^x)}{2x(\\ln(\\sqrt{x}))^2}$\nErklärung: Wir erweitern mit 2x.",
-                "Schritt 7: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 1:\n$f(1) = \\frac{\\sin(e)}{\\ln(1)} = \\text{undefiniert}$\nDie Funktion ist bei x = 1 nicht definiert.",
-                "Schritt 8: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = \\frac{2x \\cos(e^x) \\cdot e^x \\cdot \\ln(\\sqrt{x}) - \\sin(e^x)}{2x(\\ln(\\sqrt{x}))^2}$."
-            ]
-        },
-        {
-            "id": 19,
-            "topic": "Differentialrechnung",
-            "title": "Ableitung mit mehrfacher Produkt- und Kettenregel",
-            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = x^2 \\cdot e^{\\sin x} \\cdot \\ln(\\cos x)$.",
-            "difficulty": "hard",
-            "points": 10,
-            "solutionSteps": [
-                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = x^2 \\cdot e^{\\sin x} \\cdot \\ln(\\cos x)$ ist ein Produkt aus drei Faktoren, wobei zwei verkettet sind.",
-                "Schritt 2: Anwendung der Produktregel\n$(u \\cdot v \\cdot w)' = u' \\cdot v \\cdot w + u \\cdot v' \\cdot w + u \\cdot v \\cdot w'$\nErklärung: Wir erweitern die Produktregel auf drei Faktoren.",
-                "Schritt 3: Ableitungen der Faktoren\n$u'(x) = 2x$\n$v(x) = e^{\\sin x}$ ist eine Verkettung.\n$v'(x) = e^{\\sin x} \\cdot \\cos x$\n$w(x) = \\ln(\\cos x)$ ist eine Verkettung.\n$w'(x) = \\frac{1}{\\cos x} \\cdot (-\\sin x) = -\\tan x$\nErklärung: Wir berechnen die Ableitungen der einzelnen Faktoren.",
-                "Schritt 4: Einsetzen in die Produktregel\n$f'(x) = 2x \\cdot e^{\\sin x} \\cdot \\ln(\\cos x) + x^2 \\cdot e^{\\sin x} \\cdot \\cos x \\cdot \\ln(\\cos x) + x^2 \\cdot e^{\\sin x} \\cdot (-\\tan x)$\nErklärung: Wir setzen die Ableitungen in die Produktregel ein.",
-                "Schritt 5: Vereinfachung\n$f'(x) = e^{\\sin x}(2x \\ln(\\cos x) + x^2 \\cos x \\ln(\\cos x) - x^2 \\tan x)$\nErklärung: Wir klammern $e^{\\sin x}$ aus.",
-                "Schritt 6: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 0:\n$f(0) = 0 \\cdot e^0 \\cdot \\ln(1) = 0$\n$f'(0) = 1(0 + 0 - 0) = 0$\nDie Steigung der Tangente bei x = 0 ist 0.",
-                "Schritt 7: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = e^{\\sin x}(2x \\ln(\\cos x) + x^2 \\cos x \\ln(\\cos x) - x^2 \\tan x)$."
-            ]
-        },
-        {
-            "id": 20,
-            "topic": "Differentialrechnung",
-            "title": "Ableitung mit Quotientenregel und mehrfacher Produktregel",
-            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\frac{x^2 \\cdot e^x \\cdot \\sin x}{\\ln(x^2)}$.",
-            "difficulty": "hard",
-            "points": 10,
-            "solutionSteps": [
-                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = \\frac{x^2 \\cdot e^x \\cdot \\sin x}{\\ln(x^2)}$ ist ein Quotient, wobei der Zähler ein Produkt aus drei Faktoren ist.",
-                "Schritt 2: Anwendung der Quotientenregel\n$(\\frac{u}{v})' = \\frac{u' \\cdot v - u \\cdot v'}{v^2}$\nErklärung: Wir beginnen mit der Quotientenregel.",
-                "Schritt 3: Ableitung des Zählers (Produktregel)\n$u(x) = x^2 \\cdot e^x \\cdot \\sin x$\n$u'(x) = 2x \\cdot e^x \\cdot \\sin x + x^2 \\cdot e^x \\cdot \\sin x + x^2 \\cdot e^x \\cdot \\cos x$\nErklärung: Wir wenden die Produktregel auf drei Faktoren an.",
-                "Schritt 4: Ableitung des Nenners\n$v(x) = \\ln(x^2)$ ist eine Verkettung.\n$v'(x) = \\frac{1}{x^2} \\cdot 2x = \\frac{2}{x}$\nErklärung: Wir wenden die Kettenregel an.",
-                "Schritt 5: Einsetzen in die Quotientenregel\n$f'(x) = \\frac{(2x \\cdot e^x \\cdot \\sin x + x^2 \\cdot e^x \\cdot \\sin x + x^2 \\cdot e^x \\cdot \\cos x) \\cdot \\ln(x^2) - x^2 \\cdot e^x \\cdot \\sin x \\cdot \\frac{2}{x}}{(\\ln(x^2))^2}$\nErklärung: Wir setzen die Ableitungen in die Quotientenregel ein.",
-                "Schritt 6: Vereinfachung\n$f'(x) = \\frac{e^x(2x \\sin x + x^2 \\sin x + x^2 \\cos x) \\ln(x^2) - 2x e^x \\sin x}{(\\ln(x^2))^2}$\nErklärung: Wir klammern $e^x$ aus und vereinfachen.",
-                "Schritt 7: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 1:\n$f(1) = \\frac{1 \\cdot e \\cdot \\sin(1)}{\\ln(1)} = \\text{undefiniert}$\nDie Funktion ist bei x = 1 nicht definiert.",
-                "Schritt 8: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = \\frac{e^x(2x \\sin x + x^2 \\sin x + x^2 \\cos x) \\ln(x^2) - 2x e^x \\sin x}{(\\ln(x^2))^2}$."
-            ]
-        },
-        {
-            "id": 21,
-            "topic": "Differentialrechnung",
-            "title": "Ableitung mit mehrfacher Verkettung und Quotientenregel",
-            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\frac{\\ln(\\sin(e^x))}{\\cos(\\ln x)}$.",
-            "difficulty": "hard",
-            "points": 10,
-            "solutionSteps": [
-                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = \\frac{\\ln(\\sin(e^x))}{\\cos(\\ln x)}$ ist ein Quotient aus zwei mehrfach verketteten Funktionen.",
-                "Schritt 2: Anwendung der Quotientenregel\n$(\\frac{u}{v})' = \\frac{u' \\cdot v - u \\cdot v'}{v^2}$\nErklärung: Wir beginnen mit der Quotientenregel.",
-                "Schritt 3: Ableitung des Zählers\n$u(x) = \\ln(\\sin(e^x))$ ist eine dreifache Verkettung.\nMit der Kettenregel: $u'(x) = \\frac{1}{\\sin(e^x)} \\cdot \\cos(e^x) \\cdot e^x$\nErklärung: Wir wenden die Kettenregel dreimal an.",
-                "Schritt 4: Ableitung des Nenners\n$v(x) = \\cos(\\ln x)$ ist eine Verkettung.\nMit der Kettenregel: $v'(x) = -\\sin(\\ln x) \\cdot \\frac{1}{x}$\nErklärung: Wir wenden die Kettenregel an.",
-                "Schritt 5: Einsetzen in die Quotientenregel\n$f'(x) = \\frac{\\frac{1}{\\sin(e^x)} \\cdot \\cos(e^x) \\cdot e^x \\cdot \\cos(\\ln x) - \\ln(\\sin(e^x)) \\cdot (-\\sin(\\ln x) \\cdot \\frac{1}{x})}{(\\cos(\\ln x))^2}$\nErklärung: Wir setzen die Ableitungen in die Quotientenregel ein.",
-                "Schritt 6: Vereinfachung\n$f'(x) = \\frac{e^x \\cot(e^x) \\cos(\\ln x) + \\frac{\\ln(\\sin(e^x)) \\sin(\\ln x)}{x}}{\\cos^2(\\ln x)}$\nErklärung: Wir formen um und vereinfachen.",
-                "Schritt 7: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 1:\n$f(1) = \\frac{\\ln(\\sin(e))}{\\cos(0)} = \\ln(\\sin(e))$\n$f'(1) = \\frac{e \\cot(e) + \\ln(\\sin(e)) \\sin(0)}{1} = e \\cot(e)$\nDie Steigung der Tangente bei x = 1 ist $e \\cot(e)$.",
-                "Schritt 8: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = \\frac{e^x \\cot(e^x) \\cos(\\ln x) + \\frac{\\ln(\\sin(e^x)) \\sin(\\ln x)}{x}}{\\cos^2(\\ln x)}$."
-            ]
-        },
-        {
-            "id": 22,
-            "topic": "Differentialrechnung",
-            "title": "Ableitung mit mehrfacher Produkt- und Quotientenregel",
-            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\frac{x^2 \\cdot e^x \\cdot \\sin x}{\\ln(x^2) \\cdot \\cos x}$.",
-            "difficulty": "hard",
-            "points": 10,
-            "solutionSteps": [
-                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = \\frac{x^2 \\cdot e^x \\cdot \\sin x}{\\ln(x^2) \\cdot \\cos x}$ ist ein Quotient, wobei Zähler und Nenner Produkte sind.",
-                "Schritt 2: Anwendung der Quotientenregel\n$(\\frac{u}{v})' = \\frac{u' \\cdot v - u \\cdot v'}{v^2}$\nErklärung: Wir beginnen mit der Quotientenregel.",
-                "Schritt 3: Ableitung des Zählers (Produktregel)\n$u(x) = x^2 \\cdot e^x \\cdot \\sin x$\n$u'(x) = 2x \\cdot e^x \\cdot \\sin x + x^2 \\cdot e^x \\cdot \\sin x + x^2 \\cdot e^x \\cdot \\cos x$\nErklärung: Wir wenden die Produktregel auf drei Faktoren an.",
-                "Schritt 4: Ableitung des Nenners (Produktregel)\n$v(x) = \\ln(x^2) \\cdot \\cos x$\n$v'(x) = \\frac{2}{x} \\cdot \\cos x + \\ln(x^2) \\cdot (-\\sin x)$\nErklärung: Wir wenden die Produktregel an.",
-                "Schritt 5: Einsetzen in die Quotientenregel\n$f'(x) = \\frac{(2x \\cdot e^x \\cdot \\sin x + x^2 \\cdot e^x \\cdot \\sin x + x^2 \\cdot e^x \\cdot \\cos x) \\cdot \\ln(x^2) \\cdot \\cos x - x^2 \\cdot e^x \\cdot \\sin x \\cdot (\\frac{2}{x} \\cdot \\cos x + \\ln(x^2) \\cdot (-\\sin x))}{(\\ln(x^2) \\cdot \\cos x)^2}$\nErklärung: Wir setzen die Ableitungen in die Quotientenregel ein.",
-                "Schritt 6: Vereinfachung\n$f'(x) = \\frac{e^x(2x \\sin x + x^2 \\sin x + x^2 \\cos x) \\ln(x^2) \\cos x - x^2 e^x \\sin x(\\frac{2}{x} \\cos x - \\ln(x^2) \\sin x)}{(\\ln(x^2) \\cos x)^2}$\nErklärung: Wir klammern $e^x$ aus und vereinfachen.",
-                "Schritt 7: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = 1:\n$f(1) = \\frac{1 \\cdot e \\cdot \\sin(1)}{\\ln(1) \\cdot \\cos(1)} = \\text{undefiniert}$\nDie Funktion ist bei x = 1 nicht definiert.",
-                "Schritt 8: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = \\frac{e^x(2x \\sin x + x^2 \\sin x + x^2 \\cos x) \\ln(x^2) \\cos x - x^2 e^x \\sin x(\\frac{2}{x} \\cos x - \\ln(x^2) \\sin x)}{(\\ln(x^2) \\cos x)^2}$."
-            ]
-        },
-        {
-            "id": 23,
-            "topic": "Differentialrechnung",
-            "title": "Ableitung mit mehrfacher Verkettung und Produktregel",
-            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = e^{\\sin(\\ln x)} \\cdot \\cos(e^x) \\cdot \\ln(\\sin x)$.",
-            "difficulty": "hard",
-            "points": 10,
-            "solutionSteps": [
-                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = e^{\\sin(\\ln x)} \\cdot \\cos(e^x) \\cdot \\ln(\\sin x)$ ist ein Produkt aus drei mehrfach verketteten Funktionen.",
-                "Schritt 2: Anwendung der Produktregel\n$(u \\cdot v \\cdot w)' = u' \\cdot v \\cdot w + u \\cdot v' \\cdot w + u \\cdot v \\cdot w'$\nErklärung: Wir erweitern die Produktregel auf drei Faktoren.",
-                "Schritt 3: Ableitungen der Faktoren\n$u(x) = e^{\\sin(\\ln x)}$ ist eine dreifache Verkettung.\n$u'(x) = e^{\\sin(\\ln x)} \\cdot \\cos(\\ln x) \\cdot \\frac{1}{x}$\n$v(x) = \\cos(e^x)$ ist eine Verkettung.\n$v'(x) = -\\sin(e^x) \\cdot e^x$\n$w(x) = \\ln(\\sin x)$ ist eine Verkettung.\n$w'(x) = \\frac{1}{\\sin x} \\cdot \\cos x = \\cot x$\nErklärung: Wir berechnen die Ableitungen der einzelnen Faktoren.",
-                "Schritt 4: Einsetzen in die Produktregel\n$f'(x) = e^{\\sin(\\ln x)} \\cdot \\cos(\\ln x) \\cdot \\frac{1}{x} \\cdot \\cos(e^x) \\cdot \\ln(\\sin x) + e^{\\sin(\\ln x)} \\cdot (-\\sin(e^x) \\cdot e^x) \\cdot \\ln(\\sin x) + e^{\\sin(\\ln x)} \\cdot \\cos(e^x) \\cdot \\cot x$\nErklärung: Wir setzen die Ableitungen in die Produktregel ein.",
-                "Schritt 5: Vereinfachung\n$f'(x) = e^{\\sin(\\ln x)}(\\frac{\\cos(\\ln x)}{x} \\cos(e^x) \\ln(\\sin x) - e^x \\sin(e^x) \\ln(\\sin x) + \\cos(e^x) \\cot x)$\nErklärung: Wir klammern $e^{\\sin(\\ln x)}$ aus.",
-                "Schritt 6: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = \\frac{\\pi}{2}:\n$f(\\frac{\\pi}{2}) = e^{\\sin(\\ln(\\frac{\\pi}{2}))} \\cdot \\cos(e^{\\pi/2}) \\cdot \\ln(1) = 0$\n$f'(\\frac{\\pi}{2}) = e^{\\sin(\\ln(\\frac{\\pi}{2}))}(\\frac{\\cos(\\ln(\\frac{\\pi}{2}))}{\\pi/2} \\cos(e^{\\pi/2}) \\cdot 0 - e^{\\pi/2} \\sin(e^{\\pi/2}) \\cdot 0 + \\cos(e^{\\pi/2}) \\cdot 0) = 0$\nDie Steigung der Tangente bei x = \\frac{\\pi}{2} ist 0.",
-                "Schritt 7: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = e^{\\sin(\\ln x)}(\\frac{\\cos(\\ln x)}{x} \\cos(e^x) \\ln(\\sin x) - e^x \\sin(e^x) \\ln(\\sin x) + \\cos(e^x) \\cot x)$."
-            ]
-        },
-        {
             "id": 24,
             "topic": "Differentialrechnung",
-            "title": "Ableitung mit mehrfacher Verkettung und Quotientenregel",
-            "description": "Berechnen Sie die Ableitung der Funktion $f(x) = \\frac{\\sin(e^{\\ln x})}{\\cos(\\ln(\\sin x))}$.",
+            "title": "Ungleichung e^x ≥ 1 + x durch Extremwertbestimmung",
+            "description": "Beweisen Sie $e^x \\geq 1 + x$ für alle $x \\in \\mathbb{R}$ mit Hilfe der Differentialrechnung.",
             "difficulty": "hard",
-            "points": 10,
+            "points": 12,
             "solutionSteps": [
-                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x) = \\frac{\\sin(e^{\\ln x})}{\\cos(\\ln(\\sin x))}$ ist ein Quotient aus zwei mehrfach verketteten Funktionen.",
-                "Schritt 2: Anwendung der Quotientenregel\n$(\\frac{u}{v})' = \\frac{u' \\cdot v - u \\cdot v'}{v^2}$\nErklärung: Wir beginnen mit der Quotientenregel.",
-                "Schritt 3: Ableitung des Zählers\n$u(x) = \\sin(e^{\\ln x})$ ist eine dreifache Verkettung.\nMit der Kettenregel: $u'(x) = \\cos(e^{\\ln x}) \\cdot e^{\\ln x} \\cdot \\frac{1}{x} = \\cos(x) \\cdot x \\cdot \\frac{1}{x} = \\cos(x)$\nErklärung: Wir wenden die Kettenregel an und vereinfachen.",
-                "Schritt 4: Ableitung des Nenners\n$v(x) = \\cos(\\ln(\\sin x))$ ist eine dreifache Verkettung.\nMit der Kettenregel: $v'(x) = -\\sin(\\ln(\\sin x)) \\cdot \\frac{1}{\\sin x} \\cdot \\cos x$\nErklärung: Wir wenden die Kettenregel an.",
-                "Schritt 5: Einsetzen in die Quotientenregel\n$f'(x) = \\frac{\\cos(x) \\cdot \\cos(\\ln(\\sin x)) - \\sin(e^{\\ln x}) \\cdot (-\\sin(\\ln(\\sin x)) \\cdot \\frac{1}{\\sin x} \\cdot \\cos x)}{(\\cos(\\ln(\\sin x)))^2}$\nErklärung: Wir setzen die Ableitungen in die Quotientenregel ein.",
-                "Schritt 6: Vereinfachung\n$f'(x) = \\frac{\\cos(x) \\cos(\\ln(\\sin x)) + \\sin(x) \\sin(\\ln(\\sin x)) \\cot x}{\\cos^2(\\ln(\\sin x))}$\nErklärung: Wir vereinfachen und formen um.",
-                "Schritt 7: Verifikation\nWir überprüfen die Ableitung an einem Punkt:\nFür x = \\frac{\\pi}{2}:\n$f(\\frac{\\pi}{2}) = \\frac{\\sin(e^{\\ln(\\pi/2)})}{\\cos(\\ln(1))} = \\frac{\\sin(\\pi/2)}{\\cos(0)} = 1$\n$f'(\\frac{\\pi}{2}) = \\frac{0 \\cdot 1 + 1 \\cdot 0 \\cdot 0}{1} = 0$\nDie Steigung der Tangente bei x = \\frac{\\pi}{2} ist 0.",
-                "Schritt 8: Zusammenfassung\nDie Ableitung der Funktion ist $f'(x) = \\frac{\\cos(x) \\cos(\\ln(\\sin x)) + \\sin(x) \\sin(\\ln(\\sin x)) \\cot x}{\\cos^2(\\ln(\\sin x))}$."
+                "Schritt 1: Überblick: Was ist gefragt?\nWir betrachten $g(x) = e^x - 1 - x$ und zeigen $g \\geq 0$, indem wir das globale Minimum von $g$ bestimmen.",
+                "Schritt 2: Ableitung\n$g'(x) = e^x - 1$. Es gilt $g'(x) = 0 \\iff x = 0$, $g' < 0$ für $x < 0$ und $g' > 0$ für $x > 0$.",
+                "Schritt 3: Globales Minimum\n$g$ fällt links von $0$ und steigt rechts davon. Also ist $x = 0$ globale Minimalstelle mit $g(0) = 1 - 1 - 0 = 0$.",
+                "Schritt 4: Folgerung\n$g(x) \\geq g(0) = 0$ für alle $x$, d.h. $e^x \\geq 1 + x$, mit Gleichheit nur bei $x = 0$. $\\blacksquare$",
+                "Schritt 5: Geometrische Deutung\n$y = 1 + x$ ist die Tangente an $e^x$ im Punkt $(0,1)$; die Exponentialfunktion ist konvex und liegt daher oberhalb ihrer Tangenten.",
+                "Schritt 6: Merke: Worauf es ankommt\nTechnik: Ungleichung $f \\geq h$ als $g = f - h \\geq 0$ umschreiben und das Minimum von $g$ bestimmen. Folgerung für $x > -1$: $\\ln(1+x) \\leq x$."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Differentialrechnung",
+            "title": "Kurvendiskussion einer gebrochen-rationalen Funktion",
+            "description": "Untersuchen Sie $f(x) = \\dfrac{x}{x^2+1}$ auf Symmetrie, Nullstellen, Extrema, Wendepunkte und Asymptote.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir bestimmen der Reihe nach: Symmetrie, Nullstellen, Verhalten für $x \\to \\pm\\infty$, $f'$ (Quotientenregel), Extrema, $f''$ und Wendepunkte.",
+                "Schritt 2: Symmetrie, Nullstellen, Asymptote\n$f(-x) = -f(x)$: punktsymmetrisch zum Ursprung. Einzige Nullstelle $x = 0$. Für $x \\to \\pm\\infty$: $f(x) = \\frac{1/x}{1 + 1/x^2} \\to 0$, waagrechte Asymptote $y = 0$.",
+                "Schritt 3: Erste Ableitung\n$f'(x) = \\frac{1\\cdot(x^2+1) - x\\cdot2x}{(x^2+1)^2} = \\frac{1 - x^2}{(x^2+1)^2}$. Nullstellen: $x = \\pm1$.",
+                "Schritt 4: Extrema\n$f' > 0$ für $|x| < 1$, $f' < 0$ für $|x| > 1$. Lokales **Maximum** bei $(1, \\tfrac12)$, lokales **Minimum** bei $(-1,-\\tfrac12)$ (global, da $|f| \\leq \\frac12$).",
+                "Schritt 5: Wendepunkte\n$f''(x) = \\frac{2x(x^2-3)}{(x^2+1)^3}$. Nullstellen $x = 0$, $x = \\pm\\sqrt3$ mit Vorzeichenwechsel. Wendepunkte $(0,0)$, $\\left(\\sqrt3, \\tfrac{\\sqrt3}{4}\\right)$, $\\left(-\\sqrt3, -\\tfrac{\\sqrt3}{4}\\right)$.",
+                "Schritt 6: Merke: Worauf es ankommt\nDie Funktion ist beschränkt, hat eine Asymptote und drei Wendepunkte. Immer prüfen, ob der Nenner Nullstellen hat (hier nicht, $x^2+1 > 0$: keine Polstellen)."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Differentialrechnung",
+            "title": "Implizite Differentiation",
+            "description": "Die Kurve $x^2 + xy + y^2 = 3$ geht durch $(1,1)$. Bestimmen Sie $y'$ dort und die Tangentengleichung.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nBei impliziten Kurven fasst man $y$ als Funktion $y(x)$ auf und leitet beide Seiten der Gleichung nach $x$ ab (Produkt- und Kettenregel), dann löst man nach $y'$ auf.",
+                "Schritt 2: Punktprobe\n$1 + 1 + 1 = 3$ ✓: $(1,1)$ liegt auf der Kurve.",
+                "Schritt 3: Ableiten\n$2x + (y + xy') + 2yy' = 0 \\Rightarrow y'(x + 2y) = -(2x + y)$, also $y' = -\\frac{2x + y}{x + 2y}$.",
+                "Schritt 4: Steigung in $(1,1)$\n$y'(1) = -\\frac{2 + 1}{1 + 2} = -1$.",
+                "Schritt 5: Tangente\n$y - 1 = -1\\cdot(x - 1) \\iff y = -x + 2$. Probe: Die Kurve ist symmetrisch zu $y = x$; dort steht die Tangente senkrecht zur Symmetrieachse ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nDie Formel $y' = -\\frac{F_x}{F_y}$ (für $F(x,y) = 0$) liefert dasselbe Ergebnis. Waagrechte Tangenten gibt es dort, wo $F_x = 0$ ist, senkrechte, wo $F_y = 0$."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Differentialrechnung",
+            "title": "Logarithmische Differentiation",
+            "description": "Berechnen Sie die Ableitung von $f(x) = x^x$ ($x > 0$) und von $g(x) = x^{\\sin x}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWenn Basis **und** Exponent von $x$ abhängen, hilft die logarithmische Ableitung: Man schreibt $h = e^{\\ln h}$ oder logarithmiert $\\ln h$ und leitet implizit ab: $\\frac{h'}{h} = (\\ln h)'$.",
+                "Schritt 2: $x^x$\n$\\ln f = x\\ln x$, also $\\frac{f'}{f} = \\ln x + 1$ und $f'(x) = x^x(\\ln x + 1)$.",
+                "Schritt 3: $x^{\\sin x}$\n$\\ln g = \\sin x\\cdot\\ln x$, also $\\frac{g'}{g} = \\cos x\\ln x + \\frac{\\sin x}{x}$ und $g'(x) = x^{\\sin x}\\left(\\cos x\\ln x + \\frac{\\sin x}{x}\\right)$.",
+                "Schritt 4: Probe\n$f'(1) = 1\\cdot(0 + 1) = 1$; numerisch $f(1{,}001) = 1{,}001^{1{,}001} \\approx 1{,}001001$, Steigung $\\approx 1{,}0$ ✓. Extremum von $x^x$: $f' = 0 \\iff \\ln x = -1 \\iff x = \\frac1e$.",
+                "Schritt 5: Merke: Worauf es ankommt\nTypische Fehler: $x^x$ weder mit der Potenzregel ($x\\cdot x^{x-1}$) noch mit der Exponentialregel ($x^x\\ln x$) allein ableiten — beide Anteile addieren sich. Das Minimum liegt bei $x = \\frac1e$ mit $f = e^{-1/e} \\approx 0{,}692$."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Differentialrechnung",
+            "title": "Kürzester Abstand zu einer Parabel",
+            "description": "Welcher Punkt der Parabel $y = x^2$ liegt dem Punkt $P = (0,3)$ am nächsten, und wie groß ist der Abstand?",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nStatt des Abstands minimiert man das **Abstandsquadrat** $d^2$, das dieselben Extremstellen hat, aber ohne Wurzel auskommt. Zielfunktion: $d^2(x) = x^2 + (x^2 - 3)^2$.",
+                "Schritt 2: Ableiten\n$d^2(x) = x^4 - 5x^2 + 9$. $(d^2)' = 4x^3 - 10x = 2x(2x^2 - 5) = 0 \\Rightarrow x = 0$ oder $x = \\pm\\sqrt{5/2}$.",
+                "Schritt 3: Art der Kandidaten\n$(d^2)'' = 12x^2 - 10$: bei $x = 0$ gleich $-10 < 0$ (lokales **Maximum**, $d^2 = 9$); bei $x = \\pm\\sqrt{5/2}$ gleich $30 - 10 = 20 > 0$ (**Minima**).",
+                "Schritt 4: Ergebnis\nNächste Punkte: $\\left(\\pm\\sqrt{5/2},\\ \\tfrac52\\right) \\approx (\\pm1{,}58;\\ 2{,}5)$ mit $d^2 = \\frac{25}{4} - \\frac{25}{2} + 9 = \\frac{11}{4}$, also $d = \\frac{\\sqrt{11}}{2} \\approx 1{,}66$.",
+                "Schritt 5: Probe\nDer Scheitel $(0,0)$ hat Abstand $3 > 1{,}66$ ✓. Der Abstandsvektor $(\\sqrt{5/2}, -\\tfrac12)$ steht senkrecht auf der Tangente $(1, 2x) = (1, 2\\sqrt{5/2})$: $\\sqrt{5/2} - \\sqrt{5/2} = 0$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nIm Optimum steht die Verbindungslinie senkrecht zur Kurve (Normale durch $P$). Randwertfall: Das Gebiet ist unbeschränkt, aber $d^2 \\to \\infty$ für $|x| \\to \\infty$, daher sind die Minima global."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Differentialrechnung",
+            "title": "Differenzierbar, aber Ableitung nicht stetig",
+            "description": "Sei $f(x) = x^2\\sin\\frac1x$ für $x \\neq 0$ und $f(0) = 0$. Zeigen Sie, dass $f$ in $0$ differenzierbar ist, und dass $f'$ in $0$ nicht stetig ist.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nIn $x = 0$ müssen wir die Definition (Differenzenquotient) benutzen, da die Ableitungsregeln dort nicht greifen. Für $x \\neq 0$ verwenden wir Produkt- und Kettenregel und untersuchen $\\lim_{x\\to0}f'(x)$.",
+                "Schritt 2: Ableitung in $0$\n$\\frac{f(h) - f(0)}{h} = \\frac{h^2\\sin(1/h)}{h} = h\\sin\\frac1h$. Wegen $\\left|h\\sin\\frac1h\\right| \\leq |h| \\to 0$ ist $f'(0) = 0$.",
+                "Schritt 3: Ableitung für $x \\neq 0$\n$f'(x) = 2x\\sin\\frac1x + x^2\\cos\\frac1x\\cdot\\left(-\\frac{1}{x^2}\\right) = 2x\\sin\\frac1x - \\cos\\frac1x$.",
+                "Schritt 4: Unstetigkeit von $f'$ in $0$\nDer Term $2x\\sin\\frac1x \\to 0$, aber $\\cos\\frac1x$ oszilliert zwischen $-1$ und $1$ und hat für $x \\to 0$ keinen Grenzwert. Für $x_n = \\frac{1}{2n\\pi}$ gilt $f'(x_n) \\to -1$, für $y_n = \\frac{1}{(2n+1)\\pi}$ gilt $f'(y_n) \\to +1$. Also existiert $\\lim_{x\\to0}f'(x)$ nicht und $f'$ ist in $0$ unstetig, obwohl $f'(0)$ existiert.",
+                "Schritt 5: Merke: Worauf es ankommt\nDifferenzierbarkeit impliziert Stetigkeit von $f$, aber **nicht** Stetigkeit von $f'$. Es gibt also differenzierbare Funktionen, die nicht stetig differenzierbar ($C^1$) sind. Das ist ein typisches Gegenbeispiel in der Analysis."
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Differentialrechnung",
+            "title": "Eindeutige Nullstelle mit dem Satz von Rolle",
+            "description": "Zeigen Sie, dass $f(x) = x^3 + x - 1$ genau eine reelle Nullstelle besitzt, und lokalisieren Sie sie auf ein Intervall der Länge $\\frac12$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nExistenz folgt aus dem **Zwischenwertsatz**, Eindeutigkeit aus der **strengen Monotonie** (bzw. dem Satz von Rolle): Zwei Nullstellen würden eine Nullstelle von $f'$ dazwischen erzwingen.",
+                "Schritt 2: Existenz\n$f$ ist stetig, $f(0) = -1 < 0$ und $f(1) = 1 > 0$. Nach dem Zwischenwertsatz gibt es $\\xi \\in (0,1)$ mit $f(\\xi) = 0$.",
+                "Schritt 3: Eindeutigkeit\n$f'(x) = 3x^2 + 1 > 0$ für alle $x$, also ist $f$ streng monoton wachsend und hat höchstens eine Nullstelle. (Rolle: Hätte $f$ zwei Nullstellen $a < b$, gäbe es $c \\in (a,b)$ mit $f'(c) = 0$, ein Widerspruch.)",
+                "Schritt 4: Lokalisieren\n$f(0{,}5) = 0{,}125 + 0{,}5 - 1 = -0{,}375 < 0$. Mit $f(1) > 0$ liegt die Nullstelle in $(0{,}5; 1)$, einem Intervall der Länge $\\frac12$.",
+                "Schritt 5: Verfeinern (Bisektion)\n$f(0{,}75) = 0{,}4219 + 0{,}75 - 1 = 0{,}1719 > 0$, also $\\xi \\in (0{,}5; 0{,}75)$. Die Nullstelle ist $\\xi \\approx 0{,}6823$.",
+                "Schritt 6: Merke: Worauf es ankommt\nEine Funktion mit überall positiver Ableitung hat höchstens eine Nullstelle. Existenz (Zwischenwertsatz) und Eindeutigkeit (Monotonie) beweist man getrennt."
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Differentialrechnung",
+            "title": "Taylorpolynom mit Fehlerabschätzung",
+            "description": "Bestimmen Sie das Taylorpolynom $T_3$ der Funktion $e^x$ um $0$, nähern Sie $e^{0{,}1}$ und schätzen Sie den Fehler mit dem Lagrange-Restglied ab.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDas Taylorpolynom $T_n(x) = \\sum_{k=0}^n\\frac{f^{(k)}(0)}{k!}x^k$ approximiert $f$ nahe $0$. Das Lagrange-Restglied $R_n(x) = \\frac{f^{(n+1)}(\\xi)}{(n+1)!}x^{n+1}$ (mit $\\xi$ zwischen $0$ und $x$) liefert eine Fehlerschranke.",
+                "Schritt 2: Taylorpolynom\n$f^{(k)}(x) = e^x$, also $f^{(k)}(0) = 1$. $T_3(x) = 1 + x + \\frac{x^2}{2} + \\frac{x^3}{6}$.",
+                "Schritt 3: Näherung\n$T_3(0{,}1) = 1 + 0{,}1 + 0{,}005 + 0{,}000167 = 1{,}105167$.",
+                "Schritt 4: Restglied\n$R_3(0{,}1) = \\frac{e^\\xi}{4!}(0{,}1)^4$ mit $\\xi \\in (0; 0{,}1)$. Wegen $e^\\xi < e^{0{,}1} < 1{,}2$ gilt $|R_3| < \\frac{1{,}2}{24}\\cdot10^{-4} = 5\\cdot10^{-6}$.",
+                "Schritt 5: Vergleich mit dem Taschenrechner\n$e^{0{,}1} = 1{,}105171\\ldots$. Tatsächlicher Fehler $\\approx 4{,}2\\cdot10^{-6} < 5\\cdot10^{-6}$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nOhne Restgliedabschätzung ist eine Näherung wertlos: Man weiß nicht, wie gut sie ist. Mit dem Restglied bestimmt man auch, wie viele Terme für eine gewünschte Genauigkeit nötig sind."
+            ]
+        },
+        {
+            "id": 32,
+            "topic": "Differentialrechnung",
+            "title": "Beweis der Produktregel",
+            "description": "Beweisen Sie die Produktregel $(uv)'(x) = u'(x)v(x) + u(x)v'(x)$ für in $x$ differenzierbare Funktionen $u, v$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir gehen vom Differenzenquotienten des Produkts aus und fügen den Term $u(x+h)v(x) - u(x+h)v(x) = 0$ ein, um Differenzenquotienten von $u$ und $v$ sichtbar zu machen.",
+                "Schritt 2: Differenzenquotient des Produkts\n$\\frac{u(x+h)v(x+h) - u(x)v(x)}{h}$.",
+                "Schritt 3: Trick: eine Null addieren\nWir addieren und subtrahieren $u(x+h)v(x)$: $\\frac{u(x+h)v(x+h) - u(x+h)v(x) + u(x+h)v(x) - u(x)v(x)}{h} = u(x+h)\\frac{v(x+h) - v(x)}{h} + v(x)\\frac{u(x+h) - u(x)}{h}$.",
+                "Schritt 4: Grenzwert $h \\to 0$\n$\\frac{v(x+h) - v(x)}{h} \\to v'(x)$ und $\\frac{u(x+h) - u(x)}{h} \\to u'(x)$. Da $u$ in $x$ differenzierbar und damit stetig ist, gilt $u(x+h) \\to u(x)$.",
+                "Schritt 5: Ergebnis\n$(uv)'(x) = u(x)v'(x) + v(x)u'(x)$. $\\blacksquare$ Beispiel: $(x\\cdot x)' = x + x = 2x$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nDer Trick „Null addieren“ (Ergänzung mit $u(x+h)v(x)$) und die Stetigkeit von $u$ sind die entscheidenden Ideen. Dieselbe Technik beweist Quotienten- und Kettenregel."
+            ]
+        },
+        {
+            "id": 33,
+            "topic": "Differentialrechnung",
+            "title": "Optimale Dose",
+            "description": "Eine zylindrische Dose soll $1$ Liter ($1000\\ \\mathrm{cm}^3$) fassen. Welche Maße minimieren den Materialverbrauch (Oberfläche)?",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nZielfunktion ist die Oberfläche $O = 2\\pi r^2 + 2\\pi rh$, Nebenbedingung das Volumen $V = \\pi r^2h = 1000$. Wir eliminieren $h$ und minimieren $O(r)$.",
+                "Schritt 2: Höhe eliminieren\n$h = \\frac{1000}{\\pi r^2}$. Also $O(r) = 2\\pi r^2 + 2\\pi r\\cdot\\frac{1000}{\\pi r^2} = 2\\pi r^2 + \\frac{2000}{r}$ für $r > 0$.",
+                "Schritt 3: Ableiten\n$O'(r) = 4\\pi r - \\frac{2000}{r^2} = 0 \\iff 4\\pi r^3 = 2000 \\iff r^3 = \\frac{500}{\\pi}$, also $r = \\sqrt[3]{500/\\pi} \\approx 5{,}42\\ \\mathrm{cm}$.",
+                "Schritt 4: Art des Extremums\n$O''(r) = 4\\pi + \\frac{4000}{r^3} > 0$ für $r > 0$: Minimum. Für $r \\to 0$ und $r \\to \\infty$ gilt $O \\to \\infty$, das Minimum ist global.",
+                "Schritt 5: Höhe und Verhältnis\n$h = \\frac{1000}{\\pi r^2} = \\frac{1000}{\\pi}\\cdot\\frac{1}{r^2}$. Aus $r^3 = \\frac{500}\\pi$ folgt $h = \\frac{2r^3}{r^2} = 2r \\approx 10{,}84\\ \\mathrm{cm}$. Die optimale Dose hat also Höhe gleich Durchmesser.",
+                "Schritt 6: Merke: Worauf es ankommt\nDas Ergebnis $h = 2r$ gilt unabhängig vom Volumen. Echte Dosen weichen davon ab (Herstellung, Deckel- und Nahtkosten, Griffigkeit). Immer die Antwort im Kontext formulieren und die Einheiten angeben."
             ]
         }
     ]
-} 
+}

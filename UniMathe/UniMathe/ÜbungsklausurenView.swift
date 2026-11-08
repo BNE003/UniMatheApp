@@ -13,7 +13,7 @@ struct ÜbungsklausurenView: View {
             subtitle: "Lineare Algebra und abstrakte Algebra",
             subtitleEnglish: "Linear Algebra and Abstract Algebra",
             duration: 120,
-            questions: 8,
+            questions: 6,
             icon: "number.circle",
             color: Color(red: 0.8, green: 0.3, blue: 0.6),
             examFilename: "mathematik_1_anfaenger"
@@ -68,7 +68,7 @@ struct ÜbungsklausurenView: View {
             subtitle: "Erweiterte lineare und abstrakte Algebra",
             subtitleEnglish: "Advanced Linear and Abstract Algebra",
             duration: 90,
-            questions: 10,
+            questions: 6,
             icon: "number.circle",
             color: Color(red: 0.8, green: 0.3, blue: 0.6),
             examFilename: "mathematik_1_fortgeschritten"
@@ -90,7 +90,7 @@ struct ÜbungsklausurenView: View {
             subtitle: "Eigenwerte, Diagonalisierung und lineare Räume",
             subtitleEnglish: "Eigenvalues, Diagonalization and Linear Spaces",
             duration: 90,
-            questions: 10,
+            questions: 6,
             icon: "grid",
             color: Color(red: 0.0, green: 0.7, blue: 0.4),
             examFilename: "lineare_algebra_fortgeschritten"
@@ -101,7 +101,7 @@ struct ÜbungsklausurenView: View {
             subtitle: "Fortgeschrittene abstrakte und lineare Algebra",
             subtitleEnglish: "Advanced Abstract and Linear Algebra",
             duration: 90,
-            questions: 10,
+            questions: 5,
             icon: "number.circle",
             color: Color(red: 0.8, green: 0.3, blue: 0.6),
             examFilename: "mathematik_1_experte"
@@ -112,7 +112,7 @@ struct ÜbungsklausurenView: View {
             subtitle: "Fortgeschrittene Theorie und Anwendungen",
             subtitleEnglish: "Advanced Theory and Applications",
             duration: 90,
-            questions: 10,
+            questions: 6,
             icon: "grid",
             color: Color(red: 0.0, green: 0.7, blue: 0.4),
             examFilename: "lineare_algebra_experte"
@@ -123,7 +123,7 @@ struct ÜbungsklausurenView: View {
             subtitle: "Mehrdimensionale Analysis",
             subtitleEnglish: "Multivariable Calculus",
             duration: 90,
-            questions: 11,
+            questions: 6,
             icon: "cube",
             color: Color(red: 0.6, green: 0.3, blue: 0.8),
             examFilename: "analysis_2_experte"

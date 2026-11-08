@@ -13,79 +13,88 @@
             "id": 1,
             "topic": "Komplexe Zahlen",
             "title": "Polarform und Potenzen",
-            "description": "Gegeben sei $z = 1 - \\sqrt{3}i$.\n\na) Schreiben Sie $z$ in Polarform.\nb) Berechnen Sie $z^5$.",
-            "difficulty": "medium",
+            "description": "Sei $z = 1 - \\sqrt3\\,i$.\na) Bestimmen Sie $|z|$ und $\\arg z$ und schreiben Sie $z$ in Polarform.\nb) Berechnen Sie $z^5$ in der Form $a + bi$.",
+            "difficulty": "intermediate",
             "points": 15,
             "solutionSteps": [
-                "Schritt 1: Betrag und Argument\n$|z| = \\sqrt{1^2 + (\\sqrt{3})^2} = 2$\nArgument: $\\varphi = -\\pi/3$ (Punkt im 4. Quadranten)",
-                "Schritt 2: Polarform\n$z = 2(\\cos(-\\pi/3) + i\\sin(-\\pi/3))$",
-                "Schritt 3: Potenz berechnen\n$z^5 = 2^5(\\cos(-5\\pi/3) + i\\sin(-5\\pi/3))$\n$= 32(\\cos(\\pi/3) + i\\sin(\\pi/3))$\n$= 32(1/2 + i\\sqrt{3}/2) = 16 + 16\\sqrt{3}i$"
+                "Schritt 1: Teil a): Betrag\n$|z| = \\sqrt{1^2 + (\\sqrt3)^2} = 2$.",
+                "Schritt 2: Teil a): Argument (Quadrant beachten)\n$z$ liegt im vierten Quadranten. Der Referenzwinkel ist $\\arctan\\sqrt3 = \\frac\\pi3$, also $\\arg z = -\\frac\\pi3$. Polarform: $z = 2\\left(\\cos\\left(-\\frac\\pi3\\right) + i\\sin\\left(-\\frac\\pi3\\right)\\right) = 2e^{-i\\pi/3}$.",
+                "Schritt 3: Teil b): Formel von de Moivre\n$z^5 = 2^5e^{-5i\\pi/3} = 32\\left(\\cos\\frac{5\\pi}{3} - i\\sin\\frac{5\\pi}{3}\\right)$. Wegen $-\\frac{5\\pi}3 \\equiv \\frac\\pi3 \\pmod{2\\pi}$: $z^5 = 32\\left(\\cos\\frac\\pi3 + i\\sin\\frac\\pi3\\right) = 32\\left(\\frac12 + \\frac{\\sqrt3}{2}i\\right) = 16 + 16\\sqrt3\\,i$.",
+                "Schritt 4: Probe\n$|z^5| = 32 = 2^5$ ✓. Direkt: $z^2 = 1 - 2\\sqrt3i - 3 = -2 - 2\\sqrt3i$, $z^4 = (z^2)^2 = 4 + 8\\sqrt3i - 12 = -8 + 8\\sqrt3i$, $z^5 = z^4z = (-8 + 8\\sqrt3i)(1 - \\sqrt3i) = -8 + 8\\sqrt3i + 8\\sqrt3i + 24 = 16 + 16\\sqrt3i$ ✓."
             ]
         },
         {
             "id": 2,
             "topic": "Lineare Gleichungssysteme",
-            "title": "Determinante und Lösen",
-            "description": "Gegeben sind\n$A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 1 & 4 \\\\ 2 & 0 & 1 \\end{pmatrix}$, $b = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$.\n\na) Berechnen Sie $\\det(A)$.\nb) Lösen Sie $Ax=b$.",
-            "difficulty": "medium",
+            "title": "Determinante und Lösen eines Gleichungssystems",
+            "description": "Gegeben sind $A = \\begin{pmatrix} 1 & 2 & 3 \\\\ 0 & 1 & 4 \\\\ 2 & 0 & 1 \\end{pmatrix}$ und $\\vec b = (1,2,3)^T$.\na) Berechnen Sie $\\det A$ und begründen Sie, dass $A\\vec x = \\vec b$ eindeutig lösbar ist.\nb) Lösen Sie das System.",
+            "difficulty": "intermediate",
             "points": 15,
             "solutionSteps": [
-                "Schritt 1: Determinante\n$\\det(A) = 1\\cdot\\det\\begin{pmatrix}1&4\\0&1\\end{pmatrix} - 2\\cdot\\det\\begin{pmatrix}0&4\\2&1\\end{pmatrix} + 3\\cdot\\det\\begin{pmatrix}0&1\\2&0\\end{pmatrix}$\n$= 1 - 2(-8) + 3(-2) = 11$",
-                "Schritt 2: Lösen des Systems\nAus $y + 4z = 2$ folgt $y = 2 - 4z$\nAus $2x + z = 3$ folgt $x = (3 - z)/2$",
-                "Schritt 3: Einsetzen in die erste Gleichung\n$(3 - z)/2 + 2(2 - 4z) + 3z = 1 \\Rightarrow z = 9/11$",
-                "Schritt 4: Rücksubstitution\n$x = 12/11$, $y = -14/11$\nLösung: $x = (12/11, -14/11, 9/11)^T$"
+                "Schritt 1: Teil a): Determinante\nEntwicklung nach der ersten Spalte: $\\det A = 1\\cdot\\begin{vmatrix}1&4\\\\0&1\\end{vmatrix} + 2\\cdot\\begin{vmatrix}2&3\\\\1&4\\end{vmatrix} = 1\\cdot1 + 2\\cdot(8 - 3) = 11$. (Die $2$ steht in Position $(3,1)$ mit Vorzeichen $+$.)",
+                "Schritt 2: Teil a): Folgerung\n$\\det A = 11 \\neq 0$: $A$ ist invertierbar, das System hat genau eine Lösung $\\vec x = A^{-1}\\vec b$.",
+                "Schritt 3: Teil b): Gauß-Verfahren\nDie zweite Zeile liefert $y = 2 - 4z$, die dritte $x = \\frac{3 - z}{2}$. Einsetzen in die erste Gleichung: $\\frac{3-z}{2} + 2(2 - 4z) + 3z = 1 \\iff 3 - z + 8 - 16z + 6z = 2 \\iff 11 - 11z = 2 \\iff z = \\frac{9}{11}$.",
+                "Schritt 4: Teil b): Rücksubstitution\n$y = 2 - \\frac{36}{11} = -\\frac{14}{11}$, $x = \\frac{3 - 9/11}{2} = \\frac{24/11}{2} = \\frac{12}{11}$. Lösung: $\\vec x = \\left(\\frac{12}{11}, -\\frac{14}{11}, \\frac{9}{11}\\right)^T$.",
+                "Schritt 5: Probe\nErste Zeile: $\\frac{12}{11} - \\frac{28}{11} + \\frac{27}{11} = \\frac{11}{11} = 1$ ✓. Zweite: $-\\frac{14}{11} + \\frac{36}{11} = 2$ ✓. Dritte: $\\frac{24}{11} + \\frac{9}{11} = 3$ ✓."
             ]
         },
         {
             "id": 3,
             "topic": "Vektorräume",
-            "title": "Unterraum, Basis, Dimension",
-            "description": "Gegeben ist $U = \\{(x,y,z,w) \\in \\mathbb{R}^4 : x+y+z+w=0,\\ 2x-y+w=0\\}$.\n\na) Zeigen Sie, dass $U$ ein Unterraum ist.\nb) Bestimmen Sie eine Basis und die Dimension.",
-            "difficulty": "medium",
+            "title": "Unterraum, Basis und Dimension",
+            "description": "Sei $U = \\{(x,y,z,w) \\in \\mathbb{R}^4 \\mid x + y + z + w = 0,\\ 2x - y + w = 0\\}$.\na) Zeigen Sie, dass $U$ ein Unterraum ist.\nb) Bestimmen Sie eine Basis und $\\dim U$.",
+            "difficulty": "intermediate",
             "points": 15,
             "solutionSteps": [
-                "Schritt 1: Unterraumkriterien\nDie Menge ist durch homogene lineare Gleichungen definiert, also Unterraum von $\\mathbb{R}^4$.",
-                "Schritt 2: Parametrisierung\nAus $2x-y+w=0$ folgt $y=2x+w$.\nEinsetzen in $x+y+z+w=0$: $3x+z+2w=0 \\Rightarrow z=-3x-2w$",
-                "Schritt 3: Basis und Dimension\n$(x,y,z,w) = x(1,2,-3,0) + w(0,1,-2,1)$\nBasis: $\\{(1,2,-3,0),(0,1,-2,1)\\}$, Dimension $=2$"
+                "Schritt 1: Teil a): Unterraum\n$U$ ist die Lösungsmenge eines homogenen linearen Gleichungssystems, also $U = \\ker A$ mit $A = \\begin{pmatrix} 1 & 1 & 1 & 1 \\\\ 2 & -1 & 0 & 1 \\end{pmatrix}$. Kerne linearer Abbildungen sind Unterräume (Nullvektor, Summe, Vielfache erfüllen die Gleichungen weiterhin).",
+                "Schritt 2: Teil b): Parametrisieren\nAus der zweiten Gleichung $y = 2x + w$. Einsetzen in die erste: $x + 2x + w + z + w = 0 \\Rightarrow z = -3x - 2w$. Freie Variablen: $x, w$.",
+                "Schritt 3: Teil b): Basis\n$(x,y,z,w) = x(1,2,-3,0) + w(0,1,-2,1)$. Die beiden Vektoren sind linear unabhängig (Einträge $x$ und $w$ stehen in Position 1 bzw. 4). Basis $\\{(1,2,-3,0),(0,1,-2,1)\\}$, $\\dim U = 2$.",
+                "Schritt 4: Probe mit der Dimensionsformel\nDer Rang von $A$ ist $2$ (Zeilen nicht proportional), also $\\dim\\ker A = 4 - 2 = 2$ ✓. Einsetzen: $(1,2,-3,0)$: $1 + 2 - 3 + 0 = 0$ ✓, $2 - 2 + 0 = 0$ ✓."
             ]
         },
         {
             "id": 4,
             "topic": "Eigenwerte",
-            "title": "Diagonalisation einer 2×2-Matrix",
-            "description": "Gegeben ist $B = \\begin{pmatrix} 2 & 1 \\\\ 1 & 2 \\end{pmatrix}$.\n\na) Bestimmen Sie Eigenwerte und Eigenvektoren.\nb) Geben Sie eine Diagonalisierung an.",
-            "difficulty": "medium",
+            "title": "Diagonalisierung und Matrixpotenz",
+            "description": "Sei $B = \\begin{pmatrix} 2 & 1 & 0 \\\\ 1 & 2 & 0 \\\\ 0 & 0 & 3 \\end{pmatrix}$.\na) Bestimmen Sie die Eigenwerte und eine Basis aus Eigenvektoren.\nb) Diagonalisieren Sie $B$ und berechnen Sie $B^5$.",
+            "difficulty": "intermediate",
             "points": 15,
             "solutionSteps": [
-                "Schritt 1: Charakteristisches Polynom\n$\\det(B-\\lambda I) = (2-\\lambda)^2-1 = \\lambda^2-4\\lambda+3$\nEigenwerte: $\\lambda_1=3$, $\\lambda_2=1$",
-                "Schritt 2: Eigenvektoren\nFür $\\lambda=3$: $(B-3I)v=0 \\Rightarrow v=(1,1)^T$\nFür $\\lambda=1$: $(B-I)v=0 \\Rightarrow v=(1,-1)^T$",
-                "Schritt 3: Diagonalisierung\n$P = \\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$, $D=\\mathrm{diag}(3,1)$\n$B = P D P^{-1}$"
+                "Schritt 1: Teil a): Eigenwerte\nBlockstruktur: $\\det(B - \\lambda I) = (3 - \\lambda)\\big((2-\\lambda)^2 - 1\\big) = (3-\\lambda)(\\lambda - 1)(\\lambda - 3)$. Eigenwerte: $\\lambda = 3$ (doppelt) und $\\lambda = 1$.",
+                "Schritt 2: Teil a): Eigenvektoren\n$\\lambda = 3$: $B - 3I = \\begin{pmatrix} -1 & 1 & 0 \\\\ 1 & -1 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}$ ergibt $v_1 = v_2$, $v_3$ frei: $(1,1,0)^T$ und $(0,0,1)^T$ (zweidimensionaler Eigenraum). $\\lambda = 1$: $B - I = \\begin{pmatrix} 1 & 1 & 0 \\\\ 1 & 1 & 0 \\\\ 0 & 0 & 2 \\end{pmatrix}$ ergibt $v_1 = -v_2$, $v_3 = 0$: $(1,-1,0)^T$.",
+                "Schritt 3: Teil b): Diagonalisierung\nDrei linear unabhängige Eigenvektoren: $B$ ist diagonalisierbar. Mit $P = \\begin{pmatrix} 1 & 0 & 1 \\\\ 1 & 0 & -1 \\\\ 0 & 1 & 0 \\end{pmatrix}$ und $D = \\operatorname{diag}(3,3,1)$ gilt $B = PDP^{-1}$.",
+                "Schritt 4: Teil b): Potenz\n$B^5 = PD^5P^{-1}$. Im $(x,y)$-Block wirken die Eigenwerte $3$ (Richtung $(1,1)$) und $1$ (Richtung $(1,-1)$): $\\frac{3^5 + 1}{2} = 122$ auf der Diagonale und $\\frac{3^5 - 1}{2} = 121$ daneben; auf $e_3$ wirkt $3^5 = 243$. $B^5 = \\begin{pmatrix} 122 & 121 & 0 \\\\ 121 & 122 & 0 \\\\ 0 & 0 & 243 \\end{pmatrix}$.",
+                "Schritt 5: Probe\nSpur: $\\operatorname{tr}B^5 = 122 + 122 + 243 = 487 = 3^5 + 3^5 + 1^5 = 243 + 243 + 1$ ✓."
             ]
         },
         {
             "id": 5,
             "topic": "Gruppen",
-            "title": "Untergruppe in $\\mathbb{Z}_8$",
-            "description": "Betrachten Sie die Gruppe $(\\mathbb{Z}_8,+)$.\n\na) Bestimmen Sie die von 6 erzeugte Untergruppe.\nb) Geben Sie die Ordnung der Untergruppe an.\nc) Ist die Untergruppe zyklisch?",
-            "difficulty": "medium",
+            "title": "Untergruppen von ℤ₈",
+            "description": "Betrachten Sie $(\\mathbb{Z}_8,+)$.\na) Bestimmen Sie $\\langle6\\rangle$ und seine Ordnung.\nb) Bestimmen Sie die Nebenklassen von $H = \\langle6\\rangle$ und den Index $[\\mathbb{Z}_8:H]$.\nc) Ist $\\mathbb{Z}_8/H$ zyklisch? Wie viele Erzeuger hat $\\mathbb{Z}_8$?",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Erzeugte Elemente\n$\\langle 6 \\rangle = \\{0,6,12,18,\\dots\\} \\mod 8$",
-                "Schritt 2: Untergruppe explizit\n$6\\mod 8=6$, $2\\cdot6=12\\mod 8=4$, $3\\cdot6=18\\mod 8=2$, $4\\cdot6=24\\mod 8=0 \\Rightarrow \\langle 6 \\rangle = \\{0,6,4,2\\}$",
-                "Schritt 3: Ordnung und Zyklizit\nOrdnung = 4.\nDie Untergruppe ist zyklisch, da sie von 6 erzeugt wird."
+                "Schritt 1: Teil a): Erzeugte Untergruppe\nVielfache von $6$ modulo $8$: $6$, $12 \\equiv 4$, $18 \\equiv 2$, $24 \\equiv 0$. Also $H = \\langle6\\rangle = \\{0,2,4,6\\}$ mit $|H| = 4$. Formel: $\\operatorname{ord}(6) = \\frac{8}{\\operatorname{ggT}(6,8)} = \\frac82 = 4$ ✓.",
+                "Schritt 2: Teil b): Nebenklassen\n$0 + H = \\{0,2,4,6\\}$ und $1 + H = \\{1,3,5,7\\}$. Mehr gibt es nicht ($2 + H = H$). Index $[\\mathbb{Z}_8:H] = 2 = \\frac{8}{4}$ (Satz von Lagrange).",
+                "Schritt 3: Teil c): Faktorgruppe\n$\\mathbb{Z}_8/H = \\{H, 1 + H\\}$ hat $2$ Elemente und ist daher zyklisch, $\\cong \\mathbb{Z}_2$ (jede Gruppe von Primzahlordnung ist zyklisch).",
+                "Schritt 4: Teil c): Erzeuger von ℤ₈\n$k$ erzeugt $\\mathbb{Z}_8$ genau dann, wenn $\\operatorname{ggT}(k,8) = 1$: $k \\in \\{1,3,5,7\\}$, also $\\varphi(8) = 4$ Erzeuger. Das Element $6$ gehört nicht dazu: seine Ordnung ist nur $4$.",
+                "Schritt 5: Probe\nAlle Untergruppenordnungen $1,2,4,8$ teilen $8$ ✓. $\\mathbb{Z}_8$ hat zu jedem Teiler genau eine Untergruppe: $\\{0\\}$, $\\{0,4\\}$, $\\{0,2,4,6\\}$, $\\mathbb{Z}_8$."
             ]
         },
         {
             "id": 6,
             "topic": "Lineare Abbildungen",
-            "title": "Kern und Bild",
-            "description": "Gegeben ist $T: \\mathbb{R}^3 \\to \\mathbb{R}^3$, $T(x,y,z) = (x+y,\\ y+z,\\ x+z)$.\n\na) Bestimmen Sie die Matrix von $T$.\nb) Bestimmen Sie $\\ker(T)$ und $\\mathrm{rang}(T)$.\nc) Beschreiben Sie das Bild.",
-            "difficulty": "medium",
+            "title": "Kern, Bild und Dimensionssatz",
+            "description": "Sei $T: \\mathbb{R}^3 \\to \\mathbb{R}^3$, $T(x,y,z) = (x + y,\\ y + z,\\ x - z)$.\na) Bestimmen Sie die Darstellungsmatrix.\nb) Bestimmen Sie $\\ker T$ und $\\operatorname{im} T$ samt Dimensionen.\nc) Ist $T$ injektiv oder surjektiv?",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Matrixdarstellung\n$T(e_1)=(1,0,1)$, $T(e_2)=(1,1,0)$, $T(e_3)=(0,1,1)$\n$[T] = \\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\\\ 1 & 0 & 1 \\end{pmatrix}$",
-                "Schritt 2: Kern bestimmen\nLöse $T(x,y,z)=0$: $x+y=0$, $y+z=0$, $x+z=0$\nDaraus folgt $x=y=z=0$\n$\\ker(T)=\\{0\\}$",
-                "Schritt 3: Rang und Bild\n$\\det([T])=2\\neq0$, also Rang $=3$\nBild $= \\mathbb{R}^3$"
+                "Schritt 1: Teil a): Darstellungsmatrix\nBilder der Basisvektoren: $T(e_1) = (1,0,1)$, $T(e_2) = (1,1,0)$, $T(e_3) = (0,1,-1)$. Als Spalten: $[T] = \\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\\\ 1 & 0 & -1 \\end{pmatrix}$.",
+                "Schritt 2: Teil b): Kern\n$T(x,y,z) = \\vec0$: $x + y = 0$, $y + z = 0$, $x - z = 0$. Aus den ersten beiden $y = -x$, $z = x$; die dritte Gleichung $x - x = 0$ ist automatisch erfüllt. $\\ker T = \\operatorname{span}\\{(1,-1,1)\\}$, $\\dim\\ker T = 1$.",
+                "Schritt 3: Teil b): Bild\nDas Bild wird von den Spalten erzeugt. Es gilt $T(e_3) = T(e_2) - T(e_1)$: $(1,1,0) - (1,0,1) = (0,1,-1)$ ✓. Also $\\operatorname{im} T = \\operatorname{span}\\{(1,0,1),(1,1,0)\\}$, $\\dim = 2$. Dimensionssatz: $1 + 2 = 3$ ✓.",
+                "Schritt 4: Teil c): Injektivität und Surjektivität\n$\\ker T \\neq \\{\\vec0\\}$: $T$ ist **nicht injektiv**. $\\dim\\operatorname{im} T = 2 < 3$: $T$ ist **nicht surjektiv**. Äquivalent: $\\det[T] = 0$ (Zeile 3 $=$ Zeile 1 $-$ Zeile 2).",
+                "Schritt 5: Probe\n$T(1,-1,1) = (0,0,0)$ ✓. Der Vektor $(1,1,1)$ liegt nicht im Bild, denn $a(1,0,1) + b(1,1,0) = (a+b,\\ b,\\ a) = (1,1,1)$ würde $b = 1$, $a = 1$ und $a + b = 2 \\neq 1$ erfordern."
             ]
         }
     ]

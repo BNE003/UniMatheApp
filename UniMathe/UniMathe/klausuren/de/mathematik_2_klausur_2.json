@@ -12,66 +12,71 @@
         {
             "id": 1,
             "topic": "Potenzreihen",
-            "title": "Konvergenzradius",
-            "description": "Bestimmen Sie den Konvergenzradius und das Konvergenzintervall der Reihe\n$\\sum_{n=1}^{\\infty} \\frac{n^2}{3^n}x^n$.",
-            "difficulty": "medium",
+            "title": "Konvergenzradius und Summe",
+            "description": "Betrachten Sie $\\sum_{n=1}^\\infty\\frac{x^n}{n\\,2^n}$.\na) Bestimmen Sie den Konvergenzradius.\nb) Untersuchen Sie die Randpunkte.\nc) Bestimmen Sie die Summenfunktion.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Quotientenkriterium\n$\\lim_{n\\to\\infty}\\left|\\frac{a_{n+1}}{a_n}\\right|=\\lim\\frac{(n+1)^2}{n^2}\\cdot\\frac{|x|}{3}=\\frac{|x|}{3}$",
-                "Schritt 2: Radius\nKonvergenz falls $|x|/3<1 \\Rightarrow R=3$",
-                "Schritt 3: Randpunkte\nBei $x=3$: Glieder $n^2$ → divergiert\nBei $x=-3$: Glieder $(-1)^n n^2$ → divergiert\nIntervall: $(-3,3)$"
+                "Schritt 1: Teil a): Konvergenzradius\n$a_n = \\frac{1}{n2^n}$. $\\left|\\frac{a_n}{a_{n+1}}\\right| = \\frac{(n+1)2^{n+1}}{n2^n} = 2\\cdot\\frac{n+1}{n} \\to 2$. Also $R = 2$.",
+                "Schritt 2: Teil b): Randpunkte\n$x = 2$: $\\sum\\frac1n$ (harmonische Reihe) **divergiert**. $x = -2$: $\\sum\\frac{(-1)^n}{n}$ **konvergiert** nach Leibniz. Konvergenzbereich: $[-2, 2)$.",
+                "Schritt 3: Teil c): Summe durch Integration\nMit $u = \\frac x2$: $\\sum\\frac{u^n}{n} = \\int_0^u\\sum t^{n-1}\\,dt = \\int_0^u\\frac{dt}{1-t} = -\\ln(1-u)$. Also $\\sum_{n=1}^\\infty\\frac{x^n}{n2^n} = -\\ln\\left(1 - \\frac x2\\right)$ für $x \\in [-2,2)$.",
+                "Schritt 4: Probe\nFür $x = 1$: $-\\ln\\frac12 = \\ln2 \\approx 0{,}6931$. Partialsumme: $\\frac12 + \\frac18 + \\frac1{24} + \\frac1{64} + \\frac1{160} \\approx 0{,}6886$ ✓. Für $x = -2$: $-\\ln2$, die alternierende harmonische Reihe ✓."
             ]
         },
         {
             "id": 2,
             "topic": "Uneigentliche Integrale",
             "title": "Konvergenz und Wert",
-            "description": "Untersuchen und berechnen Sie\n$I = \\int_1^{\\infty} \\frac{1}{x^2+1}\\,dx$.",
-            "difficulty": "medium",
+            "description": "Untersuchen Sie auf Konvergenz und berechnen Sie gegebenenfalls den Wert:\na) $\\int_1^\\infty\\frac{dx}{x^2}$ und $\\int_1^\\infty\\frac{dx}{x}$\nb) $\\int_0^1\\ln x\\,dx$\nc) $\\int_0^\\infty xe^{-x}\\,dx$",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Konvergenz\n$\\frac{1}{x^2+1} \\le \\frac{1}{x^2}$ für $x\\ge1$, daher konvergent.",
-                "Schritt 2: Berechnung\n$\\int \\frac{1}{x^2+1}\\,dx = \\arctan(x)$\n$I = \\lim_{b\\to\\infty}[\\arctan(b)-\\arctan(1)] = \\frac{\\pi}{2}-\\frac{\\pi}{4}=\\frac{\\pi}{4}$"
+                "Schritt 1: Teil a): Unbeschränktes Intervall\n$\\int_1^R x^{-2}dx = 1 - \\frac1R \\to 1$: **konvergent**, Wert $1$. $\\int_1^R\\frac{dx}x = \\ln R \\to \\infty$: **divergent**.",
+                "Schritt 2: Teil b): Unbeschränkter Integrand\nStammfunktion $x\\ln x - x$. $\\int_\\varepsilon^1\\ln x\\,dx = (0 - 1) - (\\varepsilon\\ln\\varepsilon - \\varepsilon) \\to -1$ für $\\varepsilon \\to 0^+$ (da $\\varepsilon\\ln\\varepsilon \\to 0$). **Konvergent**, Wert $-1$.",
+                "Schritt 3: Teil c): Partielle Integration\n$\\int xe^{-x}dx = -xe^{-x} - e^{-x}$. $\\int_0^R = \\big(-Re^{-R} - e^{-R}\\big) - (0 - 1) = 1 - (R+1)e^{-R} \\to 1$ (die Exponentialfunktion schlägt jedes Polynom). **Konvergent**, Wert $1$ ($= \\Gamma(2)$).",
+                "Schritt 4: Zusammenfassung\nKonvergenz hängt davon ab, wie schnell der Integrand gegen $0$ bzw. $\\infty$ strebt: $\\int_1^\\infty x^{-p}$ konvergiert für $p > 1$, $\\int_0^1x^{-p}$ für $p < 1$. Probe von b): Das Integral ist negativ, da $\\ln x < 0$ auf $(0,1)$ ✓."
             ]
         },
         {
             "id": 3,
             "topic": "Linienintegrale",
             "title": "Potentialfeld",
-            "description": "Gegeben ist $\\vec{F}(x,y)=(2xy, x^2+2y)$.\n\na) Zeigen Sie, dass $\\vec{F}$ konservativ ist.\nb) Bestimmen Sie ein Potential.\nc) Berechnen Sie das Linienintegral von $(0,0)$ nach $(1,1)$.",
-            "difficulty": "medium",
+            "description": "Sei $\\vec F(x,y) = (2xy + 1,\\ x^2 + 3)$.\na) Zeigen Sie, dass $\\vec F$ ein Potential besitzt, und bestimmen Sie es.\nb) Berechnen Sie $\\int_C\\vec F\\cdot d\\vec r$ von $(0,0)$ nach $(1,2)$ und prüfen Sie die Wegunabhängigkeit mit der Geraden $\\gamma(t) = (t,2t)$.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Rotationsfreiheit\n$P=2xy$, $Q=x^2+2y$\n$\\partial P/\\partial y = 2x$, $\\partial Q/\\partial x = 2x$ $\\Rightarrow$ konservativ.",
-                "Schritt 2: Potential bestimmen\nIntegriere $P$ nach $x$: $\\phi(x,y)=x^2y+g(y)$\nDann $\\phi_y = x^2+g'(y) = Q = x^2+2y \\Rightarrow g'(y)=2y$, $g(y)=y^2$\nPotential: $\\phi(x,y)=x^2y+y^2$",
-                "Schritt 3: Linienintegral\n$\\int_C \\vec{F}\\cdot d\\vec{r} = \\phi(1,1)-\\phi(0,0) = 1+1=2$"
+                "Schritt 1: Teil a): Integrabilitätsbedingung\n$\\partial_yF_1 = 2x = \\partial_xF_2$ ✓. Das Gebiet $\\mathbb{R}^2$ ist einfach zusammenhängend, also existiert ein Potential.",
+                "Schritt 2: Teil a): Potential bestimmen\nAus $\\varphi_x = 2xy + 1$: $\\varphi = x^2y + x + h(y)$. Aus $\\varphi_y = x^2 + h'(y) = x^2 + 3$: $h' = 3$, $h = 3y$. Potential: $\\varphi(x,y) = x^2y + x + 3y$.",
+                "Schritt 3: Teil b): Mit dem Potential\n$\\int_C\\vec F\\cdot d\\vec r = \\varphi(1,2) - \\varphi(0,0) = (2 + 1 + 6) - 0 = 9$.",
+                "Schritt 4: Teil b): Direkte Berechnung\n$\\dot\\gamma = (1,2)$, $\\vec F(\\gamma(t)) = (4t^2 + 1,\\ t^2 + 3)$. $\\int_0^1\\big(4t^2 + 1 + 2t^2 + 6\\big)dt = \\int_0^1(6t^2 + 7)\\,dt = 2 + 7 = 9$ ✓. Stimmt mit dem Potential überein (Wegunabhängigkeit)."
             ]
         },
         {
             "id": 4,
             "topic": "Polarkoordinaten",
-            "title": "Integral über die Einheitskreisscheibe",
-            "description": "Berechnen Sie\n$\\iint_{x^2+y^2\\le1} (x^2+y^2)\\,dA$.",
-            "difficulty": "medium",
+            "title": "Integral über Kreisscheibe und Kreisring",
+            "description": "a) Berechnen Sie $\\iint_Ee^{-(x^2+y^2)}\\,dA$ über $E = \\{x^2 + y^2 \\leq 1\\}$.\nb) Berechnen Sie $\\iint_A\\frac{1}{x^2+y^2}\\,dA$ über dem Kreisring $A = \\{1 \\leq x^2 + y^2 \\leq 4\\}$.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Polarkoordinaten\n$x^2+y^2=r^2$, $dA = r\\,dr\\,d\\theta$",
-                "Schritt 2: Integral\n$\\int_0^{2\\pi}\\int_0^1 r^2\\cdot r\\,dr\\,d\\theta = \\int_0^{2\\pi}\\left[\\frac{r^4}{4}\\right]_0^1 d\\theta = \\int_0^{2\\pi} \\frac{1}{4} d\\theta$",
-                "Schritt 3: Ergebnis\n$= \\frac{1}{4}\\cdot 2\\pi = \\frac{\\pi}{2}$"
+                "Schritt 1: Transformation\n$x = r\\cos\\varphi$, $y = r\\sin\\varphi$, $dA = r\\,dr\\,d\\varphi$, $x^2 + y^2 = r^2$.",
+                "Schritt 2: Teil a)\n$\\int_0^{2\\pi}\\int_0^1e^{-r^2}r\\,dr\\,d\\varphi = 2\\pi\\left[-\\frac12e^{-r^2}\\right]_0^1 = \\pi(1 - e^{-1}) \\approx 1{,}986$.",
+                "Schritt 3: Teil b)\n$\\int_0^{2\\pi}\\int_1^2\\frac{1}{r^2}r\\,dr\\,d\\varphi = 2\\pi\\int_1^2\\frac{dr}{r} = 2\\pi\\ln2 \\approx 4{,}355$.",
+                "Schritt 4: Probe\na) Der Integrand liegt zwischen $e^{-1}$ und $1$, die Fläche ist $\\pi$: Ergebnis zwischen $1{,}16$ und $3{,}14$ ✓. b) Der Integrand liegt zwischen $\\frac14$ und $1$, die Fläche beträgt $3\\pi \\approx 9{,}42$: Ergebnis zwischen $2{,}36$ und $9{,}42$ ✓. Ohne Faktor $r$ käme in b) $2\\pi(1 - \\frac12) = \\pi$ heraus — falsch."
             ]
         },
         {
             "id": 5,
             "topic": "Differentialgleichungen",
-            "title": "Lineare DGL 1. Ordnung",
-            "description": "Lösen Sie das Anfangswertproblem\n$y' + 2y = x$, $y(0)=0$.",
-            "difficulty": "medium",
+            "title": "Lineare und trennbare DGL 1. Ordnung",
+            "description": "a) Lösen Sie $y' + 2y = e^{-x}$ mit $y(0) = 2$.\nb) Lösen Sie $y' = xy$ mit $y(0) = 3$.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Integrationsfaktor\n$\\mu(x)=e^{2x}$, dann $(e^{2x}y)' = xe^{2x}$",
-                "Schritt 2: Integrieren\n$\\int xe^{2x}dx = \\frac{1}{2}xe^{2x} - \\frac{1}{4}e^{2x} + C$",
-                "Schritt 3: Lösung\n$e^{2x}y = \\frac{1}{2}xe^{2x} - \\frac{1}{4}e^{2x} + C \\Rightarrow y = \\frac{1}{2}x - \\frac{1}{4} + Ce^{-2x}$",
-                "Schritt 4: Anfangsbedingung\n$y(0)=0 \\Rightarrow C=\\frac{1}{4}$\n$y(x)=\\frac{1}{2}x - \\frac{1}{4} + \\frac{1}{4}e^{-2x}$"
+                "Schritt 1: Teil a): Homogene Lösung\n$y' + 2y = 0 \\Rightarrow y_h = Ce^{-2x}$.",
+                "Schritt 2: Teil a): Partikuläre Lösung\nAnsatz $y_p = Ae^{-x}$: $-Ae^{-x} + 2Ae^{-x} = Ae^{-x} = e^{-x} \\Rightarrow A = 1$. Allgemeine Lösung: $y = e^{-x} + Ce^{-2x}$.",
+                "Schritt 3: Teil a): Anfangswert und Probe\n$y(0) = 1 + C = 2 \\Rightarrow C = 1$. $y = e^{-x} + e^{-2x}$. Probe: $y' = -e^{-x} - 2e^{-2x}$, $y' + 2y = -e^{-x} - 2e^{-2x} + 2e^{-x} + 2e^{-2x} = e^{-x}$ ✓.",
+                "Schritt 4: Teil b): Trennung der Variablen\n$\\frac{dy}{y} = x\\,dx \\Rightarrow \\ln|y| = \\frac{x^2}{2} + c \\Rightarrow y = Ke^{x^2/2}$. Mit $y(0) = 3$: $K = 3$, also $y = 3e^{x^2/2}$. Probe: $y' = 3xe^{x^2/2} = xy$ ✓."
             ]
         }
     ]

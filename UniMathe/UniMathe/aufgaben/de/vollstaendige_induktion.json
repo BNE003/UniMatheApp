@@ -1,7 +1,82 @@
 {
     "exercises": [
         {
-            "id": 26,
+            "id": 1,
+            "topic": "Vollständige Induktion",
+            "title": "Geometrische Summe mit Zweierpotenzen",
+            "description": "Beweisen Sie durch vollständige Induktion: $\\sum_{k=0}^{n} 2^k = 2^{n+1} - 1$ für alle $n \\in \\mathbb{N}_0$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir beweisen die Aussage durch vollständige Induktion: Induktionsanfang, Induktionsvoraussetzung (IV), Induktionsschritt $n \\to n+1$ mit Verwendung der IV.",
+                "Schritt 2: Induktionsanfang\n$n = 0$: linke Seite $2^0 = 1$, rechte Seite $2^1 - 1 = 1$ ✓.",
+                "Schritt 3: Induktionsvoraussetzung\nFür ein festes $n$ gelte $\\sum_{k=0}^{n} 2^k = 2^{n+1} - 1$.",
+                "Schritt 4: Induktionsschritt\n$\\sum_{k=0}^{n+1} 2^k = \\sum_{k=0}^{n} 2^k + 2^{n+1} \\overset{\\text{IV}}{=} 2^{n+1} - 1 + 2^{n+1} = 2\\cdot 2^{n+1} - 1 = 2^{n+2} - 1$. Das ist die Behauptung für $n+1$. $\\blacksquare$",
+                "Schritt 5: Merke: Worauf es ankommt\nBeim Induktionsschritt zuerst den neuen Summanden abspalten, dann die IV einsetzen. Das Ergebnis folgt auch aus der geometrischen Summenformel mit $q = 2$."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Vollständige Induktion",
+            "title": "Summe einer arithmetischen Folge",
+            "description": "Beweisen Sie: $\\sum_{k=1}^{n} (3k - 2) = \\frac{n(3n-1)}{2}$ für alle $n \\in \\mathbb{N}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir beweisen die Aussage durch vollständige Induktion: Induktionsanfang, Induktionsvoraussetzung (IV), Induktionsschritt $n \\to n+1$ mit Verwendung der IV.",
+                "Schritt 2: Induktionsanfang\n$n = 1$: links $3 - 2 = 1$, rechts $\\frac{1\\cdot 2}{2} = 1$ ✓. (Probe $n = 2$: $1 + 4 = 5 = \\frac{2\\cdot5}{2}$.)",
+                "Schritt 3: Induktionsvoraussetzung\nFür ein festes $n$ gelte $\\sum_{k=1}^{n} (3k-2) = \\frac{n(3n-1)}{2}$.",
+                "Schritt 4: Induktionsschritt\n$\\sum_{k=1}^{n+1} (3k-2) = \\frac{n(3n-1)}{2} + 3(n+1) - 2 = \\frac{3n^2 - n + 6n + 2}{2} = \\frac{3n^2 + 5n + 2}{2} = \\frac{(n+1)(3n+2)}{2}$. Das ist $\\frac{(n+1)(3(n+1)-1)}{2}$ ✓. $\\blacksquare$",
+                "Schritt 5: Merke: Worauf es ankommt\nAm Ende das Zielergebnis (Formel mit $n+1$ statt $n$) aufschreiben und die Zwischenrechnung darauf zuschneiden; eine Faktorisierung wie $3n^2 + 5n + 2 = (n+1)(3n+2)$ prüft man durch Ausmultiplizieren."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Vollständige Induktion",
+            "title": "Teilbarkeit durch 6",
+            "description": "Beweisen Sie: $n^3 + 5n$ ist für alle $n \\in \\mathbb{N}$ durch $6$ teilbar.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir beweisen die Aussage durch vollständige Induktion: Induktionsanfang, Induktionsvoraussetzung (IV), Induktionsschritt $n \\to n+1$ mit Verwendung der IV.",
+                "Schritt 2: Induktionsanfang\n$n = 1$: $1 + 5 = 6$ ✓ (und $n = 2$: $8 + 10 = 18 = 3\\cdot6$).",
+                "Schritt 3: Induktionsvoraussetzung\nFür ein festes $n$ sei $6 \\mid n^3 + 5n$, also $n^3 + 5n = 6m$ mit $m \\in \\mathbb{Z}$.",
+                "Schritt 4: Induktionsschritt\n$(n+1)^3 + 5(n+1) = n^3 + 3n^2 + 3n + 1 + 5n + 5 = (n^3 + 5n) + 3n^2 + 3n + 6 = 6m + 3n(n+1) + 6$. Da $n(n+1)$ gerade ist, ist $3n(n+1)$ durch $6$ teilbar. Also ist die Summe durch $6$ teilbar. $\\blacksquare$",
+                "Schritt 5: Merke: Worauf es ankommt\nBei Teilbarkeitsbeweisen den Term von $n+1$ so umformen, dass der Term von $n$ (mit der Teilbarkeitseigenschaft der IV) sichtbar wird und der Rest offensichtlich teilbar ist."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Vollständige Induktion",
+            "title": "Ungleichung mit der Fakultät",
+            "description": "Beweisen Sie: $n! \\geq 2^{n-1}$ für alle $n \\in \\mathbb{N}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir beweisen die Aussage durch vollständige Induktion: Induktionsanfang, Induktionsvoraussetzung (IV), Induktionsschritt $n \\to n+1$ mit Verwendung der IV.",
+                "Schritt 2: Induktionsanfang\n$n = 1$: $1! = 1 \\geq 2^0 = 1$ ✓.",
+                "Schritt 3: Induktionsvoraussetzung\nFür ein festes $n \\geq 1$ gelte $n! \\geq 2^{n-1}$.",
+                "Schritt 4: Induktionsschritt\n$(n+1)! = (n+1)\\cdot n! \\overset{\\text{IV}}{\\geq} (n+1)\\cdot 2^{n-1} \\geq 2\\cdot 2^{n-1} = 2^n$, denn $n + 1 \\geq 2$ für $n \\geq 1$. Das ist $(n+1)! \\geq 2^{(n+1)-1}$. $\\blacksquare$",
+                "Schritt 5: Merke: Worauf es ankommt\nBei Ungleichungen die IV nur in der richtigen Richtung verwenden und danach mit einer weiteren (wahren) Abschätzung zum Ziel kommen. Hier: $n+1 \\geq 2$."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Vollständige Induktion",
+            "title": "Rekursive Folge: explizite Formel",
+            "description": "Die Folge sei durch $a_1 = 2$ und $a_{n+1} = a_n + 2n$ definiert. Zeigen Sie durch Induktion: $a_n = n^2 - n + 2$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir beweisen die Aussage durch vollständige Induktion: Induktionsanfang, Induktionsvoraussetzung (IV), Induktionsschritt $n \\to n+1$ mit Verwendung der IV.",
+                "Schritt 2: Induktionsanfang\n$n = 1$: $a_1 = 2$ und $1 - 1 + 2 = 2$ ✓. (Kontrolle: $a_2 = 2 + 2 = 4 = 4 - 2 + 2$.)",
+                "Schritt 3: Induktionsvoraussetzung\nFür ein festes $n$ gelte $a_n = n^2 - n + 2$.",
+                "Schritt 4: Induktionsschritt\n$a_{n+1} = a_n + 2n \\overset{\\text{IV}}{=} n^2 - n + 2 + 2n = n^2 + n + 2$. Und $(n+1)^2 - (n+1) + 2 = n^2 + 2n + 1 - n - 1 + 2 = n^2 + n + 2$ ✓. $\\blacksquare$",
+                "Schritt 5: Merke: Worauf es ankommt\nBei rekursiven Folgen setzt man die **Rekursionsvorschrift** und die IV nacheinander ein. Die Zielformel für $n+1$ am Rand ausrechnen und vergleichen."
+            ]
+        },
+        {
+            "id": 6,
             "topic": "Vollständige Induktion",
             "title": "Summe der ersten $n$ natürlichen Zahlen",
             "description": "Beweisen Sie durch vollständige Induktion: $\\sum_{k=1}^n k = \\frac{n(n+1)}{2}$.",
@@ -17,7 +92,7 @@
             ]
         },
         {
-            "id": 27,
+            "id": 7,
             "topic": "Vollständige Induktion",
             "title": "Summe ungerader Zahlen",
             "description": "Beweisen Sie durch vollständige Induktion: $\\sum_{k=1}^n (2k-1) = n^2$.",
@@ -32,7 +107,145 @@
             ]
         },
         {
-            "id": 28,
+            "id": 8,
+            "topic": "Vollständige Induktion",
+            "title": "Teilbarkeit durch 3",
+            "description": "Beweisen Sie: $4^n-1$ ist für alle $n \\geq 1$ durch $3$ teilbar.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Induktionsanfang: Für $n=1$ gilt: $4^1-1=3$ ist durch $3$ teilbar.",
+                "Induktionsvoraussetzung: $4^n-1$ ist durch $3$ teilbar.",
+                "Induktionsschritt: $4^{n+1}-1=4\\cdot4^n-1=4(4^n-1)+3$.",
+                "Beide Terme $4(4^n-1)$ und $3$ sind durch $3$ teilbar.",
+                "Damit ist die Behauptung bewiesen."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Vollständige Induktion",
+            "title": "Summe der ersten $n$ geraden Zahlen",
+            "description": "Beweisen Sie durch vollständige Induktion: $\\sum_{k=1}^n 2k = n(n+1)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Induktionsanfang: Für $n=1$ gilt: $2=1\\cdot2=1(1+1)=2$.",
+                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n \\geq 1$.",
+                "Induktionsschritt: Zeige die Aussage für $n+1$:",
+                "$\\sum_{k=1}^{n+1} 2k = \\left(\\sum_{k=1}^n 2k\\right) + 2(n+1) = n(n+1) + 2(n+1)$",
+                "$= (n+1)(n+2)$.",
+                "Damit ist die Aussage bewiesen."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Vollständige Induktion",
+            "title": "Summe der ersten $n$ Vielfachen von 3",
+            "description": "Beweisen Sie durch vollständige Induktion: $\\sum_{k=1}^n 3k = \\frac{3n(n+1)}{2}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Induktionsanfang: Für $n=1$ gilt: $3=\\frac{3\\cdot1\\cdot2}{2}=3$.",
+                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n \\geq 1$.",
+                "Induktionsschritt: Zeige die Aussage für $n+1$:",
+                "$\\sum_{k=1}^{n+1} 3k = \\left(\\sum_{k=1}^n 3k\\right) + 3(n+1) = \\frac{3n(n+1)}{2} + 3(n+1)$",
+                "$= \\frac{3n(n+1)+6(n+1)}{2} = \\frac{3(n+1)(n+2)}{2}$.",
+                "Damit ist die Aussage bewiesen."
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Vollständige Induktion",
+            "title": "Summe der ersten $n$ Dreieckszahlen",
+            "description": "Beweisen Sie: $\\sum_{k=1}^n \\frac{k(k+1)}{2} = \\frac{n(n+1)(n+2)}{6}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Induktionsanfang: Für $n=1$ gilt: $\\frac{1\\cdot2}{2}=1=\\frac{1\\cdot2\\cdot3}{6}$.",
+                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n \\geq 1$.",
+                "Induktionsschritt: $\\sum_{k=1}^{n+1} \\frac{k(k+1)}{2} = \\frac{n(n+1)(n+2)}{6} + \\frac{(n+1)(n+2)}{2}$",
+                "$= \\frac{n(n+1)(n+2)+3(n+1)(n+2)}{6}$",
+                "$= \\frac{(n+1)(n+2)(n+3)}{6}$.",
+                "Damit ist die Aussage bewiesen."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Vollständige Induktion",
+            "title": "Bernoullische Ungleichung",
+            "description": "Beweisen Sie: Für alle reellen $x \\geq -1$ und alle $n \\in \\mathbb{N}$ gilt $(1 + x)^n \\geq 1 + nx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir beweisen die Aussage durch vollständige Induktion: Induktionsanfang, Induktionsvoraussetzung (IV), Induktionsschritt $n \\to n+1$ mit Verwendung der IV.",
+                "Schritt 2: Induktionsanfang\n$n = 1$: $(1+x)^1 = 1 + x \\geq 1 + x$ ✓ (Gleichheit).",
+                "Schritt 3: Induktionsvoraussetzung\nFür ein festes $n$ und alle $x \\geq -1$ gelte $(1+x)^n \\geq 1 + nx$.",
+                "Schritt 4: Induktionsschritt\nWegen $1 + x \\geq 0$ darf man die IV mit $(1+x)$ multiplizieren, ohne das Ungleichheitszeichen zu drehen: $(1+x)^{n+1} = (1+x)^n(1+x) \\geq (1 + nx)(1+x) = 1 + (n+1)x + nx^2 \\geq 1 + (n+1)x$, da $nx^2 \\geq 0$. $\\blacksquare$",
+                "Schritt 5: Merke: Worauf es ankommt\nBeim Multiplizieren einer Ungleichung muss der Faktor $\\geq 0$ sein — hier sichert das die Voraussetzung $x \\geq -1$. Die Ungleichung ist zentral für die Analysis (z.B. Konvergenz von $(1+1/n)^n$)."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Vollständige Induktion",
+            "title": "Summe mit Zweierpotenzen und Index",
+            "description": "Beweisen Sie: $\\sum_{k=1}^{n} k\\cdot 2^k = (n-1)\\,2^{n+1} + 2$ für alle $n \\in \\mathbb{N}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir beweisen die Aussage durch vollständige Induktion: Induktionsanfang, Induktionsvoraussetzung (IV), Induktionsschritt $n \\to n+1$ mit Verwendung der IV.",
+                "Schritt 2: Induktionsanfang\n$n = 1$: links $1\\cdot 2 = 2$, rechts $0\\cdot 4 + 2 = 2$ ✓. ($n = 2$: $2 + 8 = 10 = 1\\cdot 8 + 2$ ✓.)",
+                "Schritt 3: Induktionsvoraussetzung\nFür ein festes $n$ gelte $\\sum_{k=1}^{n} k 2^k = (n-1)2^{n+1} + 2$.",
+                "Schritt 4: Induktionsschritt\n$\\sum_{k=1}^{n+1} k2^k = (n-1)2^{n+1} + 2 + (n+1)2^{n+1} = 2n\\cdot 2^{n+1} + 2 = n\\cdot 2^{n+2} + 2 = ((n+1)-1)\\,2^{(n+1)+1} + 2$. $\\blacksquare$",
+                "Schritt 5: Merke: Worauf es ankommt\nGemeinsame Potenzen ausklammern ($2^{n+1}$) und die Summe der Koeffizienten bilden. Solche Summenformeln findet man, indem man erst kleine Fälle ausrechnet und ein Muster vermutet."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Vollständige Induktion",
+            "title": "Teilbarkeit durch 7",
+            "description": "Beweisen Sie: $7 \\mid 8^n - 1$ für alle $n \\in \\mathbb{N}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir beweisen die Aussage durch vollständige Induktion: Induktionsanfang, Induktionsvoraussetzung (IV), Induktionsschritt $n \\to n+1$ mit Verwendung der IV.",
+                "Schritt 2: Induktionsanfang\n$n = 1$: $8 - 1 = 7$ ✓.",
+                "Schritt 3: Induktionsvoraussetzung\nFür ein festes $n$ gelte $8^n - 1 = 7m$ mit $m \\in \\mathbb{Z}$.",
+                "Schritt 4: Induktionsschritt\n$8^{n+1} - 1 = 8\\cdot 8^n - 1 = 8(8^n - 1) + 8 - 1 = 8\\cdot 7m + 7 = 7(8m + 1)$. Das ist durch $7$ teilbar. $\\blacksquare$",
+                "Schritt 5: Merke: Worauf es ankommt\nTrick: $a\\cdot b^n - 1 = a(b^n - 1) + (a - 1)$. Hier erscheint die IV $8^n - 1$ direkt. (Alternativ: $8 \\equiv 1 \\pmod 7$, also $8^n \\equiv 1$.)"
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Vollständige Induktion",
+            "title": "Fibonacci-Summe",
+            "description": "Die Fibonacci-Zahlen seien $F_1 = F_2 = 1$ und $F_{n+2} = F_{n+1} + F_n$. Beweisen Sie: $\\sum_{k=1}^{n} F_k = F_{n+2} - 1$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir beweisen die Aussage durch vollständige Induktion: Induktionsanfang, Induktionsvoraussetzung (IV), Induktionsschritt $n \\to n+1$ mit Verwendung der IV.",
+                "Schritt 2: Induktionsanfang\n$n = 1$: links $F_1 = 1$, rechts $F_3 - 1 = 2 - 1 = 1$ ✓. ($n = 2$: $1 + 1 = 2 = F_4 - 1 = 3 - 1$.)",
+                "Schritt 3: Induktionsvoraussetzung\nFür ein festes $n$ gelte $\\sum_{k=1}^{n} F_k = F_{n+2} - 1$.",
+                "Schritt 4: Induktionsschritt\n$\\sum_{k=1}^{n+1} F_k = \\sum_{k=1}^{n} F_k + F_{n+1} \\overset{\\text{IV}}{=} F_{n+2} - 1 + F_{n+1} = F_{n+3} - 1$ (nach der Rekursion $F_{n+3} = F_{n+2} + F_{n+1}$). $\\blacksquare$",
+                "Schritt 5: Merke: Worauf es ankommt\nBei Folgen mit Rekursion verwendet man im Schritt die Rekursionsgleichung, um zwei aufeinanderfolgende Glieder zusammenzufassen."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Vollständige Induktion",
+            "title": "Rekursion mit expliziter Lösung",
+            "description": "Sei $a_1 = 2$ und $a_{n+1} = 3a_n - 2$. Zeigen Sie durch Induktion: $a_n = 3^{n-1} + 1$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir beweisen die Aussage durch vollständige Induktion: Induktionsanfang, Induktionsvoraussetzung (IV), Induktionsschritt $n \\to n+1$ mit Verwendung der IV.",
+                "Schritt 2: Induktionsanfang\n$n = 1$: $a_1 = 2 = 3^0 + 1$ ✓. ($a_2 = 4 = 3^1 + 1$, $a_3 = 10 = 3^2 + 1$ ✓.)",
+                "Schritt 3: Induktionsvoraussetzung\nFür ein festes $n$ gelte $a_n = 3^{n-1} + 1$.",
+                "Schritt 4: Induktionsschritt\n$a_{n+1} = 3a_n - 2 \\overset{\\text{IV}}{=} 3(3^{n-1} + 1) - 2 = 3^n + 3 - 2 = 3^n + 1$. Das ist die Behauptung für $n+1$. $\\blacksquare$",
+                "Schritt 5: Merke: Worauf es ankommt\nDie explizite Formel erhält man durch Raten aus den ersten Gliedern; die Induktion bestätigt sie. Der Fixpunkt $a = 3a - 2 \\Rightarrow a = 1$ erklärt den Summanden $+1$."
+            ]
+        },
+        {
+            "id": 17,
             "topic": "Vollständige Induktion",
             "title": "Ungleichung $2^n \\geq n^2$",
             "description": "Beweisen Sie für alle $n \\geq 4$ mittels vollständiger Induktion: $2^n \\geq n^2$.",
@@ -50,24 +263,7 @@
             ]
         },
         {
-            "id": 29,
-            "topic": "Vollständige Induktion",
-            "title": "Fakultätsungleichung",
-            "description": "Beweisen Sie mittels vollständiger Induktion: $n! > 2^n$ für alle $n \\geq 4$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=4$ gilt: $4! = 24 > 16 = 2^4$.",
-                "Induktionsvoraussetzung: $n! > 2^n$ gelte für ein beliebiges $n \\geq 4$.",
-                "Induktionsschritt: Zeige $(n+1)! > 2^{n+1}$:",
-                "$(n+1)! = (n+1)\\cdot n! > (n+1)\\cdot2^n$ (nach IV).",
-                "Da $n+1 \\geq 5$ für $n \\geq 4$ gilt:",
-                "$(n+1)\\cdot2^n \\geq 5\\cdot2^n = 2^{n+1} + 2^n > 2^{n+1}$.",
-                "Damit ist die Aussage bewiesen."
-            ]
-        },
-        {
-            "id": 30,
+            "id": 18,
             "topic": "Vollständige Induktion",
             "title": "Geometrische Summe",
             "description": "Beweisen Sie mittels vollständiger Induktion: $\\sum_{k=0}^n q^k = \\frac{1-q^{n+1}}{1-q}$ für $q \\neq 1$.",
@@ -83,7 +279,7 @@
             ]
         },
         {
-            "id": 31,
+            "id": 19,
             "topic": "Vollständige Induktion",
             "title": "Summe der Quadratzahlen",
             "description": "Beweisen Sie mittels vollständiger Induktion: $\\sum_{k=1}^n k^2 = \\frac{n(n+1)(2n+1)}{6}$.",
@@ -99,23 +295,7 @@
             ]
         },
         {
-            "id": 32,
-            "topic": "Vollständige Induktion",
-            "title": "Exponentielle Ungleichung",
-            "description": "Beweisen Sie mittels vollständiger Induktion: $5^n > n^3$ für alle $n \\geq 5$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=5$ gilt: $5^5 = 3125 > 125 = 5^3$.",
-                "Induktionsvoraussetzung: $5^n > n^3$ gelte für ein beliebiges $n \\geq 5$.",
-                "Induktionsschritt: Zeige $5^{n+1} > (n+1)^3$:",
-                "$5^{n+1} = 5\\cdot5^n > 5\\cdot n^3$.",
-                "Zeige: $5n^3 > (n+1)^3$ für $n \\geq 5$.",
-                "Nach Ausmultiplizieren und Vergleich ergibt sich die Ungleichung."
-            ]
-        },
-        {
-            "id": 33,
+            "id": 20,
             "topic": "Vollständige Induktion",
             "title": "Teilbarkeitsbeweis",
             "description": "Beweisen Sie: $7^n - 1$ ist durch $6$ teilbar für alle $n \\in \\mathbb{N}$.",
@@ -130,7 +310,7 @@
             ]
         },
         {
-            "id": 34,
+            "id": 21,
             "topic": "Vollständige Induktion",
             "title": "Rekursive Folge",
             "description": "Gegeben ist die Folge $a_1 = 1$, $a_{n+1} = 2a_n + 1$. Zeigen Sie: $a_n = 2^n - 1$ für alle $n \\in \\mathbb{N}$.",
@@ -142,6 +322,210 @@
                 "Induktionsschritt: Zeige $a_{n+1}=2^{n+1}-1$:",
                 "$a_{n+1}=2a_n+1=2(2^n-1)+1=2^{n+1}-2+1=2^{n+1}-1$.",
                 "Damit ist die Behauptung bewiesen."
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Vollständige Induktion",
+            "title": "Summe der Kubikzahlen",
+            "description": "Zeigen Sie: $\\sum_{k=1}^n k^3 = \\left(\\frac{n(n+1)}{2}\\right)^2$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Induktionsanfang: Für $n=1$ gilt: $1^3=1$ und $(\\frac{1\\cdot2}{2})^2=1$.",
+                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n \\geq 1$.",
+                "Induktionsschritt: Zeige die Aussage für $n+1$:",
+                "$\\sum_{k=1}^{n+1}k^3=\\left(\\sum_{k=1}^n k^3\\right)+(n+1)^3$",
+                "$=\\left(\\frac{n(n+1)}{2}\\right)^2+(n+1)^3$",
+                "Nach Umformung erhält man $(\\frac{(n+1)(n+2)}{2})^2$."
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Vollständige Induktion",
+            "title": "Summe der Kehrwerte",
+            "description": "Zeigen Sie: $\\sum_{k=1}^n \\frac{1}{k(k+1)}=\\frac{n}{n+1}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Induktionsanfang: Für $n=1$ gilt: $\\frac{1}{1\\cdot2}=\\frac{1}{2}=\\frac{1}{1+1}$.",
+                "Induktionsvoraussetzung: $\\sum_{k=1}^n \\frac{1}{k(k+1)}=\\frac{n}{n+1}$.",
+                "Induktionsschritt: Zeige die Aussage für $n+1$:",
+                "$\\frac{n}{n+1}+\\frac{1}{(n+1)(n+2)}=\\frac{n(n+2)+1}{(n+1)(n+2)}$",
+                "$=\\frac{(n+1)^2}{(n+1)(n+2)}=\\frac{n+1}{n+2}$."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Vollständige Induktion",
+            "title": "Teilbarkeit durch 11",
+            "description": "Beweisen Sie: $10^{2n}-1$ ist für alle $n\\in\\mathbb{N}$ durch $11$ teilbar.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Induktionsanfang: Für $n=1$ gilt: $10^2-1=99$ ist durch $11$ teilbar.",
+                "Induktionsvoraussetzung: $10^{2n}-1$ sei durch $11$ teilbar.",
+                "Induktionsschritt: Zeige $10^{2(n+1)}-1$.",
+                "$10^{2(n+1)}-1=(10^2)^n\\cdot100-1=100(10^{2n}-1)+99$.",
+                "Beide Summanden sind durch $11$ teilbar."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Vollständige Induktion",
+            "title": "Summe der ersten $n$ Quadratzahlen plus $n$",
+            "description": "Beweisen Sie durch vollständige Induktion: $\\sum_{k=1}^n (k^2 + k) = \\frac{n(n+1)(n+2)}{3}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Induktionsanfang: Für $n=1$ gilt: $1^2+1=2=\\frac{1\\cdot2\\cdot3}{3}=2$.",
+                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n \\geq 1$.",
+                "Induktionsschritt: $\\sum_{k=1}^{n+1} (k^2 + k) = \\frac{n(n+1)(n+2)}{3} + (n+1)^2 + (n+1)$",
+                "$= \\frac{n(n+1)(n+2) + 3(n+1)^2 + 3(n+1)}{3}$",
+                "$= \\frac{n(n+1)(n+2) + 3(n+1)(n+2)}{3}$",
+                "$= \\frac{(n+1)(n+2)(n+3)}{3}$.",
+                "Damit ist die Aussage bewiesen."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Vollständige Induktion",
+            "title": "Summe der ersten $n$ Fünferpotenzen",
+            "description": "Beweisen Sie: $\\sum_{k=1}^n 5^k = \\frac{5^{n+1}-5}{4}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Induktionsanfang: Für $n=1$ gilt: $5^1=5=\\frac{5^2-5}{4}=5$.",
+                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n \\geq 1$.",
+                "Induktionsschritt: $\\sum_{k=1}^{n+1} 5^k = \\frac{5^{n+1}-5}{4} + 5^{n+1}$",
+                "$= \\frac{5^{n+1}-5+4\\cdot5^{n+1}}{4}$",
+                "$= \\frac{5^{n+2}-5}{4}$.",
+                "Damit ist die Aussage bewiesen."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Vollständige Induktion",
+            "title": "Teilbarkeit von $n^3-n$ durch 6",
+            "description": "Beweisen Sie: $n^3-n$ ist für alle $n \\geq 1$ durch $6$ teilbar.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Induktionsanfang: Für $n=1$ gilt: $1^3-1=0$ ist durch $6$ teilbar.",
+                "Induktionsvoraussetzung: $n^3-n$ sei durch $6$ teilbar.",
+                "Induktionsschritt: $(n+1)^3-(n+1) = n^3+3n^2+3n+1-(n+1) = n^3-n+3n^2+3n$.",
+                "Nach IV ist $n^3-n$ durch $6$ teilbar, $3n^2+3n$ ist durch $6$ teilbar.",
+                "Damit ist die Behauptung bewiesen."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Vollständige Induktion",
+            "title": "Produktformel",
+            "description": "Beweisen Sie durch Induktion: $\\prod_{k=2}^{n}\\left(1 - \\frac{1}{k^2}\\right) = \\frac{n+1}{2n}$ für alle $n \\geq 2$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir beweisen die Behauptung durch Induktion ab $n = 2$. Im Schritt multiplizieren wir das Ergebnis mit dem neuen Faktor $1 - \\frac{1}{(n+1)^2}$ und fassen mit der dritten binomischen Formel zusammen.",
+                "Schritt 2: Induktionsanfang\n$n = 2$: links $1 - \\frac14 = \\frac34$, rechts $\\frac{3}{4}$ ✓. ($n = 3$: $\\frac34\\cdot\\frac89 = \\frac23 = \\frac{4}{6}$ ✓.)",
+                "Schritt 3: Induktionsvoraussetzung\nFür ein festes $n \\geq 2$ gelte $\\prod_{k=2}^n\\left(1 - \\frac1{k^2}\\right) = \\frac{n+1}{2n}$.",
+                "Schritt 4: Induktionsschritt\n$\\prod_{k=2}^{n+1} = \\frac{n+1}{2n}\\cdot\\left(1 - \\frac{1}{(n+1)^2}\\right) = \\frac{n+1}{2n}\\cdot\\frac{(n+1)^2 - 1}{(n+1)^2} = \\frac{n+1}{2n}\\cdot\\frac{n(n+2)}{(n+1)^2} = \\frac{n+2}{2(n+1)}$. Das ist $\\frac{(n+1)+1}{2(n+1)}$. $\\blacksquare$",
+                "Schritt 5: Merke: Worauf es ankommt\nFaktorisierung $1 - \\frac1{k^2} = \\frac{(k-1)(k+1)}{k^2}$ zeigt, dass das Produkt teleskopiert. Im Grenzfall $n \\to \\infty$ konvergiert das Produkt gegen $\\frac12$."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Vollständige Induktion",
+            "title": "Summe mit Fakultäten",
+            "description": "Beweisen Sie: $\\sum_{k=1}^{n} k\\cdot k! = (n+1)! - 1$ für alle $n \\in \\mathbb{N}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir beweisen die Aussage durch vollständige Induktion: Induktionsanfang, Induktionsvoraussetzung (IV), Induktionsschritt $n \\to n+1$ mit Verwendung der IV.",
+                "Schritt 2: Induktionsanfang\n$n = 1$: links $1\\cdot 1! = 1$, rechts $2! - 1 = 1$ ✓. ($n = 2$: $1 + 4 = 5 = 3! - 1$ ✓.)",
+                "Schritt 3: Induktionsvoraussetzung\nFür ein festes $n$ gelte $\\sum_{k=1}^{n} k\\cdot k! = (n+1)! - 1$.",
+                "Schritt 4: Induktionsschritt\n$\\sum_{k=1}^{n+1} k\\cdot k! = (n+1)! - 1 + (n+1)(n+1)! = (n+1)!\\,(1 + n + 1) - 1 = (n+2)(n+1)! - 1 = (n+2)! - 1$. $\\blacksquare$",
+                "Schritt 5: Merke: Worauf es ankommt\nMit $(n+1)! = (n+1)\\cdot n!$ lassen sich Fakultäten ausklammern. Einsicht: $k\\cdot k! = (k+1)! - k!$, die Summe ist also eine Teleskopsumme."
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Vollständige Induktion",
+            "title": "Starke Induktion: Primfaktorzerlegung",
+            "description": "Beweisen Sie durch starke Induktion: Jede natürliche Zahl $n \\geq 2$ ist ein Produkt von Primzahlen.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nBei der **starken Induktion** darf man im Schritt voraussetzen, dass die Aussage für **alle** kleineren Zahlen $m$ mit $2 \\leq m < n$ gilt (nicht nur für $n-1$). Das passt, weil die Faktoren eines Produkts kleiner als $n$ sind.",
+                "Schritt 2: Induktionsanfang\n$n = 2$ ist prim, also ein (Ein-Faktor-)Produkt von Primzahlen.",
+                "Schritt 3: Induktionsvoraussetzung\nSei $n > 2$, und jede Zahl $m$ mit $2 \\leq m < n$ sei ein Produkt von Primzahlen.",
+                "Schritt 4: Fall 1: $n$ ist prim\nDann ist $n$ selbst ein Ein-Faktor-Produkt von Primzahlen.",
+                "Schritt 5: Fall 2: $n$ ist nicht prim\nDann $n = a\\cdot b$ mit $2 \\leq a,b < n$. Nach der IV sind $a = p_1\\cdots p_r$ und $b = q_1\\cdots q_s$ Produkte von Primzahlen. Also ist $n = p_1\\cdots p_r\\, q_1\\cdots q_s$ ein Produkt von Primzahlen. $\\blacksquare$",
+                "Schritt 6: Merke: Worauf es ankommt\nStarke Induktion ist nötig, wenn der Schritt auf mehrere (nicht nur den direkten) Vorgänger zurückgreift. Sie ist logisch äquivalent zur gewöhnlichen Induktion. Die **Eindeutigkeit** der Zerlegung braucht zusätzlich Euklids Lemma."
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Vollständige Induktion",
+            "title": "Starke Induktion: Fibonacci-Abschätzung",
+            "description": "Mit $F_1 = F_2 = 1$ und $F_{n+2} = F_{n+1} + F_n$ zeige man $F_n < 2^n$ für alle $n \\in \\mathbb{N}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Rekursion greift auf **zwei** Vorgänger zurück, also braucht der Beweis zwei Induktionsanfänge und eine starke Induktionsvoraussetzung.",
+                "Schritt 2: Induktionsanfang\n$n = 1$: $F_1 = 1 < 2 = 2^1$ ✓. $n = 2$: $F_2 = 1 < 4 = 2^2$ ✓.",
+                "Schritt 3: Induktionsvoraussetzung\nSei $n \\geq 2$, und es gelte $F_n < 2^n$ sowie $F_{n-1} < 2^{n-1}$.",
+                "Schritt 4: Induktionsschritt\n$F_{n+1} = F_n + F_{n-1} < 2^n + 2^{n-1} = 2^{n-1}(2 + 1) = 3\\cdot 2^{n-1} < 4\\cdot 2^{n-1} = 2^{n+1}$. $\\blacksquare$",
+                "Schritt 5: Merke: Worauf es ankommt\nZwei Vorgänger $\\Rightarrow$ zwei Anfangswerte. Eine genauere Schranke ist $F_n \\leq \\varphi^{n-1}$ mit dem goldenen Schnitt $\\varphi \\approx 1{,}618$; $2^n$ ist nur eine grobe, aber einfach zu beweisende Obergrenze."
+            ]
+        },
+        {
+            "id": 32,
+            "topic": "Vollständige Induktion",
+            "title": "Fehler im Induktionsbeweis finden",
+            "description": "„Beweis“: In jeder Menge von $n$ Pferden haben alle Pferde dieselbe Farbe. Induktionsanfang: Bei $n = 1$ trivial. Schritt: Bei $n+1$ Pferden entferne ein Pferd; die übrigen $n$ haben dieselbe Farbe (IV). Entferne ein anderes; wieder dieselbe Farbe. Beide Gruppen überlappen, also haben alle dieselbe Farbe. Wo steckt der Fehler?",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEin Induktionsbeweis besteht aus zwei **unabhängigen** Teilen: Anfang und Schritt. Der Schritt muss für **alle** $n \\geq n_0$ funktionieren, auch für den kleinsten Fall direkt nach dem Anfang. Wir testen den Schritt an kleinen $n$.",
+                "Schritt 2: Den Schritt für $n = 1 \\to n = 2$ prüfen\nSeien $2$ Pferde $A$ und $B$. Entfernt man $A$, bleibt $\\{B\\}$; entfernt man $B$, bleibt $\\{A\\}$. Die beiden Gruppen $\\{B\\}$ und $\\{A\\}$ haben **keine** gemeinsamen Pferde.",
+                "Schritt 3: Wo die Argumentation bricht\nDas Argument „die Gruppen überlappen“ braucht mindestens ein gemeinsames Pferd, also $n + 1 \\geq 3$ (dann haben die beiden Gruppen $n - 1 \\geq 1$ gemeinsame Pferde). Für $n = 1$ ist die Überlappung leer.",
+                "Schritt 4: Folgerung\nDer Schritt ist nur für $n \\geq 2$ gültig, es fehlt aber die Implikation $P(1) \\Rightarrow P(2)$. Der Anfang $P(1)$ trägt nichts weiter. Hätte man $P(2)$ als zweiten Anfang gezeigt (was falsch ist, denn zwei Pferde können verschieden farbig sein), würde der Beweis funktionieren — aber $P(2)$ ist falsch.",
+                "Schritt 5: Merke: Worauf es ankommt\nDer Induktionsschritt muss **lückenlos für jedes** $n \\geq n_0$ gelten, nicht nur für „typische“ $n$. Beim Prüfen eines Induktionsbeweises immer den ersten Schritt $n_0 \\to n_0 + 1$ explizit nachrechnen."
+            ]
+        },
+        {
+            "id": 33,
+            "topic": "Vollständige Induktion",
+            "title": "Abschätzung der Reihe der Kehrwertquadrate",
+            "description": "Beweisen Sie: $\\sum_{k=1}^{n} \\frac{1}{k^2} \\leq 2 - \\frac1n$ für alle $n \\in \\mathbb{N}$. Folgern Sie, dass die Partialsummen beschränkt sind.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir beweisen eine **stärkere** Aussage ($2 - \\frac1n$ statt nur $2$). Das ist der Trick: Die schwächere Aussage $\\sum \\frac{1}{k^2} \\leq 2$ ließe sich nicht induktiv beweisen, weil die IV zu wenig Spielraum lässt.",
+                "Schritt 2: Induktionsanfang\n$n = 1$: links $\\frac11 = 1$, rechts $2 - 1 = 1$ ✓ (Gleichheit).",
+                "Schritt 3: Induktionsvoraussetzung\nFür ein festes $n$ gelte $\\sum_{k=1}^{n} \\frac1{k^2} \\leq 2 - \\frac1n$.",
+                "Schritt 4: Induktionsschritt: Zielungleichung\n$\\sum_{k=1}^{n+1} \\frac1{k^2} \\leq 2 - \\frac1n + \\frac1{(n+1)^2}$. Wir müssen zeigen, dass das $\\leq 2 - \\frac1{n+1}$ ist, d.h. $\\frac1{(n+1)^2} \\leq \\frac1n - \\frac1{n+1}$.",
+                "Schritt 5: Induktionsschritt: Nachweis\nRechts: $\\frac1n - \\frac1{n+1} = \\frac{1}{n(n+1)}$. Wegen $n(n+1) \\leq (n+1)^2$ gilt $\\frac1{(n+1)^2} \\leq \\frac1{n(n+1)}$ ✓. $\\blacksquare$",
+                "Schritt 6: Folgerung\nDie Partialsummen $s_n$ sind durch $2$ beschränkt und monoton wachsend. Nach dem Monotoniekriterium konvergiert die Reihe $\\sum \\frac1{k^2}$ (ihr Wert ist $\\frac{\\pi^2}{6}$).",
+                "Schritt 7: Merke: Worauf es ankommt\nManchmal muss man die Behauptung **verschärfen** („Induktionsvoraussetzung stärken“), damit der Schritt gelingt. Die Teleskopidee $\\frac1{n(n+1)} = \\frac1n - \\frac1{n+1}$ ist ein Standardwerkzeug."
+            ]
+        },
+        {
+            "id": 34,
+            "topic": "Vollständige Induktion",
+            "title": "Fakultätsungleichung",
+            "description": "Beweisen Sie mittels vollständiger Induktion: $n! > 2^n$ für alle $n \\geq 4$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Induktionsanfang: Für $n=4$ gilt: $4! = 24 > 16 = 2^4$.",
+                "Induktionsvoraussetzung: $n! > 2^n$ gelte für ein beliebiges $n \\geq 4$.",
+                "Induktionsschritt: Zeige $(n+1)! > 2^{n+1}$:",
+                "$(n+1)! = (n+1)\\cdot n! > (n+1)\\cdot2^n$ (nach IV).",
+                "Da $n+1 \\geq 5$ für $n \\geq 4$ gilt:",
+                "$(n+1)\\cdot2^n \\geq 5\\cdot2^n = 2^{n+1} + 2^n > 2^{n+1}$.",
+                "Damit ist die Aussage bewiesen."
             ]
         },
         {
@@ -162,456 +546,6 @@
         {
             "id": 36,
             "topic": "Vollständige Induktion",
-            "title": "Summe der ersten $n$ ungeraden Zahlen",
-            "description": "Zeigen Sie mittels vollständiger Induktion: $1+3+5+\\dots+(2n-1)=n^2$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $1=1^2$.",
-                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n \\geq 1$.",
-                "Induktionsschritt: Zeige die Aussage für $n+1$:",
-                "$(1+3+\\dots+(2n-1))+(2(n+1)-1)=n^2+2n+1=(n+1)^2$.",
-                "Damit ist die Behauptung bewiesen."
-            ]
-        },
-        {
-            "id": 37,
-            "topic": "Vollständige Induktion",
-            "title": "Teilbarkeit durch 3",
-            "description": "Beweisen Sie: $4^n-1$ ist für alle $n \\geq 1$ durch $3$ teilbar.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $4^1-1=3$ ist durch $3$ teilbar.",
-                "Induktionsvoraussetzung: $4^n-1$ ist durch $3$ teilbar.",
-                "Induktionsschritt: $4^{n+1}-1=4\\cdot4^n-1=4(4^n-1)+3$.",
-                "Beide Terme $4(4^n-1)$ und $3$ sind durch $3$ teilbar.",
-                "Damit ist die Behauptung bewiesen."
-            ]
-        },
-        {
-            "id": 38,
-            "topic": "Vollständige Induktion",
-            "title": "Summe der Kubikzahlen",
-            "description": "Zeigen Sie: $\\sum_{k=1}^n k^3 = \\left(\\frac{n(n+1)}{2}\\right)^2$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $1^3=1$ und $(\\frac{1\\cdot2}{2})^2=1$.",
-                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n \\geq 1$.",
-                "Induktionsschritt: Zeige die Aussage für $n+1$:",
-                "$\\sum_{k=1}^{n+1}k^3=\\left(\\sum_{k=1}^n k^3\\right)+(n+1)^3$",
-                "$=\\left(\\frac{n(n+1)}{2}\\right)^2+(n+1)^3$",
-                "Nach Umformung erhält man $(\\frac{(n+1)(n+2)}{2})^2$."
-            ]
-        },
-        {
-            "id": 39,
-            "topic": "Vollständige Induktion",
-            "title": "Ungleichung $n! > 2^n$",
-            "description": "Beweisen Sie mittels vollständiger Induktion: $n! > 2^n$ für $n \\geq 5$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=5$ gilt: $5!=120>32=2^5$.",
-                "Induktionsvoraussetzung: $n! > 2^n$ gelte für ein beliebiges $n \\geq 5$.",
-                "Induktionsschritt: Zeige $(n+1)! > 2^{n+1}$.",
-                "$(n+1)!=(n+1)\\cdot n!> (n+1)\\cdot2^n$.",
-                "Da $n+1\\geq6$ für $n\\geq5$, ist $(n+1)2^n>2^{n+1}$."
-            ]
-        },
-        {
-            "id": 40,
-            "topic": "Vollständige Induktion",
-            "title": "Summe der Kehrwerte",
-            "description": "Zeigen Sie: $\\sum_{k=1}^n \\frac{1}{k(k+1)}=\\frac{n}{n+1}$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $\\frac{1}{1\\cdot2}=\\frac{1}{2}=\\frac{1}{1+1}$.",
-                "Induktionsvoraussetzung: $\\sum_{k=1}^n \\frac{1}{k(k+1)}=\\frac{n}{n+1}$.",
-                "Induktionsschritt: Zeige die Aussage für $n+1$:",
-                "$\\frac{n}{n+1}+\\frac{1}{(n+1)(n+2)}=\\frac{n(n+2)+1}{(n+1)(n+2)}$",
-                "$=\\frac{(n+1)^2}{(n+1)(n+2)}=\\frac{n+1}{n+2}$."
-            ]
-        },
-        {
-            "id": 41,
-            "topic": "Vollständige Induktion",
-            "title": "Teilbarkeit durch 11",
-            "description": "Beweisen Sie: $10^{2n}-1$ ist für alle $n\\in\\mathbb{N}$ durch $11$ teilbar.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $10^2-1=99$ ist durch $11$ teilbar.",
-                "Induktionsvoraussetzung: $10^{2n}-1$ sei durch $11$ teilbar.",
-                "Induktionsschritt: Zeige $10^{2(n+1)}-1$.",
-                "$10^{2(n+1)}-1=(10^2)^n\\cdot100-1=100(10^{2n}-1)+99$.",
-                "Beide Summanden sind durch $11$ teilbar."
-            ]
-        },
-        {
-            "id": 42,
-            "topic": "Vollständige Induktion",
-            "title": "Rekursiv definierte Folge",
-            "description": "Zeigen Sie: $a_n=3^n-2^n$ erfüllt die Rekursion $a_{n+1}=5a_n+6\\cdot2^n$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Induktionsanfang: Berechnung für $n=1$ und $n=2$ stimmen überein.",
-                "Induktionsvoraussetzung: $a_n=3^n-2^n$ gelte für ein beliebiges $n$.",
-                "Induktionsschritt: $a_{n+1}=3^{n+1}-2^{n+1}=3\\cdot3^n-2\\cdot2^n$",
-                "$=3(3^n-2^n)+5\\cdot2^n=5a_n+6\\cdot2^n$."
-            ]
-        },
-        {
-            "id": 43,
-            "topic": "Vollständige Induktion",
-            "title": "Ungleichung $n^2 < 2^n$",
-            "description": "Zeigen Sie mittels vollständiger Induktion: $n^2<2^n$ für alle $n\\geq5$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=5$ gilt: $5^2=25<32=2^5$.",
-                "Induktionsvoraussetzung: $n^2<2^n$ gelte für ein beliebiges $n\\geq5$.",
-                "Induktionsschritt: Zeige $(n+1)^2<2^{n+1}$.",
-                "Berechnung und Abschätzung führen zum Beweis."
-            ]
-        },
-        {
-            "id": 44,
-            "topic": "Vollständige Induktion",
-            "title": "Produkt der ersten $n$ ungeraden Zahlen",
-            "description": "Zeigen Sie: $\\prod_{k=1}^n (2k-1)=\\frac{(2n)!}{2^n n!}$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $1=\\frac{2!}{2^1\\cdot1!}=1$.",
-                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n$.",
-                "Induktionsschritt: Zeige die Aussage für $n+1$.",
-                "Ausmultiplizieren und Kürzen führt zur gewünschten Form."
-            ]
-        },
-        {
-            "id": 45,
-            "topic": "Vollständige Induktion",
-            "title": "Summe der ersten $n$ geraden Zahlen",
-            "description": "Beweisen Sie durch vollständige Induktion: $\\sum_{k=1}^n 2k = n(n+1)$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $2=1\\cdot2=1(1+1)=2$.",
-                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n \\geq 1$.",
-                "Induktionsschritt: Zeige die Aussage für $n+1$:",
-                "$\\sum_{k=1}^{n+1} 2k = \\left(\\sum_{k=1}^n 2k\\right) + 2(n+1) = n(n+1) + 2(n+1)$",
-                "$= (n+1)(n+2)$.",
-                "Damit ist die Aussage bewiesen."
-            ]
-        },
-        {
-            "id": 46,
-            "topic": "Vollständige Induktion",
-            "title": "Summe der ersten $n$ Vielfachen von 3",
-            "description": "Beweisen Sie durch vollständige Induktion: $\\sum_{k=1}^n 3k = \\frac{3n(n+1)}{2}$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $3=\\frac{3\\cdot1\\cdot2}{2}=3$.",
-                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n \\geq 1$.",
-                "Induktionsschritt: Zeige die Aussage für $n+1$:",
-                "$\\sum_{k=1}^{n+1} 3k = \\left(\\sum_{k=1}^n 3k\\right) + 3(n+1) = \\frac{3n(n+1)}{2} + 3(n+1)$",
-                "$= \\frac{3n(n+1)+6(n+1)}{2} = \\frac{3(n+1)(n+2)}{2}$.",
-                "Damit ist die Aussage bewiesen."
-            ]
-        },
-        {
-            "id": 47,
-            "topic": "Vollständige Induktion",
-            "title": "Summe der ersten $n$ natürlichen Zahlen zum Quadrat",
-            "description": "Beweisen Sie durch vollständige Induktion: $\\left(\\sum_{k=1}^n k\\right)^2 = \\sum_{k=1}^n k^3$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $1^2=1^3=1$.",
-                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n \\geq 1$.",
-                "Induktionsschritt: Zeige die Aussage für $n+1$:",
-                "$\\left(\\sum_{k=1}^{n+1} k\\right)^2 = (\\sum_{k=1}^n k + (n+1))^2 = (S_n + n+1)^2$",
-                "$= S_n^2 + 2S_n(n+1) + (n+1)^2$",
-                "Nach Induktionsvoraussetzung: $S_n^2 = \\sum_{k=1}^n k^3$",
-                "Also: $\\sum_{k=1}^{n+1} k^3 = \\sum_{k=1}^n k^3 + (n+1)^3$",
-                "Vergleich zeigt die Gleichheit."
-            ]
-        },
-        {
-            "id": 48,
-            "topic": "Vollständige Induktion",
-            "title": "Teilbarkeit von $9^n-1$ durch 8",
-            "description": "Beweisen Sie: $9^n-1$ ist für alle $n \\geq 1$ durch $8$ teilbar.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $9^1-1=8$ ist durch $8$ teilbar.",
-                "Induktionsvoraussetzung: $9^n-1$ sei durch $8$ teilbar.",
-                "Induktionsschritt: $9^{n+1}-1=9\\cdot9^n-1=9(9^n-1)+8$.",
-                "Beide Summanden sind durch $8$ teilbar.",
-                "Damit ist die Behauptung bewiesen."
-            ]
-        },
-        {
-            "id": 49,
-            "topic": "Vollständige Induktion",
-            "title": "Summe der ersten $n$ Dreieckszahlen",
-            "description": "Beweisen Sie: $\\sum_{k=1}^n \\frac{k(k+1)}{2} = \\frac{n(n+1)(n+2)}{6}$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $\\frac{1\\cdot2}{2}=1=\\frac{1\\cdot2\\cdot3}{6}$.",
-                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n \\geq 1$.",
-                "Induktionsschritt: $\\sum_{k=1}^{n+1} \\frac{k(k+1)}{2} = \\frac{n(n+1)(n+2)}{6} + \\frac{(n+1)(n+2)}{2}$",
-                "$= \\frac{n(n+1)(n+2)+3(n+1)(n+2)}{6}$",
-                "$= \\frac{(n+1)(n+2)(n+3)}{6}$.",
-                "Damit ist die Aussage bewiesen."
-            ]
-        },
-        {
-            "id": 50,
-            "topic": "Vollständige Induktion",
-            "title": "Teilbarkeit von $5^n-1$ durch 4",
-            "description": "Beweisen Sie: $5^n-1$ ist für alle $n \\geq 1$ durch $4$ teilbar.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $5^1-1=4$ ist durch $4$ teilbar.",
-                "Induktionsvoraussetzung: $5^n-1$ sei durch $4$ teilbar.",
-                "Induktionsschritt: $5^{n+1}-1=5\\cdot5^n-1=5(5^n-1)+4$.",
-                "Beide Summanden sind durch $4$ teilbar.",
-                "Damit ist die Behauptung bewiesen."
-            ]
-        },
-        {
-            "id": 51,
-            "topic": "Vollständige Induktion",
-            "title": "Summe der ersten $n$ Zahlen mit Abstand 2",
-            "description": "Beweisen Sie: $\\sum_{k=1}^n (2k) = n(n+1)$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $2=1\\cdot2=1(1+1)=2$.",
-                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n \\geq 1$.",
-                "Induktionsschritt: $\\sum_{k=1}^{n+1} 2k = n(n+1) + 2(n+1) = (n+1)(n+2)$.",
-                "Damit ist die Aussage bewiesen."
-            ]
-        },
-        {
-            "id": 52,
-            "topic": "Vollständige Induktion",
-            "title": "Summe der ersten $n$ Zahlen mit Abstand 3",
-            "description": "Beweisen Sie: $\\sum_{k=1}^n (3k) = \\frac{3n(n+1)}{2}$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $3=\\frac{3\\cdot1\\cdot2}{2}=3$.",
-                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n \\geq 1$.",
-                "Induktionsschritt: $\\sum_{k=1}^{n+1} 3k = \\frac{3n(n+1)}{2} + 3(n+1) = \\frac{3(n+1)(n+2)}{2}$.",
-                "Damit ist die Aussage bewiesen."
-            ]
-        },
-        {
-            "id": 53,
-            "topic": "Vollständige Induktion",
-            "title": "Summe der ersten $n$ Quadratzahlen plus $n$",
-            "description": "Beweisen Sie durch vollständige Induktion: $\\sum_{k=1}^n (k^2 + k) = \\frac{n(n+1)(n+2)}{3}$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $1^2+1=2=\\frac{1\\cdot2\\cdot3}{3}=2$.",
-                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n \\geq 1$.",
-                "Induktionsschritt: $\\sum_{k=1}^{n+1} (k^2 + k) = \\frac{n(n+1)(n+2)}{3} + (n+1)^2 + (n+1)$",
-                "$= \\frac{n(n+1)(n+2) + 3(n+1)^2 + 3(n+1)}{3}$",
-                "$= \\frac{n(n+1)(n+2) + 3(n+1)(n+2)}{3}$",
-                "$= \\frac{(n+1)(n+2)(n+3)}{3}$.",
-                "Damit ist die Aussage bewiesen."
-            ]
-        },
-        {
-            "id": 54,
-            "topic": "Vollständige Induktion",
-            "title": "Ungleichung $3^n > 2n+1$",
-            "description": "Beweisen Sie durch vollständige Induktion: $3^n > 2n+1$ für alle $n \\geq 2$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=2$ gilt: $3^2=9 > 5=2\\cdot2+1$.",
-                "Induktionsvoraussetzung: $3^n > 2n+1$ gelte für ein beliebiges $n \\geq 2$.",
-                "Induktionsschritt: Zeige $3^{n+1} > 2(n+1)+1$:",
-                "$3^{n+1} = 3\\cdot3^n > 3(2n+1)$ (nach IV)$",
-                "$= 6n+3$.",
-                "Zu zeigen: $6n+3 \\geq 2n+3$ für $n \\geq 2$.",
-                "Das ist für $n \\geq 2$ erfüllt.",
-                "Damit ist die Aussage bewiesen."
-            ]
-        },
-        {
-            "id": 55,
-            "topic": "Vollständige Induktion",
-            "title": "Summe der ersten $n$ ungeraden Zahlen zum Quadrat",
-            "description": "Beweisen Sie: $\\sum_{k=1}^n (2k-1)^2 = \\frac{n(4n^2-1)}{3}$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $(2\\cdot1-1)^2=1=\\frac{1\\cdot(4\\cdot1^2-1)}{3}=1$.",
-                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n \\geq 1$.",
-                "Induktionsschritt: $\\sum_{k=1}^{n+1} (2k-1)^2 = \\frac{n(4n^2-1)}{3} + (2(n+1)-1)^2$",
-                "$= \\frac{n(4n^2-1) + (2n+1)^2\\cdot3}{3}$",
-                "$= \\frac{n(4n^2-1) + 4n^2+4n+1}{3}$",
-                "Nach Umformung ergibt sich $\\frac{(n+1)(4(n+1)^2-1)}{3}$.",
-                "Damit ist die Aussage bewiesen."
-            ]
-        },
-        {
-            "id": 56,
-            "topic": "Vollständige Induktion",
-            "title": "Teilbarkeit von $2^{2n}-1$ durch 3",
-            "description": "Beweisen Sie: $2^{2n}-1$ ist für alle $n \\geq 1$ durch $3$ teilbar.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $2^2-1=3$ ist durch $3$ teilbar.",
-                "Induktionsvoraussetzung: $2^{2n}-1$ sei durch $3$ teilbar.",
-                "Induktionsschritt: $2^{2(n+1)}-1=4\\cdot2^{2n}-1=4(2^{2n}-1)+3$.",
-                "Beide Summanden sind durch $3$ teilbar.",
-                "Damit ist die Behauptung bewiesen."
-            ]
-        },
-        {
-            "id": 57,
-            "topic": "Vollständige Induktion",
-            "title": "Summe der ersten $n$ Zahlen mit Abstand 4",
-            "description": "Beweisen Sie: $\\sum_{k=1}^n (4k) = 2n(n+1)$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $4=2\\cdot1\\cdot2=2$.",
-                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n \\geq 1$.",
-                "Induktionsschritt: $\\sum_{k=1}^{n+1} 4k = 2n(n+1) + 4(n+1) = 2(n+1)(n+2)$.",
-                "Damit ist die Aussage bewiesen."
-            ]
-        },
-        {
-            "id": 58,
-            "topic": "Vollständige Induktion",
-            "title": "Ungleichung $n^3 < 2^n$",
-            "description": "Beweisen Sie mittels vollständiger Induktion: $n^3 < 2^n$ für alle $n \\geq 10$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=10$ gilt: $10^3=1000 < 1024=2^{10}$.",
-                "Induktionsvoraussetzung: $n^3 < 2^n$ gelte für ein beliebiges $n \\geq 10$.",
-                "Induktionsschritt: Zeige $(n+1)^3 < 2^{n+1}$.",
-                "Berechnung und Abschätzung führen zum Beweis.",
-                "Damit ist die Aussage bewiesen."
-            ]
-        },
-        {
-            "id": 59,
-            "topic": "Vollständige Induktion",
-            "title": "Summe der ersten $n$ Fünferpotenzen",
-            "description": "Beweisen Sie: $\\sum_{k=1}^n 5^k = \\frac{5^{n+1}-5}{4}$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $5^1=5=\\frac{5^2-5}{4}=5$.",
-                "Induktionsvoraussetzung: Die Aussage gelte für ein beliebiges $n \\geq 1$.",
-                "Induktionsschritt: $\\sum_{k=1}^{n+1} 5^k = \\frac{5^{n+1}-5}{4} + 5^{n+1}$",
-                "$= \\frac{5^{n+1}-5+4\\cdot5^{n+1}}{4}$",
-                "$= \\frac{5^{n+2}-5}{4}$.",
-                "Damit ist die Aussage bewiesen."
-            ]
-        },
-        {
-            "id": 60,
-            "topic": "Vollständige Induktion",
-            "title": "Teilbarkeit von $n^3-n$ durch 6",
-            "description": "Beweisen Sie: $n^3-n$ ist für alle $n \\geq 1$ durch $6$ teilbar.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $1^3-1=0$ ist durch $6$ teilbar.",
-                "Induktionsvoraussetzung: $n^3-n$ sei durch $6$ teilbar.",
-                "Induktionsschritt: $(n+1)^3-(n+1) = n^3+3n^2+3n+1-(n+1) = n^3-n+3n^2+3n$.",
-                "Nach IV ist $n^3-n$ durch $6$ teilbar, $3n^2+3n$ ist durch $6$ teilbar.",
-                "Damit ist die Behauptung bewiesen."
-            ]
-        },
-        {
-            "id": 61,
-            "topic": "Vollständige Induktion",
-            "title": "Ungleichung $n! > n^2$ für $n \\geq 5$",
-            "description": "Beweisen Sie mittels vollständiger Induktion: $n! > n^2$ für alle $n \\geq 5$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=5$ gilt: $5! = 120 > 25 = 5^2$.",
-                "Induktionsvoraussetzung: $n! > n^2$ gelte für ein beliebiges $n \\geq 5$.",
-                "Induktionsschritt: Zeige $(n+1)! > (n+1)^2$:",
-                "$(n+1)! = (n+1) \\cdot n! > (n+1) \\cdot n^2$ (nach IV).",
-                "Für $n \\geq 5$ gilt: $(n+1) \\cdot n^2 > (n+1)^2$.",
-                "Denn $n^2 > n+1$ für $n \\geq 5$.",
-                "Damit ist die Aussage bewiesen."
-            ]
-        },
-        {
-            "id": 62,
-            "topic": "Vollständige Induktion",
-            "title": "Ungleichung $2^n > n^3$ für $n \\geq 10$",
-            "description": "Beweisen Sie mittels vollständiger Induktion: $2^n > n^3$ für alle $n \\geq 10$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=10$ gilt: $2^{10} = 1024 > 1000 = 10^3$.",
-                "Induktionsvoraussetzung: $2^n > n^3$ gelte für ein beliebiges $n \\geq 10$.",
-                "Induktionsschritt: Zeige $2^{n+1} > (n+1)^3$:",
-                "$2^{n+1} = 2 \\cdot 2^n > 2n^3$ (nach IV).",
-                "Für $n \\geq 10$ gilt: $2n^3 > (n+1)^3$.",
-                "Denn $2n^3 - (n+1)^3 = n^3 - 3n^2 - 3n - 1 > 0$ für $n \\geq 10$.",
-                "Damit ist die Aussage bewiesen."
-            ]
-        },
-        {
-            "id": 63,
-            "topic": "Vollständige Induktion",
-            "title": "Teilbarkeit von $n^5-n$ durch 30",
-            "description": "Beweisen Sie: $n^5-n$ ist für alle $n \\geq 1$ durch $30$ teilbar.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $1^5-1=0$ ist durch $30$ teilbar.",
-                "Induktionsvoraussetzung: $n^5-n$ sei durch $30$ teilbar.",
-                "Induktionsschritt: $(n+1)^5-(n+1) = n^5+5n^4+10n^3+10n^2+5n+1-(n+1)$.",
-                "$= n^5-n + 5n^4+10n^3+10n^2+5n$.",
-                "Jeder Summand ist für $n \\geq 1$ durch $30$ teilbar.",
-                "Damit ist die Behauptung bewiesen."
-            ]
-        },
-        {
-            "id": 64,
-            "topic": "Vollständige Induktion",
-            "title": "Ungleichung $n! > 2^n$ für $n \\geq 4$",
-            "description": "Beweisen Sie mittels vollständiger Induktion: $n! > 2^n$ für alle $n \\geq 4$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=4$ gilt: $4! = 24 > 16 = 2^4$.",
-                "Induktionsvoraussetzung: $n! > 2^n$ gelte für ein beliebiges $n \\geq 4$.",
-                "Induktionsschritt: Zeige $(n+1)! > 2^{n+1}$:",
-                "$(n+1)! = (n+1) \\cdot n! > (n+1) \\cdot 2^n$ (nach IV).",
-                "Für $n+1 \\geq 5$ gilt: $(n+1) \\cdot 2^n > 2^{n+1}$.",
-                "Damit ist die Aussage bewiesen."
-            ]
-        },
-        {
-            "id": 65,
-            "topic": "Vollständige Induktion",
             "title": "Summe der ersten $n$ Binomialkoeffizienten",
             "description": "Beweisen Sie: $\\sum_{k=0}^n \\binom{n}{k} = 2^n$.",
             "difficulty": "hard",
@@ -625,7 +559,7 @@
             ]
         },
         {
-            "id": 66,
+            "id": 37,
             "topic": "Vollständige Induktion",
             "title": "Ungleichung $n^n > n!$ für $n \\geq 4$",
             "description": "Beweisen Sie mittels vollständiger Induktion: $n^n > n!$ für alle $n \\geq 4$.",
@@ -638,36 +572,6 @@
                 "$(n+1)^{n+1} = (n+1) \\cdot (n+1)^n > (n+1) \\cdot n! = (n+1)!$ (nach IV).",
                 "Damit ist die Aussage bewiesen."
             ]
-        },
-        {
-            "id": 67,
-            "topic": "Vollständige Induktion",
-            "title": "Teilbarkeit von $7^n+2^n$ durch 3",
-            "description": "Beweisen Sie: $7^n+2^n$ ist für alle $n \\geq 1$ durch $3$ teilbar.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=1$ gilt: $7^1+2^1=9$ ist durch $3$ teilbar.",
-                "Induktionsvoraussetzung: $7^n+2^n$ sei durch $3$ teilbar.",
-                "Induktionsschritt: $7^{n+1}+2^{n+1}=7\\cdot7^n+2\\cdot2^n=7(7^n+2^n)-7\\cdot2^n+2\\cdot2^n$.",
-                "Beide Summanden sind durch $3$ teilbar.",
-                "Damit ist die Behauptung bewiesen."
-            ]
-        },
-        {
-            "id": 68,
-            "topic": "Vollständige Induktion",
-            "title": "Ungleichung $n^4 > 4^n$ für $n \\geq 9$",
-            "description": "Beweisen Sie mittels vollständiger Induktion: $n^4 > 4^n$ für alle $n \\geq 9$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Induktionsanfang: Für $n=9$ gilt: $9^4=6561 > 262144=4^9$ ist falsch, daher ab $n=17$ prüfen.",
-                "Induktionsvoraussetzung: $n^4 > 4^n$ gelte für ein beliebiges $n \\geq 17$.",
-                "Induktionsschritt: Zeige $(n+1)^4 > 4^{n+1}$.",
-                "Berechnung und Abschätzung führen zum Beweis.",
-                "Damit ist die Aussage bewiesen."
-            ]
         }
     ]
-} 
+}

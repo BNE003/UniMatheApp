@@ -3,7 +3,7 @@
         "title": "Analysis II",
         "subtitle": "Mehrdimensionale Analysis und Vektoranalysis",
         "duration": 90,
-        "totalPoints": 170,
+        "totalPoints": 100,
         "difficulty": "advanced",
         "language": "de",
         "instructions": "Bearbeiten Sie alle Aufgaben vollständig. Geben Sie stets den Lösungsweg an. Skizzen sind wo möglich anzufertigen. Zulässige Hilfsmittel: nicht programmierbarer Taschenrechner."
@@ -11,178 +11,87 @@
     "exercises": [
         {
             "id": 1,
-            "topic": "Partielle Ableitungen und Tangentialebene",
-            "title": "Gradient, Hesse-Matrix und Tangentialebene",
-            "description": "Gegeben sei die Funktion f: ℝ² → ℝ mit f(x,y) = x³ + 2xy² - y³ + 4x - 2y.\n\na) Berechnen Sie alle partiellen Ableitungen erster und zweiter Ordnung.\nb) Bestimmen Sie die Gleichung der Tangentialebene an den Graphen von f im Punkt P₀ = (1, 1).\nc) Berechnen Sie die Hesse-Matrix H_f(x,y) und untersuchen Sie deren Definitheit im Punkt (1, 1).",
-            "difficulty": "medium",
-            "points": 20,
+            "topic": "Partielle Ableitungen",
+            "title": "Gradient, Hesse-Matrix und Taylorpolynom",
+            "description": "Sei $f(x,y) = x^2y + y^3$.\na) Bestimmen Sie $\\nabla f$ und die Hesse-Matrix $H_f$ im Punkt $(1,1)$.\nb) Geben Sie das Taylorpolynom zweiter Ordnung in $(1,1)$ an.",
+            "difficulty": "advanced",
+            "points": 17,
             "solutionSteps": [
-                "Schritt 1: Partielle Ableitungen erster Ordnung\n$f_x(x,y) = \\frac{\\partial f}{\\partial x} = 3x^2 + 2y^2 + 4$\n$f_y(x,y) = \\frac{\\partial f}{\\partial y} = 4xy - 3y^2 - 2$\n$\\nabla f(x,y) = (3x^2 + 2y^2 + 4, 4xy - 3y^2 - 2)$",
-                "Schritt 2: Partielle Ableitungen zweiter Ordnung\n$f_{xx}(x,y) = \\frac{\\partial^2 f}{\\partial x^2} = 6x$\n$f_{yy}(x,y) = \\frac{\\partial^2 f}{\\partial y^2} = 4x - 6y$\n$f_{xy}(x,y) = f_{yx}(x,y) = \\frac{\\partial^2 f}{\\partial x \\partial y} = 4y$\n(Nach Satz von Schwarz sind gemischte Ableitungen gleich)",
-                "Schritt 3: Funktionswert und Gradient im Punkt P₀ = (1,1)\n$f(1,1) = 1^3 + 2 \\cdot 1 \\cdot 1^2 - 1^3 + 4 \\cdot 1 - 2 \\cdot 1 = 1 + 2 - 1 + 4 - 2 = 4$\n$\\nabla f(1,1) = (3 \\cdot 1^2 + 2 \\cdot 1^2 + 4, 4 \\cdot 1 \\cdot 1 - 3 \\cdot 1^2 - 2) = (9, -1)$",
-                "Schritt 4: Teil b) - Tangentialebene\nAllgemeine Form: $z = f(x_0,y_0) + f_x(x_0,y_0) \\cdot (x-x_0) + f_y(x_0,y_0) \\cdot (y-y_0)$\nEinsetzen: $z = 4 + 9 \\cdot (x-1) + (-1) \\cdot (y-1)$\n$z = 4 + 9x - 9 - y + 1$\nTangentialebene: $z = 9x - y - 4$",
-                "Schritt 5: Teil c) - Hesse-Matrix\n$H_f(x,y) = \\begin{pmatrix} f_{xx} & f_{xy} \\\\ f_{yx} & f_{yy} \\end{pmatrix} = \\begin{pmatrix} 6x & 4y \\\\ 4y & 4x-6y \\end{pmatrix}$\nIm Punkt (1,1): $H_f(1,1) = \\begin{pmatrix} 6 & 4 \\\\ 4 & -2 \\end{pmatrix}$",
-                "Schritt 6: Definitheit der Hesse-Matrix\nDeterminante: $\\det(H_f(1,1)) = 6 \\cdot (-2) - 4 \\cdot 4 = -12 - 16 = -28 < 0$\nDa det < 0, ist die Matrix indefinit.\nDies bedeutet: (1,1) ist ein Sattelpunkt von f."
+                "Schritt 1: Teil a): Gradient\n$f_x = 2xy$, $f_y = x^2 + 3y^2$. $\\nabla f(1,1) = (2,4)$.",
+                "Schritt 2: Teil a): Hesse-Matrix\n$f_{xx} = 2y$, $f_{xy} = f_{yx} = 2x$, $f_{yy} = 6y$. $H_f(1,1) = \\begin{pmatrix} 2 & 2 \\\\ 2 & 6 \\end{pmatrix}$ (symmetrisch nach Schwarz).",
+                "Schritt 3: Teil b): Taylorpolynom\n$f(1,1) = 2$. Mit $h = x - 1$, $k = y - 1$: $T_2 = f + f_xh + f_yk + \\frac12(f_{xx}h^2 + 2f_{xy}hk + f_{yy}k^2) = 2 + 2h + 4k + h^2 + 2hk + 3k^2$.",
+                "Schritt 4: Probe\nAn der Stelle $(1{,}1;\\ 1{,}1)$: exakt $f = 1{,}21\\cdot1{,}1 + 1{,}331 = 2{,}662$; $T_2 = 2 + 0{,}2 + 0{,}4 + 0{,}01 + 0{,}02 + 0{,}03 = 2{,}66$. Fehler $0{,}002$ (dritter Ordnung) ✓."
             ]
         },
         {
             "id": 2,
-            "topic": "Extremwertbestimmung",
-            "title": "Lokale Extrema mit Lagrange-Multiplikatoren",
-            "description": "Bestimmen Sie die Extrema der Funktion f(x,y) = x² + y² unter der Nebenbedingung g(x,y) = x + 2y - 3 = 0.\n\na) Verwenden Sie die Methode der Lagrange-Multiplikatoren.\nb) Klassifizieren Sie die gefundenen kritischen Punkte.\nc) Verifizieren Sie das Ergebnis durch Einsetzen der Nebenbedingung.",
-            "difficulty": "medium",
-            "points": 18,
+            "topic": "Extremwerte",
+            "title": "Kritische Punkte klassifizieren",
+            "description": "Bestimmen und klassifizieren Sie alle kritischen Punkte von $f(x,y) = x^3 + y^3 - 3xy$.",
+            "difficulty": "advanced",
+            "points": 17,
             "solutionSteps": [
-                "Schritt 1: Lagrange-Funktion aufstellen\n$L(x,y,\\lambda) = f(x,y) - \\lambda \\cdot g(x,y) = x^2 + y^2 - \\lambda(x + 2y - 3)$\nNotwendige Bedingungen für Extrema:\n$\\nabla L = 0$ und $g(x,y) = 0$",
-                "Schritt 2: Partielle Ableitungen der Lagrange-Funktion\n$\\frac{\\partial L}{\\partial x} = 2x - \\lambda = 0 \\quad \\Rightarrow \\quad x = \\frac{\\lambda}{2}$\n$\\frac{\\partial L}{\\partial y} = 2y - 2\\lambda = 0 \\quad \\Rightarrow \\quad y = \\lambda$\n$\\frac{\\partial L}{\\partial \\lambda} = -(x + 2y - 3) = 0 \\quad \\Rightarrow \\quad x + 2y = 3$",
-                "Schritt 3: Gleichungssystem lösen\nAus den ersten beiden Gleichungen: $x = \\frac{\\lambda}{2}, y = \\lambda$\nEinsetzen in die Nebenbedingung:\n$\\frac{\\lambda}{2} + 2\\lambda = 3$\n$\\frac{\\lambda}{2} + \\frac{4\\lambda}{2} = 3$\n$\\frac{5\\lambda}{2} = 3 \\quad \\Rightarrow \\quad \\lambda = \\frac{6}{5}$",
-                "Schritt 4: Kritischen Punkt bestimmen\n$x = \\frac{\\lambda}{2} = \\frac{6/5}{2} = \\frac{3}{5}$\n$y = \\lambda = \\frac{6}{5}$\nKritischer Punkt: $\\left(\\frac{3}{5}, \\frac{6}{5}\\right)$\n$\\text{Funktionswert: } f\\left(\\frac{3}{5}, \\frac{6}{5}\\right) = \\left(\\frac{3}{5}\\right)^2 + \\left(\\frac{6}{5}\\right)^2 = \\frac{9}{25} + \\frac{36}{25} = \\frac{45}{25} = \\frac{9}{5}$",
-                "Schritt 5: Teil b) - Klassifikation\nDa wir unter einer linearen Nebenbedingung optimieren und $f(x,y) = x^2 + y^2$ eine strikt konvexe Funktion ist, handelt es sich um ein globales Minimum.\nGeometrische Interpretation: Wir suchen den Punkt auf der Geraden $x + 2y = 3$, der dem Ursprung am nächsten liegt.",
-                "Schritt 6: Teil c) - Verifikation durch Substitution\nAus $x + 2y = 3$ folgt $x = 3 - 2y$\nEinsetzen: $f(3-2y, y) = (3-2y)^2 + y^2 = 9 - 12y + 4y^2 + y^2 = 5y^2 - 12y + 9$\nAbleiten: $f'(y) = 10y - 12 = 0 \\quad \\Rightarrow \\quad y = \\frac{6}{5}$\nZweite Ableitung: $f''(y) = 10 > 0 \\quad \\Rightarrow$ Minimum\nRücksubstitution: $x = 3 - 2 \\cdot \\frac{6}{5} = 3 - \\frac{12}{5} = \\frac{3}{5}$ ✓"
+                "Schritt 1: Kritische Punkte\n$f_x = 3x^2 - 3y = 0 \\Rightarrow y = x^2$; $f_y = 3y^2 - 3x = 0 \\Rightarrow x = y^2$. Einsetzen: $x = x^4 \\Rightarrow x(x^3 - 1) = 0 \\Rightarrow x \\in \\{0,1\\}$. Kritische Punkte: $(0,0)$ und $(1,1)$.",
+                "Schritt 2: Hesse-Matrix\n$H = \\begin{pmatrix} 6x & -3 \\\\ -3 & 6y \\end{pmatrix}$, $D = \\det H = 36xy - 9$.",
+                "Schritt 3: Klassifikation\n$(0,0)$: $D = -9 < 0$: **Sattelpunkt**. $(1,1)$: $D = 27 > 0$ und $f_{xx} = 6 > 0$: lokales **Minimum** mit $f(1,1) = -1$.",
+                "Schritt 4: Kein globales Extremum\nWegen $f(x,0) = x^3 \\to \\pm\\infty$ ist $f$ weder nach oben noch nach unten beschränkt. Das lokale Minimum ist nicht global. Probe: $f(2,2) = 8 + 8 - 12 = 4 > -1$, $f(0{,}9;0{,}9) = 0{,}729 \\cdot 2 - 2{,}43 = -0{,}972 > -1$ ✓."
             ]
         },
         {
             "id": 3,
-            "topic": "Mehrfachintegrale",
-            "title": "Doppelintegral mit Koordinatentransformation",
-            "description": "Berechnen Sie das Integral $\\iint_D x^2 + y^2 \\, dA$ über das Gebiet D = {(x,y): x² + y² ≤ 4, x ≥ 0, y ≥ 0}.\n\na) Skizzieren Sie das Integrationsgebiet D.\nb) Parametrisieren Sie D in kartesischen Koordinaten.\nc) Berechnen Sie das Integral mittels Polarkoordinaten.",
-            "difficulty": "medium",
-            "points": 20,
+            "topic": "Extremwerte unter Nebenbedingungen",
+            "title": "Lagrange-Multiplikatoren",
+            "description": "Bestimmen Sie die Extrema von $f(x,y) = xy$ auf dem Kreis $x^2 + y^2 = 8$.",
+            "difficulty": "advanced",
+            "points": 16,
             "solutionSteps": [
-                "Schritt 1: Teil a) - Skizze des Gebiets\nD ist ein Viertelkreis mit Radius 2 im ersten Quadranten.\nBegrenzung: Kreisbogen $x^2 + y^2 = 4$ von (2,0) bis (0,2)\nund die Koordinatenachsen $x = 0$ (für $0 \\leq y \\leq 2$) und $y = 0$ (für $0 \\leq x \\leq 2$)",
-                "Schritt 2: Teil b) - Kartesische Parametrisierung\nFür festes $x \\in [0,2]$: y läuft von 0 bis $\\sqrt{4-x^2}$\n$I = \\int_0^2 \\int_0^{\\sqrt{4-x^2}} (x^2 + y^2) \\, dy \\, dx$",
-                "Schritt 3: Berechnung in kartesischen Koordinaten (zum Vergleich)\nInneres Integral: $\\int_0^{\\sqrt{4-x^2}} (x^2 + y^2) \\, dy = \\left[x^2 y + \\frac{y^3}{3}\\right]_0^{\\sqrt{4-x^2}}$\n$= x^2 \\sqrt{4-x^2} + \\frac{1}{3}(4-x^2)^{3/2}$\nDies führt zu einem komplexen Integral.",
-                "Schritt 4: Teil c) - Transformation zu Polarkoordinaten\nSubstitution: $x = r \\cos \\varphi, y = r \\sin \\varphi$\nJacobi-Determinante: $|J| = r$\nIntegrand: $x^2 + y^2 = r^2$\nGebiet D: $0 \\leq r \\leq 2, 0 \\leq \\varphi \\leq \\frac{\\pi}{2}$",
-                "Schritt 5: Integral in Polarkoordinaten\n$I = \\int_0^{\\pi/2} \\int_0^2 r^2 \\cdot r \\, dr \\, d\\varphi = \\int_0^{\\pi/2} \\int_0^2 r^3 \\, dr \\, d\\varphi$\nInneres Integral: $\\int_0^2 r^3 \\, dr = \\left[\\frac{r^4}{4}\\right]_0^2 = \\frac{16}{4} = 4$",
-                "Schritt 6: Äußeres Integral und Endergebnis\n$I = \\int_0^{\\pi/2} 4 \\, d\\varphi = 4 \\cdot \\frac{\\pi}{2} = 2\\pi$\nAntwort: Das Integral hat den Wert $2\\pi$.\nPhysikalische Interpretation: Dies ist das Trägheitsmoment eines Viertelkreises bezüglich des Ursprungs."
+                "Schritt 1: Lagrange-Bedingung\n$g = x^2 + y^2 - 8$. $\\nabla f = (y,x) = \\lambda(2x,2y)$, also $y = 2\\lambda x$ und $x = 2\\lambda y$.",
+                "Schritt 2: Lösen\nEinsetzen: $x = 2\\lambda\\cdot2\\lambda x = 4\\lambda^2x$. Wegen $(0,0)$ nicht auf dem Kreis: $\\lambda^2 = \\frac14$, $\\lambda = \\pm\\frac12$, also $y = \\pm x$. Nebenbedingung: $2x^2 = 8 \\Rightarrow x = \\pm2$.",
+                "Schritt 3: Kandidaten und Werte\n$y = x$: $(2,2)$ und $(-2,-2)$ mit $f = 4$ (Maxima). $y = -x$: $(2,-2)$ und $(-2,2)$ mit $f = -4$ (Minima).",
+                "Schritt 4: Probe mit Parametrisierung\n$x = 2\\sqrt2\\cos t$, $y = 2\\sqrt2\\sin t$: $f = 8\\sin t\\cos t = 4\\sin2t \\in [-4,4]$ ✓. Der Kreis ist kompakt, daher werden Maximum und Minimum angenommen."
             ]
         },
         {
             "id": 4,
-            "topic": "Kurvenintegrale",
-            "title": "Arbeitsintegral und Wegunabhängigkeit",
-            "description": "Gegeben sei das Vektorfeld $\\vec{F}(x,y) = (2xy + y^2, x^2 + 2xy - 1)$.\n\na) Prüfen Sie, ob $\\vec{F}$ konservativ ist.\nb) Falls ja, bestimmen Sie ein Potential φ(x,y).\nc) Berechnen Sie das Kurvenintegral $\\int_C \\vec{F} \\cdot d\\vec{r}$ entlang des Weges C von A(0,0) nach B(2,1).",
-            "difficulty": "hard",
-            "points": 22,
+            "topic": "Mehrfachintegrale",
+            "title": "Polarkoordinaten",
+            "description": "a) Berechnen Sie $\\iint_D(x^2 + y^2)\\,dA$ über $D = \\{x^2 + y^2 \\leq 4\\}$.\nb) Berechnen Sie $\\iint_Ee^{-(x^2+y^2)}\\,dA$ über der Einheitskreisscheibe $E$.",
+            "difficulty": "advanced",
+            "points": 17,
             "solutionSteps": [
-                "Schritt 1: Konservativität prüfen\n$\\vec{F} = (P, Q)$ mit $P(x,y) = 2xy + y^2, Q(x,y) = x^2 + 2xy - 1$\nNotwendige Bedingung für Konservativität: $\\frac{\\partial P}{\\partial y} = \\frac{\\partial Q}{\\partial x}$\n$\\frac{\\partial P}{\\partial y} = \\frac{\\partial(2xy + y^2)}{\\partial y} = 2x + 2y$\n$\\frac{\\partial Q}{\\partial x} = \\frac{\\partial(x^2 + 2xy - 1)}{\\partial x} = 2x + 2y$\nDa $\\frac{\\partial P}{\\partial y} = \\frac{\\partial Q}{\\partial x}$, ist $\\vec{F}$ konservativ.",
-                "Schritt 2: Teil b) - Potential bestimmen\nGesucht: $\\varphi(x,y)$ mit $\\nabla \\varphi = \\vec{F}$\n$\\frac{\\partial \\varphi}{\\partial x} = P = 2xy + y^2 \\quad \\Rightarrow \\quad \\varphi(x,y) = x^2y + xy^2 + g(y)$\n$\\frac{\\partial \\varphi}{\\partial y} = x^2 + 2xy + g'(y) = Q = x^2 + 2xy - 1$\nDaraus folgt: $g'(y) = -1 \\quad \\Rightarrow \\quad g(y) = -y + C$",
-                "Schritt 3: Potential vollständig bestimmen\n$\\varphi(x,y) = x^2y + xy^2 - y + C$\nVerifikation:\n$\\frac{\\partial \\varphi}{\\partial x} = 2xy + y^2 = P$ ✓\n$\\frac{\\partial \\varphi}{\\partial y} = x^2 + 2xy - 1 = Q$ ✓\nPotential (mit C = 0): $\\varphi(x,y) = x^2y + xy^2 - y$",
-                "Schritt 4: Teil c) - Kurvenintegral berechnen\nDa $\\vec{F}$ konservativ ist, ist das Integral wegunabhängig:\n$\\int_C \\vec{F} \\cdot d\\vec{r} = \\varphi(B) - \\varphi(A) = \\varphi(2,1) - \\varphi(0,0)$",
-                "Schritt 5: Potentialwerte berechnen\n$\\varphi(2,1) = 2^2 \\cdot 1 + 2 \\cdot 1^2 - 1 = 4 + 2 - 1 = 5$\n$\\varphi(0,0) = 0^2 \\cdot 0 + 0 \\cdot 0^2 - 0 = 0$\n$\\int_C \\vec{F} \\cdot d\\vec{r} = 5 - 0 = 5$",
-                "Schritt 6: Alternative Verifikation über konkreten Weg\nBetrachten wir den linearen Weg: $\\vec{r}(t) = (2t, t), t \\in [0,1]$\n$\\vec{r}'(t) = (2, 1)$\n$\\vec{F}(\\vec{r}(t)) = (2 \\cdot 2t \\cdot t + t^2, (2t)^2 + 2 \\cdot 2t \\cdot t - 1) = (4t^2 + t^2, 4t^2 + 4t^2 - 1) = (5t^2, 8t^2 - 1)$\n$\\int_0^1 (5t^2, 8t^2 - 1) \\cdot (2, 1) dt = \\int_0^1 (10t^2 + 8t^2 - 1) dt = \\int_0^1 (18t^2 - 1) dt$\n$= \\left[6t^3 - t\\right]_0^1 = 6 - 1 = 5$ ✓"
+                "Schritt 1: Transformation\nPolarkoordinaten: $x = r\\cos\\varphi$, $y = r\\sin\\varphi$, $dA = r\\,dr\\,d\\varphi$, $x^2 + y^2 = r^2$. Der Faktor $r$ (Funktionaldeterminante) darf nicht fehlen.",
+                "Schritt 2: Teil a)\n$\\int_0^{2\\pi}\\int_0^2r^2\\cdot r\\,dr\\,d\\varphi = 2\\pi\\cdot\\left[\\frac{r^4}{4}\\right]_0^2 = 2\\pi\\cdot4 = 8\\pi$.",
+                "Schritt 3: Teil b)\n$\\int_0^{2\\pi}\\int_0^1e^{-r^2}r\\,dr\\,d\\varphi = 2\\pi\\cdot\\left[-\\frac12e^{-r^2}\\right]_0^1 = 2\\pi\\cdot\\frac12(1 - e^{-1}) = \\pi(1 - e^{-1}) \\approx 1{,}986$.",
+                "Schritt 4: Plausibilität\na) Mit $f \\equiv 1$ erhält man die Kreisfläche $4\\pi$; der Integrand $r^2 \\leq 4$ liefert $8\\pi \\leq 4\\pi\\cdot4$ ✓. b) Der Integrand liegt zwischen $e^{-1}$ und $1$: Ergebnis zwischen $\\pi e^{-1} \\approx 1{,}16$ und $\\pi$ ✓."
             ]
         },
         {
             "id": 5,
-            "topic": "Oberflächenintegrale",
-            "title": "Fluss durch eine Oberfläche",
-            "description": "Berechnen Sie den Fluss des Vektorfeldes $\\vec{F}(x,y,z) = (x, y, z)$ durch die Oberfläche S, die der Teil der Kugel $x^2 + y^2 + z^2 = 4$ mit z ≥ 0 ist, orientiert nach außen.\n\na) Parametrisieren Sie die Oberfläche S.\nb) Berechnen Sie den Normalenvektor.\nc) Bestimmen Sie das Oberflächenintegral.",
-            "difficulty": "hard",
-            "points": 20,
+            "topic": "Kurvenintegrale",
+            "title": "Wegunabhängigkeit und Potential",
+            "description": "a) Zeigen Sie, dass $\\vec F = (y, x)$ ein Potential besitzt, und berechnen Sie $\\int_C\\vec F\\cdot d\\vec r$ für $C: \\gamma(t) = (t, 2t^2)$, $t \\in [0,1]$, auf zwei Arten.\nb) Berechnen Sie $\\oint\\vec G\\cdot d\\vec r$ für $\\vec G = (-y,x)$ über den positiv orientierten Einheitskreis.",
+            "difficulty": "advanced",
+            "points": 16,
             "solutionSteps": [
-                "Schritt 1: Teil a) - Parametrisierung der Halbkugel\nWir verwenden Kugelkoordinaten:\n$\\vec{r}(\\varphi,\\theta) = (2\\cos\\varphi\\sin\\theta, 2\\sin\\varphi\\sin\\theta, 2\\cos\\theta)$\nParameterbereich: $0 \\leq \\varphi \\leq 2\\pi, 0 \\leq \\theta \\leq \\frac{\\pi}{2}$\n($\\theta = 0$ entspricht dem Nordpol, $\\theta = \\frac{\\pi}{2}$ der Äquatorebene)",
-                "Schritt 2: Partielle Ableitungen berechnen\n$\\frac{\\partial \\vec{r}}{\\partial \\varphi} = (-2\\sin\\varphi\\sin\\theta, 2\\cos\\varphi\\sin\\theta, 0)$\n$\\frac{\\partial \\vec{r}}{\\partial \\theta} = (2\\cos\\varphi\\cos\\theta, 2\\sin\\varphi\\cos\\theta, -2\\sin\\theta)$",
-                "Schritt 3: Teil b) - Normalenvektor\n$\\vec{n} = \\frac{\\partial \\vec{r}}{\\partial \\varphi} \\times \\frac{\\partial \\vec{r}}{\\partial \\theta}$\n$= \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\ -2\\sin\\varphi\\sin\\theta & 2\\cos\\varphi\\sin\\theta & 0 \\\\ 2\\cos\\varphi\\cos\\theta & 2\\sin\\varphi\\cos\\theta & -2\\sin\\theta \\end{vmatrix}$\n$= (-4\\cos\\varphi\\sin^2\\theta, -4\\sin\\varphi\\sin^2\\theta, -4\\sin^2\\varphi\\sin\\theta\\cos\\theta - 4\\cos^2\\varphi\\sin\\theta\\cos\\theta)$\n$= -4\\sin\\theta(\\cos\\varphi\\sin\\theta, \\sin\\varphi\\sin\\theta, \\sin\\theta\\cos\\theta)$\n$= -4\\sin\\theta \\cdot \\frac{\\vec{r}}{2} = -2\\sin\\theta \\cdot \\vec{r}$",
-                "Schritt 4: Orientierung korrigieren\nDa wir nach außen orientieren wollen und $\\vec{r}$ vom Ursprung weg zeigt, nehmen wir:\n$\\vec{n} = 2\\sin\\theta \\cdot \\vec{r} = 4\\sin\\theta(\\cos\\varphi\\sin\\theta, \\sin\\varphi\\sin\\theta, \\cos\\theta)$\n$|\\vec{n}| = 4\\sin\\theta \\cdot 2 = 8\\sin\\theta$",
-                "Schritt 5: Teil c) - Oberflächenintegral berechnen\n$\\vec{F}(\\vec{r}(\\varphi,\\theta)) = (2\\cos\\varphi\\sin\\theta, 2\\sin\\varphi\\sin\\theta, 2\\cos\\theta) = \\vec{r}(\\varphi,\\theta)$\n$\\vec{F} \\cdot \\vec{n} = \\vec{r} \\cdot (2\\sin\\theta \\cdot \\vec{r}) = 2\\sin\\theta \\cdot |\\vec{r}|^2 = 2\\sin\\theta \\cdot 4 = 8\\sin\\theta$",
-                "Schritt 6: Integration\n$\\iint_S \\vec{F} \\cdot d\\vec{S} = \\int_0^{2\\pi} \\int_0^{\\pi/2} 8\\sin\\theta \\, d\\theta \\, d\\varphi$\n$= \\int_0^{2\\pi} \\left[-8\\cos\\theta\\right]_0^{\\pi/2} d\\varphi$\n$= \\int_0^{2\\pi} (-8\\cos(\\pi/2) + 8\\cos(0)) d\\varphi$\n$= \\int_0^{2\\pi} (0 + 8) d\\varphi = 8 \\cdot 2\\pi = 16\\pi$\nDer Fluss beträgt $16\\pi$."
+                "Schritt 1: Teil a): Potential\n$\\vec F = \\nabla\\varphi$ mit $\\varphi = xy$ ($\\varphi_x = y$, $\\varphi_y = x$). Integrabilitätsbedingung: $\\partial_yF_1 = 1 = \\partial_xF_2$ ✓.",
+                "Schritt 2: Teil a): Mit dem Potential\n$\\int_C\\vec F\\cdot d\\vec r = \\varphi(\\gamma(1)) - \\varphi(\\gamma(0)) = \\varphi(1,2) - \\varphi(0,0) = 2 - 0 = 2$.",
+                "Schritt 3: Teil a): Direkt\n$\\dot\\gamma = (1, 4t)$. $\\int_0^1\\big(2t^2\\cdot1 + t\\cdot4t\\big)dt = \\int_0^16t^2\\,dt = 2$ ✓ (stimmt überein).",
+                "Schritt 4: Teil b): Kein Potential\n$\\partial_yG_1 = -1 \\neq 1 = \\partial_xG_2$: $\\vec G$ ist kein Gradientenfeld. Parametrisierung $\\gamma(t) = (\\cos t,\\sin t)$, $\\dot\\gamma = (-\\sin t,\\cos t)$: $\\vec G\\cdot\\dot\\gamma = \\sin^2t + \\cos^2t = 1$.",
+                "Schritt 5: Teil b): Ergebnis\n$\\oint\\vec G\\cdot d\\vec r = \\int_0^{2\\pi}1\\,dt = 2\\pi \\neq 0$. Bei einem Potentialfeld wäre das Integral über jede geschlossene Kurve $0$. Probe mit Green: $\\iint(\\partial_xG_2 - \\partial_yG_1)\\,dA = \\iint2\\,dA = 2\\pi$ ✓."
             ]
         },
         {
             "id": 6,
             "topic": "Integralsätze",
             "title": "Satz von Gauß",
-            "description": "Verwenden Sie den Satz von Gauß (Divergenzsatz), um das Oberflächenintegral $\\iint_S \\vec{F} \\cdot \\vec{n} \\, dS$ zu berechnen, wobei $\\vec{F}(x,y,z) = (x^3, y^3, z^3)$ und S die vollständige Oberfläche des Würfels $[0,1]^3$ ist.\n\na) Wenden Sie den Divergenzsatz an.\nb) Vergleichen Sie mit der direkten Berechnung über eine Seitenfläche.",
-            "difficulty": "hard",
-            "points": 20,
+            "description": "Sei $\\vec F(x,y,z) = (x,y,z)$ und $K$ die Einheitskugel.\na) Berechnen Sie den Fluss durch die Kugeloberfläche direkt.\nb) Berechnen Sie $\\iiint_K\\operatorname{div}\\vec F\\,dV$ und vergleichen Sie.",
+            "difficulty": "advanced",
+            "points": 17,
             "solutionSteps": [
-                "Schritt 1: Teil a) - Divergenz berechnen\n$\\vec{F}(x,y,z) = (x^3, y^3, z^3)$\n$\\text{div } \\vec{F} = \\nabla \\cdot \\vec{F} = \\frac{\\partial(x^3)}{\\partial x} + \\frac{\\partial(y^3)}{\\partial y} + \\frac{\\partial(z^3)}{\\partial z} = 3x^2 + 3y^2 + 3z^2$",
-                "Schritt 2: Satz von Gauß anwenden\n$\\iint_S \\vec{F} \\cdot \\vec{n} \\, dS = \\iiint_V \\nabla \\cdot \\vec{F} \\, dV$\n$= \\iiint_{[0,1]^3} (3x^2 + 3y^2 + 3z^2) \\, dx \\, dy \\, dz$\n$= 3 \\iiint_{[0,1]^3} (x^2 + y^2 + z^2) \\, dx \\, dy \\, dz$",
-                "Schritt 3: Volumenintegral berechnen\n$\\iiint_{[0,1]^3} (x^2 + y^2 + z^2) \\, dx \\, dy \\, dz$\n$= \\int_0^1 \\int_0^1 \\int_0^1 (x^2 + y^2 + z^2) \\, dx \\, dy \\, dz$\nDa die Variablen separieren:\n$= \\int_0^1 x^2 dx \\int_0^1 dy \\int_0^1 dz + \\int_0^1 dx \\int_0^1 y^2 dy \\int_0^1 dz + \\int_0^1 dx \\int_0^1 dy \\int_0^1 z^2 dz$",
-                "Schritt 4: Einzelne Integrale\n$\\int_0^1 x^2 dx = \\left[\\frac{x^3}{3}\\right]_0^1 = \\frac{1}{3}$\n$\\int_0^1 dx = \\int_0^1 dy = \\int_0^1 dz = 1$\nDaher: $\\iiint_{[0,1]^3} (x^2 + y^2 + z^2) \\, dx \\, dy \\, dz = \\frac{1}{3} \\cdot 1 \\cdot 1 + 1 \\cdot \\frac{1}{3} \\cdot 1 + 1 \\cdot 1 \\cdot \\frac{1}{3} = 3 \\cdot \\frac{1}{3} = 1$",
-                "Schritt 5: Endergebnis mit Gauß\n$\\iint_S \\vec{F} \\cdot \\vec{n} \\, dS = 3 \\cdot 1 = 3$",
-                "Schritt 6: Teil b) - Verifikation über eine Seitenfläche\nBetrachten wir die Seitenfläche $x = 1$ (Einheitsnormale $\\vec{n} = (1,0,0)$):\n$\\vec{F}(1,y,z) = (1, y^3, z^3), \\quad \\vec{F} \\cdot \\vec{n} = 1$\n$\\iint_{x=1} \\vec{F} \\cdot \\vec{n} \\, dS = \\int_0^1 \\int_0^1 1 \\, dy \\, dz = 1$\nAnalog für alle 6 Seitenflächen:\n- $x = 0$: $\\iint 0 \\, dS = 0$\n- $x = 1$: $\\iint 1 \\, dS = 1$\n- $y = 0$: $\\iint 0 \\, dS = 0$\n- $y = 1$: $\\iint 1 \\, dS = 1$\n- $z = 0$: $\\iint 0 \\, dS = 0$\n- $z = 1$: $\\iint 1 \\, dS = 1$\nSumme: $0 + 1 + 0 + 1 + 0 + 1 = 3$ ✓"
-            ]
-        },
-        {
-            "id": 7,
-            "topic": "Taylorentwicklung",
-            "title": "Taylor-Reihe und Approximation",
-            "description": "Entwickeln Sie die Funktion $f(x) = e^{2x}$ um den Punkt $x_0 = 0$ in eine Taylor-Reihe bis zur 4. Ordnung.\n\na) Bestimmen Sie die Taylor-Polynome $T_2(x)$ und $T_4(x)$.\nb) Schätzen Sie den Fehler bei der Approximation von $e^{0.2}$ durch $T_2(0.1)$ ab.\nc) Bestimmen Sie das Konvergenzintervall der Taylor-Reihe.",
-            "difficulty": "hard",
-            "points": 18,
-            "solutionSteps": [
-                "Schritt 1: Ableitungen berechnen\n$f(x) = e^{2x}$\n$f'(x) = 2e^{2x}$\n$f''(x) = 4e^{2x}$\n$f'''(x) = 8e^{2x}$\n$f^{(4)}(x) = 16e^{2x}$",
-                "Schritt 2: Funktionswerte am Entwicklungspunkt\n$f(0) = e^0 = 1$\n$f'(0) = 2e^0 = 2$\n$f''(0) = 4e^0 = 4$\n$f'''(0) = 8e^0 = 8$\n$f^{(4)}(0) = 16e^0 = 16$",
-                "Schritt 3: Teil a) - Taylor-Polynome\n$T_2(x) = f(0) + f'(0)x + \\frac{f''(0)}{2!}x^2 = 1 + 2x + \\frac{4}{2}x^2 = 1 + 2x + 2x^2$\n$T_4(x) = T_2(x) + \\frac{f'''(0)}{3!}x^3 + \\frac{f^{(4)}(0)}{4!}x^4$\n$= 1 + 2x + 2x^2 + \\frac{8}{6}x^3 + \\frac{16}{24}x^4$\n$= 1 + 2x + 2x^2 + \\frac{4}{3}x^3 + \\frac{2}{3}x^4$",
-                "Schritt 4: Teil b) - Fehlerabschätzung\nFür das Restglied gilt: $R_2(x) = \\frac{f'''(\\xi)}{3!}x^3$ mit $\\xi$ zwischen 0 und $x$\n$R_2(0.1) = \\frac{8e^{2\\xi}}{6}(0.1)^3 = \\frac{8e^{2\\xi}}{6000}$\nFür $\\xi \\in [0, 0.1]$: $e^{2\\xi} \\leq e^{0.2} < 1.25$\n$|R_2(0.1)| < \\frac{8 \\cdot 1.25}{6000} = \\frac{10}{6000} = \\frac{1}{600} \\approx 0.00167$",
-                "Schritt 5: Approximationswerte\n$T_2(0.1) = 1 + 2(0.1) + 2(0.1)^2 = 1 + 0.2 + 0.02 = 1.22$\nExakter Wert: $e^{0.2} \\approx 1.2214$\nFehler: $|1.2214 - 1.22| = 0.0014 < 0.00167$ ✓",
-                "Schritt 6: Teil c) - Konvergenzintervall\nDa $f(x) = e^{2x}$ eine ganze Funktion ist (überall analytisch), konvergiert die Taylor-Reihe für alle $x \\in \\mathbb{R}$.\nKonvergenzradius: $R = \\infty$\nKonvergenzintervall: $(-\\infty, \\infty)$"
-            ]
-        },
-        {
-            "id": 8,
-            "topic": "Implizite Differentiation",
-            "title": "Implizite Funktionen und Tangenten",
-            "description": "Gegeben sei die implizit definierte Kurve $x^3 + y^3 - 3xy = 0$ (Folium von Descartes).\n\na) Bestimmen Sie $\\frac{dy}{dx}$ durch implizite Differentiation.\nb) Finden Sie alle Punkte, in denen die Tangente horizontal ist.\nc) Bestimmen Sie die Gleichung der Tangente im Punkt $(\\frac{3}{2}, \\frac{3}{2})$.",
-            "difficulty": "hard",
-            "points": 16,
-            "solutionSteps": [
-                "Schritt 1: Teil a) - Implizite Differentiation\n$\\frac{d}{dx}(x^3 + y^3 - 3xy) = \\frac{d}{dx}(0)$\n$3x^2 + 3y^2 \\frac{dy}{dx} - 3y - 3x \\frac{dy}{dx} = 0$\n$3x^2 - 3y + (3y^2 - 3x) \\frac{dy}{dx} = 0$",
-                "Schritt 2: Nach $\\frac{dy}{dx}$ auflösen\n$(3y^2 - 3x) \\frac{dy}{dx} = 3y - 3x^2$\n$\\frac{dy}{dx} = \\frac{3y - 3x^2}{3y^2 - 3x} = \\frac{y - x^2}{y^2 - x}$ (für $y^2 \\neq x$)",
-                "Schritt 3: Teil b) - Horizontale Tangenten\nHorizontale Tangenten: $\\frac{dy}{dx} = 0$\n$\\frac{y - x^2}{y^2 - x} = 0 \\Rightarrow y - x^2 = 0 \\Rightarrow y = x^2$\nEinsetzen in die ursprüngliche Gleichung:\n$x^3 + (x^2)^3 - 3x(x^2) = 0$\n$x^3 + x^6 - 3x^3 = 0$\n$x^6 - 2x^3 = 0$\n$x^3(x^3 - 2) = 0$",
-                "Schritt 4: Lösungen für horizontale Tangenten\n$x^3 = 0 \\Rightarrow x = 0, y = 0$\n$x^3 = 2 \\Rightarrow x = \\sqrt[3]{2}, y = (\\sqrt[3]{2})^2 = 2^{2/3}$\nPunkte mit horizontaler Tangente: $(0, 0)$ und $(\\sqrt[3]{2}, 2^{2/3})$",
-                "Schritt 5: Punkt $(0,0)$ prüfen\nEinsetzen in $x^3 + y^3 - 3xy = 0$: $0 + 0 - 0 = 0$ ✓\nAber: $y^2 - x = 0 - 0 = 0$, also ist $\\frac{dy}{dx}$ nicht definiert.\nDer Punkt $(0,0)$ ist ein singulärer Punkt.",
-                "Schritt 6: Teil c) - Tangente im Punkt $(\\frac{3}{2}, \\frac{3}{2})$\nPunkt prüfen: $(\\frac{3}{2})^3 + (\\frac{3}{2})^3 - 3 \\cdot \\frac{3}{2} \\cdot \\frac{3}{2} = \\frac{27}{8} + \\frac{27}{8} - \\frac{27}{4} = \\frac{54}{8} - \\frac{54}{8} = 0$ ✓\nSteigung: $\\frac{dy}{dx} = \\frac{\\frac{3}{2} - (\\frac{3}{2})^2}{(\\frac{3}{2})^2 - \\frac{3}{2}} = \\frac{\\frac{3}{2} - \\frac{9}{4}}{\\frac{9}{4} - \\frac{3}{2}} = \\frac{-\\frac{3}{4}}{\\frac{3}{4}} = -1$\nTangentengleichung: $y - \\frac{3}{2} = -1(x - \\frac{3}{2})$\n$y = -x + 3$"
-            ]
-        },
-        {
-            "id": 9,
-            "topic": "Dreifachintegrale",
-            "title": "Volumenberechnung mit Dreifachintegralen",
-            "description": "Berechnen Sie das Volumen des Körpers, der von den Flächen $z = x^2 + y^2$, $z = 8 - x^2 - y^2$ und der xy-Ebene begrenzt wird.\n\na) Bestimmen Sie die Projektionsregion in der xy-Ebene.\nb) Stellen Sie das Dreifachintegral in kartesischen Koordinaten auf.\nc) Berechnen Sie das Volumen mittels Zylinderkoordinaten.",
-            "difficulty": "hard",
-            "points": 20,
-            "solutionSteps": [
-                "Schritt 1: Teil a) - Projektionsregion bestimmen\nDie Flächen schneiden sich, wenn: $x^2 + y^2 = 8 - x^2 - y^2$\n$2(x^2 + y^2) = 8$\n$x^2 + y^2 = 4$\nDie Projektionsregion ist der Kreis $D: x^2 + y^2 \\leq 4$ in der xy-Ebene.",
-                "Schritt 2: Grenzen für z bestimmen\nFür $(x,y) \\in D$:\n- Untere Grenze: $z = x^2 + y^2$ (Paraboloid nach oben)\n- Obere Grenze: $z = 8 - x^2 - y^2$ (Paraboloid nach unten)\nDa $x^2 + y^2 \\leq 4$, ist $8 - x^2 - y^2 \\geq 4 \\geq x^2 + y^2$.",
-                "Schritt 3: Teil b) - Dreifachintegral in kartesischen Koordinaten\n$V = \\iiint_E dV = \\iint_D \\int_{x^2+y^2}^{8-x^2-y^2} dz \\, dA$\n$= \\iint_D [(8-x^2-y^2) - (x^2+y^2)] \\, dA$\n$= \\iint_D (8 - 2x^2 - 2y^2) \\, dA$\n$= \\int_{-2}^2 \\int_{-\\sqrt{4-x^2}}^{\\sqrt{4-x^2}} (8 - 2x^2 - 2y^2) \\, dy \\, dx$",
-                "Schritt 4: Teil c) - Transformation zu Zylinderkoordinaten\nSubstitution: $x = r\\cos\\theta, y = r\\sin\\theta, z = z$\nJacobi-Determinante: $|J| = r$\nGebiet: $0 \\leq r \\leq 2, 0 \\leq \\theta \\leq 2\\pi$\nIntegrand: $8 - 2x^2 - 2y^2 = 8 - 2r^2$",
-                "Schritt 5: Integration in Zylinderkoordinaten\n$V = \\int_0^{2\\pi} \\int_0^2 (8 - 2r^2) \\cdot r \\, dr \\, d\\theta$\n$= \\int_0^{2\\pi} \\int_0^2 (8r - 2r^3) \\, dr \\, d\\theta$\nInneres Integral: $\\int_0^2 (8r - 2r^3) \\, dr = \\left[4r^2 - \\frac{r^4}{2}\\right]_0^2 = 16 - 8 = 8$",
-                "Schritt 6: Äußeres Integral und Endergebnis\n$V = \\int_0^{2\\pi} 8 \\, d\\theta = 8 \\cdot 2\\pi = 16\\pi$\nDas Volumen des Körpers beträgt $16\\pi$ Volumeneinheiten."
-            ]
-        },
-        {
-            "id": 10,
-            "topic": "Vektorfelder und Rotation",
-            "title": "Rotation und Satz von Stokes",
-            "description": "Gegeben sei das Vektorfeld $\\vec{F}(x,y,z) = (y^2z, -xz^2, xy^2)$ und die Fläche S, die der Teil der Kugel $x^2 + y^2 + z^2 = 4$ mit $z \\geq 0$ ist, orientiert nach oben.\n\na) Berechnen Sie die Rotation $\\text{rot } \\vec{F}$.\nb) Bestimmen Sie den Rand $\\partial S$ der Fläche S.\nc) Verifizieren Sie den Satz von Stokes für dieses Beispiel.",
-            "difficulty": "hard",
-            "points": 22,
-            "solutionSteps": [
-                "Schritt 1: Teil a) - Rotation berechnen\n$\\vec{F} = (P, Q, R) = (y^2z, -xz^2, xy^2)$\n$\\text{rot } \\vec{F} = \\nabla \\times \\vec{F} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\\\\\ \\frac{\\partial}{\\partial x} & \\frac{\\partial}{\\partial y} & \\frac{\\partial}{\\partial z} \\\\\\\\ y^2z & -xz^2 & xy^2 \\end{vmatrix}$",
-                "Schritt 2: Komponenten der Rotation\n$\\text{rot}_x \\vec{F} = \\frac{\\partial R}{\\partial y} - \\frac{\\partial Q}{\\partial z} = \\frac{\\partial(xy^2)}{\\partial y} - \\frac{\\partial(-xz^2)}{\\partial z} = 2xy - (-2xz) = 2xy + 2xz$\n$\\text{rot}_y \\vec{F} = \\frac{\\partial P}{\\partial z} - \\frac{\\partial R}{\\partial x} = \\frac{\\partial(y^2z)}{\\partial z} - \\frac{\\partial(xy^2)}{\\partial x} = y^2 - y^2 = 0$\n$\\text{rot}_z \\vec{F} = \\frac{\\partial Q}{\\partial x} - \\frac{\\partial P}{\\partial y} = \\frac{\\partial(-xz^2)}{\\partial x} - \\frac{\\partial(y^2z)}{\\partial y} = -z^2 - 2yz$",
-                "Schritt 3: Rotation vollständig\n$\\text{rot } \\vec{F} = (2x(y + z), 0, -z^2 - 2yz) = (2x(y + z), 0, -z(z + 2y))$",
-                "Schritt 4: Teil b) - Rand der Fläche\nS ist die obere Halbkugel $x^2 + y^2 + z^2 = 4, z \\geq 0$\nDer Rand $\\partial S$ ist der Kreis $x^2 + y^2 = 4, z = 0$ in der xy-Ebene.\nParametrisierung: $\\vec{r}(t) = (2\\cos t, 2\\sin t, 0), t \\in [0, 2\\pi]$\nOrientierung: gegen den Uhrzeigersinn (rechtshändiges System)",
-                "Schritt 5: Kurvenintegral berechnen\n$\\vec{r}'(t) = (-2\\sin t, 2\\cos t, 0)$\n$\\vec{F}(\\vec{r}(t)) = ((2\\sin t)^2 \\cdot 0, -2\\cos t \\cdot 0^2, 2\\cos t \\cdot (2\\sin t)^2) = (0, 0, 8\\cos t \\sin^2 t)$\n$\\int_{\\partial S} \\vec{F} \\cdot d\\vec{r} = \\int_0^{2\\pi} (0, 0, 8\\cos t \\sin^2 t) \\cdot (-2\\sin t, 2\\cos t, 0) dt$\n$= \\int_0^{2\\pi} 0 \\, dt = 0$",
-                "Schritt 6: Teil c) - Oberflächenintegral der Rotation\nNach dem Satz von Stokes: $\\int_{\\partial S} \\vec{F} \\cdot d\\vec{r} = \\iint_S (\\text{rot } \\vec{F}) \\cdot \\vec{n} \\, dS$\nDa das Kurvenintegral 0 ist, muss auch das Oberflächenintegral 0 sein.\nVerifikation durch Symmetriebetrachtungen:\nDie Rotation hat die Form $(2x(y+z), 0, -z(z+2y))$\nAuf der Halbkugel heben sich die Beiträge aufgrund der Symmetrie auf.\nSatz von Stokes ist erfüllt: $0 = 0$ ✓"
-            ]
-        },
-        {
-            "id": 11,
-            "topic": "Fourier-Reihen",
-            "title": "Fourier-Entwicklung einer periodischen Funktion",
-            "description": "Entwickeln Sie die $2\\pi$-periodische Funktion $f(x) = |\\sin x|$ in eine Fourier-Reihe.\n\na) Bestimmen Sie die Fourier-Koeffizienten $a_0$, $a_n$ und $b_n$.\nb) Geben Sie die Fourier-Reihe explizit an.\nc) Berechnen Sie den Wert der Reihe an der Stelle $x = \\frac{\\pi}{2}$.",
-            "difficulty": "hard",
-            "points": 18,
-            "solutionSteps": [
-                "Schritt 1: Eigenschaften der Funktion\n$f(x) = |\\sin x|$ ist eine gerade Funktion: $f(-x) = |\\sin(-x)| = |-\\sin x| = |\\sin x| = f(x)$\nDaher sind alle $b_n = 0$ (keine Sinus-Terme).\nPeriode: $\\pi$ (nicht $2\\pi$), aber wir entwickeln als $2\\pi$-periodische Funktion.",
-                "Schritt 2: Berechnung von $a_0$\n$a_0 = \\frac{1}{\\pi} \\int_{-\\pi}^{\\pi} |\\sin x| \\, dx = \\frac{2}{\\pi} \\int_0^{\\pi} \\sin x \\, dx$ (da gerade Funktion)\n$= \\frac{2}{\\pi} [-\\cos x]_0^{\\pi} = \\frac{2}{\\pi}(-\\cos \\pi + \\cos 0) = \\frac{2}{\\pi}(1 + 1) = \\frac{4}{\\pi}$",
-                "Schritt 3: Berechnung von $a_n$ für $n \\geq 1$\n$a_n = \\frac{1}{\\pi} \\int_{-\\pi}^{\\pi} |\\sin x| \\cos(nx) \\, dx = \\frac{2}{\\pi} \\int_0^{\\pi} \\sin x \\cos(nx) \\, dx$\nPartielle Integration oder Produktformel:\n$\\sin x \\cos(nx) = \\frac{1}{2}[\\sin((n+1)x) + \\sin((n-1)x)]$ für $n \\neq 1$",
-                "Schritt 4: Integration für $n \\neq 1$\n$a_n = \\frac{2}{\\pi} \\cdot \\frac{1}{2} \\int_0^{\\pi} [\\sin((n+1)x) + \\sin((n-1)x)] \\, dx$\n$= \\frac{1}{\\pi} \\left[\\frac{-\\cos((n+1)x)}{n+1} + \\frac{-\\cos((n-1)x)}{n-1}\\right]_0^{\\pi}$\n$= \\frac{1}{\\pi} \\left[\\frac{-\\cos((n+1)\\pi) + 1}{n+1} + \\frac{-\\cos((n-1)\\pi) + 1}{n-1}\\right]$",
-                "Schritt 5: Vereinfachung für gerade n\nFür gerade $n$: $\\cos(n\\pi) = 1$, also $\\cos((n+1)\\pi) = -1$ und $\\cos((n-1)\\pi) = -1$\n$a_n = \\frac{1}{\\pi} \\left[\\frac{1 + 1}{n+1} + \\frac{1 + 1}{n-1}\\right] = \\frac{2}{\\pi} \\left[\\frac{1}{n+1} + \\frac{1}{n-1}\\right]$\n$= \\frac{2}{\\pi} \\cdot \\frac{(n-1) + (n+1)}{(n+1)(n-1)} = \\frac{2}{\\pi} \\cdot \\frac{2n}{n^2-1} = \\frac{4n}{\\pi(n^2-1)}$\nFür ungerade $n$: $a_n = 0$",
-                "Schritt 6: Teil b) - Fourier-Reihe\n$f(x) = \\frac{a_0}{2} + \\sum_{n=1}^{\\infty} a_n \\cos(nx)$\n$|\\sin x| = \\frac{2}{\\pi} - \\frac{4}{\\pi} \\sum_{k=1}^{\\infty} \\frac{\\cos(2kx)}{4k^2-1}$\n$= \\frac{2}{\\pi} - \\frac{4}{\\pi} \\left(\\frac{\\cos(2x)}{3} + \\frac{\\cos(4x)}{15} + \\frac{\\cos(6x)}{35} + \\ldots\\right)$\nTeil c): Bei $x = \\frac{\\pi}{2}$: $|\\sin(\\frac{\\pi}{2})| = 1$\nDie Reihe konvergiert gegen 1."
+                "Schritt 1: Teil a): Fluss direkt\nAuf der Einheitssphäre ist der äußere Normalenvektor $\\vec n = (x,y,z)$. Also $\\vec F\\cdot\\vec n = x^2 + y^2 + z^2 = 1$. Fluss $= \\iint_S1\\,dS = $ Oberfläche $= 4\\pi$.",
+                "Schritt 2: Teil b): Divergenz\n$\\operatorname{div}\\vec F = \\partial_xx + \\partial_yy + \\partial_zz = 3$.",
+                "Schritt 3: Teil b): Volumenintegral\n$\\iiint_K3\\,dV = 3\\cdot\\frac43\\pi = 4\\pi$.",
+                "Schritt 4: Vergleich\nBeide Werte sind $4\\pi$: Der Satz von Gauß $\\oiint\\vec F\\cdot d\\vec S = \\iiint\\operatorname{div}\\vec F\\,dV$ ist bestätigt. Merke: Der Satz verwandelt ein Oberflächenintegral in ein (oft einfacheres) Volumenintegral."
             ]
         }
     ]

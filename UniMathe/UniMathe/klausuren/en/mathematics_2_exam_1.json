@@ -12,66 +12,72 @@
         {
             "id": 1,
             "topic": "Series",
-            "title": "Convergence of an Alternating Series",
-            "description": "Analyze the series\n$\\sum_{n=1}^{\\infty} (-1)^{n+1} \\frac{n}{n^2+1}$\nfor absolute and conditional convergence.",
-            "difficulty": "medium",
+            "title": "Convergence tests",
+            "description": "Examine for convergence:\na) $\\sum_{n=1}^\\infty\\frac{n!}{n^n}$ (ratio test)\nb) $\\sum_{n=1}^\\infty\\frac{(-1)^n}{\\sqrt n}$ (absolute or conditional?)\nc) $\\sum_{n=2}^\\infty\\frac{1}{n\\ln^2n}$ (integral test)",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Behavior of terms\n$a_n = \\frac{n}{n^2+1} \\sim \\frac{1}{n} \\to 0$",
-                "Step 2: Alternating series test\n$a_n$ is decreasing and $a_n\\to0$\nLeibniz criterion $\\Rightarrow$ conditional convergence.",
-                "Step 3: Absolute convergence\n$\\sum |a_n| = \\sum \\frac{n}{n^2+1} \\sim \\sum \\frac{1}{n}$\nHarmonic series diverges $\\Rightarrow$ not absolutely convergent."
+                "Step 1: Part a): Ratio test\n$\\frac{a_{n+1}}{a_n} = \\frac{(n+1)!/(n+1)^{n+1}}{n!/n^n} = \\frac{n^n}{(n+1)^n} = \\left(1 + \\frac1n\\right)^{-n} \\to \\frac1e \\approx 0.368 < 1$. The series **converges** absolutely.",
+                "Step 2: Part b): Leibniz criterion\n$b_n = \\frac1{\\sqrt n}$ decreases monotonically to $0$: the alternating series **converges**.",
+                "Step 3: Part b): Absolute convergence\n$\\sum\\frac1{\\sqrt n}$ is a $p$-series with $p = \\frac12 \\leq 1$ and diverges. So the series is **conditionally**, not absolutely convergent.",
+                "Step 4: Part c): Integral test\n$f(x) = \\frac{1}{x\\ln^2x}$ is positive and decreasing. Substitution $u = \\ln x$: $\\int_2^R\\frac{dx}{x\\ln^2x} = \\int_{\\ln2}^{\\ln R}\\frac{du}{u^2} = \\frac{1}{\\ln2} - \\frac{1}{\\ln R} \\to \\frac{1}{\\ln2}$. The integral converges, so the series **converges**."
             ]
         },
         {
             "id": 2,
             "topic": "Taylor Expansion",
-            "title": "Taylor Polynomial of $\\ln(1+x)$",
-            "description": "Find the third-order Taylor polynomial of $f(x)=\\ln(1+x)$ around $x_0=0$ and estimate the error at $x=0.5$.",
-            "difficulty": "medium",
+            "title": "Taylor polynomial of ln(1+x)",
+            "description": "a) Determine the Taylor polynomial $T_3$ of $f(x) = \\ln(1+x)$ about $0$.\nb) Approximate $\\ln1.2$ and estimate the error with the Lagrange remainder.\nc) Compare with the exact value $0.18232$.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Derivatives\n$f'(x)=\\frac{1}{1+x}$, $f''(x)=-\\frac{1}{(1+x)^2}$, $f'''(x)=\\frac{2}{(1+x)^3}$, $f^{(4)}(x)=-\\frac{6}{(1+x)^4}$",
-                "Step 2: Taylor polynomial\n$P_3(x)=x-\\frac{x^2}{2}+\\frac{x^3}{3}$",
-                "Step 3: Error bound (Lagrange)\n$|R_3(x)| \\le \\frac{\\max|f^{(4)}(\\xi)|}{4!}|x|^4$\nOn $[0,0.5]$: $|f^{(4)}|\\le6$\n$|R_3(0.5)| \\le \\frac{6}{24}\\cdot 0.5^4 = 0.015625$"
+                "Step 1: Part a): Derivatives\n$f' = \\frac1{1+x}$, $f'' = -\\frac{1}{(1+x)^2}$, $f''' = \\frac{2}{(1+x)^3}$, $f^{(4)} = -\\frac{6}{(1+x)^4}$. At $0$: $f(0) = 0$, $f'(0) = 1$, $f''(0) = -1$, $f'''(0) = 2$.",
+                "Step 2: Part a): Taylor polynomial\n$T_3(x) = x - \\frac{x^2}{2} + \\frac{x^3}{3}$.",
+                "Step 3: Part b): Approximation\n$T_3(0.2) = 0.2 - 0.02 + \\frac{0.008}{3} = 0.18267$.",
+                "Step 4: Part b): Remainder\n$R_3(x) = \\frac{f^{(4)}(\\xi)}{4!}x^4 = -\\frac{1}{4(1+\\xi)^4}x^4$ with $\\xi \\in (0; 0.2)$. Since $(1+\\xi)^4 \\geq 1$: $|R_3| \\leq \\frac{0.2^4}{4} = 0.0004$.",
+                "Step 5: Part c): Comparison\nActual error: $0.18267 - 0.18232 = 0.00035 \\leq 0.0004$ ✓. The remainder is negative ($f^{(4)} < 0$), i.e. $T_3$ overestimates the value — matching the positive error."
             ]
         },
         {
             "id": 3,
             "topic": "Double Integrals",
-            "title": "Integral over a Rectangle",
-            "description": "Compute\n$\\int_0^1 \\int_0^2 (x+2y)\\,dy\\,dx$.",
-            "difficulty": "medium",
+            "title": "Integration over a triangle",
+            "description": "Let $D = \\{(x,y) \\mid 0 \\leq y \\leq x \\leq 1\\}$.\na) Sketch $D$ (description) and compute the area.\nb) Compute $\\iint_D(x + y)\\,dA$.\nc) Confirm the result by swapping the order of integration.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Inner integral\n$\\int_0^2 (x+2y)\\,dy = [xy + y^2]_0^2 = 2x + 4$",
-                "Step 2: Outer integral\n$\\int_0^1 (2x+4)\\,dx = [x^2+4x]_0^1 = 1+4 = 5$"
+                "Step 1: Part a): Region\n$D$ is the triangle with vertices $(0,0)$, $(1,0)$, $(1,1)$ (below the diagonal). Area $= \\int_0^1\\int_0^xdy\\,dx = \\int_0^1x\\,dx = \\frac12$.",
+                "Step 2: Part b): Inner integral\n$\\int_0^x(x + y)\\,dy = \\left[xy + \\frac{y^2}{2}\\right]_0^x = x^2 + \\frac{x^2}{2} = \\frac32x^2$.",
+                "Step 3: Part b): Outer integral\n$\\int_0^1\\frac32x^2\\,dx = \\frac32\\cdot\\frac13 = \\frac12$.",
+                "Step 4: Part c): Swap the order\nFor fixed $y \\in [0,1]$, $x$ runs from $y$ to $1$: $\\int_0^1\\int_y^1(x+y)\\,dx\\,dy = \\int_0^1\\left[\\frac{x^2}{2} + xy\\right]_y^1dy = \\int_0^1\\left(\\frac12 + y - \\frac{y^2}{2} - y^2\\right)dy = \\int_0^1\\left(\\frac12 + y - \\frac32y^2\\right)dy = \\frac12 + \\frac12 - \\frac12 = \\frac12$ ✓."
             ]
         },
         {
             "id": 4,
             "topic": "Extrema",
-            "title": "Lagrange Multipliers",
-            "description": "Find the extrema of $f(x,y)=xy$ subject to the constraint $x^2+y^2=1$.",
-            "difficulty": "medium",
+            "title": "Lagrange multipliers",
+            "description": "Determine the minimum of $f(x,y) = x^2 + 2y^2$ subject to $x + y = 3$ with the method of Lagrange and compare with the substitution method.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Lagrangian\n$L(x,y,\\lambda)=xy-\\lambda(x^2+y^2-1)$",
-                "Step 2: Equations\n$y-2\\lambda x=0$, $x-2\\lambda y=0$, $x^2+y^2=1$",
-                "Step 3: Solutions\n$x=\\pm 1/\\sqrt{2}$, $y=\\pm 1/\\sqrt{2}$\nMax: $xy=1/2$ for equal signs\nMin: $xy=-1/2$ for opposite signs"
+                "Step 1: Lagrange equations\n$g = x + y - 3$. $\\nabla f = (2x, 4y) = \\lambda(1,1)$: $2x = \\lambda$, $4y = \\lambda$, so $x = 2y$.",
+                "Step 2: Insert the constraint\n$2y + y = 3 \\Rightarrow y = 1$, $x = 2$, $\\lambda = 4$. Function value: $f(2,1) = 4 + 2 = 6$.",
+                "Step 3: Type of extremum\nSubstitution method: $y = 3 - x$, $h(x) = x^2 + 2(3-x)^2 = 3x^2 - 12x + 18$, $h' = 6x - 12 = 0 \\Rightarrow x = 2$, $h'' = 6 > 0$: **minimum** $h(2) = 12 - 24 + 18 = 6$ ✓.",
+                "Step 4: Check and interpretation\nOther points on the line: $(3,0)$: $f = 9 > 6$; $(0,3)$: $f = 18 > 6$ ✓. Geometrically the level curve $x^2 + 2y^2 = 6$ (ellipse) touches the line $x + y = 3$ at $(2,1)$."
             ]
         },
         {
             "id": 5,
             "topic": "Differential Equations",
-            "title": "Second-Order Linear ODE",
-            "description": "Solve $y''-3y'+2y=0$ with $y(0)=1$ and $y'(0)=0$.",
-            "difficulty": "medium",
+            "title": "Linear second-order ODE",
+            "description": "a) Solve $y'' - 3y' + 2y = 0$ with $y(0) = 1$, $y'(0) = 0$.\nb) Determine the general solution of $y'' - 3y' + 2y = 4$.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Characteristic equation\n$r^2-3r+2=0 \\Rightarrow r=1,2$",
-                "Step 2: General solution\n$y(x)=C_1e^x + C_2e^{2x}$",
-                "Step 3: Initial conditions\n$y(0)=C_1+C_2=1$\n$y'(x)=C_1e^x + 2C_2e^{2x}$, $y'(0)=C_1+2C_2=0 \\Rightarrow C_2=-1$, $C_1=2$",
-                "Step 4: Final solution\n$y(x)=2e^x - e^{2x}$"
+                "Step 1: Part a): Characteristic equation\nAnsatz $y = e^{\\lambda x}$: $\\lambda^2 - 3\\lambda + 2 = (\\lambda - 1)(\\lambda - 2) = 0$, so $\\lambda = 1, 2$. General solution: $y = c_1e^x + c_2e^{2x}$.",
+                "Step 2: Part a): Initial values\n$y(0) = c_1 + c_2 = 1$, $y'(0) = c_1 + 2c_2 = 0$. Subtracting: $c_2 = -1$, $c_1 = 2$. Solution: $y = 2e^x - e^{2x}$.",
+                "Step 3: Part b): Particular solution\nConstant right-hand side: ansatz $y_p = A$. Substituting: $2A = 4 \\Rightarrow A = 2$.",
+                "Step 4: Part b): General solution and check\n$y = c_1e^x + c_2e^{2x} + 2$. Check of $y_p = 2$: $0 - 0 + 2\\cdot2 = 4$ ✓. Check of part a): $y' = 2e^x - 2e^{2x}$, $y'' = 2e^x - 4e^{2x}$: $y'' - 3y' + 2y = (2 - 6 + 4)e^x + (-4 + 6 - 2)e^{2x} = 0$ ✓."
             ]
         }
     ]

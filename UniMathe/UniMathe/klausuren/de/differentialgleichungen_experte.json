@@ -3,7 +3,7 @@
         "title": "Differentialgleichungen - Expertenklausur",
         "subtitle": "Gewöhnliche und partielle DGL",
         "duration": 90,
-        "totalPoints": 80,
+        "totalPoints": 100,
         "difficulty": "advanced",
         "language": "de",
         "instructions": "Bearbeiten Sie alle Aufgaben. Begründen Sie Ihre Schritte. Zulässige Hilfsmittel: nicht programmierbarer Taschenrechner."
@@ -11,80 +11,87 @@
     "exercises": [
         {
             "id": 1,
-            "topic": "Erste Ordnung",
-            "title": "Trennbare Gleichung",
-            "description": "Lösen Sie $\\frac{dy}{dx} = xy$ mit $y(0)=2$.",
-            "difficulty": "easy",
-            "points": 10,
+            "topic": "Trennbare Gleichungen",
+            "title": "Trennung der Variablen",
+            "description": "Lösen Sie die Anfangswertprobleme:\na) $y' = \\frac{x}{y}$, $y(0) = 1$\nb) $y' = ky$ mit $y(0) = y_0$ (Wachstum/Zerfall); wie lange dauert es bei $k = -0{,}1$ bis zur Halbierung?",
+            "difficulty": "advanced",
+            "points": 15,
             "solutionSteps": [
-                "Schritt 1: Trennen $\\frac{1}{y}dy = x dx$",
-                "Schritt 2: Integrieren $\\ln|y| = \\tfrac{x^2}{2} + C$",
-                "Schritt 3: Anfangsbedingung $y(0)=2$ ergibt $y=2 e^{x^2/2}$"
+                "Schritt 1: Teil a): Trennen und integrieren\n$y\\,dy = x\\,dx \\Rightarrow \\frac{y^2}{2} = \\frac{x^2}{2} + c \\Rightarrow y^2 = x^2 + C$. Mit $y(0) = 1$: $C = 1$, also $y = \\sqrt{x^2 + 1}$ (positive Wurzel wegen $y(0) > 0$).",
+                "Schritt 2: Teil a): Probe\n$y' = \\frac{x}{\\sqrt{x^2+1}} = \\frac{x}{y}$ ✓. Die Lösungskurven sind Hyperbeln $y^2 - x^2 = C$.",
+                "Schritt 3: Teil b): Allgemeine Lösung\n$\\frac{dy}{y} = k\\,dt \\Rightarrow y = y_0e^{kt}$.",
+                "Schritt 4: Teil b): Halbwertszeit\n$y_0e^{kT} = \\frac{y_0}{2} \\Rightarrow T = \\frac{\\ln2}{-k} = \\frac{\\ln2}{0{,}1} \\approx 6{,}93$. Probe: $e^{-0{,}1\\cdot6{,}93} = e^{-0{,}693} = 0{,}5$ ✓."
             ]
         },
         {
             "id": 2,
-            "topic": "Lineare DGL",
-            "title": "Erste Ordnung linear",
-            "description": "Lösen Sie $y' + y = e^x$.",
-            "difficulty": "easy",
-            "points": 10,
+            "topic": "Lineare DGL 1. Ordnung",
+            "title": "Variation der Konstanten",
+            "description": "Lösen Sie $y' + \\frac{1}{x}y = x^2$ für $x > 0$ mit $y(1) = 1$.",
+            "difficulty": "advanced",
+            "points": 15,
             "solutionSteps": [
-                "Schritt 1: Integrierender Faktor $\\mu(x)=e^{x}$",
-                "Schritt 2: $(e^x y)' = e^{2x}$",
-                "Schritt 3: $y= \\tfrac{1}{2}e^{x} + C e^{-x}$"
+                "Schritt 1: Integrierender Faktor\nFür $y' + p(x)y = q(x)$ ist $\\mu(x) = e^{\\int p\\,dx} = e^{\\ln x} = x$.",
+                "Schritt 2: Umformen\nMultiplikation mit $x$: $xy' + y = x^3$, d.h. $(xy)' = x^3$.",
+                "Schritt 3: Integrieren\n$xy = \\frac{x^4}{4} + C \\Rightarrow y = \\frac{x^3}{4} + \\frac{C}{x}$.",
+                "Schritt 4: Anfangswert und Probe\n$y(1) = \\frac14 + C = 1 \\Rightarrow C = \\frac34$. Lösung: $y = \\frac{x^3}{4} + \\frac{3}{4x}$. Probe: $y' = \\frac{3x^2}{4} - \\frac{3}{4x^2}$, $\\frac yx = \\frac{x^2}{4} + \\frac{3}{4x^2}$; Summe $= x^2$ ✓."
             ]
         },
         {
             "id": 3,
-            "topic": "Zweite Ordnung",
-            "title": "Homogen, konstante Koeffizienten",
-            "description": "Lösen Sie $y'' - 3y' + 2y = 0$.",
-            "difficulty": "medium",
-            "points": 12,
+            "topic": "DGL 2. Ordnung",
+            "title": "Schwingungsgleichung",
+            "description": "Lösen Sie $y'' + 2y' + 5y = 0$ mit $y(0) = 1$, $y'(0) = 0$ und beschreiben Sie das Verhalten der Lösung.",
+            "difficulty": "advanced",
+            "points": 17,
             "solutionSteps": [
-                "Schritt 1: Charakteristische Gleichung $r^2 - 3r + 2=0$",
-                "Schritt 2: Wurzeln $r=1,2$",
-                "Schritt 3: Lösung $y(x)=C_1 e^{x} + C_2 e^{2x}$"
+                "Schritt 1: Charakteristische Gleichung\n$\\lambda^2 + 2\\lambda + 5 = 0 \\Rightarrow \\lambda = \\frac{-2 \\pm \\sqrt{4 - 20}}{2} = -1 \\pm 2i$.",
+                "Schritt 2: Reelle Lösungen\nBei $\\lambda = \\alpha \\pm i\\beta$ lautet die reelle Lösung $y = e^{\\alpha x}(a\\cos\\beta x + b\\sin\\beta x)$, hier $y = e^{-x}(a\\cos2x + b\\sin2x)$.",
+                "Schritt 3: Anfangswerte\n$y(0) = a = 1$. $y' = e^{-x}\\big((-a + 2b)\\cos2x + (-b - 2a)\\sin2x\\big)$, $y'(0) = -a + 2b = 0 \\Rightarrow b = \\frac12$. Lösung: $y = e^{-x}\\left(\\cos2x + \\frac12\\sin2x\\right)$.",
+                "Schritt 4: Deutung und Probe\nGedämpfte Schwingung: Kreisfrequenz $2$, Abklingfaktor $e^{-x}$ (da $\\operatorname{Re}\\lambda = -1 < 0$). Probe: $y'' + 2y' + 5y$ mit $y = e^{-x}\\cos2x$: $y' = e^{-x}(-\\cos2x - 2\\sin2x)$, $y'' = e^{-x}(-3\\cos2x + 4\\sin2x)$; Summe $= e^{-x}\\big((-3 - 2 + 5)\\cos2x + (4 - 4)\\sin2x\\big) = 0$ ✓."
             ]
         },
         {
             "id": 4,
-            "topic": "Systeme",
-            "title": "Lineares System",
-            "description": "Lösen Sie $x' = 2x + y$, $y' = x + 2y$ mittels Diagonalisierung.",
-            "difficulty": "medium",
-            "points": 14,
+            "topic": "Systeme von DGL",
+            "title": "Lineares System mit Eigenwerten",
+            "description": "Lösen Sie $\\dot{\\vec x} = A\\vec x$ mit $A = \\begin{pmatrix} 0 & 1 \\\\ -2 & -3 \\end{pmatrix}$, $\\vec x(0) = (1,0)^T$ und klassifizieren Sie den Gleichgewichtspunkt $\\vec 0$.",
+            "difficulty": "advanced",
+            "points": 18,
             "solutionSteps": [
-                "Schritt 1: Matrix $A=\\begin{pmatrix}2 & 1 \\\\ 1 & 2 \\end{pmatrix}$ hat Eigenwerte $3,1$",
-                "Schritt 2: Eigenvektoren liefern entkoppeltes System",
-                "Schritt 3: Allgemeine Lösung Kombination aus $e^{3t}$ und $e^{t}$"
+                "Schritt 1: Eigenwerte\n$\\lambda^2 + 3\\lambda + 2 = (\\lambda+1)(\\lambda+2) = 0$: $\\lambda_1 = -1$, $\\lambda_2 = -2$.",
+                "Schritt 2: Eigenvektoren\n$\\lambda = -1$: $A + I = \\begin{pmatrix} 1 & 1 \\\\ -2 & -2 \\end{pmatrix}$ gibt $(1,-1)^T$. $\\lambda = -2$: $A + 2I = \\begin{pmatrix} 2 & 1 \\\\ -2 & -1 \\end{pmatrix}$ gibt $(1,-2)^T$.",
+                "Schritt 3: Allgemeine Lösung und Anfangswert\n$\\vec x(t) = c_1e^{-t}(1,-1)^T + c_2e^{-2t}(1,-2)^T$. $\\vec x(0) = (1,0)$: $c_1 + c_2 = 1$, $-c_1 - 2c_2 = 0$, also $c_2 = -1$, $c_1 = 2$.",
+                "Schritt 4: Lösung und Probe\n$x_1(t) = 2e^{-t} - e^{-2t}$, $x_2(t) = -2e^{-t} + 2e^{-2t}$. Probe: $\\dot x_1 = -2e^{-t} + 2e^{-2t} = x_2$ ✓ (erste Gleichung $\\dot x_1 = x_2$).",
+                "Schritt 5: Klassifikation\nBeide Eigenwerte sind reell und negativ: $\\vec 0$ ist ein **stabiler Knoten** (alle Lösungen laufen für $t \\to \\infty$ gegen $\\vec 0$). Äquivalent: die DGL $\\ddot x + 3\\dot x + 2x = 0$ ist überdämpft."
             ]
         },
         {
             "id": 5,
             "topic": "Laplace-Transformation",
-            "title": "Lösen mit Laplace",
-            "description": "Lösen Sie $y' + 2y = u(t)$ mit $y(0)=0$ mittels Laplace-Transformation ($u$ ist die Einheitssprungfunktion).",
-            "difficulty": "medium",
-            "points": 12,
+            "title": "Anfangswertprobleme mit Laplace",
+            "description": "Lösen Sie mit der Laplace-Transformation:\na) $y' + y = 1$, $y(0) = 0$\nb) $y'' + 4y = 0$, $y(0) = 0$, $y'(0) = 2$",
+            "difficulty": "advanced",
+            "points": 17,
             "solutionSteps": [
-                "Schritt 1: Laplace: $sY - y(0) + 2Y = \\frac{1}{s}$",
-                "Schritt 2: $Y = \\frac{1}{s(s+2)}$",
-                "Schritt 3: Rücktransformation: $y(t) = \\tfrac{1}{2}(1 - e^{-2t})$"
+                "Schritt 1: Teil a): Transformation\n$\\mathcal{L}\\{y'\\} = sY - y(0) = sY$, $\\mathcal{L}\\{1\\} = \\frac1s$. Also $sY + Y = \\frac1s \\Rightarrow Y = \\frac{1}{s(s+1)}$.",
+                "Schritt 2: Teil a): Partialbruchzerlegung und Rücktransformation\n$\\frac{1}{s(s+1)} = \\frac1s - \\frac1{s+1}$, also $y(t) = 1 - e^{-t}$. Probe: $y' + y = e^{-t} + 1 - e^{-t} = 1$ ✓, $y(0) = 0$ ✓.",
+                "Schritt 3: Teil b): Transformation\n$\\mathcal{L}\\{y''\\} = s^2Y - sy(0) - y'(0) = s^2Y - 2$. Also $s^2Y - 2 + 4Y = 0 \\Rightarrow Y = \\frac{2}{s^2 + 4}$.",
+                "Schritt 4: Teil b): Rücktransformation und Probe\n$\\mathcal{L}\\{\\sin2t\\} = \\frac{2}{s^2+4}$, also $y(t) = \\sin2t$. Probe: $y'' + 4y = -4\\sin2t + 4\\sin2t = 0$ ✓, $y(0) = 0$ ✓, $y'(0) = 2\\cos0 = 2$ ✓."
             ]
         },
         {
             "id": 6,
-            "topic": "PDGL",
-            "title": "Wärmeleitung (Skizze)",
-            "description": "Geben Sie die separierten Lösungen für $u_t = k u_{xx}$ auf $0<x<L$ mit homogenen Dirichlet-Randbedingungen an.",
-            "difficulty": "medium",
-            "points": 12,
+            "topic": "Partielle DGL",
+            "title": "Wärmeleitungsgleichung",
+            "description": "Lösen Sie $u_t = u_{xx}$ auf $0 < x < \\pi$, $t > 0$ mit $u(0,t) = u(\\pi,t) = 0$ und $u(x,0) = \\sin x + 2\\sin3x$.",
+            "difficulty": "advanced",
+            "points": 18,
             "solutionSteps": [
-                "Schritt 1: Ansatz $u(x,t)=X(x)T(t)$",
-                "Schritt 2: $X'' + \\lambda X=0$ mit $X(0)=X(L)=0$ ergibt $X_n=\\sin(\\tfrac{n\\pi x}{L})$",
-                "Schritt 3: $T_n(t)=e^{-k (n\\pi/L)^2 t}$, allgemeine Reihenlösung"
+                "Schritt 1: Separationsansatz\n$u(x,t) = X(x)T(t)$ eingesetzt: $XT' = X''T \\Rightarrow \\frac{T'}{T} = \\frac{X''}{X} = -\\mu$ (konstant).",
+                "Schritt 2: Randbedingungen\n$X'' + \\mu X = 0$ mit $X(0) = X(\\pi) = 0$ hat nichttriviale Lösungen nur für $\\mu = n^2$, $X_n = \\sin nx$ ($n \\in \\mathbb{N}$). Zeitanteil: $T' = -n^2T \\Rightarrow T_n = e^{-n^2t}$.",
+                "Schritt 3: Anfangsbedingung\nAnsatz $u = \\sum_nc_ne^{-n^2t}\\sin nx$. Bei $t = 0$: $\\sum c_n\\sin nx = \\sin x + 2\\sin3x$, also $c_1 = 1$, $c_3 = 2$, alle anderen $0$.",
+                "Schritt 4: Lösung und Probe\n$u(x,t) = e^{-t}\\sin x + 2e^{-9t}\\sin3x$. Probe: $u_t = -e^{-t}\\sin x - 18e^{-9t}\\sin3x$ und $u_{xx} = -e^{-t}\\sin x - 18e^{-9t}\\sin3x$ ✓. Randwerte: $\\sin0 = \\sin\\pi = 0$ ✓. Höhere Moden klingen schneller ab ($e^{-9t}$ vs. $e^{-t}$)."
             ]
         }
     ]

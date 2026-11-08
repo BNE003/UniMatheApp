@@ -3,7 +3,7 @@
         "title": "Analysis II - Expert Exam",
         "subtitle": "Multivariable Analysis and Vector Analysis",
         "duration": 90,
-        "totalPoints": 170,
+        "totalPoints": 100,
         "difficulty": "advanced",
         "language": "en",
         "instructions": "Complete all tasks thoroughly. Always show your solution approach. Create sketches where possible. Permitted aids: non-programmable calculator."
@@ -11,178 +11,87 @@
     "exercises": [
         {
             "id": 1,
-            "topic": "Partial Derivatives and Tangent Plane",
-            "title": "Gradient, Hessian Matrix and Tangent Plane",
-            "description": "Given the function f: ℝ² → ℝ with f(x,y) = x³ + 2xy² - y³ + 4x - 2y.\n\na) Calculate all partial derivatives of first and second order.\nb) Determine the equation of the tangent plane to the graph of f at point P₀ = (1, 1).\nc) Calculate the Hessian matrix H_f(x,y) and examine its definiteness at point (1, 1).",
-            "difficulty": "medium",
-            "points": 20,
+            "topic": "Partial Derivatives",
+            "title": "Gradient, Hessian and Taylor polynomial",
+            "description": "Let $f(x,y) = x^2y + y^3$.\na) Determine $\\nabla f$ and the Hessian $H_f$ at the point $(1,1)$.\nb) Give the second-order Taylor polynomial at $(1,1)$.",
+            "difficulty": "advanced",
+            "points": 17,
             "solutionSteps": [
-                "Step 1: First-order partial derivatives\n$f_x(x,y) = \\frac{\\partial f}{\\partial x} = 3x^2 + 2y^2 + 4$\n$f_y(x,y) = \\frac{\\partial f}{\\partial y} = 4xy - 3y^2 - 2$\n$\\nabla f(x,y) = (3x^2 + 2y^2 + 4, 4xy - 3y^2 - 2)$",
-                "Step 2: Second-order partial derivatives\n$f_{xx}(x,y) = \\frac{\\partial^2 f}{\\partial x^2} = 6x$\n$f_{yy}(x,y) = \\frac{\\partial^2 f}{\\partial y^2} = 4x - 6y$\n$f_{xy}(x,y) = f_{yx}(x,y) = \\frac{\\partial^2 f}{\\partial x \\partial y} = 4y$\n(By Schwarz's theorem, mixed derivatives are equal)",
-                "Step 3: Function value and gradient at point P₀ = (1,1)\n$f(1,1) = 1^3 + 2 \\cdot 1 \\cdot 1^2 - 1^3 + 4 \\cdot 1 - 2 \\cdot 1 = 1 + 2 - 1 + 4 - 2 = 4$\n$\\nabla f(1,1) = (3 \\cdot 1^2 + 2 \\cdot 1^2 + 4, 4 \\cdot 1 \\cdot 1 - 3 \\cdot 1^2 - 2) = (9, -1)$",
-                "Step 4: Part b) - Tangent plane\nGeneral form: $z = f(x_0,y_0) + f_x(x_0,y_0) \\cdot (x-x_0) + f_y(x_0,y_0) \\cdot (y-y_0)$\nSubstituting: $z = 4 + 9 \\cdot (x-1) + (-1) \\cdot (y-1)$\n$z = 4 + 9x - 9 - y + 1$\nTangent plane: $z = 9x - y - 4$",
-                "Step 5: Part c) - Hessian matrix\n$H_f(x,y) = \\begin{pmatrix} f_{xx} & f_{xy} \\\\\\\\ f_{yx} & f_{yy} \\end{pmatrix} = \\begin{pmatrix} 6x & 4y \\\\\\\\ 4y & 4x-6y \\end{pmatrix}$\nAt point (1,1): $H_f(1,1) = \\begin{pmatrix} 6 & 4 \\\\\\\\ 4 & -2 \\end{pmatrix}$",
-                "Step 6: Definiteness of Hessian matrix\nDeterminant: $\\det(H_f(1,1)) = 6 \\cdot (-2) - 4 \\cdot 4 = -12 - 16 = -28 < 0$\nSince det < 0, the matrix is indefinite.\nThis means: (1,1) is a saddle point of f."
+                "Step 1: Part a): Gradient\n$f_x = 2xy$, $f_y = x^2 + 3y^2$. $\\nabla f(1,1) = (2,4)$.",
+                "Step 2: Part a): Hessian\n$f_{xx} = 2y$, $f_{xy} = f_{yx} = 2x$, $f_{yy} = 6y$. $H_f(1,1) = \\begin{pmatrix} 2 & 2 \\\\ 2 & 6 \\end{pmatrix}$ (symmetric by Schwarz).",
+                "Step 3: Part b): Taylor polynomial\n$f(1,1) = 2$. With $h = x - 1$, $k = y - 1$: $T_2 = f + f_xh + f_yk + \\frac12(f_{xx}h^2 + 2f_{xy}hk + f_{yy}k^2) = 2 + 2h + 4k + h^2 + 2hk + 3k^2$.",
+                "Step 4: Check\nAt $(1.1;\\ 1.1)$: exact $f = 1.21\\cdot1.1 + 1.331 = 2.662$; $T_2 = 2 + 0.2 + 0.4 + 0.01 + 0.02 + 0.03 = 2.66$. Error $0.002$ (third order) ✓."
             ]
         },
         {
             "id": 2,
-            "topic": "Extreme Value Determination",
-            "title": "Local Extrema with Lagrange Multipliers",
-            "description": "Determine the extrema of function f(x,y) = x² + y² subject to constraint g(x,y) = x + 2y - 3 = 0.\n\na) Use the method of Lagrange multipliers.\nb) Classify the critical points found.\nc) Verify the result by substituting the constraint.",
-            "difficulty": "medium",
-            "points": 18,
+            "topic": "Extrema",
+            "title": "Classifying critical points",
+            "description": "Determine and classify all critical points of $f(x,y) = x^3 + y^3 - 3xy$.",
+            "difficulty": "advanced",
+            "points": 17,
             "solutionSteps": [
-                "Step 1: Set up Lagrange function\n$L(x,y,\\lambda) = f(x,y) - \\lambda \\cdot g(x,y) = x^2 + y^2 - \\lambda(x + 2y - 3)$\nNecessary conditions for extrema:\n$\\nabla L = 0$ and $g(x,y) = 0$",
-                "Step 2: Partial derivatives of Lagrange function\n$\\frac{\\partial L}{\\partial x} = 2x - \\lambda = 0 \\quad \\Rightarrow \\quad x = \\frac{\\lambda}{2}$\n$\\frac{\\partial L}{\\partial y} = 2y - 2\\lambda = 0 \\quad \\Rightarrow \\quad y = \\lambda$\n$\\frac{\\partial L}{\\partial \\lambda} = -(x + 2y - 3) = 0 \\quad \\Rightarrow \\quad x + 2y = 3$",
-                "Step 3: Solve system of equations\nFrom the first two equations: $x = \\frac{\\lambda}{2}, y = \\lambda$\nSubstituting into constraint:\n$\\frac{\\lambda}{2} + 2\\lambda = 3$\n$\\frac{\\lambda}{2} + \\frac{4\\lambda}{2} = 3$\n$\\frac{5\\lambda}{2} = 3 \\quad \\Rightarrow \\quad \\lambda = \\frac{6}{5}$",
-                "Step 4: Determine critical point\n$x = \\frac{\\lambda}{2} = \\frac{6/5}{2} = \\frac{3}{5}$\n$y = \\lambda = \\frac{6}{5}$\nCritical point: $\\left(\\frac{3}{5}, \\frac{6}{5}\\right)$\n$\\text{Function value: } f\\left(\\frac{3}{5}, \\frac{6}{5}\\right) = \\left(\\frac{3}{5}\\right)^2 + \\left(\\frac{6}{5}\\right)^2 = \\frac{9}{25} + \\frac{36}{25} = \\frac{45}{25} = \\frac{9}{5}$",
-                "Step 5: Part b) - Classification\nSince we optimize under a linear constraint and $f(x,y) = x^2 + y^2$ is a strictly convex function, this is a global minimum.\nGeometric interpretation: We seek the point on line $x + 2y = 3$ closest to the origin.",
-                "Step 6: Part c) - Verification by substitution\nFrom $x + 2y = 3$ follows $x = 3 - 2y$\nSubstituting: $f(3-2y, y) = (3-2y)^2 + y^2 = 9 - 12y + 4y^2 + y^2 = 5y^2 - 12y + 9$\nDerivative: $f'(y) = 10y - 12 = 0 \\quad \\Rightarrow \\quad y = \\frac{6}{5}$\nSecond derivative: $f''(y) = 10 > 0 \\quad \\Rightarrow$ Minimum\nBack-substitution: $x = 3 - 2 \\cdot \\frac{6}{5} = 3 - \\frac{12}{5} = \\frac{3}{5}$ ✓"
+                "Step 1: Critical points\n$f_x = 3x^2 - 3y = 0 \\Rightarrow y = x^2$; $f_y = 3y^2 - 3x = 0 \\Rightarrow x = y^2$. Substituting: $x = x^4 \\Rightarrow x(x^3 - 1) = 0 \\Rightarrow x \\in \\{0,1\\}$. Critical points: $(0,0)$ and $(1,1)$.",
+                "Step 2: Hessian\n$H = \\begin{pmatrix} 6x & -3 \\\\ -3 & 6y \\end{pmatrix}$, $D = \\det H = 36xy - 9$.",
+                "Step 3: Classification\n$(0,0)$: $D = -9 < 0$: **saddle point**. $(1,1)$: $D = 27 > 0$ and $f_{xx} = 6 > 0$: local **minimum** with $f(1,1) = -1$.",
+                "Step 4: No global extremum\nSince $f(x,0) = x^3 \\to \\pm\\infty$, $f$ is bounded neither above nor below. The local minimum is not global. Check: $f(2,2) = 8 + 8 - 12 = 4 > -1$, $f(0.9;0.9) = 0.729\\cdot2 - 2.43 = -0.972 > -1$ ✓."
             ]
         },
         {
             "id": 3,
-            "topic": "Multiple Integrals",
-            "title": "Double Integral with Coordinate Transformation",
-            "description": "Calculate the integral $\\iint_D x^2 + y^2 \\, dA$ over the region D = {(x,y): x² + y² ≤ 4, x ≥ 0, y ≥ 0}.\n\na) Sketch the integration region D.\nb) Parametrize D in Cartesian coordinates.\nc) Calculate the integral using polar coordinates.",
-            "difficulty": "medium",
-            "points": 20,
+            "topic": "Constrained Extrema",
+            "title": "Lagrange multipliers",
+            "description": "Determine the extrema of $f(x,y) = xy$ on the circle $x^2 + y^2 = 8$.",
+            "difficulty": "advanced",
+            "points": 16,
             "solutionSteps": [
-                "Step 1: Part a) - Sketch of region\nD is a quarter circle with radius 2 in the first quadrant.\nBoundary: Circular arc $x^2 + y^2 = 4$ from (2,0) to (0,2)\nand the coordinate axes $x = 0$ (for $0 \\leq y \\leq 2$) and $y = 0$ (for $0 \\leq x \\leq 2$)",
-                "Step 2: Part b) - Cartesian parametrization\nFor fixed $x \\in [0,2]$: y runs from 0 to $\\sqrt{4-x^2}$\n$I = \\int_0^2 \\int_0^{\\sqrt{4-x^2}} (x^2 + y^2) \\, dy \\, dx$",
-                "Step 3: Calculation in Cartesian coordinates (for comparison)\nInner integral: $\\int_0^{\\sqrt{4-x^2}} (x^2 + y^2) \\, dy = \\left[x^2 y + \\frac{y^3}{3}\\right]_0^{\\sqrt{4-x^2}}$\n$= x^2 \\sqrt{4-x^2} + \\frac{1}{3}(4-x^2)^{3/2}$\nThis leads to a complex integral.",
-                "Step 4: Part c) - Transformation to polar coordinates\nSubstitution: $x = r \\cos \\varphi, y = r \\sin \\varphi$\nJacobian determinant: $|J| = r$\nIntegrand: $x^2 + y^2 = r^2$\nRegion D: $0 \\leq r \\leq 2, 0 \\leq \\varphi \\leq \\frac{\\pi}{2}$",
-                "Step 5: Integral in polar coordinates\n$I = \\int_0^{\\pi/2} \\int_0^2 r^2 \\cdot r \\, dr \\, d\\varphi = \\int_0^{\\pi/2} \\int_0^2 r^3 \\, dr \\, d\\varphi$\nInner integral: $\\int_0^2 r^3 \\, dr = \\left[\\frac{r^4}{4}\\right]_0^2 = \\frac{16}{4} = 4$",
-                "Step 6: Outer integral and final result\n$I = \\int_0^{\\pi/2} 4 \\, d\\varphi = 4 \\cdot \\frac{\\pi}{2} = 2\\pi$\nAnswer: The integral has value $2\\pi$.\nPhysical interpretation: This is the moment of inertia of a quarter circle with respect to the origin."
+                "Step 1: Lagrange condition\n$g = x^2 + y^2 - 8$. $\\nabla f = (y,x) = \\lambda(2x,2y)$, so $y = 2\\lambda x$ and $x = 2\\lambda y$.",
+                "Step 2: Solving\nSubstituting: $x = 2\\lambda\\cdot2\\lambda x = 4\\lambda^2x$. Since $(0,0)$ is not on the circle: $\\lambda^2 = \\frac14$, $\\lambda = \\pm\\frac12$, so $y = \\pm x$. Constraint: $2x^2 = 8 \\Rightarrow x = \\pm2$.",
+                "Step 3: Candidates and values\n$y = x$: $(2,2)$ and $(-2,-2)$ with $f = 4$ (maxima). $y = -x$: $(2,-2)$ and $(-2,2)$ with $f = -4$ (minima).",
+                "Step 4: Check with parametrisation\n$x = 2\\sqrt2\\cos t$, $y = 2\\sqrt2\\sin t$: $f = 8\\sin t\\cos t = 4\\sin2t \\in [-4,4]$ ✓. The circle is compact, so maximum and minimum are attained."
             ]
         },
         {
             "id": 4,
-            "topic": "Line Integrals",
-            "title": "Work Integral and Path Independence",
-            "description": "Given the vector field $\\vec{F}(x,y) = (2xy + y^2, x^2 + 2xy - 1)$.\n\na) Check whether $\\vec{F}$ is conservative.\nb) If so, determine a potential φ(x,y).\nc) Calculate the line integral $\\int_C \\vec{F} \\cdot d\\vec{r}$ along path C from A(0,0) to B(2,1).",
-            "difficulty": "hard",
-            "points": 22,
+            "topic": "Multiple Integrals",
+            "title": "Polar coordinates",
+            "description": "a) Compute $\\iint_D(x^2 + y^2)\\,dA$ over $D = \\{x^2 + y^2 \\leq 4\\}$.\nb) Compute $\\iint_Ee^{-(x^2+y^2)}\\,dA$ over the unit disc $E$.",
+            "difficulty": "advanced",
+            "points": 17,
             "solutionSteps": [
-                "Step 1: Check conservativity\n$\\vec{F} = (P, Q)$ with $P(x,y) = 2xy + y^2, Q(x,y) = x^2 + 2xy - 1$\nNecessary condition for conservativity: $\\frac{\\partial P}{\\partial y} = \\frac{\\partial Q}{\\partial x}$\n$\\frac{\\partial P}{\\partial y} = \\frac{\\partial(2xy + y^2)}{\\partial y} = 2x + 2y$\n$\\frac{\\partial Q}{\\partial x} = \\frac{\\partial(x^2 + 2xy - 1)}{\\partial x} = 2x + 2y$\nSince $\\frac{\\partial P}{\\partial y} = \\frac{\\partial Q}{\\partial x}$, $\\vec{F}$ is conservative.",
-                "Step 2: Part b) - Determine potential\nSought: $\\varphi(x,y)$ with $\\nabla \\varphi = \\vec{F}$\n$\\frac{\\partial \\varphi}{\\partial x} = P = 2xy + y^2 \\quad \\Rightarrow \\quad \\varphi(x,y) = x^2y + xy^2 + g(y)$\n$\\frac{\\partial \\varphi}{\\partial y} = x^2 + 2xy + g'(y) = Q = x^2 + 2xy - 1$\nTherefore: $g'(y) = -1 \\quad \\Rightarrow \\quad g(y) = -y + C$",
-                "Step 3: Completely determine potential\n$\\varphi(x,y) = x^2y + xy^2 - y + C$\nVerification:\n$\\frac{\\partial \\varphi}{\\partial x} = 2xy + y^2 = P$ ✓\n$\\frac{\\partial \\varphi}{\\partial y} = x^2 + 2xy - 1 = Q$ ✓\nPotential (with C = 0): $\\varphi(x,y) = x^2y + xy^2 - y$",
-                "Step 4: Part c) - Calculate line integral\nSince $\\vec{F}$ is conservative, the integral is path-independent:\n$\\int_C \\vec{F} \\cdot d\\vec{r} = \\varphi(B) - \\varphi(A) = \\varphi(2,1) - \\varphi(0,0)$",
-                "Step 5: Calculate potential values\n$\\varphi(2,1) = 2^2 \\cdot 1 + 2 \\cdot 1^2 - 1 = 4 + 2 - 1 = 5$\n$\\varphi(0,0) = 0^2 \\cdot 0 + 0 \\cdot 0^2 - 0 = 0$\n$\\int_C \\vec{F} \\cdot d\\vec{r} = 5 - 0 = 5$",
-                "Step 6: Alternative verification via concrete path\nConsider the linear path: $\\vec{r}(t) = (2t, t), t \\in [0,1]$\n$\\vec{r}'(t) = (2, 1)$\n$\\vec{F}(\\vec{r}(t)) = (2 \\cdot 2t \\cdot t + t^2, (2t)^2 + 2 \\cdot 2t \\cdot t - 1) = (4t^2 + t^2, 4t^2 + 4t^2 - 1) = (5t^2, 8t^2 - 1)$\n$\\int_0^1 (5t^2, 8t^2 - 1) \\cdot (2, 1) dt = \\int_0^1 (10t^2 + 8t^2 - 1) dt = \\int_0^1 (18t^2 - 1) dt$\n$= \\left[6t^3 - t\\right]_0^1 = 6 - 1 = 5$ ✓"
+                "Step 1: Transformation\nPolar coordinates: $x = r\\cos\\varphi$, $y = r\\sin\\varphi$, $dA = r\\,dr\\,d\\varphi$, $x^2 + y^2 = r^2$. The factor $r$ (Jacobian determinant) must not be missing.",
+                "Step 2: Part a)\n$\\int_0^{2\\pi}\\int_0^2r^2\\cdot r\\,dr\\,d\\varphi = 2\\pi\\cdot\\left[\\frac{r^4}{4}\\right]_0^2 = 2\\pi\\cdot4 = 8\\pi$.",
+                "Step 3: Part b)\n$\\int_0^{2\\pi}\\int_0^1e^{-r^2}r\\,dr\\,d\\varphi = 2\\pi\\cdot\\left[-\\frac12e^{-r^2}\\right]_0^1 = 2\\pi\\cdot\\frac12(1 - e^{-1}) = \\pi(1 - e^{-1}) \\approx 1.986$.",
+                "Step 4: Plausibility\na) With $f \\equiv 1$ one gets the disc area $4\\pi$; the integrand $r^2 \\leq 4$ gives $8\\pi \\leq 4\\pi\\cdot4$ ✓. b) The integrand lies between $e^{-1}$ and $1$: result between $\\pi e^{-1} \\approx 1.16$ and $\\pi$ ✓."
             ]
         },
         {
             "id": 5,
-            "topic": "Surface Integrals",
-            "title": "Flux through a Surface",
-            "description": "Calculate the flux of vector field $\\vec{F}(x,y,z) = (x, y, z)$ through surface S, which is the part of sphere $x^2 + y^2 + z^2 = 4$ with z ≥ 0, oriented outward.\n\na) Parametrize surface S.\nb) Calculate the normal vector.\nc) Determine the surface integral.",
-            "difficulty": "hard",
-            "points": 20,
+            "topic": "Line Integrals",
+            "title": "Path independence and potential",
+            "description": "a) Show that $\\vec F = (y, x)$ has a potential and compute $\\int_C\\vec F\\cdot d\\vec r$ for $C: \\gamma(t) = (t, 2t^2)$, $t \\in [0,1]$, in two ways.\nb) Compute $\\oint\\vec G\\cdot d\\vec r$ for $\\vec G = (-y,x)$ over the positively oriented unit circle.",
+            "difficulty": "advanced",
+            "points": 16,
             "solutionSteps": [
-                "Step 1: Part a) - Parametrization of hemisphere\nWe use spherical coordinates:\n$\\vec{r}(\\varphi,\\theta) = (2\\cos\\varphi\\sin\\theta, 2\\sin\\varphi\\sin\\theta, 2\\cos\\theta)$\nParameter range: $0 \\leq \\varphi \\leq 2\\pi, 0 \\leq \\theta \\leq \\frac{\\pi}{2}$\n($\\theta = 0$ corresponds to north pole, $\\theta = \\frac{\\pi}{2}$ to equatorial plane)",
-                "Step 2: Calculate partial derivatives\n$\\frac{\\partial \\vec{r}}{\\partial \\varphi} = (-2\\sin\\varphi\\sin\\theta, 2\\cos\\varphi\\sin\\theta, 0)$\n$\\frac{\\partial \\vec{r}}{\\partial \\theta} = (2\\cos\\varphi\\cos\\theta, 2\\sin\\varphi\\cos\\theta, -2\\sin\\theta)$",
-                "Step 3: Part b) - Normal vector\n$\\vec{n} = \\frac{\\partial \\vec{r}}{\\partial \\varphi} \\times \\frac{\\partial \\vec{r}}{\\partial \\theta}$\n$= \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\\\\\ -2\\sin\\varphi\\sin\\theta & 2\\cos\\varphi\\sin\\theta & 0 \\\\\\\\ 2\\cos\\varphi\\cos\\theta & 2\\sin\\varphi\\cos\\theta & -2\\sin\\theta \\end{vmatrix}$\n$= (-4\\cos\\varphi\\sin^2\\theta, -4\\sin\\varphi\\sin^2\\theta, -4\\sin^2\\varphi\\sin\\theta\\cos\\theta - 4\\cos^2\\varphi\\sin\\theta\\cos\\theta)$\n$= -4\\sin\\theta(\\cos\\varphi\\sin\\theta, \\sin\\varphi\\sin\\theta, \\sin\\theta\\cos\\theta)$\n$= -4\\sin\\theta \\cdot \\frac{\\vec{r}}{2} = -2\\sin\\theta \\cdot \\vec{r}$",
-                "Step 4: Correct orientation\nSince we want outward orientation and $\\vec{r}$ points away from origin, we take:\n$\\vec{n} = 2\\sin\\theta \\cdot \\vec{r} = 4\\sin\\theta(\\cos\\varphi\\sin\\theta, \\sin\\varphi\\sin\\theta, \\cos\\theta)$\n$|\\vec{n}| = 4\\sin\\theta \\cdot 2 = 8\\sin\\theta$",
-                "Step 5: Part c) - Calculate surface integral\n$\\vec{F}(\\vec{r}(\\varphi,\\theta)) = (2\\cos\\varphi\\sin\\theta, 2\\sin\\varphi\\sin\\theta, 2\\cos\\theta) = \\vec{r}(\\varphi,\\theta)$\n$\\vec{F} \\cdot \\vec{n} = \\vec{r} \\cdot (2\\sin\\theta \\cdot \\vec{r}) = 2\\sin\\theta \\cdot |\\vec{r}|^2 = 2\\sin\\theta \\cdot 4 = 8\\sin\\theta$",
-                "Step 6: Integration\n$\\iint_S \\vec{F} \\cdot d\\vec{S} = \\int_0^{2\\pi} \\int_0^{\\pi/2} 8\\sin\\theta \\, d\\theta \\, d\\varphi$\n$= \\int_0^{2\\pi} \\left[-8\\cos\\theta\\right]_0^{\\pi/2} d\\varphi$\n$= \\int_0^{2\\pi} (-8\\cos(\\pi/2) + 8\\cos(0)) d\\varphi$\n$= \\int_0^{2\\pi} (0 + 8) d\\varphi = 8 \\cdot 2\\pi = 16\\pi$\nThe flux is $16\\pi$."
+                "Step 1: Part a): Potential\n$\\vec F = \\nabla\\varphi$ with $\\varphi = xy$ ($\\varphi_x = y$, $\\varphi_y = x$). Integrability condition: $\\partial_yF_1 = 1 = \\partial_xF_2$ ✓.",
+                "Step 2: Part a): With the potential\n$\\int_C\\vec F\\cdot d\\vec r = \\varphi(\\gamma(1)) - \\varphi(\\gamma(0)) = \\varphi(1,2) - \\varphi(0,0) = 2 - 0 = 2$.",
+                "Step 3: Part a): Directly\n$\\dot\\gamma = (1, 4t)$. $\\int_0^1\\big(2t^2\\cdot1 + t\\cdot4t\\big)dt = \\int_0^16t^2\\,dt = 2$ ✓ (agrees).",
+                "Step 4: Part b): No potential\n$\\partial_yG_1 = -1 \\neq 1 = \\partial_xG_2$: $\\vec G$ is not a gradient field. Parametrisation $\\gamma(t) = (\\cos t,\\sin t)$, $\\dot\\gamma = (-\\sin t,\\cos t)$: $\\vec G\\cdot\\dot\\gamma = \\sin^2t + \\cos^2t = 1$.",
+                "Step 5: Part b): Result\n$\\oint\\vec G\\cdot d\\vec r = \\int_0^{2\\pi}1\\,dt = 2\\pi \\neq 0$. For a potential field the integral over every closed curve would be $0$. Check with Green: $\\iint(\\partial_xG_2 - \\partial_yG_1)\\,dA = \\iint2\\,dA = 2\\pi$ ✓."
             ]
         },
         {
             "id": 6,
             "topic": "Integral Theorems",
-            "title": "Gauss's Theorem",
-            "description": "Use Gauss's theorem (divergence theorem) to calculate the surface integral $\\iint_S \\vec{F} \\cdot \\vec{n} \\, dS$, where $\\vec{F}(x,y,z) = (x^3, y^3, z^3)$ and S is the complete surface of cube $[0,1]^3$.\n\na) Apply the divergence theorem.\nb) Compare with direct calculation over one face.",
-            "difficulty": "hard",
-            "points": 20,
+            "title": "Divergence theorem",
+            "description": "Let $\\vec F(x,y,z) = (x,y,z)$ and $K$ the unit ball.\na) Compute the flux through the sphere surface directly.\nb) Compute $\\iiint_K\\operatorname{div}\\vec F\\,dV$ and compare.",
+            "difficulty": "advanced",
+            "points": 17,
             "solutionSteps": [
-                "Step 1: Part a) - Calculate divergence\n$\\vec{F}(x,y,z) = (x^3, y^3, z^3)$\n$\\text{div } \\vec{F} = \\nabla \\cdot \\vec{F} = \\frac{\\partial(x^3)}{\\partial x} + \\frac{\\partial(y^3)}{\\partial y} + \\frac{\\partial(z^3)}{\\partial z} = 3x^2 + 3y^2 + 3z^2$",
-                "Step 2: Apply Gauss's theorem\n$\\iint_S \\vec{F} \\cdot \\vec{n} \\, dS = \\iiint_V \\nabla \\cdot \\vec{F} \\, dV$\n$= \\iiint_{[0,1]^3} (3x^2 + 3y^2 + 3z^2) \\, dx \\, dy \\, dz$\n$= 3 \\iiint_{[0,1]^3} (x^2 + y^2 + z^2) \\, dx \\, dy \\, dz$",
-                "Step 3: Calculate volume integral\n$\\iiint_{[0,1]^3} (x^2 + y^2 + z^2) \\, dx \\, dy \\, dz$\n$= \\int_0^1 \\int_0^1 \\int_0^1 (x^2 + y^2 + z^2) \\, dx \\, dy \\, dz$\nSince variables separate:\n$= \\int_0^1 x^2 dx \\int_0^1 dy \\int_0^1 dz + \\int_0^1 dx \\int_0^1 y^2 dy \\int_0^1 dz + \\int_0^1 dx \\int_0^1 dy \\int_0^1 z^2 dz$",
-                "Step 4: Individual integrals\n$\\int_0^1 x^2 dx = \\left[\\frac{x^3}{3}\\right]_0^1 = \\frac{1}{3}$\n$\\int_0^1 dx = \\int_0^1 dy = \\int_0^1 dz = 1$\nTherefore: $\\iiint_{[0,1]^3} (x^2 + y^2 + z^2) \\, dx \\, dy \\, dz = \\frac{1}{3} \\cdot 1 \\cdot 1 + 1 \\cdot \\frac{1}{3} \\cdot 1 + 1 \\cdot 1 \\cdot \\frac{1}{3} = 3 \\cdot \\frac{1}{3} = 1$",
-                "Step 5: Final result with Gauss\n$\\iint_S \\vec{F} \\cdot \\vec{n} \\, dS = 3 \\cdot 1 = 3$",
-                "Step 6: Part b) - Verification over one face\nConsider the face $x = 1$ (unit normal $\\vec{n} = (1,0,0)$):\n$\\vec{F}(1,y,z) = (1, y^3, z^3), \\quad \\vec{F} \\cdot \\vec{n} = 1$\n$\\iint_{x=1} \\vec{F} \\cdot \\vec{n} \\, dS = \\int_0^1 \\int_0^1 1 \\, dy \\, dz = 1$\nSimilarly for all 6 faces:\n- $x = 0$: $\\iint 0 \\, dS = 0$\n- $x = 1$: $\\iint 1 \\, dS = 1$\n- $y = 0$: $\\iint 0 \\, dS = 0$\n- $y = 1$: $\\iint 1 \\, dS = 1$\n- $z = 0$: $\\iint 0 \\, dS = 0$\n- $z = 1$: $\\iint 1 \\, dS = 1$\nSum: $0 + 1 + 0 + 1 + 0 + 1 = 3$ ✓"
-            ]
-        },
-        {
-            "id": 7,
-            "topic": "Taylor Series",
-            "title": "Taylor Series and Approximation",
-            "description": "Develop the function $f(x) = e^{2x}$ around point $x_0 = 0$ into a Taylor series up to 4th order.\n\na) Determine the Taylor polynomials $T_2(x)$ and $T_4(x)$.\nb) Estimate the error when approximating $e^{0.2}$ by $T_2(0.1)$.\nc) Determine the convergence interval of the Taylor series.",
-            "difficulty": "hard",
-            "points": 18,
-            "solutionSteps": [
-                "Step 1: Calculate derivatives\n$f(x) = e^{2x}$\n$f'(x) = 2e^{2x}$\n$f''(x) = 4e^{2x}$\n$f'''(x) = 8e^{2x}$\n$f^{(4)}(x) = 16e^{2x}$",
-                "Step 2: Function values at expansion point\n$f(0) = e^0 = 1$\n$f'(0) = 2e^0 = 2$\n$f''(0) = 4e^0 = 4$\n$f'''(0) = 8e^0 = 8$\n$f^{(4)}(0) = 16e^0 = 16$",
-                "Step 3: Part a) - Taylor polynomials\n$T_2(x) = f(0) + f'(0)x + \\frac{f''(0)}{2!}x^2 = 1 + 2x + \\frac{4}{2}x^2 = 1 + 2x + 2x^2$\n$T_4(x) = T_2(x) + \\frac{f'''(0)}{3!}x^3 + \\frac{f^{(4)}(0)}{4!}x^4$\n$= 1 + 2x + 2x^2 + \\frac{8}{6}x^3 + \\frac{16}{24}x^4$\n$= 1 + 2x + 2x^2 + \\frac{4}{3}x^3 + \\frac{2}{3}x^4$",
-                "Step 4: Part b) - Error estimation\nFor the remainder term: $R_2(x) = \\frac{f'''(\\xi)}{3!}x^3$ with $\\xi$ between 0 and $x$\n$R_2(0.1) = \\frac{8e^{2\\xi}}{6}(0.1)^3 = \\frac{8e^{2\\xi}}{6000}$\nFor $\\xi \\in [0, 0.1]$: $e^{2\\xi} \\leq e^{0.2} < 1.25$\n$|R_2(0.1)| < \\frac{8 \\cdot 1.25}{6000} = \\frac{10}{6000} = \\frac{1}{600} \\approx 0.00167$",
-                "Step 5: Approximation values\n$T_2(0.1) = 1 + 2(0.1) + 2(0.1)^2 = 1 + 0.2 + 0.02 = 1.22$\nExact value: $e^{0.2} \\approx 1.2214$\nError: $|1.2214 - 1.22| = 0.0014 < 0.00167$ ✓",
-                "Step 6: Part c) - Convergence interval\nSince $f(x) = e^{2x}$ is an entire function (analytic everywhere), the Taylor series converges for all $x \\in \\mathbb{R}$.\nRadius of convergence: $R = \\infty$\nConvergence interval: $(-\\infty, \\infty)$"
-            ]
-        },
-        {
-            "id": 8,
-            "topic": "Implicit Differentiation",
-            "title": "Implicit Functions and Tangents",
-            "description": "Given the implicitly defined curve $x^3 + y^3 - 3xy = 0$ (Folium of Descartes).\n\na) Determine $\\frac{dy}{dx}$ by implicit differentiation.\nb) Find all points where the tangent is horizontal.\nc) Determine the equation of the tangent at point $(\\frac{3}{2}, \\frac{3}{2})$.",
-            "difficulty": "hard",
-            "points": 16,
-            "solutionSteps": [
-                "Step 1: Part a) - Implicit differentiation\n$\\frac{d}{dx}(x^3 + y^3 - 3xy) = \\frac{d}{dx}(0)$\n$3x^2 + 3y^2 \\frac{dy}{dx} - 3y - 3x \\frac{dy}{dx} = 0$\n$3x^2 - 3y + (3y^2 - 3x) \\frac{dy}{dx} = 0$",
-                "Step 2: Solve for $\\frac{dy}{dx}$\n$(3y^2 - 3x) \\frac{dy}{dx} = 3y - 3x^2$\n$\\frac{dy}{dx} = \\frac{3y - 3x^2}{3y^2 - 3x} = \\frac{y - x^2}{y^2 - x}$ (for $y^2 \\neq x$)",
-                "Step 3: Part b) - Horizontal tangents\nHorizontal tangents: $\\frac{dy}{dx} = 0$\n$\\frac{y - x^2}{y^2 - x} = 0 \\Rightarrow y - x^2 = 0 \\Rightarrow y = x^2$\nSubstituting into original equation:\n$x^3 + (x^2)^3 - 3x(x^2) = 0$\n$x^3 + x^6 - 3x^3 = 0$\n$x^6 - 2x^3 = 0$\n$x^3(x^3 - 2) = 0$",
-                "Step 4: Solutions for horizontal tangents\n$x^3 = 0 \\Rightarrow x = 0, y = 0$\n$x^3 = 2 \\Rightarrow x = \\sqrt[3]{2}, y = (\\sqrt[3]{2})^2 = 2^{2/3}$\nPoints with horizontal tangent: $(0, 0)$ and $(\\sqrt[3]{2}, 2^{2/3})$",
-                "Step 5: Check point $(0,0)$\nSubstituting into $x^3 + y^3 - 3xy = 0$: $0 + 0 - 0 = 0$ ✓\nBut: $y^2 - x = 0 - 0 = 0$, so $\\frac{dy}{dx}$ is undefined.\nPoint $(0,0)$ is a singular point.",
-                "Step 6: Part c) - Tangent at point $(\\frac{3}{2}, \\frac{3}{2})$\nCheck point: $(\\frac{3}{2})^3 + (\\frac{3}{2})^3 - 3 \\cdot \\frac{3}{2} \\cdot \\frac{3}{2} = \\frac{27}{8} + \\frac{27}{8} - \\frac{27}{4} = \\frac{54}{8} - \\frac{54}{8} = 0$ ✓\nSlope: $\\frac{dy}{dx} = \\frac{\\frac{3}{2} - (\\frac{3}{2})^2}{(\\frac{3}{2})^2 - \\frac{3}{2}} = \\frac{\\frac{3}{2} - \\frac{9}{4}}{\\frac{9}{4} - \\frac{3}{2}} = \\frac{-\\frac{3}{4}}{\\frac{3}{4}} = -1$\nTangent equation: $y - \\frac{3}{2} = -1(x - \\frac{3}{2})$\n$y = -x + 3$"
-            ]
-        },
-        {
-            "id": 9,
-            "topic": "Triple Integrals",
-            "title": "Volume Calculation with Triple Integrals",
-            "description": "Calculate the volume of the solid bounded by surfaces $z = x^2 + y^2$, $z = 8 - x^2 - y^2$ and the xy-plane.\n\na) Determine the projection region in the xy-plane.\nb) Set up the triple integral in Cartesian coordinates.\nc) Calculate the volume using cylindrical coordinates.",
-            "difficulty": "hard",
-            "points": 20,
-            "solutionSteps": [
-                "Step 1: Part a) - Determine projection region\nThe surfaces intersect when: $x^2 + y^2 = 8 - x^2 - y^2$\n$2(x^2 + y^2) = 8$\n$x^2 + y^2 = 4$\nThe projection region is the disk $D: x^2 + y^2 \\leq 4$ in the xy-plane.",
-                "Step 2: Determine bounds for z\nFor $(x,y) \\in D$:\n- Lower bound: $z = x^2 + y^2$ (upward paraboloid)\n- Upper bound: $z = 8 - x^2 - y^2$ (downward paraboloid)\nSince $x^2 + y^2 \\leq 4$, we have $8 - x^2 - y^2 \\geq 4 \\geq x^2 + y^2$.",
-                "Step 3: Part b) - Triple integral in Cartesian coordinates\n$V = \\iiint_E dV = \\iint_D \\int_{x^2+y^2}^{8-x^2-y^2} dz \\, dA$\n$= \\iint_D [(8-x^2-y^2) - (x^2+y^2)] \\, dA$\n$= \\iint_D (8 - 2x^2 - 2y^2) \\, dA$\n$= \\int_{-2}^2 \\int_{-\\sqrt{4-x^2}}^{\\sqrt{4-x^2}} (8 - 2x^2 - 2y^2) \\, dy \\, dx$",
-                "Step 4: Part c) - Transformation to cylindrical coordinates\nSubstitution: $x = r\\cos\\theta, y = r\\sin\\theta, z = z$\nJacobian determinant: $|J| = r$\nRegion: $0 \\leq r \\leq 2, 0 \\leq \\theta \\leq 2\\pi$\nIntegrand: $8 - 2x^2 - 2y^2 = 8 - 2r^2$",
-                "Step 5: Integration in cylindrical coordinates\n$V = \\int_0^{2\\pi} \\int_0^2 (8 - 2r^2) \\cdot r \\, dr \\, d\\theta$\n$= \\int_0^{2\\pi} \\int_0^2 (8r - 2r^3) \\, dr \\, d\\theta$\nInner integral: $\\int_0^2 (8r - 2r^3) \\, dr = \\left[4r^2 - \\frac{r^4}{2}\\right]_0^2 = 16 - 8 = 8$",
-                "Step 6: Outer integral and final result\n$V = \\int_0^{2\\pi} 8 \\, d\\theta = 8 \\cdot 2\\pi = 16\\pi$\nThe volume of the solid is $16\\pi$ cubic units."
-            ]
-        },
-        {
-            "id": 10,
-            "topic": "Vector Fields and Curl",
-            "title": "Curl and Stokes' Theorem",
-            "description": "Given the vector field $\\vec{F}(x,y,z) = (y^2z, -xz^2, xy^2)$ and surface S, which is the part of sphere $x^2 + y^2 + z^2 = 4$ with $z \\geq 0$, oriented upward.\n\na) Calculate the curl $\\text{curl } \\vec{F}$.\nb) Determine the boundary $\\partial S$ of surface S.\nc) Verify Stokes' theorem for this example.",
-            "difficulty": "hard",
-            "points": 22,
-            "solutionSteps": [
-                "Step 1: Part a) - Calculate curl\n$\\vec{F} = (P, Q, R) = (y^2z, -xz^2, xy^2)$\n$\\text{curl } \\vec{F} = \\nabla \\times \\vec{F} = \\begin{vmatrix} \\vec{i} & \\vec{j} & \\vec{k} \\\\\\\\ \\frac{\\partial}{\\partial x} & \\frac{\\partial}{\\partial y} & \\frac{\\partial}{\\partial z} \\\\\\\\ y^2z & -xz^2 & xy^2 \\end{vmatrix}$",
-                "Step 2: Components of curl\n$\\text{curl}_x \\vec{F} = \\frac{\\partial R}{\\partial y} - \\frac{\\partial Q}{\\partial z} = \\frac{\\partial(xy^2)}{\\partial y} - \\frac{\\partial(-xz^2)}{\\partial z} = 2xy - (-2xz) = 2xy + 2xz$\n$\\text{curl}_y \\vec{F} = \\frac{\\partial P}{\\partial z} - \\frac{\\partial R}{\\partial x} = \\frac{\\partial(y^2z)}{\\partial z} - \\frac{\\partial(xy^2)}{\\partial x} = y^2 - y^2 = 0$\n$\\text{curl}_z \\vec{F} = \\frac{\\partial Q}{\\partial x} - \\frac{\\partial P}{\\partial y} = \\frac{\\partial(-xz^2)}{\\partial x} - \\frac{\\partial(y^2z)}{\\partial y} = -z^2 - 2yz$",
-                "Step 3: Complete curl\n$\\text{curl } \\vec{F} = (2x(y + z), 0, -z^2 - 2yz) = (2x(y + z), 0, -z(z + 2y))$",
-                "Step 4: Part b) - Boundary of surface\nS is the upper hemisphere $x^2 + y^2 + z^2 = 4, z \\geq 0$\nThe boundary $\\partial S$ is the circle $x^2 + y^2 = 4, z = 0$ in the xy-plane.\nParametrization: $\\vec{r}(t) = (2\\cos t, 2\\sin t, 0), t \\in [0, 2\\pi]$\nOrientation: counterclockwise (right-hand rule)",
-                "Step 5: Calculate line integral\n$\\vec{r}'(t) = (-2\\sin t, 2\\cos t, 0)$\n$\\vec{F}(\\vec{r}(t)) = ((2\\sin t)^2 \\cdot 0, -2\\cos t \\cdot 0^2, 2\\cos t \\cdot (2\\sin t)^2) = (0, 0, 8\\cos t \\sin^2 t)$\n$\\int_{\\partial S} \\vec{F} \\cdot d\\vec{r} = \\int_0^{2\\pi} (0, 0, 8\\cos t \\sin^2 t) \\cdot (-2\\sin t, 2\\cos t, 0) dt$\n$= \\int_0^{2\\pi} 0 \\, dt = 0$",
-                "Step 6: Part c) - Surface integral of curl\nBy Stokes' theorem: $\\int_{\\partial S} \\vec{F} \\cdot d\\vec{r} = \\iint_S (\\text{curl } \\vec{F}) \\cdot \\vec{n} \\, dS$\nSince the line integral is 0, the surface integral must also be 0.\nVerification by symmetry considerations:\nThe curl has the form $(2x(y+z), 0, -z(z+2y))$\nOn the hemisphere, contributions cancel due to symmetry.\nStokes' theorem is satisfied: $0 = 0$ ✓"
-            ]
-        },
-        {
-            "id": 11,
-            "topic": "Fourier Series",
-            "title": "Fourier Development of a Periodic Function",
-            "description": "Develop the $2\\pi$-periodic function $f(x) = |\\sin x|$ into a Fourier series.\n\na) Determine the Fourier coefficients $a_0$, $a_n$ and $b_n$.\nb) Give the Fourier series explicitly.\nc) Calculate the value of the series at point $x = \\frac{\\pi}{2}$.",
-            "difficulty": "hard",
-            "points": 18,
-            "solutionSteps": [
-                "Step 1: Properties of the function\n$f(x) = |\\sin x|$ is an even function: $f(-x) = |\\sin(-x)| = |-\\sin x| = |\\sin x| = f(x)$\nTherefore all $b_n = 0$ (no sine terms).\nPeriod: $\\pi$ (not $2\\pi$), but we develop as $2\\pi$-periodic function.",
-                "Step 2: Calculate $a_0$\n$a_0 = \\frac{1}{\\pi} \\int_{-\\pi}^{\\pi} |\\sin x| \\, dx = \\frac{2}{\\pi} \\int_0^{\\pi} \\sin x \\, dx$ (since even function)\n$= \\frac{2}{\\pi} [-\\cos x]_0^{\\pi} = \\frac{2}{\\pi}(-\\cos \\pi + \\cos 0) = \\frac{2}{\\pi}(1 + 1) = \\frac{4}{\\pi}$",
-                "Step 3: Calculate $a_n$ for $n \\geq 1$\n$a_n = \\frac{1}{\\pi} \\int_{-\\pi}^{\\pi} |\\sin x| \\cos(nx) \\, dx = \\frac{2}{\\pi} \\int_0^{\\pi} \\sin x \\cos(nx) \\, dx$\nIntegration by parts or product formula:\n$\\sin x \\cos(nx) = \\frac{1}{2}[\\sin((n+1)x) + \\sin((n-1)x)]$ for $n \\neq 1$",
-                "Step 4: Integration for $n \\neq 1$\n$a_n = \\frac{2}{\\pi} \\cdot \\frac{1}{2} \\int_0^{\\pi} [\\sin((n+1)x) + \\sin((n-1)x)] \\, dx$\n$= \\frac{1}{\\pi} \\left[\\frac{-\\cos((n+1)x)}{n+1} + \\frac{-\\cos((n-1)x)}{n-1}\\right]_0^{\\pi}$\n$= \\frac{1}{\\pi} \\left[\\frac{-\\cos((n+1)\\pi) + 1}{n+1} + \\frac{-\\cos((n-1)\\pi) + 1}{n-1}\\right]$",
-                "Step 5: Simplification for even n\nFor even $n$: $\\cos(n\\pi) = 1$, so $\\cos((n+1)\\pi) = -1$ and $\\cos((n-1)\\pi) = -1$\n$a_n = \\frac{1}{\\pi} \\left[\\frac{1 + 1}{n+1} + \\frac{1 + 1}{n-1}\\right] = \\frac{2}{\\pi} \\left[\\frac{1}{n+1} + \\frac{1}{n-1}\\right]$\n$= \\frac{2}{\\pi} \\cdot \\frac{(n-1) + (n+1)}{(n+1)(n-1)} = \\frac{2}{\\pi} \\cdot \\frac{2n}{n^2-1} = \\frac{4n}{\\pi(n^2-1)}$\nFor odd $n$: $a_n = 0$",
-                "Step 6: Part b) - Fourier series\n$f(x) = \\frac{a_0}{2} + \\sum_{n=1}^{\\infty} a_n \\cos(nx)$\n$|\\sin x| = \\frac{2}{\\pi} - \\frac{4}{\\pi} \\sum_{k=1}^{\\infty} \\frac{\\cos(2kx)}{4k^2-1}$\n$= \\frac{2}{\\pi} - \\frac{4}{\\pi} \\left(\\frac{\\cos(2x)}{3} + \\frac{\\cos(4x)}{15} + \\frac{\\cos(6x)}{35} + \\ldots\\right)$\nPart c): At $x = \\frac{\\pi}{2}$: $|\\sin(\\frac{\\pi}{2})| = 1$\nThe series converges to 1."
+                "Step 1: Part a): Flux directly\nOn the unit sphere the outward normal is $\\vec n = (x,y,z)$. So $\\vec F\\cdot\\vec n = x^2 + y^2 + z^2 = 1$. Flux $= \\iint_S1\\,dS = $ surface area $= 4\\pi$.",
+                "Step 2: Part b): Divergence\n$\\operatorname{div}\\vec F = \\partial_xx + \\partial_yy + \\partial_zz = 3$.",
+                "Step 3: Part b): Volume integral\n$\\iiint_K3\\,dV = 3\\cdot\\frac43\\pi = 4\\pi$.",
+                "Step 4: Comparison\nBoth values are $4\\pi$: the divergence theorem $\\oiint\\vec F\\cdot d\\vec S = \\iiint\\operatorname{div}\\vec F\\,dV$ is confirmed. Remember: the theorem turns a surface integral into an (often simpler) volume integral."
             ]
         }
     ]

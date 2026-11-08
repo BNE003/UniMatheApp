@@ -1,0 +1,98 @@
+{
+    "exam": {
+        "title": "Linear Algebra - Expert Exam",
+        "subtitle": "Advanced Theory and Applications",
+        "duration": 90,
+        "totalPoints": 100,
+        "difficulty": "advanced",
+        "language": "en",
+        "instructions": "Complete all tasks. Show complete solution approach for all calculations. Proofs must be complete and rigorous. Permitted aids: calculator without programming function. Good luck!"
+    },
+    "exercises": [
+        {
+            "id": 1,
+            "topic": "Jordan Normal Form",
+            "title": "Nilpotent block and powers",
+            "description": "Let $A = \\begin{pmatrix} 2 & 1 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 2 \\end{pmatrix}$.\na) Show $A = 2I + N$ with $N^3 = 0$.\nb) Compute $A^4$ with the binomial theorem.\nc) Determine the eigenspace and the minimal polynomial of $A$.",
+            "difficulty": "advanced",
+            "points": 18,
+            "solutionSteps": [
+                "Step 1: Part a): Nilpotent part\n$N = A - 2I = \\begin{pmatrix} 0 & 1 & 0 \\\\ 0 & 0 & 1 \\\\ 0 & 0 & 0 \\end{pmatrix}$, $N^2 = \\begin{pmatrix} 0 & 0 & 1 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}$, $N^3 = 0$. $N$ shifts the basis vectors: $e_3 \\to e_2 \\to e_1 \\to 0$.",
+                "Step 2: Part b): Binomial theorem\nSince $2I$ and $N$ commute: $A^4 = \\sum_k\\binom4k2^{4-k}N^k = 16I + 4\\cdot8N + 6\\cdot4N^2 = 16I + 32N + 24N^2$ (higher powers of $N$ vanish).",
+                "Step 3: Part b): Result\n$A^4 = \\begin{pmatrix} 16 & 32 & 24 \\\\ 0 & 16 & 32 \\\\ 0 & 0 & 16 \\end{pmatrix}$. Check: the diagonal is $2^4 = 16$ ✓ and $A^2 = \\begin{pmatrix} 4 & 4 & 1 \\\\ 0 & 4 & 4 \\\\ 0 & 0 & 4 \\end{pmatrix}$ gives $(A^2)^2$ with entry $(1,3)$: $4\\cdot1 + 4\\cdot4 + 1\\cdot4 = 24$ ✓.",
+                "Step 4: Part c): Eigenspace and minimal polynomial\n$\\ker N = \\operatorname{span}\\{e_1\\}$: geometric multiplicity $1$ (one Jordan block of size $3$). Minimal polynomial: $(x - 2)^3$ since $N^2 \\neq 0$ and $N^3 = 0$. The characteristic polynomial $(x-2)^3$ agrees with the minimal polynomial."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Singular Value Decomposition",
+            "title": "Singular values of a 2×2 matrix",
+            "description": "Let $A = \\begin{pmatrix} 3 & 0 \\\\ 4 & 5 \\end{pmatrix}$.\na) Determine the eigenvalues of $A^TA$ and the singular values of $A$.\nb) Verify $\\sigma_1\\sigma_2 = |\\det A|$ and compute $\\|A\\|_2$ and $\\|A\\|_F$.",
+            "difficulty": "advanced",
+            "points": 16,
+            "solutionSteps": [
+                "Step 1: Part a): The matrix A^TA\n$A^TA = \\begin{pmatrix} 3 & 4 \\\\ 0 & 5 \\end{pmatrix}\\begin{pmatrix} 3 & 0 \\\\ 4 & 5 \\end{pmatrix} = \\begin{pmatrix} 25 & 20 \\\\ 20 & 25 \\end{pmatrix}$.",
+                "Step 2: Part a): Eigenvalues and singular values\n$\\operatorname{tr} = 50$, $\\det = 625 - 400 = 225$: $\\lambda^2 - 50\\lambda + 225 = 0 \\Rightarrow \\lambda = 25 \\pm 20 \\in \\{45, 5\\}$. Singular values: $\\sigma_1 = \\sqrt{45} = 3\\sqrt5 \\approx 6.708$, $\\sigma_2 = \\sqrt5 \\approx 2.236$.",
+                "Step 3: Part b): Determinant check\n$\\sigma_1\\sigma_2 = 3\\sqrt5\\cdot\\sqrt5 = 15$ and $|\\det A| = |3\\cdot5 - 0\\cdot4| = 15$ ✓.",
+                "Step 4: Part b): Norms\nSpectral norm $\\|A\\|_2 = \\sigma_1 = 3\\sqrt5 \\approx 6.708$. Frobenius norm $\\|A\\|_F = \\sqrt{9 + 0 + 16 + 25} = \\sqrt{50} = \\sqrt{\\sigma_1^2 + \\sigma_2^2} = \\sqrt{45 + 5}$ ✓. Condition number $\\kappa_2(A) = \\frac{\\sigma_1}{\\sigma_2} = 3$."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Least Squares",
+            "title": "Best-fit line",
+            "description": "Determine the best-fit line $y = a + bx$ through $(0,1), (1,2), (2,2), (3,4)$ using the normal equations and verify the orthogonality of the residual.",
+            "difficulty": "advanced",
+            "points": 16,
+            "solutionSteps": [
+                "Step 1: Set-up\n$A = \\begin{pmatrix} 1 & 0 \\\\ 1 & 1 \\\\ 1 & 2 \\\\ 1 & 3 \\end{pmatrix}$, $\\vec y = (1,2,2,4)^T$, $\\vec c = (a,b)^T$. $A^TA = \\begin{pmatrix} 4 & 6 \\\\ 6 & 14 \\end{pmatrix}$, $A^T\\vec y = (9, 18)^T$ (second component: $0 + 2 + 4 + 12$).",
+                "Step 2: Solve the normal equations\n$\\det = 56 - 36 = 20$. $\\vec c = \\frac1{20}\\begin{pmatrix} 14 & -6 \\\\ -6 & 4 \\end{pmatrix}(9,18)^T = \\frac{1}{20}(126 - 108,\\ -54 + 72)^T = (0.9;\\ 0.9)^T$.",
+                "Step 3: Result\nBest-fit line $y = 0.9 + 0.9x$.",
+                "Step 4: Residual and check\nPredictions $0.9; 1.8; 2.7; 3.6$. Residual $\\vec r = \\vec y - A\\vec c = (0.1;\\ 0.2;\\ -0.7;\\ 0.4)$. Sum $= 0$ ✓ (orthogonality to the column $(1,1,1,1)$) and $\\sum x_ir_i = 0 + 0.2 - 1.4 + 1.2 = 0$ ✓ (orthogonality to the column $(0,1,2,3)$)."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Matrix Norms",
+            "title": "Norms and condition number",
+            "description": "Let $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$.\na) Compute $\\|A\\|_1$, $\\|A\\|_\\infty$ and $\\|A\\|_F$.\nb) Determine $A^{-1}$ and the condition number $\\kappa_\\infty(A) = \\|A\\|_\\infty\\|A^{-1}\\|_\\infty$.",
+            "difficulty": "advanced",
+            "points": 16,
+            "solutionSteps": [
+                "Step 1: Part a): Column and row sums\nColumn-sum norm: $\\|A\\|_1 = \\max(1 + 3,\\ 2 + 4) = 6$. Row-sum norm: $\\|A\\|_\\infty = \\max(1 + 2,\\ 3 + 4) = 7$. Frobenius norm: $\\|A\\|_F = \\sqrt{1 + 4 + 9 + 16} = \\sqrt{30} \\approx 5.477$.",
+                "Step 2: Part b): Inverse\n$\\det A = 4 - 6 = -2$. $A^{-1} = \\frac1{-2}\\begin{pmatrix} 4 & -2 \\\\ -3 & 1 \\end{pmatrix} = \\begin{pmatrix} -2 & 1 \\\\ \\tfrac32 & -\\tfrac12 \\end{pmatrix}$.",
+                "Step 3: Part b): Condition number\n$\\|A^{-1}\\|_\\infty = \\max(2 + 1,\\ 1.5 + 0.5) = 3$. $\\kappa_\\infty(A) = 7\\cdot3 = 21$.",
+                "Step 4: Interpretation\nA relative perturbation of the right-hand side $\\vec b$ can amplify the relative change of the solution by at most the factor $\\kappa = 21$. Remember: $\\kappa \\geq 1$ always; large $\\kappa$ means an ill-conditioned problem. Check: $\\kappa_\\infty(I) = 1$."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "QR Decomposition",
+            "title": "QR decomposition and solving Ax = b",
+            "description": "Let $A = \\begin{pmatrix} 3 & 1 \\\\ 4 & 2 \\end{pmatrix}$, $\\vec b = (5,5)^T$.\na) Determine the QR decomposition with the Gram-Schmidt process.\nb) Solve $A\\vec x = \\vec b$ via $R\\vec x = Q^T\\vec b$.",
+            "difficulty": "advanced",
+            "points": 17,
+            "solutionSteps": [
+                "Step 1: Part a): First column\n$\\vec a_1 = (3,4)$, $r_{11} = |\\vec a_1| = 5$, $\\vec q_1 = \\left(\\frac35,\\frac45\\right)$.",
+                "Step 2: Part a): Second column\n$\\vec a_2 = (1,2)$, $r_{12} = \\vec q_1\\cdot\\vec a_2 = \\frac{3 + 8}{5} = \\frac{11}{5}$. $\\vec w = \\vec a_2 - r_{12}\\vec q_1 = \\left(1 - \\frac{33}{25},\\ 2 - \\frac{44}{25}\\right) = \\left(-\\frac{8}{25},\\frac{6}{25}\\right)$, $r_{22} = |\\vec w| = \\frac{10}{25} = \\frac25$, $\\vec q_2 = \\left(-\\frac45,\\frac35\\right)$.",
+                "Step 3: Part a): Result and check\n$Q = \\begin{pmatrix} \\tfrac35 & -\\tfrac45 \\\\ \\tfrac45 & \\tfrac35 \\end{pmatrix}$, $R = \\begin{pmatrix} 5 & \\tfrac{11}{5} \\\\ 0 & \\tfrac25 \\end{pmatrix}$. Check: $\\det A = 6 - 4 = 2 = r_{11}r_{22} = 5\\cdot\\frac25$ ✓ (and $\\det Q = 1$).",
+                "Step 4: Part b): Solving\n$Q^T\\vec b = \\left(\\frac{15 + 20}{5},\\ \\frac{-20 + 15}{5}\\right) = (7,-1)$. Back substitution: $\\frac25x_2 = -1 \\Rightarrow x_2 = -\\frac52$; $5x_1 + \\frac{11}{5}\\left(-\\frac52\\right) = 7 \\Rightarrow 5x_1 = 7 + \\frac{11}{2} = \\frac{25}{2} \\Rightarrow x_1 = \\frac52$.",
+                "Step 5: Check\n$A\\vec x = \\left(3\\cdot\\frac52 + 1\\cdot\\left(-\\frac52\\right),\\ 4\\cdot\\frac52 + 2\\cdot\\left(-\\frac52\\right)\\right) = (5, 5)$ ✓. Advantage: $Q$ is orthogonal, $Q^T\\vec b$ is numerically stable; only a triangular system has to be solved."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Markov Chains",
+            "title": "Stationary distribution and convergence",
+            "description": "A state vector evolves by $\\vec x_{n+1} = P\\vec x_n$ with $P = \\begin{pmatrix} 0.8 & 0.3 \\\\ 0.2 & 0.7 \\end{pmatrix}$.\na) Determine the eigenvalues and eigenvectors of $P$.\nb) Determine the stationary distribution and justify convergence for every starting vector.",
+            "difficulty": "advanced",
+            "points": 17,
+            "solutionSteps": [
+                "Step 1: Part a): Eigenvalues\n$\\operatorname{tr}P = 1.5$, $\\det P = 0.56 - 0.06 = 0.5$: $\\lambda^2 - 1.5\\lambda + 0.5 = (\\lambda - 1)(\\lambda - 0.5) = 0$. Eigenvalues $1$ and $0.5$.",
+                "Step 2: Part a): Eigenvectors\n$\\lambda = 1$: $P - I = \\begin{pmatrix} -0.2 & 0.3 \\\\ 0.2 & -0.3 \\end{pmatrix}$ gives $v = (3,2)^T$. $\\lambda = 0.5$: $P - 0.5I = \\begin{pmatrix} 0.3 & 0.3 \\\\ 0.2 & 0.2 \\end{pmatrix}$ gives $v = (1,-1)^T$.",
+                "Step 3: Part b): Stationary distribution\nThe eigenvector for $1$, normalised to sum $1$: $\\vec x^* = \\frac15(3,2)^T = (0.6;\\ 0.4)^T$. Check: $P\\vec x^* = (0.48 + 0.12,\\ 0.12 + 0.28) = (0.6;\\ 0.4)$ ✓.",
+                "Step 4: Part b): Convergence\nEvery starting vector is $\\vec x_0 = c_1(3,2) + c_2(1,-1)$. Then $\\vec x_n = c_1(3,2) + c_2\\,0.5^n(1,-1) \\to c_1(3,2)$ because $0.5^n \\to 0$. Since the sum of the shares is preserved ($=1$) the limit is $\\vec x^*$ — independent of the start. Convergence is geometric with rate $0.5$."
+            ]
+        }
+    ]
+}

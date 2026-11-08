@@ -3,6 +3,85 @@
         {
             "id": 1,
             "topic": "Integral Calculus",
+            "title": "Definite integral of a polynomial",
+            "description": "Compute $\\displaystyle\\int_1^3(2x+1)\\,dx$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nBy the fundamental theorem of calculus $\\int_a^bf(x)\\,dx = F(b) - F(a)$ for an antiderivative $F$ of $f$. We first find $F$ with the power rule $\\int x^n\\,dx = \\frac{x^{n+1}}{n+1}$.",
+                "Step 2: Antiderivative\n$F(x) = x^2 + x$ (check: $F'(x) = 2x + 1$ ✓).",
+                "Step 3: Insert the limits\n$F(3) = 9 + 3 = 12$, $F(1) = 1 + 1 = 2$.",
+                "Step 4: Result\n$\\int_1^3(2x+1)\\,dx = F(3) - F(1) = 12 - 2 = 10$.",
+                "Step 5: Geometric check\nThe integral is the area of a trapezoid between $x = 1$ and $x = 3$ with heights $f(1) = 3$ and $f(3) = 7$ and width $2$: $\\frac{3 + 7}{2}\\cdot2 = 10$ ✓.",
+                "Step 6: Takeaway: What to remember\nThe constant of integration $C$ cancels in a definite integral. Always check the antiderivative first by differentiating."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Integral Calculus",
+            "title": "Indefinite integrals",
+            "description": "Find the antiderivatives of (a) $3x^2 - 4x + 1$, (b) $\\frac{1}{x^2} + \\sqrt x$, (c) $\\cos x - 2e^x$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe integrate term by term using $\\int x^a\\,dx = \\frac{x^{a+1}}{a+1} + C$ ($a \\neq -1$) and the standard integrals $\\int\\cos x = \\sin x$, $\\int e^x = e^x$.",
+                "Step 2: (a)\n$\\int(3x^2 - 4x + 1)\\,dx = x^3 - 2x^2 + x + C$.",
+                "Step 3: (b)\n$\\frac{1}{x^2} = x^{-2}$ and $\\sqrt x = x^{1/2}$: $\\int = \\frac{x^{-1}}{-1} + \\frac{x^{3/2}}{3/2} + C = -\\frac1x + \\frac23x^{3/2} + C$.",
+                "Step 4: (c)\n$\\int(\\cos x - 2e^x)\\,dx = \\sin x - 2e^x + C$.",
+                "Step 5: Check by differentiating\n(b): $\\left(-x^{-1} + \\frac23x^{3/2}\\right)' = x^{-2} + x^{1/2}$ ✓. (a) and (c) likewise.",
+                "Step 6: Takeaway: What to remember\nThe check (differentiate the antiderivative) is always possible and reliable. Do not forget the constant $C$; $\\int\\frac1x\\,dx = \\ln|x| + C$ is the exception to the power rule."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Integral Calculus",
+            "title": "Area under a parabola",
+            "description": "Compute the area between the parabola $y = 4 - x^2$ and the $x$-axis.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe area between graph and $x$-axis is the integral over the interval between the zeros as long as $f \\geq 0$ there. We first find the zeros as limits of integration.",
+                "Step 2: Zeros\n$4 - x^2 = 0 \\iff x = \\pm2$. Between $-2$ and $2$ we have $f \\geq 0$ (downward-opening parabola with vertex $(0,4)$).",
+                "Step 3: Integral\n$A = \\int_{-2}^2(4 - x^2)\\,dx = \\left[4x - \\frac{x^3}{3}\\right]_{-2}^{2}$.",
+                "Step 4: Evaluate\n$\\left(8 - \\frac83\\right) - \\left(-8 + \\frac83\\right) = 16 - \\frac{16}{3} = \\frac{32}{3}$.",
+                "Step 5: Check (Archimedes)\nArea under a parabola $= \\frac23\\cdot\\text{base}\\cdot\\text{height} = \\frac23\\cdot4\\cdot4 = \\frac{32}{3}$ ✓.",
+                "Step 6: Takeaway: What to remember\nUsing symmetry it suffices to compute $A = 2\\int_0^2(4 - x^2)\\,dx = 2\\cdot\\frac{16}{3} = \\frac{32}{3}$. If $f$ changes sign one must compute piecewise with absolute values."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Integral Calculus",
+            "title": "Improper integral as a limit",
+            "description": "Examine $\\displaystyle\\int_1^\\infty\\frac{1}{x^2}\\,dx$ and $\\displaystyle\\int_1^\\infty\\frac1x\\,dx$ for convergence.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nAn improper integral is a limit: $\\int_1^\\infty f = \\lim_{R\\to\\infty}\\int_1^Rf$. If the limit exists (finite), the integral is called convergent.",
+                "Step 2: $\\frac1{x^2}$\n$\\int_1^R x^{-2}\\,dx = \\left[-\\frac1x\\right]_1^R = 1 - \\frac1R \\to 1$. The integral **converges** to $1$.",
+                "Step 3: $\\frac1x$\n$\\int_1^R\\frac1x\\,dx = [\\ln x]_1^R = \\ln R \\to \\infty$. The integral **diverges**.",
+                "Step 4: Interpretation\nBoth functions decay to $0$ but only $\\frac1{x^2}$ fast enough: the area under $\\frac1{x^2}$ is finite, under $\\frac1x$ infinite.",
+                "Step 5: Takeaway: What to remember\nIn general $\\int_1^\\infty x^{-p}\\,dx$ converges exactly for $p > 1$. This is directly connected with the convergence of the series $\\sum n^{-p}$ (integral test)."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Integral Calculus",
+            "title": "Mean value of a function",
+            "description": "Determine the mean value of $f(x) = x^2$ on $[0,3]$ and the point at which $f$ takes this value.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe mean value of a continuous function on $[a,b]$ is $\\bar f = \\frac{1}{b-a}\\int_a^bf(x)\\,dx$. By the mean value theorem for integrals this value is attained at at least one point $\\xi \\in [a,b]$.",
+                "Step 2: Integral\n$\\int_0^3x^2\\,dx = \\left[\\frac{x^3}{3}\\right]_0^3 = 9$.",
+                "Step 3: Mean value\n$\\bar f = \\frac{1}{3 - 0}\\cdot9 = 3$.",
+                "Step 4: Point $\\xi$\n$f(\\xi) = 3 \\iff \\xi^2 = 3 \\iff \\xi = \\sqrt3 \\approx 1.73 \\in [0,3]$.",
+                "Step 5: Check\nThe rectangle of height $3$ and width $3$ has the same area $9$ as the area under $x^2$ ✓.",
+                "Step 6: Takeaway: What to remember\nThe mean value is **not** the average of the boundary values ($\\frac{0 + 9}{2} = 4.5 \\neq 3$). Applications: effective values, mean speed, mean temperature."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Integral Calculus",
             "title": "Definite Integral of a Polynomial Function",
             "description": "Calculate the definite integral $\\int_{0}^{2} (x^3 - 2x^2 + 3x - 1) \\, dx$.",
             "difficulty": "easy",
@@ -18,7 +97,7 @@
             ]
         },
         {
-            "id": 2,
+            "id": 7,
             "topic": "Integral Calculus",
             "title": "Definite Integral of an Exponential Function",
             "description": "Calculate the definite integral $\\int_{0}^{1} e^x \\, dx$.",
@@ -34,7 +113,7 @@
             ]
         },
         {
-            "id": 3,
+            "id": 8,
             "topic": "Integral Calculus",
             "title": "Definite Integral of a Trigonometric Function",
             "description": "Calculate the definite integral $\\int_{0}^{\\pi} \\sin x \\, dx$.",
@@ -50,7 +129,7 @@
             ]
         },
         {
-            "id": 4,
+            "id": 9,
             "topic": "Integral Calculus",
             "title": "Definite Integral of a Square Root Function",
             "description": "Calculate the definite integral $\\int_{0}^{4} \\sqrt{x} \\, dx$.",
@@ -66,39 +145,7 @@
             ]
         },
         {
-            "id": 5,
-            "topic": "Integral Calculus",
-            "title": "Definite Integral of a Constant Function",
-            "description": "Calculate the definite integral $\\int_{1}^{5} 3 \\, dx$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Analyze the Integrand\nThe function $f(x) = 3$ is a constant function.",
-                "Step 2: Apply the Integration Rule\nFor $f(x) = c$, $\\int c \\, dx = cx + C$.",
-                "Step 3: Compute the Antiderivative\n$F(x) = 3x + C$\nExplanation: The antiderivative of a constant is a linear function.",
-                "Step 4: Evaluate at the Limits\n$\\int_{1}^{5} 3 \\, dx = F(5) - F(1) = 3 \\cdot 5 - 3 \\cdot 1 = 15 - 3 = 12$.",
-                "Step 5: Verification\nDifferentiate: $\\frac{d}{dx}(3x) = 3$.",
-                "Step 6: Summary\nThe definite integral is 12."
-            ]
-        },
-        {
-            "id": 6,
-            "topic": "Integral Calculus",
-            "title": "Definite Integral of a Linear Function",
-            "description": "Calculate the definite integral $\\int_{0}^{2} (2x + 1) \\, dx$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Analyze the Integrand\nThe function $f(x) = 2x + 1$ is a linear function.",
-                "Step 2: Apply the Integration Rules\nFor each term $ax^n$, $\\int ax^n \\, dx = \\frac{a}{n+1}x^{n+1} + C$.",
-                "Step 3: Compute the Antiderivative\n$F(x) = x^2 + x + C$\nExplanation: Integrate each term separately.",
-                "Step 4: Evaluate at the Limits\n$\\int_{0}^{2} (2x + 1) \\, dx = F(2) - F(0) = (4 + 2) - (0 + 0) = 6$.",
-                "Step 5: Verification\nDifferentiate: $\\frac{d}{dx}(x^2 + x) = 2x + 1$.",
-                "Step 6: Summary\nThe definite integral is 6."
-            ]
-        },
-        {
-            "id": 7,
+            "id": 10,
             "topic": "Integral Calculus",
             "title": "Definite Integral of a Quadratic Function",
             "description": "Calculate the definite integral $\\int_{-1}^{1} (x^2 + 2x + 1) \\, dx$.",
@@ -114,7 +161,7 @@
             ]
         },
         {
-            "id": 8,
+            "id": 11,
             "topic": "Integral Calculus",
             "title": "Definite Integral of a Logarithmic Function",
             "description": "Calculate the definite integral $\\int_{1}^{e} \\frac{1}{x} \\, dx$.",
@@ -130,7 +177,87 @@
             ]
         },
         {
-            "id": 9,
+            "id": 12,
+            "topic": "Integral Calculus",
+            "title": "Substitution",
+            "description": "Compute (a) $\\int\\frac{2x}{x^2+1}\\,dx$ and (b) $\\int_0^{\\pi/2}\\sin x\\cos^2x\\,dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nIn substitution one sets $u = g(x)$ with $du = g'(x)\\,dx$. It pays off when the integrand has the form $f(g(x))\\cdot g'(x)$. For definite integrals the limits are transformed too.",
+                "Step 2: (a) Substitution\n$u = x^2 + 1$, $du = 2x\\,dx$: $\\int\\frac{du}{u} = \\ln|u| + C = \\ln(x^2+1) + C$.",
+                "Step 3: (b) Substitution\n$u = \\cos x$, $du = -\\sin x\\,dx$. Limits: $x = 0 \\Rightarrow u = 1$, $x = \\frac\\pi2 \\Rightarrow u = 0$.",
+                "Step 4: (b) Integral\n$\\int_0^{\\pi/2}\\sin x\\cos^2x\\,dx = -\\int_1^0u^2\\,du = \\int_0^1u^2\\,du = \\frac13$.",
+                "Step 5: Check\n(a): $\\frac{d}{dx}\\ln(x^2+1) = \\frac{2x}{x^2+1}$ ✓. (b): antiderivative $-\\frac{\\cos^3x}{3}$: $-\\frac{0}{3} + \\frac{1}{3} = \\frac13$ ✓.",
+                "Step 6: Takeaway: What to remember\nRule of thumb: “inner function times its derivative”. For definite integrals substitute the limits **or** back-substitute at the end — do not mix both."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Integral Calculus",
+            "title": "Integration by parts",
+            "description": "Compute $\\int xe^x\\,dx$ and $\\int_1^e\\ln x\\,dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nIntegration by parts: $\\int u\\,v'\\,dx = uv - \\int u'\\,v\\,dx$. One chooses $u$ so that it becomes simpler on differentiating (e.g. $x$ or $\\ln x$) and $v'$ so that it is easy to integrate.",
+                "Step 2: $\\int xe^x\\,dx$\n$u = x$, $v' = e^x$, so $u' = 1$, $v = e^x$: $\\int xe^x\\,dx = xe^x - \\int e^x\\,dx = xe^x - e^x + C = (x-1)e^x + C$.",
+                "Step 3: $\\int\\ln x\\,dx$\nTrick: $\\ln x = 1\\cdot\\ln x$ with $u = \\ln x$, $v' = 1$, $u' = \\frac1x$, $v = x$: $\\int\\ln x\\,dx = x\\ln x - \\int1\\,dx = x\\ln x - x + C$.",
+                "Step 4: Definite integral\n$\\int_1^e\\ln x\\,dx = [x\\ln x - x]_1^e = (e - e) - (0 - 1) = 1$.",
+                "Step 5: Check\n$\\frac{d}{dx}\\big((x-1)e^x\\big) = e^x + (x-1)e^x = xe^x$ ✓. $\\frac{d}{dx}(x\\ln x - x) = \\ln x + 1 - 1 = \\ln x$ ✓.",
+                "Step 6: Takeaway: What to remember\nMnemonic LIATE: choose as $u$ preferably **L**ogarithmic, **I**nverse trigonometric, **A**lgebraic (polynomial), **T**rigonometric, **E**xponential functions — in this order."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Integral Calculus",
+            "title": "Substitution with a root",
+            "description": "Compute $\\displaystyle\\int_0^1x\\sqrt{1+x^2}\\,dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe integrand contains the inner function $1 + x^2$ and (up to the factor $2$) its derivative $2x$. This is a classic case for the substitution $u = 1 + x^2$.",
+                "Step 2: Substitution\n$u = 1 + x^2$, $du = 2x\\,dx$, so $x\\,dx = \\frac12du$. Limits: $x = 0 \\Rightarrow u = 1$, $x = 1 \\Rightarrow u = 2$.",
+                "Step 3: Integral in $u$\n$\\int_0^1x\\sqrt{1+x^2}\\,dx = \\frac12\\int_1^2u^{1/2}\\,du = \\frac12\\cdot\\frac23\\left[u^{3/2}\\right]_1^2 = \\frac13\\left(2\\sqrt2 - 1\\right)$.",
+                "Step 4: Numerical value\n$\\frac{2\\cdot1.41421 - 1}{3} = 0.60948$.",
+                "Step 5: Check\nEstimate: the integrand is $\\approx x$ for small $x$ (integral $\\frac12$) and larger; $0.61$ is plausible. Antiderivative $\\frac13(1+x^2)^{3/2}$: derivative $\\frac13\\cdot\\frac32(1+x^2)^{1/2}\\cdot2x = x\\sqrt{1+x^2}$ ✓.",
+                "Step 6: Takeaway: What to remember\nA missing constant factor ($2x$ vs. $x$) is no obstacle: it is simply pulled out of the integral. But a missing variable factor means the substitution does not work."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Integral Calculus",
+            "title": "Area between two curves",
+            "description": "Compute the area enclosed by the graphs $y = x$ and $y = x^2$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe enclosed area is $\\int_a^b\\big(f_{\\text{upper}}(x) - f_{\\text{lower}}(x)\\big)\\,dx$ where $a,b$ are the intersection points. So we must find the intersection points and the upper curve.",
+                "Step 2: Intersection points\n$x = x^2 \\iff x(x-1) = 0 \\iff x \\in \\{0,1\\}$.",
+                "Step 3: Upper curve\nFor $x \\in (0,1)$ we have $x > x^2$ (e.g. $x = \\frac12$: $\\frac12 > \\frac14$). Upper curve: $y = x$.",
+                "Step 4: Integral\n$A = \\int_0^1(x - x^2)\\,dx = \\left[\\frac{x^2}{2} - \\frac{x^3}{3}\\right]_0^1 = \\frac12 - \\frac13 = \\frac16$.",
+                "Step 5: Plausibility\nThe triangle under $y = x$ has area $\\frac12$, the area under $y = x^2$ is $\\frac13$; the difference is $\\frac16 \\approx 0.167$ ✓.",
+                "Step 6: Takeaway: What to remember\nAlways: find intersection points, check the position of the curves in each subinterval (upper minus lower), then integrate. If the positions swap, split into subintervals."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Integral Calculus",
+            "title": "Integral of cos² x",
+            "description": "Compute $\\int\\cos^2x\\,dx$ and $\\int_0^\\pi\\cos^2x\\,dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe square of a trigonometric function is integrated with the half-angle identity $\\cos^2x = \\frac{1 + \\cos2x}{2}$. This turns the square into an expression that can be integrated term by term.",
+                "Step 2: Rewrite\n$\\cos^2x = \\frac12 + \\frac12\\cos2x$.",
+                "Step 3: Integrate\n$\\int\\cos^2x\\,dx = \\frac x2 + \\frac14\\sin2x + C$ (mind the inner derivative $2$: $\\int\\cos2x = \\frac12\\sin2x$).",
+                "Step 4: Definite integral\n$\\int_0^\\pi\\cos^2x\\,dx = \\left[\\frac x2 + \\frac{\\sin2x}{4}\\right]_0^\\pi = \\frac\\pi2 + 0 - 0 = \\frac\\pi2$.",
+                "Step 5: Check\nBecause $\\cos^2x + \\sin^2x = 1$ we have $\\int_0^\\pi\\cos^2 + \\int_0^\\pi\\sin^2 = \\pi$, and both are equal (symmetry): $\\frac\\pi2$ each ✓.",
+                "Step 6: Takeaway: What to remember\nThe mean value of $\\cos^2$ over a full period is $\\frac12$; that is why the RMS value of an alternating voltage is $\\frac{\\hat U}{\\sqrt2}$. Integration by parts (twice) also works."
+            ]
+        },
+        {
+            "id": 17,
             "topic": "Integral Calculus",
             "title": "Integration by Parts",
             "description": "Calculate the integral $\\int x^2 \\ln(x) \\, dx$.",
@@ -144,7 +271,7 @@
             ]
         },
         {
-            "id": 10,
+            "id": 18,
             "topic": "Integral Calculus",
             "title": "Substitution Method",
             "description": "Calculate the integral $\\int \\frac{\\sin(\\sqrt{x})}{\\sqrt{x}} \\, dx$.",
@@ -158,21 +285,7 @@
             ]
         },
         {
-            "id": 11,
-            "topic": "Integral Calculus",
-            "title": "Improper Integrals",
-            "description": "Investigate the convergence of the improper integral $\\int_0^\\infty \\frac{x}{1 + x^4} \\, dx$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Step 1: Substitution\n$u = x^2 \\Rightarrow du = 2x \\, dx \\Rightarrow \\frac{1}{2} \\, du = x \\, dx$.",
-                "Step 2: Transform\n$\\int_0^\\infty \\frac{x}{1 + x^4} \\, dx = \\frac{1}{2} \\int_0^\\infty \\frac{1}{1 + u^2} \\, du$.",
-                "Step 3: Integrate\n$= \\frac{1}{2} [\\arctan(u)]_0^\\infty$.",
-                "Step 4: Evaluate Limit\n$= \\frac{1}{2} \\left( \\lim_{u \\to \\infty} \\arctan(u) - \\arctan(0) \\right) = \\frac{1}{2} \\left( \\frac{\\pi}{2} - 0 \\right) = \\frac{\\pi}{4}$\nThe integral converges to $\\frac{\\pi}{4}$."
-            ]
-        },
-        {
-            "id": 12,
+            "id": 19,
             "topic": "Integral Calculus",
             "title": "Area Calculation",
             "description": "Calculate the area between the curves $y = x^2$ and $y = 2x - x^2$.",
@@ -186,21 +299,7 @@
             ]
         },
         {
-            "id": 13,
-            "topic": "Integral Calculus",
-            "title": "Volume Calculation",
-            "description": "Calculate the volume of the solid of revolution formed by rotating the curve $y = \\sqrt{x}$ about the $x$-axis over the interval $[0, 4]$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Step 1: Volume Formula\n$V = \\pi \\int_0^4 y^2 \\, dx = \\pi \\int_0^4 x \\, dx$.",
-                "Step 2: Integrate\n$= \\pi \\left[ \\frac{x^2}{2} \\right]_0^4$.",
-                "Step 3: Compute\n$= \\pi \\left( \\frac{16}{2} - 0 \\right) = 8\\pi$.",
-                "Step 4: Units\nThe volume is $8\\pi$ cubic units."
-            ]
-        },
-        {
-            "id": 14,
+            "id": 20,
             "topic": "Integral Calculus",
             "title": "Integration by Substitution with Trigonometric Function",
             "description": "Calculate the integral $\\int \\frac{\\cos x}{\\sqrt{\\sin x + 1}} \\, dx$.",
@@ -217,7 +316,7 @@
             ]
         },
         {
-            "id": 15,
+            "id": 21,
             "topic": "Integral Calculus",
             "title": "Integration by Parts with Exponential Function",
             "description": "Calculate the integral $\\int x^2 e^x \\, dx$.",
@@ -234,7 +333,7 @@
             ]
         },
         {
-            "id": 16,
+            "id": 22,
             "topic": "Integral Calculus",
             "title": "Integration of a Rational Function",
             "description": "Calculate the integral $\\int \\frac{x^2 + 2x + 1}{x^2 + 1} \\, dx$.",
@@ -250,7 +349,7 @@
             ]
         },
         {
-            "id": 17,
+            "id": 23,
             "topic": "Integral Calculus",
             "title": "Integration with Trigonometric Substitution",
             "description": "Calculate the integral $\\int \\frac{1}{\\sqrt{4 - x^2}} \\, dx$.",
@@ -267,7 +366,7 @@
             ]
         },
         {
-            "id": 18,
+            "id": 24,
             "topic": "Integral Calculus",
             "title": "Integration of a Product Function",
             "description": "Calculate the integral $\\int x \\sin(2x) \\, dx$.",
@@ -283,7 +382,7 @@
             ]
         },
         {
-            "id": 19,
+            "id": 25,
             "topic": "Integral Calculus",
             "title": "Integration of a Square Root Function with Substitution",
             "description": "Calculate the integral $\\int \\frac{x}{\\sqrt{x^2 + 4}} \\, dx$.",
@@ -300,7 +399,7 @@
             ]
         },
         {
-            "id": 20,
+            "id": 26,
             "topic": "Integral Calculus",
             "title": "Integration of a Logarithmic Function",
             "description": "Calculate the integral $\\int \\ln(x^2 + 1) \\, dx$.",
@@ -316,7 +415,7 @@
             ]
         },
         {
-            "id": 21,
+            "id": 27,
             "topic": "Integral Calculus",
             "title": "Integration of an Exponential Function with Trigonometric Argument",
             "description": "Calculate the integral $\\int e^x \\sin x \\, dx$.",
@@ -333,24 +432,114 @@
             ]
         },
         {
-            "id": 22,
+            "id": 28,
             "topic": "Integral Calculus",
-            "title": "Integration of a Complex Rational Function",
-            "description": "Calculate the integral $\\int \\frac{x^4 + 2x^3 + 3x^2 + 4x + 5}{(x^2 + 1)(x^2 + 2x + 2)} \\, dx$.",
+            "title": "Partial fractions",
+            "description": "Compute $\\displaystyle\\int\\frac{1}{x^2-1}\\,dx$ and $\\displaystyle\\int\\frac{3x+5}{(x+1)(x+3)}\\,dx$.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Step 1: Analyze the Integrand\nThe function is a complex rational function with quadratic denominators.",
-                "Step 2: Partial Fraction Decomposition\nAssume $\\frac{x^4 + 2x^3 + 3x^2 + 4x + 5}{(x^2 + 1)(x^2 + 2x + 2)} = \\frac{Ax + B}{x^2 + 1} + \\frac{Cx + D}{x^2 + 2x + 2}$.",
-                "Step 3: Determine Coefficients\nMultiply through and equate coefficients: $A = 1$, $B = 2$, $C = 0$, $D = 1$.",
-                "Step 4: Split the Integral\n$\\int \\frac{x + 2}{x^2 + 1} \\, dx + \\int \\frac{1}{x^2 + 2x + 2} \\, dx$.",
-                "Step 5: Integrate Partial Fractions\nFirst integral: $\\int \\frac{x}{x^2 + 1} \\, dx + 2 \\int \\frac{1}{x^2 + 1} \\, dx = \\frac{1}{2} \\ln(x^2 + 1) + 2 \\arctan(x)$.\nSecond integral: Complete the square, $x^2 + 2x + 2 = (x + 1)^2 + 1$, so $\\int \\frac{1}{(x + 1)^2 + 1} \\, dx = \\arctan(x + 1)$.\nTotal: $\\frac{1}{2} \\ln(x^2 + 1) + 2 \\arctan(x) + \\arctan(x + 1) + C$.",
-                "Step 6: Verification\nDifferentiate to confirm the result matches the integrand.",
-                "Step 7: Summary\nThe antiderivative is $\\frac{1}{2} \\ln(x^2 + 1) + 2 \\arctan(x) + \\arctan(x + 1) + C$."
+                "Step 1: Overview: What is asked?\nFor rational functions with factored denominator one splits the fraction into partial fractions $\\frac{A}{x - a} + \\frac{B}{x - b}$ and integrates each term to $A\\ln|x-a| + B\\ln|x-b|$. The coefficients are found by comparing coefficients or inserting the roots (cover-up method).",
+                "Step 2: First integral: decomposition\n$\\frac{1}{x^2-1} = \\frac{1}{(x-1)(x+1)} = \\frac{A}{x-1} + \\frac{B}{x+1}$. Cover-up: $A = \\frac{1}{1+1} = \\frac12$, $B = \\frac{1}{-1-1} = -\\frac12$.",
+                "Step 3: First integral\n$\\int\\frac{dx}{x^2-1} = \\frac12\\ln|x-1| - \\frac12\\ln|x+1| + C = \\frac12\\ln\\left|\\frac{x-1}{x+1}\\right| + C$.",
+                "Step 4: Second integral: decomposition\n$\\frac{3x+5}{(x+1)(x+3)} = \\frac{A}{x+1} + \\frac{B}{x+3}$. Cover-up: $A = \\frac{3(-1)+5}{-1+3} = \\frac22 = 1$, $B = \\frac{3(-3)+5}{-3+1} = \\frac{-4}{-2} = 2$.",
+                "Step 5: Second integral\n$\\int\\frac{3x+5}{(x+1)(x+3)}\\,dx = \\ln|x+1| + 2\\ln|x+3| + C$. Check of the decomposition for $x = 0$: $\\frac{5}{3}$ and $1 + \\frac23 = \\frac53$ ✓.",
+                "Step 6: Takeaway: What to remember\nIf the numerator degree is $\\geq$ the denominator degree, first do polynomial division. For double roots one additionally needs $\\frac{B}{(x-a)^2}$, for irreducible quadratic factors terms $\\frac{Bx + C}{x^2 + px + q}$ (arctangent)."
             ]
         },
         {
-            "id": 23,
+            "id": 29,
+            "topic": "Integral Calculus",
+            "title": "More improper integrals",
+            "description": "Examine the convergence of (a) $\\int_0^1\\frac{1}{\\sqrt x}\\,dx$, (b) $\\int_0^1\\frac1x\\,dx$, (c) $\\int_0^\\infty e^{-x}\\,dx$ and compute the value if possible.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThere are two types of improper integrals: unbounded **interval** (limit $\\infty$) and unbounded **integrand** (pole at the boundary). In both cases the integral is defined as the limit of proper integrals.",
+                "Step 2: (a)\n$\\int_\\varepsilon^1x^{-1/2}\\,dx = \\left[2\\sqrt x\\right]_\\varepsilon^1 = 2 - 2\\sqrt\\varepsilon \\to 2$ for $\\varepsilon \\to 0^+$. **Convergent**, value $2$.",
+                "Step 3: (b)\n$\\int_\\varepsilon^1\\frac1x\\,dx = [\\ln x]_\\varepsilon^1 = -\\ln\\varepsilon \\to \\infty$. **Divergent**.",
+                "Step 4: (c)\n$\\int_0^Re^{-x}\\,dx = 1 - e^{-R} \\to 1$ for $R \\to \\infty$. **Convergent**, value $1$.",
+                "Step 5: Summary for $x^{-p}$\nAt $0$: $\\int_0^1x^{-p}\\,dx$ converges exactly for $p < 1$; at $\\infty$: $\\int_1^\\infty x^{-p}\\,dx$ exactly for $p > 1$. The case $p = 1$ diverges in both cases.",
+                "Step 6: Takeaway: What to remember\nAn unbounded integrand (a) can still have finite area, and so can an infinitely long interval (c). What matters is how fast the integrand tends to $0$ or $\\infty$."
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Integral Calculus",
+            "title": "Volume of revolution",
+            "description": "Compute the volume of the solid obtained by rotating the curve $y = x^2$, $0 \\leq x \\leq 1$, about the $x$-axis.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nFor rotation about the $x$-axis every cross section is a disc with radius $f(x)$ and area $\\pi f(x)^2$. The volume is the integral of the cross-sectional areas: $V = \\pi\\int_a^bf(x)^2\\,dx$.",
+                "Step 2: Integrand\n$f(x)^2 = (x^2)^2 = x^4$.",
+                "Step 3: Integral\n$V = \\pi\\int_0^1x^4\\,dx = \\pi\\left[\\frac{x^5}{5}\\right]_0^1 = \\frac\\pi5$.",
+                "Step 4: Plausibility check\nThe cylinder with radius $1$ and height $1$ has volume $\\pi$; the solid fills a fraction $\\frac15$ of it, fitting the narrow course of $x^2$ for small $x$ ✓. For comparison: the cone ($y = x$) has $\\frac\\pi3$.",
+                "Step 5: Variant: rotation about the $y$-axis\nWith cylindrical shells: $V = 2\\pi\\int_0^1x\\cdot x^2\\,dx = 2\\pi\\cdot\\frac14 = \\frac\\pi2$.",
+                "Step 6: Takeaway: What to remember\nDisc method (rotation about the $x$-axis): $\\pi\\int f^2$. Shell method (rotation about the $y$-axis): $2\\pi\\int x\\,f$. The volume of a sphere $\\frac43\\pi r^3$ follows from $f(x) = \\sqrt{r^2 - x^2}$."
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Integral Calculus",
+            "title": "Derivative of an integral with variable limits",
+            "description": "Let $F(x) = \\int_0^xt^2\\,dt$. Determine $F'(x)$. Further compute the derivative of $G(x) = \\int_0^{x^2}e^{-t^2}\\,dt$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe fundamental theorem of calculus says: if $f$ is continuous and $F(x) = \\int_a^xf(t)\\,dt$ then $F'(x) = f(x)$. For a variable upper limit $u(x)$ the chain rule is added: $\\frac{d}{dx}\\int_a^{u(x)}f(t)\\,dt = f(u(x))\\cdot u'(x)$.",
+                "Step 2: $F'(x)$\nDirectly: $F(x) = \\frac{x^3}{3}$, so $F'(x) = x^2$ — this is the integrand at the upper limit, as predicted by the fundamental theorem.",
+                "Step 3: $G'(x)$\n$f(t) = e^{-t^2}$ has no elementary antiderivative but that is not needed. With $u(x) = x^2$: $G'(x) = e^{-(x^2)^2}\\cdot2x = 2xe^{-x^4}$.",
+                "Step 4: Check on a solvable example\n$H(x) = \\int_0^{x^2}t\\,dt = \\frac{x^4}{2}$. Directly: $H'(x) = 2x^3$. With the rule: $f(u)u' = x^2\\cdot2x = 2x^3$ ✓.",
+                "Step 5: Takeaway: What to remember\nThe fundamental theorem links differentiation and integration as inverse operations. Integrals with variable limit define new functions, e.g. the error function $\\operatorname{erf}(x) = \\frac{2}{\\sqrt\\pi}\\int_0^xe^{-t^2}dt$."
+            ]
+        },
+        {
+            "id": 32,
+            "topic": "Integral Calculus",
+            "title": "Repeated integration by parts",
+            "description": "Compute $\\int_1^e(\\ln x)^2\\,dx$ and $\\int x^2e^x\\,dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nSometimes one has to integrate by parts **repeatedly** until the integrand disappears or reduces back. One chooses the same assignment each time: the polynomial or $\\ln$ as $u$.",
+                "Step 2: $\\int x^2e^x\\,dx$, first step\n$u = x^2$, $v' = e^x$: $\\int x^2e^x\\,dx = x^2e^x - 2\\int xe^x\\,dx$.",
+                "Step 3: $\\int x^2e^x\\,dx$, second step\n$\\int xe^x\\,dx = (x-1)e^x$, so $\\int x^2e^x\\,dx = x^2e^x - 2(x-1)e^x + C = (x^2 - 2x + 2)e^x + C$. Check: $\\big((x^2-2x+2)e^x\\big)' = (2x - 2 + x^2 - 2x + 2)e^x = x^2e^x$ ✓.",
+                "Step 4: $\\int(\\ln x)^2\\,dx$\n$u = (\\ln x)^2$, $v' = 1$: $\\int(\\ln x)^2\\,dx = x(\\ln x)^2 - \\int x\\cdot2\\ln x\\cdot\\frac1x\\,dx = x(\\ln x)^2 - 2\\int\\ln x\\,dx = x(\\ln x)^2 - 2(x\\ln x - x) + C$.",
+                "Step 5: Definite integral\n$\\int_1^e(\\ln x)^2\\,dx = \\big[x\\ln^2x - 2x\\ln x + 2x\\big]_1^e = (e - 2e + 2e) - (0 - 0 + 2) = e - 2 \\approx 0.718$.",
+                "Step 6: Takeaway: What to remember\nEach integration by parts lowers the degree of the polynomial by $1$; $\\int x^ne^x\\,dx$ requires $n$ steps. A numerical check of the definite integral: the integrand lies between $0$ and $1$ on $[1,e]$ (length $1.72$), so $0.718$ is plausible."
+            ]
+        },
+        {
+            "id": 33,
+            "topic": "Integral Calculus",
+            "title": "Improper Integrals",
+            "description": "Investigate the convergence of the improper integral $\\int_0^\\infty \\frac{x}{1 + x^4} \\, dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Substitution\n$u = x^2 \\Rightarrow du = 2x \\, dx \\Rightarrow \\frac{1}{2} \\, du = x \\, dx$.",
+                "Step 2: Transform\n$\\int_0^\\infty \\frac{x}{1 + x^4} \\, dx = \\frac{1}{2} \\int_0^\\infty \\frac{1}{1 + u^2} \\, du$.",
+                "Step 3: Integrate\n$= \\frac{1}{2} [\\arctan(u)]_0^\\infty$.",
+                "Step 4: Evaluate Limit\n$= \\frac{1}{2} \\left( \\lim_{u \\to \\infty} \\arctan(u) - \\arctan(0) \\right) = \\frac{1}{2} \\left( \\frac{\\pi}{2} - 0 \\right) = \\frac{\\pi}{4}$\nThe integral converges to $\\frac{\\pi}{4}$."
+            ]
+        },
+        {
+            "id": 34,
+            "topic": "Integral Calculus",
+            "title": "Volume Calculation",
+            "description": "Calculate the volume of the solid of revolution formed by rotating the curve $y = \\sqrt{x}$ about the $x$-axis over the interval $[0, 4]$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Volume Formula\n$V = \\pi \\int_0^4 y^2 \\, dx = \\pi \\int_0^4 x \\, dx$.",
+                "Step 2: Integrate\n$= \\pi \\left[ \\frac{x^2}{2} \\right]_0^4$.",
+                "Step 3: Compute\n$= \\pi \\left( \\frac{16}{2} - 0 \\right) = 8\\pi$.",
+                "Step 4: Units\nThe volume is $8\\pi$ cubic units."
+            ]
+        },
+        {
+            "id": 35,
             "topic": "Integral Calculus",
             "title": "Integration of a Trigonometric Function with Multiple Substitutions",
             "description": "Calculate the integral $\\int \\frac{\\sin^3 x}{\\cos^4 x} \\, dx$.",
@@ -367,7 +556,7 @@
             ]
         },
         {
-            "id": 24,
+            "id": 36,
             "topic": "Integral Calculus",
             "title": "Integration of an Exponential Function with Complex Argument",
             "description": "Calculate the integral $\\int e^{\\sin x} \\cos x \\, dx$.",
@@ -384,24 +573,7 @@
             ]
         },
         {
-            "id": 25,
-            "topic": "Integral Calculus",
-            "title": "Integration of a Square Root Function with Trigonometric Substitution",
-            "description": "Calculate the integral $\\int \\sqrt{x^2 - 4} \\, dx$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Step 1: Analyze the Integrand\nThe function involves a square root with a quadratic term.",
-                "Step 2: Trigonometric Substitution\n$x = 2 \\sec t \\Rightarrow dx = 2 \\sec t \\tan t \\, dt$.",
-                "Step 3: Transform\n$\\int \\sqrt{x^2 - 4} \\, dx = \\int \\sqrt{4 \\sec^2 t - 4} \\cdot 2 \\sec t \\tan t \\, dt = 2 \\int \\tan t \\cdot \\sec t \\tan t \\, dt = 2 \\int \\sec t \\tan^2 t \\, dt$.",
-                "Step 4: Integrate\nUse $\\tan^2 t = \\sec^2 t - 1$: $2 \\int \\sec t (\\sec^2 t - 1) \\, dt = 2 \\int \\sec^3 t \\, dx - 2 \\int \\sec t \\, dx$.\nUse reduction formula for $\\sec^3 t$: $\\int \\sec^3 t \\, dx = \\frac{1}{2} \\sec t \\tan t + \\frac{1}{2} \\ln |\\sec t + \\tan t| + C$.\nSo, $2 \\left( \\frac{1}{2} \\sec t \\tan t + \\frac{1}{2} \\ln |\\sec t + \\tan t| \\right) - 2 \\ln |\\sec t + \\tan t| = \\sec t \\tan t - \\ln |\\sec t + \\tan t| + C$.",
-                "Step 5: Back-Substitute\n$\\sec t = \\frac{x}{2}$, $\\tan t = \\frac{\\sqrt{x^2 - 4}}{2}$, so $\\int = \\frac{x}{2} \\sqrt{x^2 - 4} - \\ln \\left| x + \\sqrt{x^2 - 4} \\right| + C$.",
-                "Step 6: Verification\nDifferentiate to confirm the result matches $\\sqrt{x^2 - 4}$.",
-                "Step 7: Summary\nThe antiderivative is $\\frac{x}{2} \\sqrt{x^2 - 4} - \\ln \\left| x + \\sqrt{x^2 - 4} \\right| + C$."
-            ]
-        },
-        {
-            "id": 26,
+            "id": 37,
             "topic": "Integral Calculus",
             "title": "Integration of a Logarithmic Function with Multiple Substitutions",
             "description": "Calculate the integral $\\int \\frac{\\ln(\\ln x)}{x \\ln x} \\, dx$.",
@@ -419,23 +591,7 @@
             ]
         },
         {
-            "id": 27,
-            "topic": "Integral Calculus",
-            "title": "Integration of a Complex Trigonometric Function",
-            "description": "Calculate the integral $\\int \\frac{\\sin^4 x}{\\cos^6 x} \\, dx$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Step 1: Analyze the Integrand\nThe function is a complex trigonometric function with high powers.",
-                "Step 2: Transform\n$\\frac{\\sin^4 x}{\\cos^6 x} = \\frac{(\\sin^2 x)^2}{\\cos^6 x} = \\frac{(1 - \\cos^2 x)^2}{\\cos^6 x} = \\frac{1 - 2 \\cos^2 x + \\cos^4 x}{\\cos^6 x} = \\sec^6 x - 2 \\sec^4 x + \\sec^2 x$.",
-                "Step 3: Split the Integral\n$\\int \\sec^6 x \\, dx - 2 \\int \\sec^4 x \\, dx + \\int \\sec^2 x \\, dx$.",
-                "Step 4: Integrate\n$\\int \\sec^2 x \\, dx = \\tan x$.\nFor $\\sec^4 x$, use reduction: $\\int \\sec^4 x \\, dx = \\frac{1}{3} \\sec^2 x \\tan x + \\frac{2}{3} \\int \\sec^2 x \\, dx = \\frac{1}{3} \\sec^2 x \\tan x + \\frac{2}{3} \\tan x$.\nFor $\\sec^6 x$, use reduction: $\\int \\sec^6 x \\, dx = \\frac{1}{5} \\sec^4 x \\tan x + \\frac{4}{5} \\int \\sec^4 x \\, dx$.\nCombine and simplify to get $\\frac{1}{5} \\tan^5 x + \\frac{1}{3} \\tan^3 x + \\tan x + C$.",
-                "Step 5: Verification\nDifferentiate to confirm the result matches the integrand.",
-                "Step 6: Summary\nThe antiderivative is $\\frac{1}{5} \\tan^5 x + \\frac{1}{3} \\tan^3 x + \\tan x + C$."
-            ]
-        },
-        {
-            "id": 28,
+            "id": 38,
             "topic": "Integral Calculus",
             "title": "Integration of a Complex Exponential Function",
             "description": "Calculate the integral $\\int e^{x^2} x \\, dx$.",
@@ -449,23 +605,6 @@
                 "Step 5: Back-Substitute\n$= \\frac{1}{2} e^{x^2} + C$.",
                 "Step 6: Verification\nDifferentiate: $\\frac{d}{dx}\\left(\\frac{1}{2} e^{x^2}\\right) = e^{x^2} x$.",
                 "Step 7: Summary\nThe antiderivative is $\\frac{1}{2} e^{x^2} + C$."
-            ]
-        },
-        {
-            "id": 29,
-            "topic": "Integral Calculus",
-            "title": "Integration of a Complex Square Root Function",
-            "description": "Calculate the integral $\\int \\frac{\\sqrt{x^2 + 1}}{x} \\, dx$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Step 1: Analyze the Integrand\nThe function has a square root in the numerator and a variable in the denominator.",
-                "Step 2: Hyperbolic Substitution\nLet $x = \\sinh u \\Rightarrow dx = \\cosh u \\, du$, $\\sqrt{x^2 + 1} = \\sqrt{\\sinh^2 u + 1} = \\cosh u$.",
-                "Step 3: Transform\n$\\int \\frac{\\sqrt{x^2 + 1}}{x} \\, dx = \\int \\frac{\\cosh u}{\\sinh u} \\cosh u \\, du = \\int \\frac{\\cosh^2 u}{\\sinh u} \\, du$.",
-                "Step 4: Simplify\nUse $\\cosh^2 u = \\frac{1 + \\cosh 2u}{2}$, but instead, rewrite: $\\frac{\\cosh^2 u}{\\sinh u} = \\frac{\\cosh^2 u - 1 + 1}{\\sinh u} = \\frac{\\sinh^2 u + 1}{\\sinh u} = \\sinh u + \\frac{1}{\\sinh u}$.\nSo, $\\int \\left( \\sinh u + \\frac{1}{\\sinh u} \\right) \\, du = -\\cosh u + \\ln |\\sinh u| + C$.",
-                "Step 5: Back-Substitute\n$x = \\sinh u \\Rightarrow u = \\text{arcsinh}(x)$, $\\cosh u = \\sqrt{x^2 + 1}$, $\\sinh u = x$.\nThus, $\\int = \\sqrt{x^2 + 1} + \\ln \\left( x + \\sqrt{x^2 + 1} \\right) + C$.",
-                "Step 6: Verification\nDifferentiate to confirm the result matches the integrand.",
-                "Step 7: Summary\nThe antiderivative is $\\sqrt{x^2 + 1} + \\ln \\left( x + \\sqrt{x^2 + 1} \\right) + C$."
             ]
         }
     ]

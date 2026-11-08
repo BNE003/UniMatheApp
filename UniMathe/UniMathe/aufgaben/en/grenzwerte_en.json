@@ -3,6 +3,99 @@
         {
             "id": 1,
             "topic": "Limits",
+            "title": "Asymptotes of a rational function",
+            "description": "Determine all asymptotes of $f(x) = \\dfrac{2x^2+1}{x^2-4}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nVertical asymptotes lie at zeros of the denominator (with non-vanishing numerator), horizontal ones come from the limit as $x \\to \\pm\\infty$.",
+                "Step 2: Vertical asymptotes\n$x^2 - 4 = 0 \\iff x = \\pm2$. The numerator is $9 \\neq 0$ there: **poles** at $x = 2$ and $x = -2$.",
+                "Step 3: Behaviour at the poles\n$x \\to 2^+$: denominator $\\to 0^+$, $f \\to +\\infty$; $x \\to 2^-$: $f \\to -\\infty$. At $x = -2$: $x \\to -2^-$ gives $f \\to +\\infty$, $x \\to -2^+$ gives $f \\to -\\infty$.",
+                "Step 4: Horizontal asymptote\n$f(x) = \\frac{2 + 1/x^2}{1 - 4/x^2} \\to 2$ for $x \\to \\pm\\infty$: $y = 2$.",
+                "Step 5: Takeaway: What to remember\nNumerator degree $=$ denominator degree: horizontal asymptote with value $=$ ratio of leading coefficients. An oblique asymptote exists only for numerator degree $=$ denominator degree $+ 1$."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Limits",
+            "title": "Limit by cancelling",
+            "description": "Compute $\\displaystyle\\lim_{x\\to3}\\frac{x^2-9}{x-3}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nSubstituting $x = 3$ directly gives the indeterminate expression $\\frac00$. We factor the numerator, cancel the troublesome factor and substitute afterwards.",
+                "Step 2: Direct substitution fails\n$\\frac{3^2 - 9}{3 - 3} = \\frac00$ — indeterminate, nothing yet said about the limit.",
+                "Step 3: Factor and cancel\n$x^2 - 9 = (x-3)(x+3)$ (third binomial formula). For $x \\neq 3$ we have $\\frac{(x-3)(x+3)}{x-3} = x + 3$.",
+                "Step 4: Limit\n$\\lim_{x\\to3}(x+3) = 6$. The limit only concerns $x \\neq 3$ near $3$, which is why cancelling is allowed.",
+                "Step 5: Numerical check\n$x = 3.01$: $\\frac{9.0601 - 9}{0.01} = 6.01$; $x = 2.99$: $5.99$ — both close to $6$ ✓.",
+                "Step 6: Takeaway: What to remember\nThe $\\frac00$ type for rational functions: cancel the common zero of numerator and denominator by factoring. The function has a **removable discontinuity** at $x = 3$."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Limits",
+            "title": "Limit at infinity",
+            "description": "Compute $\\displaystyle\\lim_{x\\to\\infty}\\frac{3x^2+x}{x^2-1}$ and $\\displaystyle\\lim_{x\\to\\infty}\\frac{5x+2}{x^2+1}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nFor rational functions as $x \\to \\infty$ one factors out the **highest power** of $x$ in the denominator and cancels. Terms of the form $\\frac{c}{x^k}$ tend to $0$.",
+                "Step 2: First function\n$\\frac{3x^2 + x}{x^2 - 1} = \\frac{3 + \\frac1x}{1 - \\frac1{x^2}} \\to \\frac{3 + 0}{1 - 0} = 3$.",
+                "Step 3: Second function\n$\\frac{5x + 2}{x^2 + 1} = \\frac{\\frac5x + \\frac2{x^2}}{1 + \\frac1{x^2}} \\to \\frac{0}{1} = 0$.",
+                "Step 4: Rule of thumb\nNumerator degree $=$ denominator degree: limit $=$ ratio of leading coefficients ($3/1$). Numerator degree $<$ denominator degree: limit $0$. Numerator degree $>$ denominator degree: divergence to $\\pm\\infty$.",
+                "Step 5: Takeaway: What to remember\nThe limit $3$ means: the line $y = 3$ is a horizontal **asymptote** of the first function."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Limits",
+            "title": "Limit with a root: expanding",
+            "description": "Compute $\\displaystyle\\lim_{x\\to0}\\frac{\\sqrt{1+x}-1}{x}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThis is the type $\\frac00$. With the third binomial formula we expand with the **conjugate** $\\sqrt{1+x} + 1$ so that the root in the numerator disappears.",
+                "Step 2: Expand\n$\\frac{\\sqrt{1+x}-1}{x}\\cdot\\frac{\\sqrt{1+x}+1}{\\sqrt{1+x}+1} = \\frac{(1+x) - 1}{x(\\sqrt{1+x}+1)} = \\frac{x}{x(\\sqrt{1+x}+1)}$.",
+                "Step 3: Cancel\nFor $x \\neq 0$: $\\frac{1}{\\sqrt{1+x}+1}$.",
+                "Step 4: Limit\n$\\lim_{x\\to0}\\frac{1}{\\sqrt{1+x}+1} = \\frac{1}{1+1} = \\frac12$.",
+                "Step 5: Check\n$x = 0.01$: $\\frac{\\sqrt{1.01} - 1}{0.01} \\approx \\frac{0.004988}{0.01} = 0.4988$ ✓. This is the derivative of $\\sqrt{1+x}$ at $0$.",
+                "Step 6: Takeaway: What to remember\nRoots in numerator or denominator: expand with the conjugate expression. The limit here is the difference quotient $\\frac{d}{dx}\\sqrt{1+x}\\big|_{x=0} = \\frac12$."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Limits",
+            "title": "One-sided limits",
+            "description": "Examine $\\displaystyle\\lim_{x\\to0}\\frac1x$ and $\\displaystyle\\lim_{x\\to0}\\frac{|x|}{x}$ using one-sided limits.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nA limit $\\lim_{x\\to a}f(x)$ exists exactly when the left- and right-sided limits exist and agree.",
+                "Step 2: $\\frac1x$\nRight-sided ($x \\to 0^+$): $\\frac1x \\to +\\infty$. Left-sided ($x \\to 0^-$): $\\frac1x \\to -\\infty$. The one-sided limits differ (improper): no limit; $x = 0$ is a **pole** with sign change.",
+                "Step 3: $\\frac{|x|}{x}$\nFor $x > 0$: $\\frac{|x|}{x} = 1$. For $x < 0$: $\\frac{|x|}{x} = -1$. Right-sided $1$, left-sided $-1$: different, so **no limit** (jump).",
+                "Step 4: Comparison\nFor $\\frac1x$ the one-sided limits diverge, for $\\frac{|x|}{x}$ they exist but differ. Both destroy the (two-sided) limit.",
+                "Step 5: Takeaway: What to remember\nFor absolute-value or piecewise functions always consider one-sided limits. Continuity at $a$ means: left- and right-sided limits exist and agree with $f(a)$."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Limits",
+            "title": "Limit by factoring (cubes)",
+            "description": "Compute $\\displaystyle\\lim_{x\\to1}\\frac{x^3-1}{x^2-1}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nNumerator and denominator both have the root $x = 1$ (type $\\frac00$). We split off the factor $x - 1$ in both and cancel.",
+                "Step 2: Numerator\n$x^3 - 1 = (x-1)(x^2 + x + 1)$ (polynomial division or the formula $a^3 - b^3$).",
+                "Step 3: Denominator\n$x^2 - 1 = (x-1)(x+1)$.",
+                "Step 4: Cancel and limit\n$\\frac{x^3-1}{x^2-1} = \\frac{x^2+x+1}{x+1} \\to \\frac{1+1+1}{1+1} = \\frac32$.",
+                "Step 5: Check with the derivative\nL'Hôpital's rule: $\\frac{3x^2}{2x}\\big|_{x=1} = \\frac32$ ✓.",
+                "Step 6: Takeaway: What to remember\nIn general $\\lim_{x\\to1}\\frac{x^m - 1}{x^n - 1} = \\frac mn$. The factor $x - 1$ is the zero that must be cancelled."
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Limits",
             "title": "Simple Limit of a Rational Function",
             "description": "Calculate the limit $\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2}$.",
             "difficulty": "easy",
@@ -17,7 +110,133 @@
             ]
         },
         {
-            "id": 2,
+            "id": 8,
+            "topic": "Limits",
+            "title": "Limit of a Polynomial Function",
+            "description": "Calculate the limit $\\lim_{x \\to 3} \\frac{x^3 - 27}{x - 3}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 3} \\frac{x^3 - 27}{x - 3}$ is initially indeterminate (0/0).",
+                "Step 2: Polynomial division\n$x^3 - 27 = (x - 3)(x^2 + 3x + 9)$\nExplanation: We use polynomial division or the formula for the difference of cubes.",
+                "Step 3: Cancellation\n$\\frac{x^3 - 27}{x - 3} = \\frac{(x - 3)(x^2 + 3x + 9)}{x - 3} = x^2 + 3x + 9$\nExplanation: The term (x - 3) can be canceled, as x ≠ 3.",
+                "Step 4: Limit calculation\n$\\lim_{x \\to 3} (x^2 + 3x + 9) = 9 + 9 + 9 = 27$\nExplanation: After cancellation, we can directly substitute x = 3.",
+                "Step 5: Verification\nWe verify by substituting values close to 3:\nx = 2.9: $\\frac{2.9^3 - 27}{2.9 - 3} \\approx 26.91$\nx = 3.1: $\\frac{3.1^3 - 27}{3.1 - 3} \\approx 27.09$\nThe values approach the limit of 27.",
+                "Step 6: Summary\nThe limit exists and equals 27. The function has a removable discontinuity at x = 3."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Limits",
+            "title": "Limit of a Rational Function with Square",
+            "description": "Calculate the limit $\\lim_{x \\to 1} \\frac{x^2 - 2x + 1}{x - 1}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 1} \\frac{x^2 - 2x + 1}{x - 1}$ is initially indeterminate (0/0).",
+                "Step 2: Transformation of the numerator\n$x^2 - 2x + 1 = (x - 1)^2$\nExplanation: We recognize the second binomial formula.",
+                "Step 3: Cancellation\n$\\frac{(x - 1)^2}{x - 1} = x - 1$\nExplanation: One factor (x - 1) can be canceled, as x ≠ 1.",
+                "Step 4: Limit calculation\n$\\lim_{x \\to 1} (x - 1) = 0$\nExplanation: After cancellation, we can directly substitute x = 1.",
+                "Step 5: Verification\nWe verify by substituting values close to 1:\nx = 0.9: $\\frac{0.9^2 - 2 \\cdot 0.9 + 1}{0.9 - 1} \\approx -0.1$\nx = 1.1: $\\frac{1.1^2 - 2 \\cdot 1.1 + 1}{1.1 - 1} \\approx 0.1$\nThe values approach the limit of 0.",
+                "Step 6: Summary\nThe limit exists and equals 0. The function has a removable discontinuity at x = 1."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Limits",
+            "title": "Limit of a Rational Function with Cubic",
+            "description": "Calculate the limit $\\lim_{x \\to 2} \\frac{x^3 - 8}{x^2 - 4}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 2} \\frac{x^3 - 8}{x^2 - 4}$ is initially indeterminate (0/0).",
+                "Step 2: Transformation of numerator and denominator\n$x^3 - 8 = (x - 2)(x^2 + 2x + 4)$\n$x^2 - 4 = (x - 2)(x + 2)$\nExplanation: We use the formulas for the difference of cubes and squares.",
+                "Step 3: Cancellation\n$\\frac{(x - 2)(x^2 + 2x + 4)}{(x - 2)(x + 2)} = \\frac{x^2 + 2x + 4}{x + 2}$\nExplanation: The term (x - 2) can be canceled, as x ≠ 2.",
+                "Step 4: Limit calculation\n$\\lim_{x \\to 2} \\frac{x^2 + 2x + 4}{x + 2} = \\frac{4 + 4 + 4}{4} = 3$\nExplanation: After cancellation, we can directly substitute x = 2.",
+                "Step 5: Verification\nWe verify by substituting values close to 2:\nx = 1.9: $\\frac{1.9^3 - 8}{1.9^2 - 4} \\approx 2.95$\nx = 2.1: $\\frac{2.1^3 - 8}{2.1^2 - 4} \\approx 3.05$\nThe values approach the limit of 3.",
+                "Step 6: Summary\nThe limit exists and equals 3. The function has a removable discontinuity at x = 2."
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Limits",
+            "title": "Limit with l'Hôpital",
+            "description": "Compute $\\displaystyle\\lim_{x\\to0}\\frac{1-\\cos x}{x^2}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe limit has the type $\\frac00$. L'Hôpital's rule says: if $\\lim\\frac{f'}{g'}$ exists then $\\lim\\frac fg = \\lim\\frac{f'}{g'}$ (type $\\frac00$ or $\\frac\\infty\\infty$).",
+                "Step 2: Check the type\nNumerator: $1 - \\cos0 = 0$. Denominator: $0^2 = 0$. So $\\frac00$, the rule is applicable.",
+                "Step 3: First application\n$\\lim\\frac{\\sin x}{2x}$ — again $\\frac00$.",
+                "Step 4: Second application\n$\\lim\\frac{\\cos x}{2} = \\frac12$. So $\\lim_{x\\to0}\\frac{1-\\cos x}{x^2} = \\frac12$.",
+                "Step 5: Alternative without l'Hôpital\nWith $\\sin\\frac x2$: $1 - \\cos x = 2\\sin^2\\frac x2$, so $\\frac{1-\\cos x}{x^2} = \\frac12\\left(\\frac{\\sin(x/2)}{x/2}\\right)^2 \\to \\frac12\\cdot1^2 = \\frac12$ ✓.",
+                "Step 6: Takeaway: What to remember\nL'Hôpital may only be used for $\\frac00$ or $\\frac\\infty\\infty$, and one differentiates numerator and denominator **separately** (not the quotient). The limit $\\frac12$ explains $\\cos x \\approx 1 - \\frac{x^2}2$."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Limits",
+            "title": "Combining standard limits",
+            "description": "Compute $\\displaystyle\\lim_{x\\to0}\\frac{e^{2x}-1}{\\sin3x}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe reduce the limit to the standard limits $\\lim\\frac{e^u-1}{u} = 1$ and $\\lim\\frac{\\sin u}{u} = 1$ ($u \\to 0$) by expanding suitably.",
+                "Step 2: Expand\n$\\frac{e^{2x}-1}{\\sin3x} = \\frac{e^{2x}-1}{2x}\\cdot\\frac{3x}{\\sin3x}\\cdot\\frac{2x}{3x}$.",
+                "Step 3: Limits of the factors\nWith $u = 2x \\to 0$: $\\frac{e^{2x}-1}{2x} \\to 1$. With $v = 3x \\to 0$: $\\frac{3x}{\\sin3x} \\to 1$. The last factor is constant $\\frac23$.",
+                "Step 4: Result\n$\\lim = 1\\cdot1\\cdot\\frac23 = \\frac23$.",
+                "Step 5: Check with l'Hôpital\n$\\frac{2e^{2x}}{3\\cos3x}\\big|_{x=0} = \\frac23$ ✓.",
+                "Step 6: Takeaway: What to remember\nRemember: for small $x$, $e^{ax} - 1 \\approx ax$ and $\\sin bx \\approx bx$; the quotient therefore behaves like $\\frac ab$."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Limits",
+            "title": "Exponential beats polynomial",
+            "description": "Compute $\\displaystyle\\lim_{x\\to\\infty}xe^{-x}$ and $\\displaystyle\\lim_{x\\to\\infty}\\frac{x^3}{e^x}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe expression $xe^{-x}$ has the type $\\infty\\cdot0$. We write it as the fraction $\\frac{x}{e^x}$ (type $\\frac\\infty\\infty$) and apply l'Hôpital.",
+                "Step 2: $xe^{-x}$\n$xe^{-x} = \\frac{x}{e^x} \\overset{\\text{l'H}}{=} \\lim\\frac{1}{e^x} = 0$.",
+                "Step 3: $\\frac{x^3}{e^x}$\nApplying three times: $\\frac{x^3}{e^x} \\to \\frac{3x^2}{e^x} \\to \\frac{6x}{e^x} \\to \\frac{6}{e^x} = 0$.",
+                "Step 4: General statement\nFor every $n$ we have $\\frac{x^n}{e^x} \\to 0$ ($x \\to \\infty$): the exponential function grows faster than every power. Likewise every power grows faster than $\\ln x$: $\\frac{\\ln x}{x^n} \\to 0$.",
+                "Step 5: Takeaway: What to remember\nGrowth hierarchy: $\\ln x \\ll x^a \\ll e^x \\ll x!$. For products $\\infty\\cdot0$ first rewrite as a fraction."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Limits",
+            "title": "The limit e²",
+            "description": "Compute $\\displaystyle\\lim_{x\\to\\infty}\\left(1+\\frac2x\\right)^x$ and $\\displaystyle\\lim_{n\\to\\infty}\\left(1-\\frac1n\\right)^n$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe use $\\lim_{u\\to\\infty}\\left(1+\\frac1u\\right)^u = e$ and a suitable substitution. Alternatively one takes the logarithm and applies l'Hôpital.",
+                "Step 2: First limit by substitution\nWith $u = \\frac x2$ ($u \\to \\infty$): $\\left(1+\\frac2x\\right)^x = \\left(1+\\frac1u\\right)^{2u} = \\left[\\left(1+\\frac1u\\right)^u\\right]^2 \\to e^2$.",
+                "Step 3: Check with the logarithm\n$\\ln\\left(1+\\frac2x\\right)^x = \\frac{\\ln(1 + 2/x)}{1/x} \\overset{\\text{l'H}}{=} \\frac{\\frac{-2/x^2}{1 + 2/x}}{-1/x^2} = \\frac{2}{1 + 2/x} \\to 2$, so the limit is $e^2$ ✓.",
+                "Step 4: Second limit\nIn general $\\lim\\left(1+\\frac an\\right)^n = e^a$. With $a = -1$: $\\lim\\left(1-\\frac1n\\right)^n = e^{-1} = \\frac1e \\approx 0.368$.",
+                "Step 5: Numerical check\n$n = 1000$: $\\left(1 - 0.001\\right)^{1000} \\approx 0.3677$ ✓.",
+                "Step 6: Takeaway: What to remember\nThe type $1^\\infty$ is indeterminate: the base tends to $1$, the exponent to $\\infty$. What matters is the product of exponent and $(\\text{base} - 1)$, here $x\\cdot\\frac2x = 2$."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Limits",
+            "title": "The type 0·∞: x ln x",
+            "description": "Compute $\\displaystyle\\lim_{x\\to0^+}x\\ln x$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe expression has the type $0\\cdot(-\\infty)$ and is indeterminate. We write it as the fraction $\\frac{\\ln x}{1/x}$ (type $\\frac{-\\infty}{\\infty}$) and use l'Hôpital.",
+                "Step 2: Rewrite\n$x\\ln x = \\frac{\\ln x}{1/x}$. For $x \\to 0^+$: numerator $\\to -\\infty$, denominator $\\to +\\infty$.",
+                "Step 3: L'Hôpital\n$\\lim\\frac{(\\ln x)'}{(1/x)'} = \\lim\\frac{1/x}{-1/x^2} = \\lim(-x) = 0$.",
+                "Step 4: Result and check\n$\\lim_{x\\to0^+}x\\ln x = 0$. Numerically: $x = 0.01$: $0.01\\cdot(-4.605) = -0.046$; $x = 10^{-6}$: $-0.0000138$ ✓.",
+                "Step 5: Takeaway: What to remember\nFor $0\\cdot\\infty$ one must move the “simpler” factor into the denominator so that the derivatives become easier (leave $\\ln x$ in the numerator, write $x$ as $\\frac1{1/x}$). The function $x\\ln x$ can be continuously extended with $f(0) = 0$."
+            ]
+        },
+        {
+            "id": 16,
             "topic": "Limits",
             "title": "Limit with a Square Root",
             "description": "Calculate the limit $\\lim_{x \\to 0} \\frac{\\sqrt{x + 4} - 2}{x}$.",
@@ -34,7 +253,7 @@
             ]
         },
         {
-            "id": 3,
+            "id": 17,
             "topic": "Limits",
             "title": "Limit with an Exponential Function",
             "description": "Calculate the limit $\\lim_{x \\to 0} \\frac{e^x - 1}{x}$.",
@@ -51,7 +270,7 @@
             ]
         },
         {
-            "id": 4,
+            "id": 18,
             "topic": "Limits",
             "title": "Limit with a Trigonometric Function",
             "description": "Calculate the limit $\\lim_{x \\to 0} \\frac{\\sin x}{x}$.",
@@ -68,73 +287,7 @@
             ]
         },
         {
-            "id": 5,
-            "topic": "Limits",
-            "title": "Limit with a Logarithm",
-            "description": "Calculate the limit $\\lim_{x \\to 1} \\frac{\\ln x}{x - 1}$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 1} \\frac{\\ln x}{x - 1}$ is initially indeterminate (0/0).",
-                "Step 2: Substitution\nLet $h = x - 1$, then $x = 1 + h$ and $h \\to 0$ as $x \\to 1$.\nExplanation: We substitute to simplify the limit.",
-                "Step 3: Transformation\n$\\frac{\\ln(1 + h)}{h}$\nExplanation: After substitution, we get this form.",
-                "Step 4: Taylor expansion\n$\\ln(1 + h) = h - \\frac{h^2}{2} + \\frac{h^3}{3} - ...$\nExplanation: We expand the logarithm into a Taylor series.",
-                "Step 5: Substitution and simplification\n$\\frac{h - \\frac{h^2}{2} + \\frac{h^3}{3} - ...}{h} = 1 - \\frac{h}{2} + \\frac{h^2}{3} - ...$\nExplanation: We cancel h and rearrange the terms.",
-                "Step 6: Limit calculation\n$\\lim_{h \\to 0} (1 - \\frac{h}{2} + \\frac{h^2}{3} - ...) = 1$\nExplanation: All terms with h converge to 0.",
-                "Step 7: Verification\nWe verify by substituting values close to 1:\nx = 0.9: $\\frac{\\ln(0.9)}{0.9 - 1} \\approx 1.053$\nx = 1.1: $\\frac{\\ln(1.1)}{1.1 - 1} \\approx 0.953$\nThe values approach the limit of 1.",
-                "Step 8: Summary\nThe limit exists and equals 1. This is an important limit for the derivative of the logarithm."
-            ]
-        },
-        {
-            "id": 6,
-            "topic": "Limits",
-            "title": "Limit of a Polynomial Function",
-            "description": "Calculate the limit $\\lim_{x \\to 3} \\frac{x^3 - 27}{x - 3}$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 3} \\frac{x^3 - 27}{x - 3}$ is initially indeterminate (0/0).",
-                "Step 2: Polynomial division\n$x^3 - 27 = (x - 3)(x^2 + 3x + 9)$\nExplanation: We use polynomial division or the formula for the difference of cubes.",
-                "Step 3: Cancellation\n$\\frac{x^3 - 27}{x - 3} = \\frac{(x - 3)(x^2 + 3x + 9)}{x - 3} = x^2 + 3x + 9$\nExplanation: The term (x - 3) can be canceled, as x ≠ 3.",
-                "Step 4: Limit calculation\n$\\lim_{x \\to 3} (x^2 + 3x + 9) = 9 + 9 + 9 = 27$\nExplanation: After cancellation, we can directly substitute x = 3.",
-                "Step 5: Verification\nWe verify by substituting values close to 3:\nx = 2.9: $\\frac{2.9^3 - 27}{2.9 - 3} \\approx 26.91$\nx = 3.1: $\\frac{3.1^3 - 27}{3.1 - 3} \\approx 27.09$\nThe values approach the limit of 27.",
-                "Step 6: Summary\nThe limit exists and equals 27. The function has a removable discontinuity at x = 3."
-            ]
-        },
-        {
-            "id": 7,
-            "topic": "Limits",
-            "title": "Limit of a Rational Function with Square",
-            "description": "Calculate the limit $\\lim_{x \\to 1} \\frac{x^2 - 2x + 1}{x - 1}$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 1} \\frac{x^2 - 2x + 1}{x - 1}$ is initially indeterminate (0/0).",
-                "Step 2: Transformation of the numerator\n$x^2 - 2x + 1 = (x - 1)^2$\nExplanation: We recognize the second binomial formula.",
-                "Step 3: Cancellation\n$\\frac{(x - 1)^2}{x - 1} = x - 1$\nExplanation: One factor (x - 1) can be canceled, as x ≠ 1.",
-                "Step 4: Limit calculation\n$\\lim_{x \\to 1} (x - 1) = 0$\nExplanation: After cancellation, we can directly substitute x = 1.",
-                "Step 5: Verification\nWe verify by substituting values close to 1:\nx = 0.9: $\\frac{0.9^2 - 2 \\cdot 0.9 + 1}{0.9 - 1} \\approx -0.1$\nx = 1.1: $\\frac{1.1^2 - 2 \\cdot 1.1 + 1}{1.1 - 1} \\approx 0.1$\nThe values approach the limit of 0.",
-                "Step 6: Summary\nThe limit exists and equals 0. The function has a removable discontinuity at x = 1."
-            ]
-        },
-        {
-            "id": 8,
-            "topic": "Limits",
-            "title": "Limit of a Rational Function with Cubic",
-            "description": "Calculate the limit $\\lim_{x \\to 2} \\frac{x^3 - 8}{x^2 - 4}$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 2} \\frac{x^3 - 8}{x^2 - 4}$ is initially indeterminate (0/0).",
-                "Step 2: Transformation of numerator and denominator\n$x^3 - 8 = (x - 2)(x^2 + 2x + 4)$\n$x^2 - 4 = (x - 2)(x + 2)$\nExplanation: We use the formulas for the difference of cubes and squares.",
-                "Step 3: Cancellation\n$\\frac{(x - 2)(x^2 + 2x + 4)}{(x - 2)(x + 2)} = \\frac{x^2 + 2x + 4}{x + 2}$\nExplanation: The term (x - 2) can be canceled, as x ≠ 2.",
-                "Step 4: Limit calculation\n$\\lim_{x \\to 2} \\frac{x^2 + 2x + 4}{x + 2} = \\frac{4 + 4 + 4}{4} = 3$\nExplanation: After cancellation, we can directly substitute x = 2.",
-                "Step 5: Verification\nWe verify by substituting values close to 2:\nx = 1.9: $\\frac{1.9^3 - 8}{1.9^2 - 4} \\approx 2.95$\nx = 2.1: $\\frac{2.1^3 - 8}{2.1^2 - 4} \\approx 3.05$\nThe values approach the limit of 3.",
-                "Step 6: Summary\nThe limit exists and equals 3. The function has a removable discontinuity at x = 2."
-            ]
-        },
-        {
-            "id": 9,
+            "id": 19,
             "topic": "Limits",
             "title": "Limit with Trigonometric Function and Square Root",
             "description": "Calculate the limit $\\lim_{x \\to 0} \\frac{\\sin x}{\\sqrt{x + 1} - 1}$.",
@@ -151,7 +304,7 @@
             ]
         },
         {
-            "id": 10,
+            "id": 20,
             "topic": "Limits",
             "title": "Limit with Exponential and Trigonometric Functions",
             "description": "Calculate the limit $\\lim_{x \\to 0} \\frac{e^x - \\cos x}{x}$.",
@@ -168,7 +321,7 @@
             ]
         },
         {
-            "id": 11,
+            "id": 21,
             "topic": "Limits",
             "title": "Limit with Logarithm and Square Root",
             "description": "Calculate the limit $\\lim_{x \\to 1} \\frac{\\ln x}{\\sqrt{x} - 1}$.",
@@ -186,7 +339,120 @@
             ]
         },
         {
-            "id": 12,
+            "id": 22,
+            "topic": "Limits",
+            "title": "Limit with repeated l'Hôpital",
+            "description": "Compute $\\displaystyle\\lim_{x\\to0}\\frac{\\tan x - x}{x^3}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe limit has the type $\\frac00$. We apply l'Hôpital and simplify with $\\tan'x = 1 + \\tan^2x$ until a known limit appears.",
+                "Step 2: First application\n$\\lim\\frac{(\\tan x - x)'}{(x^3)'} = \\lim\\frac{1 + \\tan^2x - 1}{3x^2} = \\lim\\frac{\\tan^2x}{3x^2}$.",
+                "Step 3: Standard limit\n$\\frac{\\tan x}{x} = \\frac{\\sin x}{x}\\cdot\\frac{1}{\\cos x} \\to 1\\cdot1 = 1$, so $\\frac{\\tan^2x}{3x^2} \\to \\frac13$.",
+                "Step 4: Result\n$\\lim_{x\\to0}\\frac{\\tan x - x}{x^3} = \\frac13$.",
+                "Step 5: Check with Taylor\n$\\tan x = x + \\frac{x^3}{3} + O(x^5)$, so $\\frac{\\tan x - x}{x^3} \\to \\frac13$ ✓. Numerically: $x = 0.1$: $\\frac{0.100335 - 0.1}{0.001} = 0.335$ ✓.",
+                "Step 6: Takeaway: What to remember\nAfter the first application the limit was already easy to read — do not differentiate blindly, simplify in between. Compared with $\\sin x - \\tan x \\sim -\\frac{x^3}{2}$ this shows the Taylor behaviour of both functions."
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Limits",
+            "title": "ε-δ proof of a limit statement",
+            "description": "Prove with the $\\varepsilon$-$\\delta$ definition: $\\lim_{x\\to2}(3x - 1) = 5$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nDefinition: $\\lim_{x\\to a}f(x) = L$ means: for every $\\varepsilon > 0$ there is a $\\delta > 0$ such that $0 < |x - a| < \\delta$ implies $|f(x) - L| < \\varepsilon$. We find $\\delta$ depending on $\\varepsilon$ (backward calculation) and then prove forward.",
+                "Step 2: Backward calculation (draft)\n$|f(x) - 5| = |3x - 1 - 5| = |3x - 6| = 3|x - 2|$. This is $< \\varepsilon$ if $|x - 2| < \\frac\\varepsilon3$. This suggests $\\delta = \\frac\\varepsilon3$.",
+                "Step 3: Choice of $\\delta$\nLet $\\varepsilon > 0$ be arbitrary. Put $\\delta := \\frac\\varepsilon3 > 0$.",
+                "Step 4: Forward proof\nLet $0 < |x - 2| < \\delta$. Then $|f(x) - 5| = 3|x-2| < 3\\delta = \\varepsilon$. So the definition holds for every $\\varepsilon$. $\\blacksquare$",
+                "Step 5: Concretely\nFor $\\varepsilon = 0.03$ $\\delta = 0.01$ suffices: $x = 2.009 \\Rightarrow f(x) = 5.027$, distance $0.027 < 0.03$ ✓.",
+                "Step 6: Takeaway: What to remember\nFor linear functions $f(x) = mx + b$ we have $\\delta = \\frac{\\varepsilon}{|m|}$. For nonlinear functions (e.g. $x^2$) one needs an additional restriction like $\\delta \\leq 1$ to bound the factor $|x + a|$."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Limits",
+            "title": "Squeeze theorem",
+            "description": "Compute $\\displaystyle\\lim_{x\\to0}x\\sin\\frac1x$ and show that $\\displaystyle\\lim_{x\\to0}\\sin\\frac1x$ does not exist.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nSqueeze theorem: if $g(x) \\leq f(x) \\leq h(x)$ and $g, h \\to L$ then $f \\to L$. The sine is bounded even when it oscillates wildly; a factor $x \\to 0$ squeezes everything to $0$.",
+                "Step 2: Estimate\n$\\left|\\sin\\frac1x\\right| \\leq 1$ for $x \\neq 0$, so $\\left|x\\sin\\frac1x\\right| \\leq |x|$, i.e. $-|x| \\leq x\\sin\\frac1x \\leq |x|$.",
+                "Step 3: Squeezing\nSince $\\pm|x| \\to 0$ we get $\\lim_{x\\to0}x\\sin\\frac1x = 0$.",
+                "Step 4: No limit of $\\sin\\frac1x$\nChoose $x_n = \\frac{1}{n\\pi}$: $\\sin\\frac1{x_n} = \\sin(n\\pi) = 0$. Choose $y_n = \\frac{1}{\\pi/2 + 2n\\pi}$: $\\sin\\frac1{y_n} = 1$. Both sequences tend to $0$ but the function values tend to $0$ and $1$ respectively: the limit does not exist (sequence criterion).",
+                "Step 5: Takeaway: What to remember\nThe sequence criterion: if there are two sequences $x_n, y_n \\to a$ with different limits of $f(x_n)$ and $f(y_n)$, then $\\lim_{x\\to a}f(x)$ does not exist. The function $x\\sin\\frac1x$ extends continuously to $0$ by $f(0) = 0$."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Limits",
+            "title": "Difference with limit 0",
+            "description": "Compute $\\displaystyle\\lim_{x\\to0}\\left(\\frac1x - \\frac1{\\sin x}\\right)$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe expression has the type $\\infty - \\infty$. We bring it to a common denominator and obtain a fraction of type $\\frac00$ which we treat with l'Hôpital or the Taylor expansion.",
+                "Step 2: Common denominator\n$\\frac1x - \\frac1{\\sin x} = \\frac{\\sin x - x}{x\\sin x}$. For $x \\to 0$: numerator $\\to 0$, denominator $\\to 0$.",
+                "Step 3: L'Hôpital (first application)\n$\\frac{\\cos x - 1}{\\sin x + x\\cos x}$ — again $\\frac00$.",
+                "Step 4: L'Hôpital (second application)\n$\\frac{-\\sin x}{\\cos x + \\cos x - x\\sin x} = \\frac{-\\sin x}{2\\cos x - x\\sin x} \\to \\frac{0}{2} = 0$.",
+                "Step 5: Check with Taylor\n$\\sin x - x = -\\frac{x^3}{6} + O(x^5)$ and $x\\sin x = x^2 + O(x^4)$, so $\\frac{\\sin x - x}{x\\sin x} \\approx -\\frac{x}{6} \\to 0$ ✓.",
+                "Step 6: Takeaway: What to remember\nFor $\\infty - \\infty$ first write as a single fraction. The Taylor expansion additionally gives the behaviour: the difference tends to $0$ like $-\\frac x6$."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Limits",
+            "title": "Continuous extension",
+            "description": "The function $f(x) = \\dfrac{x^2-1}{x-1}$ ($x \\neq 1$) is to be extended continuously by $f(1) = c$. Determine $c$ and check whether $g(x) = \\frac{|x-1|}{x-1}$ can be continuously extended.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nA function is continuous at $a$ if $\\lim_{x\\to a}f(x) = f(a)$. A gap can be closed continuously if the limit exists; the function value is then set to this limit.",
+                "Step 2: Limit of $f$\nFor $x \\neq 1$: $f(x) = \\frac{(x-1)(x+1)}{x-1} = x + 1$. So $\\lim_{x\\to1}f(x) = 2$.",
+                "Step 3: Continuous extension\nWith $c = 2$ the function $\\tilde f(x) = x + 1$ is continuous for all $x \\in \\mathbb{R}$ (a polynomial). This is the only continuous extension.",
+                "Step 4: Behaviour of $g$\nFor $x > 1$: $g(x) = 1$; for $x < 1$: $g(x) = -1$. The one-sided limits $1$ and $-1$ differ, no limit: $g$ **cannot** be continuously extended (jump).",
+                "Step 5: Classification\nFor $f$ there is a **removable** discontinuity, for $g$ a **jump**. Example of a pole: $\\frac{1}{x-1}$ (limit $\\pm\\infty$).",
+                "Step 6: Takeaway: What to remember\nRemovable discontinuity: limit exists; jump: one-sided limits differ; pole: improper limits. Continuous extension is possible only in the first case."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Limits",
+            "title": "Root difference at infinity",
+            "description": "Compute $\\displaystyle\\lim_{x\\to\\infty}\\left(\\sqrt{x^2+x} - x\\right)$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe type is $\\infty - \\infty$. We expand with the conjugate $\\sqrt{x^2+x} + x$ (third binomial formula) so that the root difference becomes a fraction.",
+                "Step 2: Expand\n$\\sqrt{x^2+x} - x = \\frac{(x^2+x) - x^2}{\\sqrt{x^2+x} + x} = \\frac{x}{\\sqrt{x^2+x} + x}$.",
+                "Step 3: Factor out $x$\nFor $x > 0$: $\\sqrt{x^2+x} = x\\sqrt{1 + \\frac1x}$. So $\\frac{x}{x\\sqrt{1+1/x} + x} = \\frac{1}{\\sqrt{1 + 1/x} + 1}$.",
+                "Step 4: Limit\n$\\to \\frac{1}{\\sqrt{1} + 1} = \\frac12$.",
+                "Step 5: Check\n$x = 10^4$: $\\sqrt{10^8 + 10^4} - 10^4 \\approx 10000.49999 - 10000 = 0.49999$ ✓.",
+                "Step 6: Takeaway: What to remember\nRoot minus linear function: expand with the conjugate and then factor out the highest power. Result: $\\sqrt{x^2 + bx} - x \\to \\frac b2$ (here $b = 1$)."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Limits",
+            "title": "Limit with a Logarithm",
+            "description": "Calculate the limit $\\lim_{x \\to 1} \\frac{\\ln x}{x - 1}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Analysis of the problem\nThe limit $\\lim_{x \\to 1} \\frac{\\ln x}{x - 1}$ is initially indeterminate (0/0).",
+                "Step 2: Substitution\nLet $h = x - 1$, then $x = 1 + h$ and $h \\to 0$ as $x \\to 1$.\nExplanation: We substitute to simplify the limit.",
+                "Step 3: Transformation\n$\\frac{\\ln(1 + h)}{h}$\nExplanation: After substitution, we get this form.",
+                "Step 4: Taylor expansion\n$\\ln(1 + h) = h - \\frac{h^2}{2} + \\frac{h^3}{3} - ...$\nExplanation: We expand the logarithm into a Taylor series.",
+                "Step 5: Substitution and simplification\n$\\frac{h - \\frac{h^2}{2} + \\frac{h^3}{3} - ...}{h} = 1 - \\frac{h}{2} + \\frac{h^2}{3} - ...$\nExplanation: We cancel h and rearrange the terms.",
+                "Step 6: Limit calculation\n$\\lim_{h \\to 0} (1 - \\frac{h}{2} + \\frac{h^2}{3} - ...) = 1$\nExplanation: All terms with h converge to 0.",
+                "Step 7: Verification\nWe verify by substituting values close to 1:\nx = 0.9: $\\frac{\\ln(0.9)}{0.9 - 1} \\approx 1.053$\nx = 1.1: $\\frac{\\ln(1.1)}{1.1 - 1} \\approx 0.953$\nThe values approach the limit of 1.",
+                "Step 8: Summary\nThe limit exists and equals 1. This is an important limit for the derivative of the logarithm."
+            ]
+        },
+        {
+            "id": 29,
             "topic": "Limits",
             "title": "Limit with Multiple Trigonometric Functions",
             "description": "Calculate the limit $\\lim_{x \\to 0} \\frac{\\sin x - \\tan x}{x^3}$.",
@@ -204,7 +470,7 @@
             ]
         },
         {
-            "id": 13,
+            "id": 30,
             "topic": "Limits",
             "title": "Limit with Exponential Function and Logarithm",
             "description": "Calculate the limit $\\lim_{x \\to 0} \\frac{e^x - 1 - x - \\frac{x^2}{2}}{x^3}$.",
@@ -221,7 +487,7 @@
             ]
         },
         {
-            "id": 14,
+            "id": 31,
             "topic": "Limits",
             "title": "Limit with Trigonometric and Hyperbolic Functions",
             "description": "Calculate the limit $\\lim_{x \\to 0} \\frac{\\sin x - \\sinh x}{x^3}$.",
@@ -238,4 +504,4 @@
             ]
         }
     ]
-} 
+}

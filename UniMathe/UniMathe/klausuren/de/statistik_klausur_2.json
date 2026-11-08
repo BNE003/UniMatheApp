@@ -12,68 +12,71 @@
         {
             "id": 1,
             "topic": "Deskriptive Statistik",
-            "title": "Mittelwert, Median, Varianz",
-            "description": "Gegeben sind die Messwerte: 10, 12, 13, 15, 15, 16, 18, 21.\n\na) Berechnen Sie den Mittelwert.\nb) Bestimmen Sie den Median.\nc) Berechnen Sie die Stichprobenvarianz und die Standardabweichung.",
-            "difficulty": "easy",
+            "title": "Kennzahlen einer Stichprobe",
+            "description": "Gegeben sind die Messwerte $4, 7, 7, 8, 9, 10, 12, 13, 15, 15$.\na) Berechnen Sie Mittelwert und Median.\nb) Berechnen Sie Stichprobenvarianz und -standardabweichung.\nc) Bestimmen Sie die Quartile und den Interquartilsabstand.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Mittelwert\nSumme = 120, n = 8\n$\\bar{x} = 120/8 = 15$",
-                "Schritt 2: Median\nSortierte Daten: 10, 12, 13, 15, 15, 16, 18, 21\nMedian = Mittel der 4. und 5. Beobachtung = (15+15)/2 = 15",
-                "Schritt 3: Stichprobenvarianz\nAbweichungen zu 15: -5, -3, -2, 0, 0, 1, 3, 6\nQuadrate: 25, 9, 4, 0, 0, 1, 9, 36\nSumme der Quadrate = 84\n$s^2 = \\frac{1}{n-1}\\sum (x_i-\\bar{x})^2 = 84/7 = 12$",
-                "Schritt 4: Standardabweichung\n$s = \\sqrt{12} \\approx 3{,}46$"
+                "Schritt 1: Teil a): Mittelwert und Median\n$\\sum x_i = 100$, $\\bar x = \\frac{100}{10} = 10$. Median ($n = 10$ gerade): Mittel der $5$. und $6$. Werte: $\\frac{9 + 10}{2} = 9{,}5$.",
+                "Schritt 2: Teil b): Varianz\nAbweichungsquadrate $(x_i - 10)^2$: $36, 9, 9, 4, 1, 0, 4, 9, 25, 25$, Summe $122$. $s^2 = \\frac{122}{9} \\approx 13{,}56$, $s \\approx 3{,}68$.",
+                "Schritt 3: Teil c): Quartile\nUntere Hälfte $4,7,7,8,9$: $Q_1 = 7$. Obere Hälfte $10,12,13,15,15$: $Q_3 = 13$. $\\mathrm{IQR} = Q_3 - Q_1 = 6$.",
+                "Schritt 4: Probe und Deutung\nAbweichungssumme: $-6 - 3 - 3 - 2 - 1 + 0 + 2 + 3 + 5 + 5 = 0$ ✓. Mittelwert $>$ Median: leicht linksschiefe Verteilung (langer Ausläufer nach unten). Ausreißerregel: Werte außerhalb $[Q_1 - 1{,}5\\,\\mathrm{IQR},\\ Q_3 + 1{,}5\\,\\mathrm{IQR}] = [-2, 22]$ gibt es nicht."
             ]
         },
         {
             "id": 2,
             "topic": "Diskrete Verteilungen",
-            "title": "Binomialverteilung und Poisson-Approximation",
-            "description": "Ein Gerät hat eine Ausfallwahrscheinlichkeit von $p=0{,}02$. Es werden $n=100$ Geräte geprüft.\n\na) Berechnen Sie $P(X=3)$ für $X \\sim B(100;0{,}02)$.\nb) Approximieren Sie die Wahrscheinlichkeit mit einer Poissonverteilung.\nc) Berechnen Sie die Wahrscheinlichkeit, dass mindestens ein Gerät ausfällt.",
-            "difficulty": "medium",
+            "title": "Binomialverteilung beim Multiple-Choice-Test",
+            "description": "Ein Test besteht aus $12$ Fragen mit je $4$ Antwortmöglichkeiten (genau eine richtig). Ein Student rät bei jeder Frage. $X$ sei die Anzahl richtiger Antworten.\na) Welche Verteilung hat $X$? Bestimmen Sie $E(X)$ und $\\operatorname{Var}(X)$.\nb) Bestimmen Sie $P(X = 3)$.\nc) Bestimmen Sie $P(X \\geq 1)$.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Binomialwahrscheinlichkeit\n$P(X=3)=\\binom{100}{3}0{,}02^3\\cdot0{,}98^{97} \\approx 0{,}1823$",
-                "Schritt 2: Poisson-Approximation\n$\\lambda = np = 2$\n$P(Y=3)=e^{-2}\\cdot\\frac{2^3}{3!} \\approx 0{,}1804$",
-                "Schritt 3: Wahrscheinlichkeit für mindestens einen Ausfall\n$P(X\\ge 1)=1-P(X=0)=1-0{,}98^{100} \\approx 0{,}8674$"
+                "Schritt 1: Teil a): Modell\n$12$ unabhängige Versuche mit $p = \\frac14$: $X \\sim B(12;\\ 0{,}25)$. $E(X) = 12\\cdot0{,}25 = 3$, $\\operatorname{Var}(X) = 12\\cdot0{,}25\\cdot0{,}75 = 2{,}25$.",
+                "Schritt 2: Teil b): Einzelwahrscheinlichkeit\n$P(X = 3) = \\binom{12}{3}0{,}25^3\\,0{,}75^9 = 220\\cdot0{,}015625\\cdot0{,}07508 \\approx 0{,}2581$.",
+                "Schritt 3: Teil c): Gegenereignis\n$P(X \\geq 1) = 1 - P(X = 0) = 1 - 0{,}75^{12} = 1 - 0{,}03168 \\approx 0{,}9683$.",
+                "Schritt 4: Probe\nDer Erwartungswert $3$ ist auch der wahrscheinlichste Wert; $P(X = 3) \\approx 26\\,\\%$ ist daher plausibel. Raten lohnt sich kaum: $P(X \\geq 6) \\approx 5{,}4\\,\\%$."
             ]
         },
         {
             "id": 3,
             "topic": "Normalverteilung",
             "title": "Standardisierung und Quantile",
-            "description": "Die Lebensdauer eines Produkts sei normalverteilt mit $\\mu=100$ und $\\sigma=15$.\n\na) Berechnen Sie $P(90 \\le X \\le 120)$.\nb) Bestimmen Sie das 90%-Quantil.",
-            "difficulty": "medium",
+            "description": "Das Füllgewicht einer Packung ist normalverteilt mit $\\mu = 500\\ \\mathrm g$ und $\\sigma = 10\\ \\mathrm g$.\na) Bestimmen Sie $P(X < 485)$.\nb) Bestimmen Sie $P(490 < X < 510)$.\nc) Wie viel müsste $\\mu$ betragen, damit höchstens $1\\,\\%$ der Packungen unter $485\\ \\mathrm g$ liegen?",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Standardisierung\n$Z = \\frac{X-100}{15}$\n$z_1 = (90-100)/15 = -0{,}67$, $z_2 = (120-100)/15 = 1{,}33$",
-                "Schritt 2: Wahrscheinlichkeit\n$P(90\\le X\\le120)=\\Phi(1{,}33)-\\Phi(-0{,}67)$\n$\\approx 0{,}9082-0{,}2519=0{,}6563$",
-                "Schritt 3: 90%-Quantil\n$z_{0{,}9}\\approx1{,}2816$\n$x_{0{,}9}=100+1{,}2816\\cdot15\\approx119{,}2$"
+                "Schritt 1: Teil a)\n$z = \\frac{485 - 500}{10} = -1{,}5$. $P(X < 485) = \\Phi(-1{,}5) = 1 - \\Phi(1{,}5) = 1 - 0{,}9332 = 0{,}0668$.",
+                "Schritt 2: Teil b)\n$490$ und $510$ sind $\\mu \\mp 1\\sigma$: $P = 2\\Phi(1) - 1 = 0{,}6827$.",
+                "Schritt 3: Teil c): Bedingung\nGesucht $\\mu$ mit $\\Phi\\left(\\frac{485 - \\mu}{10}\\right) = 0{,}01$. Aus der Tabelle $\\Phi(z) = 0{,}01$ für $z = -2{,}326$.",
+                "Schritt 4: Teil c): Auflösen und Probe\n$\\frac{485 - \\mu}{10} = -2{,}326 \\Rightarrow \\mu = 485 + 23{,}26 = 508{,}26\\ \\mathrm g$. Probe: $z = \\frac{485 - 508{,}26}{10} = -2{,}326$ ✓. Die Abfüllanlage muss also im Mittel $\\approx 508\\ \\mathrm g$ füllen (Konsequenz: mehr Ausschuss nach unten vermeiden, aber Mehrverbrauch)."
             ]
         },
         {
             "id": 4,
             "topic": "Konfidenzintervalle",
             "title": "Konfidenzintervall für einen Anteil",
-            "description": "In einer Stichprobe von $n=200$ Beobachtungen wurden 36 Erfolge beobachtet.\nBestimmen Sie ein 95%-Konfidenzintervall für den wahren Anteil $p$.",
-            "difficulty": "medium",
+            "description": "In einer Umfrage unter $n = 400$ Personen stimmen $240$ einer Aussage zu.\na) Bestimmen Sie den Schätzwert $\\hat p$.\nb) Bestimmen Sie ein $95\\,\\%$-Konfidenzintervall für den wahren Anteil $p$.\nc) Wie groß müsste $n$ sein, damit die Intervallbreite höchstens $0{,}04$ beträgt?",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Punktschätzung\n$\\hat{p} = 36/200 = 0{,}18$",
-                "Schritt 2: Standardfehler\n$SE = \\sqrt{\\hat{p}(1-\\hat{p})/n} = \\sqrt{0{,}18\\cdot0{,}82/200} \\approx 0{,}0272$",
-                "Schritt 3: Konfidenzintervall\n$\\hat{p} \\pm 1{,}96\\cdot SE = 0{,}18 \\pm 0{,}0532$\nIntervall: $[0{,}1268; 0{,}2332]$"
+                "Schritt 1: Teil a): Schätzwert\n$\\hat p = \\frac{240}{400} = 0{,}6$.",
+                "Schritt 2: Teil b): Intervall\nStandardfehler $\\sqrt{\\frac{\\hat p(1-\\hat p)}{n}} = \\sqrt{\\frac{0{,}24}{400}} \\approx 0{,}0245$. $\\hat p \\pm 1{,}96\\cdot0{,}0245 = 0{,}6 \\pm 0{,}048 \\Rightarrow [0{,}552;\\ 0{,}648]$.",
+                "Schritt 3: Teil c): Stichprobenumfang\nBreite $= 2\\cdot1{,}96\\sqrt{\\frac{\\hat p(1-\\hat p)}{n}} \\leq 0{,}04 \\iff \\sqrt n \\geq \\frac{2\\cdot1{,}96\\cdot0{,}4899}{0{,}04} \\approx 48{,}0 \\iff n \\geq 2305$. (Mit dem ungünstigsten Fall $\\hat p = 0{,}5$ erhielte man $n \\geq 2401$.)",
+                "Schritt 4: Probe und Deutung\nDie Breite des Intervalls aus b) ist $0{,}096$; für $n = 2305$ ergibt sich $2\\cdot1{,}96\\sqrt{0{,}24/2305} \\approx 0{,}040$ ✓. Vervierfachung des Umfangs halbiert die Breite ($\\propto 1/\\sqrt n$)."
             ]
         },
         {
             "id": 5,
             "topic": "Hypothesentests",
             "title": "z-Test für den Mittelwert",
-            "description": "Ein Hersteller behauptet, der Mittelwert einer Messgröße betrage $\\mu=50$. Es ist $\\sigma=6$ bekannt.\nIn einer Stichprobe mit $n=25$ ergibt sich $\\bar{x}=52$.\nTesten Sie zweiseitig auf dem 5%-Niveau.",
-            "difficulty": "medium",
+            "description": "Eine Maschine füllt im Mittel $\\mu_0 = 100$ Einheiten, die Standardabweichung $\\sigma = 12$ ist bekannt. Eine Stichprobe von $n = 36$ ergibt $\\bar x = 104$. Testen Sie $H_0: \\mu = 100$ gegen $H_1: \\mu \\neq 100$ zum Niveau $5\\,\\%$.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Hypothesen\n$H_0: \\mu=50$, $H_1: \\mu\\ne50$",
-                "Schritt 2: Teststatistik\n$z = \\frac{\\bar{x}-\\mu_0}{\\sigma/\\sqrt{n}} = \\frac{52-50}{6/5} = 1{,}667$",
-                "Schritt 3: Entscheidung\nKritischer Bereich: $|z|>1{,}96$\nDa $1{,}667<1{,}96$, wird $H_0$ nicht verworfen.",
-                "Schritt 4: p-Wert (optional)\n$p \\approx 0{,}096 > 0{,}05$"
+                "Schritt 1: Teststatistik\nBei bekanntem $\\sigma$: $Z = \\frac{\\bar x - \\mu_0}{\\sigma/\\sqrt n} = \\frac{104 - 100}{12/6} = \\frac42 = 2$. Unter $H_0$ ist $Z \\sim N(0,1)$.",
+                "Schritt 2: Entscheidung über den kritischen Wert\nKritischer Wert (zweiseitig, $\\alpha = 5\\,\\%$): $z_{0{,}975} = 1{,}96$. Wegen $|Z| = 2 > 1{,}96$ wird $H_0$ **verworfen**.",
+                "Schritt 3: Entscheidung über den p-Wert\n$p = 2(1 - \\Phi(2)) = 2\\cdot0{,}0228 = 0{,}0455 < 0{,}05$: gleiche Entscheidung ✓.",
+                "Schritt 4: Interpretation und Probe\nDie Abweichung ist auf dem $5\\,\\%$-Niveau signifikant, nicht aber auf dem $1\\,\\%$-Niveau ($z_{0{,}995} = 2{,}576$). Das $95\\,\\%$-Konfidenzintervall $104 \\pm 1{,}96\\cdot2 = [100{,}08;\\ 107{,}92]$ enthält $100$ nicht — konsistent mit der Ablehnung."
             ]
         }
     ]

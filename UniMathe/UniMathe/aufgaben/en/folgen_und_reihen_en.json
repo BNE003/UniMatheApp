@@ -3,86 +3,78 @@
         {
             "id": 1,
             "topic": "Sequences and Series",
-            "title": "Convergence of Sequences",
-            "description": "Investigate the convergence of the sequence $(a_n)$ with $a_n = \\frac{n^2 + 3n + 1}{2n^2 - n + 4}$ and determine, if applicable, its limit.",
-            "difficulty": "medium",
-            "points": 8,
+            "title": "Limit via the ε-definition",
+            "description": "Show with the definition that $a_n = \\dfrac{2n+1}{n+3} \\to 2$ and find an $N(\\varepsilon)$ for $\\varepsilon = 0.01$.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Step 1: Analysis of the sequence\nThe sequence $(a_n)$ is a rational sequence, as it can be written as the quotient of two polynomials. To study convergence, we determine the limit as $n \\to \\infty$.",
-                "Step 2: Rewrite the numerator\n$n^2 + 3n + 1 = n^2\\bigl(1 + \\tfrac{3}{n} + \\tfrac{1}{n^2}\\bigr)$\nExplanation: Factor out $n^2$ to isolate the highest power.",
-                "Step 3: Rewrite the denominator\n$2n^2 - n + 4 = n^2\\bigl(2 - \\tfrac{1}{n} + \\tfrac{4}{n^2}\\bigr)$\nExplanation: Similarly factor out $n^2$.",
-                "Step 4: Simplification\n$a_n = \\frac{n^2(1 + \\frac{3}{n} + \\frac{1}{n^2})}{n^2(2 - \\frac{1}{n} + \\frac{4}{n^2})} = \\frac{1 + \\frac{3}{n} + \\frac{1}{n^2}}{2 - \\frac{1}{n} + \\frac{4}{n^2}}$\nExplanation: The $n^2$ terms cancel.",
-                "Step 5: Limit computation\n$\\lim_{n \\to \\infty} a_n = \\lim_{n \\to \\infty} \\frac{1 + \\frac{3}{n} + \\frac{1}{n^2}}{2 - \\frac{1}{n} + \\frac{4}{n^2}}$\nExplanation: Compute the limit of the fraction.",
-                "Step 6: Apply limit laws\nSince $\\lim_{n \\to \\infty} \\frac{1}{n} = 0$ and $\\lim_{n \\to \\infty} \\frac{1}{n^2} = 0$, we get\n$\\lim_{n \\to \\infty} a_n = \\frac{1+0+0}{2-0+0} = \\tfrac12$.\nExplanation: All terms with $n$ in the denominator vanish.",
-                "Step 7: Convergence conclusion\nThe sequence converges to $\\tfrac12$, because:\n1. The limit exists\n2. All denominator terms go to 0\n3. The sequence is bounded",
-                "Step 8: Numerical check\nFor $n=1000$: $a_{1000} \\approx 0.5005$; for $n=10000$: $a_{10000} \\approx 0.50005$. The values approach $\\tfrac12$.",
-                "Step 9: Monotonicity check\nCompute $a_{n+1}-a_n$ and show that for sufficiently large $n$ the sequence is decreasing.",
-                "Step 10: Summary\n$(a_n)$ is:\n1. Convergent with limit $\\tfrac12$\n2. Bounded (above by $\\tfrac12$)\n3. Eventually monotone decreasing\n4. A rational sequence with polynomials of equal degree"
+                "Step 1: Overview: What is asked?\nThe sequence converges to $a$ if for every $\\varepsilon > 0$ there is an $N$ with $|a_n - a| < \\varepsilon$ for all $n \\geq N$. We compute $|a_n - 2|$ and solve for $n$.",
+                "Step 2: Compute the distance\n$|a_n - 2| = \\left|\\frac{2n+1 - 2(n+3)}{n+3}\\right| = \\frac{5}{n+3}$.",
+                "Step 3: Solve for $n$\n$\\frac{5}{n+3} < \\varepsilon \\iff n + 3 > \\frac5\\varepsilon \\iff n > \\frac5\\varepsilon - 3$. Choose $N > \\frac5\\varepsilon - 3$ (Archimedes).",
+                "Step 4: Concretely for $\\varepsilon = 0.01$\n$N > \\frac{5}{0.01} - 3 = 497$, e.g. $N = 498$. Check: $|a_{498} - 2| = \\frac5{501} \\approx 0.00998 < 0.01$ ✓.",
+                "Step 5: Takeaway: What to remember\nThe computation “simplify the distance, solve for $n$” is the standard procedure for $\\varepsilon$-proofs. The found $N$ depends on $\\varepsilon$ and grows as $\\varepsilon$ shrinks."
             ]
         },
         {
             "id": 2,
             "topic": "Sequences and Series",
-            "title": "Geometric Series",
-            "description": "Compute the sum of the series $\\sum_{n=0}^{\\infty} \\frac{2^n}{3^n}$ and show convergence.",
-            "difficulty": "medium",
-            "points": 10,
+            "title": "Monotonicity and boundedness",
+            "description": "Show that $a_n = \\dfrac{n}{n+1}$ is monotonically increasing and bounded and conclude convergence. Determine the limit.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Step 1: Series type\n$\\sum_{n=0}^{\\infty} \\frac{2^n}{3^n}$ is a geometric series of the form $\\sum q^n$.",
-                "Step 2: Rewrite as geometric series\n$\\sum_{n=0}^{\\infty} \\frac{2^n}{3^n} = \\sum_{n=0}^{\\infty} \\bigl(\\tfrac{2}{3}\\bigr)^n$, where $q=\\tfrac23$.",
-                "Step 3: Convergence criterion\nA geometric series converges iff $|q|<1$. Here $|\\tfrac23|<1$, so it converges.",
-                "Step 4: Sum formula\nFor $|q|<1$: $\\sum_{n=0}^{\\infty} q^n = \\frac{1}{1-q}$.",
-                "Step 5: Compute the sum\n$\\sum_{n=0}^{\\infty} (\\tfrac{2}{3})^n = \\frac{1}{1-\\tfrac{2}{3}} = 3$.",
-                "Step 6: Partial sums check\n$S_0=1$, $S_1=1+\\tfrac23\\approx1.6667$, $S_2\\approx2.1111$, $S_3\\approx2.4074$. They approach 3.",
-                "Step 7: Remainder estimate\n$R_n = \\sum_{k=n+1}^{\\infty}(\\tfrac23)^k = \\frac{(\\tfrac23)^{n+1}}{1-\\tfrac23} = 3\\bigl(\\tfrac23\\bigr)^{n+1}$, which →0.",
-                "Step 8: Rate of convergence\nSince $q=\\tfrac23$ is not too close to 1, convergence is relatively fast (error <0.01 after 10 terms).",
-                "Step 9: Alternative expression\nEquivalently $\\sum_{n=0}^{\\infty}(\\tfrac23)^n = \\tfrac{3}{3-2}=3$.",
-                "Step 10: Conclusion\nThe geometric series:\n1. Converges absolutely ($|q|<1$)\n2. Sum equals 3\n3. Converges quickly\n4. Can be approximated arbitrarily well by partial sums"
+                "Step 1: Overview: What is asked?\nThe **monotone convergence theorem** states: every monotone bounded sequence converges. We show monotonicity and boundedness separately and then compute the limit.",
+                "Step 2: Monotonicity\n$a_{n+1} - a_n = \\frac{n+1}{n+2} - \\frac{n}{n+1} = \\frac{(n+1)^2 - n(n+2)}{(n+1)(n+2)} = \\frac{1}{(n+1)(n+2)} > 0$. The sequence is strictly increasing.",
+                "Step 3: Boundedness\n$0 \\leq \\frac{n}{n+1} < 1$ for all $n$. The sequence is bounded by $1$.",
+                "Step 4: Convergence and limit\nBy the monotone convergence theorem $(a_n)$ converges. With $a_n = \\frac{n}{n+1} = \\frac{1}{1 + 1/n} \\to \\frac11 = 1$ the limit is $1$.",
+                "Step 5: Takeaway: What to remember\nThe monotone convergence theorem says that a limit **exists**, not which one. For recursive sequences the limit is determined afterwards from the recursion. The least upper bound (supremum) is here the limit $1$."
             ]
         },
         {
             "id": 3,
             "topic": "Sequences and Series",
-            "title": "Convergence Tests",
-            "description": "Investigate the convergence of the series $\\sum_{n=1}^\\infty \\frac{n!}{n^n}$ using the ratio test.",
-            "difficulty": "hard",
-            "points": 12,
+            "title": "Geometric series",
+            "description": "Compute (a) $\\sum_{n=0}^\\infty \\left(\\frac12\\right)^n$, (b) $\\sum_{n=1}^\\infty \\left(-\\frac13\\right)^n$, (c) $\\sum_{n=0}^\\infty 2^n$ (if convergent).",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Step 1: Ratio test\nCompute $L=\\lim_{n\\to\\infty}\\bigl|\\tfrac{a_{n+1}}{a_n}\\bigr|=\\lim_{n\\to\\infty}\\frac{(n+1)!}{(n+1)^{n+1}}\\cdot\\frac{n^n}{n!}$.",
-                "Step 2: Simplify numerator\n$(n+1)!=(n+1)\\cdot n!$.",
-                "Step 3: Simplify denominator\n$(n+1)^{n+1}=(n+1)^n\\cdot(n+1)$.",
-                "Step 4: Combine\n$L=\\lim\\frac{n^n}{(n+1)^n}=\\lim\\bigl(\\tfrac{n}{n+1}\\bigr)^n$.",
-                "Step 5: Limit\n$\\lim_{n\\to\\infty}(1-\\tfrac1{n+1})^n=e^{-1}\\approx0.3679<1$.",
-                "Step 6: Conclusion\nSince $L<1$, the series converges absolutely by the ratio test.",
-                "Step 7: Numerical check\nFirst terms: $a_1=1,a_2=0.5,a_3≈0.2222,a_4≈0.0938$, rapidly decreasing, confirming convergence."
+                "Step 1: Overview: What is asked?\nThe geometric series $\\sum_{n=0}^\\infty q^n$ converges exactly for $|q| < 1$ with sum $\\frac{1}{1-q}$. When starting at $n = 1$ one must subtract the first term.",
+                "Step 2: (a)\n$q = \\frac12$, $|q| < 1$: $\\sum_{n=0}^\\infty \\left(\\frac12\\right)^n = \\frac{1}{1 - \\frac12} = 2$.",
+                "Step 3: (b)\n$q = -\\frac13$. $\\sum_{n=0}^\\infty q^n = \\frac{1}{1 + \\frac13} = \\frac34$. Without the term $n = 0$: $\\sum_{n=1}^\\infty q^n = \\frac34 - 1 = -\\frac14$.",
+                "Step 4: (c)\n$q = 2$, $|q| \\geq 1$: the terms $2^n$ do not form a null sequence, the series **diverges**. (Partial sums $2^{n+1} - 1 \\to \\infty$.)",
+                "Step 5: Check for (a)\nPartial sums: $1,\\ 1.5,\\ 1.75,\\ 1.875,\\ \\dots \\to 2$ ✓.",
+                "Step 6: Takeaway: What to remember\nAlways check $|q| < 1$ first and watch the **start index**. Application: $0.\\overline{9} = \\sum_{n=1}^\\infty 9\\cdot10^{-n} = 1$."
             ]
         },
         {
             "id": 4,
             "topic": "Sequences and Series",
-            "title": "Alternating Series",
-            "description": "Investigate the convergence of the alternating series $\\sum_{n=1}^\\infty (-1)^n\\frac{\\ln n}{n}$.",
-            "difficulty": "hard",
-            "points": 15,
+            "title": "Recursive sequence: convergence and limit",
+            "description": "Let the sequence be $a_1 = 0$, $a_{n+1} = \\frac12 a_n + 1$. Show that it converges and determine the limit.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Step 1: Leibniz criterion\nCheck that $a_n=\\frac{\\ln n}{n}>0$, $a_n\\to0$, and $a_n$ is eventually monotone decreasing.",
-                "Step 2: Monotonicity\n$f(x)=\\frac{\\ln x}{x}$, $f'(x)=\\frac{1-\\ln x}{x^2}<0$ for $x>e$. Thus $a_n$ decreases for $n\\ge3$.",
-                "Step 3: Limit\n$\\lim_{n\\to\\infty}\\frac{\\ln n}{n}=0$ by L'Hôpital's rule.",
-                "Step 4: Conclusion\nBy Leibniz’s test, the series converges (conditionally)."
+                "Step 1: Overview: What is asked?\nWe show by induction that the sequence is increasing and bounded above (monotone convergence theorem). Then we get the limit from the fixed-point equation $a = \\frac12a + 1$.",
+                "Step 2: First terms\n$a_1 = 0$, $a_2 = 1$, $a_3 = 1.5$, $a_4 = 1.75$ — increasing, seems to approach $2$.",
+                "Step 3: Boundedness by induction\nClaim $a_n < 2$. Base: $a_1 = 0 < 2$. Step: from $a_n < 2$ it follows $a_{n+1} = \\frac12a_n + 1 < \\frac12\\cdot2 + 1 = 2$.",
+                "Step 4: Monotonicity\n$a_{n+1} - a_n = 1 - \\frac12a_n > 1 - 1 = 0$ because $a_n < 2$. The sequence is increasing.",
+                "Step 5: Limit\nBy the monotone convergence theorem $a = \\lim a_n$ exists. Passing to the limit in the recursion: $a = \\frac12a + 1 \\Rightarrow a = 2$.",
+                "Step 6: Takeaway: What to remember\nRemember: first **existence** (monotone + bounded), then **value** (fixed-point equation). Without the existence proof the fixed-point argument is invalid because some sequences with a fixed point do not converge."
             ]
         },
         {
             "id": 5,
             "topic": "Sequences and Series",
-            "title": "Power Series",
-            "description": "Determine the radius of convergence of the power series $\\sum_{n=0}^\\infty \\frac{n^n}{n!}x^n$.",
-            "difficulty": "hard",
-            "points": 15,
+            "title": "Necessary criterion and divergence",
+            "description": "Examine $\\sum_{n=1}^\\infty \\frac{n}{n+1}$ and $\\sum_{n=1}^\\infty (-1)^n$ for convergence.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Step 1: Ratio test\nCompute $L=\\lim_{n\\to\\infty}\\bigl|\\tfrac{a_{n+1}}{a_n}\\bigr|=\\lim\\frac{(n+1)^{n+1}/(n+1)!}{n^n/n!}$.",
-                "Step 2: Simplify\n$L=\\lim\\frac{(n+1)^n}{n^n}=\\lim(1+\\tfrac1n)^n=e$.",
-                "Step 3: Radius\n$R=1/L=1/e$.",
-                "Step 4: Convergence domain\nThe series converges for $|x|<1/e$ and diverges for $|x|>1/e$."
+                "Step 1: Overview: What is asked?\nIf $\\sum a_n$ converges, then $a_n \\to 0$ must hold (**necessary criterion**). Conversely $a_n \\not\\to 0$ proves divergence. But the criterion never proves convergence.",
+                "Step 2: $\\sum\\frac{n}{n+1}$\n$a_n = \\frac{n}{n+1} \\to 1 \\neq 0$. So the series **diverges**.",
+                "Step 3: $\\sum(-1)^n$\n$a_n = (-1)^n$ has no limit, in particular is not a null sequence. The partial sums alternate between $-1$ and $0$: **divergence**.",
+                "Step 4: Warning via counterexample\nThe harmonic series $\\sum\\frac1n$ satisfies $a_n \\to 0$ and **diverges** nevertheless: the necessary criterion is not sufficient.",
+                "Step 5: Takeaway: What to remember\nBefore any other criterion test the terms for $a_n \\to 0$: if that fails you are done immediately."
             ]
         },
         {
@@ -127,20 +119,6 @@
         {
             "id": 9,
             "topic": "Sequences and Series",
-            "title": "Simple Recursion",
-            "description": "Investigate the convergence of the recursively defined sequence $a_1=1$, $a_{n+1}=\\frac12\\bigl(a_n+\\tfrac2{a_n}\\bigr)$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Monotonicity\n$a_{n+1}-a_n=\\tfrac12\\bigl(\\tfrac2{a_n}-a_n\\bigr)=\\tfrac{2-a_n^2}{2a_n}$.",
-                "Step 2: Boundedness\nBy induction $a_n>0$ for all $n$.",
-                "Step 3: Limit\n$\\lim_{n\\to\\infty}a_n=\\sqrt2$.",
-                "Step 4: Conclusion\nThe sequence converges monotonically decreasing to $\\sqrt2$."
-            ]
-        },
-        {
-            "id": 10,
-            "topic": "Sequences and Series",
             "title": "Simple Comparison Test",
             "description": "Investigate convergence of $\\sum_{n=1}^\\infty\\frac{1}{n^2+n+1}$ via the comparison test.",
             "difficulty": "easy",
@@ -152,7 +130,7 @@
             ]
         },
         {
-            "id": 11,
+            "id": 10,
             "topic": "Sequences and Series",
             "title": "Simple Root Test",
             "description": "Investigate convergence of $\\sum_{n=1}^\\infty(\\tfrac{n}{n+1})^n$ via the root test.",
@@ -166,7 +144,7 @@
             ]
         },
         {
-            "id": 12,
+            "id": 11,
             "topic": "Sequences and Series",
             "title": "Simple Exponential Series",
             "description": "Compute the sum of $\\sum_{n=0}^\\infty\\frac{x^n}{n!}$ for $x=2$.",
@@ -179,7 +157,124 @@
             ]
         },
         {
+            "id": 12,
+            "topic": "Sequences and Series",
+            "title": "Ratio test",
+            "description": "Examine $\\sum_{n=1}^\\infty \\frac{n}{2^n}$ and $\\sum_{n=1}^\\infty \\frac{2^n}{n!}$ with the ratio test.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nRatio test: if $\\left|\\frac{a_{n+1}}{a_n}\\right| \\to L$ then the series converges absolutely for $L < 1$ and diverges for $L > 1$ (no statement for $L = 1$).",
+                "Step 2: $\\sum\\frac{n}{2^n}$\n$\\frac{a_{n+1}}{a_n} = \\frac{(n+1)/2^{n+1}}{n/2^n} = \\frac{n+1}{2n} \\to \\frac12 < 1$. The series **converges** absolutely.",
+                "Step 3: $\\sum\\frac{2^n}{n!}$\n$\\frac{a_{n+1}}{a_n} = \\frac{2^{n+1}/(n+1)!}{2^n/n!} = \\frac{2}{n+1} \\to 0 < 1$. The series **converges** (it is the exponential series $e^2 - 1$ without the term $n = 0$).",
+                "Step 4: Borderline case as a warning\nFor $\\sum\\frac1n$ and $\\sum\\frac1{n^2}$ we have $\\frac{a_{n+1}}{a_n} \\to 1$ — the test is inconclusive (the first diverges, the second converges).",
+                "Step 5: Takeaway: What to remember\nThe ratio test suits factorials and powers $c^n$, the root test suits $n$-th powers. Convergence here means absolute convergence."
+            ]
+        },
+        {
             "id": 13,
+            "topic": "Sequences and Series",
+            "title": "Leibniz criterion",
+            "description": "Show that $\\sum_{n=1}^\\infty \\frac{(-1)^n}{\\sqrt n}$ converges but not absolutely.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nLeibniz criterion: if $(b_n)$ is monotonically decreasing with $b_n \\to 0$ then $\\sum(-1)^nb_n$ converges. Absolute convergence demands convergence of $\\sum|a_n|$.",
+                "Step 2: Convergence\n$b_n = \\frac{1}{\\sqrt n}$ decreases monotonically ($\\sqrt{n+1} > \\sqrt n$) and $b_n \\to 0$. By Leibniz the series converges.",
+                "Step 3: Not absolutely convergent\n$\\sum|a_n| = \\sum\\frac1{\\sqrt n}$ is a $p$-series with $p = \\frac12 \\leq 1$ and diverges. Alternatively $\\frac{1}{\\sqrt n} \\geq \\frac1n$ and $\\sum\\frac1n$ diverges (comparison test).",
+                "Step 4: Error estimate\nFor the remainder $|s - s_n| \\leq b_{n+1}$. To give the value to within $0.1$ it suffices that $\\frac{1}{\\sqrt{n+1}} \\leq 0.1$, i.e. $n \\geq 99$.",
+                "Step 5: Takeaway: What to remember\nA series is called **conditionally convergent** if it converges but not absolutely. Such series can be rearranged to take any prescribed value (Riemann rearrangement theorem)."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Sequences and Series",
+            "title": "Comparison test",
+            "description": "Examine $\\sum_{n=1}^\\infty \\frac{n+1}{n^3+2}$ with the comparison test.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nComparison test: if $0 \\leq a_n \\leq c_n$ and $\\sum c_n$ converges then $\\sum a_n$ converges. We look for a simple convergent majorant, e.g. of the form $\\frac{C}{n^2}$.",
+                "Step 2: Estimate denominator from below, numerator from above\n$n + 1 \\leq 2n$ and $n^3 + 2 \\geq n^3$. So $\\frac{n+1}{n^3+2} \\leq \\frac{2n}{n^3} = \\frac{2}{n^2}$.",
+                "Step 3: Convergent majorant\n$\\sum\\frac{2}{n^2} = 2\\sum\\frac{1}{n^2}$ converges ($p$-series with $p = 2 > 1$).",
+                "Step 4: Conclusion\nBy the comparison test $\\sum\\frac{n+1}{n^3+2}$ converges (absolutely, since all terms are positive).",
+                "Step 5: Takeaway: What to remember\nRule of thumb: compare the highest powers in numerator and denominator. For $\\frac{n^a}{n^b}$ the series converges if $b - a > 1$. Divergence is shown analogously with a divergent minorant like $\\sum\\frac1n$."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Sequences and Series",
+            "title": "Radius of convergence and boundary points",
+            "description": "Determine the radius of convergence and the interval of convergence of $\\sum_{n=1}^\\infty \\frac{x^n}{n\\cdot3^n}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nFor a power series $\\sum a_nx^n$ we have $R = \\lim\\left|\\frac{a_n}{a_{n+1}}\\right|$. Inside $(-R,R)$ the series converges absolutely, outside it diverges; the **boundary points** $\\pm R$ must be examined individually.",
+                "Step 2: Radius\n$a_n = \\frac{1}{n3^n}$. $\\left|\\frac{a_n}{a_{n+1}}\\right| = \\frac{(n+1)3^{n+1}}{n3^n} = 3\\cdot\\frac{n+1}{n} \\to 3$. So $R = 3$.",
+                "Step 3: Boundary point $x = 3$\n$\\sum\\frac{3^n}{n3^n} = \\sum\\frac1n$, the harmonic series: **divergent**.",
+                "Step 4: Boundary point $x = -3$\n$\\sum\\frac{(-3)^n}{n3^n} = \\sum\\frac{(-1)^n}{n}$, alternating harmonic series: **convergent** by Leibniz.",
+                "Step 5: Interval of convergence\nThe series converges exactly for $x \\in [-3, 3)$.",
+                "Step 6: Takeaway: What to remember\nThe radius of convergence says nothing about the boundary points; they must be checked separately and can differ (here: left yes, right no). The series equals $-\\ln(1 - x/3)$."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Sequences and Series",
+            "title": "Telescoping series",
+            "description": "Compute $\\sum_{n=1}^\\infty \\frac{1}{n(n+2)}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe split the term by partial fractions such that almost everything cancels in the partial sums (telescoping sum).",
+                "Step 2: Partial fractions\n$\\frac{1}{n(n+2)} = \\frac12\\left(\\frac1n - \\frac1{n+2}\\right)$ (check: $\\frac12\\cdot\\frac{(n+2) - n}{n(n+2)} = \\frac{1}{n(n+2)}$ ✓).",
+                "Step 3: Partial sum\n$s_N = \\frac12\\sum_{n=1}^N\\left(\\frac1n - \\frac1{n+2}\\right) = \\frac12\\left(1 + \\frac12 - \\frac1{N+1} - \\frac1{N+2}\\right)$ (all intermediate terms cancel).",
+                "Step 4: Limit\n$s_N \\to \\frac12\\cdot\\frac32 = \\frac34$.",
+                "Step 5: Check\n$s_1 = \\frac13 \\approx 0.333$, $s_2 = \\frac13 + \\frac18 = 0.458$, $s_3 \\approx 0.458 + 0.0667 = 0.525$, … approaching $0.75$ ✓.",
+                "Step 6: Takeaway: What to remember\nFor telescoping sums with gap $k$ the first $k$ and the last $k$ terms remain. This is exactly how $\\sum\\frac{1}{n(n+1)} = 1$ is computed."
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Sequences and Series",
+            "title": "Convergence of Sequences",
+            "description": "Investigate the convergence of the sequence $(a_n)$ with $a_n = \\frac{n^2 + 3n + 1}{2n^2 - n + 4}$ and determine, if applicable, its limit.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Analysis of the sequence\nThe sequence $(a_n)$ is a rational sequence, as it can be written as the quotient of two polynomials. To study convergence, we determine the limit as $n \\to \\infty$.",
+                "Step 2: Rewrite the numerator\n$n^2 + 3n + 1 = n^2\\bigl(1 + \\tfrac{3}{n} + \\tfrac{1}{n^2}\\bigr)$\nExplanation: Factor out $n^2$ to isolate the highest power.",
+                "Step 3: Rewrite the denominator\n$2n^2 - n + 4 = n^2\\bigl(2 - \\tfrac{1}{n} + \\tfrac{4}{n^2}\\bigr)$\nExplanation: Similarly factor out $n^2$.",
+                "Step 4: Simplification\n$a_n = \\frac{n^2(1 + \\frac{3}{n} + \\frac{1}{n^2})}{n^2(2 - \\frac{1}{n} + \\frac{4}{n^2})} = \\frac{1 + \\frac{3}{n} + \\frac{1}{n^2}}{2 - \\frac{1}{n} + \\frac{4}{n^2}}$\nExplanation: The $n^2$ terms cancel.",
+                "Step 5: Limit computation\n$\\lim_{n \\to \\infty} a_n = \\lim_{n \\to \\infty} \\frac{1 + \\frac{3}{n} + \\frac{1}{n^2}}{2 - \\frac{1}{n} + \\frac{4}{n^2}}$\nExplanation: Compute the limit of the fraction.",
+                "Step 6: Apply limit laws\nSince $\\lim_{n \\to \\infty} \\frac{1}{n} = 0$ and $\\lim_{n \\to \\infty} \\frac{1}{n^2} = 0$, we get\n$\\lim_{n \\to \\infty} a_n = \\frac{1+0+0}{2-0+0} = \\tfrac12$.\nExplanation: All terms with $n$ in the denominator vanish.",
+                "Step 7: Convergence conclusion\nThe sequence converges to $\\tfrac12$, because:\n1. The limit exists\n2. All denominator terms go to 0\n3. The sequence is bounded",
+                "Step 8: Numerical check\nFor $n=1000$: $a_{1000} \\approx 0.5005$; for $n=10000$: $a_{10000} \\approx 0.50005$. The values approach $\\tfrac12$.",
+                "Step 9: Monotonicity check\nCompute $a_{n+1}-a_n$ and show that for sufficiently large $n$ the sequence is decreasing.",
+                "Step 10: Summary\n$(a_n)$ is:\n1. Convergent with limit $\\tfrac12$\n2. Bounded (above by $\\tfrac12$)\n3. Eventually monotone decreasing\n4. A rational sequence with polynomials of equal degree"
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Sequences and Series",
+            "title": "Geometric Series",
+            "description": "Compute the sum of the series $\\sum_{n=0}^{\\infty} \\frac{2^n}{3^n}$ and show convergence.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Step 1: Series type\n$\\sum_{n=0}^{\\infty} \\frac{2^n}{3^n}$ is a geometric series of the form $\\sum q^n$.",
+                "Step 2: Rewrite as geometric series\n$\\sum_{n=0}^{\\infty} \\frac{2^n}{3^n} = \\sum_{n=0}^{\\infty} \\bigl(\\tfrac{2}{3}\\bigr)^n$, where $q=\\tfrac23$.",
+                "Step 3: Convergence criterion\nA geometric series converges iff $|q|<1$. Here $|\\tfrac23|<1$, so it converges.",
+                "Step 4: Sum formula\nFor $|q|<1$: $\\sum_{n=0}^{\\infty} q^n = \\frac{1}{1-q}$.",
+                "Step 5: Compute the sum\n$\\sum_{n=0}^{\\infty} (\\tfrac{2}{3})^n = \\frac{1}{1-\\tfrac{2}{3}} = 3$.",
+                "Step 6: Partial sums check\n$S_0=1$, $S_1=1+\\tfrac23\\approx1.6667$, $S_2\\approx2.1111$, $S_3\\approx2.4074$. They approach 3.",
+                "Step 7: Remainder estimate\n$R_n = \\sum_{k=n+1}^{\\infty}(\\tfrac23)^k = \\frac{(\\tfrac23)^{n+1}}{1-\\tfrac23} = 3\\bigl(\\tfrac23\\bigr)^{n+1}$, which →0.",
+                "Step 8: Rate of convergence\nSince $q=\\tfrac23$ is not too close to 1, convergence is relatively fast (error <0.01 after 10 terms).",
+                "Step 9: Alternative expression\nEquivalently $\\sum_{n=0}^{\\infty}(\\tfrac23)^n = \\tfrac{3}{3-2}=3$.",
+                "Step 10: Conclusion\nThe geometric series:\n1. Converges absolutely ($|q|<1$)\n2. Sum equals 3\n3. Converges quickly\n4. Can be approximated arbitrarily well by partial sums"
+            ]
+        },
+        {
+            "id": 19,
             "topic": "Sequences and Series",
             "title": "Moderate Sequence",
             "description": "Investigate convergence of $(a_n)$ with $a_n=\\sqrt[n]{n!}$.",
@@ -192,7 +287,7 @@
             ]
         },
         {
-            "id": 14,
+            "id": 20,
             "topic": "Sequences and Series",
             "title": "Moderate Series I",
             "description": "Investigate convergence of $\\sum_{n=1}^\\infty\\frac{n^2+1}{n^3+2n}$.",
@@ -205,7 +300,7 @@
             ]
         },
         {
-            "id": 15,
+            "id": 21,
             "topic": "Sequences and Series",
             "title": "Moderate Series II (Power Series)",
             "description": "Determine radius of convergence and sum of $\\sum_{n=1}^\\infty n x^n$.",
@@ -219,21 +314,7 @@
             ]
         },
         {
-            "id": 16,
-            "topic": "Sequences and Series",
-            "title": "Moderate Recursion",
-            "description": "Investigate convergence of the recursively defined $a_1=2$, $a_{n+1}=\\sqrt{a_n+2}$.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Step 1: Monotonicity\n$a_{n+1}-a_n=\\sqrt{a_n+2}-a_n=\\frac{2-a_n^2+a_n}{\\sqrt{a_n+2}+a_n}$.",
-                "Step 2: Boundedness\nBy induction $0<a_n<2$ for all $n$.",
-                "Step 3: Limit\n$\\lim a_n=2$.",
-                "Step 4: Conclusion\nThe sequence converges monotonically increasing to 2."
-            ]
-        },
-        {
-            "id": 17,
+            "id": 22,
             "topic": "Sequences and Series",
             "title": "Moderate Series III",
             "description": "Investigate convergence of $\\sum_{n=1}^\\infty\\frac{\\sin n}{n^2}$ via comparison.",
@@ -246,21 +327,116 @@
             ]
         },
         {
-            "id": 18,
+            "id": 23,
             "topic": "Sequences and Series",
-            "title": "Moderate Series IV (Root Test)",
-            "description": "Investigate convergence of $\\sum_{n=1}^\\infty\\bigl(\\frac{n^2+1}{n^2+2}\\bigr)^n$ via the root test.",
-            "difficulty": "medium",
-            "points": 8,
+            "title": "Square-root recursion",
+            "description": "Let $a_1 = \\sqrt2$ and $a_{n+1} = \\sqrt{2 + a_n}$. Show: $(a_n)$ converges and $\\lim a_n = 2$.",
+            "difficulty": "hard",
+            "points": 12,
             "solutionSteps": [
-                "Step 1: Root test\n$L=\\lim((n^2+1)/(n^2+2))=1$.",
-                "Step 2: Inconclusive\nSince $L=1$, the root test fails.",
-                "Step 3: Alternate limit\n$\\lim(\\frac{n^2+1}{n^2+2})^n=e^{-1}\\neq0$.",
-                "Step 4: Divergence\nBy necessary condition, the series diverges."
+                "Step 1: Overview: What is asked?\nWe show by induction boundedness ($a_n < 2$) and monotonicity ($a_n < a_{n+1}$). The monotone convergence theorem gives convergence; the limit follows from the fixed-point equation.",
+                "Step 2: Bounded by $2$\nBase: $a_1 = \\sqrt2 < 2$. Step: from $a_n < 2$ we get $a_{n+1} = \\sqrt{2 + a_n} < \\sqrt{4} = 2$.",
+                "Step 3: Monotonically increasing\nTo show $a_{n+1} > a_n$, i.e. $\\sqrt{2 + a_n} > a_n \\iff 2 + a_n > a_n^2 \\iff (2 - a_n)(1 + a_n) > 0$. This holds because $a_n < 2$ and $a_n > 0$.",
+                "Step 4: Convergence\nMonotonically increasing and bounded above: by the monotone convergence theorem $a = \\lim a_n$ exists.",
+                "Step 5: Limit\nPassing to the limit in $a_{n+1}^2 = 2 + a_n$: $a^2 = 2 + a \\iff a^2 - a - 2 = 0 \\iff (a - 2)(a + 1) = 0$. Since $a \\geq \\sqrt2 > 0$ we get $a = 2$. $\\blacksquare$",
+                "Step 6: Takeaway: What to remember\nWe have $a_n = 2\\cos\\frac{\\pi}{2^{n+1}}$. The fixed-point equation has two solutions ($2$ and $-1$); the sign condition selects the right one. Convergence is fast: $a_5 \\approx 1.9990$."
             ]
         },
         {
-            "id": 19,
+            "id": 24,
+            "topic": "Sequences and Series",
+            "title": "Root test",
+            "description": "Examine $\\sum_{n=1}^\\infty \\left(\\frac{n}{2n+1}\\right)^n$ and $\\sum_{n=1}^\\infty \\left(1 + \\frac1n\\right)^{n^2}\\frac{1}{3^n}$ with the root test.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nRoot test: if $\\sqrt[n]{|a_n|} \\to L$ then $\\sum a_n$ converges absolutely for $L < 1$ and diverges for $L > 1$. It is ideal when $a_n$ is an $n$-th power.",
+                "Step 2: First series\n$\\sqrt[n]{a_n} = \\frac{n}{2n+1} = \\frac{1}{2 + 1/n} \\to \\frac12 < 1$. The series **converges** absolutely.",
+                "Step 3: Second series: take the root\n$\\sqrt[n]{a_n} = \\left(1 + \\frac1n\\right)^n\\cdot\\frac13$.",
+                "Step 4: Limit\nBecause $\\left(1 + \\frac1n\\right)^n \\to e$ we get $\\sqrt[n]{a_n} \\to \\frac e3 \\approx 0.906 < 1$. The series **converges** absolutely.",
+                "Step 5: Counter-check: the ratio test would be hard\nIn the ratio, terms $\\left(1 + \\frac1{n+1}\\right)^{(n+1)^2}$ appear whose limit is laborious to determine — the root test is clearly better here.",
+                "Step 6: Takeaway: What to remember\nThe root and ratio tests are related: if $\\lim\\left|\\frac{a_{n+1}}{a_n}\\right|$ exists then $\\lim\\sqrt[n]{|a_n|}$ exists and they coincide; overall the root test is stronger."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Sequences and Series",
+            "title": "Comparison with an integral",
+            "description": "Show with the integral test: $\\sum_{n=1}^\\infty \\frac1{n^p}$ converges exactly for $p > 1$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nIntegral test: if $f \\geq 0$ is monotonically decreasing then $\\sum f(n)$ converges exactly when the improper integral $\\int_1^\\infty f(x)\\,dx$ converges. We apply it to $f(x) = x^{-p}$.",
+                "Step 2: Case $p \\neq 1$\n$\\int_1^R x^{-p}\\,dx = \\frac{R^{1-p} - 1}{1 - p}$. For $p > 1$, $R^{1-p} \\to 0$ and the integral converges to $\\frac{1}{p-1}$. For $p < 1$, $R^{1-p} \\to \\infty$ and the integral diverges.",
+                "Step 3: Case $p = 1$\n$\\int_1^R \\frac1x\\,dx = \\ln R \\to \\infty$. The integral diverges (harmonic series).",
+                "Step 4: Conclusion\n$\\sum n^{-p}$ converges exactly for $p > 1$. $\\blacksquare$ In addition: $\\sum_{n=2}^\\infty n^{-p} \\leq \\frac{1}{p-1}$ (rectangle bound).",
+                "Step 5: Examples\n$\\sum\\frac1{n^2}$ converges ($p = 2$), $\\sum\\frac1{\\sqrt n}$ diverges ($p = \\frac12$), $\\sum\\frac{1}{n\\ln^2 n}$ converges (integral $\\int\\frac{dx}{x\\ln^2x} = -\\frac1{\\ln x}$).",
+                "Step 6: Takeaway: What to remember\nThe integral test supplies the reference series ($p$-series) used by the comparison tests. The reason lies in upper/lower sums: the series lies between $\\int_1^\\infty f$ and $f(1) + \\int_1^\\infty f$."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Sequences and Series",
+            "title": "Alternating harmonic series",
+            "description": "Show that $\\sum_{n=1}^\\infty \\frac{(-1)^{n+1}}{n}$ converges, estimate the error of $s_4$ and explain why the series does not converge absolutely.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe apply the Leibniz criterion and use the associated error estimate: the error is at most the size of the first omitted term.",
+                "Step 2: Convergence\n$b_n = \\frac1n$ is monotonically decreasing and $b_n \\to 0$. By Leibniz $\\sum(-1)^{n+1}b_n$ converges.",
+                "Step 3: Partial sum $s_4$\n$s_4 = 1 - \\frac12 + \\frac13 - \\frac14 = \\frac{12 - 6 + 4 - 3}{12} = \\frac{7}{12} \\approx 0.5833$.",
+                "Step 4: Error estimate\n$|s - s_4| \\leq b_5 = \\frac15 = 0.2$. The limit lies between $s_4$ and $s_5 = \\frac7{12} + \\frac15 = \\frac{47}{60} \\approx 0.7833$, so $s \\in [0.583;\\ 0.783]$. (In fact $s = \\ln2 \\approx 0.693$.)",
+                "Step 5: No absolute convergence\n$\\sum\\left|\\frac{(-1)^{n+1}}{n}\\right| = \\sum\\frac1n$ is the harmonic series and diverges (e.g. at least $\\frac12$ per block $2^k < n \\leq 2^{k+1}$). The series is **conditionally convergent**.",
+                "Step 6: Takeaway: What to remember\nThe partial sums bracket the limit: $s_2 < s_4 < \\dots < s < \\dots < s_3 < s_1$. Conditional convergence forbids arbitrary rearrangement (Riemann). $\\ln 2$ is the value of the series in the given order."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Sequences and Series",
+            "title": "Power series of −ln(1−x)",
+            "description": "Derive the series $\\sum_{n=1}^\\infty \\frac{x^n}{n}$ for $|x| < 1$ from the geometric series and determine $\\sum_{n=1}^\\infty \\frac{1}{n2^n}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nPower series may be integrated term by term inside their disc of convergence. We integrate the geometric series $\\frac{1}{1-t} = \\sum t^n$ from $0$ to $x$.",
+                "Step 2: Geometric series\nFor $|t| < 1$ we have $\\frac1{1-t} = \\sum_{n=0}^\\infty t^n$.",
+                "Step 3: Integrate term by term\n$\\int_0^x\\frac{dt}{1-t} = -\\ln(1-x)$ and $\\int_0^x t^n\\,dt = \\frac{x^{n+1}}{n+1}$. So $-\\ln(1-x) = \\sum_{n=0}^\\infty\\frac{x^{n+1}}{n+1} = \\sum_{n=1}^\\infty\\frac{x^n}{n}$.",
+                "Step 4: Radius of convergence\n$R = \\lim\\left|\\frac{1/n}{1/(n+1)}\\right| = 1$, the series converges for $|x| < 1$ (and at $x = -1$ by Leibniz).",
+                "Step 5: Value for $x = \\frac12$\n$\\sum_{n=1}^\\infty\\frac{1}{n2^n} = -\\ln\\left(1 - \\frac12\\right) = -\\ln\\frac12 = \\ln2 \\approx 0.6931$.",
+                "Step 6: Numerical check\n$\\frac12 + \\frac18 + \\frac1{24} + \\frac1{64} + \\frac1{160} \\approx 0.5 + 0.125 + 0.0417 + 0.0156 + 0.0063 = 0.6886$ — approaching $0.6931$ ✓.",
+                "Step 7: Takeaway: What to remember\nNew series are obtained from known ones by differentiating and integrating. This series converges fast for small $|x|$ and is the basis of the numerical computation of logarithms."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Sequences and Series",
+            "title": "Alternating Series",
+            "description": "Investigate the convergence of the alternating series $\\sum_{n=1}^\\infty (-1)^n\\frac{\\ln n}{n}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Leibniz criterion\nCheck that $a_n=\\frac{\\ln n}{n}>0$, $a_n\\to0$, and $a_n$ is eventually monotone decreasing.",
+                "Step 2: Monotonicity\n$f(x)=\\frac{\\ln x}{x}$, $f'(x)=\\frac{1-\\ln x}{x^2}<0$ for $x>e$. Thus $a_n$ decreases for $n\\ge3$.",
+                "Step 3: Limit\n$\\lim_{n\\to\\infty}\\frac{\\ln n}{n}=0$ by L'Hôpital's rule.",
+                "Step 4: Conclusion\nBy Leibniz’s test, the series converges (conditionally)."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Sequences and Series",
+            "title": "Power Series",
+            "description": "Determine the radius of convergence of the power series $\\sum_{n=0}^\\infty \\frac{n^n}{n!}x^n$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Ratio test\nCompute $L=\\lim_{n\\to\\infty}\\bigl|\\tfrac{a_{n+1}}{a_n}\\bigr|=\\lim\\frac{(n+1)^{n+1}/(n+1)!}{n^n/n!}$.",
+                "Step 2: Simplify\n$L=\\lim\\frac{(n+1)^n}{n^n}=\\lim(1+\\tfrac1n)^n=e$.",
+                "Step 3: Radius\n$R=1/L=1/e$.",
+                "Step 4: Convergence domain\nThe series converges for $|x|<1/e$ and diverges for $|x|>1/e$."
+            ]
+        },
+        {
+            "id": 30,
             "topic": "Sequences and Series",
             "title": "Challenging Sequence I",
             "description": "Investigate convergence of $a_n=(1+\\tfrac1{n^2})^{n^2}$.",
@@ -273,7 +449,7 @@
             ]
         },
         {
-            "id": 20,
+            "id": 31,
             "topic": "Sequences and Series",
             "title": "Challenging Series I",
             "description": "Investigate convergence of $\\sum_{n=1}^\\infty\\frac{n!}{n^n}$ via the ratio test.",
@@ -285,7 +461,7 @@
             ]
         },
         {
-            "id": 21,
+            "id": 32,
             "topic": "Sequences and Series",
             "title": "Challenging Series II (Power Series)",
             "description": "Determine the radius of convergence and sum of $\\sum_{n=0}^\\infty\\frac{n^2+1}{n!}x^n$.",
@@ -299,21 +475,7 @@
             ]
         },
         {
-            "id": 22,
-            "topic": "Sequences and Series",
-            "title": "Challenging Recursion",
-            "description": "Investigate convergence of $a_1=1$, $a_{n+1}=\\tfrac12\\bigl(a_n+\\tfrac3{a_n}\\bigr)$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Step 1: Monotonicity\n$a_{n+1}-a_n=\\frac{3-a_n^2}{2a_n}$.",
-                "Step 2: Boundedness\nBy induction $a_n>0$.",
-                "Step 3: Limit\n$\\lim a_n=\\sqrt3$.",
-                "Step 4: Conclusion\nThe sequence converges monotonically decreasing to $\\sqrt3$."
-            ]
-        },
-        {
-            "id": 23,
+            "id": 33,
             "topic": "Sequences and Series",
             "title": "Challenging Series III (Majorant)",
             "description": "Investigate convergence of $\\sum_{n=1}^\\infty\\frac{\\cos n}{n^2+\\ln n}$ via comparison.",
@@ -323,20 +485,6 @@
                 "Step 1: Estimate\n$|\\cos n|/(n^2+\\ln n)\\le1/n^2$.",
                 "Step 2: Majorant\n$\\sum1/n^2$ converges.",
                 "Step 3: Conclusion\nThe series converges absolutely."
-            ]
-        },
-        {
-            "id": 24,
-            "topic": "Sequences and Series",
-            "title": "Challenging Series IV (Root Test)",
-            "description": "Investigate convergence of $\\sum_{n=1}^\\infty (\\frac{n^3+1}{n^3+2})^n$ via the root test.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Step 1: Root test\n$L=\\lim\\frac{n^3+1}{n^3+2}=1$.",
-                "Step 2: Inconclusive\nSince $L=1$, the test fails.",
-                "Step 3: Alternate limit\n$\\lim(\\frac{n^3+1}{n^3+2})^n=e^{-1}\\neq0$.",
-                "Step 4: Divergence\nBy necessary condition, the series diverges."
             ]
         }
     ]

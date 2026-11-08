@@ -3,6 +3,85 @@
         {
             "id": 1,
             "topic": "Differential calculus",
+            "title": "Derivative and tangent",
+            "description": "Find the derivative of $f(x) = x^3 - 3x^2 + 2$ and the equation of the tangent at $x_0 = 1$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe tangent to $f$ at $x_0$ is $y = f(x_0) + f'(x_0)(x - x_0)$. So we need the function value and the slope $f'(x_0)$. The derivative follows term by term with the power rule $(x^n)' = nx^{n-1}$.",
+                "Step 2: Derivative\n$f'(x) = 3x^2 - 6x$ (the constant $2$ vanishes).",
+                "Step 3: Function value and slope\n$f(1) = 1 - 3 + 2 = 0$ and $f'(1) = 3 - 6 = -3$.",
+                "Step 4: Tangent\n$y = 0 + (-3)(x - 1) = -3x + 3$.",
+                "Step 5: Check\nAt $x = 1.01$: $f \\approx 1.030301 - 3.0603 + 2 = -0.029999$; tangent: $-3\\cdot1.01 + 3 = -0.03$. Very close ✓.",
+                "Step 6: Takeaway: What to remember\nThe derivative is the local slope; the tangent is the best linear approximation. Rule of thumb: do not forget the function value $f(x_0)$, otherwise you only have the slope."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Differential calculus",
+            "title": "Derivative from the definition",
+            "description": "Compute the derivative of $f(x) = x^2$ using the difference quotient.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe derivative is the limit of the difference quotient: $f'(x) = \\lim_{h\\to0}\\frac{f(x+h) - f(x)}{h}$. We simplify the fraction until $h$ can be cancelled.",
+                "Step 2: Substituting\n$\\frac{(x+h)^2 - x^2}{h} = \\frac{x^2 + 2xh + h^2 - x^2}{h} = \\frac{2xh + h^2}{h}$ (first binomial formula).",
+                "Step 3: Cancelling\n$\\frac{h(2x + h)}{h} = 2x + h$ for $h \\neq 0$.",
+                "Step 4: Limit\n$\\lim_{h\\to0}(2x + h) = 2x$. So $(x^2)' = 2x$.",
+                "Step 5: Numerical check\nAt $x = 3$, $h = 0.001$: $\\frac{9.006001 - 9}{0.001} = 6.001 \\approx 2\\cdot3$ ✓.",
+                "Step 6: Takeaway: What to remember\nThe rules of differentiation (power rule, product rule, …) are shortcuts for this limit. Geometrically the difference quotient is the slope of the secant, the limit the slope of the tangent."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Differential calculus",
+            "title": "Derivatives with negative and fractional exponents",
+            "description": "Compute the derivative of $f(x) = \\frac{1}{x^2} + \\sqrt x + \\frac{3}{\\sqrt[3]{x}}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe write all terms as powers $x^a$ and apply the power rule $(x^a)' = ax^{a-1}$, which holds for **all** real $a$.",
+                "Step 2: Rewriting\n$f(x) = x^{-2} + x^{1/2} + 3x^{-1/3}$ for $x > 0$.",
+                "Step 3: Differentiating\n$f'(x) = -2x^{-3} + \\frac12x^{-1/2} + 3\\cdot\\left(-\\frac13\\right)x^{-4/3} = -2x^{-3} + \\frac12x^{-1/2} - x^{-4/3}$.",
+                "Step 4: Rewriting back\n$f'(x) = -\\frac{2}{x^3} + \\frac{1}{2\\sqrt x} - \\frac{1}{x\\sqrt[3]{x}}$.",
+                "Step 5: Check at $x = 1$\n$f'(1) = -2 + \\frac12 - 1 = -2.5$. Numerically: $f(1) = 1 + 1 + 3 = 5$; $f(1.001) \\approx 0.998004 + 1.0005 + 2.999 = 4.9975$; slope $\\approx -2.5$ ✓.",
+                "Step 6: Takeaway: What to remember\nFirst convert to power notation, then differentiate, finally (if desired) rewrite. The exponent is reduced by $1$; for negative exponents it becomes **more negative**."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Differential calculus",
+            "title": "Product rule",
+            "description": "Differentiate $f(x) = (x^2 + 1)(x - 3)$ in two ways.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe product rule reads $(uv)' = u'v + uv'$. As a check we first multiply out and then differentiate the polynomial; both ways must agree.",
+                "Step 2: Way 1: product rule\n$u = x^2 + 1$, $v = x - 3$, $u' = 2x$, $v' = 1$. $f' = 2x(x - 3) + (x^2 + 1)\\cdot1 = 2x^2 - 6x + x^2 + 1 = 3x^2 - 6x + 1$.",
+                "Step 3: Way 2: multiply out\n$f(x) = x^3 - 3x^2 + x - 3$, so $f'(x) = 3x^2 - 6x + 1$ ✓.",
+                "Step 4: Warning\nWrong would be $(uv)' = u'v'$: it would give $2x\\cdot1 = 2x \\neq 3x^2 - 6x + 1$.",
+                "Step 5: Takeaway: What to remember\nFor polynomial products multiplying out is a good check; for products with $\\sin x$, $e^x$ or $\\ln x$ the product rule is indispensable."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Differential calculus",
+            "title": "Chain rule",
+            "description": "Compute the derivative of (a) $f(x) = (2x+1)^5$, (b) $g(x) = \\sin(3x^2)$, (c) $h(x) = e^{-x^2}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nChain rule: $\\big(f(g(x))\\big)' = f'(g(x))\\cdot g'(x)$ — “outer derivative times inner derivative”. We identify the outer and inner function each time.",
+                "Step 2: (a)\nOuter $u^5$, inner $2x+1$: $f'(x) = 5(2x+1)^4\\cdot2 = 10(2x+1)^4$.",
+                "Step 3: (b)\nOuter $\\sin u$, inner $3x^2$: $g'(x) = \\cos(3x^2)\\cdot6x = 6x\\cos(3x^2)$.",
+                "Step 4: (c)\nOuter $e^u$, inner $-x^2$: $h'(x) = e^{-x^2}\\cdot(-2x) = -2xe^{-x^2}$.",
+                "Step 5: Check for (a)\n$f(0) = 1$, $f'(0) = 10$. $f(0.001) = 1.002^5 \\approx 1.01004$; slope $\\approx 10.04$ ✓.",
+                "Step 6: Takeaway: What to remember\nThe **inner derivative** is the most commonly forgotten. For multiple compositions multiply all derivatives from outside in."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Differential calculus",
             "title": "Derivative of a polynomial function",
             "description": "Compute the derivative of the function $f(x) = 3x^4 - 2x^3 + 5x^2 - 7x + 2$.",
             "difficulty": "easy",
@@ -17,7 +96,7 @@
             ]
         },
         {
-            "id": 2,
+            "id": 7,
             "topic": "Differential calculus",
             "title": "Derivative of a root function",
             "description": "Compute the derivative of the function $f(x) = \\sqrt{x}$.",
@@ -33,7 +112,7 @@
             ]
         },
         {
-            "id": 3,
+            "id": 8,
             "topic": "Differential calculus",
             "title": "Derivative of an exponential function",
             "description": "Compute the derivative of the function $f(x) = e^x$.",
@@ -47,7 +126,7 @@
             ]
         },
         {
-            "id": 4,
+            "id": 9,
             "topic": "Differential calculus",
             "title": "Derivative of a trigonometric function",
             "description": "Compute the derivative of the function $f(x) = \\sin x$.",
@@ -61,7 +140,7 @@
             ]
         },
         {
-            "id": 5,
+            "id": 10,
             "topic": "Differential calculus",
             "title": "Derivative of a logarithmic function",
             "description": "Compute the derivative of the function $f(x) = \\ln x$.",
@@ -75,51 +154,86 @@
             ]
         },
         {
-            "id": 6,
+            "id": 11,
             "topic": "Differential calculus",
-            "title": "Derivative of a constant function",
-            "description": "Compute the derivative of the function $f(x) = 5$.",
-            "difficulty": "easy",
-            "points": 5,
+            "title": "Quotient rule: derivative of tan x",
+            "description": "Differentiate $\\tan x = \\frac{\\sin x}{\\cos x}$ with the quotient rule and compute the derivative of $f(x) = \\frac{x^2}{x+1}$.",
+            "difficulty": "medium",
+            "points": 8,
             "solutionSteps": [
-                "Step 1: Analysis of the function\nThe function $f(x) = 5$ is a constant function.",
-                "Step 2: Application of the derivative rule\nFor $f(x) = c$: $f'(x) = 0$\nExplanation: The derivative of a constant function is always 0.",
-                "Step 3: Verification\nWe check the derivative at a point:\nFor x = 2:\n$f(2) = 5$\n$f'(2) = 0$\nThe slope of the tangent is 0 everywhere.",
-                "Step 4: Summary\nThe derivative of the function is $f'(x) = 0$."
+                "Step 1: Overview: What is asked?\nQuotient rule: $\\left(\\frac uv\\right)' = \\frac{u'v - uv'}{v^2}$ (“denominator times derivative of numerator minus numerator times derivative of denominator, over denominator squared”).",
+                "Step 2: $\\tan x$\n$(\\tan x)' = \\frac{\\cos x\\cos x - \\sin x(-\\sin x)}{\\cos^2x} = \\frac{\\cos^2x + \\sin^2x}{\\cos^2x} = \\frac{1}{\\cos^2x} = 1 + \\tan^2x$.",
+                "Step 3: $\\frac{x^2}{x+1}$\n$u = x^2$, $v = x + 1$: $f'(x) = \\frac{2x(x+1) - x^2\\cdot1}{(x+1)^2} = \\frac{x^2 + 2x}{(x+1)^2} = \\frac{x(x+2)}{(x+1)^2}$.",
+                "Step 4: Check at $x = 1$\n$f(x) = \\frac{x^2}{x+1}$: $f(1) = 0.5$, $f(1.001) = \\frac{1.002001}{2.001} \\approx 0.500750$; slope $\\approx 0.75$; formula: $\\frac{1\\cdot3}{4} = 0.75$ ✓.",
+                "Step 5: Takeaway: What to remember\nThe order in the numerator matters (minus sign!). Mnemonic: “low d-high minus high d-low over low squared”. Alternatively as a product $u\\cdot v^{-1}$ using product and chain rule."
             ]
         },
         {
-            "id": 7,
+            "id": 12,
             "topic": "Differential calculus",
-            "title": "Derivative of a linear function",
-            "description": "Compute the derivative of the function $f(x) = 3x + 2$.",
-            "difficulty": "easy",
-            "points": 5,
+            "title": "Curve sketching",
+            "description": "Examine $f(x) = x^3 - 3x$ for zeros, extrema, inflection points and symmetry.",
+            "difficulty": "medium",
+            "points": 8,
             "solutionSteps": [
-                "Step 1: Analysis of the function\nThe function $f(x) = 3x + 2$ is a linear function.",
-                "Step 2: Application of the derivative rule\nFor $f(x) = ax + b$: $f'(x) = a$\nExplanation: The derivative of a linear function is the coefficient of x.",
-                "Step 3: Compute the derivative\n$f'(x) = 3$\nExplanation: The coefficient of x is 3.",
-                "Step 4: Verification\nWe check the derivative at a point:\nFor x = 1:\n$f(1) = 5$\n$f'(1) = 3$\nThe slope of the tangent is 3 everywhere.",
-                "Step 5: Summary\nThe derivative of the function is $f'(x) = 3$."
+                "Step 1: Overview: What is asked?\nWe determine in turn: symmetry, zeros, derivatives $f'$ and $f''$, critical points ($f' = 0$) and their type (sign of $f''$), inflection points ($f'' = 0$).",
+                "Step 2: Symmetry and zeros\n$f(-x) = -x^3 + 3x = -f(x)$: point-symmetric about the origin. $f(x) = x(x^2 - 3) = 0 \\iff x \\in \\{0, \\pm\\sqrt3\\}$.",
+                "Step 3: Derivatives\n$f'(x) = 3x^2 - 3$, $f''(x) = 6x$.",
+                "Step 4: Extrema\n$f'(x) = 0 \\iff x = \\pm1$. $f''(1) = 6 > 0$: local **minimum** at $(1,-2)$. $f''(-1) = -6 < 0$: local **maximum** at $(-1,2)$.",
+                "Step 5: Inflection point\n$f''(x) = 0 \\iff x = 0$ with sign change of $f''$: **inflection point** $(0,0)$ (inflection tangent $y = -3x$).",
+                "Step 6: Monotonicity\n$f' > 0$ for $|x| > 1$ (increasing), $f' < 0$ for $|x| < 1$ (decreasing). For $x \\to \\pm\\infty$, $f \\to \\pm\\infty$.",
+                "Step 7: Takeaway: What to remember\nNecessary for an extremum: $f'(x_0) = 0$. Sufficient: additionally $f''(x_0) \\neq 0$. An inflection point needs $f''(x_0) = 0$ **and** a sign change (sufficient: $f'''(x_0) \\neq 0$)."
             ]
         },
         {
-            "id": 8,
+            "id": 13,
             "topic": "Differential calculus",
-            "title": "Derivative of a quadratic function",
-            "description": "Compute the derivative of the function $f(x) = x^2 + 3x - 4$.",
-            "difficulty": "easy",
-            "points": 5,
+            "title": "Optimisation: rectangle with fixed perimeter",
+            "description": "Among all rectangles with perimeter $40$ find the one with maximal area.",
+            "difficulty": "medium",
+            "points": 8,
             "solutionSteps": [
-                "Step 1: Analysis of the function\nThe function $f(x) = x^2 + 3x - 4$ is a quadratic function.",
-                "Step 2: Application of the power rule\nFor each term $ax^n$: $(ax^n)' = n \\cdot a x^{n-1}$",
-                "Step 3: Compute the derivative\n$f'(x) = 2x + 3$\nExplanation: We apply the power rule to each term.",
-                "Step 4: Verification\nWe check the derivative at a point:\nFor x = 2:\n$f(2) = 6$\n$f'(2) = 7$\nThe slope of the tangent at x = 2 is 7.",
-                "Step 5: Summary\nThe derivative of the function is $f'(x) = 2x + 3$."
+                "Step 1: Overview: What is asked?\nIn optimisation problems one sets up an **objective function** (area), uses the **constraint** (perimeter) to reduce it to one variable and finds the maximum with the derivative. Afterwards one checks the boundary.",
+                "Step 2: Objective function and constraint\nSides $a$, $b$: $A = ab$ and $2a + 2b = 40$, so $b = 20 - a$ with $0 < a < 20$.",
+                "Step 3: One variable\n$A(a) = a(20 - a) = 20a - a^2$.",
+                "Step 4: Differentiate\n$A'(a) = 20 - 2a = 0 \\iff a = 10$. $A''(a) = -2 < 0$: maximum.",
+                "Step 5: Result and boundary check\n$a = b = 10$ (square) with $A = 100$. At the boundary ($a \\to 0$ or $a \\to 20$) $A \\to 0$, so the maximum is global.",
+                "Step 6: Takeaway: What to remember\nProcedure: sketch, objective function, insert constraint, derivative $= 0$, check type, check boundary, answer in a sentence. The square maximises area for a given perimeter (isoperimetry among rectangles)."
             ]
         },
         {
-            "id": 9,
+            "id": 14,
+            "topic": "Differential calculus",
+            "title": "Newton's method",
+            "description": "Compute $\\sqrt2$ approximately with Newton's method for $f(x) = x^2 - 2$ and starting value $x_0 = 1$ (three steps).",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nNewton's method replaces $f$ by its tangent and takes the tangent's root as the next approximation: $x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$.",
+                "Step 2: Iteration rule\n$f'(x) = 2x$, so $x_{n+1} = x_n - \\frac{x_n^2 - 2}{2x_n} = \\frac{x_n}{2} + \\frac{1}{x_n}$.",
+                "Step 3: Three steps\n$x_1 = \\frac12 + 1 = 1.5$; $x_2 = 0.75 + \\frac{1}{1.5} = 1.41667$; $x_3 = 0.708333 + \\frac{1}{1.41667} = 1.414216$.",
+                "Step 4: Error\n$\\sqrt2 = 1.41421356\\ldots$. Error: $x_1$: $8.6\\cdot10^{-2}$; $x_2$: $2.5\\cdot10^{-3}$; $x_3$: $2.1\\cdot10^{-6}$. The number of correct digits roughly doubles in each step (quadratic convergence).",
+                "Step 5: Takeaway: What to remember\nThe method needs a starting value near the root and $f'(x_n) \\neq 0$. For $f(x) = x^2 - a$ it is the Babylonian square-root method $x_{n+1} = \\frac12\\left(x_n + \\frac{a}{x_n}\\right)$."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Differential calculus",
+            "title": "Derivative of the inverse function",
+            "description": "Let $f(x) = x^3 + x$. Show that $f$ is invertible and compute $(f^{-1})'(2)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe inverse rule reads $(f^{-1})'(y) = \\frac{1}{f'(f^{-1}(y))}$. We need the point $x$ with $f(x) = y$ even if we do not know $f^{-1}$ explicitly.",
+                "Step 2: Invertibility\n$f'(x) = 3x^2 + 1 > 0$ for all $x$. So $f$ is strictly increasing and hence bijective on $\\mathbb{R}$ ($f \\to \\pm\\infty$ as $x \\to \\pm\\infty$).",
+                "Step 3: Preimage of $2$\n$f(x) = 2 \\iff x^3 + x - 2 = 0$. By trial $x = 1$: $1 + 1 - 2 = 0$ ✓. So $f^{-1}(2) = 1$.",
+                "Step 4: Apply the inverse rule\n$(f^{-1})'(2) = \\frac{1}{f'(1)} = \\frac{1}{3\\cdot1 + 1} = \\frac14$.",
+                "Step 5: Check\nReflecting the graph in $y = x$ swaps slope $m$ with $\\frac1m$: the tangent slope of $f$ at $(1,2)$ is $4$, that of $f^{-1}$ at $(2,1)$ is $\\frac14$ ✓.",
+                "Step 6: Takeaway: What to remember\nWith the inverse rule one derives e.g. $(\\ln x)' = \\frac1x$ from $(e^x)' = e^x$ and $(\\arcsin x)' = \\frac{1}{\\sqrt{1-x^2}}$ from $(\\sin x)' = \\cos x$."
+            ]
+        },
+        {
+            "id": 16,
             "topic": "Differential calculus",
             "title": "Derivative using the product rule",
             "description": "Compute the derivative of the function $f(x) = x^2 \\cdot e^x$.",
@@ -136,7 +250,7 @@
             ]
         },
         {
-            "id": 10,
+            "id": 17,
             "topic": "Differential calculus",
             "title": "Derivative using the quotient rule",
             "description": "Compute the derivative of the function $f(x) = \\frac{x^2 + 1}{x - 1}$.",
@@ -153,7 +267,7 @@
             ]
         },
         {
-            "id": 11,
+            "id": 18,
             "topic": "Differential calculus",
             "title": "Derivative using the chain rule",
             "description": "Compute the derivative of the function $f(x) = \\sin(x^2)$.",
@@ -170,7 +284,7 @@
             ]
         },
         {
-            "id": 12,
+            "id": 19,
             "topic": "Differential calculus",
             "title": "Derivative with multiple chain rule",
             "description": "Compute the derivative of the function $f(x) = \\ln(\\sin x)$.",
@@ -187,7 +301,7 @@
             ]
         },
         {
-            "id": 13,
+            "id": 20,
             "topic": "Differential calculus",
             "title": "Derivative with product and chain rule",
             "description": "Compute the derivative of the function $f(x) = x \\cdot \\ln(x^2)$.",
@@ -205,7 +319,7 @@
             ]
         },
         {
-            "id": 14,
+            "id": 21,
             "topic": "Differential calculus",
             "title": "Derivative with quotient and chain rule",
             "description": "Compute the derivative of the function $f(x) = \\frac{e^x}{\\sin x}$.",
@@ -222,7 +336,7 @@
             ]
         },
         {
-            "id": 15,
+            "id": 22,
             "topic": "Differential calculus",
             "title": "Derivative with multiple product rule",
             "description": "Compute the derivative of the function $f(x) = x^2 \\cdot e^x \\cdot \\sin x$.",
@@ -239,7 +353,7 @@
             ]
         },
         {
-            "id": 16,
+            "id": 23,
             "topic": "Differential calculus",
             "title": "Derivative with quotient and product rule",
             "description": "Compute the derivative of the function $f(x) = \\frac{x \\cdot e^x}{\\ln x}$.",
@@ -257,138 +371,161 @@
             ]
         },
         {
-            "id": 17,
-            "topic": "Differential calculus",
-            "title": "Derivative with multiple chain and product rule",
-            "description": "Compute the derivative of the function $f(x) = e^{\\sin(x^2)} \\cdot \\ln(\\cos x)$.",
-            "difficulty": "hard",
-            "points": 10,
-            "solutionSteps": [
-                "Step 1: Analysis of the function\nThe function $f(x) = e^{\\sin(x^2)} \\cdot \\ln(\\cos x)$ is a product of two composite functions.",
-                "Step 2: Application of the product rule\n$(u v)' = u' v + u v'$",
-                "Step 3: Derivative of the first factor\n$u(x) = e^{\\sin(x^2)}$ is a triple composition. By the chain rule: $u'(x) = e^{\\sin(x^2)} \\cdot \\cos(x^2) \\cdot 2x$",
-                "Step 4: Derivative of the second factor\n$v(x) = \\ln(\\cos x)$ is a composition. By the chain rule: $v'(x) = -\\tan x$",
-                "Step 5: Substitute into the product rule\n$f'(x) = e^{\\sin(x^2)}(2x \\cos(x^2) \\ln(\\cos x) - \\tan x)$",
-                "Step 6: Verification\nWe check the derivative at a point:\nFor x = 0:\n$f(0) = 0$\n$f'(0) = 0$.",
-                "Step 7: Summary\nThe derivative of the function is $f'(x) = e^{\\sin(x^2)}(2x \\cos(x^2) \\ln(\\cos x) - \\tan x)$."
-            ]
-        },
-        {
-            "id": 18,
-            "topic": "Differential calculus",
-            "title": "Derivative with quotient and multiple chain rule",
-            "description": "Compute the derivative of the function $f(x) = \\frac{\\sin(e^x)}{\\ln(\\sqrt{x})}$.",
-            "difficulty": "hard",
-            "points": 10,
-            "solutionSteps": [
-                "Step 1: Analysis of the function\nThe function $f(x) = \\frac{\\sin(e^x)}{\\ln(\\sqrt{x})}$ is a quotient of two composite functions.",
-                "Step 2: Application of the quotient rule\n$(\\frac{u}{v})' = \\frac{u' v - u v'}{v^2}$",
-                "Step 3: Derivative of the numerator\n$u(x) = \\sin(e^x)$ is a composition. $u'(x) = \\cos(e^x) e^x$",
-                "Step 4: Derivative of the denominator\n$v(x) = \\ln(\\sqrt{x})$ is a composition. $v'(x) = \\tfrac{1}{2x}$",
-                "Step 5: Substitute into the quotient rule\n$f'(x) = \\frac{\\cos(e^x) e^x \\ln(\\sqrt{x}) - \\sin(e^x) \\cdot \\tfrac{1}{2x}}{(\\ln(\\sqrt{x}))^2}$",
-                "Step 6: Simplification\n$f'(x) = \\frac{2x \\cos(e^x) e^x \\ln(\\sqrt{x}) - \\sin(e^x)}{2x(\\ln(\\sqrt{x}))^2}$",
-                "Step 7: Verification\nWe check the derivative at a point:\nFor x = 1: undefined (denominator zero).",
-                "Step 8: Summary\nThe derivative of the function is $f'(x) = \\frac{2x e^x \\cos(e^x) \\ln(\\sqrt{x}) - \\sin(e^x)}{2x(\\ln(\\sqrt{x}))^2}$."
-            ]
-        },
-        {
-            "id": 19,
-            "topic": "Differential calculus",
-            "title": "Derivative with multiple product and chain rule",
-            "description": "Compute the derivative of the function $f(x) = x^2 \\cdot e^{\\sin x} \\cdot \\ln(\\cos x)$.",
-            "difficulty": "hard",
-            "points": 10,
-            "solutionSteps": [
-                "Step 1: Analysis of the function\nThe function $f(x) = x^2 \\cdot e^{\\sin x} \\cdot \\ln(\\cos x)$ is a product of three factors, two of which are composite.",
-                "Step 2: Application of the product rule\n$(u v w)' = u' v w + u v' w + u v w'$",
-                "Step 3: Derivatives of the factors\n$u'(x) = 2x$\n$v'(x) = e^{\\sin x} \\cos x$\n$w'(x) = -\\tan x$",
-                "Step 4: Substitute into the product rule\n$f'(x) = e^{\\sin x}(2x \\ln(\\cos x) + x^2 \\cos x \\ln(\\cos x) - x^2 \\tan x)$",
-                "Step 5: Verification\nWe check the derivative at a point:\nFor x = 0: $f(0)=0, f'(0)=0$.",
-                "Step 6: Summary\nThe derivative of the function is $f'(x) = e^{\\sin x}(2x \\ln(\\cos x) + x^2 \\cos x \\ln(\\cos x) - x^2 \\tan x)$."
-            ]
-        },
-        {
-            "id": 20,
-            "topic": "Differential calculus",
-            "title": "Derivative with quotient and triple product rule",
-            "description": "Compute the derivative of the function $f(x) = \\frac{x^2 \\cdot e^x \\cdot \\sin x}{\\ln(x^2)}$.",
-            "difficulty": "hard",
-            "points": 10,
-            "solutionSteps": [
-                "Step 1: Analysis of the function\nThe function $f(x) = \\frac{x^2 e^x \\sin x}{\\ln(x^2)}$ is a quotient whose numerator is a product of three factors.",
-                "Step 2: Application of the quotient rule\n$(\\frac{u}{v})' = \\frac{u' v - u v'}{v^2}$",
-                "Step 3: Derivative of the numerator (product rule)\nu'(x) = 2x e^x \\sin x + x^2 e^x \\sin x + x^2 e^x \\cos x",
-                "Step 4: Derivative of the denominator\n$v'(x) = 2/x$",
-                "Step 5: Substitute into the quotient rule\n$f'(x) = \\frac{e^x(2x \\sin x + x^2 \\sin x + x^2 \\cos x) \\ln(x^2) - 2x e^x \\sin x}{(\\ln(x^2))^2}$",
-                "Step 6: Verification\nFor x = 1: undefined (denominator zero).",
-                "Step 7: Summary\nThe derivative of the function is $f'(x) = \\frac{e^x(2x \\sin x + x^2 \\sin x + x^2 \\cos x) \\ln(x^2) - 2x e^x \\sin x}{(\\ln(x^2))^2}$."
-            ]
-        },
-        {
-            "id": 21,
-            "topic": "Differential calculus",
-            "title": "Derivative with multiple chain and quotient rule",
-            "description": "Compute the derivative of the function $f(x) = \\frac{\\ln(\\sin(e^x))}{\\cos(\\ln x)}$.",
-            "difficulty": "hard",
-            "points": 10,
-            "solutionSteps": [
-                "Step 1: Analysis of the function\nThe function $f(x) = \\frac{\\ln(\\sin(e^x))}{\\cos(\\ln x)}$ is a quotient of two triple-composite functions.",
-                "Step 2: Application of the quotient rule\n$(\\frac{u}{v})' = \\frac{u' v - u v'}{v^2}$",
-                "Step 3: Derivative of the numerator\n$u(x) = \\ln(\\sin(e^x))$: $u'(x) = \\frac{e^x \\cos(e^x)}{\\sin(e^x)}$",
-                "Step 4: Derivative of the denominator\n$v(x) = \\cos(\\ln x)$: $v'(x) = -\\tfrac{\\sin(\\ln x)}{x}$",
-                "Step 5: Substitute into the quotient rule\n$f'(x) = \\frac{e^x \\cot(e^x) \\cos(\\ln x) + \\tfrac{\\ln(\\sin(e^x)) \\sin(\\ln x)}{x}}{\\cos^2(\\ln x)}$",
-                "Step 6: Verification\nFor x = 1: $f'(1) = e \\cot(e)$.",
-                "Step 7: Summary\nThe derivative of the function is $f'(x) = \\frac{e^x \\cot(e^x) \\cos(\\ln x) + \\tfrac{\\ln(\\sin(e^x)) \\sin(\\ln x)}{x}}{\\cos^2(\\ln x)}$."
-            ]
-        },
-        {
-            "id": 22,
-            "topic": "Differential calculus",
-            "title": "Derivative with quotient of products",
-            "description": "Compute the derivative of the function $f(x) = \\frac{x^2 \\cdot e^x \\cdot \\sin x}{\\ln(x^2) \\cdot \\cos x}$.",
-            "difficulty": "hard",
-            "points": 10,
-            "solutionSteps": [
-                "Step 1: Analysis of the function\nThe function $f(x) = \\frac{x^2 e^x \\sin x}{\\ln(x^2) \\cos x}$ is a quotient whose numerator and denominator are products.",
-                "Step 2: Application of the quotient rule\n$(\\frac{u}{v})' = \\frac{u' v - u v'}{v^2}$",
-                "Step 3: Derivative of the numerator (product rule)\nu'(x) = 2x e^x \\sin x + x^2 e^x \\sin x + x^2 e^x \\cos x",
-                "Step 4: Derivative of the denominator (product rule)\nv'(x) = \\tfrac{2}{x} \\cos x - \\ln(x^2) \\sin x",
-                "Step 5: Substitute into the quotient rule\n$f'(x) = \\frac{e^x(2x \\sin x + x^2 \\sin x + x^2 \\cos x) \\ln(x^2) \\cos x - x^2 e^x \\sin x(\\tfrac{2}{x} \\cos x - \\ln(x^2) \\sin x)}{(\\ln(x^2) \\cos x)^2}$",
-                "Step 6: Verification\nFor x = 1: undefined (denominator zero).",
-                "Step 7: Summary\nThe derivative of the function is $f'(x) = \\frac{e^x(2x \\sin x + x^2 \\sin x + x^2 \\cos x) \\ln(x^2) \\cos x - x^2 e^x \\sin x(\\tfrac{2}{x} \\cos x - \\ln(x^2) \\sin x)}{(\\ln(x^2) \\cos x)^2}$."
-            ]
-        },
-        {
-            "id": 23,
-            "topic": "Differential calculus",
-            "title": "Derivative with multiple chain and product rule",
-            "description": "Compute the derivative of the function $f(x) = e^{\\sin(\\ln x)} \\cdot \\cos(e^x) \\cdot \\ln(\\sin x)$.",
-            "difficulty": "hard",
-            "points": 10,
-            "solutionSteps": [
-                "Step 1: Analysis of the function\nThe function $f(x) = e^{\\sin(\\ln x)} \\cdot \\cos(e^x) \\cdot \\ln(\\sin x)$ is a product of three triple-composite functions.",
-                "Step 2: Application of the product rule\n$(u v w)' = u' v w + u v' w + u v w'$",
-                "Step 3: Derivatives of the factors\n$u'(x) = e^{\\sin(\\ln x)} \\cdot \\cos(\\ln x) \\cdot \\tfrac{1}{x}$\n$v'(x) = -\\sin(e^x) e^x$\n$w'(x) = \\cot x$",
-                "Step 4: Substitute into the product rule\n$f'(x) = e^{\\sin(\\ln x)}(\\tfrac{\\cos(\\ln x)}{x} \\cos(e^x) \\ln(\\sin x) - e^x \\sin(e^x) \\ln(\\sin x) + \\cos(e^x) \\cot x)$",
-                "Step 5: Verification\nFor x = \\pi/2: slope = 0.",
-                "Step 6: Summary\nThe derivative of the function is $f'(x) = e^{\\sin(\\ln x)}(\\tfrac{\\cos(\\ln x)}{x} \\cos(e^x) \\ln(\\sin x) - e^x \\sin(e^x) \\ln(\\sin x) + \\cos(e^x) \\cot x)$."
-            ]
-        },
-        {
             "id": 24,
             "topic": "Differential calculus",
-            "title": "Derivative with multiple chain and quotient rule",
-            "description": "Compute the derivative of the function $f(x) = \\frac{\\sin(e^{\\ln x})}{\\cos(\\ln(\\sin x))}$.",
+            "title": "Inequality e^x ≥ 1 + x via extremum",
+            "description": "Prove $e^x \\geq 1 + x$ for all $x \\in \\mathbb{R}$ using differential calculus.",
             "difficulty": "hard",
-            "points": 10,
+            "points": 12,
             "solutionSteps": [
-                "Step 1: Analysis of the function\nThe function $f(x) = \\frac{\\sin(e^{\\ln x})}{\\cos(\\ln(\\sin x))}$ is a quotient of two triple-composite functions.",
-                "Step 2: Application of the quotient rule\n$(\\frac{u}{v})' = \\frac{u' v - u v'}{v^2}$",
-                "Step 3: Derivative of the numerator\n$u'(x) = \\cos(x)$",
-                "Step 4: Derivative of the denominator\n$v'(x) = -\\sin(\\ln(\\sin x)) \\cdot \\tfrac{\\cos x}{\\sin x}$",
-                "Step 5: Substitute into the quotient rule\n$f'(x) = \\frac{\\cos(x) \\cos(\\ln(\\sin x)) + \\sin(x) \\sin(\\ln(\\sin x)) \\cot x}{\\cos^2(\\ln(\\sin x))}$",
-                "Step 6: Verification\nFor x = \\pi/2: slope = 0.",
-                "Step 7: Summary\nThe derivative of the function is $f'(x) = \\frac{\\cos(x) \\cos(\\ln(\\sin x)) + \\sin(x) \\sin(\\ln(\\sin x)) \\cot x}{\\cos^2(\\ln(\\sin x))}$."
+                "Step 1: Overview: What is asked?\nWe consider $g(x) = e^x - 1 - x$ and show $g \\geq 0$ by determining the global minimum of $g$.",
+                "Step 2: Derivative\n$g'(x) = e^x - 1$. We have $g'(x) = 0 \\iff x = 0$, $g' < 0$ for $x < 0$ and $g' > 0$ for $x > 0$.",
+                "Step 3: Global minimum\n$g$ decreases left of $0$ and increases right of it. So $x = 0$ is the global minimum with $g(0) = 1 - 1 - 0 = 0$.",
+                "Step 4: Consequence\n$g(x) \\geq g(0) = 0$ for all $x$, i.e. $e^x \\geq 1 + x$, with equality only at $x = 0$. $\\blacksquare$",
+                "Step 5: Geometric interpretation\n$y = 1 + x$ is the tangent to $e^x$ at $(0,1)$; the exponential function is convex and therefore lies above its tangents.",
+                "Step 6: Takeaway: What to remember\nTechnique: rewrite an inequality $f \\geq h$ as $g = f - h \\geq 0$ and determine the minimum of $g$. Consequence for $x > -1$: $\\ln(1+x) \\leq x$."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Differential calculus",
+            "title": "Curve sketching of a rational function",
+            "description": "Examine $f(x) = \\dfrac{x}{x^2+1}$ for symmetry, zeros, extrema, inflection points and asymptote.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe determine in turn: symmetry, zeros, behaviour as $x \\to \\pm\\infty$, $f'$ (quotient rule), extrema, $f''$ and inflection points.",
+                "Step 2: Symmetry, zeros, asymptote\n$f(-x) = -f(x)$: point-symmetric about the origin. Only zero $x = 0$. For $x \\to \\pm\\infty$: $f(x) = \\frac{1/x}{1 + 1/x^2} \\to 0$, horizontal asymptote $y = 0$.",
+                "Step 3: First derivative\n$f'(x) = \\frac{1\\cdot(x^2+1) - x\\cdot2x}{(x^2+1)^2} = \\frac{1 - x^2}{(x^2+1)^2}$. Zeros: $x = \\pm1$.",
+                "Step 4: Extrema\n$f' > 0$ for $|x| < 1$, $f' < 0$ for $|x| > 1$. Local **maximum** at $(1, \\tfrac12)$, local **minimum** at $(-1,-\\tfrac12)$ (global, since $|f| \\leq \\frac12$).",
+                "Step 5: Inflection points\n$f''(x) = \\frac{2x(x^2-3)}{(x^2+1)^3}$. Zeros $x = 0$, $x = \\pm\\sqrt3$ with sign change. Inflection points $(0,0)$, $\\left(\\sqrt3, \\tfrac{\\sqrt3}{4}\\right)$, $\\left(-\\sqrt3, -\\tfrac{\\sqrt3}{4}\\right)$.",
+                "Step 6: Takeaway: What to remember\nThe function is bounded, has an asymptote and three inflection points. Always check whether the denominator has zeros (here not, $x^2+1 > 0$: no poles)."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Differential calculus",
+            "title": "Implicit differentiation",
+            "description": "The curve $x^2 + xy + y^2 = 3$ passes through $(1,1)$. Determine $y'$ there and the equation of the tangent.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nFor implicit curves one regards $y$ as a function $y(x)$ and differentiates both sides of the equation with respect to $x$ (product and chain rule), then solves for $y'$.",
+                "Step 2: Point check\n$1 + 1 + 1 = 3$ ✓: $(1,1)$ lies on the curve.",
+                "Step 3: Differentiate\n$2x + (y + xy') + 2yy' = 0 \\Rightarrow y'(x + 2y) = -(2x + y)$, so $y' = -\\frac{2x + y}{x + 2y}$.",
+                "Step 4: Slope at $(1,1)$\n$y'(1) = -\\frac{2 + 1}{1 + 2} = -1$.",
+                "Step 5: Tangent\n$y - 1 = -1\\cdot(x - 1) \\iff y = -x + 2$. Check: the curve is symmetric about $y = x$; there the tangent is perpendicular to the axis of symmetry ✓.",
+                "Step 6: Takeaway: What to remember\nThe formula $y' = -\\frac{F_x}{F_y}$ (for $F(x,y) = 0$) gives the same result. Horizontal tangents occur where $F_x = 0$, vertical ones where $F_y = 0$."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Differential calculus",
+            "title": "Logarithmic differentiation",
+            "description": "Compute the derivative of $f(x) = x^x$ ($x > 0$) and of $g(x) = x^{\\sin x}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nIf base **and** exponent depend on $x$ logarithmic differentiation helps: write $h = e^{\\ln h}$ or take $\\ln h$ and differentiate implicitly: $\\frac{h'}{h} = (\\ln h)'$.",
+                "Step 2: $x^x$\n$\\ln f = x\\ln x$, so $\\frac{f'}{f} = \\ln x + 1$ and $f'(x) = x^x(\\ln x + 1)$.",
+                "Step 3: $x^{\\sin x}$\n$\\ln g = \\sin x\\cdot\\ln x$, so $\\frac{g'}{g} = \\cos x\\ln x + \\frac{\\sin x}{x}$ and $g'(x) = x^{\\sin x}\\left(\\cos x\\ln x + \\frac{\\sin x}{x}\\right)$.",
+                "Step 4: Check\n$f'(1) = 1\\cdot(0 + 1) = 1$; numerically $f(1.001) = 1.001^{1.001} \\approx 1.001001$, slope $\\approx 1.0$ ✓. Extremum of $x^x$: $f' = 0 \\iff \\ln x = -1 \\iff x = \\frac1e$.",
+                "Step 5: Takeaway: What to remember\nTypical mistakes: do not differentiate $x^x$ with the power rule ($x\\cdot x^{x-1}$) or the exponential rule ($x^x\\ln x$) alone — both contributions add. The minimum lies at $x = \\frac1e$ with $f = e^{-1/e} \\approx 0.692$."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Differential calculus",
+            "title": "Shortest distance to a parabola",
+            "description": "Which point of the parabola $y = x^2$ is closest to the point $P = (0,3)$, and what is the distance?",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nInstead of the distance one minimises the **squared distance** $d^2$, which has the same extremal points but avoids the root. Objective function: $d^2(x) = x^2 + (x^2 - 3)^2$.",
+                "Step 2: Differentiate\n$d^2(x) = x^4 - 5x^2 + 9$. $(d^2)' = 4x^3 - 10x = 2x(2x^2 - 5) = 0 \\Rightarrow x = 0$ or $x = \\pm\\sqrt{5/2}$.",
+                "Step 3: Type of the candidates\n$(d^2)'' = 12x^2 - 10$: at $x = 0$ equal to $-10 < 0$ (local **maximum**, $d^2 = 9$); at $x = \\pm\\sqrt{5/2}$ equal to $30 - 10 = 20 > 0$ (**minima**).",
+                "Step 4: Result\nClosest points: $\\left(\\pm\\sqrt{5/2},\\ \\tfrac52\\right) \\approx (\\pm1.58;\\ 2.5)$ with $d^2 = \\frac{25}{4} - \\frac{25}{2} + 9 = \\frac{11}{4}$, so $d = \\frac{\\sqrt{11}}{2} \\approx 1.66$.",
+                "Step 5: Check\nThe vertex $(0,0)$ has distance $3 > 1.66$ ✓. The distance vector $(\\sqrt{5/2}, -\\tfrac12)$ is perpendicular to the tangent $(1, 2x) = (1, 2\\sqrt{5/2})$: $\\sqrt{5/2} - \\sqrt{5/2} = 0$ ✓.",
+                "Step 6: Takeaway: What to remember\nAt the optimum the connecting line is perpendicular to the curve (normal through $P$). Boundary case: the domain is unbounded but $d^2 \\to \\infty$ for $|x| \\to \\infty$, so the minima are global."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Differential calculus",
+            "title": "Differentiable but derivative not continuous",
+            "description": "Let $f(x) = x^2\\sin\\frac1x$ for $x \\neq 0$ and $f(0) = 0$. Show that $f$ is differentiable at $0$ and that $f'$ is not continuous at $0$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nAt $x = 0$ we must use the definition (difference quotient) since the differentiation rules do not apply there. For $x \\neq 0$ we use product and chain rule and investigate $\\lim_{x\\to0}f'(x)$.",
+                "Step 2: Derivative at $0$\n$\\frac{f(h) - f(0)}{h} = \\frac{h^2\\sin(1/h)}{h} = h\\sin\\frac1h$. Since $\\left|h\\sin\\frac1h\\right| \\leq |h| \\to 0$ we have $f'(0) = 0$.",
+                "Step 3: Derivative for $x \\neq 0$\n$f'(x) = 2x\\sin\\frac1x + x^2\\cos\\frac1x\\cdot\\left(-\\frac{1}{x^2}\\right) = 2x\\sin\\frac1x - \\cos\\frac1x$.",
+                "Step 4: Discontinuity of $f'$ at $0$\nThe term $2x\\sin\\frac1x \\to 0$ but $\\cos\\frac1x$ oscillates between $-1$ and $1$ and has no limit as $x \\to 0$. For $x_n = \\frac{1}{2n\\pi}$ we have $f'(x_n) \\to -1$, for $y_n = \\frac{1}{(2n+1)\\pi}$ we have $f'(y_n) \\to +1$. So $\\lim_{x\\to0}f'(x)$ does not exist and $f'$ is discontinuous at $0$ although $f'(0)$ exists.",
+                "Step 5: Takeaway: What to remember\nDifferentiability implies continuity of $f$ but **not** continuity of $f'$. So there are differentiable functions that are not continuously differentiable ($C^1$). This is a typical counterexample in analysis."
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Differential calculus",
+            "title": "Unique root via Rolle's theorem",
+            "description": "Show that $f(x) = x^3 + x - 1$ has exactly one real root and locate it in an interval of length $\\frac12$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nExistence follows from the **intermediate value theorem**, uniqueness from **strict monotonicity** (or Rolle's theorem): two roots would force a root of $f'$ in between.",
+                "Step 2: Existence\n$f$ is continuous, $f(0) = -1 < 0$ and $f(1) = 1 > 0$. By the intermediate value theorem there is $\\xi \\in (0,1)$ with $f(\\xi) = 0$.",
+                "Step 3: Uniqueness\n$f'(x) = 3x^2 + 1 > 0$ for all $x$, so $f$ is strictly increasing and has at most one root. (Rolle: if $f$ had two roots $a < b$ there would be $c \\in (a,b)$ with $f'(c) = 0$, a contradiction.)",
+                "Step 4: Locating\n$f(0.5) = 0.125 + 0.5 - 1 = -0.375 < 0$. With $f(1) > 0$ the root lies in $(0.5; 1)$, an interval of length $\\frac12$.",
+                "Step 5: Refining (bisection)\n$f(0.75) = 0.4219 + 0.75 - 1 = 0.1719 > 0$, so $\\xi \\in (0.5; 0.75)$. The root is $\\xi \\approx 0.6823$.",
+                "Step 6: Takeaway: What to remember\nA function with everywhere positive derivative has at most one root. Existence (intermediate value theorem) and uniqueness (monotonicity) are proved separately."
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Differential calculus",
+            "title": "Taylor polynomial with error bound",
+            "description": "Determine the Taylor polynomial $T_3$ of $e^x$ about $0$, approximate $e^{0.1}$ and estimate the error with the Lagrange remainder.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe Taylor polynomial $T_n(x) = \\sum_{k=0}^n\\frac{f^{(k)}(0)}{k!}x^k$ approximates $f$ near $0$. The Lagrange remainder $R_n(x) = \\frac{f^{(n+1)}(\\xi)}{(n+1)!}x^{n+1}$ (with $\\xi$ between $0$ and $x$) gives an error bound.",
+                "Step 2: Taylor polynomial\n$f^{(k)}(x) = e^x$, so $f^{(k)}(0) = 1$. $T_3(x) = 1 + x + \\frac{x^2}{2} + \\frac{x^3}{6}$.",
+                "Step 3: Approximation\n$T_3(0.1) = 1 + 0.1 + 0.005 + 0.000167 = 1.105167$.",
+                "Step 4: Remainder\n$R_3(0.1) = \\frac{e^\\xi}{4!}(0.1)^4$ with $\\xi \\in (0; 0.1)$. Since $e^\\xi < e^{0.1} < 1.2$ we have $|R_3| < \\frac{1.2}{24}\\cdot10^{-4} = 5\\cdot10^{-6}$.",
+                "Step 5: Comparison with a calculator\n$e^{0.1} = 1.105171\\ldots$. Actual error $\\approx 4.2\\cdot10^{-6} < 5\\cdot10^{-6}$ ✓.",
+                "Step 6: Takeaway: What to remember\nWithout a remainder estimate an approximation is worthless: one does not know how good it is. With the remainder one also determines how many terms are needed for a desired accuracy."
+            ]
+        },
+        {
+            "id": 32,
+            "topic": "Differential calculus",
+            "title": "Proof of the product rule",
+            "description": "Prove the product rule $(uv)'(x) = u'(x)v(x) + u(x)v'(x)$ for functions $u, v$ differentiable at $x$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe start from the difference quotient of the product and insert the term $u(x+h)v(x) - u(x+h)v(x) = 0$ to make the difference quotients of $u$ and $v$ visible.",
+                "Step 2: Difference quotient of the product\n$\\frac{u(x+h)v(x+h) - u(x)v(x)}{h}$.",
+                "Step 3: Trick: add a zero\nWe add and subtract $u(x+h)v(x)$: $\\frac{u(x+h)v(x+h) - u(x+h)v(x) + u(x+h)v(x) - u(x)v(x)}{h} = u(x+h)\\frac{v(x+h) - v(x)}{h} + v(x)\\frac{u(x+h) - u(x)}{h}$.",
+                "Step 4: Limit $h \\to 0$\n$\\frac{v(x+h) - v(x)}{h} \\to v'(x)$ and $\\frac{u(x+h) - u(x)}{h} \\to u'(x)$. Since $u$ is differentiable at $x$ and hence continuous, $u(x+h) \\to u(x)$.",
+                "Step 5: Result\n$(uv)'(x) = u(x)v'(x) + v(x)u'(x)$. $\\blacksquare$ Example: $(x\\cdot x)' = x + x = 2x$ ✓.",
+                "Step 6: Takeaway: What to remember\nThe trick “add zero” (supplement with $u(x+h)v(x)$) and the continuity of $u$ are the decisive ideas. The same technique proves the quotient and chain rules."
+            ]
+        },
+        {
+            "id": 33,
+            "topic": "Differential calculus",
+            "title": "Optimal can",
+            "description": "A cylindrical can is to hold $1$ litre ($1000\\ \\mathrm{cm}^3$). Which dimensions minimise the material (surface area)?",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe objective function is the surface area $O = 2\\pi r^2 + 2\\pi rh$, the constraint is the volume $V = \\pi r^2h = 1000$. We eliminate $h$ and minimise $O(r)$.",
+                "Step 2: Eliminate the height\n$h = \\frac{1000}{\\pi r^2}$. So $O(r) = 2\\pi r^2 + 2\\pi r\\cdot\\frac{1000}{\\pi r^2} = 2\\pi r^2 + \\frac{2000}{r}$ for $r > 0$.",
+                "Step 3: Differentiate\n$O'(r) = 4\\pi r - \\frac{2000}{r^2} = 0 \\iff 4\\pi r^3 = 2000 \\iff r^3 = \\frac{500}{\\pi}$, so $r = \\sqrt[3]{500/\\pi} \\approx 5.42\\ \\mathrm{cm}$.",
+                "Step 4: Type of extremum\n$O''(r) = 4\\pi + \\frac{4000}{r^3} > 0$ for $r > 0$: minimum. For $r \\to 0$ and $r \\to \\infty$ we have $O \\to \\infty$, so the minimum is global.",
+                "Step 5: Height and ratio\n$h = \\frac{1000}{\\pi r^2} = \\frac{1000}{\\pi}\\cdot\\frac{1}{r^2}$. From $r^3 = \\frac{500}\\pi$ we get $h = \\frac{2r^3}{r^2} = 2r \\approx 10.84\\ \\mathrm{cm}$. The optimal can has height equal to diameter.",
+                "Step 6: Takeaway: What to remember\nThe result $h = 2r$ holds independently of the volume. Real cans deviate from it (manufacturing, lid and seam costs, handling). Always state the answer in context and give the units."
             ]
         }
     ]

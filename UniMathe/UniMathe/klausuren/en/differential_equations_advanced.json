@@ -3,7 +3,7 @@
         "title": "Differential Equations - Expert Exam",
         "subtitle": "Ordinary and Partial Differential Equations",
         "duration": 90,
-        "totalPoints": 80,
+        "totalPoints": 100,
         "difficulty": "advanced",
         "language": "en",
         "instructions": "Complete all tasks. Justify your steps. Permitted aids: non-programmable calculator."
@@ -11,80 +11,87 @@
     "exercises": [
         {
             "id": 1,
-            "topic": "First Order",
-            "title": "Separable Equation",
-            "description": "Solve `\\frac{dy}{dx} = xy` with `y(0)=2`.",
-            "difficulty": "easy",
-            "points": 10,
+            "topic": "Separable Equations",
+            "title": "Separation of variables",
+            "description": "Solve the initial value problems:\na) $y' = \\frac{x}{y}$, $y(0) = 1$\nb) $y' = ky$ with $y(0) = y_0$ (growth/decay); how long does halving take for $k = -0.1$?",
+            "difficulty": "advanced",
+            "points": 15,
             "solutionSteps": [
-                "Step 1: Separate `\\frac{1}{y}dy = x dx`",
-                "Step 2: Integrate `\\ln|y| = \\tfrac{x^2}{2} + C`",
-                "Step 3: Initial condition `y(0)=2` gives `y=2 e^{x^2/2}`"
+                "Step 1: Part a): Separate and integrate\n$y\\,dy = x\\,dx \\Rightarrow \\frac{y^2}{2} = \\frac{x^2}{2} + c \\Rightarrow y^2 = x^2 + C$. With $y(0) = 1$: $C = 1$, so $y = \\sqrt{x^2 + 1}$ (positive root since $y(0) > 0$).",
+                "Step 2: Part a): Check\n$y' = \\frac{x}{\\sqrt{x^2+1}} = \\frac{x}{y}$ ✓. The solution curves are hyperbolas $y^2 - x^2 = C$.",
+                "Step 3: Part b): General solution\n$\\frac{dy}{y} = k\\,dt \\Rightarrow y = y_0e^{kt}$.",
+                "Step 4: Part b): Half-life\n$y_0e^{kT} = \\frac{y_0}{2} \\Rightarrow T = \\frac{\\ln2}{-k} = \\frac{\\ln2}{0.1} \\approx 6.93$. Check: $e^{-0.1\\cdot6.93} = e^{-0.693} = 0.5$ ✓."
             ]
         },
         {
             "id": 2,
-            "topic": "Linear ODE",
-            "title": "First Order Linear",
-            "description": "Solve `y' + y = e^x`.",
-            "difficulty": "easy",
-            "points": 10,
+            "topic": "Linear First-Order ODE",
+            "title": "Variation of constants",
+            "description": "Solve $y' + \\frac{1}{x}y = x^2$ for $x > 0$ with $y(1) = 1$.",
+            "difficulty": "advanced",
+            "points": 15,
             "solutionSteps": [
-                "Step 1: Integrating factor `\\mu(x)=e^{x}`",
-                "Step 2: `(e^x y)' = e^{2x}`",
-                "Step 3: `y= \\tfrac{1}{2}e^{x} + C e^{-x}`"
+                "Step 1: Integrating factor\nFor $y' + p(x)y = q(x)$ we have $\\mu(x) = e^{\\int p\\,dx} = e^{\\ln x} = x$.",
+                "Step 2: Rearranging\nMultiplying by $x$: $xy' + y = x^3$, i.e. $(xy)' = x^3$.",
+                "Step 3: Integrating\n$xy = \\frac{x^4}{4} + C \\Rightarrow y = \\frac{x^3}{4} + \\frac{C}{x}$.",
+                "Step 4: Initial value and check\n$y(1) = \\frac14 + C = 1 \\Rightarrow C = \\frac34$. Solution: $y = \\frac{x^3}{4} + \\frac{3}{4x}$. Check: $y' = \\frac{3x^2}{4} - \\frac{3}{4x^2}$, $\\frac yx = \\frac{x^2}{4} + \\frac{3}{4x^2}$; sum $= x^2$ ✓."
             ]
         },
         {
             "id": 3,
-            "topic": "Second Order",
-            "title": "Homogeneous, constant coefficients",
-            "description": "Solve `y'' - 3y' + 2y = 0`.",
-            "difficulty": "medium",
-            "points": 12,
+            "topic": "Second-Order ODE",
+            "title": "Oscillation equation",
+            "description": "Solve $y'' + 2y' + 5y = 0$ with $y(0) = 1$, $y'(0) = 0$ and describe the behaviour of the solution.",
+            "difficulty": "advanced",
+            "points": 17,
             "solutionSteps": [
-                "Step 1: Characteristic equation `r^2 - 3r + 2=0`",
-                "Step 2: Roots `r=1,2`",
-                "Step 3: Solution `y(x)=C_1 e^{x} + C_2 e^{2x}`"
+                "Step 1: Characteristic equation\n$\\lambda^2 + 2\\lambda + 5 = 0 \\Rightarrow \\lambda = \\frac{-2 \\pm \\sqrt{4 - 20}}{2} = -1 \\pm 2i$.",
+                "Step 2: Real solutions\nFor $\\lambda = \\alpha \\pm i\\beta$ the real solution is $y = e^{\\alpha x}(a\\cos\\beta x + b\\sin\\beta x)$, here $y = e^{-x}(a\\cos2x + b\\sin2x)$.",
+                "Step 3: Initial values\n$y(0) = a = 1$. $y' = e^{-x}\\big((-a + 2b)\\cos2x + (-b - 2a)\\sin2x\\big)$, $y'(0) = -a + 2b = 0 \\Rightarrow b = \\frac12$. Solution: $y = e^{-x}\\left(\\cos2x + \\frac12\\sin2x\\right)$.",
+                "Step 4: Interpretation and check\nDamped oscillation: angular frequency $2$, decay factor $e^{-x}$ (since $\\operatorname{Re}\\lambda = -1 < 0$). Check: $y'' + 2y' + 5y$ with $y = e^{-x}\\cos2x$: $y' = e^{-x}(-\\cos2x - 2\\sin2x)$, $y'' = e^{-x}(-3\\cos2x + 4\\sin2x)$; sum $= e^{-x}\\big((-3 - 2 + 5)\\cos2x + (4 - 4)\\sin2x\\big) = 0$ ✓."
             ]
         },
         {
             "id": 4,
-            "topic": "Systems",
-            "title": "Linear System",
-            "description": "Solve `x' = 2x + y`, `y' = x + 2y` using diagonalization.",
-            "difficulty": "medium",
-            "points": 14,
+            "topic": "Systems of ODEs",
+            "title": "Linear system with eigenvalues",
+            "description": "Solve $\\dot{\\vec x} = A\\vec x$ with $A = \\begin{pmatrix} 0 & 1 \\\\ -2 & -3 \\end{pmatrix}$, $\\vec x(0) = (1,0)^T$ and classify the equilibrium $\\vec 0$.",
+            "difficulty": "advanced",
+            "points": 18,
             "solutionSteps": [
-                "Step 1: Matrix `A=\\begin{pmatrix}2 & 1 \\\\ 1 & 2 \\end{pmatrix}` has eigenvalues `3,1`",
-                "Step 2: Eigenvectors provide decoupled system",
-                "Step 3: General solution combination of `e^{3t}` and `e^{t}`"
+                "Step 1: Eigenvalues\n$\\lambda^2 + 3\\lambda + 2 = (\\lambda+1)(\\lambda+2) = 0$: $\\lambda_1 = -1$, $\\lambda_2 = -2$.",
+                "Step 2: Eigenvectors\n$\\lambda = -1$: $A + I = \\begin{pmatrix} 1 & 1 \\\\ -2 & -2 \\end{pmatrix}$ gives $(1,-1)^T$. $\\lambda = -2$: $A + 2I = \\begin{pmatrix} 2 & 1 \\\\ -2 & -1 \\end{pmatrix}$ gives $(1,-2)^T$.",
+                "Step 3: General solution and initial value\n$\\vec x(t) = c_1e^{-t}(1,-1)^T + c_2e^{-2t}(1,-2)^T$. $\\vec x(0) = (1,0)$: $c_1 + c_2 = 1$, $-c_1 - 2c_2 = 0$, so $c_2 = -1$, $c_1 = 2$.",
+                "Step 4: Solution and check\n$x_1(t) = 2e^{-t} - e^{-2t}$, $x_2(t) = -2e^{-t} + 2e^{-2t}$. Check: $\\dot x_1 = -2e^{-t} + 2e^{-2t} = x_2$ ✓ (first equation $\\dot x_1 = x_2$).",
+                "Step 5: Classification\nBoth eigenvalues are real and negative: $\\vec 0$ is a **stable node** (all solutions tend to $\\vec 0$ as $t \\to \\infty$). Equivalently: the ODE $\\ddot x + 3\\dot x + 2x = 0$ is overdamped."
             ]
         },
         {
             "id": 5,
             "topic": "Laplace Transform",
-            "title": "Solving with Laplace",
-            "description": "Solve `y' + 2y = u(t)` with `y(0)=0` using Laplace transform (`u` is the unit step function).",
-            "difficulty": "medium",
-            "points": 12,
+            "title": "Initial value problems with Laplace",
+            "description": "Solve with the Laplace transform:\na) $y' + y = 1$, $y(0) = 0$\nb) $y'' + 4y = 0$, $y(0) = 0$, $y'(0) = 2$",
+            "difficulty": "advanced",
+            "points": 17,
             "solutionSteps": [
-                "Step 1: Laplace: `sY - y(0) + 2Y = \\frac{1}{s}`",
-                "Step 2: `Y = \\frac{1}{s(s+2)}`",
-                "Step 3: Inverse transform: `y(t) = \\tfrac{1}{2}(1 - e^{-2t})`"
+                "Step 1: Part a): Transformation\n$\\mathcal{L}\\{y'\\} = sY - y(0) = sY$, $\\mathcal{L}\\{1\\} = \\frac1s$. So $sY + Y = \\frac1s \\Rightarrow Y = \\frac{1}{s(s+1)}$.",
+                "Step 2: Part a): Partial fractions and inverse transform\n$\\frac{1}{s(s+1)} = \\frac1s - \\frac1{s+1}$, so $y(t) = 1 - e^{-t}$. Check: $y' + y = e^{-t} + 1 - e^{-t} = 1$ ✓, $y(0) = 0$ ✓.",
+                "Step 3: Part b): Transformation\n$\\mathcal{L}\\{y''\\} = s^2Y - sy(0) - y'(0) = s^2Y - 2$. So $s^2Y - 2 + 4Y = 0 \\Rightarrow Y = \\frac{2}{s^2 + 4}$.",
+                "Step 4: Part b): Inverse transform and check\n$\\mathcal{L}\\{\\sin2t\\} = \\frac{2}{s^2+4}$, so $y(t) = \\sin2t$. Check: $y'' + 4y = -4\\sin2t + 4\\sin2t = 0$ ✓, $y(0) = 0$ ✓, $y'(0) = 2\\cos0 = 2$ ✓."
             ]
         },
         {
             "id": 6,
-            "topic": "PDE",
-            "title": "Heat equation (outline)",
-            "description": "Give the separated solutions for `u_t = k u_{xx}` on `0<x<L` with homogeneous Dirichlet boundary conditions.",
-            "difficulty": "medium",
-            "points": 12,
+            "topic": "Partial Differential Equations",
+            "title": "Heat equation",
+            "description": "Solve $u_t = u_{xx}$ on $0 < x < \\pi$, $t > 0$ with $u(0,t) = u(\\pi,t) = 0$ and $u(x,0) = \\sin x + 2\\sin3x$.",
+            "difficulty": "advanced",
+            "points": 18,
             "solutionSteps": [
-                "Step 1: Ansatz `u(x,t)=X(x)T(t)`",
-                "Step 2: `X'' + \\lambda X=0` with `X(0)=X(L)=0` gives `X_n=\\sin(\\tfrac{n\\pi x}{L})`",
-                "Step 3: `T_n(t)=e^{-k (n\\pi/L)^2 t}`, general series solution"
+                "Step 1: Separation ansatz\nSubstituting $u(x,t) = X(x)T(t)$: $XT' = X''T \\Rightarrow \\frac{T'}{T} = \\frac{X''}{X} = -\\mu$ (constant).",
+                "Step 2: Boundary conditions\n$X'' + \\mu X = 0$ with $X(0) = X(\\pi) = 0$ has non-trivial solutions only for $\\mu = n^2$, $X_n = \\sin nx$ ($n \\in \\mathbb{N}$). Time part: $T' = -n^2T \\Rightarrow T_n = e^{-n^2t}$.",
+                "Step 3: Initial condition\nAnsatz $u = \\sum_nc_ne^{-n^2t}\\sin nx$. At $t = 0$: $\\sum c_n\\sin nx = \\sin x + 2\\sin3x$, so $c_1 = 1$, $c_3 = 2$, all others $0$.",
+                "Step 4: Solution and check\n$u(x,t) = e^{-t}\\sin x + 2e^{-9t}\\sin3x$. Check: $u_t = -e^{-t}\\sin x - 18e^{-9t}\\sin3x$ and $u_{xx} = -e^{-t}\\sin x - 18e^{-9t}\\sin3x$ ✓. Boundary values: $\\sin0 = \\sin\\pi = 0$ ✓. Higher modes decay faster ($e^{-9t}$ vs. $e^{-t}$)."
             ]
         }
     ]

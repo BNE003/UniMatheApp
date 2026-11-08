@@ -3,6 +3,224 @@
         {
             "id": 1,
             "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT über die Primfaktorzerlegung",
+            "description": "Bestimmen Sie $\\operatorname{ggT}(84, 126)$ mit der Primfaktorzerlegung.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDer ggT ist das Produkt aller gemeinsamen Primfaktoren, jeweils mit dem **kleineren** Exponenten. Wir zerlegen beide Zahlen in Primfaktoren.",
+                "Schritt 2: Zerlegungen\n$84 = 2^2\\cdot3\\cdot7$ und $126 = 2\\cdot3^2\\cdot7$.",
+                "Schritt 3: Kleinere Exponenten wählen\nPrimzahl $2$: $\\min(2,1) = 1$. Primzahl $3$: $\\min(1,2) = 1$. Primzahl $7$: $\\min(1,1) = 1$.",
+                "Schritt 4: Ergebnis\n$\\operatorname{ggT}(84,126) = 2\\cdot3\\cdot7 = 42$. Probe: $84 = 2\\cdot42$, $126 = 3\\cdot42$ und $\\operatorname{ggT}(2,3) = 1$ ✓.",
+                "Schritt 5: Merke: Worauf es ankommt\nDer kgV nimmt dagegen den **größeren** Exponenten: $\\operatorname{kgV}(84,126) = 2^2\\cdot3^2\\cdot7 = 252$. Für große Zahlen ist die Primfaktorzerlegung aufwendig; dann nimmt man den euklidischen Algorithmus."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Euklidischer Algorithmus",
+            "description": "Berechnen Sie $\\operatorname{ggT}(255, 119)$ mit dem euklidischen Algorithmus.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDer euklidische Algorithmus ersetzt $(a,b)$ wiederholt durch $(b, a \\bmod b)$, bis der Rest $0$ ist. Der letzte Rest $\\neq 0$ ist der ggT.",
+                "Schritt 2: Erste Division\n$255 = 2\\cdot119 + 17$.",
+                "Schritt 3: Zweite Division\n$119 = 7\\cdot17 + 0$.",
+                "Schritt 4: Ergebnis\nDer Rest ist $0$, der letzte Rest $\\neq 0$ ist $17$: $\\operatorname{ggT}(255,119) = 17$.",
+                "Schritt 5: Probe\n$255 = 15\\cdot17$ und $119 = 7\\cdot17$ mit $\\operatorname{ggT}(15,7) = 1$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nDer Algorithmus beruht auf $\\operatorname{ggT}(a,b) = \\operatorname{ggT}(b, a \\bmod b)$ und braucht nie mehr als etwa $5\\cdot\\log_{10}(b)$ Schritte."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "kgV über den ggT",
+            "description": "Berechnen Sie $\\operatorname{kgV}(12, 18)$ mit der Formel $\\operatorname{ggT}(a,b)\\cdot\\operatorname{kgV}(a,b) = a\\cdot b$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDas kleinste gemeinsame Vielfache lässt sich aus dem ggT gewinnen: $\\operatorname{kgV}(a,b) = \\frac{a\\cdot b}{\\operatorname{ggT}(a,b)}$.",
+                "Schritt 2: ggT bestimmen\n$18 = 1\\cdot12 + 6$, $12 = 2\\cdot6 + 0$, also $\\operatorname{ggT}(12,18) = 6$.",
+                "Schritt 3: kgV berechnen\n$\\operatorname{kgV}(12,18) = \\frac{12\\cdot18}{6} = \\frac{216}{6} = 36$.",
+                "Schritt 4: Probe über Vielfache\nVielfache von $12$: $12, 24, 36$; Vielfache von $18$: $18, 36$. Das erste gemeinsame Vielfache ist $36$ ✓.",
+                "Schritt 5: Merke: Worauf es ankommt\nPraktisch: Zwei Zahnräder mit $12$ und $18$ Zähnen stehen nach $36$ Zahneingriffen wieder in der Ausgangsstellung. Teile zuerst durch den ggT, dann multipliziere, um große Zwischenwerte zu vermeiden."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Teilerfremdheit prüfen",
+            "description": "Sind $35$ und $48$ teilerfremd? Sind $91$ und $143$ teilerfremd?",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nZwei Zahlen sind **teilerfremd**, wenn ihr ggT gleich $1$ ist, d.h. wenn sie keinen gemeinsamen Primfaktor haben.",
+                "Schritt 2: $35$ und $48$\n$35 = 5\\cdot7$, $48 = 2^4\\cdot3$. Keine gemeinsamen Primfaktoren, also $\\operatorname{ggT} = 1$: **teilerfremd**.",
+                "Schritt 3: $91$ und $143$ per Primfaktoren\n$91 = 7\\cdot13$, $143 = 11\\cdot13$. Gemeinsamer Primfaktor $13$, also $\\operatorname{ggT} = 13$: **nicht teilerfremd**.",
+                "Schritt 4: Kontrolle mit Euklid\n$143 = 1\\cdot91 + 52$, $91 = 1\\cdot52 + 39$, $52 = 1\\cdot39 + 13$, $39 = 3\\cdot13 + 0$ ✓ — ggT $= 13$.",
+                "Schritt 5: Merke: Worauf es ankommt\nTeilerfremdheit hängt nicht davon ab, ob die Zahlen selbst prim sind ($35$ und $48$ sind es nicht). Sie ist die Voraussetzung für Inverse in $\\mathbb{Z}_n$ und für den Chinesischen Restsatz."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Bruch kürzen mit dem ggT",
+            "description": "Kürzen Sie $\\dfrac{143}{187}$ vollständig.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEin Bruch ist vollständig gekürzt, wenn Zähler und Nenner teilerfremd sind. Wir teilen beide durch ihren ggT.",
+                "Schritt 2: ggT per Euklid\n$187 = 1\\cdot143 + 44$, $143 = 3\\cdot44 + 11$, $44 = 4\\cdot11 + 0$. Also $\\operatorname{ggT}(143,187) = 11$.",
+                "Schritt 3: Kürzen\n$\\frac{143}{187} = \\frac{143 : 11}{187 : 11} = \\frac{13}{17}$.",
+                "Schritt 4: Kontrolle\n$13$ und $17$ sind prim und verschieden, also teilerfremd: Der Bruch ist vollständig gekürzt. $13\\cdot11 = 143$ ✓, $17\\cdot11 = 187$ ✓.",
+                "Schritt 5: Merke: Worauf es ankommt\nKürzen durch den ggT liefert in **einem** Schritt die Normalform des Bruchs (mehrfaches Kürzen mit Teilern ist unnötig)."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Einfache ggT-Berechnung",
+            "description": "Berechnen Sie den größten gemeinsamen Teiler von 24 und 36.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Primfaktorzerlegung\n$24 = 2^3 \\cdot 3$\n$36 = 2^2 \\cdot 3^2$",
+                "Schritt 2: ggT über Primfaktoren\n$\\text{ggT}(24,36) = 2^2 \\cdot 3 = 12$"
+            ]
+        },
+        {
+            "id": 7,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Teilerfremde Zahlen",
+            "description": "Sind 15 und 28 teilerfremd? Begründen Sie Ihre Antwort.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Primfaktorzerlegung\n$15 = 3 \\cdot 5$\n$28 = 2^2 \\cdot 7$",
+                "Schritt 2: Analyse\nDie Zahlen haben keine gemeinsamen Primfaktoren",
+                "Schritt 3: Schlussfolgerung\n$\\text{ggT}(15,28) = 1$, also sind die Zahlen teilerfremd"
+            ]
+        },
+        {
+            "id": 8,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT mit negativen Zahlen",
+            "description": "Berechnen Sie $\\text{ggT}(-18, 24)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Beträge betrachten\n$\\text{ggT}(-18, 24) = \\text{ggT}(18, 24)$",
+                "Schritt 2: Primfaktorzerlegung\n$18 = 2 \\cdot 3^2$\n$24 = 2^3 \\cdot 3$",
+                "Schritt 3: Ergebnis\n$\\text{ggT}(18,24) = 2 \\cdot 3 = 6$"
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT von drei Zahlen",
+            "description": "Berechnen Sie $\\text{ggT}(12, 18, 30)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Primfaktorzerlegung\n$12 = 2^2 \\cdot 3$\n$18 = 2 \\cdot 3^2$\n$30 = 2 \\cdot 3 \\cdot 5$",
+                "Schritt 2: ggT über Primfaktoren\n$\\text{ggT}(12,18,30) = 2 \\cdot 3 = 6$"
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und kgV",
+            "description": "Berechnen Sie $\\text{ggT}(8,12)$ und $\\text{kgV}(8,12)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Primfaktorzerlegung\n$8 = 2^3$\n$12 = 2^2 \\cdot 3$",
+                "Schritt 2: ggT berechnen\n$\\text{ggT}(8,12) = 2^2 = 4$",
+                "Schritt 3: kgV berechnen\n$\\text{kgV}(8,12) = 2^3 \\cdot 3 = 24$"
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Erweiterter euklidischer Algorithmus",
+            "description": "Bestimmen Sie $x, y \\in \\mathbb{Z}$ mit $240x + 46y = \\operatorname{ggT}(240, 46)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir führen zuerst den euklidischen Algorithmus aus und rechnen dann rückwärts, indem wir jeden Rest als Linearkombination von $240$ und $46$ schreiben (Lemma von Bézout).",
+                "Schritt 2: Euklidischer Algorithmus\n$240 = 5\\cdot46 + 10$, $46 = 4\\cdot10 + 6$, $10 = 1\\cdot6 + 4$, $6 = 1\\cdot4 + 2$, $4 = 2\\cdot2 + 0$. Also $\\operatorname{ggT} = 2$.",
+                "Schritt 3: Rückwärts einsetzen (Teil 1)\n$2 = 6 - 4 = 6 - (10 - 6) = 2\\cdot6 - 10$. Mit $6 = 46 - 4\\cdot10$: $2 = 2(46 - 4\\cdot10) - 10 = 2\\cdot46 - 9\\cdot10$.",
+                "Schritt 4: Rückwärts einsetzen (Teil 2)\nMit $10 = 240 - 5\\cdot46$: $2 = 2\\cdot46 - 9(240 - 5\\cdot46) = 47\\cdot46 - 9\\cdot240$.",
+                "Schritt 5: Probe\n$240\\cdot(-9) + 46\\cdot47 = -2160 + 2162 = 2$ ✓. Also $x = -9$, $y = 47$.",
+                "Schritt 6: Merke: Worauf es ankommt\nDie Lösung $(x,y)$ ist nicht eindeutig: Alle Lösungen sind $(-9 + 23k,\\ 47 - 120k)$, $k \\in \\mathbb{Z}$. Mit dem erweiterten Euklid berechnet man auch modulare Inverse."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Modulares Inverses",
+            "description": "Bestimmen Sie das Inverse von $17$ modulo $43$, d.h. $x$ mit $17x \\equiv 1 \\pmod{43}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDas Inverse existiert genau dann, wenn $\\operatorname{ggT}(17,43) = 1$. Es ergibt sich aus der Bézout-Darstellung $1 = 17x + 43y$: modulo $43$ ist dann $17x \\equiv 1$.",
+                "Schritt 2: Euklidischer Algorithmus\n$43 = 2\\cdot17 + 9$, $17 = 1\\cdot9 + 8$, $9 = 1\\cdot8 + 1$. Der ggT ist $1$, das Inverse existiert.",
+                "Schritt 3: Rückwärts rechnen\n$1 = 9 - 8 = 9 - (17 - 9) = 2\\cdot9 - 17 = 2(43 - 2\\cdot17) - 17 = 2\\cdot43 - 5\\cdot17$.",
+                "Schritt 4: Inverse ablesen\nModulo $43$: $-5\\cdot17 \\equiv 1$, also $17^{-1} \\equiv -5 \\equiv 38 \\pmod{43}$.",
+                "Schritt 5: Probe\n$17\\cdot38 = 646 = 15\\cdot43 + 1 = 645 + 1$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nIn $\\mathbb{Z}_n$ ist $a$ genau dann invertierbar, wenn $\\operatorname{ggT}(a,n) = 1$. Modulare Inverse sind Grundlage von Kryptographie (RSA)."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Lineare diophantische Gleichung",
+            "description": "Bestimmen Sie alle ganzzahligen Lösungen von $12x + 18y = 30$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEine Gleichung $ax + by = c$ ist genau dann ganzzahlig lösbar, wenn $\\operatorname{ggT}(a,b) \\mid c$. Danach genügt eine spezielle Lösung plus die Lösungen der homogenen Gleichung.",
+                "Schritt 2: Lösbarkeit\n$\\operatorname{ggT}(12,18) = 6$ und $6 \\mid 30$. Also gibt es Lösungen.",
+                "Schritt 3: Vereinfachen\nDivision durch $6$: $2x + 3y = 5$. Eine spezielle Lösung ist $x = 1$, $y = 1$ ($2 + 3 = 5$).",
+                "Schritt 4: Homogene Gleichung\n$2x + 3y = 0$ hat die ganzzahligen Lösungen $(x,y) = (3k, -2k)$, $k \\in \\mathbb{Z}$ (da $\\operatorname{ggT}(2,3) = 1$).",
+                "Schritt 5: Allgemeine Lösung\n$(x,y) = (1 + 3k,\\ 1 - 2k)$, $k \\in \\mathbb{Z}$. Probe für $k = 1$: $(4,-1)$: $12\\cdot4 + 18\\cdot(-1) = 48 - 18 = 30$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nStruktur: **spezielle Lösung + Lösungen der homogenen Gleichung** — dasselbe Prinzip wie bei linearen Gleichungssystemen. Ist $\\operatorname{ggT} \\nmid c$, gibt es keine ganzzahlige Lösung."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und kgV bei gegebenem Produkt",
+            "description": "Zwei natürliche Zahlen $a,b$ haben $\\operatorname{ggT}(a,b) = 6$ und $a\\cdot b = 864$. Bestimmen Sie $\\operatorname{kgV}(a,b)$ und alle möglichen Paare $(a,b)$ mit $a < b$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir nutzen $\\operatorname{ggT}\\cdot\\operatorname{kgV} = a\\cdot b$ und schreiben $a = 6a'$, $b = 6b'$ mit teilerfremden $a',b'$.",
+                "Schritt 2: kgV\n$\\operatorname{kgV}(a,b) = \\frac{864}{6} = 144$.",
+                "Schritt 3: Reduktion auf teilerfremde Zahlen\nAus $a = 6a'$, $b = 6b'$ folgt $36a'b' = 864$, also $a'b' = 24$ mit $\\operatorname{ggT}(a',b') = 1$.",
+                "Schritt 4: Teilerfremde Zerlegungen von $24$\n$24 = 1\\cdot24 = 3\\cdot8$ (teilerfremd); $2\\cdot12$ und $4\\cdot6$ sind nicht teilerfremd. Also $(a',b') \\in \\{(1,24), (3,8)\\}$.",
+                "Schritt 5: Paare\n$(a,b) = (6,144)$ oder $(18,48)$. Probe: $\\operatorname{ggT}(18,48) = 6$ ✓, $18\\cdot48 = 864$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nDie Zerlegung $a = d\\,a'$, $b = d\\,b'$ mit $d = \\operatorname{ggT}$ und teilerfremden $a',b'$ ist ein Standardtrick bei ggT-Aufgaben."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Anwendungsaufgabe: Fliesen",
+            "description": "Ein Raum ist $360\\ \\mathrm{cm}$ lang und $240\\ \\mathrm{cm}$ breit. Er soll lückenlos mit möglichst großen quadratischen Fliesen belegt werden. Welche Seitenlänge hat eine Fliese, und wie viele Fliesen werden benötigt?",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Fliesenseite $s$ muss sowohl $360$ als auch $240$ teilen. Die **größte** solche Seite ist der $\\operatorname{ggT}(360,240)$.",
+                "Schritt 2: ggT bestimmen\n$360 = 1\\cdot240 + 120$, $240 = 2\\cdot120 + 0$. Also $\\operatorname{ggT}(360,240) = 120$.",
+                "Schritt 3: Fliesenanzahl\nLängs: $360 : 120 = 3$ Fliesen, quer: $240 : 120 = 2$ Fliesen. Insgesamt $3\\cdot2 = 6$ Fliesen.",
+                "Schritt 4: Probe über die Fläche\nFläche des Raumes: $360\\cdot240 = 86\\,400\\ \\mathrm{cm}^2$. Eine Fliese: $120^2 = 14\\,400\\ \\mathrm{cm}^2$. $86\\,400 : 14\\,400 = 6$ ✓.",
+                "Schritt 5: Merke: Worauf es ankommt\nDer ggT ist die **größte gemeinsame Teilereinheit**; er beantwortet Fragen nach der größtmöglichen gleichmäßigen Aufteilung. Das kgV beantwortet dagegen Fragen nach dem frühesten gemeinsamen Zeitpunkt."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Größter gemeinsamer Teiler",
             "title": "Euklidischer Algorithmus",
             "description": "Berechnen Sie den größten gemeinsamen Teiler von 1071 und 462 mit Hilfe des euklidischen Algorithmus.",
             "difficulty": "medium",
@@ -16,35 +234,7 @@
             ]
         },
         {
-            "id": 2,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "Erweiterter euklidischer Algorithmus",
-            "description": "Finden Sie mit Hilfe des erweiterten euklidischen Algorithmus ganze Zahlen $x$ und $y$, sodass $1071x + 462y = \\text{ggT}(1071, 462)$ gilt.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Rückwärtsrechnung des euklidischen Algorithmus\nAus der vorherigen Aufgabe wissen wir:\n$21 = 462 - 147 \\cdot 3$",
-                "Schritt 2: Ersetzen von 147\n$147 = 1071 - 462 \\cdot 2$\nAlso: $21 = 462 - (1071 - 462 \\cdot 2) \\cdot 3$",
-                "Schritt 3: Vereinfachen\n$21 = 462 - 1071 \\cdot 3 + 462 \\cdot 6$\n$21 = 462 \\cdot 7 - 1071 \\cdot 3$",
-                "Schritt 4: Ergebnis\n$x = -3$, $y = 7$\n$1071 \\cdot (-3) + 462 \\cdot 7 = 21$"
-            ]
-        },
-        {
-            "id": 3,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "Lineare diophantische Gleichung",
-            "description": "Finden Sie alle ganzzahligen Lösungen der Gleichung $1071x + 462y = 42$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Überprüfung der Lösbarkeit\nDa $\\text{ggT}(1071, 462) = 21$ und $21$ teilt $42$, ist die Gleichung lösbar",
-                "Schritt 2: Finden einer speziellen Lösung\nTeilen wir beide Seiten durch 21:\n$51x + 22y = 2$\nAus der vorherigen Aufgabe wissen wir:\n$51 \\cdot (-3) + 22 \\cdot 7 = 1$\nAlso: $51 \\cdot (-6) + 22 \\cdot 14 = 2$",
-                "Schritt 3: Allgemeine Lösung\nDie allgemeine Lösung ist:\n$x = -6 + 22k$\n$y = 14 - 51k$\nfür $k \\in \\mathbb{Z}$",
-                "Schritt 4: Verifikation\nEinsetzen in die ursprüngliche Gleichung:\n$1071(-6 + 22k) + 462(14 - 51k) = 42$"
-            ]
-        },
-        {
-            "id": 4,
+            "id": 17,
             "topic": "Größter gemeinsamer Teiler",
             "title": "Primfaktorzerlegung und ggT",
             "description": "Berechnen Sie den größten gemeinsamen Teiler von $2^4 \\cdot 3^2 \\cdot 5^3 \\cdot 7$ und $2^3 \\cdot 3^4 \\cdot 5 \\cdot 11$ mit Hilfe der Primfaktorzerlegung.",
@@ -57,186 +247,7 @@
             ]
         },
         {
-            "id": 5,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "Teilerfremdheit und ggT",
-            "description": "Zeigen Sie: Wenn $\\text{ggT}(a,b) = 1$ und $\\text{ggT}(a,c) = 1$, dann ist $\\text{ggT}(a,bc) = 1$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Definition der Teilerfremdheit\n$\\text{ggT}(a,b) = 1$ bedeutet, dass $a$ und $b$ teilerfremd sind",
-                "Schritt 2: Anwendung des Lemmas von Bézout\nEs existieren ganze Zahlen $x_1,y_1,x_2,y_2$ mit:\n$ax_1 + by_1 = 1$\n$ax_2 + cy_2 = 1$",
-                "Schritt 3: Multiplikation der Gleichungen\n$(ax_1 + by_1)(ax_2 + cy_2) = 1$\n$a(ax_1x_2 + bx_1y_2 + cx_2y_1) + bc(y_1y_2) = 1$",
-                "Schritt 4: Schlussfolgerung\nDa sich 1 als Linearkombination von $a$ und $bc$ darstellen lässt, sind $a$ und $bc$ teilerfremd"
-            ]
-        },
-        {
-            "id": 6,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "ggT und kgV",
-            "description": "Beweisen Sie: Für alle natürlichen Zahlen $a,b$ gilt $\\text{ggT}(a,b) \\cdot \\text{kgV}(a,b) = a \\cdot b$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Primfaktorzerlegung\nSei $a = \\prod_{p \\text{ prim}} p^{\\alpha_p}$\n$b = \\prod_{p \\text{ prim}} p^{\\beta_p}$",
-                "Schritt 2: Definition von ggT und kgV\n$\\text{ggT}(a,b) = \\prod_{p \\text{ prim}} p^{\\min(\\alpha_p,\\beta_p)}$\n$\\text{kgV}(a,b) = \\prod_{p \\text{ prim}} p^{\\max(\\alpha_p,\\beta_p)}$",
-                "Schritt 3: Multiplikation\n$\\text{ggT}(a,b) \\cdot \\text{kgV}(a,b) = \\prod_{p \\text{ prim}} p^{\\min(\\alpha_p,\\beta_p) + \\max(\\alpha_p,\\beta_p)}$",
-                "Schritt 4: Vereinfachung\n$\\min(\\alpha_p,\\beta_p) + \\max(\\alpha_p,\\beta_p) = \\alpha_p + \\beta_p$\nAlso: $\\text{ggT}(a,b) \\cdot \\text{kgV}(a,b) = a \\cdot b$"
-            ]
-        },
-        {
-            "id": 7,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "ggT und Kongruenzen",
-            "description": "Lösen Sie die Kongruenz $1071x \\equiv 42 \\mod 462$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Überprüfung der Lösbarkeit\n$\\text{ggT}(1071, 462) = 21$ teilt 42, also ist die Kongruenz lösbar",
-                "Schritt 2: Vereinfachung\nTeilen durch 21:\n$51x \\equiv 2 \\mod 22$",
-                "Schritt 3: Finden des Inversen\nWir suchen $y$ mit $51y \\equiv 1 \\mod 22$\n$51 \\equiv 7 \\mod 22$\n$7 \\cdot 19 \\equiv 1 \\mod 22$\nAlso ist $y = 19$ das Inverse",
-                "Schritt 4: Lösung\n$x \\equiv 2 \\cdot 19 \\mod 22$\n$x \\equiv 38 \\mod 22$\n$x \\equiv 16 \\mod 22$\nAllgemeine Lösung: $x = 16 + 22k$ für $k \\in \\mathbb{Z}$"
-            ]
-        },
-        {
-            "id": 8,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "ggT und Polynome",
-            "description": "Berechnen Sie den größten gemeinsamen Teiler der Polynome $f(x) = x^3 - 2x^2 - x + 2$ und $g(x) = x^3 - 3x^2 + 4$ über $\\mathbb{Q}[x]$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Polynomdivision\n$f(x) = g(x) \\cdot 1 + (x^2 - x - 2)$",
-                "Schritt 2: Weiter Division\n$g(x) = (x^2 - x - 2)(x - 2) + (2x)$",
-                "Schritt 3: Letzte Division\n$x^2 - x - 2 = (2x)(\\frac{1}{2}x - \\frac{1}{2}) + (-2)$",
-                "Schritt 4: Normalisierung\nDa wir über $\\mathbb{Q}$ arbeiten, können wir den letzten nicht-verschwindenden Rest normieren:\n$\\text{ggT}(f,g) = 1$"
-            ]
-        },
-        {
-            "id": 9,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "ggT und Matrizen",
-            "description": "Berechnen Sie den größten gemeinsamen Teiler der Determinanten der Matrizen $A = \\begin{pmatrix} 2 & 3 \\\\ 4 & 5 \\end{pmatrix}$ und $B = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Schritt 1: Berechnung der Determinanten\n$\\det(A) = 2 \\cdot 5 - 3 \\cdot 4 = 10 - 12 = -2$\n$\\det(B) = 1 \\cdot 4 - 2 \\cdot 3 = 4 - 6 = -2$",
-                "Schritt 2: Berechnung des ggT\n$\\text{ggT}(-2, -2) = 2$"
-            ]
-        },
-        {
-            "id": 10,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "ggT und Fibonacci-Zahlen",
-            "description": "Zeigen Sie: $\\text{ggT}(F_n, F_{n+1}) = 1$ für alle $n \\in \\mathbb{N}$, wobei $F_n$ die $n$-te Fibonacci-Zahl ist.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Induktionsanfang\nFür $n=1$: $F_1 = 1$, $F_2 = 1$, also $\\text{ggT}(1,1) = 1$",
-                "Schritt 2: Induktionsvoraussetzung\nAnnahme: $\\text{ggT}(F_k, F_{k+1}) = 1$ für ein $k \\in \\mathbb{N}$",
-                "Schritt 3: Induktionsschritt\n$\\text{ggT}(F_{k+1}, F_{k+2}) = \\text{ggT}(F_{k+1}, F_{k+1} + F_k)$\n$= \\text{ggT}(F_{k+1}, F_k) = \\text{ggT}(F_k, F_{k+1}) = 1$",
-                "Schritt 4: Schlussfolgerung\nNach dem Prinzip der vollständigen Induktion gilt die Aussage für alle $n \\in \\mathbb{N}$"
-            ]
-        },
-        {
-            "id": 11,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "Einfache ggT-Berechnung",
-            "description": "Berechnen Sie den größten gemeinsamen Teiler von 24 und 36.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Primfaktorzerlegung\n$24 = 2^3 \\cdot 3$\n$36 = 2^2 \\cdot 3^2$",
-                "Schritt 2: ggT über Primfaktoren\n$\\text{ggT}(24,36) = 2^2 \\cdot 3 = 12$"
-            ]
-        },
-        {
-            "id": 12,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "Teilerfremde Zahlen",
-            "description": "Sind 15 und 28 teilerfremd? Begründen Sie Ihre Antwort.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Primfaktorzerlegung\n$15 = 3 \\cdot 5$\n$28 = 2^2 \\cdot 7$",
-                "Schritt 2: Analyse\nDie Zahlen haben keine gemeinsamen Primfaktoren",
-                "Schritt 3: Schlussfolgerung\n$\\text{ggT}(15,28) = 1$, also sind die Zahlen teilerfremd"
-            ]
-        },
-        {
-            "id": 13,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "ggT mit negativen Zahlen",
-            "description": "Berechnen Sie $\\text{ggT}(-18, 24)$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Beträge betrachten\n$\\text{ggT}(-18, 24) = \\text{ggT}(18, 24)$",
-                "Schritt 2: Primfaktorzerlegung\n$18 = 2 \\cdot 3^2$\n$24 = 2^3 \\cdot 3$",
-                "Schritt 3: Ergebnis\n$\\text{ggT}(18,24) = 2 \\cdot 3 = 6$"
-            ]
-        },
-        {
-            "id": 14,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "ggT von drei Zahlen",
-            "description": "Berechnen Sie $\\text{ggT}(12, 18, 30)$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Primfaktorzerlegung\n$12 = 2^2 \\cdot 3$\n$18 = 2 \\cdot 3^2$\n$30 = 2 \\cdot 3 \\cdot 5$",
-                "Schritt 2: ggT über Primfaktoren\n$\\text{ggT}(12,18,30) = 2 \\cdot 3 = 6$"
-            ]
-        },
-        {
-            "id": 15,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "Einfache Teilbarkeit",
-            "description": "Ist 6 ein Teiler von 42? Begründen Sie mit Hilfe des ggT.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Berechnung des ggT\n$\\text{ggT}(6,42) = 6$",
-                "Schritt 2: Analyse\nDa der ggT gleich 6 ist, ist 6 ein Teiler von 42"
-            ]
-        },
-        {
-            "id": 16,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "ggT und kgV",
-            "description": "Berechnen Sie $\\text{ggT}(8,12)$ und $\\text{kgV}(8,12)$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Primfaktorzerlegung\n$8 = 2^3$\n$12 = 2^2 \\cdot 3$",
-                "Schritt 2: ggT berechnen\n$\\text{ggT}(8,12) = 2^2 = 4$",
-                "Schritt 3: kgV berechnen\n$\\text{kgV}(8,12) = 2^3 \\cdot 3 = 24$"
-            ]
-        },
-        {
-            "id": 17,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "ggT mit Potenzen",
-            "description": "Berechnen Sie $\\text{ggT}(2^4 \\cdot 3^2, 2^3 \\cdot 3^3)$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: ggT über Primfaktoren\n$\\text{ggT}(2^4 \\cdot 3^2, 2^3 \\cdot 3^3) = 2^3 \\cdot 3^2 = 8 \\cdot 9 = 72$"
-            ]
-        },
-        {
             "id": 18,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "ggT mit Primzahlen",
-            "description": "Berechnen Sie $\\text{ggT}(2 \\cdot 3 \\cdot 5, 2 \\cdot 3 \\cdot 7)$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: ggT über Primfaktoren\n$\\text{ggT}(2 \\cdot 3 \\cdot 5, 2 \\cdot 3 \\cdot 7) = 2 \\cdot 3 = 6$"
-            ]
-        },
-        {
-            "id": 19,
             "topic": "Größter gemeinsamer Teiler",
             "title": "Euklidischer Algorithmus mit größeren Zahlen",
             "description": "Berechnen Sie $\\text{ggT}(234, 182)$ mit dem euklidischen Algorithmus.",
@@ -250,7 +261,7 @@
             ]
         },
         {
-            "id": 20,
+            "id": 19,
             "topic": "Größter gemeinsamer Teiler",
             "title": "Erweiterter euklidischer Algorithmus",
             "description": "Finden Sie ganze Zahlen $x$ und $y$ mit $234x + 182y = \\text{ggT}(234,182)$.",
@@ -262,7 +273,7 @@
             ]
         },
         {
-            "id": 21,
+            "id": 20,
             "topic": "Größter gemeinsamer Teiler",
             "title": "ggT und Polynome",
             "description": "Berechnen Sie $\\text{ggT}(x^2 - 1, x^2 + 2x + 1)$ über $\\mathbb{Q}[x]$.",
@@ -275,7 +286,7 @@
             ]
         },
         {
-            "id": 22,
+            "id": 21,
             "topic": "Größter gemeinsamer Teiler",
             "title": "ggT und Kongruenzen",
             "description": "Lösen Sie die Kongruenz $234x \\equiv 26 \\mod 182$.",
@@ -288,19 +299,7 @@
             ]
         },
         {
-            "id": 23,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "ggT und Matrizen",
-            "description": "Berechnen Sie $\\text{ggT}(\\det(A), \\det(B))$ für $A = \\begin{pmatrix} 3 & 4 \\\\ 5 & 6 \\end{pmatrix}$ und $B = \\begin{pmatrix} 2 & 3 \\\\ 4 & 5 \\end{pmatrix}$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Schritt 1: Determinanten\n$\\det(A) = -2$\n$\\det(B) = -2$",
-                "Schritt 2: ggT\n$\\text{ggT}(-2,-2) = 2$"
-            ]
-        },
-        {
-            "id": 24,
+            "id": 22,
             "topic": "Größter gemeinsamer Teiler",
             "title": "ggT und Fibonacci",
             "description": "Berechnen Sie $\\text{ggT}(F_6, F_8)$, wobei $F_n$ die $n$-te Fibonacci-Zahl ist.",
@@ -313,20 +312,171 @@
             ]
         },
         {
+            "id": 23,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Korrektheit des euklidischen Algorithmus",
+            "description": "Beweisen Sie: Für $a,b \\in \\mathbb{N}$ und $a = qb + r$ gilt $\\operatorname{ggT}(a,b) = \\operatorname{ggT}(b,r)$. Folgern Sie, dass der euklidische Algorithmus den ggT liefert.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir zeigen, dass die Paare $(a,b)$ und $(b,r)$ **dieselben gemeinsamen Teiler** haben. Dann stimmen auch ihre größten gemeinsamen Teiler überein.",
+                "Schritt 2: $d \\mid a,\\ d \\mid b \\Rightarrow d \\mid r$\nAus $r = a - qb$: Teilt $d$ sowohl $a$ als auch $b$, so teilt $d$ auch die Linearkombination $a - qb = r$.",
+                "Schritt 3: $d \\mid b,\\ d \\mid r \\Rightarrow d \\mid a$\nAus $a = qb + r$: Teilt $d$ sowohl $b$ als auch $r$, so teilt $d$ auch $qb + r = a$.",
+                "Schritt 4: Gleichheit der ggT\nDie Mengen der gemeinsamen Teiler von $(a,b)$ und $(b,r)$ sind gleich, also auch ihre Maxima: $\\operatorname{ggT}(a,b) = \\operatorname{ggT}(b,r)$.",
+                "Schritt 5: Folgerung für den Algorithmus\nDie Reste $b > r_1 > r_2 > \\dots \\geq 0$ fallen streng, der Algorithmus endet also nach endlich vielen Schritten mit $r_{k+1} = 0$. Dann ist $\\operatorname{ggT}(a,b) = \\operatorname{ggT}(r_{k-1}, r_k) = \\operatorname{ggT}(r_k, 0) = r_k$, der letzte Rest $\\neq 0$. $\\blacksquare$",
+                "Schritt 6: Merke: Worauf es ankommt\nZwei Dinge sind zu zeigen: **Invarianz** (der ggT ändert sich nicht) und **Terminierung** (die Reste werden kleiner). Das ist das Muster für Korrektheitsbeweise von Algorithmen."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Satz von Bézout",
+            "description": "Beweisen Sie: Zu $a,b \\in \\mathbb{Z}$ (nicht beide $0$) gibt es $x,y \\in \\mathbb{Z}$ mit $ax + by = \\operatorname{ggT}(a,b)$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir betrachten die Menge aller **positiven** Linearkombinationen $S = \\{ax + by > 0 \\mid x,y \\in \\mathbb{Z}\\}$ und zeigen, dass ihr kleinstes Element $d$ der ggT ist.",
+                "Schritt 2: Kleinstes Element\n$S$ ist nicht leer (z.B. $a^2 + b^2 > 0$), nach dem Wohlordnungsprinzip hat $S$ ein kleinstes Element $d = ax_0 + by_0$.",
+                "Schritt 3: $d$ teilt $a$ und $b$\nDivision mit Rest: $a = qd + r$ mit $0 \\leq r < d$. Dann $r = a - qd = a(1 - qx_0) + b(-qy_0)$ ist eine Linearkombination. Wäre $r > 0$, läge $r \\in S$ und $r < d$ — Widerspruch zur Minimalität. Also $r = 0$, d.h. $d \\mid a$. Analog $d \\mid b$.",
+                "Schritt 4: $d$ ist der größte gemeinsame Teiler\nJeder gemeinsame Teiler $t$ von $a$ und $b$ teilt $ax_0 + by_0 = d$, also $t \\leq d$. Zusammen mit $d \\mid a$, $d \\mid b$ folgt $d = \\operatorname{ggT}(a,b)$. $\\blacksquare$",
+                "Schritt 5: Merke: Worauf es ankommt\nDer Beweis ist nicht konstruktiv; konkrete $x,y$ liefert der erweiterte euklidische Algorithmus. Folgerung: $\\operatorname{ggT}(a,b) = 1 \\iff$ es gibt $x,y$ mit $ax + by = 1$."
+            ]
+        },
+        {
             "id": 25,
             "topic": "Größter gemeinsamer Teiler",
-            "title": "ggT und Polynome über endlichen Körpern",
-            "description": "Berechnen Sie $\\text{ggT}(x^3 + x + 1, x^2 + 1)$ über $\\mathbb{F}_2[x]$.",
-            "difficulty": "medium",
-            "points": 10,
+            "title": "Lemma von Euklid",
+            "description": "Beweisen Sie: Gilt $a \\mid bc$ und $\\operatorname{ggT}(a,b) = 1$, so folgt $a \\mid c$. Folgern Sie: Ist $p$ prim und $p \\mid bc$, so gilt $p \\mid b$ oder $p \\mid c$.",
+            "difficulty": "hard",
+            "points": 12,
             "solutionSteps": [
-                "Schritt 1: Polynomdivision\n$x^3 + x + 1 = (x^2 + 1) \\cdot x + 1$",
-                "Schritt 2: Weiter Division\n$x^2 + 1 = 1 \\cdot (x^2 + 1) + 0$",
-                "Schritt 3: Ergebnis\n$\\text{ggT} = 1$"
+                "Schritt 1: Überblick: Was ist gefragt?\nDer Schlüssel ist der Satz von Bézout: Aus $\\operatorname{ggT}(a,b) = 1$ gibt es $x,y$ mit $ax + by = 1$. Diese Gleichung multiplizieren wir mit $c$.",
+                "Schritt 2: Bézout anwenden\nSeien $x,y \\in \\mathbb{Z}$ mit $ax + by = 1$. Multiplikation mit $c$: $acx + bcy = c$.",
+                "Schritt 3: Teilbarkeit ablesen\nDer Summand $acx$ ist durch $a$ teilbar. Der Summand $bcy = (bc)y$ ist durch $a$ teilbar, da $a \\mid bc$. Also teilt $a$ die Summe $c$. $\\blacksquare$",
+                "Schritt 4: Folgerung für Primzahlen\nSei $p$ prim mit $p \\mid bc$. Teilt $p$ nicht $b$, so ist $\\operatorname{ggT}(p,b) = 1$ (die einzigen Teiler von $p$ sind $1$ und $p$). Nach dem Lemma folgt $p \\mid c$.",
+                "Schritt 5: Beispiel\n$6 \\mid 4\\cdot15 = 60$ aber $6 \\nmid 4$ und $6 \\nmid 15$: Die Aussage für Primzahlen kann für zusammengesetzte Zahlen falsch sein. Das passt zum Lemma: $\\operatorname{ggT}(6,4) = 2 \\neq 1$.",
+                "Schritt 6: Merke: Worauf es ankommt\nDas Lemma von Euklid ist der Grund für die **Eindeutigkeit** der Primfaktorzerlegung (Fundamentalsatz der Arithmetik)."
             ]
         },
         {
             "id": 26,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT von Mersenne-Zahlen",
+            "description": "Berechnen Sie $\\operatorname{ggT}(2^{12} - 1,\\ 2^{18} - 1)$ und vergleichen Sie mit $2^{\\operatorname{ggT}(12,18)} - 1$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEs gilt allgemein $\\operatorname{ggT}(2^m - 1, 2^n - 1) = 2^{\\operatorname{ggT}(m,n)} - 1$. Wir überprüfen das an diesem Beispiel mit dem euklidischen Algorithmus, indem wir die Exponenten wie beim Algorithmus reduzieren.",
+                "Schritt 2: Zahlenwerte\n$2^{12} - 1 = 4095$ und $2^{18} - 1 = 262\\,143$.",
+                "Schritt 3: Euklidischer Algorithmus\n$262143 = 64\\cdot4095 + 63$ (denn $64\\cdot4095 = 262080$), $4095 = 65\\cdot63 + 0$. Also $\\operatorname{ggT} = 63$.",
+                "Schritt 4: Vergleich mit der Formel\n$\\operatorname{ggT}(12,18) = 6$ und $2^6 - 1 = 63$ ✓.",
+                "Schritt 5: Warum die Formel gilt\nAus $2^n - 1 = 2^{n-m}(2^m - 1) + (2^{n-m} - 1)$ folgt $\\operatorname{ggT}(2^n - 1, 2^m - 1) = \\operatorname{ggT}(2^m - 1, 2^{n-m} - 1)$. Die Exponenten verhalten sich also wie beim euklidischen Algorithmus (Subtraktionsform).",
+                "Schritt 6: Merke: Worauf es ankommt\nDie Struktur des euklidischen Algorithmus taucht an überraschenden Stellen auf (Mersenne-Zahlen, Fibonacci-Zahlen: $\\operatorname{ggT}(F_m,F_n) = F_{\\operatorname{ggT}(m,n)}$)."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Simultane Kongruenzen",
+            "description": "Lösen Sie das System $x \\equiv 2 \\pmod 5$, $x \\equiv 3 \\pmod 7$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Moduli $5$ und $7$ sind teilerfremd, nach dem Chinesischen Restsatz gibt es eine Lösung, die modulo $5\\cdot7 = 35$ eindeutig ist.",
+                "Schritt 2: Ansatz\nAus der ersten Kongruenz folgt $x = 2 + 5k$ mit $k \\in \\mathbb{Z}$.",
+                "Schritt 3: In die zweite einsetzen\n$2 + 5k \\equiv 3 \\pmod 7 \\iff 5k \\equiv 1 \\pmod 7$.",
+                "Schritt 4: Inverses von $5$ modulo $7$\n$5\\cdot3 = 15 \\equiv 1 \\pmod 7$, also $5^{-1} \\equiv 3$. Damit $k \\equiv 3 \\pmod 7$, d.h. $k = 3 + 7m$.",
+                "Schritt 5: Lösung\n$x = 2 + 5(3 + 7m) = 17 + 35m$, also $x \\equiv 17 \\pmod{35}$.",
+                "Schritt 6: Probe\n$17 = 3\\cdot5 + 2$ ✓ ($17 \\equiv 2 \\bmod 5$), $17 = 2\\cdot7 + 3$ ✓ ($17 \\equiv 3 \\bmod 7$).",
+                "Schritt 7: Merke: Worauf es ankommt\nDer Chinesische Restsatz zerlegt ein Problem modulo $mn$ (bei $\\operatorname{ggT}(m,n) = 1$) in zwei kleinere Probleme. Er wird bei schnellen Rechnungen mit großen Zahlen (z.B. RSA) ausgenutzt."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Erweiterter euklidischer Algorithmus",
+            "description": "Finden Sie mit Hilfe des erweiterten euklidischen Algorithmus ganze Zahlen $x$ und $y$, sodass $1071x + 462y = \\text{ggT}(1071, 462)$ gilt.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Rückwärtsrechnung des euklidischen Algorithmus\nAus der vorherigen Aufgabe wissen wir:\n$21 = 462 - 147 \\cdot 3$",
+                "Schritt 2: Ersetzen von 147\n$147 = 1071 - 462 \\cdot 2$\nAlso: $21 = 462 - (1071 - 462 \\cdot 2) \\cdot 3$",
+                "Schritt 3: Vereinfachen\n$21 = 462 - 1071 \\cdot 3 + 462 \\cdot 6$\n$21 = 462 \\cdot 7 - 1071 \\cdot 3$",
+                "Schritt 4: Ergebnis\n$x = -3$, $y = 7$\n$1071 \\cdot (-3) + 462 \\cdot 7 = 21$"
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Lineare diophantische Gleichung",
+            "description": "Finden Sie alle ganzzahligen Lösungen der Gleichung $1071x + 462y = 42$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Überprüfung der Lösbarkeit\nDa $\\text{ggT}(1071, 462) = 21$ und $21$ teilt $42$, ist die Gleichung lösbar",
+                "Schritt 2: Finden einer speziellen Lösung\nTeilen wir beide Seiten durch 21:\n$51x + 22y = 2$\nAus der vorherigen Aufgabe wissen wir:\n$51 \\cdot (-3) + 22 \\cdot 7 = 1$\nAlso: $51 \\cdot (-6) + 22 \\cdot 14 = 2$",
+                "Schritt 3: Allgemeine Lösung\nDie allgemeine Lösung ist:\n$x = -6 + 22k$\n$y = 14 - 51k$\nfür $k \\in \\mathbb{Z}$",
+                "Schritt 4: Verifikation\nEinsetzen in die ursprüngliche Gleichung:\n$1071(-6 + 22k) + 462(14 - 51k) = 42$"
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "Teilerfremdheit und ggT",
+            "description": "Zeigen Sie: Wenn $\\text{ggT}(a,b) = 1$ und $\\text{ggT}(a,c) = 1$, dann ist $\\text{ggT}(a,bc) = 1$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Definition der Teilerfremdheit\n$\\text{ggT}(a,b) = 1$ bedeutet, dass $a$ und $b$ teilerfremd sind",
+                "Schritt 2: Anwendung des Lemmas von Bézout\nEs existieren ganze Zahlen $x_1,y_1,x_2,y_2$ mit:\n$ax_1 + by_1 = 1$\n$ax_2 + cy_2 = 1$",
+                "Schritt 3: Multiplikation der Gleichungen\n$(ax_1 + by_1)(ax_2 + cy_2) = 1$\n$a(ax_1x_2 + bx_1y_2 + cx_2y_1) + bc(y_1y_2) = 1$",
+                "Schritt 4: Schlussfolgerung\nDa sich 1 als Linearkombination von $a$ und $bc$ darstellen lässt, sind $a$ und $bc$ teilerfremd"
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und kgV",
+            "description": "Beweisen Sie: Für alle natürlichen Zahlen $a,b$ gilt $\\text{ggT}(a,b) \\cdot \\text{kgV}(a,b) = a \\cdot b$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Primfaktorzerlegung\nSei $a = \\prod_{p \\text{ prim}} p^{\\alpha_p}$\n$b = \\prod_{p \\text{ prim}} p^{\\beta_p}$",
+                "Schritt 2: Definition von ggT und kgV\n$\\text{ggT}(a,b) = \\prod_{p \\text{ prim}} p^{\\min(\\alpha_p,\\beta_p)}$\n$\\text{kgV}(a,b) = \\prod_{p \\text{ prim}} p^{\\max(\\alpha_p,\\beta_p)}$",
+                "Schritt 3: Multiplikation\n$\\text{ggT}(a,b) \\cdot \\text{kgV}(a,b) = \\prod_{p \\text{ prim}} p^{\\min(\\alpha_p,\\beta_p) + \\max(\\alpha_p,\\beta_p)}$",
+                "Schritt 4: Vereinfachung\n$\\min(\\alpha_p,\\beta_p) + \\max(\\alpha_p,\\beta_p) = \\alpha_p + \\beta_p$\nAlso: $\\text{ggT}(a,b) \\cdot \\text{kgV}(a,b) = a \\cdot b$"
+            ]
+        },
+        {
+            "id": 32,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Kongruenzen",
+            "description": "Lösen Sie die Kongruenz $1071x \\equiv 42 \\mod 462$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Überprüfung der Lösbarkeit\n$\\text{ggT}(1071, 462) = 21$ teilt 42, also ist die Kongruenz lösbar",
+                "Schritt 2: Vereinfachung\nTeilen durch 21:\n$51x \\equiv 2 \\mod 22$",
+                "Schritt 3: Finden des Inversen\nWir suchen $y$ mit $51y \\equiv 1 \\mod 22$\n$51 \\equiv 7 \\mod 22$\n$7 \\cdot 19 \\equiv 1 \\mod 22$\nAlso ist $y = 19$ das Inverse",
+                "Schritt 4: Lösung\n$x \\equiv 2 \\cdot 19 \\mod 22$\n$x \\equiv 38 \\mod 22$\n$x \\equiv 16 \\mod 22$\nAllgemeine Lösung: $x = 16 + 22k$ für $k \\in \\mathbb{Z}$"
+            ]
+        },
+        {
+            "id": 33,
+            "topic": "Größter gemeinsamer Teiler",
+            "title": "ggT und Fibonacci-Zahlen",
+            "description": "Zeigen Sie: $\\text{ggT}(F_n, F_{n+1}) = 1$ für alle $n \\in \\mathbb{N}$, wobei $F_n$ die $n$-te Fibonacci-Zahl ist.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Induktionsanfang\nFür $n=1$: $F_1 = 1$, $F_2 = 1$, also $\\text{ggT}(1,1) = 1$",
+                "Schritt 2: Induktionsvoraussetzung\nAnnahme: $\\text{ggT}(F_k, F_{k+1}) = 1$ für ein $k \\in \\mathbb{N}$",
+                "Schritt 3: Induktionsschritt\n$\\text{ggT}(F_{k+1}, F_{k+2}) = \\text{ggT}(F_{k+1}, F_{k+1} + F_k)$\n$= \\text{ggT}(F_{k+1}, F_k) = \\text{ggT}(F_k, F_{k+1}) = 1$",
+                "Schritt 4: Schlussfolgerung\nNach dem Prinzip der vollständigen Induktion gilt die Aussage für alle $n \\in \\mathbb{N}$"
+            ]
+        },
+        {
+            "id": 34,
             "topic": "Größter gemeinsamer Teiler",
             "title": "ggT und lineare diophantische Gleichungen",
             "description": "Finden Sie alle ganzzahligen Lösungen von $234x + 182y = 52$.",
@@ -340,33 +490,7 @@
             ]
         },
         {
-            "id": 27,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "ggT und Polynome mit Parametern",
-            "description": "Für welche Werte von $a \\in \\mathbb{Q}$ haben die Polynome $f(x) = x^2 + ax + 1$ und $g(x) = x^2 + x + a$ einen nicht-trivialen ggT über $\\mathbb{Q}[x]$?",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Polynomdivision\n$f(x) = g(x) \\cdot 1 + (a-1)x + (1-a)$",
-                "Schritt 2: Bedingung für nicht-trivialen ggT\n$(a-1)x + (1-a)$ muss ein Teiler von $g(x)$ sein",
-                "Schritt 3: Analyse\n$a = 1$ ist die einzige Lösung"
-            ]
-        },
-        {
-            "id": 28,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "ggT und Matrizen über Polynomringen",
-            "description": "Berechnen Sie $\\text{ggT}(\\det(A), \\det(B))$ für $A = \\begin{pmatrix} x & 1 \\\\ 1 & x \\end{pmatrix}$ und $B = \\begin{pmatrix} x+1 & 1 \\\\ 1 & x+1 \\end{pmatrix}$ über $\\mathbb{Q}[x]$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Determinanten\n$\\det(A) = x^2 - 1$\n$\\det(B) = (x+1)^2 - 1 = x^2 + 2x$",
-                "Schritt 2: Polynomdivision\n$x^2 + 2x = (x^2 - 1) \\cdot 1 + (2x + 1)$",
-                "Schritt 3: Ergebnis\n$\\text{ggT} = 1$"
-            ]
-        },
-        {
-            "id": 29,
+            "id": 35,
             "topic": "Größter gemeinsamer Teiler",
             "title": "ggT und Kongruenzen mit Parametern",
             "description": "Für welche Werte von $a \\in \\mathbb{Z}$ ist die Kongruenz $ax \\equiv 1 \\mod 15$ lösbar?",
@@ -379,61 +503,7 @@
             ]
         },
         {
-            "id": 30,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "ggT und Fibonacci-Zahlen mit Parametern",
-            "description": "Zeigen Sie: $\\text{ggT}(F_n, F_{n+k}) = F_{\\text{ggT}(n,k)}$ für alle $n,k \\in \\mathbb{N}$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Induktionsanfang\nFür $k=1$: $\\text{ggT}(F_n, F_{n+1}) = 1 = F_1$",
-                "Schritt 2: Induktionsschritt\n$\\text{ggT}(F_n, F_m) = \\text{ggT}(F_n, F_{m-n} \\cdot F_{n+1} + F_{m-n-1} \\cdot F_n)$",
-                "Schritt 3: Vereinfachung\n$= \\text{ggT}(F_n, F_{m-n})$",
-                "Schritt 4: Schlussfolgerung\n$= F_{\\text{ggT}(n,m)}$"
-            ]
-        },
-        {
-            "id": 31,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "ggT und Polynome über endlichen Körpern mit Parametern",
-            "description": "Für welche $a \\in \\mathbb{F}_2$ haben die Polynome $f(x) = x^3 + ax + 1$ und $g(x) = x^2 + x + a$ einen nicht-trivialen ggT über $\\mathbb{F}_2[x]$?",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Polynomdivision\n$f(x) = g(x) \\cdot x + (a+1)x + 1$",
-                "Schritt 2: Bedingung für nicht-trivialen ggT\n$(a+1)x + 1$ muss ein Teiler von $g(x)$ sein",
-                "Schritt 3: Analyse\n$a = 1$ ist die einzige Lösung in $\\mathbb{F}_2$"
-            ]
-        },
-        {
-            "id": 32,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "ggT und Matrizen über Polynomringen mit Parametern",
-            "description": "Für welche $a \\in \\mathbb{Q}$ haben die Matrizen $A = \\begin{pmatrix} x & a \\\\ a & x \\end{pmatrix}$ und $B = \\begin{pmatrix} x+1 & a \\\\ a & x+1 \\end{pmatrix}$ über $\\mathbb{Q}[x]$ einen nicht-trivialen ggT ihrer Determinanten?",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Determinanten\n$\\det(A) = x^2 - a^2$\n$\\det(B) = (x+1)^2 - a^2$",
-                "Schritt 2: Polynomdivision\n$(x+1)^2 - a^2 = (x^2 - a^2) \\cdot 1 + (2x + 1)$",
-                "Schritt 3: Bedingung für nicht-trivialen ggT\n$2x + 1$ muss ein Teiler von $x^2 - a^2$ sein",
-                "Schritt 4: Analyse\n$a = \\pm \\frac{1}{2}$ sind die einzigen Lösungen"
-            ]
-        },
-        {
-            "id": 33,
-            "topic": "Größter gemeinsamer Teiler",
-            "title": "ggT und Kongruenzen mit mehreren Parametern",
-            "description": "Für welche $a,b \\in \\mathbb{Z}$ ist das System $ax \\equiv 1 \\mod 15$, $bx \\equiv 1 \\mod 15$ lösbar?",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Bedingungen für Lösbarkeit\n$\\text{ggT}(a,15) = 1$ und $\\text{ggT}(b,15) = 1$",
-                "Schritt 2: Analyse\n$a$ und $b$ müssen teilerfremd zu 15 sein",
-                "Schritt 3: Ergebnis\n$a,b \\in \\{1,2,4,7,8,11,13,14\\} + 15\\mathbb{Z}$"
-            ]
-        },
-        {
-            "id": 34,
+            "id": 36,
             "topic": "Größter gemeinsamer Teiler",
             "title": "ggT und Fibonacci-Zahlen mit mehreren Parametern",
             "description": "Zeigen Sie: $\\text{ggT}(F_n, F_m) = F_{\\text{ggT}(n,m)}$ für alle $n,m \\in \\mathbb{N}$.",
@@ -447,4 +517,4 @@
             ]
         }
     ]
-} 
+}

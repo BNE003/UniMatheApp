@@ -3,6 +3,82 @@
         {
             "id": 1,
             "topic": "Complex Numbers",
+            "title": "Powers of i",
+            "description": "Compute $i^{2023}$ and $i^{-3}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe powers of $i$ repeat with period $4$: $i^1 = i$, $i^2 = -1$, $i^3 = -i$, $i^4 = 1$. We reduce the exponent modulo $4$.",
+                "Step 2: $i^{2023}$\n$2023 = 4\\cdot505 + 3$, so $i^{2023} = (i^4)^{505}\\cdot i^3 = 1\\cdot(-i) = -i$.",
+                "Step 3: $i^{-3}$\n$i^{-3} = \\frac{1}{i^3} = \\frac{1}{-i} = \\frac{i}{-i\\cdot i} = \\frac{i}{1} = i$. Alternatively: $-3 \\equiv 1 \\pmod 4$, so $i^{-3} = i^1 = i$.",
+                "Step 4: Check\n$i\\cdot i^3 = i^4 = 1$, so $i^3 = -i$ is the inverse of $i$ and $i^{-3} = (i^{-1})^3 = (-i)^3 = i$ ✓.",
+                "Step 5: Takeaway: What to remember\nAlways take the exponent modulo $4$. Negative exponents run the cycle backwards: $i^{-1} = -i$, $i^{-2} = -1$."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Complex Numbers",
+            "title": "Multiplication and division in standard form",
+            "description": "Compute $(3 + 2i)(1 - i)$ and $\\dfrac{4 + 2i}{1 + i}$ in the form $a + bi$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nProducts are expanded using $i^2 = -1$. Quotients are expanded with the **complex conjugate of the denominator** so that the denominator becomes real: $z\\bar z = |z|^2$.",
+                "Step 2: Product\n$(3+2i)(1-i) = 3 - 3i + 2i - 2i^2 = 3 - i + 2 = 5 - i$.",
+                "Step 3: Expand the quotient\n$\\dfrac{4+2i}{1+i}\\cdot\\dfrac{1-i}{1-i} = \\dfrac{(4+2i)(1-i)}{(1+i)(1-i)} = \\dfrac{4 - 4i + 2i - 2i^2}{1 + 1} = \\dfrac{6 - 2i}{2} = 3 - i$.",
+                "Step 4: Check\n$(3 - i)(1 + i) = 3 + 3i - i - i^2 = 3 + 2i + 1 = 4 + 2i$ ✓.",
+                "Step 5: Takeaway: What to remember\nCheck for quotients: result times denominator must give the numerator. The real denominator $2$ arose from $(1+i)(1-i) = 1^2 + 1^2$."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Complex Numbers",
+            "title": "Absolute value and argument",
+            "description": "Determine the absolute value and argument of $z = -\\sqrt3 + i$ and give $z$ in polar form.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe absolute value is the distance from the origin, the argument the angle to the positive real axis. For the argument one must pay attention to the **quadrant**: $z$ lies in the second quadrant.",
+                "Step 2: Absolute value\n$|z| = \\sqrt{(-\\sqrt3)^2 + 1^2} = \\sqrt{3 + 1} = 2$.",
+                "Step 3: Reference angle\n$\\tan\\alpha = \\frac{|\\operatorname{Im}z|}{|\\operatorname{Re}z|} = \\frac{1}{\\sqrt3}$, so $\\alpha = 30^\\circ = \\frac\\pi6$.",
+                "Step 4: Argument in the second quadrant\n$\\arg z = \\pi - \\frac\\pi6 = \\frac{5\\pi}{6}$ ($150^\\circ$).",
+                "Step 5: Polar form and check\n$z = 2\\left(\\cos\\frac{5\\pi}{6} + i\\sin\\frac{5\\pi}{6}\\right) = 2\\left(-\\frac{\\sqrt3}{2} + \\frac12 i\\right) = -\\sqrt3 + i$ ✓.",
+                "Step 6: Takeaway: What to remember\nThe calculator's arctangent only returns values in $(-\\frac\\pi2,\\frac\\pi2)$; in the second and third quadrants one must add $\\pi$ or use quadrant logic. A sketch of the Gaussian plane helps."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Complex Numbers",
+            "title": "Conjugation and absolute value",
+            "description": "Let $z = 3 - 4i$. Compute $\\bar z$, $z + \\bar z$, $z\\bar z$ and $|z|$, and compare $z\\bar z$ with $|z|^2$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe conjugate $\\bar z$ arises by reflection in the real axis (flip the sign of the imaginary part). The sum and product of $z$ and $\\bar z$ are always **real**.",
+                "Step 2: Conjugate and sum\n$\\bar z = 3 + 4i$ and $z + \\bar z = 6 = 2\\operatorname{Re}z$.",
+                "Step 3: Product\n$z\\bar z = (3-4i)(3+4i) = 9 + 12i - 12i - 16i^2 = 9 + 16 = 25$.",
+                "Step 4: Absolute value and comparison\n$|z| = \\sqrt{3^2 + (-4)^2} = 5$ and $|z|^2 = 25 = z\\bar z$ ✓.",
+                "Step 5: Takeaway: What to remember\nIn general: $z + \\bar z = 2\\operatorname{Re}z$, $z - \\bar z = 2i\\operatorname{Im}z$, $z\\bar z = |z|^2$. This gives the inverse $z^{-1} = \\frac{\\bar z}{|z|^2}$."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Complex Numbers",
+            "title": "Square root of −9 and a quadratic equation",
+            "description": "Solve $z^2 + 9 = 0$ and $z^2 + 4z + 13 = 0$ in $\\mathbb{C}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nIn $\\mathbb{C}$ every quadratic equation has solutions. With $i^2 = -1$ we have $\\sqrt{-a} = \\pm i\\sqrt a$ for $a > 0$. The quadratic formula remains valid; with negative discriminant one gets complex conjugate solutions.",
+                "Step 2: $z^2 + 9 = 0$\n$z^2 = -9 = 9i^2$, so $z = \\pm3i$.",
+                "Step 3: $z^2 + 4z + 13 = 0$\n$z = \\frac{-4 \\pm \\sqrt{16 - 52}}{2} = \\frac{-4 \\pm \\sqrt{-36}}{2} = \\frac{-4 \\pm 6i}{2} = -2 \\pm 3i$.",
+                "Step 4: Check\nWith $z = -2 + 3i$: $z^2 = 4 - 12i + 9i^2 = -5 - 12i$; $4z = -8 + 12i$; sum $-5 - 12i - 8 + 12i + 13 = 0$ ✓.",
+                "Step 5: Takeaway: What to remember\nIf a real polynomial has the complex root $z$, then $\\bar z$ is a root as well (solutions come in pairs). Fundamental theorem of algebra: a polynomial of degree $n$ has $n$ complex roots (with multiplicity)."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Complex Numbers",
             "title": "Addition and Subtraction of Complex Numbers",
             "description": "Calculate the sum and difference of the complex numbers $z_1 = 3 + 4i$ and $z_2 = 2 - 5i$.",
             "difficulty": "easy",
@@ -14,7 +90,7 @@
             ]
         },
         {
-            "id": 2,
+            "id": 7,
             "topic": "Complex Numbers",
             "title": "Multiplication of Complex Numbers",
             "description": "Calculate the product of the complex numbers $z_1 = 2 + 3i$ and $z_2 = 1 - 4i$.",
@@ -27,7 +103,7 @@
             ]
         },
         {
-            "id": 3,
+            "id": 8,
             "topic": "Complex Numbers",
             "title": "Complex Conjugate",
             "description": "Determine the complex conjugate of $z = -2 + 5i$ and calculate $z \\cdot \\overline{z}$.",
@@ -40,7 +116,7 @@
             ]
         },
         {
-            "id": 4,
+            "id": 9,
             "topic": "Complex Numbers",
             "title": "Magnitude of a Complex Number",
             "description": "Calculate the magnitude of the complex number $z = 4 - 3i$.",
@@ -53,22 +129,7 @@
             ]
         },
         {
-            "id": 5,
-            "topic": "Complex Numbers",
-            "title": "Division of Complex Numbers",
-            "description": "Perform the division $\\frac{2 + 3i}{1 - i}$ and express the result in the form $a + bi$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Method of Complex Conjugate\nWhen dividing complex numbers, we multiply numerator and denominator by the complex conjugate of the denominator:\n$\\frac{2 + 3i}{1 - i} = \\frac{(2 + 3i)(1 + i)}{(1 - i)(1 + i)}$",
-                "Step 2: Calculation of Denominator\n$(1 - i)(1 + i) = 1 \\cdot 1 + 1 \\cdot i - i \\cdot 1 - i \\cdot i = 1 + i - i - i^2 = 1 - (-1) = 2$",
-                "Step 3: Calculation of Numerator\n$(2 + 3i)(1 + i) = 2 \\cdot 1 + 2 \\cdot i + 3i \\cdot 1 + 3i \\cdot i = 2 + 2i + 3i + 3i^2 = 2 + 5i + 3 \\cdot (-1) = 2 + 5i - 3 = -1 + 5i$",
-                "Step 4: Division\n$\\frac{2 + 3i}{1 - i} = \\frac{-1 + 5i}{2} = -\\frac{1}{2} + \\frac{5}{2}i$",
-                "Step 5: Verification by Multiplication\n$(-\\frac{1}{2} + \\frac{5}{2}i) \\cdot (1 - i) = -\\frac{1}{2} \\cdot 1 - \\frac{1}{2} \\cdot (-i) + \\frac{5}{2}i \\cdot 1 + \\frac{5}{2}i \\cdot (-i)$\n$= -\\frac{1}{2} + \\frac{1}{2}i + \\frac{5}{2}i - \\frac{5}{2}i^2 = -\\frac{1}{2} + 3i + \\frac{5}{2} = 2 + 3i$"
-            ]
-        },
-        {
-            "id": 6,
+            "id": 10,
             "topic": "Complex Numbers",
             "title": "Polar Form of a Complex Number",
             "description": "Express the complex number $z = -1 + i$ in polar form, i.e., in the form $z = r \\cdot e^{i\\varphi}$ with $r > 0$ and $\\varphi \\in [0, 2\\pi)$.",
@@ -82,7 +143,7 @@
             ]
         },
         {
-            "id": 7,
+            "id": 11,
             "topic": "Complex Numbers",
             "title": "Calculating with Roots of Unity",
             "description": "Calculate $(1 + i)^6$ using the polar representation of complex numbers.",
@@ -96,7 +157,7 @@
             ]
         },
         {
-            "id": 8,
+            "id": 12,
             "topic": "Complex Numbers",
             "title": "Applying Euler's Formula",
             "description": "Calculate $\\cos(\\frac{\\pi}{3}) + i\\sin(\\frac{\\pi}{3})$ using Euler's formula and also determine $\\cos(\\frac{\\pi}{3})$ and $\\sin(\\frac{\\pi}{3})$.",
@@ -110,23 +171,7 @@
             ]
         },
         {
-            "id": 9,
-            "topic": "Complex Numbers",
-            "title": "Basic Operations with Complex Numbers",
-            "description": "Perform the following operations and express the result in the form $a + bi$:\n(a) $(3 - 2i) + (-1 + 4i)$\n(b) $(3 - 2i) \\cdot (-1 + 4i)$\n(c) $\\frac{3 - 2i}{-1 + 4i}$",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Addition\n$(3 - 2i) + (-1 + 4i) = (3 + (-1)) + (-2 + 4)i = 2 + 2i$",
-                "Step 2: Multiplication\n$(3 - 2i) \\cdot (-1 + 4i) = 3 \\cdot (-1) + 3 \\cdot 4i + (-2i) \\cdot (-1) + (-2i) \\cdot 4i$\n$= -3 + 12i + 2i - 8i^2 = -3 + 14i - 8 \\cdot (-1) = -3 + 14i + 8 = 5 + 14i$",
-                "Step 3: Division\n$\\frac{3 - 2i}{-1 + 4i} = \\frac{(3 - 2i)(-1 - 4i)}{(-1 + 4i)(-1 - 4i)}$",
-                "Step 4: Calculation of Denominator\n$(-1 + 4i)(-1 - 4i) = 1 + 4i - 4i - 16i^2 = 1 - 16 \\cdot (-1) = 1 + 16 = 17$",
-                "Step 5: Calculation of Numerator\n$(3 - 2i)(-1 - 4i) = -3 - 12i + 2i - 8i^2 = -3 - 10i - 8 \\cdot (-1) = -3 - 10i + 8 = 5 - 10i$",
-                "Step 6: Division\n$\\frac{3 - 2i}{-1 + 4i} = \\frac{5 - 10i}{17} = \\frac{5}{17} - \\frac{10}{17}i$"
-            ]
-        },
-        {
-            "id": 10,
+            "id": 13,
             "topic": "Complex Numbers",
             "title": "Complex Plane and Geometric Interpretation",
             "description": "Represent the complex number $z = 2 - 3i$ in the complex plane and calculate its magnitude and argument (angle to the positive real axis).",
@@ -140,7 +185,101 @@
             ]
         },
         {
-            "id": 11,
+            "id": 14,
+            "topic": "Complex Numbers",
+            "title": "Linear equation in ℂ",
+            "description": "Solve $(2+i)z + 3 - i = 4 + 2i$ for $z$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nLinear equations in $\\mathbb{C}$ are solved as in $\\mathbb{R}$: move constants to the right, divide by the coefficient. The division is carried out with the conjugated denominator.",
+                "Step 2: Rearrange\n$(2+i)z = 4 + 2i - 3 + i = 1 + 3i$.",
+                "Step 3: Divide\n$z = \\frac{1+3i}{2+i}\\cdot\\frac{2-i}{2-i} = \\frac{(1+3i)(2-i)}{4+1} = \\frac{2 - i + 6i - 3i^2}{5} = \\frac{5 + 5i}{5} = 1 + i$.",
+                "Step 4: Check\n$(2+i)(1+i) + 3 - i = 2 + 2i + i + i^2 + 3 - i = 2 + 2i - 1 + 3 = 4 + 2i$ ✓.",
+                "Step 5: Takeaway: What to remember\nThe denominator becomes real via $(a+bi)(a-bi) = a^2 + b^2$. Complex linear systems are solved with Gauss or Cramer as over $\\mathbb{R}$."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Complex Numbers",
+            "title": "Multiplication in polar form",
+            "description": "Compute $z_1z_2$ and $\\frac{z_1}{z_2}$ for $z_1 = 2e^{i\\pi/6}$ and $z_2 = 3e^{i\\pi/3}$ and give the results in the form $a + bi$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nIn polar form the absolute values are **multiplied** and the arguments **added** (for division: divide absolute values, subtract arguments). This is the main advantage of polar form.",
+                "Step 2: Product\n$z_1z_2 = 2\\cdot3\\,e^{i(\\pi/6 + \\pi/3)} = 6e^{i\\pi/2} = 6\\left(\\cos\\frac\\pi2 + i\\sin\\frac\\pi2\\right) = 6i$.",
+                "Step 3: Quotient\n$\\frac{z_1}{z_2} = \\frac23 e^{i(\\pi/6 - \\pi/3)} = \\frac23 e^{-i\\pi/6} = \\frac23\\left(\\frac{\\sqrt3}{2} - \\frac i2\\right) = \\frac{\\sqrt3}{3} - \\frac13 i$.",
+                "Step 4: Check in standard form\n$z_1 = 2\\left(\\frac{\\sqrt3}{2} + \\frac i2\\right) = \\sqrt3 + i$, $z_2 = 3\\left(\\frac12 + \\frac{\\sqrt3}{2}i\\right) = \\frac32 + \\frac{3\\sqrt3}{2}i$. Product: $\\sqrt3\\cdot\\frac32 - \\frac{3\\sqrt3}{2} + i\\left(\\frac{9}{2} + \\frac32\\right) = 0 + 6i$ ✓.",
+                "Step 5: Takeaway: What to remember\nGeometrically multiplication by $z_2$ is a **rotation-scaling**: rotation by $\\arg z_2$ and scaling by $|z_2|$. That is why powers and roots are easy in polar form."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Complex Numbers",
+            "title": "Power with de Moivre's formula",
+            "description": "Compute $(1 + i)^{10}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nDe Moivre's formula reads $\\big(r(\\cos\\varphi + i\\sin\\varphi)\\big)^n = r^n(\\cos n\\varphi + i\\sin n\\varphi)$. We bring $1+i$ into polar form.",
+                "Step 2: Polar form\n$|1+i| = \\sqrt2$, $\\arg(1+i) = \\frac\\pi4$. So $1 + i = \\sqrt2\\left(\\cos\\frac\\pi4 + i\\sin\\frac\\pi4\\right)$.",
+                "Step 3: Raise to the power\n$(1+i)^{10} = (\\sqrt2)^{10}\\left(\\cos\\frac{10\\pi}{4} + i\\sin\\frac{10\\pi}{4}\\right) = 32\\left(\\cos\\frac{5\\pi}{2} + i\\sin\\frac{5\\pi}{2}\\right)$.",
+                "Step 4: Reduce the angle\n$\\frac{5\\pi}{2} = 2\\pi + \\frac\\pi2$, so $\\cos\\frac{5\\pi}2 = 0$ and $\\sin\\frac{5\\pi}2 = 1$. Result: $32i$.",
+                "Step 5: Check by repeated squaring\n$(1+i)^2 = 2i$, $(1+i)^4 = (2i)^2 = -4$, $(1+i)^8 = 16$, $(1+i)^{10} = 16\\cdot2i = 32i$ ✓.",
+                "Step 6: Takeaway: What to remember\nFor small exponents squaring is faster; for large ones ($n = 100$) de Moivre is unbeatable. Reduce the argument modulo $2\\pi$."
+            ]
+        },
+        {
+            "id": 17,
+            "topic": "Complex Numbers",
+            "title": "Cube roots",
+            "description": "Determine all complex solutions of $z^3 = 8$ and describe their position.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe equation $z^n = w$ has exactly $n$ solutions. With $w = |w|e^{i\\varphi}$ they are $z_k = \\sqrt[n]{|w|}\\,e^{i(\\varphi + 2\\pi k)/n}$ for $k = 0,\\dots,n-1$.",
+                "Step 2: Polar form of $8$\n$8 = 8e^{i\\cdot0}$, so $|w| = 8$, $\\varphi = 0$ and $\\sqrt[3]{8} = 2$.",
+                "Step 3: The three solutions\n$z_k = 2e^{2\\pi ik/3}$: $z_0 = 2$, $z_1 = 2e^{2\\pi i/3} = 2\\left(-\\frac12 + \\frac{\\sqrt3}2 i\\right) = -1 + \\sqrt3 i$, $z_2 = 2e^{4\\pi i/3} = -1 - \\sqrt3 i$.",
+                "Step 4: Check\n$z_1^2 = (-1 + \\sqrt3 i)^2 = 1 - 2\\sqrt3 i - 3 = -2 - 2\\sqrt3 i$ and $z_1^3 = (-2 - 2\\sqrt3 i)(-1 + \\sqrt3 i) = 2 - 2\\sqrt3 i + 2\\sqrt3 i + 6 = 8$ ✓.",
+                "Step 5: Geometry\nThe solutions lie on the circle of radius $2$ at angular spacing $120^\\circ$ and form an equilateral triangle. Their sum is $2 + (-1) + (-1) = 0$ (coefficient of $z^2$ in $z^3 - 8$).",
+                "Step 6: Takeaway: What to remember\nThe $n$-th roots of a number form a regular $n$-gon. The solutions of $z^n = 1$ are called **roots of unity**; their sum is $0$ for $n \\geq 2$."
+            ]
+        },
+        {
+            "id": 18,
+            "topic": "Complex Numbers",
+            "title": "Sets in the Gaussian plane",
+            "description": "Describe the set $M = \\{z \\in \\mathbb{C} \\mid |z - 1| = |z + i|\\}$ geometrically and by an equation in $x,y$ with $z = x + iy$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\n$|z - a|$ is the distance from $z$ to $a$. The condition says: $z$ has the same distance from $1$ and from $-i$ — this is the **perpendicular bisector** of the connecting segment.",
+                "Step 2: Squaring\nWith $z = x + iy$: $|z - 1|^2 = (x-1)^2 + y^2$ and $|z + i|^2 = x^2 + (y+1)^2$. Equating: $(x-1)^2 + y^2 = x^2 + (y+1)^2$.",
+                "Step 3: Expanding\n$x^2 - 2x + 1 + y^2 = x^2 + y^2 + 2y + 1 \\iff -2x = 2y \\iff y = -x$.",
+                "Step 4: Geometric interpretation\n$M$ is the line $y = -x$ through the origin. It passes through the midpoint $\\frac{1 + (-i)}{2} = \\frac12 - \\frac i2$ of the points $1$ and $-i$ and is perpendicular to the connecting direction $1 + i$.",
+                "Step 5: Check\n$z = 1 - i$ ($x = 1$, $y = -1$): $|z - 1| = |-i| = 1$ and $|z + i| = |1| = 1$ ✓.",
+                "Step 6: Takeaway: What to remember\nTypical sets: $|z - a| = r$ is a circle, $|z - a| = |z - b|$ a line, $\\operatorname{Re}z = c$ a parallel to the imaginary axis. For absolute-value equations square and compute in $x,y$."
+            ]
+        },
+        {
+            "id": 19,
+            "topic": "Complex Numbers",
+            "title": "Square root of a complex number in standard form",
+            "description": "Determine all $z \\in \\mathbb{C}$ with $z^2 = 3 + 4i$ without polar form.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe put $z = a + bi$ with $a,b \\in \\mathbb{R}$, square and compare real and imaginary parts. This gives a real system of equations.",
+                "Step 2: System of equations\n$(a+bi)^2 = a^2 - b^2 + 2abi = 3 + 4i$, so $a^2 - b^2 = 3$ and $2ab = 4$, i.e. $ab = 2$.",
+                "Step 3: Solving\nFrom $b = \\frac2a$: $a^2 - \\frac{4}{a^2} = 3 \\Rightarrow a^4 - 3a^2 - 4 = 0 \\Rightarrow (a^2 - 4)(a^2 + 1) = 0$. Real: $a^2 = 4$, so $a = \\pm2$.",
+                "Step 4: Solutions\n$a = 2 \\Rightarrow b = 1$: $z = 2 + i$; $a = -2 \\Rightarrow b = -1$: $z = -2 - i$.",
+                "Step 5: Check\n$(2+i)^2 = 4 + 4i + i^2 = 3 + 4i$ ✓. The two solutions differ only in sign.",
+                "Step 6: Takeaway: What to remember\nEvery non-zero complex number has exactly two square roots $\\pm z$. Quadratic equations with complex coefficients can also be solved this way."
+            ]
+        },
+        {
+            "id": 20,
             "topic": "Complex Numbers",
             "title": "Solving Complex Equations",
             "description": "Solve the complex equation $z^2 + 2z + 5 = 0$.",
@@ -156,7 +295,7 @@
             ]
         },
         {
-            "id": 12,
+            "id": 21,
             "topic": "Complex Numbers",
             "title": "Power of a Complex Number",
             "description": "Calculate $(1 - i)^8$ in two different ways: by direct calculation and using the polar representation.",
@@ -170,7 +309,7 @@
             ]
         },
         {
-            "id": 13,
+            "id": 22,
             "topic": "Complex Numbers",
             "title": "De Moivre's Formula",
             "description": "Calculate $\\cos(3\\alpha) + i\\sin(3\\alpha)$ as a function of $\\cos(\\alpha) + i\\sin(\\alpha)$ using de Moivre's formula.",
@@ -187,25 +326,7 @@
             ]
         },
         {
-            "id": 14,
-            "topic": "Complex Numbers",
-            "title": "Complex Numbers in Geometry",
-            "description": "Given the points $A = 1+2i$, $B = 3-i$ and $C = 4+3i$ in the complex plane. Show that triangle ABC is right-angled using complex numbers.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Step 1: Calculation of Vectors\nWe calculate the vectors $\\overrightarrow{AB}$ and $\\overrightarrow{AC}$:\n$\\overrightarrow{AB} = B - A = (3-i) - (1+2i) = 2 - 3i$\n$\\overrightarrow{AC} = C - A = (4+3i) - (1+2i) = 3 + i$",
-                "Step 2: Checking Orthogonality\nTwo vectors in the complex plane $u$ and $v$ are orthogonal if and only if $\\text{Re}(u \\cdot \\overline{v}) = 0$, where $\\overline{v}$ is the complex conjugate of $v$.\n$\\overrightarrow{AB} \\cdot \\overline{\\overrightarrow{AC}} = (2 - 3i) \\cdot (3 - i) = 2 \\cdot 3 + 2 \\cdot (-i) + (-3i) \\cdot 3 + (-3i) \\cdot (-i)$\n$= 6 - 2i - 9i - 3i^2 = 6 - 11i - 3 \\cdot (-1) = 6 - 11i + 3 = 9 - 11i$",
-                "Step 3: Evaluation\nSince $\\text{Re}(\\overrightarrow{AB} \\cdot \\overline{\\overrightarrow{AC}}) = 9 \\neq 0$, the vectors $\\overrightarrow{AB}$ and $\\overrightarrow{AC}$ are not orthogonal. We need to check the other angles.",
-                "Step 4: Checking Other Angles\nWe calculate $\\overrightarrow{BA}$ and $\\overrightarrow{BC}$:\n$\\overrightarrow{BA} = A - B = (1+2i) - (3-i) = -2 + 3i$\n$\\overrightarrow{BC} = C - B = (4+3i) - (3-i) = 1 + 4i$\n$\\overrightarrow{BA} \\cdot \\overline{\\overrightarrow{BC}} = (-2 + 3i) \\cdot (1 - 4i) = -2 + 8i + 3i - 12i^2 = -2 + 11i - 12 \\cdot (-1) = -2 + 11i + 12 = 10 + 11i$",
-                "Step 5: Checking the Last Angle\nWe calculate $\\overrightarrow{CA}$ and $\\overrightarrow{CB}$:\n$\\overrightarrow{CA} = A - C = (1+2i) - (4+3i) = -3 - i$\n$\\overrightarrow{CB} = B - C = (3-i) - (4+3i) = -1 - 4i$\n$\\overrightarrow{CA} \\cdot \\overline{\\overrightarrow{CB}} = (-3 - i) \\cdot (-1 + 4i) = 3 - 12i + i - 4i^2 = 3 - 11i - 4 \\cdot (-1) = 3 - 11i + 4 = 7 - 11i$",
-                "Step 6: Alternative Method with Scalar Product\nFor the scalar product, we can also use the formula $\\langle z_1, z_2 \\rangle = \\text{Re}(z_1 \\cdot \\overline{z_2})$.\n$\\langle \\overrightarrow{AB}, \\overrightarrow{BC} \\rangle = \\text{Re}((2 - 3i) \\cdot (1 - 4i)) = \\text{Re}(2 - 8i - 3i + 12) = \\text{Re}(14 - 11i) = 14$\n$\\langle \\overrightarrow{BC}, \\overrightarrow{CA} \\rangle = \\text{Re}((1 + 4i) \\cdot (-3 + i)) = \\text{Re}(-3 - 12i + i + 4) = \\text{Re}(1 - 11i) = 1$\n$\\langle \\overrightarrow{CA}, \\overrightarrow{AB} \\rangle = \\text{Re}((-3 - i) \\cdot (2 + 3i)) = \\text{Re}(-6 - 9i - 2i - 3i^2) = \\text{Re}(-6 - 11i + 3) = -3$",
-                "Step 7: Application of the Pythagorean Theorem\nFor a right-angled triangle: $|\\overrightarrow{AB}|^2 + |\\overrightarrow{BC}|^2 = |\\overrightarrow{AC}|^2$, if the angle at B is right.\n$|\\overrightarrow{AB}|^2 = |2 - 3i|^2 = 2^2 + (-3)^2 = 4 + 9 = 13$\n$|\\overrightarrow{BC}|^2 = |1 + 4i|^2 = 1^2 + 4^2 = 1 + 16 = 17$\n$|\\overrightarrow{AC}|^2 = |3 + i|^2 = 3^2 + 1^2 = 9 + 1 = 10$",
-                "Step 8: Conclusion\nSince $|\\overrightarrow{AB}|^2 + |\\overrightarrow{BC}|^2 = 13 + 17 = 30 \\neq 10 = |\\overrightarrow{AC}|^2$, the angle at B is not right.\nWe check the angle at A:\n$|\\overrightarrow{AB}|^2 + |\\overrightarrow{AC}|^2 = 13 + 10 = 23$\n$|\\overrightarrow{BC}|^2 = 17$\nSince $|\\overrightarrow{AB}|^2 + |\\overrightarrow{AC}|^2 \\neq |\\overrightarrow{BC}|^2$, the angle at A is not right.\nWe check the angle at C:\n$|\\overrightarrow{CA}|^2 + |\\overrightarrow{CB}|^2 = |-3 - i|^2 + |-1 - 4i|^2 = (3^2 + 1^2) + (1^2 + 4^2) = 10 + 17 = 27$\n$|\\overrightarrow{AB}|^2 = 13$\nSince $|\\overrightarrow{CA}|^2 + |\\overrightarrow{CB}|^2 = 27 \\neq 13 = |\\overrightarrow{AB}|^2$, the angle at C is also not right.\nTherefore, triangle ABC is not right-angled."
-            ]
-        },
-        {
-            "id": 15,
+            "id": 23,
             "topic": "Complex Numbers",
             "title": "Roots of Complex Numbers",
             "description": "Find all solutions of the equation $z^4 = 16$.",
@@ -221,123 +342,165 @@
             ]
         },
         {
-            "id": 16,
+            "id": 24,
             "topic": "Complex Numbers",
-            "title": "Conformal Mappings",
-            "description": "Investigate the complex mapping $f(z) = \\frac{z-i}{z+i}$ and determine its behavior at the points $z = i$ and $z = -i$. Also show that the real axis is mapped to a circle.",
+            "title": "Circle of Apollonius",
+            "description": "Show that $\\left\\{z \\in \\mathbb{C} \\;\\middle|\\; \\left|\\frac{z-1}{z+1}\\right| = 2\\right\\}$ is a circle and determine centre and radius.",
             "difficulty": "hard",
-            "points": 10,
+            "points": 12,
             "solutionSteps": [
-                "Step 1: Analysis of Poles and Domain\nThe function $f(z) = \\frac{z-i}{z+i}$ has a pole at $z = -i$, where the denominator becomes zero. The domain is thus $\\mathbb{C} \\setminus \\{-i\\}$.",
-                "Step 2: Behavior at $z = i$\nFor $z = i$ we get:\n$f(i) = \\frac{i-i}{i+i} = \\frac{0}{2i} = 0$\nThe mapping thus assigns the origin $f(i) = 0$ to the point $z = i$.",
-                "Step 3: Behavior at $z = -i$\nFor $z = -i$ the function is not defined, as the denominator becomes zero. It is a pole:\n$\\lim_{z \\to -i} f(z) = \\lim_{z \\to -i} \\frac{z-i}{z+i} = \\infty$",
-                "Step 4: Transformation for Points on the Real Axis\nFor $z = x$ with $x \\in \\mathbb{R}$:\n$f(x) = \\frac{x-i}{x+i} = \\frac{(x-i)(x-i)}{(x+i)(x-i)} = \\frac{x^2-2xi-1}{x^2+1} = \\frac{x^2-1}{x^2+1} - i\\frac{2x}{x^2+1}$",
-                "Step 5: Parameterization of the Image of the Real Axis\nWe set $u = \\text{Re}(f(x)) = \\frac{x^2-1}{x^2+1}$ and $v = \\text{Im}(f(x)) = -\\frac{2x}{x^2+1}$\nWe eliminate the parameter $x$ by expressing $x$ from both equations and equating them.\n\nFrom $v = -\\frac{2x}{x^2+1}$ we get by transformation: $v(x^2+1) = -2x$, thus $vx^2 + v = -2x$, which leads to $vx^2 + 2x + v = 0$. This is a quadratic equation for $x$.\n\nFrom $u = \\frac{x^2-1}{x^2+1}$ we get: $u(x^2+1) = x^2-1$, thus $ux^2+u = x^2-1$, which leads to $(1-u)x^2 - u - 1 = 0$.",
-                "Step 6: Proof of Circle Equation\nWe square the equations for $u$ and $v$:\n$u^2 = \\left(\\frac{x^2-1}{x^2+1}\\right)^2 = \\frac{(x^2-1)^2}{(x^2+1)^2}$\n$v^2 = \\left(-\\frac{2x}{x^2+1}\\right)^2 = \\frac{4x^2}{(x^2+1)^2}$\n\nBy addition we get:\n$u^2 + v^2 = \\frac{(x^2-1)^2 + 4x^2}{(x^2+1)^2} = \\frac{x^4-2x^2+1+4x^2}{(x^2+1)^2} = \\frac{x^4+2x^2+1}{(x^2+1)^2} = \\frac{(x^2+1)^2}{(x^2+1)^2} = 1$",
-                "Step 7: Further Investigation of Circle Equation\nWe can also transform the equation $u^2 + v^2 = 1$ to $(u-0)^2 + (v-0)^2 = 1$. This is the equation of a circle with radius 1 around the origin of the complex plane.\n\nAlternatively, we can show that for all $x \\in \\mathbb{R}$: $|f(x)| = 1$, because:\n$|f(x)| = \\left|\\frac{x-i}{x+i}\\right| = \\frac{|x-i|}{|x+i|} = \\frac{\\sqrt{x^2+1}}{\\sqrt{x^2+1}} = 1$",
-                "Step 8: Summary\nThe mapping $f(z) = \\frac{z-i}{z+i}$ maps the real axis to the unit circle. The point $z = i$ is mapped to the origin $f(i) = 0$, while the point $z = -i$ represents a pole where the function is not defined."
+                "Step 1: Overview: What is asked?\nThe condition says that the distance from $z$ to $1$ is twice the distance to $-1$. We square and compute in $x,y$ with $z = x + iy$ down to the circle equation (completing the square).",
+                "Step 2: Rearranging\n$|z-1| = 2|z+1| \\Rightarrow |z-1|^2 = 4|z+1|^2$. With $z = x+iy$: $(x-1)^2 + y^2 = 4\\big((x+1)^2 + y^2\\big)$.",
+                "Step 3: Expanding\n$x^2 - 2x + 1 + y^2 = 4x^2 + 8x + 4 + 4y^2 \\iff 3x^2 + 3y^2 + 10x + 3 = 0 \\iff x^2 + y^2 + \\tfrac{10}{3}x + 1 = 0$.",
+                "Step 4: Completing the square\n$\\left(x + \\tfrac53\\right)^2 + y^2 = \\tfrac{25}{9} - 1 = \\tfrac{16}{9}$. Circle with centre $\\left(-\\tfrac53, 0\\right)$ and radius $\\tfrac43$.",
+                "Step 5: Check\nIntersection with the real axis: $x = -\\frac53 \\pm \\frac43 \\in \\{-\\tfrac13, -3\\}$. For $z = -\\frac13$: $\\left|\\frac{-4/3}{2/3}\\right| = 2$ ✓; for $z = -3$: $\\left|\\frac{-4}{-2}\\right| = 2$ ✓.",
+                "Step 6: Takeaway: What to remember\nThe locus of all points with constant distance ratio $\\neq 1$ to two fixed points is a circle (Apollonius); for ratio $1$ it degenerates to the perpendicular bisector. The same picture arises with the Möbius transformation $\\frac{z-1}{z+1}$."
             ]
         },
         {
-            "id": 17,
+            "id": 25,
             "topic": "Complex Numbers",
-            "title": "Residue Theorem and Complex Integration",
-            "description": "Calculate the integral $\\int_C \\frac{z^2}{(z^2+1)^2} dz$ using the residue theorem, where $C$ is the positively oriented unit circle around the origin.",
+            "title": "Sums of trigonometric terms",
+            "description": "Compute $\\sum_{k=0}^{n-1}\\cos k\\varphi$ with the geometric sum formula and check $n = 3$, $\\varphi = \\frac\\pi3$.",
             "difficulty": "hard",
-            "points": 10,
+            "points": 12,
             "solutionSteps": [
-                "Step 1: Determination of Singularities\nThe function $f(z) = \\frac{z^2}{(z^2+1)^2}$ has singularities where the denominator becomes zero, i.e., at $z^2 + 1 = 0 \\Rightarrow z = \\pm i$.\nSince the integration path $C$ is the unit circle with radius 1 around the origin, the singularity $z = i$ lies inside $C$, while $z = -i$ lies outside $C$.",
-                "Step 2: Determination of Type of Singularity\nWe examine the singularity at $z = i$ more closely. Since the denominator $(z^2+1)^2$ is quadratic, it is a pole of second order.",
-                "Step 3: Application of Residue Theorem\nAccording to the residue theorem:\n$\\int_C f(z) dz = 2\\pi i \\cdot \\sum_{k} \\text{Res}(f, z_k)$\nwhere the sum runs over all poles $z_k$ of $f$ inside the integration path $C$.\nIn our case, there is only the pole $z = i$ inside $C$.",
-                "Step 4: Calculation of Residue\nFor a pole of second order at $z = z_0$, the residue is given by:\n$\\text{Res}(f, z_0) = \\lim_{z \\to z_0} \\frac{d}{dz}[(z - z_0)^2 f(z)]$\n\nWe rewrite $f(z)$ by factoring the denominator:\n$f(z) = \\frac{z^2}{(z^2+1)^2} = \\frac{z^2}{((z-i)(z+i))^2}$",
-                "Step 5: Alternative Calculation of Residue\nFor a pole of order $n$ at $z = z_0$, the residue can also be calculated using the Laurent series as the coefficient of $(z-z_0)^{-1}$.\nWe can also calculate it using the formula:\n$\\text{Res}(f, z_0) = \\frac{1}{(n-1)!} \\lim_{z \\to z_0} \\frac{d^{n-1}}{dz^{n-1}}[(z-z_0)^n f(z)]$\n\nFor our case with $n = 2$ and $z_0 = i$ we get:\n$\\text{Res}(f, i) = \\lim_{z \\to i} \\frac{d}{dz}[(z-i)^2 \\frac{z^2}{(z^2+1)^2}]$\n$= \\lim_{z \\to i} \\frac{d}{dz}[\\frac{z^2 (z-i)^2}{(z^2+1)^2}]$\n$= \\lim_{z \\to i} \\frac{d}{dz}[\\frac{z^2}{(z+i)^2}]$",
-                "Step 6: Execution of Differentiation\n$\\frac{d}{dz}[\\frac{z^2}{(z+i)^2}] = \\frac{2z(z+i)^2 - z^2 \\cdot 2(z+i)}{(z+i)^4}$\n$= \\frac{2z(z+i) - 2z^2}{(z+i)^3}$\n$= \\frac{2z^2 + 2zi - 2z^2}{(z+i)^3}$\n$= \\frac{2zi}{(z+i)^3}$",
-                "Step 7: Substitution of Singularity Value\n$\\text{Res}(f, i) = \\lim_{z \\to i} \\frac{2zi}{(z+i)^3} = \\frac{2i \\cdot i}{(i+i)^3} = \\frac{2i^2}{(2i)^3} = \\frac{-2}{8i^2} = \\frac{-2}{-8} = \\frac{1}{4}$",
-                "Step 8: Calculation of Integral\n$\\int_C \\frac{z^2}{(z^2+1)^2} dz = 2\\pi i \\cdot \\text{Res}(f, i) = 2\\pi i \\cdot \\frac{1}{4} = \\frac{\\pi i}{2}$"
+                "Step 1: Overview: What is asked?\nWe supplement the cosine by $i\\sin$ to the complex exponential: $\\sum\\cos k\\varphi = \\operatorname{Re}\\sum e^{ik\\varphi}$. The right-hand sum is geometric with ratio $q = e^{i\\varphi}$.",
+                "Step 2: Geometric sum\nFor $\\varphi \\notin 2\\pi\\mathbb{Z}$: $\\sum_{k=0}^{n-1}e^{ik\\varphi} = \\frac{1 - e^{in\\varphi}}{1 - e^{i\\varphi}}$.",
+                "Step 3: Factor out half angles\n$1 - e^{i\\alpha} = e^{i\\alpha/2}\\big(e^{-i\\alpha/2} - e^{i\\alpha/2}\\big) = -2i\\,e^{i\\alpha/2}\\sin\\frac\\alpha2$. Hence $\\frac{1 - e^{in\\varphi}}{1 - e^{i\\varphi}} = e^{i(n-1)\\varphi/2}\\,\\frac{\\sin(n\\varphi/2)}{\\sin(\\varphi/2)}$.",
+                "Step 4: Real part\n$\\sum_{k=0}^{n-1}\\cos k\\varphi = \\frac{\\sin(n\\varphi/2)}{\\sin(\\varphi/2)}\\cos\\frac{(n-1)\\varphi}{2}$. $\\blacksquare$",
+                "Step 5: Check for $n=3$, $\\varphi=\\frac\\pi3$\nDirectly: $\\cos0 + \\cos\\frac\\pi3 + \\cos\\frac{2\\pi}3 = 1 + \\frac12 - \\frac12 = 1$. Formula: $\\frac{\\sin(\\pi/2)}{\\sin(\\pi/6)}\\cos\\frac\\pi3 = \\frac{1}{1/2}\\cdot\\frac12 = 1$ ✓.",
+                "Step 6: Takeaway: What to remember\nThe formula is the Dirichlet kernel of Fourier analysis. The imaginary part gives analogously $\\sum\\sin k\\varphi = \\frac{\\sin(n\\varphi/2)}{\\sin(\\varphi/2)}\\sin\\frac{(n-1)\\varphi}{2}$."
             ]
         },
         {
-            "id": 18,
+            "id": 26,
             "topic": "Complex Numbers",
-            "title": "Integration of Complex Functions over Circular Curves",
-            "description": "Calculate the integral $\\int_C \\frac{e^{iz}}{z^2 + 4} \\, dz$, where $C$ is the circle $|z| = 3$.",
+            "title": "Factorising z⁶ − 1",
+            "description": "Determine all solutions of $z^6 = 1$ and factor $z^6 - 1$ into real linear and quadratic factors.",
             "difficulty": "hard",
-            "points": 10,
+            "points": 12,
             "solutionSteps": [
-                "Step 1: Determination of Singularities\nThe function $f(z) = \\frac{e^{iz}}{z^2 + 4}$ has singularities at the zeros of the denominator $z^2 + 4 = 0 \\Rightarrow z = \\pm 2i$.",
-                "Step 2: Determination of Residues\nSince only $z = 2i$ lies inside the circle $|z| = 3$, we calculate the residue at this point.",
-                "Step 3: Residue at $z = 2i$\n$\\text{Res}(f, 2i) = \\lim_{z \\to 2i} (z - 2i) \\cdot \\frac{e^{iz}}{(z - 2i)(z + 2i)} = \\frac{e^{-2}}{4i}$",
-                "Step 4: Application of Residue Theorem\n$\\int_C \\frac{e^{iz}}{z^2 + 4} \\, dz = 2\\pi i \\cdot \\text{Res}(f, 2i) = \\frac{\\pi i e^{-2}}{2}$"
+                "Step 1: Overview: What is asked?\nThe six solutions are the sixth roots of unity $z_k = e^{2\\pi ik/6} = e^{i\\pi k/3}$. Conjugate pairs $z, \\bar z$ give real quadratic factors $z^2 - 2\\operatorname{Re}(z)\\,z + 1$.",
+                "Step 2: The solutions\n$z_0 = 1$, $z_1 = \\frac12 + \\frac{\\sqrt3}2i$, $z_2 = -\\frac12 + \\frac{\\sqrt3}2i$, $z_3 = -1$, $z_4 = -\\frac12 - \\frac{\\sqrt3}2i$, $z_5 = \\frac12 - \\frac{\\sqrt3}2i$ (regular hexagon).",
+                "Step 3: Real factors\nReal: $z - 1$ and $z + 1$. Pair $z_1, z_5$ (real part $\\frac12$): $z^2 - z + 1$. Pair $z_2, z_4$ (real part $-\\frac12$): $z^2 + z + 1$.",
+                "Step 4: Factorisation\n$z^6 - 1 = (z-1)(z+1)(z^2+z+1)(z^2-z+1)$.",
+                "Step 5: Check\n$(z-1)(z+1) = z^2 - 1$ and $(z^2+z+1)(z^2-z+1) = (z^2+1)^2 - z^2 = z^4 + z^2 + 1$. Product: $(z^2-1)(z^4+z^2+1) = z^6 - 1$ ✓ (formula $a^3 - b^3$).",
+                "Step 6: Takeaway: What to remember\nThese are the cyclotomic polynomials: $z^6 - 1 = \\Phi_1\\Phi_2\\Phi_3\\Phi_6$ with $\\Phi_3 = z^2+z+1$, $\\Phi_6 = z^2 - z + 1$. Real polynomials split into linear and quadratic factors."
             ]
         },
         {
-            "id": 19,
+            "id": 27,
             "topic": "Complex Numbers",
-            "title": "Riemann Mapping of Complex Domains",
-            "description": "Find the Riemann mapping that maps the upper half-plane to the unit disk.",
+            "title": "Complex exponential equations",
+            "description": "Solve in $\\mathbb{C}$: (a) $e^z = -1$, (b) $e^z = 1 + i$. Give all solutions in each case.",
             "difficulty": "hard",
-            "points": 10,
+            "points": 12,
             "solutionSteps": [
-                "Step 1: Transformation of Upper Half-Plane\nThe Möbius transformation $f(z) = \\frac{z - i}{z + i}$ maps the upper half-plane to the unit disk.",
-                "Step 2: Verification of Bijectivity\n$f(z)$ is bijective, as the transformation is invertible: $f^{-1}(w) = i\\frac{1+w}{1-w}$.",
-                "Step 3: Boundary Mapping\nThe positive real axis is mapped to the boundary of the unit circle.",
-                "Step 4: Conclusion\nThe mapping $f(z) = \\frac{z - i}{z + i}$ is the desired Riemann mapping."
+                "Step 1: Overview: What is asked?\nWith $z = x + iy$ we have $e^z = e^x(\\cos y + i\\sin y)$, so $|e^z| = e^x$ and $\\arg e^z = y$ (mod $2\\pi$). We compare absolute value and argument; because of $2\\pi$-periodicity there are infinitely many solutions.",
+                "Step 2: (a) $e^z = -1$\n$|{-1}| = 1 = e^x \\Rightarrow x = 0$; $\\arg(-1) = \\pi$, so $y = \\pi + 2\\pi k$. Solutions: $z = i(\\pi + 2\\pi k) = i\\pi(2k+1)$, $k \\in \\mathbb{Z}$. (Euler's identity $e^{i\\pi} = -1$.)",
+                "Step 3: (b) $e^z = 1 + i$\n$|1+i| = \\sqrt2 = e^x \\Rightarrow x = \\ln\\sqrt2 = \\frac12\\ln2$; $\\arg(1+i) = \\frac\\pi4$, so $y = \\frac\\pi4 + 2\\pi k$. Solutions: $z = \\frac12\\ln2 + i\\left(\\frac\\pi4 + 2\\pi k\\right)$, $k \\in \\mathbb{Z}$.",
+                "Step 4: Check for (b)\n$e^{\\frac12\\ln2}\\left(\\cos\\frac\\pi4 + i\\sin\\frac\\pi4\\right) = \\sqrt2\\cdot\\frac{\\sqrt2}2(1 + i) = 1 + i$ ✓.",
+                "Step 5: Complex logarithm\nThe solution set of (b) is the complex logarithm $\\operatorname{Log}(1+i) = \\ln|1+i| + i(\\arg(1+i) + 2\\pi k)$, multi-valued. The **principal value** ($k = 0$) is $\\frac12\\ln2 + \\frac\\pi4i$.",
+                "Step 6: Takeaway: What to remember\nIn the complex domain $e^z$ is periodic with period $2\\pi i$ and takes every non-zero value infinitely often. Therefore the logarithm is multi-valued; one picks the principal branch with $\\operatorname{Im} \\in (-\\pi,\\pi]$."
             ]
         },
         {
-            "id": 20,
+            "id": 28,
             "topic": "Complex Numbers",
-            "title": "Roots of Unity",
-            "description": "Find all fourth roots of $1+i$.",
+            "title": "A square in the Gaussian plane",
+            "description": "The points $A = 1$ and $B = 3 + i$ are adjacent vertices of a square. Determine the other two vertices using rotation by $90^\\circ$ (multiplication by $i$). Let the square lie to the left of $\\overrightarrow{AB}$.",
             "difficulty": "hard",
-            "points": 10,
+            "points": 12,
             "solutionSteps": [
-                "Step 1: Representation in Polar Form\n$1+i = \\sqrt{2} \\cdot e^{i\\frac{\\pi}{4}}$",
-                "Step 2: Calculation of Fourth Roots\n$\\sqrt[4]{1+i} = (\\sqrt[4]{\\sqrt{2}}) \\cdot e^{i\\frac{\\pi}{16}}$, where the four roots are $\\frac{\\pi}{16}$, $\\frac{9\\pi}{16}$, $\\frac{17\\pi}{16}$, $\\frac{25\\pi}{16}$.",
-                "Step 3: Representation in Cartesian Form\nThe roots are $\\pm\\frac{1}{\\sqrt{2}} + i\\frac{1}{\\sqrt{2}}$ and $\\pm\\frac{1}{\\sqrt{2}} - i\\frac{1}{\\sqrt{2}}$.",
-                "Step 4: Verification\nEach root raised to the fourth power gives $1+i$."
+                "Step 1: Overview: What is asked?\nMultiplication by $i$ rotates by $90^\\circ$ counterclockwise. The side $\\overrightarrow{AB} = B - A$ rotated gives the direction of the adjacent sides; the square's sides are perpendicular and of equal length.",
+                "Step 2: Side vector and rotation\n$B - A = 2 + i$. Rotated: $i(B - A) = 2i + i^2 = -1 + 2i$.",
+                "Step 3: The other vertices\n$D = A + i(B - A) = 1 + (-1 + 2i) = 2i$ and $C = B + i(B - A) = 3 + i - 1 + 2i = 2 + 3i$.",
+                "Step 4: Check: side lengths\n$|B - A| = \\sqrt5$, $|C - B| = |-1 + 2i| = \\sqrt5$, $D - C = 2i - 2 - 3i = -2 - i$ with $|{-2-i}| = \\sqrt5$; $|A - D| = |1 - 2i| = \\sqrt5$ ✓.",
+                "Step 5: Check: diagonals\n$|C - A| = |1 + 3i| = \\sqrt{10}$ and $|D - B| = |-3 + i| = \\sqrt{10}$: equal length, as for a square ($\\sqrt2\\cdot\\sqrt5$) ✓. Midpoint of both diagonals: $\\frac{A + C}{2} = \\frac{3+3i}{2} = \\frac{B + D}{2}$ ✓.",
+                "Step 6: Takeaway: What to remember\nRotation by the angle $\\alpha$ about $A$: $z \\mapsto A + e^{i\\alpha}(z - A)$. With complex numbers problems of plane geometry (rotations, regular polygons) become computationally simple. For the square on the other side multiply by $-i$."
             ]
         },
         {
-            "id": 21,
+            "id": 29,
             "topic": "Complex Numbers",
-            "title": "Fourier Transform of Complex Functions",
-            "description": "Calculate the Fourier transform of the function $f(t) = e^{-at} \\cdot u(t)$ with $a > 0$, where $u(t)$ is the Heaviside function.",
+            "title": "Triangle inequality",
+            "description": "Prove $|z + w| \\leq |z| + |w|$ for all $z,w \\in \\mathbb{C}$ and state when equality holds.",
             "difficulty": "hard",
-            "points": 10,
+            "points": 12,
             "solutionSteps": [
-                "Step 1: Definition of Fourier Transform\n$\\mathcal{F}(f)(\\omega) = \\int_{-\\infty}^{\\infty} f(t) \\cdot e^{-i\\omega t} \\, dt$",
-                "Step 2: Substitution of Function\n$\\mathcal{F}(f)(\\omega) = \\int_{0}^{\\infty} e^{-at} \\cdot e^{-i\\omega t} \\, dt$",
-                "Step 3: Solution of Integral\n$\\mathcal{F}(f)(\\omega) = \\frac{1}{a + i\\omega}$",
-                "Step 4: Interpretation\nThe Fourier transform is a complex-valued function with a pole at $\\omega = -ia$."
+                "Step 1: Overview: What is asked?\nSince both sides are non-negative it suffices to compare the **squares**. We use $|u|^2 = u\\bar u$ and $\\operatorname{Re}u \\leq |u|$.",
+                "Step 2: Square of the left side\n$|z+w|^2 = (z+w)(\\bar z + \\bar w) = |z|^2 + z\\bar w + \\bar z w + |w|^2 = |z|^2 + 2\\operatorname{Re}(z\\bar w) + |w|^2$.",
+                "Step 3: Estimate\nWe have $\\operatorname{Re}(z\\bar w) \\leq |z\\bar w| = |z||w|$. So $|z+w|^2 \\leq |z|^2 + 2|z||w| + |w|^2 = (|z| + |w|)^2$.",
+                "Step 4: Taking roots\nBoth sides are $\\geq 0$, so $|z + w| \\leq |z| + |w|$. $\\blacksquare$",
+                "Step 5: Equality case\nEquality holds exactly when $\\operatorname{Re}(z\\bar w) = |z\\bar w|$, i.e. $z\\bar w \\geq 0$ is real. That means: $z$ and $w$ point in the same direction ($w = \\lambda z$ with $\\lambda \\geq 0$ or $z = 0$). Example: $z = 1$, $w = 2i$: $|1 + 2i| = \\sqrt5 < 3 = |1| + |2i|$.",
+                "Step 6: Takeaway: What to remember\nGeometrically: in a triangle no side is longer than the sum of the other two. The inequality is the foundation of convergence and continuity in $\\mathbb{C}$. Consequence: $\\big||z| - |w|\\big| \\leq |z - w|$."
             ]
         },
         {
-            "id": 22,
+            "id": 30,
             "topic": "Complex Numbers",
-            "title": "Residues and Complex Series",
-            "description": "Calculate the residue of the function $f(z) = \\frac{1}{(z-1)^3}$ at the point $z=1$.",
+            "title": "Trigonometry with de Moivre",
+            "description": "Derive $\\cos 3\\varphi = 4\\cos^3\\varphi - 3\\cos\\varphi$ using de Moivre's formula.",
             "difficulty": "hard",
-            "points": 10,
+            "points": 12,
             "solutionSteps": [
-                "Step 1: Residue Formula for Higher Order Poles\nFor a pole of third order, the formula is:\n$\\text{Res}(f, 1) = \\frac{1}{2!} \\lim_{z \\to 1} \\frac{d^2}{dz^2}[(z - 1)^3 f(z)]$",
-                "Step 2: Differentiation\n$\\frac{d^2}{dz^2}(1) = 0$",
-                "Step 3: Result\n$\\text{Res}(f, 1) = 0$"
+                "Step 1: Overview: What is asked?\nWe compute $(\\cos\\varphi + i\\sin\\varphi)^3$ in two ways: once with de Moivre, once with the binomial theorem. Then we compare the real parts.",
+                "Step 2: With de Moivre\n$(\\cos\\varphi + i\\sin\\varphi)^3 = \\cos3\\varphi + i\\sin3\\varphi$.",
+                "Step 3: With the binomial theorem\nWith $c = \\cos\\varphi$, $s = \\sin\\varphi$: $(c + is)^3 = c^3 + 3c^2(is) + 3c(is)^2 + (is)^3 = c^3 + 3ic^2s - 3cs^2 - is^3$.",
+                "Step 4: Compare real parts\n$\\cos3\\varphi = c^3 - 3cs^2$. With $s^2 = 1 - c^2$: $\\cos3\\varphi = c^3 - 3c(1 - c^2) = c^3 - 3c + 3c^3 = 4c^3 - 3c$. $\\blacksquare$",
+                "Step 5: Imaginary parts as a bonus\n$\\sin3\\varphi = 3c^2s - s^3 = 3s - 4s^3$ (using $c^2 = 1 - s^2$).",
+                "Step 6: Numerical check\n$\\varphi = 60^\\circ$: $\\cos180^\\circ = -1$ and $4\\cdot\\left(\\frac12\\right)^3 - 3\\cdot\\frac12 = \\frac12 - \\frac32 = -1$ ✓.",
+                "Step 7: Takeaway: What to remember\nWith complex numbers multiple-angle formulas are derived mechanically instead of via addition theorems. In general $\\cos n\\varphi$ is a polynomial in $\\cos\\varphi$ (Chebyshev polynomial $T_n$; here $T_3(x) = 4x^3 - 3x$)."
             ]
         },
         {
-            "id": 23,
+            "id": 31,
             "topic": "Complex Numbers",
-            "title": "Möbius Transformation and Fixed Points",
-            "description": "Find the fixed points of the Möbius transformation $f(z) = \\frac{z+1}{z-1}$.",
+            "title": "Sum of the roots of unity",
+            "description": "Let $\\zeta = e^{2\\pi i/n}$ with $n \\geq 2$. Show $1 + \\zeta + \\zeta^2 + \\dots + \\zeta^{n-1} = 0$ and verify this for $n = 4$.",
             "difficulty": "hard",
-            "points": 10,
+            "points": 12,
             "solutionSteps": [
-                "Step 1: Fixed Point Equation\n$f(z) = z \\Rightarrow \\frac{z+1}{z-1} = z$",
-                "Step 2: Transformation\n$z+1 = z(z-1)$",
-                "Step 3: Solution of Equation\n$z^2 - z - 1 = 0$",
-                "Step 4: Fixed Points\n$z = \\frac{1 \\pm \\sqrt{5}}{2}$"
+                "Step 1: Overview: What is asked?\nThe numbers $\\zeta^k$ are the $n$-th roots of unity. Their sum is a geometric sum with ratio $\\zeta$; we need $\\zeta \\neq 1$ and $\\zeta^n = 1$.",
+                "Step 2: Properties of $\\zeta$\n$\\zeta^n = e^{2\\pi i} = 1$. Because $n \\geq 2$ we have $\\arg\\zeta = \\frac{2\\pi}n \\in (0,\\pi]$ and hence $\\zeta \\neq 1$.",
+                "Step 3: Geometric sum\n$\\sum_{k=0}^{n-1}\\zeta^k = \\frac{1 - \\zeta^n}{1 - \\zeta} = \\frac{1 - 1}{1 - \\zeta} = 0$. $\\blacksquare$",
+                "Step 4: Verification for $n = 4$\n$\\zeta = e^{i\\pi/2} = i$: $1 + i + i^2 + i^3 = 1 + i - 1 - i = 0$ ✓.",
+                "Step 5: Geometric interpretation\nThe roots of unity form a regular $n$-gon on the unit circle whose centroid is the origin: the sum of the position vectors is $0$.",
+                "Step 6: Takeaway: What to remember\nThe statement corresponds to Vieta's theorem for $z^n - 1$: the coefficient of $z^{n-1}$ is $0$, so the sum of the roots is $0$. It is the basis of the discrete Fourier transform."
+            ]
+        },
+        {
+            "id": 32,
+            "topic": "Complex Numbers",
+            "title": "Fourth roots of −16",
+            "description": "Determine all complex solutions of $z^4 = -16$ and factor $z^4 + 16$ into real quadratic factors.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe use the root formula in polar form: $-16 = 16e^{i\\pi}$, so $z_k = 2\\,e^{i(\\pi + 2\\pi k)/4}$ for $k = 0,1,2,3$. Then we group conjugate pairs.",
+                "Step 2: The four roots\n$z_0 = 2e^{i\\pi/4} = \\sqrt2(1+i)$, $z_1 = 2e^{3i\\pi/4} = \\sqrt2(-1+i)$, $z_2 = 2e^{5i\\pi/4} = \\sqrt2(-1-i)$, $z_3 = 2e^{7i\\pi/4} = \\sqrt2(1-i)$.",
+                "Step 3: Check\n$z_0^4 = 16e^{i\\pi} = -16$ ✓. Alternatively: $(\\sqrt2(1+i))^2 = 2\\cdot2i = 4i$, $(4i)^2 = -16$ ✓.",
+                "Step 4: Conjugate pairs\n$(z - z_0)(z - z_3) = z^2 - 2\\sqrt2\\,z + 4$ (since $z_0 + z_3 = 2\\sqrt2$, $z_0z_3 = |z_0|^2 = 4$). Likewise $(z - z_1)(z - z_2) = z^2 + 2\\sqrt2\\,z + 4$.",
+                "Step 5: Factorisation\n$z^4 + 16 = (z^2 + 4)^2 - 8z^2 = (z^2 + 4 - 2\\sqrt2 z)(z^2 + 4 + 2\\sqrt2 z)$ ✓ (third binomial formula).",
+                "Step 6: Takeaway: What to remember\nA real polynomial without real roots splits over $\\mathbb{R}$ into quadratic factors (conjugate pairs). This is the real version of the fundamental theorem of algebra."
+            ]
+        },
+        {
+            "id": 33,
+            "topic": "Complex Numbers",
+            "title": "Möbius transformation and fixed points",
+            "description": "Determine the fixed points of $f(z) = \\dfrac{z + 1}{z - 1}$ and compute $f(f(z))$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nA fixed point satisfies $f(z) = z$. We solve the resulting quadratic equation in $\\mathbb{C}$. Then we substitute $f$ into itself.",
+                "Step 2: Fixed-point equation\n$\\frac{z+1}{z-1} = z \\iff z + 1 = z(z-1) = z^2 - z \\iff z^2 - 2z - 1 = 0$ (for $z \\neq 1$).",
+                "Step 3: Solving\n$z = \\frac{2 \\pm \\sqrt{4 + 4}}{2} = 1 \\pm \\sqrt2$. Both values are $\\neq 1$ and thus valid: fixed points $1 + \\sqrt2$ and $1 - \\sqrt2$.",
+                "Step 4: $f(f(z))$\n$f(f(z)) = \\frac{f(z) + 1}{f(z) - 1} = \\frac{\\frac{z+1}{z-1} + 1}{\\frac{z+1}{z-1} - 1} = \\frac{(z+1) + (z-1)}{(z+1) - (z-1)} = \\frac{2z}{2} = z$.",
+                "Step 5: Interpretation\n$f \\circ f = \\mathrm{id}$: $f$ is an **involution** ($f = f^{-1}$). Check: $f(2) = 3$, $f(3) = \\frac42 = 2$ ✓.",
+                "Step 6: Takeaway: What to remember\nMöbius transformations $\\frac{az+b}{cz+d}$ with $ad - bc \\neq 0$ have at most two fixed points. They map circles and lines onto circles and lines and form a group under composition."
             ]
         }
     ]
-} 
+}

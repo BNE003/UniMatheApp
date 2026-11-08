@@ -12,68 +12,71 @@
         {
             "id": 1,
             "topic": "Descriptive Statistics",
-            "title": "Mean, Median, Variance",
-            "description": "Given the data: 10, 12, 13, 15, 15, 16, 18, 21.\n\na) Compute the mean.\nb) Determine the median.\nc) Compute the sample variance and standard deviation.",
-            "difficulty": "easy",
+            "title": "Summary statistics of a sample",
+            "description": "Given the measurements $4, 7, 7, 8, 9, 10, 12, 13, 15, 15$.\na) Compute mean and median.\nb) Compute sample variance and standard deviation.\nc) Determine the quartiles and the interquartile range.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Mean\nSum = 120, n = 8\n$\\bar{x} = 120/8 = 15$",
-                "Step 2: Median\nSorted data: 10, 12, 13, 15, 15, 16, 18, 21\nMedian = average of the 4th and 5th values = (15+15)/2 = 15",
-                "Step 3: Sample variance\nDeviations from 15: -5, -3, -2, 0, 0, 1, 3, 6\nSquares: 25, 9, 4, 0, 0, 1, 9, 36\nSum of squares = 84\n$s^2 = \\frac{1}{n-1}\\sum (x_i-\\bar{x})^2 = 84/7 = 12$",
-                "Step 4: Standard deviation\n$s = \\sqrt{12} \\approx 3.46$"
+                "Step 1: Part a): Mean and median\n$\\sum x_i = 100$, $\\bar x = \\frac{100}{10} = 10$. Median ($n = 10$ even): average of the $5$th and $6$th values: $\\frac{9 + 10}{2} = 9.5$.",
+                "Step 2: Part b): Variance\nSquared deviations $(x_i - 10)^2$: $36, 9, 9, 4, 1, 0, 4, 9, 25, 25$, sum $122$. $s^2 = \\frac{122}{9} \\approx 13.56$, $s \\approx 3.68$.",
+                "Step 3: Part c): Quartiles\nLower half $4,7,7,8,9$: $Q_1 = 7$. Upper half $10,12,13,15,15$: $Q_3 = 13$. $\\mathrm{IQR} = Q_3 - Q_1 = 6$.",
+                "Step 4: Check and interpretation\nSum of deviations: $-6 - 3 - 3 - 2 - 1 + 0 + 2 + 3 + 5 + 5 = 0$ ✓. Mean $>$ median: slightly left-skewed distribution (long tail downwards). Outlier rule: there are no values outside $[Q_1 - 1.5\\,\\mathrm{IQR},\\ Q_3 + 1.5\\,\\mathrm{IQR}] = [-2, 22]$."
             ]
         },
         {
             "id": 2,
             "topic": "Discrete Distributions",
-            "title": "Binomial and Poisson Approximation",
-            "description": "A device has failure probability $p=0.02$. In a batch of $n=100$ devices:\n\na) Compute $P(X=3)$ for $X \\sim B(100;0.02)$.\nb) Approximate this probability with a Poisson distribution.\nc) Compute the probability that at least one device fails.",
-            "difficulty": "medium",
+            "title": "Binomial distribution in a multiple-choice test",
+            "description": "A test consists of $12$ questions with $4$ answer options each (exactly one correct). A student guesses every question. Let $X$ be the number of correct answers.\na) What distribution does $X$ have? Determine $E(X)$ and $\\operatorname{Var}(X)$.\nb) Determine $P(X = 3)$.\nc) Determine $P(X \\geq 1)$.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Binomial probability\n$P(X=3)=\\binom{100}{3}0.02^3\\cdot0.98^{97} \\approx 0.1823$",
-                "Step 2: Poisson approximation\n$\\lambda = np = 2$\n$P(Y=3)=e^{-2}\\cdot\\frac{2^3}{3!} \\approx 0.1804$",
-                "Step 3: At least one failure\n$P(X\\ge 1)=1-P(X=0)=1-0.98^{100} \\approx 0.8674$"
+                "Step 1: Part a): Model\n$12$ independent trials with $p = \\frac14$: $X \\sim B(12;\\ 0.25)$. $E(X) = 12\\cdot0.25 = 3$, $\\operatorname{Var}(X) = 12\\cdot0.25\\cdot0.75 = 2.25$.",
+                "Step 2: Part b): Single probability\n$P(X = 3) = \\binom{12}{3}0.25^3\\,0.75^9 = 220\\cdot0.015625\\cdot0.07508 \\approx 0.2581$.",
+                "Step 3: Part c): Complement\n$P(X \\geq 1) = 1 - P(X = 0) = 1 - 0.75^{12} = 1 - 0.03168 \\approx 0.9683$.",
+                "Step 4: Check\nThe expectation $3$ is also the most likely value; $P(X = 3) \\approx 26\\,\\%$ is therefore plausible. Guessing hardly pays off: $P(X \\geq 6) \\approx 5.4\\,\\%$."
             ]
         },
         {
             "id": 3,
             "topic": "Normal Distribution",
-            "title": "Standardization and Quantiles",
-            "description": "Product lifetime is normally distributed with $\\mu=100$ and $\\sigma=15$.\n\na) Compute $P(90 \\le X \\le 120)$.\nb) Determine the 90% quantile.",
-            "difficulty": "medium",
+            "title": "Standardisation and quantiles",
+            "description": "The filling weight of a package is normally distributed with $\\mu = 500\\ \\mathrm g$ and $\\sigma = 10\\ \\mathrm g$.\na) Determine $P(X < 485)$.\nb) Determine $P(490 < X < 510)$.\nc) What would $\\mu$ have to be so that at most $1\\,\\%$ of the packages are below $485\\ \\mathrm g$?",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Standardization\n$Z = \\frac{X-100}{15}$\n$z_1 = (90-100)/15 = -0.67$, $z_2 = (120-100)/15 = 1.33$",
-                "Step 2: Probability\n$P(90\\le X\\le120)=\\Phi(1.33)-\\Phi(-0.67)$\n$\\approx 0.9082-0.2519=0.6563$",
-                "Step 3: 90% quantile\n$z_{0.9}\\approx1.2816$\n$x_{0.9}=100+1.2816\\cdot15\\approx119.2$"
+                "Step 1: Part a)\n$z = \\frac{485 - 500}{10} = -1.5$. $P(X < 485) = \\Phi(-1.5) = 1 - \\Phi(1.5) = 1 - 0.9332 = 0.0668$.",
+                "Step 2: Part b)\n$490$ and $510$ are $\\mu \\mp 1\\sigma$: $P = 2\\Phi(1) - 1 = 0.6827$.",
+                "Step 3: Part c): Condition\nWe need $\\mu$ with $\\Phi\\left(\\frac{485 - \\mu}{10}\\right) = 0.01$. From the table $\\Phi(z) = 0.01$ for $z = -2.326$.",
+                "Step 4: Part c): Solving and check\n$\\frac{485 - \\mu}{10} = -2.326 \\Rightarrow \\mu = 485 + 23.26 = 508.26\\ \\mathrm g$. Check: $z = \\frac{485 - 508.26}{10} = -2.326$ ✓. The filling machine must therefore fill on average $\\approx 508\\ \\mathrm g$ (consequence: avoid under-filling, but accept higher consumption)."
             ]
         },
         {
             "id": 4,
             "topic": "Confidence Intervals",
-            "title": "Confidence Interval for a Proportion",
-            "description": "In a sample of $n=200$ observations, 36 successes were recorded.\nFind a 95% confidence interval for the true proportion $p$.",
-            "difficulty": "medium",
+            "title": "Confidence interval for a proportion",
+            "description": "In a survey of $n = 400$ people, $240$ agree with a statement.\na) Determine the estimate $\\hat p$.\nb) Determine a $95\\,\\%$ confidence interval for the true proportion $p$.\nc) How large would $n$ have to be so that the interval width is at most $0.04$?",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Point estimate\n$\\hat{p} = 36/200 = 0.18$",
-                "Step 2: Standard error\n$SE = \\sqrt{\\hat{p}(1-\\hat{p})/n} = \\sqrt{0.18\\cdot0.82/200} \\approx 0.0272$",
-                "Step 3: Confidence interval\n$\\hat{p} \\pm 1.96\\cdot SE = 0.18 \\pm 0.0532$\nInterval: $[0.1268, 0.2332]$"
+                "Step 1: Part a): Estimate\n$\\hat p = \\frac{240}{400} = 0.6$.",
+                "Step 2: Part b): Interval\nStandard error $\\sqrt{\\frac{\\hat p(1-\\hat p)}{n}} = \\sqrt{\\frac{0.24}{400}} \\approx 0.0245$. $\\hat p \\pm 1.96\\cdot0.0245 = 0.6 \\pm 0.048 \\Rightarrow [0.552;\\ 0.648]$.",
+                "Step 3: Part c): Sample size\nWidth $= 2\\cdot1.96\\sqrt{\\frac{\\hat p(1-\\hat p)}{n}} \\leq 0.04 \\iff \\sqrt n \\geq \\frac{2\\cdot1.96\\cdot0.4899}{0.04} \\approx 48.0 \\iff n \\geq 2305$. (With the worst case $\\hat p = 0.5$ one would get $n \\geq 2401$.)",
+                "Step 4: Check and interpretation\nThe width of the interval from b) is $0.096$; for $n = 2305$ we get $2\\cdot1.96\\sqrt{0.24/2305} \\approx 0.040$ ✓. Quadrupling the sample size halves the width ($\\propto 1/\\sqrt n$)."
             ]
         },
         {
             "id": 5,
             "topic": "Hypothesis Tests",
-            "title": "z-Test for the Mean",
-            "description": "A manufacturer claims the mean is $\\mu=50$. The standard deviation is known: $\\sigma=6$.\nA sample of $n=25$ yields $\\bar{x}=52$.\nPerform a two-sided test at the 5% level.",
-            "difficulty": "medium",
+            "title": "z-test for the mean",
+            "description": "A machine fills on average $\\mu_0 = 100$ units, the standard deviation $\\sigma = 12$ is known. A sample of $n = 36$ gives $\\bar x = 104$. Test $H_0: \\mu = 100$ against $H_1: \\mu \\neq 100$ at the $5\\,\\%$ level.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Hypotheses\n$H_0: \\mu=50$, $H_1: \\mu\\ne50$",
-                "Step 2: Test statistic\n$z = \\frac{\\bar{x}-\\mu_0}{\\sigma/\\sqrt{n}} = \\frac{52-50}{6/5} = 1.667$",
-                "Step 3: Decision\nCritical region: $|z|>1.96$\nSince $1.667<1.96$, fail to reject $H_0$.",
-                "Step 4: p-value (optional)\n$p \\approx 0.096 > 0.05$"
+                "Step 1: Test statistic\nFor known $\\sigma$: $Z = \\frac{\\bar x - \\mu_0}{\\sigma/\\sqrt n} = \\frac{104 - 100}{12/6} = \\frac42 = 2$. Under $H_0$, $Z \\sim N(0,1)$.",
+                "Step 2: Decision via the critical value\nCritical value (two-sided, $\\alpha = 5\\,\\%$): $z_{0.975} = 1.96$. Since $|Z| = 2 > 1.96$, $H_0$ is **rejected**.",
+                "Step 3: Decision via the p-value\n$p = 2(1 - \\Phi(2)) = 2\\cdot0.0228 = 0.0455 < 0.05$: same decision ✓.",
+                "Step 4: Interpretation and check\nThe deviation is significant at the $5\\,\\%$ level, but not at the $1\\,\\%$ level ($z_{0.995} = 2.576$). The $95\\,\\%$ confidence interval $104 \\pm 1.96\\cdot2 = [100.08;\\ 107.92]$ does not contain $100$ — consistent with the rejection."
             ]
         }
     ]

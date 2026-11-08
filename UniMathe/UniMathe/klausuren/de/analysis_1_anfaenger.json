@@ -1,9 +1,9 @@
 {
     "exam": {
-        "title": "Analysis I ",
+        "title": "Analysis I",
         "subtitle": "Grundlagen der Analysis",
         "duration": 120,
-        "totalPoints": 120,
+        "totalPoints": 100,
         "difficulty": "beginner",
         "language": "de",
         "instructions": "Bearbeiten Sie alle Aufgaben. Geben Sie bei allen Berechnungen den vollständigen Lösungsweg an. Hilfsmittel: Taschenrechner ohne Programmierfunktion. Viel Erfolg!"
@@ -12,169 +12,87 @@
         {
             "id": 1,
             "topic": "Grenzwerte",
-            "title": "Grenzwert einer rationalen Funktion",
-            "description": "Berechnen Sie den Grenzwert: $$\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2}$$",
-            "difficulty": "easy",
-            "points": 8,
+            "title": "Grenzwerte berechnen",
+            "description": "Berechnen Sie:\na) $\\displaystyle\\lim_{x\\to3}\\frac{x^2-9}{x-3}$\nb) $\\displaystyle\\lim_{n\\to\\infty}\\frac{3n^2+2n}{n^2+1}$\nc) $\\displaystyle\\lim_{x\\to0}\\frac{\\sqrt{1+x}-1}{x}$",
+            "difficulty": "beginner",
+            "points": 16,
             "solutionSteps": [
-                "Schritt 1: Analyse des Grenzwerts\nWir haben eine rationale Funktion mit dem Grenzwert gegen x = 2.\nDirekte Substitution führt zu $\\frac{0}{0}$ unbestimmte Form.",
-                "Schritt 2: Faktorisierung des Zählers\n$x^2 - 4 = x-2 \\cdot x+2$\nErklärung: Wir verwenden die dritte binomische Formel.",
-                "Schritt 3: Kürzen\n$\\frac{x^2 - 4}{x - 2} = \\frac{x-2 \\cdot x+2}{x-2} = x+2$ für $x \\neq 2$\nErklärung: Der Faktor $x-2$ kürzt sich weg.",
-                "Schritt 4: Grenzwert berechnen\n$\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2} = \\lim_{x \\to 2} (x+2) = 2+2 = 4$\nErklärung: Nach dem Kürzen können wir direkt einsetzen.",
-                "Schritt 5: Antwort\nDer Grenzwert ist 4."
+                "Schritt 1: Teil a): Faktorisieren und kürzen\nEinsetzen ergibt $\\frac00$. Mit $x^2 - 9 = (x-3)(x+3)$ (dritte binomische Formel) folgt $\\frac{x^2-9}{x-3} = x + 3$ für $x \\neq 3$. Also ist der Grenzwert $6$.",
+                "Schritt 2: Teil b): Höchste Potenz ausklammern\n$\\frac{3n^2 + 2n}{n^2 + 1} = \\frac{3 + 2/n}{1 + 1/n^2} \\to \\frac{3 + 0}{1 + 0} = 3$.",
+                "Schritt 3: Teil c): Mit dem Konjugierten erweitern\n$\\frac{\\sqrt{1+x}-1}{x}\\cdot\\frac{\\sqrt{1+x}+1}{\\sqrt{1+x}+1} = \\frac{(1+x) - 1}{x(\\sqrt{1+x}+1)} = \\frac{1}{\\sqrt{1+x}+1} \\to \\frac{1}{2}$.",
+                "Schritt 4: Probe mit l'Hospital\na) $\\frac{2x}{1}\\big|_{x=3} = 6$ ✓. c) $\\frac{\\frac{1}{2\\sqrt{1+x}}}{1}\\big|_{x=0} = \\frac12$ ✓. Merke: Bei $\\frac00$ zuerst algebraisch vereinfachen, l'Hospital als Kontrolle."
             ]
         },
         {
             "id": 2,
             "topic": "Ableitungen",
-            "title": "Ableitung mit Produktregel",
-            "description": "Berechnen Sie die Ableitung der Funktion: $$f(x) = x^2 \\cdot e^x$$",
-            "difficulty": "medium",
-            "points": 10,
+            "title": "Ableitungsregeln",
+            "description": "Leiten Sie ab:\na) $f(x) = x^3\\ln x$\nb) $g(x) = \\sin(3x^2+1)$\nc) $h(x) = \\dfrac{x^2+1}{x-1}$",
+            "difficulty": "beginner",
+            "points": 18,
             "solutionSteps": [
-                "Schritt 1: Identifikation der Regel\nDie Funktion ist ein Produkt zweier Funktionen: $u(x) = x^2$ und $v(x) = e^x$\nWir verwenden die Produktregel: $(u \\cdot v)' = u' \\cdot v + u \\cdot v'$",
-                "Schritt 2: Berechnung der einzelnen Ableitungen\n$u(x) = x^2 \\Rightarrow u'(x) = 2x$\n$v(x) = e^x \\Rightarrow v'(x) = e^x$",
-                "Schritt 3: Anwendung der Produktregel\n$f'(x) = u'(x) \\cdot v(x) + u(x) \\cdot v'(x)$\n$f'(x) = 2x \\cdot e^x + x^2 \\cdot e^x$",
-                "Schritt 4: Ausklammern\n$f'(x) = e^x(2x + x^2) = e^x \\cdot x(2 + x)$\nErklärung: $e^x$ und $x$ werden ausgeklammert.",
-                "Schritt 5: Endergebnis\n$f'(x) = xe^x(2 + x)$"
+                "Schritt 1: Teil a): Produktregel\n$u = x^3$, $v = \\ln x$: $f'(x) = 3x^2\\ln x + x^3\\cdot\\frac1x = 3x^2\\ln x + x^2 = x^2(3\\ln x + 1)$.",
+                "Schritt 2: Teil b): Kettenregel\nAußen $\\sin u$, innen $3x^2 + 1$: $g'(x) = \\cos(3x^2+1)\\cdot6x = 6x\\cos(3x^2+1)$. (Die innere Ableitung $6x$ nicht vergessen.)",
+                "Schritt 3: Teil c): Quotientenregel\n$h'(x) = \\frac{2x(x-1) - (x^2+1)\\cdot1}{(x-1)^2} = \\frac{x^2 - 2x - 1}{(x-1)^2}$.",
+                "Schritt 4: Numerische Probe zu c)\nBei $x = 2$: $h(2) = 5$; $h(2{,}001) = \\frac{5{,}004001}{1{,}001} \\approx 4{,}99900$; Steigung $\\approx -1{,}0$; Formel: $\\frac{4 - 4 - 1}{1} = -1$ ✓."
             ]
         },
         {
             "id": 3,
             "topic": "Stetigkeit",
-            "title": "Stetigkeit einer Funktion",
-            "description": "Untersuchen Sie die Funktion auf Stetigkeit: $$f(x) = \\begin{cases} x^2 + 1 & \\text{für } x < 1 \\\\ 3x - 1 & \\text{für } x \\geq 1 \\end{cases}$$",
-            "difficulty": "medium",
-            "points": 12,
+            "title": "Stetigkeit und Differenzierbarkeit",
+            "description": "Gegeben ist $f(x) = \\begin{cases}x^2+1 & x < 1\\\\ 3x-1 & x \\geq 1\\end{cases}$.\na) Ist $f$ in $x_0 = 1$ stetig?\nb) Ist $f$ in $x_0 = 1$ differenzierbar?",
+            "difficulty": "beginner",
+            "points": 16,
             "solutionSteps": [
-                "Schritt 1: Stetigkeitsbedingungen\nEine Funktion ist an der Stelle $x_0$ stetig, wenn:\n1. $f(x_0)$ existiert\n2. $\\lim_{x \\to x_0} f(x)$ existiert\n3. $\\lim_{x \\to x_0} f(x) = f(x_0)$",
-                "Schritt 2: Kritische Stelle identifizieren\nDie einzige kritische Stelle ist $x = 1$ (Übergang zwischen den Funktionsteilen).",
-                "Schritt 3: Funktionswert bei x = 1\n$f(1) = 3 \\cdot 1 - 1 = 2$ (da $x = 1$ zur zweiten Definition gehört)",
-                "Schritt 4: Linksseitiger Grenzwert\n$\\lim_{x \\to 1^-} f(x) = \\lim_{x \\to 1^-} (x^2 + 1) = 1^2 + 1 = 2$",
-                "Schritt 5: Rechtsseitiger Grenzwert\n$\\lim_{x \\to 1^+} f(x) = \\lim_{x \\to 1^+} (3x - 1) = 3 \\cdot 1 - 1 = 2$",
-                "Schritt 6: Fazit\nDa $\\lim_{x \\to 1^-} f(x) = \\lim_{x \\to 1^+} f(x) = f(1) = 2$\nist die Funktion bei $x = 1$ stetig.\nDie Funktion ist überall stetig."
+                "Schritt 1: Teil a): Stetigkeitsbedingung\n$f$ ist in $x_0$ stetig, wenn $\\lim_{x\\to x_0^-}f = \\lim_{x\\to x_0^+}f = f(x_0)$.",
+                "Schritt 2: Teil a): Grenzwerte\nLinks: $\\lim_{x\\to1^-}(x^2+1) = 2$. Rechts: $\\lim_{x\\to1^+}(3x-1) = 2$. Funktionswert: $f(1) = 3 - 1 = 2$. Alle drei Werte stimmen überein: $f$ ist in $1$ **stetig**.",
+                "Schritt 3: Teil b): Einseitige Ableitungen\nLinks: $f'_-(1) = (x^2+1)'|_{x=1} = 2x|_{x=1} = 2$. Rechts: $f'_+(1) = (3x-1)'|_{x=1} = 3$.",
+                "Schritt 4: Folgerung\n$2 \\neq 3$: $f$ ist in $1$ **nicht differenzierbar** (Knick). Der Graph hat dort keine eindeutige Tangente. Merke: Differenzierbar $\\Rightarrow$ stetig, aber nicht umgekehrt."
             ]
         },
         {
             "id": 4,
-            "topic": "Kettenregel",
-            "title": "Ableitung mit Kettenregel",
-            "description": "Berechnen Sie die Ableitung der Funktion: $$f(x) = \\sin(3x^2 + 1)$$",
-            "difficulty": "medium",
-            "points": 10,
+            "topic": "Kurvendiskussion",
+            "title": "Kurvendiskussion einer Polynomfunktion",
+            "description": "Untersuchen Sie $f(x) = x^3 - 6x^2 + 9x$:\na) Nullstellen,\nb) lokale Extrema,\nc) Wendepunkt.",
+            "difficulty": "beginner",
+            "points": 18,
             "solutionSteps": [
-                "Schritt 1: Identifikation der zusammengesetzten Funktion\n$f(x) = \\sin(3x^2 + 1)$\nÄußere Funktion: $g(u) = \\sin(u)$\nInnere Funktion: $h(x) = 3x^2 + 1$",
-                "Schritt 2: Kettenregel\n$(g \\circ h)'(x) = g'(h(x)) \\cdot h'(x)$",
-                "Schritt 3: Ableitungen berechnen\n$g'(u) = \\cos(u)$\n$h'(x) = 6x$",
-                "Schritt 4: Kettenregel anwenden\n$f'(x) = \\cos(3x^2 + 1) \\cdot 6x$",
-                "Schritt 5: Endergebnis\n$f'(x) = 6x \\cos(3x^2 + 1)$"
+                "Schritt 1: Teil a): Nullstellen\n$f(x) = x(x^2 - 6x + 9) = x(x-3)^2$. Nullstellen: $x = 0$ (einfach) und $x = 3$ (doppelt, Berührpunkt der $x$-Achse).",
+                "Schritt 2: Teil b): Kritische Punkte\n$f'(x) = 3x^2 - 12x + 9 = 3(x-1)(x-3)$, also $f'(x) = 0 \\iff x \\in \\{1,3\\}$.",
+                "Schritt 3: Teil b): Art der Extrema\n$f''(x) = 6x - 12$. $f''(1) = -6 < 0$: lokales **Maximum** $(1,4)$. $f''(3) = 6 > 0$: lokales **Minimum** $(3,0)$.",
+                "Schritt 4: Teil c): Wendepunkt\n$f''(x) = 0 \\iff x = 2$ mit Vorzeichenwechsel ($f'' < 0$ links, $> 0$ rechts). $f(2) = 8 - 24 + 18 = 2$: Wendepunkt $(2,2)$.",
+                "Schritt 5: Plausibilitätsprobe\nDer Wendepunkt liegt genau in der Mitte zwischen den Extrema ($x = 2 = \\frac{1+3}{2}$): typisch für kubische Funktionen. $f(1) = 1 - 6 + 9 = 4$ ✓."
             ]
         },
         {
             "id": 5,
-            "topic": "Kurvendiskussion",
-            "title": "Extremstellen einer Funktion",
-            "description": "Bestimmen Sie alle lokalen Extrema der Funktion: $$f(x) = x^3 - 3x^2 + 2$$",
-            "difficulty": "medium",
-            "points": 12,
+            "topic": "Integration",
+            "title": "Integrale berechnen",
+            "description": "Berechnen Sie:\na) $\\displaystyle\\int(2x^3 - 5x + 4)\\,dx$\nb) $\\displaystyle\\int_0^1xe^{x^2}\\,dx$\nc) $\\displaystyle\\int x\\cos x\\,dx$",
+            "difficulty": "beginner",
+            "points": 16,
             "solutionSteps": [
-                "Schritt 1: Erste Ableitung\n$f'(x) = 3x^2 - 6x = 3x(x - 2)$",
-                "Schritt 2: Nullstellen der ersten Ableitung\n$f'(x) = 0 \\Rightarrow 3x(x - 2) = 0$\n$x_1 = 0$ oder $x_2 = 2$",
-                "Schritt 3: Zweite Ableitung\n$f''(x) = 6x - 6 = 6(x - 1)$",
-                "Schritt 4: Prüfung der kritischen Stellen\nFür $x_1 = 0$: $f''(0) = -6 < 0$ → lokales Maximum\nFür $x_2 = 2$: $f''(2) = 6 > 0$ → lokales Minimum",
-                "Schritt 5: Funktionswerte berechnen\n$f(0) = 0^3 - 3 \\cdot 0^2 + 2 = 2$\n$f(2) = 2^3 - 3 \\cdot 2^2 + 2 = 8 - 12 + 2 = -2$",
-                "Schritt 6: Antwort\nLokales Maximum bei $(0, 2)$\nLokales Minimum bei $(2, -2)$"
+                "Schritt 1: Teil a): Gliedweise integrieren\n$\\int(2x^3 - 5x + 4)\\,dx = \\frac{x^4}{2} - \\frac{5x^2}{2} + 4x + C$. Probe durch Ableiten: $2x^3 - 5x + 4$ ✓.",
+                "Schritt 2: Teil b): Substitution\n$u = x^2$, $du = 2x\\,dx$, Grenzen $0 \\to 0$, $1 \\to 1$: $\\int_0^1xe^{x^2}dx = \\frac12\\int_0^1e^u\\,du = \\frac12(e - 1)$.",
+                "Schritt 3: Teil c): Partielle Integration\n$u = x$, $v' = \\cos x$, also $u' = 1$, $v = \\sin x$: $\\int x\\cos x\\,dx = x\\sin x - \\int\\sin x\\,dx = x\\sin x + \\cos x + C$.",
+                "Schritt 4: Proben\nb) Numerisch: $\\frac12(2{,}71828 - 1) = 0{,}8591$; der Integrand liegt zwischen $0$ und $e \\approx 2{,}7$, plausibel. c) $(x\\sin x + \\cos x)' = \\sin x + x\\cos x - \\sin x = x\\cos x$ ✓."
             ]
         },
         {
             "id": 6,
-            "topic": "Integration",
-            "title": "Grundintegrale",
-            "description": "Berechnen Sie das unbestimmte Integral: $$\\int (2x^3 - 5x + 4) \\, dx$$",
-            "difficulty": "easy",
-            "points": 8,
-            "solutionSteps": [
-                "Schritt 1: Integrationsregeln\nWir verwenden die Linearität des Integrals:\n$\\int (f + g) \\, dx = \\int f \\, dx + \\int g \\, dx$\n$\\int c \\cdot f \\, dx = c \\int f \\, dx$",
-                "Schritt 2: Einzelne Terme integrieren\n$\\int 2x^3 \\, dx = 2 \\cdot \\frac{x^4}{4} = \\frac{x^4}{2}$\n$\\int (-5x) \\, dx = -5 \\cdot \\frac{x^2}{2} = -\\frac{5x^2}{2}$\n$\\int 4 \\, dx = 4x$",
-                "Schritt 3: Zusammenfassen\n$\\int (2x^3 - 5x + 4) \\, dx = \\frac{x^4}{2} - \\frac{5x^2}{2} + 4x + C$",
-                "Schritt 4: Endergebnis\n$\\int (2x^3 - 5x + 4) \\, dx = \\frac{x^4}{2} - \\frac{5x^2}{2} + 4x + C$\nwobei $C$ die Integrationskonstante ist."
-            ]
-        },
-        {
-            "id": 7,
             "topic": "Folgen und Reihen",
-            "title": "Konvergenz einer Folge",
-            "description": "Untersuchen Sie die Folge $a_n = \\frac{2n^2 + 3n - 1}{n^2 + 5}$ auf Konvergenz und bestimmen Sie gegebenenfalls den Grenzwert.",
-            "difficulty": "medium",
-            "points": 10,
+            "title": "Konvergenz von Folgen und Reihen",
+            "description": "a) Zeigen Sie mit der $\\varepsilon$-Definition: $a_n = \\frac{2n+1}{n+3} \\to 2$.\nb) Berechnen Sie $\\sum_{n=1}^\\infty\\frac{1}{n(n+1)}$.\nc) Untersuchen Sie $\\sum_{n=1}^\\infty\\frac{n}{2^n}$ mit dem Quotientenkriterium.",
+            "difficulty": "beginner",
+            "points": 16,
             "solutionSteps": [
-                "Schritt 1: Grenzwert bestimmen\nWir betrachten $\\lim_{n \\to \\infty} \\frac{2n^2 + 3n - 1}{n^2 + 5}$\nDa Zähler und Nenner beide gegen unendlich gehen, teilen wir durch die höchste Potenz $n^2$.",
-                "Schritt 2: Kürzen durch $n^2$\n$\\lim_{n \\to \\infty} \\frac{2n^2 + 3n - 1}{n^2 + 5} = \\lim_{n \\to \\infty} \\frac{2 + \\frac{3}{n} - \\frac{1}{n^2}}{1 + \\frac{5}{n^2}}$",
-                "Schritt 3: Grenzwerte der Teilterme\n$\\lim_{n \\to \\infty} \\frac{3}{n} = 0$\n$\\lim_{n \\to \\infty} \\frac{1}{n^2} = 0$\n$\\lim_{n \\to \\infty} \\frac{5}{n^2} = 0$",
-                "Schritt 4: Endergebnis\n$\\lim_{n \\to \\infty} \\frac{2 + \\frac{3}{n} - \\frac{1}{n^2}}{1 + \\frac{5}{n^2}} = \\frac{2 + 0 - 0}{1 + 0} = 2$",
-                "Schritt 5: Antwort\nDie Folge konvergiert gegen 2."
-            ]
-        },
-        {
-            "id": 8,
-            "topic": "Bestimmte Integration",
-            "title": "Flächenberechnung",
-            "description": "Berechnen Sie die Fläche zwischen der Kurve $f(x) = x^2 - 4$ und der x-Achse im Intervall $[-2, 2]$.",
-            "difficulty": "medium",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Nullstellen bestimmen\n$f(x) = x^2 - 4 = 0$\n$x^2 = 4$\n$x = \\pm 2$\nDie Funktion schneidet die x-Achse bei $x = -2$ und $x = 2$.",
-                "Schritt 2: Vorzeichen der Funktion\nFür $x \\in (-2, 2)$: $f(x) = x^2 - 4 < 0$ (da $x^2 < 4$)\nDie Funktion liegt unterhalb der x-Achse.",
-                "Schritt 3: Flächenberechnung\nDa $f(x) < 0$ im Intervall $[-2, 2]$, ist die Fläche:\n$A = -\\int_{-2}^{2} (x^2 - 4) \\, dx = \\int_{-2}^{2} (4 - x^2) \\, dx$",
-                "Schritt 4: Integration\n$\\int_{-2}^{2} (4 - x^2) \\, dx = \\left[4x - \\frac{x^3}{3}\\right]_{-2}^{2}$\n$= \\left(4 \\cdot 2 - \\frac{2^3}{3}\\right) - \\left(4 \\cdot (-2) - \\frac{(-2)^3}{3}\\right)$\n$= \\left(8 - \\frac{8}{3}\\right) - \\left(-8 - \\frac{-8}{3}\\right)$\n$= 8 - \\frac{8}{3} + 8 - \\frac{8}{3} = 16 - \\frac{16}{3} = \\frac{48 - 16}{3} = \\frac{32}{3}$",
-                "Schritt 5: Antwort\nDie Fläche beträgt $\\frac{32}{3}$ Flächeneinheiten."
-            ]
-        },
-        {
-            "id": 9,
-            "topic": "Mittelwertsatz",
-            "title": "Anwendung des Mittelwertsatzes",
-            "description": "Gegeben sei die Funktion $f(x) = x^3 - 6x^2 + 9x + 1$ auf dem Intervall $[1, 4]$. Bestimmen Sie eine Stelle $c \\in (1, 4)$, für die der Mittelwertsatz erfüllt ist.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Schritt 1: Voraussetzungen prüfen\n$f(x) = x^3 - 6x^2 + 9x + 1$ ist ein Polynom, daher:\n- stetig auf $[1, 4]$\n- differenzierbar auf $(1, 4)$\nDer Mittelwertsatz ist anwendbar.",
-                "Schritt 2: Funktionswerte berechnen\n$f(1) = 1^3 - 6 \\cdot 1^2 + 9 \\cdot 1 + 1 = 1 - 6 + 9 + 1 = 5$\n$f(4) = 4^3 - 6 \\cdot 4^2 + 9 \\cdot 4 + 1 = 64 - 96 + 36 + 1 = 5$",
-                "Schritt 3: Mittlere Änderungsrate\n$\\frac{f(4) - f(1)}{4 - 1} = \\frac{5 - 5}{3} = 0$",
-                "Schritt 4: Ableitung berechnen\n$f'(x) = 3x^2 - 12x + 9 = 3(x^2 - 4x + 3) = 3(x - 1)(x - 3)$",
-                "Schritt 5: Stelle c finden\nNach dem Mittelwertsatz existiert $c \\in (1, 4)$ mit $f'(c) = 0$:\n$3(c - 1)(c - 3) = 0$\n$c = 1$ oder $c = 3$\nDa $c \\in (1, 4)$ sein muss, ist $c = 3$.",
-                "Schritt 6: Verifikation\n$f'(3) = 3(3 - 1)(3 - 3) = 3 \\cdot 2 \\cdot 0 = 0$ ✓\nDie gesuchte Stelle ist $c = 3$."
-            ]
-        },
-        {
-            "id": 10,
-            "topic": "Substitutionsregel",
-            "title": "Integration durch Substitution",
-            "description": "Berechnen Sie das Integral $\\int \\frac{2x}{x^2 + 1} \\, dx$ mittels Substitution.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Schritt 1: Substitution wählen\nWir setzen $u = x^2 + 1$\nDann ist $\\frac{du}{dx} = 2x$, also $du = 2x \\, dx$",
-                "Schritt 2: Integral umformen\n$\\int \\frac{2x}{x^2 + 1} \\, dx = \\int \\frac{1}{u} \\, du$",
-                "Schritt 3: Integration\n$\\int \\frac{1}{u} \\, du = \\ln|u| + C$",
-                "Schritt 4: Rücksubstitution\n$\\ln|u| + C = \\ln|x^2 + 1| + C$\nDa $x^2 + 1 > 0$ für alle reellen $x$, können wir die Betragsstriche weglassen:\n$= \\ln(x^2 + 1) + C$",
-                "Schritt 5: Endergebnis\n$\\int \\frac{2x}{x^2 + 1} \\, dx = \\ln(x^2 + 1) + C$"
-            ]
-        },
-        {
-            "id": 11,
-            "topic": "Partielle Integration",
-            "title": "Integration durch partielle Integration",
-            "description": "Berechnen Sie das Integral $\\int x \\cdot e^x \\, dx$ mittels partieller Integration.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Schritt 1: Formel der partiellen Integration\n$\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$",
-                "Schritt 2: Funktionen wählen\n$u = x \\Rightarrow u' = 1$\n$v' = e^x \\Rightarrow v = e^x$\nWahl: Polynom ableiten, Exponentialfunktion integrieren",
-                "Schritt 3: Formel anwenden\n$\\int x \\cdot e^x \\, dx = x \\cdot e^x - \\int 1 \\cdot e^x \\, dx$\n$= x \\cdot e^x - \\int e^x \\, dx$",
-                "Schritt 4: Verbleibendes Integral\n$\\int e^x \\, dx = e^x + C$",
-                "Schritt 5: Endergebnis\n$\\int x \\cdot e^x \\, dx = x \\cdot e^x - e^x + C = e^x(x - 1) + C$"
+                "Schritt 1: Teil a): Abstand abschätzen\n$|a_n - 2| = \\left|\\frac{2n + 1 - 2n - 6}{n+3}\\right| = \\frac{5}{n+3} < \\varepsilon \\iff n > \\frac5\\varepsilon - 3$. Zu jedem $\\varepsilon > 0$ gibt es also ein $N$ (z.B. $N > \\frac5\\varepsilon$), sodass $|a_n - 2| < \\varepsilon$ für $n \\geq N$.",
+                "Schritt 2: Teil b): Teleskopsumme\n$\\frac{1}{n(n+1)} = \\frac1n - \\frac1{n+1}$, also $s_N = \\sum_{n=1}^N\\left(\\frac1n - \\frac1{n+1}\\right) = 1 - \\frac{1}{N+1} \\to 1$.",
+                "Schritt 3: Teil c): Quotientenkriterium\n$\\left|\\frac{a_{n+1}}{a_n}\\right| = \\frac{(n+1)/2^{n+1}}{n/2^n} = \\frac{n+1}{2n} \\to \\frac12 < 1$. Die Reihe konvergiert absolut.",
+                "Schritt 4: Probe\nb) $s_3 = \\frac12 + \\frac16 + \\frac1{12} = 0{,}75 = 1 - \\frac14$ ✓. c) Summe ist $2$: Partialsummen $0{,}5; 1{,}0; 1{,}375; 1{,}625; \\dots \\to 2$."
             ]
         }
     ]
-} 
+}

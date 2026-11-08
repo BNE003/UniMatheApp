@@ -3,7 +3,7 @@
         "title": "Statistics - Beginner Exam",
         "subtitle": "Fundamentals of Probability and Statistics",
         "duration": 120,
-        "totalPoints": 60,
+        "totalPoints": 100,
         "difficulty": "beginner",
         "language": "en",
         "instructions": "Answer all questions. Show all work and calculations. Permitted aids: Non-programmable calculator, standard normal distribution table. Good luck!"
@@ -11,95 +11,89 @@
     "exercises": [
         {
             "id": 1,
-            "topic": "Fundamentals of Probability",
-            "title": "Probability calculation with urn model",
-            "description": "An urn contains 5 red, 3 blue, and 2 green balls. One ball is drawn randomly.\n\na) What is the probability of drawing a red ball?\nb) What is the probability of not drawing a green ball?\nc) Calculate P(red or blue).",
-            "difficulty": "easy",
-            "points": 8,
+            "topic": "Probability",
+            "title": "Drawing without replacement",
+            "description": "An urn contains $5$ red, $3$ blue and $2$ green balls. Two balls are drawn without replacement.\na) What is the probability that both are red?\nb) What is the probability that the balls have different colours?",
+            "difficulty": "beginner",
+            "points": 14,
             "solutionSteps": [
-                "Step 1: Determine total number of balls\nTotal number = 5 (red) + 3 (blue) + 2 (green) = 10 balls",
-                "Step 2: Part a) - Probability of red ball\nP(red) = Number of red balls / Total number = 5/10 = 1/2 = 0.5",
-                "Step 3: Part b) - Probability of not drawing green ball\nP(not green) = 1 - P(green) = 1 - 2/10 = 1 - 1/5 = 4/5 = 0.8\nAlternatively: P(not green) = (5 + 3)/10 = 8/10 = 0.8",
-                "Step 4: Part c) - P(red or blue)\nSince \"red\" and \"blue\" are mutually exclusive events:\nP(red or blue) = P(red) + P(blue) = 5/10 + 3/10 = 8/10 = 4/5 = 0.8",
-                "Step 5: Answers\na) P(red) = 0.5\nb) P(not green) = 0.8\nc) P(red or blue) = 0.8"
+                "Step 1: Part a): Path rule\nFirst ball red: $\\frac{5}{10}$. Second red given that the first was red: $\\frac49$ (only $9$ balls left, $4$ of them red). $P(\\text{both red}) = \\frac5{10}\\cdot\\frac49 = \\frac{20}{90} = \\frac29 \\approx 0.222$.",
+                "Step 2: Part b): Complement\n“Different colours” is the opposite of “same colour”. $P(\\text{rr}) = \\frac{5\\cdot4}{90} = \\frac{20}{90}$, $P(\\text{bb}) = \\frac{3\\cdot2}{90} = \\frac{6}{90}$, $P(\\text{gg}) = \\frac{2\\cdot1}{90} = \\frac{2}{90}$. Sum: $\\frac{28}{90}$.",
+                "Step 3: Part b): Result\n$P(\\text{different}) = 1 - \\frac{28}{90} = \\frac{62}{90} = \\frac{31}{45} \\approx 0.689$.",
+                "Step 4: Check via combinatorics\nThere are $\\binom{10}{2} = 45$ pairs; same colour: $\\binom52 + \\binom32 + \\binom22 = 10 + 3 + 1 = 14$. $P = 1 - \\frac{14}{45} = \\frac{31}{45}$ ✓. Both ways must agree."
             ]
         },
         {
             "id": 2,
             "topic": "Combinatorics",
             "title": "Permutations and combinations",
-            "description": "A class consists of 12 students.\n\na) In how many ways can 3 students be chosen for class president, vice president, and treasurer?\nb) In how many ways can a 4-member delegation be selected?\nc) How many different seating arrangements are there for all 12 students?",
-            "difficulty": "medium",
-            "points": 12,
+            "description": "A class has $12$ students ($7$ boys and $5$ girls).\na) In how many ways can a class representative, deputy and treasurer be chosen?\nb) In how many ways can a $4$-person delegation be chosen?\nc) What is the probability that a random delegation contains at least one girl?",
+            "difficulty": "beginner",
+            "points": 16,
             "solutionSteps": [
-                "Step 1: Part a) - Permutation without repetition\nHere order matters (different positions).\nNumber = P(12,3) = 12!/(12-3)! = 12!/9! = 12 × 11 × 10 = 1320",
-                "Step 2: Part b) - Combination without repetition\nHere order doesn't matter (delegation).\nNumber = C(12,4) = 12!/(4! × (12-4)!) = 12!/(4! × 8!)",
-                "Step 3: Calculate C(12,4)\nC(12,4) = (12 × 11 × 10 × 9)/(4 × 3 × 2 × 1) = 11880/24 = 495",
-                "Step 4: Part c) - Permutation of all elements\nNumber of seating arrangements = 12! = 479,001,600",
-                "Step 5: Answers\na) 1320 possibilities for the positions\nb) 495 possibilities for the delegation\nc) 479,001,600 different seating arrangements"
+                "Step 1: Part a): With order\nThe offices are different, so order matters: $12\\cdot11\\cdot10 = 1320$ (arrangements without repetition).",
+                "Step 2: Part b): Without order\nFor the delegation the order does not matter: $\\binom{12}{4} = \\frac{12\\cdot11\\cdot10\\cdot9}{4!} = \\frac{11880}{24} = 495$.",
+                "Step 3: Part c): Complement\n“At least one girl” is the opposite of “only boys”. $\\binom74 = 35$ delegations consist only of boys.",
+                "Step 4: Part c): Result\n$P = 1 - \\frac{35}{495} = \\frac{460}{495} = \\frac{92}{99} \\approx 0.929$. Check via decomposition: $\\binom51\\binom73 + \\binom52\\binom72 + \\binom53\\binom71 + \\binom54 = 175 + 210 + 70 + 5 = 460$ ✓."
             ]
         },
         {
             "id": 3,
             "topic": "Conditional Probability",
-            "title": "Tree diagram and Bayes' theorem",
-            "description": "A company produces parts on two machines. Machine A produces 60% of all parts, Machine B produces 40%. The defect rate is 2% for Machine A and 5% for Machine B.\n\na) What is the probability that a randomly selected part is defective?\nb) A part is defective. What is the probability that it came from Machine A?",
-            "difficulty": "medium",
-            "points": 10,
+            "title": "Total probability and Bayes",
+            "description": "Machine $A$ produces $60\\,\\%$ of the parts ($2\\,\\%$ defective), machine $B$ $40\\,\\%$ ($5\\,\\%$ defective).\na) What is the probability that a random part is defective?\nb) A part is defective. With what probability does it come from machine $A$?",
+            "difficulty": "beginner",
+            "points": 18,
             "solutionSteps": [
-                "Step 1: Given information\nP(A) = 0.6, P(B) = 0.4\nP(defective|A) = 0.02, P(defective|B) = 0.05\nP(intact|A) = 0.98, P(intact|B) = 0.95",
-                "Step 2: Part a) - Total probability\nP(defective) = P(defective|A) × P(A) + P(defective|B) × P(B)\nP(defective) = 0.02 × 0.6 + 0.05 × 0.4 = 0.012 + 0.02 = 0.032",
-                "Step 3: Part b) - Bayes' theorem\nP(A|defective) = P(defective|A) × P(A) / P(defective)\nP(A|defective) = (0.02 × 0.6) / 0.032 = 0.012 / 0.032 = 0.375",
-                "Step 4: Verification\nP(B|defective) = P(defective|B) × P(B) / P(defective)\nP(B|defective) = (0.05 × 0.4) / 0.032 = 0.02 / 0.032 = 0.625\nCheck: 0.375 + 0.625 = 1 ✓",
-                "Step 5: Answers\na) P(defective) = 0.032 = 3.2%\nb) P(A|defective) = 0.375 = 37.5%"
+                "Step 1: Given quantities\n$P(A) = 0.6$, $P(B) = 0.4$, $P(D|A) = 0.02$, $P(D|B) = 0.05$ ($D$: defective).",
+                "Step 2: Part a): Law of total probability\n$P(D) = P(D|A)P(A) + P(D|B)P(B) = 0.02\\cdot0.6 + 0.05\\cdot0.4 = 0.012 + 0.020 = 0.032$.",
+                "Step 3: Part b): Bayes' theorem\n$P(A|D) = \\frac{P(D|A)P(A)}{P(D)} = \\frac{0.012}{0.032} = 0.375$.",
+                "Step 4: Check and interpretation\n$P(B|D) = \\frac{0.020}{0.032} = 0.625$ and $0.375 + 0.625 = 1$ ✓. Although $A$ produces more parts, $62.5\\,\\%$ of the defective parts come from $B$ because $B$ has a higher reject rate."
             ]
         },
         {
             "id": 4,
             "topic": "Discrete Distributions",
             "title": "Binomial distribution",
-            "description": "The probability that a student passes an exam is 0.8. In a group of 10 students:\n\na) What is the probability that exactly 8 students pass?\nb) What is the probability that at least 7 students pass?\nc) Calculate the expected value and variance.",
-            "difficulty": "medium",
-            "points": 12,
+            "description": "The probability that a student passes an exam is $0.8$. In a group of $10$ students let $X$ be the number of students who pass.\na) Determine $P(X = 8)$.\nb) Determine $P(X \\geq 9)$.\nc) Determine expectation and variance.",
+            "difficulty": "beginner",
+            "points": 18,
             "solutionSteps": [
-                "Step 1: Binomial distribution parameters\nn = 10 (number of students)\np = 0.8 (success probability)\nX ~ B(10; 0.8)",
-                "Step 2: Part a) - P(X = 8)\nP(X = 8) = C(10,8) × (0.8)^8 × (0.2)^2\nC(10,8) = 10!/(8! × 2!) = (10 × 9)/(2 × 1) = 45\nP(X = 8) = 45 × (0.8)^8 × (0.2)^2 = 45 × 0.16777 × 0.04 ≈ 0.3020",
-                "Step 3: Part b) - P(X ≥ 7)\nP(X ≥ 7) = P(X = 7) + P(X = 8) + P(X = 9) + P(X = 10)\nP(X = 7) = C(10,7) × (0.8)^7 × (0.2)^3 = 120 × 0.2097 × 0.008 ≈ 0.2013\nP(X = 9) = C(10,9) × (0.8)^9 × (0.2)^1 = 10 × 0.1342 × 0.2 ≈ 0.2684\nP(X = 10) = C(10,10) × (0.8)^10 × (0.2)^0 = 1 × 0.1074 × 1 ≈ 0.1074",
-                "Step 4: Calculate sum\nP(X ≥ 7) = 0.2013 + 0.3020 + 0.2684 + 0.1074 = 0.8791",
-                "Step 5: Part c) - Expected value and variance\nE(X) = n × p = 10 × 0.8 = 8\nVar(X) = n × p × (1-p) = 10 × 0.8 × 0.2 = 1.6\nStandard deviation: σ = √1.6 ≈ 1.265",
-                "Step 6: Answers\na) P(X = 8) ≈ 0.302 = 30.2%\nb) P(X ≥ 7) ≈ 0.879 = 87.9%\nc) E(X) = 8, Var(X) = 1.6"
+                "Step 1: Model\n$X \\sim B(10;\\ 0.8)$: $10$ independent trials with success probability $p = 0.8$. $P(X = k) = \\binom{10}{k}0.8^k\\,0.2^{10-k}$.",
+                "Step 2: Part a)\n$P(X = 8) = \\binom{10}{8}0.8^8\\cdot0.2^2 = 45\\cdot0.16777\\cdot0.04 \\approx 0.3020$.",
+                "Step 3: Part b)\n$P(X = 9) = 10\\cdot0.8^9\\cdot0.2 \\approx 0.2684$, $P(X = 10) = 0.8^{10} \\approx 0.1074$. $P(X \\geq 9) \\approx 0.3758$.",
+                "Step 4: Part c): Expectation and variance\n$E(X) = np = 8$, $\\operatorname{Var}(X) = np(1-p) = 10\\cdot0.8\\cdot0.2 = 1.6$, standard deviation $\\sqrt{1.6} \\approx 1.265$.",
+                "Step 5: Plausibility check\nThe most likely value is near the expectation $8$: $P(X = 8) \\approx 30\\,\\%$ is indeed the largest single value ($P(X = 9) \\approx 27\\,\\%$, $P(X = 7) \\approx 20\\,\\%$)."
             ]
         },
         {
             "id": 5,
             "topic": "Continuous Distributions",
             "title": "Normal distribution",
-            "description": "The height of men is normally distributed with μ = 175 cm and σ = 8 cm.\n\na) What is the probability that a randomly selected man is between 170 and 180 cm tall?\nb) What height is not exceeded by 90% of men?\nc) What is the proportion of men taller than 185 cm?",
-            "difficulty": "medium",
-            "points": 10,
+            "description": "The height of men is normally distributed with $\\mu = 175\\ \\mathrm{cm}$, $\\sigma = 8\\ \\mathrm{cm}$.\na) Determine $P(170 < X < 180)$.\nb) Which height is not exceeded by $90\\,\\%$ of men?\nc) Determine $P(X > 185)$.",
+            "difficulty": "beginner",
+            "points": 18,
             "solutionSteps": [
-                "Step 1: Standardization\nX ~ N(175, 8²)\nStandardization: Z = (X - μ)/σ = (X - 175)/8\nZ ~ N(0,1)",
-                "Step 2: Part a) - P(170 < X < 180)\nP(170 < X < 180) = P((170-175)/8 < Z < (180-175)/8)\n= P(-0.625 < Z < 0.625)\n= Φ(0.625) - Φ(-0.625)\n= Φ(0.625) - (1 - Φ(0.625)) = 2Φ(0.625) - 1",
-                "Step 3: Value from table\nΦ(0.625) ≈ Φ(0.62) = 0.7324\nP(170 < X < 180) = 2 × 0.7324 - 1 = 0.4648",
-                "Step 4: Part b) - 90% quantile\nSought: x₀.₉ with P(X ≤ x₀.₉) = 0.9\nP(Z ≤ (x₀.₉ - 175)/8) = 0.9\nFrom table: z₀.₉ ≈ 1.28\n(x₀.₉ - 175)/8 = 1.28\nx₀.₉ = 175 + 8 × 1.28 = 175 + 10.24 = 185.24 cm",
-                "Step 5: Part c) - P(X > 185)\nP(X > 185) = P(Z > (185-175)/8) = P(Z > 1.25)\n= 1 - Φ(1.25) = 1 - 0.8944 = 0.1056",
-                "Step 6: Answers\na) P(170 < X < 180) ≈ 0.465 = 46.5%\nb) 90% quantile: 185.24 cm\nc) P(X > 185) ≈ 0.106 = 10.6%"
+                "Step 1: Standardisation\n$Z = \\frac{X - \\mu}{\\sigma} = \\frac{X - 175}{8} \\sim N(0,1)$.",
+                "Step 2: Part a)\n$P(170 < X < 180) = P(-0.625 < Z < 0.625) = 2\\Phi(0.625) - 1 \\approx 2\\cdot0.7340 - 1 = 0.468$.",
+                "Step 3: Part b): Quantile\nWe need $x$ with $\\Phi\\left(\\frac{x - 175}{8}\\right) = 0.9$. From the table $z_{0.9} \\approx 1.2816$. $x = 175 + 8\\cdot1.2816 \\approx 185.25\\ \\mathrm{cm}$.",
+                "Step 4: Part c)\n$P(X > 185) = P(Z > 1.25) = 1 - \\Phi(1.25) = 1 - 0.8944 = 0.1056$.",
+                "Step 5: Consistency check\nSince $185 < 185.25$, $P(X > 185)$ must be slightly larger than $10\\,\\%$: $10.6\\,\\%$ ✓. Rule of thumb: $P(|X - \\mu| < \\sigma) \\approx 68\\,\\%$; here $170$–$180$ is $\\pm0.625\\sigma$, hence smaller, $46.8\\,\\%$ ✓."
             ]
         },
         {
             "id": 6,
             "topic": "Descriptive Statistics",
-            "title": "Measures of central tendency and dispersion",
-            "description": "Given are the grades from an exam: 1, 2, 2, 3, 3, 3, 4, 4, 5\n\na) Calculate the arithmetic mean.\nb) Determine the median and mode.\nc) Calculate the variance and standard deviation.",
-            "difficulty": "easy",
-            "points": 8,
+            "title": "Measures of location and spread",
+            "description": "The grades of an exam are: $1, 2, 2, 3, 3, 3, 4, 4, 5$.\na) Compute arithmetic mean, median and mode.\nb) Compute sample variance and standard deviation.",
+            "difficulty": "beginner",
+            "points": 16,
             "solutionSteps": [
-                "Step 1: Sort and analyze data\nSorted data: 1, 2, 2, 3, 3, 3, 4, 4, 5\nNumber n = 9",
-                "Step 2: Part a) - Arithmetic mean\n$\\bar{x} = \\frac{1}{n} \\sum_{i=1}^{n} x_i = \\frac{1 + 2 + 2 + 3 + 3 + 3 + 4 + 4 + 5}{9}$\n$\\bar{x} = \\frac{27}{9} = 3$",
-                "Step 3: Part b) - Median\nWith n = 9 (odd): Median = x₍₅₎ (5th value)\nMedian = 3\nMode: Most frequent value is 3 (appears 3 times)\nMode = 3",
-                "Step 4: Part c) - Calculate variance\n$s^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (x_i - \\bar{x})^2$\nDeviations: (1-3)², (2-3)², (2-3)², (3-3)², (3-3)², (3-3)², (4-3)², (4-3)², (5-3)²\n= 4, 1, 1, 0, 0, 0, 1, 1, 4",
-                "Step 5: Variance and standard deviation\n$s^2 = \\frac{4 + 1 + 1 + 0 + 0 + 0 + 1 + 1 + 4}{9-1} = \\frac{12}{8} = 1.5$\nStandard deviation: $s = \\sqrt{1.5} ≈ 1.225$",
-                "Step 6: Answers\na) Arithmetic mean: $\\bar{x} = 3$\nb) Median = 3, Mode = 3\nc) Variance = 1.5, Standard deviation ≈ 1.225"
+                "Step 1: Part a): Mean\n$\\bar x = \\frac{1 + 2 + 2 + 3 + 3 + 3 + 4 + 4 + 5}{9} = \\frac{27}{9} = 3$.",
+                "Step 2: Part a): Median and mode\n$n = 9$ is odd: the median is the $5$th value of the ordered list, i.e. $3$. Mode (most frequent value): $3$ (occurs three times).",
+                "Step 3: Part b): Sum of squared deviations\n$\\sum(x_i - 3)^2 = 4 + 1 + 1 + 0 + 0 + 0 + 1 + 1 + 4 = 12$.",
+                "Step 4: Part b): Variance and standard deviation\nSample variance (division by $n - 1$): $s^2 = \\frac{12}{8} = 1.5$, $s = \\sqrt{1.5} \\approx 1.225$. (Dividing by $n$ would give $\\frac{12}{9} \\approx 1.33$.)",
+                "Step 5: Check\nThe deviations from the mean sum to $0$: $-2 - 1 - 1 + 0 + 0 + 0 + 1 + 1 + 2 = 0$ ✓. Mean, median and mode agree: symmetric distribution."
             ]
         }
     ]

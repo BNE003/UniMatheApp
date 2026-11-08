@@ -3,6 +3,85 @@
         {
             "id": 1,
             "topic": "Integralrechnung",
+            "title": "Bestimmtes Integral eines Polynoms",
+            "description": "Berechnen Sie $\\displaystyle\\int_1^3(2x+1)\\,dx$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nNach dem Hauptsatz der Differential- und Integralrechnung ist $\\int_a^bf(x)\\,dx = F(b) - F(a)$ für eine Stammfunktion $F$ von $f$. Wir bestimmen zuerst $F$ mit der Potenzregel $\\int x^n\\,dx = \\frac{x^{n+1}}{n+1}$.",
+                "Schritt 2: Stammfunktion\n$F(x) = x^2 + x$ (Probe: $F'(x) = 2x + 1$ ✓).",
+                "Schritt 3: Grenzen einsetzen\n$F(3) = 9 + 3 = 12$, $F(1) = 1 + 1 = 2$.",
+                "Schritt 4: Ergebnis\n$\\int_1^3(2x+1)\\,dx = F(3) - F(1) = 12 - 2 = 10$.",
+                "Schritt 5: Geometrische Probe\nDas Integral ist die Fläche eines Trapezes zwischen $x = 1$ und $x = 3$ mit Höhen $f(1) = 3$ und $f(3) = 7$ und Breite $2$: $\\frac{3 + 7}{2}\\cdot2 = 10$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nDie Integrationskonstante $C$ fällt beim bestimmten Integral weg. Immer zuerst die Stammfunktion durch Ableiten prüfen."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Integralrechnung",
+            "title": "Unbestimmte Integrale",
+            "description": "Bestimmen Sie die Stammfunktionen von (a) $3x^2 - 4x + 1$, (b) $\\frac{1}{x^2} + \\sqrt x$, (c) $\\cos x - 2e^x$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir integrieren gliedweise und nutzen $\\int x^a\\,dx = \\frac{x^{a+1}}{a+1} + C$ ($a \\neq -1$) sowie die Standardintegrale $\\int\\cos x = \\sin x$, $\\int e^x = e^x$.",
+                "Schritt 2: (a)\n$\\int(3x^2 - 4x + 1)\\,dx = x^3 - 2x^2 + x + C$.",
+                "Schritt 3: (b)\n$\\frac{1}{x^2} = x^{-2}$ und $\\sqrt x = x^{1/2}$: $\\int = \\frac{x^{-1}}{-1} + \\frac{x^{3/2}}{3/2} + C = -\\frac1x + \\frac23x^{3/2} + C$.",
+                "Schritt 4: (c)\n$\\int(\\cos x - 2e^x)\\,dx = \\sin x - 2e^x + C$.",
+                "Schritt 5: Probe durch Ableiten\n(b): $\\left(-x^{-1} + \\frac23x^{3/2}\\right)' = x^{-2} + x^{1/2}$ ✓. (a) und (c) analog.",
+                "Schritt 6: Merke: Worauf es ankommt\nDie Probe (Stammfunktion ableiten) ist immer möglich und zuverlässig. Die Konstante $C$ nicht vergessen; $\\int\\frac1x\\,dx = \\ln|x| + C$ ist die Ausnahme der Potenzregel."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Integralrechnung",
+            "title": "Fläche unter einer Parabel",
+            "description": "Berechnen Sie die Fläche zwischen der Parabel $y = 4 - x^2$ und der $x$-Achse.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Fläche zwischen Graph und $x$-Achse ist das Integral über das Intervall zwischen den Nullstellen, solange $f \\geq 0$ dort gilt. Wir bestimmen zuerst die Nullstellen als Integrationsgrenzen.",
+                "Schritt 2: Nullstellen\n$4 - x^2 = 0 \\iff x = \\pm2$. Zwischen $-2$ und $2$ ist $f \\geq 0$ (nach unten geöffnete Parabel mit Scheitel $(0,4)$).",
+                "Schritt 3: Integral\n$A = \\int_{-2}^2(4 - x^2)\\,dx = \\left[4x - \\frac{x^3}{3}\\right]_{-2}^{2}$.",
+                "Schritt 4: Auswerten\n$\\left(8 - \\frac83\\right) - \\left(-8 + \\frac83\\right) = 16 - \\frac{16}{3} = \\frac{32}{3}$.",
+                "Schritt 5: Probe (Archimedes)\nFläche unter einer Parabel $= \\frac23\\cdot\\text{Grundlinie}\\cdot\\text{Höhe} = \\frac23\\cdot4\\cdot4 = \\frac{32}{3}$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nNutzt man die Symmetrie, genügt $A = 2\\int_0^2(4 - x^2)\\,dx = 2\\cdot\\frac{16}{3} = \\frac{32}{3}$. Bei Vorzeichenwechsel von $f$ muss man abschnittsweise mit Beträgen rechnen."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Integralrechnung",
+            "title": "Uneigentliches Integral als Grenzwert",
+            "description": "Untersuchen Sie $\\displaystyle\\int_1^\\infty\\frac{1}{x^2}\\,dx$ und $\\displaystyle\\int_1^\\infty\\frac1x\\,dx$ auf Konvergenz.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEin uneigentliches Integral ist ein Grenzwert: $\\int_1^\\infty f = \\lim_{R\\to\\infty}\\int_1^Rf$. Existiert der Grenzwert (endlich), heißt das Integral konvergent.",
+                "Schritt 2: $\\frac1{x^2}$\n$\\int_1^R x^{-2}\\,dx = \\left[-\\frac1x\\right]_1^R = 1 - \\frac1R \\to 1$. Das Integral **konvergiert** gegen $1$.",
+                "Schritt 3: $\\frac1x$\n$\\int_1^R\\frac1x\\,dx = [\\ln x]_1^R = \\ln R \\to \\infty$. Das Integral **divergiert**.",
+                "Schritt 4: Deutung\nBeide Funktionen fallen gegen $0$, aber nur $\\frac1{x^2}$ schnell genug: Die Fläche unter $\\frac1{x^2}$ ist endlich, unter $\\frac1x$ unendlich.",
+                "Schritt 5: Merke: Worauf es ankommt\nAllgemein konvergiert $\\int_1^\\infty x^{-p}\\,dx$ genau für $p > 1$. Das hängt direkt mit der Konvergenz der Reihen $\\sum n^{-p}$ zusammen (Integralkriterium)."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Integralrechnung",
+            "title": "Mittelwert einer Funktion",
+            "description": "Bestimmen Sie den Mittelwert von $f(x) = x^2$ auf $[0,3]$ und die Stelle, an der $f$ diesen Wert annimmt.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDer Mittelwert einer stetigen Funktion auf $[a,b]$ ist $\\bar f = \\frac{1}{b-a}\\int_a^bf(x)\\,dx$. Nach dem Mittelwertsatz der Integralrechnung wird dieser Wert an mindestens einer Stelle $\\xi \\in [a,b]$ angenommen.",
+                "Schritt 2: Integral\n$\\int_0^3x^2\\,dx = \\left[\\frac{x^3}{3}\\right]_0^3 = 9$.",
+                "Schritt 3: Mittelwert\n$\\bar f = \\frac{1}{3 - 0}\\cdot9 = 3$.",
+                "Schritt 4: Stelle $\\xi$\n$f(\\xi) = 3 \\iff \\xi^2 = 3 \\iff \\xi = \\sqrt3 \\approx 1{,}73 \\in [0,3]$.",
+                "Schritt 5: Probe\nDas Rechteck mit Höhe $3$ und Breite $3$ hat denselben Flächeninhalt $9$ wie die Fläche unter $x^2$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nDer Mittelwert ist **nicht** der Durchschnitt der Randwerte ($\\frac{0 + 9}{2} = 4{,}5 \\neq 3$). Anwendung: Effektivwerte, mittlere Geschwindigkeit, mittlere Temperatur."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Integralrechnung",
             "title": "Bestimmtes Integral einer Polynomfunktion",
             "description": "Berechnen Sie das bestimmte Integral $\\int_{0}^{2} (x^3 - 2x^2 + 3x - 1) \\, dx$.",
             "difficulty": "easy",
@@ -18,7 +97,7 @@
             ]
         },
         {
-            "id": 2,
+            "id": 7,
             "topic": "Integralrechnung",
             "title": "Bestimmtes Integral einer Exponentialfunktion",
             "description": "Berechnen Sie das bestimmte Integral $\\int_{0}^{1} e^x \\, dx$.",
@@ -34,7 +113,7 @@
             ]
         },
         {
-            "id": 3,
+            "id": 8,
             "topic": "Integralrechnung",
             "title": "Bestimmtes Integral einer trigonometrischen Funktion",
             "description": "Berechnen Sie das bestimmte Integral $\\int_{0}^{\\pi} \\sin x \\, dx$.",
@@ -50,7 +129,7 @@
             ]
         },
         {
-            "id": 4,
+            "id": 9,
             "topic": "Integralrechnung",
             "title": "Bestimmtes Integral einer Wurzelfunktion",
             "description": "Berechnen Sie das bestimmte Integral $\\int_{0}^{4} \\sqrt{x} \\, dx$.",
@@ -66,39 +145,7 @@
             ]
         },
         {
-            "id": 5,
-            "topic": "Integralrechnung",
-            "title": "Bestimmtes Integral einer konstanten Funktion",
-            "description": "Berechnen Sie das bestimmte Integral $\\int_{1}^{5} 3 \\, dx$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Analyse des Integranden\nDie Funktion $f(x) = 3$ ist eine konstante Funktion.",
-                "Schritt 2: Anwendung der Integrationsregel\nFür $f(x) = c$ gilt: $\\int c \\, dx = cx + C$",
-                "Schritt 3: Berechnung der Stammfunktion\n$F(x) = 3x + C$\nErklärung: Die Stammfunktion einer konstanten Funktion ist eine lineare Funktion.",
-                "Schritt 4: Einsetzen der Grenzen\n$\\int_{1}^{5} 3 \\, dx = F(5) - F(1)$\n$= 3 \\cdot 5 - 3 \\cdot 1 = 15 - 3 = 12$",
-                "Schritt 5: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(3x) = 3$",
-                "Schritt 6: Zusammenfassung\nDas bestimmte Integral ist 12."
-            ]
-        },
-        {
-            "id": 6,
-            "topic": "Integralrechnung",
-            "title": "Bestimmtes Integral einer linearen Funktion",
-            "description": "Berechnen Sie das bestimmte Integral $\\int_{0}^{2} (2x + 1) \\, dx$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Analyse des Integranden\nDie Funktion $f(x) = 2x + 1$ ist eine lineare Funktion.",
-                "Schritt 2: Anwendung der Integrationsregeln\nFür jeden Summanden $ax^n$ gilt: $\\int ax^n \\, dx = \\frac{a}{n+1}x^{n+1} + C$",
-                "Schritt 3: Berechnung der Stammfunktion\n$F(x) = x^2 + x + C$\nErklärung: Wir integrieren jeden Summanden einzeln.",
-                "Schritt 4: Einsetzen der Grenzen\n$\\int_{0}^{2} (2x + 1) \\, dx = F(2) - F(0)$\n$= (4 + 2) - (0 + 0) = 6$",
-                "Schritt 5: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(x^2 + x) = 2x + 1$",
-                "Schritt 6: Zusammenfassung\nDas bestimmte Integral ist 6."
-            ]
-        },
-        {
-            "id": 7,
+            "id": 10,
             "topic": "Integralrechnung",
             "title": "Bestimmtes Integral einer quadratischen Funktion",
             "description": "Berechnen Sie das bestimmte Integral $\\int_{-1}^{1} (x^2 + 2x + 1) \\, dx$.",
@@ -114,7 +161,7 @@
             ]
         },
         {
-            "id": 8,
+            "id": 11,
             "topic": "Integralrechnung",
             "title": "Bestimmtes Integral einer Logarithmusfunktion",
             "description": "Berechnen Sie das bestimmte Integral $\\int_{1}^{e} \\frac{1}{x} \\, dx$.",
@@ -130,7 +177,87 @@
             ]
         },
         {
-            "id": 9,
+            "id": 12,
+            "topic": "Integralrechnung",
+            "title": "Substitution",
+            "description": "Berechnen Sie (a) $\\int\\frac{2x}{x^2+1}\\,dx$ und (b) $\\int_0^{\\pi/2}\\sin x\\cos^2x\\,dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nBei der Substitution setzt man $u = g(x)$ mit $du = g'(x)\\,dx$. Sie lohnt sich, wenn der Integrand die Form $f(g(x))\\cdot g'(x)$ hat. Bei bestimmten Integralen transformiert man die Grenzen mit.",
+                "Schritt 2: (a) Substitution\n$u = x^2 + 1$, $du = 2x\\,dx$: $\\int\\frac{du}{u} = \\ln|u| + C = \\ln(x^2+1) + C$.",
+                "Schritt 3: (b) Substitution\n$u = \\cos x$, $du = -\\sin x\\,dx$. Grenzen: $x = 0 \\Rightarrow u = 1$, $x = \\frac\\pi2 \\Rightarrow u = 0$.",
+                "Schritt 4: (b) Integral\n$\\int_0^{\\pi/2}\\sin x\\cos^2x\\,dx = -\\int_1^0u^2\\,du = \\int_0^1u^2\\,du = \\frac13$.",
+                "Schritt 5: Probe\n(a): $\\frac{d}{dx}\\ln(x^2+1) = \\frac{2x}{x^2+1}$ ✓. (b): Stammfunktion $-\\frac{\\cos^3x}{3}$: $-\\frac{0}{3} + \\frac{1}{3} = \\frac13$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nFaustregel: „Innere Funktion mal ihre Ableitung“. Beim bestimmten Integral Grenzen mit substituieren **oder** am Ende zurücksubstituieren — nicht beides mischen."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Integralrechnung",
+            "title": "Partielle Integration",
+            "description": "Berechnen Sie $\\int xe^x\\,dx$ und $\\int_1^e\\ln x\\,dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nPartielle Integration: $\\int u\\,v'\\,dx = uv - \\int u'\\,v\\,dx$. Man wählt $u$ so, dass es beim Ableiten einfacher wird (z.B. $x$ oder $\\ln x$), und $v'$ so, dass es sich leicht integrieren lässt.",
+                "Schritt 2: $\\int xe^x\\,dx$\n$u = x$, $v' = e^x$, also $u' = 1$, $v = e^x$: $\\int xe^x\\,dx = xe^x - \\int e^x\\,dx = xe^x - e^x + C = (x-1)e^x + C$.",
+                "Schritt 3: $\\int\\ln x\\,dx$\nTrick: $\\ln x = 1\\cdot\\ln x$ mit $u = \\ln x$, $v' = 1$, $u' = \\frac1x$, $v = x$: $\\int\\ln x\\,dx = x\\ln x - \\int1\\,dx = x\\ln x - x + C$.",
+                "Schritt 4: Bestimmtes Integral\n$\\int_1^e\\ln x\\,dx = [x\\ln x - x]_1^e = (e - e) - (0 - 1) = 1$.",
+                "Schritt 5: Probe\n$\\frac{d}{dx}\\big((x-1)e^x\\big) = e^x + (x-1)e^x = xe^x$ ✓. $\\frac{d}{dx}(x\\ln x - x) = \\ln x + 1 - 1 = \\ln x$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nMerkhilfe LIATE: Als $u$ wählt man bevorzugt **L**ogarithmus, **I**nverse Trigonometrische, **A**lgebraische (Polynom), **T**rigonometrische, **E**xponentielle Funktion — in dieser Reihenfolge."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Integralrechnung",
+            "title": "Substitution mit Wurzel",
+            "description": "Berechnen Sie $\\displaystyle\\int_0^1x\\sqrt{1+x^2}\\,dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDer Integrand enthält die innere Funktion $1 + x^2$ und (bis auf den Faktor $2$) deren Ableitung $2x$. Das ist ein klassischer Fall für die Substitution $u = 1 + x^2$.",
+                "Schritt 2: Substitution\n$u = 1 + x^2$, $du = 2x\\,dx$, also $x\\,dx = \\frac12du$. Grenzen: $x = 0 \\Rightarrow u = 1$, $x = 1 \\Rightarrow u = 2$.",
+                "Schritt 3: Integral in $u$\n$\\int_0^1x\\sqrt{1+x^2}\\,dx = \\frac12\\int_1^2u^{1/2}\\,du = \\frac12\\cdot\\frac23\\left[u^{3/2}\\right]_1^2 = \\frac13\\left(2\\sqrt2 - 1\\right)$.",
+                "Schritt 4: Numerischer Wert\n$\\frac{2\\cdot1{,}41421 - 1}{3} = 0{,}60948$.",
+                "Schritt 5: Probe\nAbschätzung: Der Integrand ist $\\approx x$ für kleines $x$ (Integral $\\frac12$) und größer; $0{,}61$ ist plausibel. Stammfunktion $\\frac13(1+x^2)^{3/2}$: Ableitung $\\frac13\\cdot\\frac32(1+x^2)^{1/2}\\cdot2x = x\\sqrt{1+x^2}$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nFehlt ein konstanter Faktor ($2x$ vs. $x$), ist das kein Hindernis: Er wird einfach vor das Integral gezogen. Fehlt aber eine Variable, funktioniert die Substitution nicht."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Integralrechnung",
+            "title": "Fläche zwischen zwei Kurven",
+            "description": "Berechnen Sie die Fläche, die von den Graphen $y = x$ und $y = x^2$ eingeschlossen wird.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDie eingeschlossene Fläche ist $\\int_a^b\\big(f_{\\text{oben}}(x) - f_{\\text{unten}}(x)\\big)\\,dx$, wobei $a,b$ die Schnittpunkte sind. Wir müssen also Schnittpunkte und die obere Kurve bestimmen.",
+                "Schritt 2: Schnittpunkte\n$x = x^2 \\iff x(x-1) = 0 \\iff x \\in \\{0,1\\}$.",
+                "Schritt 3: Obere Kurve\nFür $x \\in (0,1)$ gilt $x > x^2$ (z.B. $x = \\frac12$: $\\frac12 > \\frac14$). Obere Kurve: $y = x$.",
+                "Schritt 4: Integral\n$A = \\int_0^1(x - x^2)\\,dx = \\left[\\frac{x^2}{2} - \\frac{x^3}{3}\\right]_0^1 = \\frac12 - \\frac13 = \\frac16$.",
+                "Schritt 5: Plausibilität\nDas Dreieck unter $y = x$ hat Fläche $\\frac12$, die Fläche unter $y = x^2$ ist $\\frac13$; die Differenz ist $\\frac16 \\approx 0{,}167$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nImmer: Schnittpunkte finden, die Lage der Kurven in jedem Teilintervall prüfen (oben minus unten), dann integrieren. Wechselt die Lage, muss man in Teilintervalle zerlegen."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Integralrechnung",
+            "title": "Integral von cos² x",
+            "description": "Berechnen Sie $\\int\\cos^2x\\,dx$ und $\\int_0^\\pi\\cos^2x\\,dx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDas Quadrat einer trigonometrischen Funktion integriert man mit dem Halbwinkel-Additionstheorem $\\cos^2x = \\frac{1 + \\cos2x}{2}$. Das macht aus dem Quadrat einen Ausdruck, der sich gliedweise integrieren lässt.",
+                "Schritt 2: Umformen\n$\\cos^2x = \\frac12 + \\frac12\\cos2x$.",
+                "Schritt 3: Integrieren\n$\\int\\cos^2x\\,dx = \\frac x2 + \\frac14\\sin2x + C$ (innere Ableitung $2$ beachten: $\\int\\cos2x = \\frac12\\sin2x$).",
+                "Schritt 4: Bestimmtes Integral\n$\\int_0^\\pi\\cos^2x\\,dx = \\left[\\frac x2 + \\frac{\\sin2x}{4}\\right]_0^\\pi = \\frac\\pi2 + 0 - 0 = \\frac\\pi2$.",
+                "Schritt 5: Probe\nWegen $\\cos^2x + \\sin^2x = 1$ ist $\\int_0^\\pi\\cos^2 + \\int_0^\\pi\\sin^2 = \\pi$, und beide sind gleich (Symmetrie): jeweils $\\frac\\pi2$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nDer Mittelwert von $\\cos^2$ über eine volle Periode ist $\\frac12$; deshalb ist der Effektivwert einer Wechselspannung $\\frac{\\hat U}{\\sqrt2}$. Alternativ geht auch partielle Integration (zweimal)."
+            ]
+        },
+        {
+            "id": 17,
             "topic": "Integralrechnung",
             "title": "Partielle Integration",
             "description": "Berechnen Sie das Integral $\\int x^2\\ln(x)dx$.",
@@ -144,7 +271,7 @@
             ]
         },
         {
-            "id": 10,
+            "id": 18,
             "topic": "Integralrechnung",
             "title": "Substitutionsmethode",
             "description": "Berechnen Sie das Integral $\\int \\frac{\\sin(\\sqrt{x})}{\\sqrt{x}}dx$.",
@@ -158,21 +285,7 @@
             ]
         },
         {
-            "id": 11,
-            "topic": "Integralrechnung",
-            "title": "Uneigentliche Integrale",
-            "description": "Untersuchen Sie die Konvergenz des uneigentlichen Integrals $\\int_0^\\infty \\frac{x}{1+x^4}dx$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Substitution\n$u = x^2 \\Rightarrow du = 2xdx$\n$\\frac{1}{2}du = xdx$",
-                "Schritt 2: Umformung\n$\\int_0^\\infty \\frac{x}{1+x^4}dx = \\frac{1}{2}\\int_0^\\infty \\frac{1}{1+u^2}du$",
-                "Schritt 3: Integration\n$= \\frac{1}{2}[\\arctan(u)]_0^\\infty$",
-                "Schritt 4: Grenzwert\n$= \\frac{1}{2}(\\frac{\\pi}{2} - 0) = \\frac{\\pi}{4}$\nDas Integral konvergiert."
-            ]
-        },
-        {
-            "id": 12,
+            "id": 19,
             "topic": "Integralrechnung",
             "title": "Flächenberechnung",
             "description": "Berechnen Sie die Fläche zwischen den Kurven $y = x^2$ und $y = 2x - x^2$.",
@@ -186,21 +299,7 @@
             ]
         },
         {
-            "id": 13,
-            "topic": "Integralrechnung",
-            "title": "Volumenberechnung",
-            "description": "Berechnen Sie das Volumen des Rotationskörpers, der durch Rotation der Kurve $y = \\sqrt{x}$ um die $x$-Achse im Intervall $[0,4]$ entsteht.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Volumenformel\n$V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 x dx$",
-                "Schritt 2: Integration\n$= \\pi [\\frac{x^2}{2}]_0^4$",
-                "Schritt 3: Berechnung\n$= \\pi (\\frac{16}{2} - 0) = 8\\pi$",
-                "Schritt 4: Einheiten\nDas Volumen beträgt $8\\pi$ Volumeneinheiten."
-            ]
-        },
-        {
-            "id": 14,
+            "id": 20,
             "topic": "Integralrechnung",
             "title": "Integration durch Substitution mit trigonometrischer Funktion",
             "description": "Berechnen Sie das Integral $\\int \\frac{\\cos x}{\\sqrt{\\sin x + 1}} \\, dx$.",
@@ -217,7 +316,7 @@
             ]
         },
         {
-            "id": 15,
+            "id": 21,
             "topic": "Integralrechnung",
             "title": "Partielle Integration mit Exponentialfunktion",
             "description": "Berechnen Sie das Integral $\\int x^2 e^x \\, dx$.",
@@ -234,7 +333,7 @@
             ]
         },
         {
-            "id": 16,
+            "id": 22,
             "topic": "Integralrechnung",
             "title": "Integration einer rationalen Funktion",
             "description": "Berechnen Sie das Integral $\\int \\frac{x^2 + 2x + 1}{x^2 + 1} \\, dx$.",
@@ -250,7 +349,7 @@
             ]
         },
         {
-            "id": 17,
+            "id": 23,
             "topic": "Integralrechnung",
             "title": "Integration mit trigonometrischer Substitution",
             "description": "Berechnen Sie das Integral $\\int \\frac{1}{\\sqrt{4 - x^2}} \\, dx$.",
@@ -267,7 +366,7 @@
             ]
         },
         {
-            "id": 18,
+            "id": 24,
             "topic": "Integralrechnung",
             "title": "Integration einer Produktfunktion",
             "description": "Berechnen Sie das Integral $\\int x \\sin(2x) \\, dx$.",
@@ -283,7 +382,7 @@
             ]
         },
         {
-            "id": 19,
+            "id": 25,
             "topic": "Integralrechnung",
             "title": "Integration einer Wurzelfunktion mit Substitution",
             "description": "Berechnen Sie das Integral $\\int \\frac{x}{\\sqrt{x^2 + 4}} \\, dx$.",
@@ -300,7 +399,7 @@
             ]
         },
         {
-            "id": 20,
+            "id": 26,
             "topic": "Integralrechnung",
             "title": "Integration einer Logarithmusfunktion",
             "description": "Berechnen Sie das Integral $\\int \\ln(x^2 + 1) \\, dx$.",
@@ -316,7 +415,7 @@
             ]
         },
         {
-            "id": 21,
+            "id": 27,
             "topic": "Integralrechnung",
             "title": "Integration einer Exponentialfunktion mit trigonometrischem Argument",
             "description": "Berechnen Sie das Integral $\\int e^x \\sin x \\, dx$.",
@@ -333,24 +432,114 @@
             ]
         },
         {
-            "id": 22,
+            "id": 28,
             "topic": "Integralrechnung",
-            "title": "Integration einer komplexen rationalen Funktion",
-            "description": "Berechnen Sie das Integral $\\int \\frac{x^4 + 2x^3 + 3x^2 + 4x + 5}{(x^2 + 1)(x^2 + 2x + 2)} \\, dx$.",
+            "title": "Partialbruchzerlegung",
+            "description": "Berechnen Sie $\\displaystyle\\int\\frac{1}{x^2-1}\\,dx$ und $\\displaystyle\\int\\frac{3x+5}{(x+1)(x+3)}\\,dx$.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Schritt 1: Analyse des Integranden\nDie Funktion ist eine komplexe rationale Funktion mit quadratischen Faktoren im Nenner.",
-                "Schritt 2: Partialbruchzerlegung\n$\\frac{x^4 + 2x^3 + 3x^2 + 4x + 5}{(x^2 + 1)(x^2 + 2x + 2)} = \\frac{Ax + B}{x^2 + 1} + \\frac{Cx + D}{x^2 + 2x + 2}$\nErklärung: Wir zerlegen den Bruch in Partialbrüche.",
-                "Schritt 3: Bestimmung der Koeffizienten\nDurch Koeffizientenvergleich erhalten wir:\n$A = 1, B = 2, C = 0, D = 1$",
-                "Schritt 4: Aufspaltung des Integrals\n$\\int \\frac{x^4 + 2x^3 + 3x^2 + 4x + 5}{(x^2 + 1)(x^2 + 2x + 2)} \\, dx = \\int \\frac{x + 2}{x^2 + 1} \\, dx + \\int \\frac{1}{x^2 + 2x + 2} \\, dx$\nErklärung: Wir integrieren jeden Partialbruch einzeln.",
-                "Schritt 5: Integration der Partialbrüche\n$= \\frac{1}{2}\\ln(x^2 + 1) + 2\\arctan(x) + \\arctan(x + 1) + C$\nErklärung: Wir verwenden verschiedene Integrationstechniken für jeden Term.",
-                "Schritt 6: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(\\frac{1}{2}\\ln(x^2 + 1) + 2\\arctan(x) + \\arctan(x + 1)) = \\frac{x^4 + 2x^3 + 3x^2 + 4x + 5}{(x^2 + 1)(x^2 + 2x + 2)}$",
-                "Schritt 7: Zusammenfassung\nDie Stammfunktion ist $\\frac{1}{2}\\ln(x^2 + 1) + 2\\arctan(x) + \\arctan(x + 1) + C$."
+                "Schritt 1: Überblick: Was ist gefragt?\nBei rationalen Funktionen mit faktorisiertem Nenner zerlegt man den Bruch in Partialbrüche $\\frac{A}{x - a} + \\frac{B}{x - b}$ und integriert jeden Summanden zu $A\\ln|x-a| + B\\ln|x-b|$. Die Koeffizienten bestimmt man durch Koeffizientenvergleich oder Einsetzen der Nullstellen (Zuhaltemethode).",
+                "Schritt 2: Erstes Integral: Zerlegung\n$\\frac{1}{x^2-1} = \\frac{1}{(x-1)(x+1)} = \\frac{A}{x-1} + \\frac{B}{x+1}$. Zuhalten: $A = \\frac{1}{1+1} = \\frac12$, $B = \\frac{1}{-1-1} = -\\frac12$.",
+                "Schritt 3: Erstes Integral\n$\\int\\frac{dx}{x^2-1} = \\frac12\\ln|x-1| - \\frac12\\ln|x+1| + C = \\frac12\\ln\\left|\\frac{x-1}{x+1}\\right| + C$.",
+                "Schritt 4: Zweites Integral: Zerlegung\n$\\frac{3x+5}{(x+1)(x+3)} = \\frac{A}{x+1} + \\frac{B}{x+3}$. Zuhalten: $A = \\frac{3(-1)+5}{-1+3} = \\frac22 = 1$, $B = \\frac{3(-3)+5}{-3+1} = \\frac{-4}{-2} = 2$.",
+                "Schritt 5: Zweites Integral\n$\\int\\frac{3x+5}{(x+1)(x+3)}\\,dx = \\ln|x+1| + 2\\ln|x+3| + C$. Probe der Zerlegung für $x = 0$: $\\frac{5}{3}$ und $1 + \\frac23 = \\frac53$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nIst der Zählergrad $\\geq$ Nennergrad, zuerst Polynomdivision. Bei doppelten Nullstellen braucht man zusätzlich $\\frac{B}{(x-a)^2}$, bei irreduziblen quadratischen Faktoren Terme $\\frac{Bx + C}{x^2 + px + q}$ (Arkustangens)."
             ]
         },
         {
-            "id": 23,
+            "id": 29,
+            "topic": "Integralrechnung",
+            "title": "Weitere uneigentliche Integrale",
+            "description": "Untersuchen Sie die Konvergenz von (a) $\\int_0^1\\frac{1}{\\sqrt x}\\,dx$, (b) $\\int_0^1\\frac1x\\,dx$, (c) $\\int_0^\\infty e^{-x}\\,dx$ und berechnen Sie, falls möglich, den Wert.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEs gibt zwei Typen uneigentlicher Integrale: unbeschränktes **Intervall** (Grenze $\\infty$) und unbeschränkter **Integrand** (Pol am Rand). In beiden Fällen definiert man das Integral als Grenzwert eigentlicher Integrale.",
+                "Schritt 2: (a)\n$\\int_\\varepsilon^1x^{-1/2}\\,dx = \\left[2\\sqrt x\\right]_\\varepsilon^1 = 2 - 2\\sqrt\\varepsilon \\to 2$ für $\\varepsilon \\to 0^+$. **Konvergent**, Wert $2$.",
+                "Schritt 3: (b)\n$\\int_\\varepsilon^1\\frac1x\\,dx = [\\ln x]_\\varepsilon^1 = -\\ln\\varepsilon \\to \\infty$. **Divergent**.",
+                "Schritt 4: (c)\n$\\int_0^Re^{-x}\\,dx = 1 - e^{-R} \\to 1$ für $R \\to \\infty$. **Konvergent**, Wert $1$.",
+                "Schritt 5: Zusammenfassung zu $x^{-p}$\nBei $0$: $\\int_0^1x^{-p}\\,dx$ konvergiert genau für $p < 1$; bei $\\infty$: $\\int_1^\\infty x^{-p}\\,dx$ genau für $p > 1$. Der Fall $p = 1$ divergiert in beiden Fällen.",
+                "Schritt 6: Merke: Worauf es ankommt\nEin unbeschränkter Integrand (a) kann trotzdem eine endliche Fläche haben, ein unendlich langes Intervall (c) ebenfalls. Entscheidend ist, wie schnell der Integrand gegen $0$ bzw. $\\infty$ strebt."
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Integralrechnung",
+            "title": "Rotationsvolumen",
+            "description": "Berechnen Sie das Volumen des Körpers, der durch Rotation der Kurve $y = x^2$, $0 \\leq x \\leq 1$, um die $x$-Achse entsteht.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nBei Rotation um die $x$-Achse ist jeder Querschnitt eine Kreisscheibe mit Radius $f(x)$ und Fläche $\\pi f(x)^2$. Das Volumen ist das Integral der Querschnittsflächen: $V = \\pi\\int_a^bf(x)^2\\,dx$.",
+                "Schritt 2: Integrand\n$f(x)^2 = (x^2)^2 = x^4$.",
+                "Schritt 3: Integral\n$V = \\pi\\int_0^1x^4\\,dx = \\pi\\left[\\frac{x^5}{5}\\right]_0^1 = \\frac\\pi5$.",
+                "Schritt 4: Plausibilitätsprobe\nDer Zylinder mit Radius $1$ und Höhe $1$ hat Volumen $\\pi$; der Körper füllt einen Bruchteil $\\frac15$ davon aus, passend zum schmalen Verlauf von $x^2$ bei kleinen $x$ ✓. Zum Vergleich: der Kegel ($y = x$) hat $\\frac\\pi3$.",
+                "Schritt 5: Variante: Rotation um die $y$-Achse\nMit Zylinderschalen: $V = 2\\pi\\int_0^1x\\cdot x^2\\,dx = 2\\pi\\cdot\\frac14 = \\frac\\pi2$.",
+                "Schritt 6: Merke: Worauf es ankommt\nScheibenmethode (Rotation um die $x$-Achse): $\\pi\\int f^2$. Schalenmethode (Rotation um die $y$-Achse): $2\\pi\\int x\\,f$. Das Volumen der Kugel $\\frac43\\pi r^3$ ergibt sich aus $f(x) = \\sqrt{r^2 - x^2}$."
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Integralrechnung",
+            "title": "Ableitung eines Parameterintegrals",
+            "description": "Sei $F(x) = \\int_0^xt^2\\,dt$. Bestimmen Sie $F'(x)$. Berechnen Sie weiter die Ableitung von $G(x) = \\int_0^{x^2}e^{-t^2}\\,dt$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDer Hauptsatz der Differential- und Integralrechnung sagt: Ist $f$ stetig und $F(x) = \\int_a^xf(t)\\,dt$, so ist $F'(x) = f(x)$. Bei variabler oberer Grenze $u(x)$ kommt die Kettenregel dazu: $\\frac{d}{dx}\\int_a^{u(x)}f(t)\\,dt = f(u(x))\\cdot u'(x)$.",
+                "Schritt 2: $F'(x)$\nDirekt: $F(x) = \\frac{x^3}{3}$, also $F'(x) = x^2$ — das ist der Integrand an der oberen Grenze, wie vom Hauptsatz vorhergesagt.",
+                "Schritt 3: $G'(x)$\n$f(t) = e^{-t^2}$ hat keine elementare Stammfunktion, aber das ist nicht nötig. Mit $u(x) = x^2$: $G'(x) = e^{-(x^2)^2}\\cdot2x = 2xe^{-x^4}$.",
+                "Schritt 4: Probe an einem lösbaren Beispiel\n$H(x) = \\int_0^{x^2}t\\,dt = \\frac{x^4}{2}$. Direkt: $H'(x) = 2x^3$. Mit der Regel: $f(u)u' = x^2\\cdot2x = 2x^3$ ✓.",
+                "Schritt 5: Merke: Worauf es ankommt\nDer Hauptsatz verbindet Ableiten und Integrieren als Umkehroperationen. Integrale mit variabler Grenze definieren neue Funktionen, z.B. die Fehlerfunktion $\\operatorname{erf}(x) = \\frac{2}{\\sqrt\\pi}\\int_0^xe^{-t^2}dt$."
+            ]
+        },
+        {
+            "id": 32,
+            "topic": "Integralrechnung",
+            "title": "Mehrfache partielle Integration",
+            "description": "Berechnen Sie $\\int_1^e(\\ln x)^2\\,dx$ und $\\int x^2e^x\\,dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nManchmal muss man partiell **mehrfach** integrieren, bis der Integrand verschwindet oder sich zurückführt. Dabei wählt man jedes Mal dieselbe Zuordnung: das Polynom bzw. $\\ln$ als $u$.",
+                "Schritt 2: $\\int x^2e^x\\,dx$, erster Schritt\n$u = x^2$, $v' = e^x$: $\\int x^2e^x\\,dx = x^2e^x - 2\\int xe^x\\,dx$.",
+                "Schritt 3: $\\int x^2e^x\\,dx$, zweiter Schritt\n$\\int xe^x\\,dx = (x-1)e^x$, also $\\int x^2e^x\\,dx = x^2e^x - 2(x-1)e^x + C = (x^2 - 2x + 2)e^x + C$. Probe: $\\big((x^2-2x+2)e^x\\big)' = (2x - 2 + x^2 - 2x + 2)e^x = x^2e^x$ ✓.",
+                "Schritt 4: $\\int(\\ln x)^2\\,dx$\n$u = (\\ln x)^2$, $v' = 1$: $\\int(\\ln x)^2\\,dx = x(\\ln x)^2 - \\int x\\cdot2\\ln x\\cdot\\frac1x\\,dx = x(\\ln x)^2 - 2\\int\\ln x\\,dx = x(\\ln x)^2 - 2(x\\ln x - x) + C$.",
+                "Schritt 5: Bestimmtes Integral\n$\\int_1^e(\\ln x)^2\\,dx = \\big[x\\ln^2x - 2x\\ln x + 2x\\big]_1^e = (e - 2e + 2e) - (0 - 0 + 2) = e - 2 \\approx 0{,}718$.",
+                "Schritt 6: Merke: Worauf es ankommt\nJede partielle Integration senkt den Grad des Polynoms um $1$; $\\int x^ne^x\\,dx$ erfordert $n$ Schritte. Ein Zahlencheck des bestimmten Integrals: Der Integrand liegt zwischen $0$ und $1$ auf $[1,e]$ (Länge $1{,}72$), $0{,}718$ ist plausibel."
+            ]
+        },
+        {
+            "id": 33,
+            "topic": "Integralrechnung",
+            "title": "Uneigentliche Integrale",
+            "description": "Untersuchen Sie die Konvergenz des uneigentlichen Integrals $\\int_0^\\infty \\frac{x}{1+x^4}dx$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Substitution\n$u = x^2 \\Rightarrow du = 2xdx$\n$\\frac{1}{2}du = xdx$",
+                "Schritt 2: Umformung\n$\\int_0^\\infty \\frac{x}{1+x^4}dx = \\frac{1}{2}\\int_0^\\infty \\frac{1}{1+u^2}du$",
+                "Schritt 3: Integration\n$= \\frac{1}{2}[\\arctan(u)]_0^\\infty$",
+                "Schritt 4: Grenzwert\n$= \\frac{1}{2}(\\frac{\\pi}{2} - 0) = \\frac{\\pi}{4}$\nDas Integral konvergiert."
+            ]
+        },
+        {
+            "id": 34,
+            "topic": "Integralrechnung",
+            "title": "Volumenberechnung",
+            "description": "Berechnen Sie das Volumen des Rotationskörpers, der durch Rotation der Kurve $y = \\sqrt{x}$ um die $x$-Achse im Intervall $[0,4]$ entsteht.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Volumenformel\n$V = \\pi \\int_0^4 y^2 dx = \\pi \\int_0^4 x dx$",
+                "Schritt 2: Integration\n$= \\pi [\\frac{x^2}{2}]_0^4$",
+                "Schritt 3: Berechnung\n$= \\pi (\\frac{16}{2} - 0) = 8\\pi$",
+                "Schritt 4: Einheiten\nDas Volumen beträgt $8\\pi$ Volumeneinheiten."
+            ]
+        },
+        {
+            "id": 35,
             "topic": "Integralrechnung",
             "title": "Integration einer trigonometrischen Funktion mit mehrfacher Substitution",
             "description": "Berechnen Sie das Integral $\\int \\frac{\\sin^3 x}{\\cos^4 x} \\, dx$.",
@@ -367,7 +556,7 @@
             ]
         },
         {
-            "id": 24,
+            "id": 36,
             "topic": "Integralrechnung",
             "title": "Integration einer Exponentialfunktion mit komplexem Argument",
             "description": "Berechnen Sie das Integral $\\int e^{\\sin x} \\cos x \\, dx$.",
@@ -384,25 +573,7 @@
             ]
         },
         {
-            "id": 25,
-            "topic": "Integralrechnung",
-            "title": "Integration einer Wurzelfunktion mit trigonometrischer Substitution",
-            "description": "Berechnen Sie das Integral $\\int \\sqrt{x^2 - 4} \\, dx$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Analyse des Integranden\nDie Funktion enthält einen Wurzelausdruck mit quadratischem Term.",
-                "Schritt 2: Trigonometrische Substitution\n$x = 2\\sec t \\Rightarrow dx = 2\\sec t \\tan t \\, dt$\nErklärung: Wir wählen eine Substitution, die den Wurzelausdruck vereinfacht.",
-                "Schritt 3: Umformung\n$\\int \\sqrt{x^2 - 4} \\, dx = \\int \\sqrt{4\\sec^2 t - 4} \\cdot 2\\sec t \\tan t \\, dt$\n$= 2\\int \\sqrt{\\sec^2 t - 1} \\cdot \\sec t \\tan t \\, dt = 2\\int \\tan t \\cdot \\sec t \\tan t \\, dt$\nErklärung: Wir vereinfachen den Wurzelausdruck.",
-                "Schritt 4: Integration\n$= 2\\int \\sec t \\tan^2 t \\, dt = 2\\int \\sec t (\\sec^2 t - 1) \\, dt$\n$= 2\\int (\\sec^3 t - \\sec t) \\, dt$\nErklärung: Wir spalten das Integral auf.",
-                "Schritt 5: Berechnung\n$= 2(\\frac{1}{2}\\sec t \\tan t + \\frac{1}{2}\\ln|\\sec t + \\tan t| - \\ln|\\sec t + \\tan t|) + C$\n$= \\sec t \\tan t - \\ln|\\sec t + \\tan t| + C$\nErklärung: Wir integrieren jeden Term einzeln.",
-                "Schritt 6: Rücksubstitution\n$= \\frac{x}{2}\\sqrt{x^2 - 4} - \\ln|x + \\sqrt{x^2 - 4}| + C$\nErklärung: Wir setzen t wieder ein und vereinfachen.",
-                "Schritt 7: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(\\frac{x}{2}\\sqrt{x^2 - 4} - \\ln|x + \\sqrt{x^2 - 4}|) = \\sqrt{x^2 - 4}$",
-                "Schritt 8: Zusammenfassung\nDie Stammfunktion ist $\\frac{x}{2}\\sqrt{x^2 - 4} - \\ln|x + \\sqrt{x^2 - 4}| + C$."
-            ]
-        },
-        {
-            "id": 26,
+            "id": 37,
             "topic": "Integralrechnung",
             "title": "Integration einer Logarithmusfunktion mit mehrfacher Substitution",
             "description": "Berechnen Sie das Integral $\\int \\frac{\\ln(\\ln x)}{x \\ln x} \\, dx$.",
@@ -420,25 +591,7 @@
             ]
         },
         {
-            "id": 27,
-            "topic": "Integralrechnung",
-            "title": "Integration einer komplexen trigonometrischen Funktion",
-            "description": "Berechnen Sie das Integral $\\int \\frac{\\sin^4 x}{\\cos^6 x} \\, dx$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Analyse des Integranden\nDie Funktion ist eine komplexe trigonometrische Funktion mit hohen Potenzen.",
-                "Schritt 2: Umformung\n$\\frac{\\sin^4 x}{\\cos^6 x} = \\frac{(\\sin^2 x)^2}{\\cos^6 x} = \\frac{(1 - \\cos^2 x)^2}{\\cos^6 x}$\nErklärung: Wir nutzen die trigonometrische Identität $\\sin^2 x = 1 - \\cos^2 x$.",
-                "Schritt 3: Vereinfachung\n$= \\frac{1 - 2\\cos^2 x + \\cos^4 x}{\\cos^6 x} = \\frac{1}{\\cos^6 x} - \\frac{2}{\\cos^4 x} + \\frac{1}{\\cos^2 x}$\nErklärung: Wir entwickeln den Zähler und teilen durch den Nenner.",
-                "Schritt 4: Integration\n$= \\int \\sec^6 x \\, dx - 2\\int \\sec^4 x \\, dx + \\int \\sec^2 x \\, dx$\nErklärung: Wir spalten das Integral in drei Teile auf.",
-                "Schritt 5: Berechnung\n$= \\frac{1}{5}\\sec^5 x \\tan x + \\frac{4}{5}\\int \\sec^4 x \\, dx - 2\\int \\sec^4 x \\, dx + \\tan x + C$\nErklärung: Wir integrieren jeden Term einzeln.",
-                "Schritt 6: Vereinfachung\n$= \\frac{1}{5}\\sec^5 x \\tan x - \\frac{6}{5}\\int \\sec^4 x \\, dx + \\tan x + C$\n$= \\frac{1}{5}\\sec^5 x \\tan x - \\frac{6}{5}(\\frac{1}{3}\\sec^3 x \\tan x + \\frac{2}{3}\\int \\sec^2 x \\, dx) + \\tan x + C$\n$= \\frac{1}{5}\\sec^5 x \\tan x - \\frac{2}{5}\\sec^3 x \\tan x - \\frac{4}{5}\\tan x + \\tan x + C$\n$= \\frac{1}{5}\\sec^5 x \\tan x - \\frac{2}{5}\\sec^3 x \\tan x + \\frac{1}{5}\\tan x + C$\nErklärung: Wir vereinfachen die Terme.",
-                "Schritt 7: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(\\frac{1}{5}\\sec^5 x \\tan x - \\frac{2}{5}\\sec^3 x \\tan x + \\frac{1}{5}\\tan x) = \\frac{\\sin^4 x}{\\cos^6 x}$",
-                "Schritt 8: Zusammenfassung\nDie Stammfunktion ist $\\frac{1}{5}\\sec^5 x \\tan x - \\frac{2}{5}\\sec^3 x \\tan x + \\frac{1}{5}\\tan x + C$."
-            ]
-        },
-        {
-            "id": 28,
+            "id": 38,
             "topic": "Integralrechnung",
             "title": "Integration einer komplexen Exponentialfunktion",
             "description": "Berechnen Sie das Integral $\\int e^{x^2} x \\, dx$.",
@@ -453,24 +606,6 @@
                 "Schritt 6: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(\\frac{1}{2}e^{x^2}) = e^{x^2} x$",
                 "Schritt 7: Zusammenfassung\nDie Stammfunktion ist $\\frac{1}{2}e^{x^2} + C$."
             ]
-        },
-        {
-            "id": 29,
-            "topic": "Integralrechnung",
-            "title": "Integration einer komplexen Wurzelfunktion",
-            "description": "Berechnen Sie das Integral $\\int \\frac{\\sqrt{x^2 + 1}}{x} \\, dx$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Analyse des Integranden\nDie Funktion enthält einen Wurzelausdruck im Zähler und eine Variable im Nenner.",
-                "Schritt 2: Substitution\n$u = \\sqrt{x^2 + 1} \\Rightarrow u^2 = x^2 + 1$\n$2u \\, du = 2x \\, dx \\Rightarrow x \\, dx = u \\, du$\nErklärung: Wir substituieren den Wurzelausdruck.",
-                "Schritt 3: Umformung\n$\\int \\frac{\\sqrt{x^2 + 1}}{x} \\, dx = \\int \\frac{u}{\\sqrt{u^2 - 1}} \\, du$\nErklärung: Durch die Substitution vereinfacht sich das Integral.",
-                "Schritt 4: Zweite Substitution\n$v = u^2 - 1 \\Rightarrow dv = 2u \\, du$\n$\\frac{1}{2}dv = u \\, du$\nErklärung: Wir substituieren den Nenner.",
-                "Schritt 5: Integration\n$\\int \\frac{u}{\\sqrt{u^2 - 1}} \\, du = \\frac{1}{2}\\int \\frac{1}{\\sqrt{v}} \\, dv = \\sqrt{v} + C$\nErklärung: Das vereinfachte Integral ist trivial.",
-                "Schritt 6: Rücksubstitution\n$= \\sqrt{u^2 - 1} + C = \\sqrt{x^2} + C = |x| + C$\nErklärung: Wir setzen die Substitutionen in umgekehrter Reihenfolge ein.",
-                "Schritt 7: Verifikation\nWir überprüfen das Ergebnis durch Differentiation:\n$\\frac{d}{dx}(|x|) = \\frac{\\sqrt{x^2 + 1}}{x}$",
-                "Schritt 8: Zusammenfassung\nDie Stammfunktion ist $|x| + C$."
-            ]
         }
     ]
-} 
+}

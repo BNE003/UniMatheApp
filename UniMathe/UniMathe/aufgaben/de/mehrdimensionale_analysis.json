@@ -3,6 +3,83 @@
         {
             "id": 1,
             "topic": "Mehrdimensionale Analysis",
+            "title": "Partielle Ableitungen",
+            "description": "Berechnen Sie alle partiellen Ableitungen erster Ordnung von $f(x,y) = x^2y^3 + 2x - y$ und werten Sie sie in $(1,2)$ aus.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nBei der partiellen Ableitung nach $x$ behandelt man $y$ als Konstante und leitet nach $x$ ab, und umgekehrt. Es gelten dieselben Regeln wie in einer Variablen.",
+                "Schritt 2: $\\frac{\\partial f}{\\partial x}$\n$y$ konstant: $\\frac{\\partial f}{\\partial x} = 2xy^3 + 2$.",
+                "Schritt 3: $\\frac{\\partial f}{\\partial y}$\n$x$ konstant: $\\frac{\\partial f}{\\partial y} = 3x^2y^2 - 1$.",
+                "Schritt 4: Auswerten in $(1,2)$\n$f_x(1,2) = 2\\cdot1\\cdot8 + 2 = 18$, $f_y(1,2) = 3\\cdot1\\cdot4 - 1 = 11$.",
+                "Schritt 5: Probe\n$f(1,2) = 8 + 2 - 2 = 8$; $f(1{,}001, 2) = 8{,}016024 + 2{,}002 - 2 = 8{,}018$ — Zuwachs $\\approx 0{,}018 = 18\\cdot0{,}001$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nDie partielle Ableitung $f_x$ ist die Steigung in $x$-Richtung bei festem $y$ (Schnitt der Fläche mit der Ebene $y = \\text{const}$). Alle Variablen außer der Ableitungsvariablen bleiben Konstanten."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Gradient",
+            "description": "Berechnen Sie den Gradienten von $f(x,y) = x^2 + xy$ in $(1,2)$ und seinen Betrag. In welche Richtung wächst $f$ dort am stärksten?",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDer Gradient $\\nabla f = (f_x, f_y)$ zeigt in die Richtung des stärksten Anstiegs; sein Betrag ist die maximale Änderungsrate.",
+                "Schritt 2: Partielle Ableitungen\n$f_x = 2x + y$, $f_y = x$.",
+                "Schritt 3: Gradient in $(1,2)$\n$\\nabla f(1,2) = (2 + 2,\\ 1) = (4,1)$.",
+                "Schritt 4: Betrag und Richtung\n$|\\nabla f| = \\sqrt{16 + 1} = \\sqrt{17} \\approx 4{,}12$. Stärkster Anstieg in Richtung $\\frac{1}{\\sqrt{17}}(4,1)$ mit Änderungsrate $\\sqrt{17}$.",
+                "Schritt 5: Probe\nSchritt von $0{,}01$ in dieser Richtung: $(1{,}00970; 2{,}00243)$; $f \\approx 1{,}0195 + 2{,}0217 = 3{,}0412$, Zuwachs gegenüber $f(1,2) = 3$ ist $0{,}0412 \\approx 4{,}12\\cdot0{,}01$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nDer Gradient steht senkrecht auf den Niveaulinien $f = \\text{const}$. In Richtung $-\\nabla f$ fällt $f$ am stärksten (Gradientenabstieg)."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Gemischte und höhere Ableitungen",
+            "description": "Berechnen Sie alle partiellen Ableitungen zweiter Ordnung von $f(x,y) = x^3y$ und bestätigen Sie den Satz von Schwarz.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nMan leitet zuerst nach einer Variablen ab und das Ergebnis erneut. Der Satz von Schwarz besagt: Sind die zweiten Ableitungen stetig, so gilt $f_{xy} = f_{yx}$ (die Reihenfolge ist egal).",
+                "Schritt 2: Erste Ableitungen\n$f_x = 3x^2y$, $f_y = x^3$.",
+                "Schritt 3: Zweite Ableitungen\n$f_{xx} = 6xy$, $f_{yy} = 0$, $f_{xy} = \\frac{\\partial}{\\partial y}(3x^2y) = 3x^2$, $f_{yx} = \\frac{\\partial}{\\partial x}(x^3) = 3x^2$.",
+                "Schritt 4: Schwarz\n$f_{xy} = f_{yx} = 3x^2$ ✓. Die Hesse-Matrix $\\begin{pmatrix}6xy & 3x^2\\\\ 3x^2 & 0\\end{pmatrix}$ ist symmetrisch.",
+                "Schritt 5: Merke: Worauf es ankommt\nDie Bezeichnung $f_{xy}$ bedeutet je nach Buch „erst $x$, dann $y$“ oder umgekehrt — bei $C^2$-Funktionen spielt das keine Rolle. Die Hesse-Matrix beschreibt die Krümmung und ist Grundlage der Extremwertklassifikation."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Tangentialebene",
+            "description": "Bestimmen Sie die Tangentialebene an $f(x,y) = x^2 + y^2$ im Punkt $(1,1)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Tangentialebene ist die beste lineare Näherung: $z = f(a,b) + f_x(a,b)(x - a) + f_y(a,b)(y - b)$. Wir brauchen den Funktionswert und beide partiellen Ableitungen im Punkt.",
+                "Schritt 2: Werte im Punkt\n$f(1,1) = 2$, $f_x = 2x \\Rightarrow f_x(1,1) = 2$, $f_y = 2y \\Rightarrow f_y(1,1) = 2$.",
+                "Schritt 3: Ebene\n$z = 2 + 2(x - 1) + 2(y - 1) = 2x + 2y - 2$.",
+                "Schritt 4: Näherung\nFür $(1{,}1; 0{,}9)$: Ebene $2{,}2 + 1{,}8 - 2 = 2$; exakt $1{,}21 + 0{,}81 = 2{,}02$. Fehler $0{,}02$ (zweiter Ordnung) ✓.",
+                "Schritt 5: Merke: Worauf es ankommt\nDer Normalenvektor der Tangentialebene ist $(f_x, f_y, -1) = (2,2,-1)$. Mit der Ebene lassen sich Funktionswerte nahe $(1,1)$ linear abschätzen (totales Differential $dz = f_xdx + f_ydy$)."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Niveaulinien",
+            "description": "Beschreiben Sie die Niveaulinien $f(x,y) = c$ von $f(x,y) = x^2 + y^2$ und $g(x,y) = x - 2y$ für $c = 0, 1, 4$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEine **Niveaulinie** besteht aus allen Punkten, an denen die Funktion den gleichen Wert $c$ annimmt (Höhenlinien einer Landkarte). Man löst $f(x,y) = c$ nach einer Variablen auf oder erkennt die Kurve.",
+                "Schritt 2: $f = x^2 + y^2$\n$x^2 + y^2 = c$: für $c = 0$ nur der Punkt $(0,0)$; für $c = 1$ der Einheitskreis; für $c = 4$ der Kreis mit Radius $2$. Konzentrische Kreise (Radius $\\sqrt c$) — ein Paraboloid.",
+                "Schritt 3: $g = x - 2y$\n$x - 2y = c \\iff y = \\frac{x - c}{2}$: parallele Geraden mit Steigung $\\frac12$ (z.B. $c = 0$: $y = \\frac x2$; $c = 1$: $y = \\frac{x-1}{2}$; $c = 4$: $y = \\frac{x-4}{2}$). Eine Ebene.",
+                "Schritt 4: Gradient und Niveaulinien\n$\\nabla g = (1,-2)$ steht senkrecht zu den Geraden (Richtung $(2,1)$): $(1,-2)\\cdot(2,1) = 0$ ✓. Bei $f$ zeigt $\\nabla f = (2x,2y)$ radial nach außen, senkrecht zu den Kreisen.",
+                "Schritt 5: Merke: Worauf es ankommt\nNiveaulinien machen Funktionen von zwei Variablen sichtbar. Dichte Linien bedeuten steiles Gelände (großer Gradient)."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Mehrdimensionale Analysis",
             "title": "Partielle Ableitungen einer Polynomfunktion",
             "description": "Berechnen Sie die partiellen Ableitungen erster Ordnung der Funktion $f(x,y) = x^2y + 3xy^2 - 2x + y$.",
             "difficulty": "easy",
@@ -16,7 +93,7 @@
             ]
         },
         {
-            "id": 2,
+            "id": 7,
             "topic": "Mehrdimensionale Analysis",
             "title": "Partielle Ableitungen einer Exponentialfunktion",
             "description": "Berechnen Sie die partiellen Ableitungen erster Ordnung der Funktion $f(x,y) = e^{x^2 + y^2}$.",
@@ -31,7 +108,7 @@
             ]
         },
         {
-            "id": 3,
+            "id": 8,
             "topic": "Mehrdimensionale Analysis",
             "title": "Partielle Ableitungen einer trigonometrischen Funktion",
             "description": "Berechnen Sie die partiellen Ableitungen erster Ordnung der Funktion $f(x,y) = \\sin(xy)$.",
@@ -46,7 +123,7 @@
             ]
         },
         {
-            "id": 4,
+            "id": 9,
             "topic": "Mehrdimensionale Analysis",
             "title": "Partielle Ableitungen einer Wurzelfunktion",
             "description": "Berechnen Sie die partiellen Ableitungen erster Ordnung der Funktion $f(x,y) = \\sqrt{x^2 + y^2}$.",
@@ -61,7 +138,7 @@
             ]
         },
         {
-            "id": 5,
+            "id": 10,
             "topic": "Mehrdimensionale Analysis",
             "title": "Partielle Ableitungen einer Logarithmusfunktion",
             "description": "Berechnen Sie die partiellen Ableitungen erster Ordnung der Funktion $f(x,y) = \\ln(x^2 + y^2)$.",
@@ -76,22 +153,7 @@
             ]
         },
         {
-            "id": 6,
-            "topic": "Mehrdimensionale Analysis",
-            "title": "Partielle Ableitungen einer Produktfunktion",
-            "description": "Berechnen Sie die partiellen Ableitungen erster Ordnung der Funktion $f(x,y) = x\\sin(y)$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x,y)$ ist ein Produkt aus linearer und trigonometrischer Funktion.",
-                "Schritt 2: Berechnung der partiellen Ableitung nach x\n$\\frac{\\partial f}{\\partial x} = \\sin(y)$\nErklärung: Wir leiten nach x ab und behandeln y als Konstante.",
-                "Schritt 3: Berechnung der partiellen Ableitung nach y\n$\\frac{\\partial f}{\\partial y} = x\\cos(y)$\nErklärung: Wir leiten nach y ab und behandeln x als Konstante.",
-                "Schritt 4: Verifikation\nWir überprüfen die Ergebnisse durch Einsetzen von Testwerten:\nFür $(x,y) = (2,\\frac{\\pi}{2})$:\n$\\frac{\\partial f}{\\partial x}(2,\\frac{\\pi}{2}) = 1$\n$\\frac{\\partial f}{\\partial y}(2,\\frac{\\pi}{2}) = 0$",
-                "Schritt 5: Zusammenfassung\nDie partiellen Ableitungen sind:\n$\\frac{\\partial f}{\\partial x} = \\sin(y)$\n$\\frac{\\partial f}{\\partial y} = x\\cos(y)$"
-            ]
-        },
-        {
-            "id": 7,
+            "id": 11,
             "topic": "Mehrdimensionale Analysis",
             "title": "Partielle Ableitungen einer Quotientenfunktion",
             "description": "Berechnen Sie die partiellen Ableitungen erster Ordnung der Funktion $f(x,y) = \\frac{x}{y}$.",
@@ -106,22 +168,85 @@
             ]
         },
         {
-            "id": 8,
+            "id": 12,
             "topic": "Mehrdimensionale Analysis",
-            "title": "Partielle Ableitungen einer zusammengesetzten Funktion",
-            "description": "Berechnen Sie die partiellen Ableitungen erster Ordnung der Funktion $f(x,y) = e^{xy}$.",
-            "difficulty": "easy",
-            "points": 5,
+            "title": "Kettenregel für mehrere Variablen",
+            "description": "Berechnen Sie $\\frac{d}{dt}f(x(t),y(t))$ für $f(x,y) = xy$, $x(t) = t^2$, $y(t) = \\sin t$ auf zwei Arten.",
+            "difficulty": "medium",
+            "points": 8,
             "solutionSteps": [
-                "Schritt 1: Analyse der Funktion\nDie Funktion $f(x,y)$ ist eine Exponentialfunktion mit Produktargument.",
-                "Schritt 2: Berechnung der partiellen Ableitung nach x\n$\\frac{\\partial f}{\\partial x} = ye^{xy}$\nErklärung: Wir wenden die Kettenregel an und leiten nach x ab.",
-                "Schritt 3: Berechnung der partiellen Ableitung nach y\n$\\frac{\\partial f}{\\partial y} = xe^{xy}$\nErklärung: Wir wenden die Kettenregel an und leiten nach y ab.",
-                "Schritt 4: Verifikation\nWir überprüfen die Ergebnisse durch Einsetzen von Testwerten:\nFür $(x,y) = (1,1)$:\n$\\frac{\\partial f}{\\partial x}(1,1) = e$\n$\\frac{\\partial f}{\\partial y}(1,1) = e$",
-                "Schritt 5: Zusammenfassung\nDie partiellen Ableitungen sind:\n$\\frac{\\partial f}{\\partial x} = ye^{xy}$\n$\\frac{\\partial f}{\\partial y} = xe^{xy}$"
+                "Schritt 1: Überblick: Was ist gefragt?\nDie mehrdimensionale Kettenregel lautet $\\frac{d}{dt}f(x(t),y(t)) = f_x\\,\\dot x + f_y\\,\\dot y$. Als Kontrolle setzen wir $x(t), y(t)$ direkt ein und leiten mit der Produktregel ab.",
+                "Schritt 2: Weg 1: Kettenregel\n$f_x = y$, $f_y = x$, $\\dot x = 2t$, $\\dot y = \\cos t$. Also $\\frac{df}{dt} = y\\cdot2t + x\\cos t = 2t\\sin t + t^2\\cos t$.",
+                "Schritt 3: Weg 2: Einsetzen\n$f(x(t),y(t)) = t^2\\sin t$, Produktregel: $2t\\sin t + t^2\\cos t$ ✓.",
+                "Schritt 4: Deutung\nDie Kurve $(x(t),y(t))$ läuft über die Fläche $z = xy$; $\\frac{df}{dt}$ ist die Änderungsrate der Höhe entlang der Kurve, zusammengesetzt aus den beiden Richtungsanteilen.",
+                "Schritt 5: Merke: Worauf es ankommt\nMit Gradient geschrieben: $\\frac{d}{dt}f(\\gamma(t)) = \\nabla f(\\gamma(t))\\cdot\\dot\\gamma(t)$. Praktisch bei Funktionen, die man nicht in $t$ explizit ausdrücken möchte."
             ]
         },
         {
-            "id": 9,
+            "id": 13,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Lokale Extrema im Zweidimensionalen",
+            "description": "Bestimmen Sie die lokalen Extrema von $f(x,y) = x^2 + y^2 - 2x + 4y$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nKandidaten sind kritische Punkte $\\nabla f = \\vec0$. Die Art bestimmt die Hesse-Matrix $H$: positiv definit (alle Eigenwerte $> 0$) $\\Rightarrow$ Minimum, negativ definit $\\Rightarrow$ Maximum, indefinit $\\Rightarrow$ Sattelpunkt.",
+                "Schritt 2: Kritischer Punkt\n$f_x = 2x - 2 = 0 \\Rightarrow x = 1$; $f_y = 2y + 4 = 0 \\Rightarrow y = -2$. Einziger kritischer Punkt: $(1,-2)$.",
+                "Schritt 3: Hesse-Matrix\n$H = \\begin{pmatrix}f_{xx} & f_{xy}\\\\ f_{yx} & f_{yy}\\end{pmatrix} = \\begin{pmatrix}2 & 0\\\\ 0 & 2\\end{pmatrix}$. Eigenwerte $2, 2 > 0$: positiv definit.",
+                "Schritt 4: Art und Wert\nLokales (sogar globales) **Minimum** bei $(1,-2)$ mit $f(1,-2) = 1 + 4 - 2 - 8 = -5$.",
+                "Schritt 5: Probe durch quadratische Ergänzung\n$f = (x-1)^2 + (y+2)^2 - 5 \\geq -5$ mit Gleichheit nur bei $(1,-2)$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nFür $2\\times2$: Mit $D = f_{xx}f_{yy} - f_{xy}^2$: $D > 0$ und $f_{xx} > 0$ Minimum; $D > 0$ und $f_{xx} < 0$ Maximum; $D < 0$ Sattelpunkt; $D = 0$ keine Aussage."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Richtungsableitung",
+            "description": "Berechnen Sie die Richtungsableitung von $f(x,y) = xy$ im Punkt $(2,1)$ in Richtung $\\vec v = (3,4)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Richtungsableitung in Richtung eines **Einheitsvektors** $\\vec e$ ist $D_{\\vec e}f = \\nabla f\\cdot\\vec e$. Zuerst muss man $\\vec v$ normieren.",
+                "Schritt 2: Gradient\n$\\nabla f = (y, x)$, also $\\nabla f(2,1) = (1,2)$.",
+                "Schritt 3: Normieren\n$|\\vec v| = 5$, also $\\vec e = \\left(\\frac35,\\frac45\\right)$.",
+                "Schritt 4: Skalarprodukt\n$D_{\\vec e}f(2,1) = (1,2)\\cdot\\left(\\frac35,\\frac45\\right) = \\frac35 + \\frac85 = \\frac{11}5 = 2{,}2$.",
+                "Schritt 5: Probe\nSchritt $0{,}01$ in Richtung $\\vec e$: $(2{,}006; 1{,}008)$, $f = 2{,}022048$; Zuwachs $0{,}022048$, geteilt durch $0{,}01$: $2{,}2048 \\approx 2{,}2$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nDie Richtungsableitung ist maximal in Richtung $\\nabla f$ (Wert $|\\nabla f| = \\sqrt5 \\approx 2{,}24$), null senkrecht dazu. Wer $\\vec v$ nicht normiert, erhält $5$-mal zu große Werte."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Extremwerte unter Nebenbedingung (Lagrange)",
+            "description": "Bestimmen Sie das Maximum von $f(x,y) = xy$ unter der Nebenbedingung $x + y = 10$ mit der Methode der Lagrange-Multiplikatoren und vergleichen Sie mit der Einsetzmethode.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nIm Extremum unter der Nebenbedingung $g(x,y) = 0$ sind die Gradienten parallel: $\\nabla f = \\lambda\\nabla g$. Zusammen mit $g = 0$ erhält man ein Gleichungssystem für $x,y,\\lambda$.",
+                "Schritt 2: Lagrange-Gleichungen\n$g = x + y - 10$. $\\nabla f = (y,x)$, $\\nabla g = (1,1)$. Also $y = \\lambda$, $x = \\lambda$, $x + y = 10$.",
+                "Schritt 3: Lösung\n$x = y = \\lambda$ und $2\\lambda = 10$: $x = y = 5$, $f = 25$.",
+                "Schritt 4: Probe durch Einsetzen\n$y = 10 - x$: $h(x) = x(10 - x) = 10x - x^2$, $h'(x) = 10 - 2x = 0 \\Rightarrow x = 5$, $h'' = -2 < 0$: Maximum $25$ ✓.",
+                "Schritt 5: Deutung von $\\lambda$\n$\\lambda = 5$ gibt an, wie stark sich der Maximalwert ändert, wenn man die Nebenbedingung leicht ändert ($x + y = 10 + \\delta$ ändert das Maximum um $\\approx 5\\delta$; tatsächlich $\\left(\\frac{10+\\delta}{2}\\right)^2 \\approx 25 + 5\\delta$).",
+                "Schritt 6: Merke: Worauf es ankommt\nDie Lagrange-Methode ist überlegen, wenn sich die Nebenbedingung nicht nach einer Variablen auflösen lässt. Geometrisch berührt die Niveaulinie von $f$ die Kurve $g = 0$ im Optimum."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Doppelintegral über einem Rechteck",
+            "description": "Berechnen Sie $\\displaystyle\\iint_R xy\\,dA$ über $R = [0,1]\\times[0,2]$ und $\\displaystyle\\iint_R(x + y)\\,dA$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nNach dem Satz von Fubini berechnet man ein Doppelintegral über ein Rechteck als iteriertes Integral in beliebiger Reihenfolge. Bei Produktfunktionen $f(x)g(y)$ zerfällt das Integral in ein Produkt.",
+                "Schritt 2: $\\iint xy\\,dA$\n$\\int_0^1x\\,dx\\cdot\\int_0^2y\\,dy = \\frac12\\cdot2 = 1$.",
+                "Schritt 3: $\\iint(x+y)\\,dA$\n$\\int_0^1\\int_0^2(x + y)\\,dy\\,dx = \\int_0^1\\left[xy + \\frac{y^2}{2}\\right]_0^2dx = \\int_0^1(2x + 2)\\,dx = \\left[x^2 + 2x\\right]_0^1 = 3$.",
+                "Schritt 4: Probe mit vertauschter Reihenfolge\n$\\int_0^2\\int_0^1(x+y)\\,dx\\,dy = \\int_0^2\\left(\\frac12 + y\\right)dy = 1 + 2 = 3$ ✓.",
+                "Schritt 5: Merke: Worauf es ankommt\nDas Doppelintegral ist das Volumen unter der Fläche $z = f(x,y)$ über dem Gebiet. Bei $\\iint(x+y)$ ist die Kontrolle auch über Linearität möglich: $\\iint x = 2\\cdot\\frac12 = 1$, $\\iint y = 1\\cdot2 = 2$, Summe $3$."
+            ]
+        },
+        {
+            "id": 17,
             "topic": "Mehrdimensionale Analysis",
             "title": "Partielle Ableitungen",
             "description": "Berechnen Sie alle partiellen Ableitungen erster und zweiter Ordnung der Funktion $f(x,y) = x^2y + \\sin(xy)$.",
@@ -135,7 +260,7 @@
             ]
         },
         {
-            "id": 10,
+            "id": 18,
             "topic": "Mehrdimensionale Analysis",
             "title": "Gradient und Richtungsableitung",
             "description": "Berechnen Sie den Gradienten der Funktion $f(x,y,z) = x^2 + y^2 + z^2$ im Punkt $(1,2,3)$ und die Richtungsableitung in Richtung des Vektors $\\vec{v} = (1,1,1)$.",
@@ -149,49 +274,7 @@
             ]
         },
         {
-            "id": 11,
-            "topic": "Mehrdimensionale Analysis",
-            "title": "Extremwertaufgaben",
-            "description": "Finden Sie die lokalen Extrema der Funktion $f(x,y) = x^3 + y^3 - 3xy$ und bestimmen Sie deren Art.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Kritische Punkte\n$\\frac{\\partial f}{\\partial x} = 3x^2 - 3y = 0$\n$\\frac{\\partial f}{\\partial y} = 3y^2 - 3x = 0$\nLösung: $(0,0)$ und $(1,1)$",
-                "Schritt 2: Hesse-Matrix\n$H_f = \\begin{pmatrix} 6x & -3 \\\\ -3 & 6y \\end{pmatrix}$",
-                "Schritt 3: Determinante und Spur\n$\\det(H_f) = 36xy - 9$\n$\\text{tr}(H_f) = 6(x+y)$",
-                "Schritt 4: Klassifikation\n$(0,0)$: $\\det(H_f) = -9 < 0$ (Sattelpunkt)\n$(1,1)$: $\\det(H_f) = 27 > 0$, $\\text{tr}(H_f) = 12 > 0$ (Minimum)"
-            ]
-        },
-        {
-            "id": 12,
-            "topic": "Mehrdimensionale Analysis",
-            "title": "Mehrfachintegrale",
-            "description": "Berechnen Sie das Doppelintegral $\\iint_D (x^2 + y^2) dxdy$ über den Bereich $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid 0 \\leq x \\leq 1, 0 \\leq y \\leq x\\}$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Integrationsgrenzen\n$\\int_0^1 \\int_0^x (x^2 + y^2) dy dx$",
-                "Schritt 2: Innere Integration\n$\\int_0^x (x^2 + y^2) dy = x^2y + \\frac{y^3}{3}|_0^x = x^3 + \\frac{x^3}{3} = \\frac{4}{3}x^3$",
-                "Schritt 3: Äußere Integration\n$\\int_0^1 \\frac{4}{3}x^3 dx = \\frac{4}{3} \\cdot \\frac{x^4}{4}|_0^1 = \\frac{1}{3}$",
-                "Schritt 4: Ergebnis\n$\\iint_D (x^2 + y^2) dxdy = \\frac{1}{3}$"
-            ]
-        },
-        {
-            "id": 13,
-            "topic": "Mehrdimensionale Analysis",
-            "title": "Koordinatentransformation",
-            "description": "Berechnen Sie das Integral $\\iint_D \\frac{1}{\\sqrt{x^2 + y^2}} dxdy$ über den Bereich $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid 1 \\leq x^2 + y^2 \\leq 4\\}$ durch Transformation in Polarkoordinaten.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Polarkoordinaten\n$x = r\\cos(\\phi), y = r\\sin(\\phi)$\n$dxdy = r dr d\\phi$",
-                "Schritt 2: Integrationsbereich\n$1 \\leq r \\leq 2, 0 \\leq \\phi \\leq 2\\pi$",
-                "Schritt 3: Transformation\n$\\int_0^{2\\pi} \\int_1^2 \\frac{1}{r} \\cdot r dr d\\phi = \\int_0^{2\\pi} \\int_1^2 1 dr d\\phi$",
-                "Schritt 4: Berechnung\n$= \\int_0^{2\\pi} (2-1) d\\phi = 2\\pi$"
-            ]
-        },
-        {
-            "id": 14,
+            "id": 19,
             "topic": "Mehrdimensionale Analysis",
             "title": "Höhere partielle Ableitungen",
             "description": "Berechnen Sie alle partiellen Ableitungen zweiter Ordnung der Funktion $f(x,y) = e^{x^2y}$.",
@@ -205,7 +288,7 @@
             ]
         },
         {
-            "id": 15,
+            "id": 20,
             "topic": "Mehrdimensionale Analysis",
             "title": "Gradient und Richtungsableitung",
             "description": "Berechnen Sie den Gradienten der Funktion $f(x,y) = \\ln(x^2 + y^2)$ im Punkt $(1,1)$ und die Richtungsableitung in Richtung des Vektors $\\vec{v} = (1,2)$.",
@@ -219,7 +302,7 @@
             ]
         },
         {
-            "id": 16,
+            "id": 21,
             "topic": "Mehrdimensionale Analysis",
             "title": "Totales Differential",
             "description": "Berechnen Sie das totale Differential der Funktion $f(x,y) = \\sin(xy) + e^{x+y}$ im Punkt $(0,0)$.",
@@ -233,7 +316,7 @@
             ]
         },
         {
-            "id": 17,
+            "id": 22,
             "topic": "Mehrdimensionale Analysis",
             "title": "Kettenregel",
             "description": "Berechnen Sie die Ableitung der Funktion $f(x,y) = e^{x^2 + y^2}$ entlang der Kurve $x(t) = \\cos(t), y(t) = \\sin(t)$.",
@@ -247,7 +330,7 @@
             ]
         },
         {
-            "id": 18,
+            "id": 23,
             "topic": "Mehrdimensionale Analysis",
             "title": "Implizite Differentiation",
             "description": "Berechnen Sie $\\frac{dy}{dx}$ für die implizite Funktion $x^2 + y^2 = 1$.",
@@ -261,7 +344,7 @@
             ]
         },
         {
-            "id": 19,
+            "id": 24,
             "topic": "Mehrdimensionale Analysis",
             "title": "Richtungsableitung und Gradient",
             "description": "Berechnen Sie die Richtungsableitung der Funktion $f(x,y) = x^2y$ im Punkt $(1,2)$ in Richtung des Vektors $\\vec{v} = (3,4)$.",
@@ -275,7 +358,7 @@
             ]
         },
         {
-            "id": 20,
+            "id": 25,
             "topic": "Mehrdimensionale Analysis",
             "title": "Höhere Ableitungen und Taylor-Entwicklung",
             "description": "Berechnen Sie die Taylor-Entwicklung zweiter Ordnung der Funktion $f(x,y) = e^{x+y}$ um den Punkt $(0,0)$.",
@@ -289,7 +372,7 @@
             ]
         },
         {
-            "id": 21,
+            "id": 26,
             "topic": "Mehrdimensionale Analysis",
             "title": "Totales Differential und Fehlerfortpflanzung",
             "description": "Berechnen Sie das totale Differential der Funktion $f(x,y) = \\sqrt{x^2 + y^2}$ und schätzen Sie den Fehler ab, wenn $x = 3 \\pm 0.1$ und $y = 4 \\pm 0.1$.",
@@ -303,21 +386,131 @@
             ]
         },
         {
-            "id": 22,
+            "id": 27,
             "topic": "Mehrdimensionale Analysis",
-            "title": "Komplexe Extremwertaufgabe mit Nebenbedingungen",
-            "description": "Finden Sie die Extrema der Funktion $f(x,y,z) = x^2 + y^2 + z^2$ unter der Nebenbedingung $x + y + z = 1$ und $x^2 + y^2 = 1$.",
+            "title": "Klassifikation kritischer Punkte",
+            "description": "Bestimmen und klassifizieren Sie alle kritischen Punkte von $f(x,y) = x^3 - 3x + y^2$.",
             "difficulty": "hard",
-            "points": 15,
+            "points": 12,
             "solutionSteps": [
-                "Schritt 1: Lagrange-Funktion\n$L(x,y,z,\\lambda,\\mu) = x^2 + y^2 + z^2 + \\lambda(1-x-y-z) + \\mu(1-x^2-y^2)$",
-                "Schritt 2: Partielle Ableitungen\n$\\frac{\\partial L}{\\partial x} = 2x - \\lambda - 2\\mu x = 0$\n$\\frac{\\partial L}{\\partial y} = 2y - \\lambda - 2\\mu y = 0$\n$\\frac{\\partial L}{\\partial z} = 2z - \\lambda = 0$",
-                "Schritt 3: Kritische Punkte\n$(x,y,z) = (\\frac{1}{2}, \\frac{1}{2}, 0)$ und $(x,y,z) = (-\\frac{1}{2}, -\\frac{1}{2}, 2)$",
-                "Schritt 4: Klassifikation\nMinimum bei $(\\frac{1}{2}, \\frac{1}{2}, 0)$\nMaximum bei $(-\\frac{1}{2}, -\\frac{1}{2}, 2)$"
+                "Schritt 1: Überblick: Was ist gefragt?\nWir lösen $\\nabla f = \\vec0$ und klassifizieren jeden Punkt über die Eigenwerte der Hesse-Matrix (oder $D = f_{xx}f_{yy} - f_{xy}^2$).",
+                "Schritt 2: Kritische Punkte\n$f_x = 3x^2 - 3 = 0 \\Rightarrow x = \\pm1$, $f_y = 2y = 0 \\Rightarrow y = 0$. Kritische Punkte: $(1,0)$ und $(-1,0)$.",
+                "Schritt 3: Hesse-Matrix\n$H(x,y) = \\begin{pmatrix}6x & 0\\\\ 0 & 2\\end{pmatrix}$.",
+                "Schritt 4: Punkt $(1,0)$\n$H = \\operatorname{diag}(6,2)$, $D = 12 > 0$, $f_{xx} = 6 > 0$: lokales **Minimum** mit $f(1,0) = -2$.",
+                "Schritt 5: Punkt $(-1,0)$\n$H = \\operatorname{diag}(-6,2)$, $D = -12 < 0$, Eigenwerte mit verschiedenen Vorzeichen: **Sattelpunkt** mit $f(-1,0) = 2$.",
+                "Schritt 6: Kein globales Extremum\nWegen $f(x,0) = x^3 - 3x \\to \\pm\\infty$ für $x \\to \\pm\\infty$ gibt es kein globales Extremum. Das lokale Minimum ist nicht global.",
+                "Schritt 7: Merke: Worauf es ankommt\nIn $x$-Richtung verhält sich $f$ wie $x^3 - 3x$ (Maximum bei $-1$, Minimum bei $1$), in $y$-Richtung wie $y^2$ (Minimum). Bei $(-1,0)$ ist es in $x$ ein Maximum, in $y$ ein Minimum: Sattel."
             ]
         },
         {
-            "id": 23,
+            "id": 28,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Lagrange auf dem Kreis",
+            "description": "Bestimmen Sie die Extrema von $f(x,y) = x + y$ auf dem Kreis $x^2 + y^2 = 2$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDer Kreis ist kompakt, also nimmt die stetige Funktion $f$ dort Maximum und Minimum an. Wir finden die Kandidaten mit Lagrange: $\\nabla f = \\lambda\\nabla g$ mit $g = x^2 + y^2 - 2$.",
+                "Schritt 2: Lagrange-Gleichungen\n$\\nabla f = (1,1)$, $\\nabla g = (2x,2y)$. Also $1 = 2\\lambda x$, $1 = 2\\lambda y$ und $x^2 + y^2 = 2$.",
+                "Schritt 3: Lösen\nAus den ersten beiden: $x = y = \\frac{1}{2\\lambda}$ ($\\lambda \\neq 0$). Einsetzen: $2x^2 = 2 \\Rightarrow x = \\pm1$. Kandidaten: $(1,1)$ und $(-1,-1)$.",
+                "Schritt 4: Werte vergleichen\n$f(1,1) = 2$ (Maximum), $f(-1,-1) = -2$ (Minimum).",
+                "Schritt 5: Probe mit Parametrisierung\n$x = \\sqrt2\\cos t$, $y = \\sqrt2\\sin t$: $f = \\sqrt2(\\cos t + \\sin t) = 2\\sin\\left(t + \\frac\\pi4\\right) \\in [-2,2]$ ✓ — Maximum $2$ bei $t = \\frac\\pi4$, d.h. $(1,1)$.",
+                "Schritt 6: Merke: Worauf es ankommt\nAuf kompakten Mengen genügt es, alle Kandidaten zu vergleichen. Geometrisch: Die Geraden $x + y = c$ (Niveaulinien) berühren den Kreis in $(\\pm1,\\pm1)$; dort sind $\\nabla f$ und $\\nabla g$ parallel."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Integral in Polarkoordinaten",
+            "description": "Berechnen Sie $\\iint_D(x^2+y^2)\\,dA$ über der Einheitskreisscheibe $D = \\{x^2 + y^2 \\leq 1\\}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nBei kreisförmigen Gebieten und Integranden mit $x^2 + y^2$ sind **Polarkoordinaten** $x = r\\cos\\varphi$, $y = r\\sin\\varphi$ ideal. Das Flächenelement ist $dA = r\\,dr\\,d\\varphi$ (Funktionaldeterminante $r$).",
+                "Schritt 2: Transformation\n$x^2 + y^2 = r^2$. Das Gebiet: $0 \\leq r \\leq 1$, $0 \\leq \\varphi < 2\\pi$.",
+                "Schritt 3: Integral aufstellen\n$\\iint_D(x^2+y^2)\\,dA = \\int_0^{2\\pi}\\int_0^1r^2\\cdot r\\,dr\\,d\\varphi = \\int_0^{2\\pi}\\int_0^1r^3\\,dr\\,d\\varphi$.",
+                "Schritt 4: Auswerten\n$\\int_0^1r^3\\,dr = \\frac14$ und $\\int_0^{2\\pi}d\\varphi = 2\\pi$. Ergebnis: $2\\pi\\cdot\\frac14 = \\frac\\pi2$.",
+                "Schritt 5: Probe\nMit $f \\equiv 1$ erhält man $\\int_0^{2\\pi}\\int_0^1r\\,dr\\,d\\varphi = 2\\pi\\cdot\\frac12 = \\pi$, die Kreisfläche ✓. Der Integrand $r^2 \\leq 1$, also muss das Ergebnis $\\leq \\pi$ sein: $\\frac\\pi2 \\approx 1{,}57$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nDer **Faktor $r$** aus der Funktionaldeterminante wird am häufigsten vergessen. Das Integral ist das Flächenträgheitsmoment (polares Moment) der Kreisscheibe: $\\frac{\\pi R^4}{2}$ für Radius $R$."
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Taylorentwicklung zweiter Ordnung",
+            "description": "Bestimmen Sie das Taylorpolynom zweiter Ordnung von $f(x,y) = e^x\\cos y$ im Entwicklungspunkt $(0,0)$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nDas Taylorpolynom zweiter Ordnung ist $T_2(x,y) = f + f_xx + f_yy + \\frac12\\left(f_{xx}x^2 + 2f_{xy}xy + f_{yy}y^2\\right)$ mit allen Ableitungen im Entwicklungspunkt.",
+                "Schritt 2: Ableitungen\n$f_x = e^x\\cos y$, $f_y = -e^x\\sin y$, $f_{xx} = e^x\\cos y$, $f_{xy} = -e^x\\sin y$, $f_{yy} = -e^x\\cos y$.",
+                "Schritt 3: Werte in $(0,0)$\n$f = 1$, $f_x = 1$, $f_y = 0$, $f_{xx} = 1$, $f_{xy} = 0$, $f_{yy} = -1$.",
+                "Schritt 4: Taylorpolynom\n$T_2(x,y) = 1 + x + \\frac12\\left(x^2 - y^2\\right)$.",
+                "Schritt 5: Kontrolle über Produkt der Reihen\n$e^x \\approx 1 + x + \\frac{x^2}{2}$ und $\\cos y \\approx 1 - \\frac{y^2}{2}$. Produkt bis Ordnung $2$: $1 + x + \\frac{x^2}{2} - \\frac{y^2}{2}$ ✓.",
+                "Schritt 6: Numerische Probe\nBei $(0{,}1; 0{,}1)$: exakt $e^{0{,}1}\\cos0{,}1 = 1{,}105171\\cdot0{,}995004 = 1{,}099649$; $T_2 = 1 + 0{,}1 + 0 = 1{,}1$. Fehler $\\approx 3{,}5\\cdot10^{-4}$ ✓.",
+                "Schritt 7: Merke: Worauf es ankommt\nBei Produktfunktionen $g(x)h(y)$ multipliziert man die eindimensionalen Taylorreihen und schneidet beim gewünschten Grad ab. Der quadratische Teil $\\frac12\\,\\vec x^TH\\vec x$ enthält die Hesse-Matrix."
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Dreifachintegral über einem Simplex",
+            "description": "Berechnen Sie das Volumen des Tetraeders $T = \\{(x,y,z) \\mid x,y,z \\geq 0,\\ x + y + z \\leq 1\\}$ und $\\iiint_Tz\\,dV$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir stellen das Gebiet als iteriertes Integral auf: Für festes $x,y$ läuft $z$ von $0$ bis $1 - x - y$; für festes $x$ läuft $y$ von $0$ bis $1 - x$; schließlich $x$ von $0$ bis $1$.",
+                "Schritt 2: Volumen\n$V = \\int_0^1\\int_0^{1-x}\\int_0^{1-x-y}dz\\,dy\\,dx = \\int_0^1\\int_0^{1-x}(1 - x - y)\\,dy\\,dx$. Inneres Integral: $\\left[(1-x)y - \\frac{y^2}2\\right]_0^{1-x} = \\frac{(1-x)^2}{2}$. Dann $\\int_0^1\\frac{(1-x)^2}{2}dx = \\frac16$.",
+                "Schritt 3: Plausibilität\nDas Volumen einer Pyramide ist $\\frac13\\cdot\\text{Grundfläche}\\cdot\\text{Höhe} = \\frac13\\cdot\\frac12\\cdot1 = \\frac16$ ✓.",
+                "Schritt 4: $\\iiint z\\,dV$\n$\\int_0^1\\int_0^{1-x}\\int_0^{1-x-y}z\\,dz\\,dy\\,dx = \\int_0^1\\int_0^{1-x}\\frac{(1-x-y)^2}{2}dy\\,dx = \\int_0^1\\frac{(1-x)^3}{6}dx = \\frac{1}{24}$.",
+                "Schritt 5: Schwerpunkt\nDie $z$-Koordinate des Schwerpunkts ist $\\bar z = \\frac{\\iiint z\\,dV}{V} = \\frac{1/24}{1/6} = \\frac14$ (ein Viertel der Höhe, passend zur Pyramide).",
+                "Schritt 6: Merke: Worauf es ankommt\nBei Dreifachintegralen die Integrationsgrenzen von **innen nach außen** aufstellen (innere Grenzen dürfen von den äußeren Variablen abhängen). Eine Skizze des Gebiets verhindert die meisten Fehler."
+            ]
+        },
+        {
+            "id": 32,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Extremwertaufgaben",
+            "description": "Finden Sie die lokalen Extrema der Funktion $f(x,y) = x^3 + y^3 - 3xy$ und bestimmen Sie deren Art.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Kritische Punkte\n$\\frac{\\partial f}{\\partial x} = 3x^2 - 3y = 0$\n$\\frac{\\partial f}{\\partial y} = 3y^2 - 3x = 0$\nLösung: $(0,0)$ und $(1,1)$",
+                "Schritt 2: Hesse-Matrix\n$H_f = \\begin{pmatrix} 6x & -3 \\\\ -3 & 6y \\end{pmatrix}$",
+                "Schritt 3: Determinante und Spur\n$\\det(H_f) = 36xy - 9$\n$\\text{tr}(H_f) = 6(x+y)$",
+                "Schritt 4: Klassifikation\n$(0,0)$: $\\det(H_f) = -9 < 0$ (Sattelpunkt)\n$(1,1)$: $\\det(H_f) = 27 > 0$, $\\text{tr}(H_f) = 12 > 0$ (Minimum)"
+            ]
+        },
+        {
+            "id": 33,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Mehrfachintegrale",
+            "description": "Berechnen Sie das Doppelintegral $\\iint_D (x^2 + y^2) dxdy$ über den Bereich $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid 0 \\leq x \\leq 1, 0 \\leq y \\leq x\\}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Integrationsgrenzen\n$\\int_0^1 \\int_0^x (x^2 + y^2) dy dx$",
+                "Schritt 2: Innere Integration\n$\\int_0^x (x^2 + y^2) dy = x^2y + \\frac{y^3}{3}|_0^x = x^3 + \\frac{x^3}{3} = \\frac{4}{3}x^3$",
+                "Schritt 3: Äußere Integration\n$\\int_0^1 \\frac{4}{3}x^3 dx = \\frac{4}{3} \\cdot \\frac{x^4}{4}|_0^1 = \\frac{1}{3}$",
+                "Schritt 4: Ergebnis\n$\\iint_D (x^2 + y^2) dxdy = \\frac{1}{3}$"
+            ]
+        },
+        {
+            "id": 34,
+            "topic": "Mehrdimensionale Analysis",
+            "title": "Koordinatentransformation",
+            "description": "Berechnen Sie das Integral $\\iint_D \\frac{1}{\\sqrt{x^2 + y^2}} dxdy$ über den Bereich $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid 1 \\leq x^2 + y^2 \\leq 4\\}$ durch Transformation in Polarkoordinaten.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Polarkoordinaten\n$x = r\\cos(\\phi), y = r\\sin(\\phi)$\n$dxdy = r dr d\\phi$",
+                "Schritt 2: Integrationsbereich\n$1 \\leq r \\leq 2, 0 \\leq \\phi \\leq 2\\pi$",
+                "Schritt 3: Transformation\n$\\int_0^{2\\pi} \\int_1^2 \\frac{1}{r} \\cdot r dr d\\phi = \\int_0^{2\\pi} \\int_1^2 1 dr d\\phi$",
+                "Schritt 4: Berechnung\n$= \\int_0^{2\\pi} (2-1) d\\phi = 2\\pi$"
+            ]
+        },
+        {
+            "id": 35,
             "topic": "Mehrdimensionale Analysis",
             "title": "Mehrfachintegral mit Koordinatentransformation",
             "description": "Berechnen Sie das Integral $\\iiint_V \\frac{1}{\\sqrt{x^2 + y^2 + z^2}} dxdydz$ über den Bereich $V = \\{(x,y,z) \\in \\mathbb{R}^3 \\mid 1 \\leq x^2 + y^2 + z^2 \\leq 4\\}$ durch Transformation in Kugelkoordinaten.",
@@ -331,35 +524,7 @@
             ]
         },
         {
-            "id": 24,
-            "topic": "Mehrdimensionale Analysis",
-            "title": "Komplexe Kettenregel mit mehreren Variablen",
-            "description": "Berechnen Sie die Ableitung der Funktion $f(x,y,z) = e^{xyz}$ entlang der Kurve $x(t) = \\cos(t), y(t) = \\sin(t), z(t) = t$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Partielle Ableitungen\n$\\frac{\\partial f}{\\partial x} = yze^{xyz}$\n$\\frac{\\partial f}{\\partial y} = xze^{xyz}$\n$\\frac{\\partial f}{\\partial z} = xye^{xyz}$",
-                "Schritt 2: Ableitungen der Kurve\n$\\frac{dx}{dt} = -\\sin(t)$\n$\\frac{dy}{dt} = \\cos(t)$\n$\\frac{dz}{dt} = 1$",
-                "Schritt 3: Kettenregel\n$\\frac{df}{dt} = -\\sin(t)\\cos(t)te^{xyz} + \\cos(t)\\sin(t)te^{xyz} + \\cos(t)\\sin(t)e^{xyz}$",
-                "Schritt 4: Vereinfachung\n$\\frac{df}{dt} = \\cos(t)\\sin(t)e^{xyz}$"
-            ]
-        },
-        {
-            "id": 25,
-            "topic": "Mehrdimensionale Analysis",
-            "title": "Implizite Funktionen und Jacobi-Matrix",
-            "description": "Berechnen Sie die Jacobi-Matrix der impliziten Funktion $F(x,y,z) = (x^2 + y^2 + z^2 - 1, x + y + z - 1)$ und bestimmen Sie $\\frac{\\partial z}{\\partial x}$ und $\\frac{\\partial z}{\\partial y}$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Jacobi-Matrix\n$DF = \\begin{pmatrix} 2x & 2y & 2z \\\\ 1 & 1 & 1 \\end{pmatrix}$",
-                "Schritt 2: Implizite Differentiation\n$\\frac{\\partial z}{\\partial x} = -\\frac{2x}{2z} = -\\frac{x}{z}$\n$\\frac{\\partial z}{\\partial y} = -\\frac{2y}{2z} = -\\frac{y}{z}$",
-                "Schritt 3: Verifikation\nFür $(x,y,z) = (\\frac{1}{2}, \\frac{1}{2}, \\frac{1}{\\sqrt{2}})$:\n$\\frac{\\partial z}{\\partial x} = -\\frac{1}{\\sqrt{2}}$\n$\\frac{\\partial z}{\\partial y} = -\\frac{1}{\\sqrt{2}}$",
-                "Schritt 4: Interpretation\nDie Ableitungen geben die Steigung der Tangentialebene an."
-            ]
-        },
-        {
-            "id": 26,
+            "id": 36,
             "topic": "Mehrdimensionale Analysis",
             "title": "Mehrfachintegral mit komplexem Integrationsbereich",
             "description": "Berechnen Sie das Integral $\\iint_D \\frac{1}{\\sqrt{1-x^2-y^2}} dxdy$ über den Bereich $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid x^2 + y^2 \\leq \\frac{1}{2}\\}$.",
@@ -373,21 +538,7 @@
             ]
         },
         {
-            "id": 27,
-            "topic": "Mehrdimensionale Analysis",
-            "title": "Taylor-Entwicklung höherer Ordnung",
-            "description": "Berechnen Sie die Taylor-Entwicklung dritter Ordnung der Funktion $f(x,y) = \\sin(xy)$ um den Punkt $(0,0)$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Partielle Ableitungen\n$\\frac{\\partial f}{\\partial x} = y\\cos(xy)$\n$\\frac{\\partial f}{\\partial y} = x\\cos(xy)$\n$\\frac{\\partial^2 f}{\\partial x^2} = -y^2\\sin(xy)$\n$\\frac{\\partial^2 f}{\\partial y^2} = -x^2\\sin(xy)$\n$\\frac{\\partial^2 f}{\\partial x \\partial y} = \\cos(xy) - xy\\sin(xy)$",
-                "Schritt 2: Werte im Entwicklungspunkt\n$f(0,0) = 0$\n$\\frac{\\partial f}{\\partial x}(0,0) = 0$\n$\\frac{\\partial f}{\\partial y}(0,0) = 0$\n$\\frac{\\partial^2 f}{\\partial x^2}(0,0) = 0$\n$\\frac{\\partial^2 f}{\\partial y^2}(0,0) = 0$\n$\\frac{\\partial^2 f}{\\partial x \\partial y}(0,0) = 1$",
-                "Schritt 3: Taylor-Entwicklung\n$T_3(x,y) = xy - \\frac{1}{6}x^3y - \\frac{1}{6}xy^3$",
-                "Schritt 4: Interpretation\nDie Taylor-Entwicklung gibt eine kubische Approximation der Funktion."
-            ]
-        },
-        {
-            "id": 28,
+            "id": 37,
             "topic": "Mehrdimensionale Analysis",
             "title": "Komplexe Richtungsableitung und Gradient",
             "description": "Berechnen Sie die Richtungsableitung der Funktion $f(x,y,z) = x^2y + y^2z + z^2x$ im Punkt $(1,1,1)$ in Richtung des Vektors $\\vec{v} = (1,2,3)$ und bestimmen Sie die Richtung der maximalen Änderungsrate.",
@@ -399,20 +550,6 @@
                 "Schritt 3: Richtungsableitung\n$D_{\\vec{v}}f = \\nabla f \\cdot \\vec{v}_0 = \\frac{1}{\\sqrt{14}}(3 + 6 + 9) = \\frac{18}{\\sqrt{14}}$",
                 "Schritt 4: Maximale Änderungsrate\nDie maximale Änderungsrate erfolgt in Richtung des Gradienten: $\\frac{1}{\\sqrt{3}}(1,1,1)$"
             ]
-        },
-        {
-            "id": 29,
-            "topic": "Mehrdimensionale Analysis",
-            "title": "Mehrfachintegral mit komplexer Transformation",
-            "description": "Berechnen Sie das Integral $\\iiint_V \\frac{1}{(x^2 + y^2 + z^2)^{3/2}} dxdydz$ über den Bereich $V = \\{(x,y,z) \\in \\mathbb{R}^3 \\mid 1 \\leq x^2 + y^2 \\leq 4, 0 \\leq z \\leq 1\\}$ durch Transformation in Zylinderkoordinaten.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Schritt 1: Zylinderkoordinaten\n$x = r\\cos\\phi$\n$y = r\\sin\\phi$\n$z = z$\n$dxdydz = r drd\\phi dz$",
-                "Schritt 2: Integrationsbereich\n$1 \\leq r \\leq 2$\n$0 \\leq \\phi \\leq 2\\pi$\n$0 \\leq z \\leq 1$",
-                "Schritt 3: Transformation\n$\\int_0^{2\\pi} \\int_1^2 \\int_0^1 \\frac{r}{(r^2 + z^2)^{3/2}} drd\\phi dz$",
-                "Schritt 4: Berechnung\n$= 2\\pi(\\ln(2 + \\sqrt{5}) - \\ln(1 + \\sqrt{2}))$"
-            ]
         }
     ]
-} 
+}

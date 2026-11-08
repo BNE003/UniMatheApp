@@ -12,80 +12,89 @@
         {
             "id": 1,
             "topic": "Vollständige Induktion",
-            "title": "Summe der ersten ungeraden Zahlen",
-            "description": "Beweisen Sie durch vollständige Induktion:\n$\\sum_{k=1}^{n}(2k-1)=n^2$ für alle $n\\in\\mathbb{N}$.",
-            "difficulty": "medium",
+            "title": "Summenformel und Teilbarkeit",
+            "description": "a) Beweisen Sie durch vollständige Induktion: $\\sum_{k=1}^n k(k+1) = \\frac{n(n+1)(n+2)}{3}$.\nb) Beweisen Sie: $7 \\mid 8^n - 1$ für alle $n \\in \\mathbb{N}$.",
+            "difficulty": "intermediate",
             "points": 15,
             "solutionSteps": [
-                "Schritt 1: Induktionsanfang\nFür $n=1$: $\\sum_{k=1}^{1}(2k-1)=1=n^2$",
-                "Schritt 2: Induktionsvoraussetzung\nAngenommen $\\sum_{k=1}^{n}(2k-1)=n^2$",
-                "Schritt 3: Induktionsschritt\n$\\sum_{k=1}^{n+1}(2k-1)=\\sum_{k=1}^{n}(2k-1)+[2(n+1)-1]$\n$=n^2+2n+1=(n+1)^2$",
-                "Schritt 4: Schluss\nDamit gilt die Aussage für alle $n\\in\\mathbb{N}$"
+                "Schritt 1: Teil a): Induktionsanfang\n$n = 1$: links $1\\cdot2 = 2$, rechts $\\frac{1\\cdot2\\cdot3}{3} = 2$ ✓.",
+                "Schritt 2: Teil a): Induktionsschritt\nSei die Formel für $n$ wahr (IV). Dann $\\sum_{k=1}^{n+1}k(k+1) = \\frac{n(n+1)(n+2)}{3} + (n+1)(n+2) = \\frac{(n+1)(n+2)\\,(n + 3)}{3}$, denn $\\frac{n(n+1)(n+2)}{3} + (n+1)(n+2) = (n+1)(n+2)\\left(\\frac n3 + 1\\right)$. Das ist die Behauptung für $n+1$.",
+                "Schritt 3: Teil b): Anfang und Voraussetzung\n$n = 1$: $8 - 1 = 7$ ✓. IV: $8^n - 1 = 7m$ mit $m \\in \\mathbb{Z}$.",
+                "Schritt 4: Teil b): Schritt\n$8^{n+1} - 1 = 8\\cdot8^n - 1 = 8(8^n - 1) + 7 = 8\\cdot7m + 7 = 7(8m + 1)$. Also $7 \\mid 8^{n+1} - 1$. (Trick: $a\\,b^n - 1 = a(b^n - 1) + (a - 1)$.)",
+                "Schritt 5: Proben\na) $n = 3$: $2 + 6 + 12 = 20 = \\frac{3\\cdot4\\cdot5}{3}$ ✓. b) $8^2 - 1 = 63 = 7\\cdot9$ ✓."
             ]
         },
         {
             "id": 2,
             "topic": "Polynome",
-            "title": "Irreduzibilität von $x^3-2$",
-            "description": "Untersuchen Sie das Polynom $f(x)=x^3-2$ über $\\mathbb{Q}$ und $\\mathbb{R}$.\n\na) Zeigen Sie die Irreduzibilität über $\\mathbb{Q}$.\nb) Faktorisieren Sie $f$ über $\\mathbb{R}$.",
-            "difficulty": "medium",
+            "title": "Irreduzibilität über 𝔽₂ und ℝ",
+            "description": "a) Zeigen Sie, dass $x^3 + x + 1$ über $\\mathbb{F}_2$ irreduzibel ist.\nb) Zerlegen Sie $x^4 + 1$ über $\\mathbb{F}_2$.\nc) Zerlegen Sie $x^4 + 1$ über $\\mathbb{R}$ in quadratische Faktoren.",
+            "difficulty": "intermediate",
             "points": 15,
             "solutionSteps": [
-                "Schritt 1: Rationaler Wurzelsatz\nMögliche rationale Nullstellen sind $\\pm1, \\pm2$.\nEinsetzen zeigt: keine Nullstelle, daher irreduzibel über $\\mathbb{Q}$.",
-                "Schritt 2: Reelle Faktorisierung\nEs gibt eine reelle Nullstelle $\\sqrt[3]{2}$.\nDamit $f(x)=(x-\\sqrt[3]{2})(x^2+\\sqrt[3]{2}x+\\sqrt[3]{4})$ über $\\mathbb{R}$"
+                "Schritt 1: Teil a): Nullstellentest\nEin Polynom vom Grad $3$ ist über einem Körper genau dann reduzibel, wenn es eine Nullstelle hat (ein Linearfaktor müsste abspaltbar sein). $f(0) = 1$, $f(1) = 1 + 1 + 1 = 1$ in $\\mathbb{F}_2$. Keine Nullstelle: $f$ ist irreduzibel.",
+                "Schritt 2: Teil b): Frobenius-Trick\nIn Charakteristik $2$ gilt $(x+1)^2 = x^2 + 2x + 1 = x^2 + 1$, also $(x+1)^4 = (x^2+1)^2 = x^4 + 1$. Somit $x^4 + 1 = (x+1)^4$ über $\\mathbb{F}_2$.",
+                "Schritt 3: Teil c): Ergänzen zum Quadrat\n$x^4 + 1 = (x^2 + 1)^2 - 2x^2 = (x^2 + 1)^2 - (\\sqrt2x)^2$. Dritte binomische Formel: $x^4 + 1 = (x^2 + \\sqrt2x + 1)(x^2 - \\sqrt2x + 1)$.",
+                "Schritt 4: Teil c): Irreduzibilität der Faktoren\nDie Diskriminante $2 - 4 = -2 < 0$ zeigt, dass die quadratischen Faktoren über $\\mathbb{R}$ keine Nullstellen haben. Probe durch Ausmultiplizieren: $(x^2+1)^2 - 2x^2 = x^4 + 2x^2 + 1 - 2x^2 = x^4 + 1$ ✓."
             ]
         },
         {
             "id": 3,
             "topic": "Eigenwerte",
-            "title": "Eigenwerte und Eigenvektoren",
-            "description": "Gegeben ist $A = \\begin{pmatrix} 0 & 1 \\\\ -2 & 3 \\end{pmatrix}$.\n\na) Bestimmen Sie die Eigenwerte.\nb) Bestimmen Sie Eigenvektoren.\nc) Ist $A$ diagonalisierbar?",
-            "difficulty": "medium",
+            "title": "Eigenwerte, Eigenvektoren und Potenz",
+            "description": "Sei $A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}$.\na) Bestimmen Sie Eigenwerte und Eigenvektoren.\nb) Berechnen Sie $A^3$ mit Hilfe der Diagonalisierung.",
+            "difficulty": "intermediate",
             "points": 15,
             "solutionSteps": [
-                "Schritt 1: Charakteristisches Polynom\n$\\det(A-\\lambda I)=\\lambda^2-3\\lambda+2=(\\lambda-1)(\\lambda-2)$",
-                "Schritt 2: Eigenvektoren\nFür $\\lambda=1$: Eigenvektor $v_1=(1,1)^T$\nFür $\\lambda=2$: Eigenvektor $v_2=(1,2)^T$",
-                "Schritt 3: Diagonalisierbarkeit\nZwei verschiedene Eigenwerte $\\Rightarrow$ diagonalisierbar"
+                "Schritt 1: Teil a): Eigenwerte\n$\\operatorname{tr}A = 7$, $\\det A = 10$: $\\lambda^2 - 7\\lambda + 10 = (\\lambda-2)(\\lambda-5) = 0$, also $\\lambda_1 = 5$, $\\lambda_2 = 2$.",
+                "Schritt 2: Teil a): Eigenvektoren\n$\\lambda = 5$: $A - 5I = \\begin{pmatrix} -1 & 1 \\\\ 2 & -2 \\end{pmatrix}$ gibt $v = (1,1)^T$. $\\lambda = 2$: $A - 2I = \\begin{pmatrix} 2 & 1 \\\\ 2 & 1 \\end{pmatrix}$ gibt $v = (1,-2)^T$.",
+                "Schritt 3: Teil b): Diagonalisierung\n$P = \\begin{pmatrix} 1 & 1 \\\\ 1 & -2 \\end{pmatrix}$, $D = \\operatorname{diag}(5,2)$, $\\det P = -3$, $P^{-1} = \\frac13\\begin{pmatrix} 2 & 1 \\\\ 1 & -1 \\end{pmatrix}$.",
+                "Schritt 4: Teil b): Potenz\n$D^3 = \\operatorname{diag}(125,8)$. $PD^3 = \\begin{pmatrix} 125 & 8 \\\\ 125 & -16 \\end{pmatrix}$. $A^3 = PD^3P^{-1} = \\frac13\\begin{pmatrix} 125 & 8 \\\\ 125 & -16 \\end{pmatrix}\\begin{pmatrix} 2 & 1 \\\\ 1 & -1 \\end{pmatrix} = \\frac13\\begin{pmatrix} 258 & 117 \\\\ 234 & 141 \\end{pmatrix} = \\begin{pmatrix} 86 & 39 \\\\ 78 & 47 \\end{pmatrix}$.",
+                "Schritt 5: Probe\nDirekt: $A^2 = \\begin{pmatrix} 18 & 7 \\\\ 14 & 11 \\end{pmatrix}$, $A^3 = A^2A = \\begin{pmatrix} 72+14 & 18+21 \\\\ 56+22 & 14+33 \\end{pmatrix} = \\begin{pmatrix} 86 & 39 \\\\ 78 & 47 \\end{pmatrix}$ ✓."
             ]
         },
         {
             "id": 4,
             "topic": "Lineare Unabhängigkeit",
-            "title": "Basis eines Spannraums",
-            "description": "Gegeben sind $v_1=(1,0,1)$, $v_2=(2,1,3)$, $v_3=(3,1,4)$.\n\na) Prüfen Sie lineare Unabhängigkeit.\nb) Bestimmen Sie eine Basis des Spannraums.\nc) Drücken Sie $v_3$ durch die Basis aus.",
-            "difficulty": "medium",
+            "title": "Spann, Basis und Zugehörigkeit",
+            "description": "Sei $W = \\operatorname{span}\\{(1,1,0),(0,1,1),(1,2,1)\\} \\subseteq \\mathbb{R}^3$.\na) Bestimmen Sie eine Basis und $\\dim W$.\nb) Liegt $(1,0,-1)$ in $W$?",
+            "difficulty": "intermediate",
             "points": 15,
             "solutionSteps": [
-                "Schritt 1: Zusammenhang erkennen\n$v_3 = v_1 + v_2$",
-                "Schritt 2: Unabhängigkeit\nDamit sind $v_1,v_2$ linear unabhängig, $v_3$ abhängig.",
-                "Schritt 3: Basis und Darstellung\nBasis: $\\{v_1,v_2\\}$\n$v_3 = 1\\cdot v_1 + 1\\cdot v_2$"
+                "Schritt 1: Teil a): Abhängigkeit erkennen\n$(1,1,0) + (0,1,1) = (1,2,1)$. Der dritte Vektor ist die Summe der ersten beiden und kann weggelassen werden.",
+                "Schritt 2: Teil a): Basis\n$(1,1,0)$ und $(0,1,1)$ sind nicht proportional, also linear unabhängig. Basis $\\{(1,1,0),(0,1,1)\\}$, $\\dim W = 2$.",
+                "Schritt 3: Teil b): Ansatz\n$a(1,1,0) + b(0,1,1) = (a,\\ a + b,\\ b) \\overset{!}{=} (1,0,-1)$. Aus der ersten und dritten Komponente $a = 1$, $b = -1$.",
+                "Schritt 4: Teil b): Kontrolle der zweiten Komponente\n$a + b = 0$ ✓ stimmt mit $0$ überein. Also $(1,0,-1) = (1,1,0) - (0,1,1) \\in W$.",
+                "Schritt 5: Gegenbeispiel zur Orientierung\n$(1,0,0) \\notin W$: Aus $a = 1$, $b = 0$ folgt $a + b = 1 \\neq 0$. Merke: $W$ ist die Ebene $\\{(x,y,z) \\mid y = x + z\\}$; für $(1,0,-1)$: $0 = 1 - 1$ ✓."
             ]
         },
         {
             "id": 5,
             "topic": "Modulare Arithmetik",
-            "title": "Kongruenz lösen",
-            "description": "Lösen Sie die Kongruenz $7x \\equiv 5 \\pmod{26}$.\nBestimmen Sie auch das multiplikative Inverse von 7 modulo 26.",
-            "difficulty": "medium",
+            "title": "Kongruenzen und Restsatz",
+            "description": "a) Lösen Sie $x \\equiv 2 \\pmod 3$, $x \\equiv 3 \\pmod 5$.\nb) Berechnen Sie $3^{100} \\bmod 7$.\nc) Bestimmen Sie das Inverse von $4$ modulo $9$.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Inverses bestimmen\nSuche $a$ mit $7a\\equiv1\\pmod{26}$.\n$7\\cdot15=105\\equiv1\\pmod{26}$, also $7^{-1}\\equiv15$",
-                "Schritt 2: Kongruenz lösen\n$x\\equiv 15\\cdot5\\pmod{26}$\n$=75\\equiv23\\pmod{26}$",
-                "Schritt 3: Allgemeine Lösung\n$x = 23 + 26k$, $k\\in\\mathbb{Z}$"
+                "Schritt 1: Teil a): Ansatz\nDie Moduli $3$ und $5$ sind teilerfremd, also gibt es nach dem Chinesischen Restsatz eine Lösung modulo $15$. Aus der zweiten Kongruenz $x = 3 + 5k$.",
+                "Schritt 2: Teil a): Einsetzen\n$3 + 5k \\equiv 2 \\pmod 3 \\iff 2k \\equiv -1 \\equiv 2 \\pmod 3 \\iff k \\equiv 1 \\pmod 3$. Also $x = 3 + 5(1 + 3m) = 8 + 15m$, d.h. $x \\equiv 8 \\pmod{15}$. Probe: $8 = 2\\cdot3 + 2$ ✓, $8 = 1\\cdot5 + 3$ ✓.",
+                "Schritt 3: Teil b): Kleiner Satz von Fermat\n$3^6 \\equiv 1 \\pmod 7$. Wegen $100 = 16\\cdot6 + 4$: $3^{100} = (3^6)^{16}\\cdot3^4 \\equiv 3^4 = 81 = 11\\cdot7 + 4 \\equiv 4 \\pmod 7$.",
+                "Schritt 4: Teil c): Inverses\n$\\operatorname{ggT}(4,9) = 1$. Probieren oder Euklid: $9 = 2\\cdot4 + 1 \\Rightarrow 1 = 9 - 2\\cdot4$, also $4^{-1} \\equiv -2 \\equiv 7 \\pmod 9$. Probe: $4\\cdot7 = 28 = 3\\cdot9 + 1$ ✓."
             ]
         },
         {
             "id": 6,
             "topic": "Lineare Abbildungen",
-            "title": "Linearer Operator auf $P_2$",
-            "description": "Sei $T: P_2 \\to P_2$ definiert durch $T(p)=p' + p(0)$.\nFür $p(x)=a+bx+cx^2$:\n\na) Bestimmen Sie die Matrix von $T$ in der Basis $(1,x,x^2)$.\nb) Bestimmen Sie Kern und Bild.",
-            "difficulty": "medium",
+            "title": "Differenzoperator auf Polynomen",
+            "description": "Sei $P_2$ der Raum der Polynome vom Grad $\\leq 2$ und $T: P_2 \\to P_2$, $(Tp)(x) = p(x+1) - p(x)$.\na) Zeigen Sie, dass $T$ linear ist.\nb) Bestimmen Sie die Matrix bezüglich der Basis $\\{1,x,x^2\\}$.\nc) Bestimmen Sie $\\ker T$, $\\operatorname{im} T$ und zeigen Sie $T^3 = 0$.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Schritt 1: Wirkung auf Basis\n$T(1)=1$, $T(x)=1$, $T(x^2)=2x$",
-                "Schritt 2: Matrixdarstellung\n$[T]=\\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 0 & 2 \\\\ 0 & 0 & 0 \\end{pmatrix}$",
-                "Schritt 3: Kern\n$T(a+bx+cx^2)=(a+b)+2cx \\Rightarrow a+b=0$ und $c=0$\n$\\ker(T)=\\mathrm{span}\\{(-1,1,0)\\}$",
-                "Schritt 4: Bild\nBild wird von $1$ und $x$ erzeugt, also zweidimensional."
+                "Schritt 1: Teil a): Linearität\n$T(p + q)(x) = (p+q)(x+1) - (p+q)(x) = (p(x+1) - p(x)) + (q(x+1) - q(x)) = Tp + Tq$ und $T(\\lambda p) = \\lambda Tp$ analog. Außerdem hat $Tp$ wieder Grad $\\leq 2$ (genauer $\\leq \\deg p - 1$).",
+                "Schritt 2: Teil b): Bilder der Basis\n$T(1) = 1 - 1 = 0$, $T(x) = (x+1) - x = 1$, $T(x^2) = (x+1)^2 - x^2 = 2x + 1$.",
+                "Schritt 3: Teil b): Matrix\nKoordinaten bezüglich $(1,x,x^2)$ als Spalten: $T(1) \\to (0,0,0)$, $T(x) \\to (1,0,0)$, $T(x^2) \\to (1,2,0)$. $[T] = \\begin{pmatrix} 0 & 1 & 1 \\\\ 0 & 0 & 2 \\\\ 0 & 0 & 0 \\end{pmatrix}$.",
+                "Schritt 4: Teil c): Kern und Bild\n$\\ker T$: $a + bx + cx^2 \\mapsto b + c + 2cx = 0 \\iff c = 0, b = 0$. Also $\\ker T = \\{\\text{Konstanten}\\} = \\operatorname{span}\\{1\\}$. $\\operatorname{im} T = \\operatorname{span}\\{1, 2x+1\\} = P_1$ (Dimension $2$). Dimensionssatz: $1 + 2 = 3$ ✓.",
+                "Schritt 5: Teil c): Nilpotenz\n$[T]^2 = \\begin{pmatrix} 0 & 0 & 2 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}$ und $[T]^3 = 0$ (strikt obere Dreiecksmatrix). Anschaulich: $T$ senkt den Grad um $1$; dreimal angewandt, wird jedes Polynom vom Grad $\\leq 2$ zu $0$."
             ]
         }
     ]

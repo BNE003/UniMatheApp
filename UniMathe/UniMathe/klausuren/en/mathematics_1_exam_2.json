@@ -12,80 +12,89 @@
         {
             "id": 1,
             "topic": "Mathematical Induction",
-            "title": "Sum of the First Odd Numbers",
-            "description": "Prove by induction:\n$\\sum_{k=1}^{n}(2k-1)=n^2$ for all $n\\in\\mathbb{N}$.",
-            "difficulty": "medium",
+            "title": "Sum formula and divisibility",
+            "description": "a) Prove by induction: $\\sum_{k=1}^n k(k+1) = \\frac{n(n+1)(n+2)}{3}$.\nb) Prove: $7 \\mid 8^n - 1$ for all $n \\in \\mathbb{N}$.",
+            "difficulty": "intermediate",
             "points": 15,
             "solutionSteps": [
-                "Step 1: Base case\nFor $n=1$: $\\sum_{k=1}^{1}(2k-1)=1=n^2$",
-                "Step 2: Induction hypothesis\nAssume $\\sum_{k=1}^{n}(2k-1)=n^2$",
-                "Step 3: Induction step\n$\\sum_{k=1}^{n+1}(2k-1)=\\sum_{k=1}^{n}(2k-1)+[2(n+1)-1]$\n$=n^2+2n+1=(n+1)^2$",
-                "Step 4: Conclusion\nThe statement holds for all $n\\in\\mathbb{N}$"
+                "Step 1: Part a): Base case\n$n = 1$: left $1\\cdot2 = 2$, right $\\frac{1\\cdot2\\cdot3}{3} = 2$ ✓.",
+                "Step 2: Part a): Induction step\nLet the formula be true for $n$ (IH). Then $\\sum_{k=1}^{n+1}k(k+1) = \\frac{n(n+1)(n+2)}{3} + (n+1)(n+2) = \\frac{(n+1)(n+2)\\,(n + 3)}{3}$, since $\\frac{n(n+1)(n+2)}{3} + (n+1)(n+2) = (n+1)(n+2)\\left(\\frac n3 + 1\\right)$. This is the claim for $n+1$.",
+                "Step 3: Part b): Base and hypothesis\n$n = 1$: $8 - 1 = 7$ ✓. IH: $8^n - 1 = 7m$ with $m \\in \\mathbb{Z}$.",
+                "Step 4: Part b): Step\n$8^{n+1} - 1 = 8\\cdot8^n - 1 = 8(8^n - 1) + 7 = 8\\cdot7m + 7 = 7(8m + 1)$. So $7 \\mid 8^{n+1} - 1$. (Trick: $a\\,b^n - 1 = a(b^n - 1) + (a - 1)$.)",
+                "Step 5: Checks\na) $n = 3$: $2 + 6 + 12 = 20 = \\frac{3\\cdot4\\cdot5}{3}$ ✓. b) $8^2 - 1 = 63 = 7\\cdot9$ ✓."
             ]
         },
         {
             "id": 2,
             "topic": "Polynomials",
-            "title": "Irreducibility of $x^3-2$",
-            "description": "Consider $f(x)=x^3-2$ over $\\mathbb{Q}$ and $\\mathbb{R}$.\n\na) Show irreducibility over $\\mathbb{Q}$.\nb) Factorize $f$ over $\\mathbb{R}$.",
-            "difficulty": "medium",
+            "title": "Irreducibility over 𝔽₂ and ℝ",
+            "description": "a) Show that $x^3 + x + 1$ is irreducible over $\\mathbb{F}_2$.\nb) Factor $x^4 + 1$ over $\\mathbb{F}_2$.\nc) Factor $x^4 + 1$ over $\\mathbb{R}$ into quadratic factors.",
+            "difficulty": "intermediate",
             "points": 15,
             "solutionSteps": [
-                "Step 1: Rational root test\nPossible rational roots are $\\pm1, \\pm2$.\nNone are roots, so $f$ is irreducible over $\\mathbb{Q}$.",
-                "Step 2: Real factorization\nThere is a real root $\\sqrt[3]{2}$.\nThus $f(x)=(x-\\sqrt[3]{2})(x^2+\\sqrt[3]{2}x+\\sqrt[3]{4})$ over $\\mathbb{R}$"
+                "Step 1: Part a): Root test\nA polynomial of degree $3$ is reducible over a field exactly when it has a root (a linear factor would split off). $f(0) = 1$, $f(1) = 1 + 1 + 1 = 1$ in $\\mathbb{F}_2$. No root: $f$ is irreducible.",
+                "Step 2: Part b): Frobenius trick\nIn characteristic $2$ we have $(x+1)^2 = x^2 + 2x + 1 = x^2 + 1$, so $(x+1)^4 = (x^2+1)^2 = x^4 + 1$. Hence $x^4 + 1 = (x+1)^4$ over $\\mathbb{F}_2$.",
+                "Step 3: Part c): Completing the square\n$x^4 + 1 = (x^2 + 1)^2 - 2x^2 = (x^2 + 1)^2 - (\\sqrt2x)^2$. Third binomial formula: $x^4 + 1 = (x^2 + \\sqrt2x + 1)(x^2 - \\sqrt2x + 1)$.",
+                "Step 4: Part c): Irreducibility of the factors\nThe discriminant $2 - 4 = -2 < 0$ shows that the quadratic factors have no roots over $\\mathbb{R}$. Check by expanding: $(x^2+1)^2 - 2x^2 = x^4 + 2x^2 + 1 - 2x^2 = x^4 + 1$ ✓."
             ]
         },
         {
             "id": 3,
             "topic": "Eigenvalues",
-            "title": "Eigenvalues and Eigenvectors",
-            "description": "Given $A = \\begin{pmatrix} 0 & 1 \\\\ -2 & 3 \\end{pmatrix}$.\n\na) Find the eigenvalues.\nb) Find eigenvectors.\nc) Is $A$ diagonalizable?",
-            "difficulty": "medium",
+            "title": "Eigenvalues, eigenvectors and power",
+            "description": "Let $A = \\begin{pmatrix} 4 & 1 \\\\ 2 & 3 \\end{pmatrix}$.\na) Determine eigenvalues and eigenvectors.\nb) Compute $A^3$ using diagonalisation.",
+            "difficulty": "intermediate",
             "points": 15,
             "solutionSteps": [
-                "Step 1: Characteristic polynomial\n$\\det(A-\\lambda I)=\\lambda^2-3\\lambda+2=(\\lambda-1)(\\lambda-2)$",
-                "Step 2: Eigenvectors\nFor $\\lambda=1$: eigenvector $v_1=(1,1)^T$\nFor $\\lambda=2$: eigenvector $v_2=(1,2)^T$",
-                "Step 3: Diagonalizability\nDistinct eigenvalues $\\Rightarrow$ diagonalizable"
+                "Step 1: Part a): Eigenvalues\n$\\operatorname{tr}A = 7$, $\\det A = 10$: $\\lambda^2 - 7\\lambda + 10 = (\\lambda-2)(\\lambda-5) = 0$, so $\\lambda_1 = 5$, $\\lambda_2 = 2$.",
+                "Step 2: Part a): Eigenvectors\n$\\lambda = 5$: $A - 5I = \\begin{pmatrix} -1 & 1 \\\\ 2 & -2 \\end{pmatrix}$ gives $v = (1,1)^T$. $\\lambda = 2$: $A - 2I = \\begin{pmatrix} 2 & 1 \\\\ 2 & 1 \\end{pmatrix}$ gives $v = (1,-2)^T$.",
+                "Step 3: Part b): Diagonalisation\n$P = \\begin{pmatrix} 1 & 1 \\\\ 1 & -2 \\end{pmatrix}$, $D = \\operatorname{diag}(5,2)$, $\\det P = -3$, $P^{-1} = \\frac13\\begin{pmatrix} 2 & 1 \\\\ 1 & -1 \\end{pmatrix}$.",
+                "Step 4: Part b): Power\n$D^3 = \\operatorname{diag}(125,8)$. $PD^3 = \\begin{pmatrix} 125 & 8 \\\\ 125 & -16 \\end{pmatrix}$. $A^3 = PD^3P^{-1} = \\frac13\\begin{pmatrix} 125 & 8 \\\\ 125 & -16 \\end{pmatrix}\\begin{pmatrix} 2 & 1 \\\\ 1 & -1 \\end{pmatrix} = \\frac13\\begin{pmatrix} 258 & 117 \\\\ 234 & 141 \\end{pmatrix} = \\begin{pmatrix} 86 & 39 \\\\ 78 & 47 \\end{pmatrix}$.",
+                "Step 5: Check\nDirectly: $A^2 = \\begin{pmatrix} 18 & 7 \\\\ 14 & 11 \\end{pmatrix}$, $A^3 = A^2A = \\begin{pmatrix} 72+14 & 18+21 \\\\ 56+22 & 14+33 \\end{pmatrix} = \\begin{pmatrix} 86 & 39 \\\\ 78 & 47 \\end{pmatrix}$ ✓."
             ]
         },
         {
             "id": 4,
             "topic": "Linear Independence",
-            "title": "Basis of a Span",
-            "description": "Given $v_1=(1,0,1)$, $v_2=(2,1,3)$, $v_3=(3,1,4)$.\n\na) Test linear independence.\nb) Find a basis of the span.\nc) Express $v_3$ in the basis.",
-            "difficulty": "medium",
+            "title": "Span, basis and membership",
+            "description": "Let $W = \\operatorname{span}\\{(1,1,0),(0,1,1),(1,2,1)\\} \\subseteq \\mathbb{R}^3$.\na) Determine a basis and $\\dim W$.\nb) Does $(1,0,-1)$ lie in $W$?",
+            "difficulty": "intermediate",
             "points": 15,
             "solutionSteps": [
-                "Step 1: Relation\n$v_3 = v_1 + v_2$",
-                "Step 2: Independence\nThus $v_1,v_2$ are independent, $v_3$ is dependent.",
-                "Step 3: Basis and representation\nBasis: $\\{v_1,v_2\\}$\n$v_3 = 1\\cdot v_1 + 1\\cdot v_2$"
+                "Step 1: Part a): Spot the dependence\n$(1,1,0) + (0,1,1) = (1,2,1)$. The third vector is the sum of the first two and can be omitted.",
+                "Step 2: Part a): Basis\n$(1,1,0)$ and $(0,1,1)$ are not proportional, hence linearly independent. Basis $\\{(1,1,0),(0,1,1)\\}$, $\\dim W = 2$.",
+                "Step 3: Part b): Set-up\n$a(1,1,0) + b(0,1,1) = (a,\\ a + b,\\ b) \\overset{!}{=} (1,0,-1)$. From the first and third component $a = 1$, $b = -1$.",
+                "Step 4: Part b): Check of the second component\n$a + b = 0$ ✓ agrees with $0$. So $(1,0,-1) = (1,1,0) - (0,1,1) \\in W$.",
+                "Step 5: Counterexample for orientation\n$(1,0,0) \\notin W$: from $a = 1$, $b = 0$ we get $a + b = 1 \\neq 0$. Remember: $W$ is the plane $\\{(x,y,z) \\mid y = x + z\\}$; for $(1,0,-1)$: $0 = 1 - 1$ ✓."
             ]
         },
         {
             "id": 5,
             "topic": "Modular Arithmetic",
-            "title": "Solving a Congruence",
-            "description": "Solve the congruence $7x \\equiv 5 \\pmod{26}$.\nAlso determine the multiplicative inverse of 7 modulo 26.",
-            "difficulty": "medium",
+            "title": "Congruences and remainder theorem",
+            "description": "a) Solve $x \\equiv 2 \\pmod 3$, $x \\equiv 3 \\pmod 5$.\nb) Compute $3^{100} \\bmod 7$.\nc) Determine the inverse of $4$ modulo $9$.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Find the inverse\nFind $a$ with $7a\\equiv1\\pmod{26}$.\n$7\\cdot15=105\\equiv1\\pmod{26}$, so $7^{-1}\\equiv15$",
-                "Step 2: Solve\n$x\\equiv 15\\cdot5\\pmod{26}$\n$=75\\equiv23\\pmod{26}$",
-                "Step 3: General solution\n$x = 23 + 26k$, $k\\in\\mathbb{Z}$"
+                "Step 1: Part a): Set-up\nThe moduli $3$ and $5$ are coprime, so by the Chinese remainder theorem a solution exists modulo $15$. From the second congruence $x = 3 + 5k$.",
+                "Step 2: Part a): Substituting\n$3 + 5k \\equiv 2 \\pmod 3 \\iff 2k \\equiv -1 \\equiv 2 \\pmod 3 \\iff k \\equiv 1 \\pmod 3$. So $x = 3 + 5(1 + 3m) = 8 + 15m$, i.e. $x \\equiv 8 \\pmod{15}$. Check: $8 = 2\\cdot3 + 2$ ✓, $8 = 1\\cdot5 + 3$ ✓.",
+                "Step 3: Part b): Fermat's little theorem\n$3^6 \\equiv 1 \\pmod 7$. Since $100 = 16\\cdot6 + 4$: $3^{100} = (3^6)^{16}\\cdot3^4 \\equiv 3^4 = 81 = 11\\cdot7 + 4 \\equiv 4 \\pmod 7$.",
+                "Step 4: Part c): Inverse\n$\\gcd(4,9) = 1$. By trial or Euclid: $9 = 2\\cdot4 + 1 \\Rightarrow 1 = 9 - 2\\cdot4$, so $4^{-1} \\equiv -2 \\equiv 7 \\pmod 9$. Check: $4\\cdot7 = 28 = 3\\cdot9 + 1$ ✓."
             ]
         },
         {
             "id": 6,
             "topic": "Linear Maps",
-            "title": "Linear Operator on $P_2$",
-            "description": "Let $T: P_2 \\to P_2$ be defined by $T(p)=p' + p(0)$.\nFor $p(x)=a+bx+cx^2$:\n\na) Determine the matrix of $T$ in the basis $(1,x,x^2)$.\nb) Determine kernel and image.",
-            "difficulty": "medium",
+            "title": "Difference operator on polynomials",
+            "description": "Let $P_2$ be the space of polynomials of degree $\\leq 2$ and $T: P_2 \\to P_2$, $(Tp)(x) = p(x+1) - p(x)$.\na) Show that $T$ is linear.\nb) Determine the matrix with respect to the basis $\\{1,x,x^2\\}$.\nc) Determine $\\ker T$, $\\operatorname{im} T$ and show $T^3 = 0$.",
+            "difficulty": "intermediate",
             "points": 20,
             "solutionSteps": [
-                "Step 1: Action on basis\n$T(1)=1$, $T(x)=1$, $T(x^2)=2x$",
-                "Step 2: Matrix representation\n$[T]=\\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 0 & 2 \\\\ 0 & 0 & 0 \\end{pmatrix}$",
-                "Step 3: Kernel\n$T(a+bx+cx^2)=(a+b)+2cx \\Rightarrow a+b=0$ and $c=0$\n$\\ker(T)=\\mathrm{span}\\{(-1,1,0)\\}$",
-                "Step 4: Image\nThe image is spanned by $1$ and $x$, so it is 2-dimensional."
+                "Step 1: Part a): Linearity\n$T(p + q)(x) = (p+q)(x+1) - (p+q)(x) = (p(x+1) - p(x)) + (q(x+1) - q(x)) = Tp + Tq$ and $T(\\lambda p) = \\lambda Tp$ analogously. Moreover $Tp$ again has degree $\\leq 2$ (in fact $\\leq \\deg p - 1$).",
+                "Step 2: Part b): Images of the basis\n$T(1) = 1 - 1 = 0$, $T(x) = (x+1) - x = 1$, $T(x^2) = (x+1)^2 - x^2 = 2x + 1$.",
+                "Step 3: Part b): Matrix\nCoordinates with respect to $(1,x,x^2)$ as columns: $T(1) \\to (0,0,0)$, $T(x) \\to (1,0,0)$, $T(x^2) \\to (1,2,0)$. $[T] = \\begin{pmatrix} 0 & 1 & 1 \\\\ 0 & 0 & 2 \\\\ 0 & 0 & 0 \\end{pmatrix}$.",
+                "Step 4: Part c): Kernel and image\n$\\ker T$: $a + bx + cx^2 \\mapsto b + c + 2cx = 0 \\iff c = 0, b = 0$. So $\\ker T = \\{\\text{constants}\\} = \\operatorname{span}\\{1\\}$. $\\operatorname{im} T = \\operatorname{span}\\{1, 2x+1\\} = P_1$ (dimension $2$). Rank–nullity: $1 + 2 = 3$ ✓.",
+                "Step 5: Part c): Nilpotency\n$[T]^2 = \\begin{pmatrix} 0 & 0 & 2 \\\\ 0 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}$ and $[T]^3 = 0$ (strictly upper triangular matrix). Intuitively: $T$ lowers the degree by $1$; applied three times every polynomial of degree $\\leq 2$ becomes $0$."
             ]
         }
     ]

@@ -3,75 +3,102 @@
         {
             "id": 1,
             "topic": "Vektorräume",
-            "title": "Unterräume und lineare Unabhängigkeit",
-            "description": "Untersuchen Sie, ob die Vektoren $\\vec{v}_1 = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}, \\vec{v}_2 = \\begin{pmatrix} 2 \\\\ 4 \\\\ 6 \\end{pmatrix}, \\vec{v}_3 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$ linear unabhängig sind und bestimmen Sie die Dimension des von ihnen aufgespannten Unterraums.",
-            "difficulty": "medium",
-            "points": 12,
+            "title": "Ist ein Vektor in der linearen Hülle?",
+            "description": "Liegt $\\vec w = (5,7)$ in $\\operatorname{span}\\{(1,1),(1,2)\\}$? Wenn ja, geben Sie die Linearkombination an.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Lineare Unabhängigkeit\nWir untersuchen die Gleichung $\\lambda_1\\vec{v}_1 + \\lambda_2\\vec{v}_2 + \\lambda_3\\vec{v}_3 = \\vec{0}$",
-                "Schritt 2: Gleichungssystem\n$\\begin{pmatrix} 1 & 2 & 1 \\\\ 2 & 4 & 1 \\\\ 3 & 6 & 1 \\end{pmatrix} \\begin{pmatrix} \\lambda_1 \\\\ \\lambda_2 \\\\ \\lambda_3 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}$",
-                "Schritt 3: Gauß-Elimination\n$\\vec{v}_2 = 2\\vec{v}_1}$, also sind die Vektoren linear abhängig",
-                "Schritt 4: Dimension\n$\\dim(\\text{span}\\{\\vec{v}_1, \\vec{v}_2, \\vec{v}_3\\}) = 2$, da $\\vec{v}_1$ und $\\vec{v}_3$ linear unabhängig sind"
+                "Schritt 1: Überblick: Was ist gefragt?\n$\\vec w$ liegt in der linearen Hülle, wenn es Skalare $a,b$ gibt mit $a(1,1) + b(1,2) = (5,7)$. Das ist ein lineares Gleichungssystem.",
+                "Schritt 2: Gleichungssystem\n$a + b = 5$ und $a + 2b = 7$.",
+                "Schritt 3: Lösen\nSubtraktion: $b = 2$, dann $a = 3$.",
+                "Schritt 4: Probe\n$3(1,1) + 2(1,2) = (3+2,\\ 3+4) = (5,7)$ ✓.",
+                "Schritt 5: Merke: Worauf es ankommt\nDa die beiden Vektoren linear unabhängig sind ($\\det\\begin{pmatrix}1&1\\\\1&2\\end{pmatrix} = 1 \\neq 0$), spannen sie ganz $\\mathbb{R}^2$ auf: Jeder Vektor liegt in der Hülle. Interessant wird die Frage bei abhängigen Vektoren."
             ]
         },
         {
             "id": 2,
             "topic": "Vektorräume",
-            "title": "Basis und Koordinaten",
-            "description": "Gegeben sei der Vektorraum $V = \\mathbb{R}^3$ mit der Basis $B = \\{\\vec{b}_1 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}, \\vec{b}_2 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\vec{b}_3 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}\\}$. Bestimmen Sie die Koordinaten des Vektors $\\vec{v} = \\begin{pmatrix} 2 \\\\ 3 \\\\ 4 \\end{pmatrix}$ bezüglich der Basis $B$.",
-            "difficulty": "hard",
-            "points": 15,
+            "title": "Unterraum oder nicht?",
+            "description": "Entscheiden Sie, welche Mengen Unterräume sind: (a) $U = \\{(x,y,z) \\mid x = y\\}\\subseteq\\mathbb{R}^3$, (b) $V = \\{(x,y) \\mid xy = 0\\}\\subseteq\\mathbb{R}^2$.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Koordinatengleichung\n$\\vec{v} = x_1\\vec{b}_1 + x_2\\vec{b}_2 + x_3\\vec{b}_3$",
-                "Schritt 2: Gleichungssystem\n$\\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\\\ 1 & 0 & 1 \\end{pmatrix} \\begin{pmatrix} x_1 \\\\ x_2 \\\\ x_3 \\end{pmatrix} = \\begin{pmatrix} 2 \\\\ 3 \\\\ 4 \\end{pmatrix}$",
-                "Schritt 3: Lösung\n$x_1 = 1, x_2 = 1, x_3 = 2$",
-                "Schritt 4: Koordinatenvektor\n$[\\vec{v}]_B = \\begin{pmatrix} 1 \\\\ 1 \\\\ 2 \\end{pmatrix}$"
+                "Schritt 1: Überblick: Was ist gefragt?\nWir prüfen Nullvektor, Abgeschlossenheit unter Addition und unter Skalarmultiplikation; für Nicht-Unterräume genügt ein Gegenbeispiel.",
+                "Schritt 2: (a) Unterraum\n$(0,0,0) \\in U$. Sind $(a,a,c)$ und $(b,b,d)$ in $U$, so ist die Summe $(a+b,\\ a+b,\\ c+d) \\in U$ und $\\lambda(a,a,c) = (\\lambda a,\\lambda a,\\lambda c) \\in U$. Basis: $(1,1,0)$, $(0,0,1)$; $\\dim U = 2$ (eine Ebene durch den Ursprung).",
+                "Schritt 3: (b) kein Unterraum\n$(1,0) \\in V$ und $(0,1) \\in V$ (denn $1\\cdot0 = 0$), aber die Summe $(1,1)$ hat $1\\cdot1 = 1 \\neq 0$, also $(1,1) \\notin V$. Nicht abgeschlossen unter Addition.",
+                "Schritt 4: Geometrische Deutung\n$V$ ist die Vereinigung der beiden Koordinatenachsen. Die Vereinigung zweier Unterräume ist nur dann ein Unterraum, wenn einer im anderen liegt.",
+                "Schritt 5: Merke: Worauf es ankommt\nLineare Gleichungen (homogen) definieren Unterräume, nichtlineare Bedingungen wie $xy = 0$ in der Regel nicht."
             ]
         },
         {
             "id": 3,
             "topic": "Vektorräume",
-            "title": "Dualräume",
-            "description": "Sei $V = \\mathbb{R}^3$ und $\\varphi: V \\to \\mathbb{R}$ eine lineare Abbildung mit $\\varphi(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = 1, \\varphi(\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}) = 2, \\varphi(\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}) = 3$. Bestimmen Sie die Darstellungsmatrix von $\\varphi$ bezüglich der Standardbasis.",
-            "difficulty": "hard",
-            "points": 15,
+            "title": "Unterraumkriterium: Wann ist es kein Unterraum?",
+            "description": "Entscheiden Sie, ob $U = \\{(x,y) \\in \\mathbb{R}^2 \\mid y = x + 1\\}$ ein Unterraum von $\\mathbb{R}^2$ ist, und begründen Sie Ihre Antwort.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Basisvektoren\n$\\vec{e}_1 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\vec{e}_2 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\vec{e}_3 = \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$",
-                "Schritt 2: Lineare Unabhängigkeit\n$\\vec{e}_2 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} - \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}$\n$\\vec{e}_3 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix} - \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$",
-                "Schritt 3: Funktionswerte\n$\\varphi(\\vec{e}_1) = 1$\n$\\varphi(\\vec{e}_2) = 2 - 1 = 1$\n$\\varphi(\\vec{e}_3) = 3 - 2 = 1$",
-                "Schritt 4: Darstellungsmatrix\n$[\\varphi] = (1, 1, 1)$"
+                "Schritt 1: Überblick: Was ist gefragt?\nGefragt ist, ob eine Teilmenge ein Unterraum ist. Dafür prüft man drei Dinge: Nullvektor, Abgeschlossenheit unter Addition und unter Skalarmultiplikation. Um etwas zu widerlegen, genügt ein einziges Gegenbeispiel.",
+                "Schritt 2: Unterraumkriterium aufstellen\nEine Teilmenge $U \\subseteq V$ ist ein Unterraum, wenn (1) $\\vec{0} \\in U$, (2) $\\vec{u}+\\vec{v} \\in U$ für alle $\\vec{u},\\vec{v} \\in U$ und (3) $\\lambda\\vec{u} \\in U$ für alle $\\lambda \\in \\mathbb{R}$, $\\vec{u} \\in U$ gilt. Schon das Scheitern einer Bedingung genügt, um zu zeigen, dass $U$ kein Unterraum ist.",
+                "Schritt 3: Nullvektor testen\nFür $\\vec{0} = (0,0)$ müsste $0 = 0 + 1$ gelten. Das ist falsch, also $\\vec{0} \\notin U$.",
+                "Schritt 4: Zweite Bedingung zur Kontrolle\nAuch die Addition führt aus $U$ heraus: $(1,2) \\in U$ und $(2,3) \\in U$, aber $(1,2)+(2,3) = (3,5)$ erfüllt $5 \\neq 3+1$, also $(3,5) \\notin U$.",
+                "Schritt 5: Schlussfolgerung\n$U$ ist kein Unterraum von $\\mathbb{R}^2$. Geometrisch ist $U$ eine Gerade, die nicht durch den Ursprung geht. Unterräume des $\\mathbb{R}^2$ sind nur $\\{\\vec{0}\\}$, Ursprungsgeraden und $\\mathbb{R}^2$ selbst.",
+                "Schritt 6: Merke: Worauf es ankommt\nDer Nullvektor-Test ist der schnellste Widerlegungstest. Eine Gleichung der Form „linke Seite $= c$“ mit $c \\neq 0$ beschreibt nie einen Unterraum, sondern eine verschobene Gerade bzw. Ebene."
             ]
         },
         {
             "id": 4,
             "topic": "Vektorräume",
-            "title": "Quotientenvektorräume",
-            "description": "Sei $V = \\mathbb{R}^4$ und $U = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 1 \\end{pmatrix}\\}$. Bestimmen Sie eine Basis des Quotientenvektorraums $V/U$ und die Dimension von $V/U$.",
-            "difficulty": "hard",
-            "points": 15,
+            "title": "Lineare Unabhängigkeit mit dem Gauß-Verfahren",
+            "description": "Prüfen Sie, ob die Vektoren $\\vec{a} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\vec{b} = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}, \\vec{c} = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}$ linear unabhängig im $\\mathbb{R}^3$ sind.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Dimension von U\n$\\dim(U) = 2$, da die Vektoren linear unabhängig sind",
-                "Schritt 2: Dimension von V/U\n$\\dim(V/U) = \\dim(V) - \\dim(U) = 4 - 2 = 2$",
-                "Schritt 3: Basis von V/U\n$\\{\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ 0 \\end{pmatrix} + U, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix} + U\\}$",
-                "Schritt 4: Verifikation\nDie Vektoren sind linear unabhängig modulo U und bilden eine Basis von V/U"
+                "Schritt 1: Überblick: Was ist gefragt?\nLineare Unabhängigkeit bedeutet: Nur die triviale Linearkombination ergibt den Nullvektor. Das übersetzt sich in ein homogenes Gleichungssystem, das wir lösen.",
+                "Schritt 2: Ansatz\nWir suchen alle $\\alpha,\\beta,\\gamma$ mit $\\alpha\\vec{a}+\\beta\\vec{b}+\\gamma\\vec{c} = \\vec{0}$. Nur die triviale Lösung $\\alpha=\\beta=\\gamma=0$ bedeutet lineare Unabhängigkeit.",
+                "Schritt 3: Gleichungssystem\nKomponentenweise: $\\alpha + \\gamma = 0$, $\\alpha + \\beta = 0$, $\\beta + \\gamma = 0$.",
+                "Schritt 4: Lösen\nAus der ersten Gleichung folgt $\\gamma = -\\alpha$, aus der zweiten $\\beta = -\\alpha$. Einsetzen in die dritte ergibt $-\\alpha - \\alpha = 0$, also $\\alpha = 0$ und damit $\\beta = \\gamma = 0$.",
+                "Schritt 5: Kontrolle mit der Determinante\nDie Matrix mit den Spalten $\\vec{a},\\vec{b},\\vec{c}$ hat $\\det = \\begin{vmatrix} 1 & 0 & 1 \\\\ 1 & 1 & 0 \\\\ 0 & 1 & 1 \\end{vmatrix} = 1\\cdot(1-0) - 0 + 1\\cdot(1-0) = 2 \\neq 0$.",
+                "Schritt 6: Ergebnis\nDie drei Vektoren sind linear unabhängig und bilden daher sogar eine Basis des $\\mathbb{R}^3$.",
+                "Schritt 7: Merke: Worauf es ankommt\nDrei Vektoren im $\\mathbb{R}^3$ sind genau dann linear unabhängig, wenn $\\det \\neq 0$. Gleichungssystem und Determinante liefern dieselbe Aussage; die Determinante ist nur schneller, das Gleichungssystem zeigt zusätzlich eine konkrete Abhängigkeit, falls es eine gibt."
             ]
         },
         {
             "id": 5,
             "topic": "Vektorräume",
-            "title": "Konvexe Mengen",
-            "description": "Zeigen Sie, dass die Menge $K = \\{(x,y) \\in \\mathbb{R}^2 \\mid x^2 + y^2 \\leq 1\\}$ konvex ist und bestimmen Sie ihre Extremalpunkte.",
-            "difficulty": "medium",
-            "points": 12,
+            "title": "Koordinaten bezüglich einer Basis bestimmen",
+            "description": "Zeigen Sie, dass $B = \\left\\{ \\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix}, \\begin{pmatrix} 3 \\\\ 5 \\end{pmatrix} \\right\\}$ eine Basis des $\\mathbb{R}^2$ ist, und bestimmen Sie die Koordinaten von $\\vec{v} = \\begin{pmatrix} 5 \\\\ 9 \\end{pmatrix}$ bezüglich $B$.",
+            "difficulty": "easy",
+            "points": 5,
             "solutionSteps": [
-                "Schritt 1: Konvexität\nSeien $\\vec{p}, \\vec{q} \\in K$ und $\\lambda \\in [0,1]$\n$\\||\\lambda\\vec{p} + (1-\\lambda)\\vec{q}\\| \\leq \\lambda\\|\\vec{p}\\| + (1-\\lambda)\\|\\vec{q}\\| \\leq 1$",
-                "Schritt 2: Extremalpunkte\nDie Extremalpunkte sind die Punkte auf dem Rand $\\{(x,y) \\mid x^2 + y^2 = 1\\}$",
-                "Schritt 3: Begründung\nJeder Punkt im Inneren kann als Konvexkombination zweier anderer Punkte dargestellt werden",
-                "Schritt 4: Parametrisierung\n$\\{(\\cos(\\phi), \\sin(\\phi)) \\mid \\phi \\in [0,2\\pi]\\}$"
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Koordinaten eines Vektors sind die Koeffizienten seiner Linearkombination aus den Basisvektoren. Zuerst muss deshalb gesichert sein, dass $B$ wirklich eine Basis ist; dann löst man ein lineares Gleichungssystem.",
+                "Schritt 2: Basis nachweisen\nZwei Vektoren bilden genau dann eine Basis des $\\mathbb{R}^2$, wenn sie linear unabhängig sind, d.h. wenn die Determinante nicht verschwindet: $\\det\\begin{pmatrix} 1 & 3 \\\\ 2 & 5 \\end{pmatrix} = 1\\cdot 5 - 3\\cdot 2 = -1 \\neq 0$.",
+                "Schritt 3: Koordinatenansatz\nWir suchen $x,y$ mit $x\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} + y\\begin{pmatrix} 3 \\\\ 5 \\end{pmatrix} = \\begin{pmatrix} 5 \\\\ 9 \\end{pmatrix}$. Das ergibt $x + 3y = 5$ und $2x + 5y = 9$.",
+                "Schritt 4: Lösen\nAus der ersten Gleichung: $x = 5 - 3y$. Einsetzen: $2(5-3y) + 5y = 9 \\Rightarrow 10 - y = 9 \\Rightarrow y = 1$, also $x = 2$.",
+                "Schritt 5: Probe\n$2\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} + 1\\begin{pmatrix} 3 \\\\ 5 \\end{pmatrix} = \\begin{pmatrix} 5 \\\\ 9 \\end{pmatrix}$ ✓",
+                "Schritt 6: Ergebnis\n$[\\vec{v}]_B = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix}$. Die Koordinaten hängen von der gewählten Basis ab, der Vektor $\\vec{v}$ selbst nicht.",
+                "Schritt 7: Merke: Worauf es ankommt\nMach immer die Probe: Linearkombination ausrechnen und mit $\\vec{v}$ vergleichen. Beachte, dass die Koordinaten $(2,1)^T$ nicht der Vektor selbst sind, sondern nur seine Beschreibung bezüglich $B$."
             ]
         },
         {
             "id": 6,
+            "topic": "Vektorräume",
+            "title": "Basis und Dimension eines Unterraums",
+            "description": "Bestimmen Sie eine Basis und die Dimension des Unterraums $U = \\{(x,y,z) \\in \\mathbb{R}^3 \\mid x - 2y + z = 0\\}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEin durch eine Gleichung beschriebener Unterraum wird parametrisiert: Man wählt die freien Variablen als Parameter und drückt die übrigen durch sie aus. Die Vektoren vor den Parametern bilden ein Erzeugendensystem.",
+                "Schritt 2: Gleichung nach einer Variablen auflösen\nAus $x - 2y + z = 0$ folgt $x = 2y - z$. Die Variablen $y$ und $z$ sind frei wählbar.",
+                "Schritt 3: Allgemeinen Vektor in $U$ schreiben\n$\\begin{pmatrix} x \\\\ y \\\\ z \\end{pmatrix} = \\begin{pmatrix} 2y - z \\\\ y \\\\ z \\end{pmatrix} = y\\begin{pmatrix} 2 \\\\ 1 \\\\ 0 \\end{pmatrix} + z\\begin{pmatrix} -1 \\\\ 0 \\\\ 1 \\end{pmatrix}$.",
+                "Schritt 4: Erzeugendensystem\nDamit gilt $U = \\operatorname{span}\\left\\{ \\begin{pmatrix} 2 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} -1 \\\\ 0 \\\\ 1 \\end{pmatrix} \\right\\}$.",
+                "Schritt 5: Lineare Unabhängigkeit\nAus $y\\begin{pmatrix} 2 \\\\ 1 \\\\ 0 \\end{pmatrix} + z\\begin{pmatrix} -1 \\\\ 0 \\\\ 1 \\end{pmatrix} = \\vec{0}$ folgt in der zweiten und dritten Komponente $y = 0$ und $z = 0$. Die beiden Vektoren sind also linear unabhängig.",
+                "Schritt 6: Ergebnis\nEine Basis von $U$ ist $\\left\\{ \\begin{pmatrix} 2 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} -1 \\\\ 0 \\\\ 1 \\end{pmatrix} \\right\\}$, also $\\dim U = 2$. Das passt dazu, dass eine einzelne Gleichung im $\\mathbb{R}^3$ die Dimension um 1 reduziert: $3 - 1 = 2$.",
+                "Schritt 7: Merke: Worauf es ankommt\nFaustregel: Jede unabhängige lineare Gleichung senkt die Dimension um $1$. Eine Gleichung im $\\mathbb{R}^3$ gibt also eine Ebene (Dimension $2$), zwei unabhängige Gleichungen eine Gerade (Dimension $1$)."
+            ]
+        },
+        {
+            "id": 7,
             "topic": "Vektorräume",
             "title": "Lineare Unabhängigkeit in R³",
             "description": "Untersuchen Sie die lineare Unabhängigkeit der Vektoren $\\vec{v}_1 = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}, \\vec{v}_2 = \\begin{pmatrix} 4 \\\\ 5 \\\\ 6 \\end{pmatrix}, \\vec{v}_3 = \\begin{pmatrix} 7 \\\\ 8 \\\\ 9 \\end{pmatrix}$.",
@@ -82,20 +109,6 @@
                 "Schritt 2: Berechnung\n$\\det = 1 \\cdot (5 \\cdot 9 - 6 \\cdot 8) - 4 \\cdot (2 \\cdot 9 - 3 \\cdot 8) + 7 \\cdot (2 \\cdot 6 - 3 \\cdot 5) = 0$",
                 "Schritt 3: Interpretation\nDie Determinante ist 0, also sind die Vektoren linear abhängig",
                 "Schritt 4: Verifikation\n$\\vec{v}_3 = 2\\vec{v}_2 - \\vec{v}_1$"
-            ]
-        },
-        {
-            "id": 7,
-            "topic": "Vektorräume",
-            "title": "Erzeugendensystem",
-            "description": "Zeigen Sie, dass die Vektoren $\\vec{v}_1 = \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}, \\vec{v}_2 = \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}$ ein Erzeugendensystem von $\\mathbb{R}^2$ bilden.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Allgemeiner Vektor\nSei $\\vec{v} = \\begin{pmatrix} x \\\\ y \\end{pmatrix} \\in \\mathbb{R}^2$",
-                "Schritt 2: Linearkombination\n$\\vec{v} = x\\vec{v}_1 + y\\vec{v}_2$",
-                "Schritt 3: Verifikation\n$\\begin{pmatrix} x \\\\ y \\end{pmatrix} = x\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} + y\\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}$",
-                "Schritt 4: Schlussfolgerung\nDie Vektoren bilden ein Erzeugendensystem, da jeder Vektor in $\\mathbb{R}^2$ als Linearkombination dargestellt werden kann"
             ]
         },
         {
@@ -129,20 +142,6 @@
         {
             "id": 10,
             "topic": "Vektorräume",
-            "title": "Koordinatentransformation",
-            "description": "Gegeben seien die Basen $B_1 = \\{\\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 1 \\end{pmatrix}\\}$ und $B_2 = \\{\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}\\}$ von $\\mathbb{R}^2$. Bestimmen Sie die Transformationsmatrix von $B_1$ nach $B_2$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Schritt 1: Basiswechselmatrix\n$T = \\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$",
-                "Schritt 2: Invertierung\n$T^{-1} = \\frac{1}{2}\\begin{pmatrix} 1 & 1 \\\\ 1 & -1 \\end{pmatrix}$",
-                "Schritt 3: Verifikation\n$T \\cdot T^{-1} = I_2$",
-                "Schritt 4: Anwendung\n$[\\vec{v}]_{B_2} = T^{-1}[\\vec{v}]_{B_1}$"
-            ]
-        },
-        {
-            "id": 11,
-            "topic": "Vektorräume",
             "title": "Orthogonales Komplement",
             "description": "Bestimmen Sie das orthogonale Komplement von $U = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}\\}$ in $\\mathbb{R}^3$.",
             "difficulty": "easy",
@@ -155,21 +154,104 @@
             ]
         },
         {
+            "id": 11,
+            "topic": "Vektorräume",
+            "title": "Unterraum im Polynomraum",
+            "description": "Sei $P_2$ der Vektorraum der Polynome vom Grad $\\le 2$. Zeigen Sie, dass $U = \\{p \\in P_2 \\mid p(1) = 0\\}$ ein Unterraum ist, und bestimmen Sie eine Basis von $U$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nPolynome sind Vektoren: Man addiert sie und multipliziert sie mit Zahlen koeffizientenweise. Deshalb gelten Unterraumkriterium und Basisbegriff genauso wie im $\\mathbb{R}^n$. Wir prüfen die Kriterien und suchen dann eine Basis über die Koeffizienten.",
+                "Schritt 2: Nullvektor\nDas Nullpolynom erfüllt $0(1) = 0$, also liegt es in $U$.",
+                "Schritt 3: Abgeschlossenheit\nSeien $p,q \\in U$ und $\\lambda \\in \\mathbb{R}$. Dann ist $(p+q)(1) = p(1) + q(1) = 0 + 0 = 0$ und $(\\lambda p)(1) = \\lambda p(1) = 0$. Somit ist $U$ ein Unterraum von $P_2$.",
+                "Schritt 4: Allgemeines Element\nSei $p(x) = a + bx + cx^2$. Die Bedingung $p(1) = a + b + c = 0$ liefert $a = -b - c$. Also $p(x) = -b - c + bx + cx^2 = b(x - 1) + c(x^2 - 1)$.",
+                "Schritt 5: Basis\nDamit ist $U = \\operatorname{span}\\{x - 1,\\ x^2 - 1\\}$. Die beiden Polynome sind linear unabhängig, da sie verschiedene Grade haben (aus $b(x-1) + c(x^2-1) = 0$ folgt zuerst $c = 0$ und dann $b = 0$).",
+                "Schritt 6: Ergebnis\n$\\{x-1,\\ x^2-1\\}$ ist eine Basis von $U$, und $\\dim U = 2 = \\dim P_2 - 1$. Die eine Bedingung $p(1) = 0$ nimmt genau einen Freiheitsgrad weg.",
+                "Schritt 7: Merke: Worauf es ankommt\nBedingungen wie $p(1) = 0$ sind linear in den Koeffizienten und definieren daher einen Unterraum. Die Bedingung $p(1) = 1$ dagegen würde keinen Unterraum liefern, da das Nullpolynom sie verletzt."
+            ]
+        },
+        {
             "id": 12,
             "topic": "Vektorräume",
-            "title": "Summe von Unterräumen",
-            "description": "Seien $U_1 = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}\\}$ und $U_2 = \\text{span}\\{\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}\\}$ Unterräume von $\\mathbb{R}^3$. Bestimmen Sie $U_1 + U_2$.",
-            "difficulty": "easy",
-            "points": 5,
+            "title": "Lineare Unabhängigkeit mit Parameter",
+            "description": "Für welche $t \\in \\mathbb{R}$ sind die Vektoren $\\vec{v}_1 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}, \\vec{v}_2 = \\begin{pmatrix} 1 \\\\ 1 \\\\ t \\end{pmatrix}, \\vec{v}_3 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}$ linear abhängig?",
+            "difficulty": "medium",
+            "points": 8,
             "solutionSteps": [
-                "Schritt 1: Definition\n$U_1 + U_2 = \\{\\vec{u}_1 + \\vec{u}_2 \\mid \\vec{u}_1 \\in U_1, \\vec{u}_2 \\in U_2\\}$",
-                "Schritt 2: Basis\n$U_1 + U_2 = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}\\}$",
-                "Schritt 3: Dimension\n$\\dim(U_1 + U_2) = 2$",
-                "Schritt 4: Verifikation\nDie Summe ist ein Unterraum von $\\mathbb{R}^3$"
+                "Schritt 1: Überblick: Was ist gefragt?\nWir suchen die Parameterwerte, für die die drei Vektoren abhängig werden. Das passiert genau dort, wo die Determinante der Spaltenmatrix verschwindet. Die Determinante ist ein Polynom in $t$; seine Nullstellen sind die kritischen Werte.",
+                "Schritt 2: Idee\nDrei Vektoren im $\\mathbb{R}^3$ sind genau dann linear abhängig, wenn die Determinante der Matrix aus ihren Spalten gleich $0$ ist.",
+                "Schritt 3: Determinante berechnen\n$\\det\\begin{pmatrix} 1 & 1 & 0 \\\\ 0 & 1 & 1 \\\\ 1 & t & 1 \\end{pmatrix}$. Entwicklung nach der ersten Zeile: $1\\cdot(1\\cdot 1 - 1\\cdot t) - 1\\cdot(0\\cdot 1 - 1\\cdot 1) + 0 = (1 - t) + 1 = 2 - t$.",
+                "Schritt 4: Nullstelle\n$2 - t = 0 \\iff t = 2$.",
+                "Schritt 5: Probe für $t=2$\nFür $t = 2$ gilt $\\vec{v}_2 = \\vec{v}_1 + \\vec{v}_3$: $\\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix} + \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} 1 \\\\ 1 \\\\ 2 \\end{pmatrix}$ ✓",
+                "Schritt 6: Ergebnis\nDie Vektoren sind genau für $t = 2$ linear abhängig, für alle anderen $t \\in \\mathbb{R}$ linear unabhängig.",
+                "Schritt 7: Merke: Worauf es ankommt\nBei Aufgaben mit Parameter immer die kritischen Werte durch eine Probe bestätigen (hier die explizite Abhängigkeit) und klar sagen, was für alle übrigen Werte gilt."
             ]
         },
         {
             "id": 13,
+            "topic": "Vektorräume",
+            "title": "Basisergänzung",
+            "description": "Ergänzen Sie die linear unabhängigen Vektoren $\\vec{u}_1 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$ und $\\vec{u}_2 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}$ zu einer Basis des $\\mathbb{R}^3$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nEine Basis des $\\mathbb{R}^3$ braucht drei linear unabhängige Vektoren. Wir haben zwei, also fehlt genau einer, und zwar einer, der nicht in der Ebene $\\operatorname{span}\\{\\vec{u}_1,\\vec{u}_2\\}$ liegt.",
+                "Schritt 2: Vorüberlegung\nEine Basis des $\\mathbb{R}^3$ besteht aus $3$ Vektoren. Wir brauchen also genau einen weiteren Vektor $\\vec{u}_3$, der nicht in $\\operatorname{span}\\{\\vec{u}_1,\\vec{u}_2\\}$ liegt.",
+                "Schritt 3: Kandidaten wählen\nEin Standardbasisvektor ist oft ein guter Kandidat. Wir testen $\\vec{u}_3 = \\vec{e}_3 = \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$.",
+                "Schritt 4: Test mit der Determinante\n$\\det\\begin{pmatrix} 1 & 0 & 0 \\\\ 1 & 1 & 0 \\\\ 0 & 1 & 1 \\end{pmatrix} = 1\\cdot(1\\cdot 1 - 0\\cdot 1) = 1 \\neq 0$ (untere Dreiecksmatrix, Produkt der Diagonalelemente).",
+                "Schritt 5: Begründung\nDie Determinante ist ungleich $0$, also sind $\\vec{u}_1,\\vec{u}_2,\\vec{u}_3$ linear unabhängig. Drei linear unabhängige Vektoren im $\\mathbb{R}^3$ bilden eine Basis.",
+                "Schritt 6: Warnung\nNicht jeder Kandidat funktioniert: $\\begin{pmatrix} 1 \\\\ 0 \\\\ -1 \\end{pmatrix}$ ist gleich $\\vec{u}_1 - \\vec{u}_2$, liegt also in $\\operatorname{span}\\{\\vec{u}_1,\\vec{u}_2\\}$ und wäre ungeeignet. Deshalb muss man immer nachprüfen.",
+                "Schritt 7: Merke: Worauf es ankommt\nDer Basisergänzungssatz garantiert, dass sich jede linear unabhängige Menge zu einer Basis ergänzen lässt. Welcher Vektor passt, muss man aber immer nachprüfen, am besten mit der Determinante."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Vektorräume",
+            "title": "Dimensionsformel für Unterräume",
+            "description": "Seien $U_1 = \\operatorname{span}\\left\\{ \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\\\ 1 \\end{pmatrix} \\right\\}$ und $U_2 = \\operatorname{span}\\left\\{ \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 1 \\end{pmatrix} \\right\\}$ Unterräume des $\\mathbb{R}^4$. Bestimmen Sie $U_1 \\cap U_2$, $\\dim(U_1 \\cap U_2)$ und $\\dim(U_1 + U_2)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Schritt 1: Überblick: Was ist gefragt?\nWir bestimmen zuerst den Schnitt $U_1 \\cap U_2$ (durch Gleichsetzen allgemeiner Elemente) und erhalten dann $\\dim(U_1+U_2)$ aus der Dimensionsformel $\\dim(U_1+U_2) = \\dim U_1 + \\dim U_2 - \\dim(U_1\\cap U_2)$.",
+                "Schritt 2: Allgemeine Elemente\n$U_1$: $a\\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix} + b\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\\\ 1 \\end{pmatrix} = (a,\\ b,\\ a,\\ b)^T$. $U_2$: $c\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix} + d\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 1 \\end{pmatrix} = (c,\\ c,\\ c+d,\\ c+d)^T$.",
+                "Schritt 3: Schnitt bestimmen\nGleichsetzen: $a = c$, $b = c$, $a = c + d$, $b = c + d$. Aus $a = c$ und $a = c + d$ folgt $d = 0$. Dann ist $a = b = c$.",
+                "Schritt 4: Schnittraum\nDie Elemente des Schnitts sind $(c,c,c,c)^T$, also $U_1 \\cap U_2 = \\operatorname{span}\\left\\{ \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\\\ 1 \\end{pmatrix} \\right\\}$ und $\\dim(U_1 \\cap U_2) = 1$.",
+                "Schritt 5: Dimensionen der Einzelräume\nJeweils zwei linear unabhängige Erzeuger, also $\\dim U_1 = \\dim U_2 = 2$.",
+                "Schritt 6: Dimensionsformel\n$\\dim(U_1 + U_2) = \\dim U_1 + \\dim U_2 - \\dim(U_1 \\cap U_2) = 2 + 2 - 1 = 3$.",
+                "Schritt 7: Ergebnis\n$U_1 \\cap U_2 = \\operatorname{span}\\{(1,1,1,1)^T\\}$, $\\dim(U_1\\cap U_2) = 1$, $\\dim(U_1+U_2) = 3$. Insbesondere ist die Summe nicht direkt, da der Schnitt nicht trivial ist.",
+                "Schritt 8: Merke: Worauf es ankommt\nDas Gleichsetzen allgemeiner Elemente ist die Standardmethode für den Schnitt von Erzeugnissen. Die Dimensionsformel erspart es, die Summe explizit zu bestimmen; sie entspricht dem Prinzip „Doppeltgezähltes abziehen“."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Vektorräume",
+            "title": "Unterräume und lineare Unabhängigkeit",
+            "description": "Untersuchen Sie, ob die Vektoren $\\vec{v}_1 = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}, \\vec{v}_2 = \\begin{pmatrix} 2 \\\\ 4 \\\\ 6 \\end{pmatrix}, \\vec{v}_3 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}$ linear unabhängig sind und bestimmen Sie die Dimension des von ihnen aufgespannten Unterraums.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Lineare Unabhängigkeit\nWir untersuchen die Gleichung $\\lambda_1\\vec{v}_1 + \\lambda_2\\vec{v}_2 + \\lambda_3\\vec{v}_3 = \\vec{0}$",
+                "Schritt 2: Gleichungssystem\n$\\begin{pmatrix} 1 & 2 & 1 \\\\ 2 & 4 & 1 \\\\ 3 & 6 & 1 \\end{pmatrix} \\begin{pmatrix} \\lambda_1 \\\\ \\lambda_2 \\\\ \\lambda_3 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\end{pmatrix}$",
+                "Schritt 3: Gauß-Elimination\n$\\vec{v}_2 = 2\\vec{v}_1$, also sind die Vektoren linear abhängig",
+                "Schritt 4: Dimension\n$\\dim(\\text{span}\\{\\vec{v}_1, \\vec{v}_2, \\vec{v}_3\\}) = 2$, da $\\vec{v}_1$ und $\\vec{v}_3$ linear unabhängig sind"
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Vektorräume",
+            "title": "Konvexe Mengen",
+            "description": "Zeigen Sie, dass die Menge $K = \\{(x,y) \\in \\mathbb{R}^2 \\mid x^2 + y^2 \\leq 1\\}$ konvex ist und bestimmen Sie ihre Extremalpunkte.",
+            "difficulty": "medium",
+            "points": 12,
+            "solutionSteps": [
+                "Schritt 1: Konvexität\nSeien $\\vec{p}, \\vec{q} \\in K$ und $\\lambda \\in [0,1]$\n$\\|\\lambda\\vec{p} + (1-\\lambda)\\vec{q}\\| \\leq \\lambda\\|\\vec{p}\\| + (1-\\lambda)\\|\\vec{q}\\| \\leq 1$",
+                "Schritt 2: Extremalpunkte\nDie Extremalpunkte sind die Punkte auf dem Rand $\\{(x,y) \\mid x^2 + y^2 = 1\\}$",
+                "Schritt 3: Begründung\nJeder Punkt im Inneren kann als Konvexkombination zweier anderer Punkte dargestellt werden",
+                "Schritt 4: Parametrisierung\n$\\{(\\cos(\\phi), \\sin(\\phi)) \\mid \\phi \\in [0,2\\pi]\\}$"
+            ]
+        },
+        {
+            "id": 17,
             "topic": "Vektorräume",
             "title": "Durchschnitt von Unterräumen",
             "description": "Seien $U_1 = \\{(x,y,z) \\in \\mathbb{R}^3 \\mid x + y = 0\\}$ und $U_2 = \\{(x,y,z) \\in \\mathbb{R}^3 \\mid y + z = 0\\}$. Bestimmen Sie $U_1 \\cap U_2$.",
@@ -183,7 +265,7 @@
             ]
         },
         {
-            "id": 14,
+            "id": 18,
             "topic": "Vektorräume",
             "title": "Direkte Summe",
             "description": "Zeigen Sie, dass $\\mathbb{R}^3 = U_1 \\oplus U_2$ mit $U_1 = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}\\}$ und $U_2 = \\text{span}\\{\\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}\\}$.",
@@ -197,7 +279,7 @@
             ]
         },
         {
-            "id": 15,
+            "id": 19,
             "topic": "Vektorräume",
             "title": "Orthogonale Projektion",
             "description": "Bestimmen Sie die orthogonale Projektion des Vektors $\\vec{v} = \\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix}$ auf den Unterraum $U = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}\\}$.",
@@ -211,7 +293,7 @@
             ]
         },
         {
-            "id": 16,
+            "id": 20,
             "topic": "Vektorräume",
             "title": "Gram-Schmidt-Verfahren",
             "description": "Wenden Sie das Gram-Schmidt-Verfahren auf die Vektoren $\\vec{v}_1 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\vec{v}_2 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}, \\vec{v}_3 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}$ an.",
@@ -225,200 +307,177 @@
             ]
         },
         {
-            "id": 17,
-            "topic": "Vektorräume",
-            "title": "QR-Zerlegung",
-            "description": "Bestimmen Sie die QR-Zerlegung der Matrix $A = \\begin{pmatrix} 1 & 1 & 0 \\\\ 1 & 0 & 1 \\\\ 0 & 1 & 1 \\end{pmatrix}$.",
-            "difficulty": "medium",
-            "points": 8,
-            "solutionSteps": [
-                "Schritt 1: Gram-Schmidt\n$Q = \\begin{pmatrix} \\frac{1}{\\sqrt{2}} & \\frac{1}{\\sqrt{6}} & -\\frac{1}{\\sqrt{3}} \\\\ \\frac{1}{\\sqrt{2}} & -\\frac{1}{\\sqrt{6}} & \\frac{1}{\\sqrt{3}} \\\\ 0 & \\frac{2}{\\sqrt{6}} & \\frac{1}{\\sqrt{3}} \\end{pmatrix}$",
-                "Schritt 2: R berechnen\n$R = Q^T A = \\begin{pmatrix} \\sqrt{2} & \\frac{1}{\\sqrt{2}} & \\frac{1}{\\sqrt{2}} \\\\ 0 & \\frac{\\sqrt{6}}{2} & \\frac{\\sqrt{6}}{2} \\\\ 0 & 0 & \\sqrt{3} \\end{pmatrix}$",
-                "Schritt 3: Verifikation\n$A = QR$",
-                "Schritt 4: Eigenschaften\n$Q$ ist orthogonal, $R$ ist obere Dreiecksmatrix"
-            ]
-        },
-        {
-            "id": 18,
+            "id": 21,
             "topic": "Vektorräume",
             "title": "Dualbasis",
             "description": "Bestimmen Sie die Dualbasis zur Basis $B = \\{\\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}, \\begin{pmatrix} 1 \\\\ -1 \\end{pmatrix}\\}$ von $\\mathbb{R}^2$.",
             "difficulty": "medium",
             "points": 8,
             "solutionSteps": [
-                "Schritt 1: Standardbasis\n$B^* = \\{\\varphi_1, \\varphi_2\\}$",
+                "Schritt 1: Dualbasis ansetzen\n$B^* = \\{\\varphi_1, \\varphi_2\\}$",
                 "Schritt 2: Definition\n$\\varphi_i(\\vec{b}_j) = \\delta_{ij}$",
                 "Schritt 3: Berechnung\n$\\varphi_1 = \\frac{1}{2}(1,1), \\varphi_2 = \\frac{1}{2}(1,-1)$",
                 "Schritt 4: Verifikation\n$\\varphi_i(\\vec{b}_j) = \\delta_{ij}$"
             ]
         },
         {
-            "id": 19,
-            "topic": "Vektorräume",
-            "title": "Tensorprodukt",
-            "description": "Berechnen Sie das Tensorprodukt $\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} \\otimes \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Definition\n$\\vec{v} \\otimes \\vec{w} = \\begin{pmatrix} v_1\\vec{w} \\\\ v_2\\vec{w} \\end{pmatrix}$",
-                "Schritt 2: Berechnung\n$\\begin{pmatrix} 1 \\\\ 2 \\end{pmatrix} \\otimes \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix} = \\begin{pmatrix} 1 \\cdot 3 \\\\ 1 \\cdot 4 \\\\ 2 \\cdot 3 \\\\ 2 \\cdot 4 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 4 \\\\ 6 \\\\ 8 \\end{pmatrix}$",
-                "Schritt 3: Dimension\n$\\dim(\\vec{v} \\otimes \\vec{w}) = \\dim(\\vec{v}) \\cdot \\dim(\\vec{w}) = 2 \\cdot 2 = 4$",
-                "Schritt 4: Verifikation\nDas Ergebnis ist ein Vektor im $\\mathbb{R}^4$"
-            ]
-        },
-        {
-            "id": 20,
-            "topic": "Vektorräume",
-            "title": "Äußeres Produkt",
-            "description": "Berechnen Sie das äußere Produkt $\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix} \\wedge \\begin{pmatrix} 4 \\\\ 5 \\\\ 6 \\end{pmatrix}$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Definition\n$\\vec{v} \\wedge \\vec{w} = \\vec{v} \\otimes \\vec{w} - \\vec{w} \\otimes \\vec{v}$",
-                "Schritt 2: Berechnung\n$\\begin{pmatrix} 1 \\\\ 2 \\\\ 3 \\end{pmatrix} \\wedge \\begin{pmatrix} 4 \\\\ 5 \\\\ 6 \\end{pmatrix} = \\begin{pmatrix} -3 \\\\ 6 \\\\ -3 \\end{pmatrix}$",
-                "Schritt 3: Eigenschaften\n$\\vec{v} \\wedge \\vec{w} = -\\vec{w} \\wedge \\vec{v}$",
-                "Schritt 4: Verifikation\nDas Ergebnis ist ein Vektor im $\\mathbb{R}^3$"
-            ]
-        },
-        {
-            "id": 21,
-            "topic": "Vektorräume",
-            "title": "Tensorprodukt von Abbildungen",
-            "description": "Seien $f: \\mathbb{R}^2 \\to \\mathbb{R}^2$ und $g: \\mathbb{R}^2 \\to \\mathbb{R}^2$ lineare Abbildungen mit den Matrizen $A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}$ und $B = \\begin{pmatrix} 5 & 6 \\\\ 7 & 8 \\end{pmatrix}$. Bestimmen Sie die Matrix von $f \\otimes g$.",
-            "difficulty": "hard",
-            "points": 12,
-            "solutionSteps": [
-                "Schritt 1: Definition\n$(f \\otimes g)(\\vec{v} \\otimes \\vec{w}) = f(\\vec{v}) \\otimes g(\\vec{w})$",
-                "Schritt 2: Matrix\n$A \\otimes B = \\begin{pmatrix} 5A & 6A \\\\ 7A & 8A \\end{pmatrix}$",
-                "Schritt 3: Berechnung\n$A \\otimes B = \\begin{pmatrix} 5 & 10 & 6 & 12 \\\\ 15 & 20 & 18 & 24 \\\\ 7 & 14 & 8 & 16 \\\\ 21 & 28 & 24 & 32 \\end{pmatrix}$",
-                "Schritt 4: Verifikation\n$\\dim(A \\otimes B) = \\dim(A) \\cdot \\dim(B) = 4 \\cdot 4 = 16$"
-            ]
-        },
-        {
             "id": 22,
             "topic": "Vektorräume",
-            "title": "Äußere Algebra",
-            "description": "Berechnen Sie $\\bigwedge^2 \\mathbb{R}^3$ und bestimmen Sie eine Basis.",
+            "title": "n+1 Vektoren im ℝⁿ sind abhängig",
+            "description": "Zeigen Sie: Je $n+1$ Vektoren im $\\mathbb{R}^n$ sind linear abhängig. Geben Sie für $(1,2),(3,4),(5,6) \\in \\mathbb{R}^2$ eine Abhängigkeitsrelation an.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Schritt 1: Dimension\n$\\dim(\\bigwedge^2 \\mathbb{R}^3) = \\binom{3}{2} = 3$",
-                "Schritt 2: Basis\n$\\{\\vec{e}_1 \\wedge \\vec{e}_2, \\vec{e}_1 \\wedge \\vec{e}_3, \\vec{e}_2 \\wedge \\vec{e}_3\\}$",
-                "Schritt 3: Berechnung\n$\\vec{e}_1 \\wedge \\vec{e}_2 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix} \\wedge \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$",
-                "Schritt 4: Verifikation\nDie Vektoren sind linear unabhängig"
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Gleichung $c_1\\vec v_1 + \\dots + c_{n+1}\\vec v_{n+1} = \\vec0$ ist ein homogenes lineares Gleichungssystem mit $n$ Gleichungen und $n+1$ Unbekannten $c_i$. Ein solches System hat stets nichttriviale Lösungen.",
+                "Schritt 2: Allgemeines Argument\nDer Rang der Koeffizientenmatrix ist höchstens $n$ (Zeilenzahl), die Zahl der Unbekannten ist $n+1$. Es gibt also mindestens $n + 1 - n = 1$ freie Variable, d.h. eine nichttriviale Lösung. $\\blacksquare$",
+                "Schritt 3: Beispiel: Gleichungssystem\n$c_1(1,2) + c_2(3,4) + c_3(5,6) = (0,0)$: $c_1 + 3c_2 + 5c_3 = 0$ und $2c_1 + 4c_2 + 6c_3 = 0$.",
+                "Schritt 4: Lösen\nZweite minus $2\\times$ erste: $-2c_2 - 4c_3 = 0 \\Rightarrow c_2 = -2c_3$. Dann $c_1 = -3c_2 - 5c_3 = 6c_3 - 5c_3 = c_3$. Mit $c_3 = 1$: $(c_1,c_2,c_3) = (1,-2,1)$.",
+                "Schritt 5: Probe\n$(1,2) - 2(3,4) + (5,6) = (1 - 6 + 5,\\ 2 - 8 + 6) = (0,0)$ ✓. Also $(3,4)$ ist der Mittelwert von $(1,2)$ und $(5,6)$.",
+                "Schritt 6: Merke: Worauf es ankommt\nFolgerung: Eine Basis des $\\mathbb{R}^n$ hat genau $n$ Elemente; mehr Vektoren sind abhängig, weniger erzeugen nicht den ganzen Raum. Das ist die Grundlage des Dimensionsbegriffs."
             ]
         },
         {
             "id": 23,
             "topic": "Vektorräume",
-            "title": "Tensorprodukt von Vektorräumen",
-            "description": "Seien $V = \\mathbb{R}^2$ und $W = \\mathbb{R}^3$. Bestimmen Sie eine Basis von $V \\otimes W$.",
+            "title": "Komplement: ℝ³ = U ⊕ W",
+            "description": "Sei $U = \\{(x,y,z) \\mid x + y + z = 0\\}$ und $W = \\operatorname{span}\\{(1,1,1)\\}$. Zeigen Sie $\\mathbb{R}^3 = U \\oplus W$ und zerlegen Sie $\\vec v = (1,2,3)$.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Schritt 1: Dimension\n$\\dim(V \\otimes W) = \\dim(V) \\cdot \\dim(W) = 2 \\cdot 3 = 6$",
-                "Schritt 2: Basis\n$\\{\\vec{e}_1 \\otimes \\vec{f}_1, \\vec{e}_1 \\otimes \\vec{f}_2, \\vec{e}_1 \\otimes \\vec{f}_3, \\vec{e}_2 \\otimes \\vec{f}_1, \\vec{e}_2 \\otimes \\vec{f}_2, \\vec{e}_2 \\otimes \\vec{f}_3\\}$",
-                "Schritt 3: Berechnung\n$\\vec{e}_1 \\otimes \\vec{f}_1 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\end{pmatrix}$",
-                "Schritt 4: Verifikation\nDie Vektoren sind linear unabhängig"
+                "Schritt 1: Überblick: Was ist gefragt?\nDirekte Summe: $\\mathbb{R}^3 = U + W$ und $U \\cap W = \\{\\vec0\\}$ (äquivalent: jeder Vektor lässt sich eindeutig zerlegen). Zusätzlich lässt sich die Dimension prüfen: $\\dim U + \\dim W = 2 + 1 = 3$.",
+                "Schritt 2: Trivialer Schnitt\nEin Element von $W$ ist $s(1,1,1)$. Liegt es in $U$, so $3s = 0$, also $s = 0$. Also $U \\cap W = \\{\\vec0\\}$.",
+                "Schritt 3: Zerlegung eines beliebigen Vektors\nFür $\\vec v = (a,b,c)$ setze $s = \\frac{a+b+c}{3}$ und $\\vec u = \\vec v - s(1,1,1)$. Dann $\\vec u \\in U$, denn die Koordinatensumme von $\\vec u$ ist $(a+b+c) - 3s = 0$. Also $\\vec v = \\vec u + s(1,1,1)$ mit $\\vec u \\in U$.",
+                "Schritt 4: Beispiel $\\vec v = (1,2,3)$\n$s = \\frac63 = 2$, $\\vec u = (1,2,3) - (2,2,2) = (-1,0,1)$. Probe: $-1 + 0 + 1 = 0$, also $\\vec u \\in U$, und $\\vec u + 2(1,1,1) = (1,2,3)$ ✓.",
+                "Schritt 5: Merke: Worauf es ankommt\n$s$ ist der Mittelwert der Koordinaten; die Zerlegung ist eindeutig (direkte Summe). Hier ist sogar $W = U^\\perp$, die Zerlegung also die Orthogonalprojektion auf $U$. Ein Komplement ist nicht eindeutig: auch $\\operatorname{span}\\{(1,0,0)\\}$ ist ein Komplement zu $U$."
             ]
         },
         {
             "id": 24,
             "topic": "Vektorräume",
-            "title": "Äußere Potenz",
-            "description": "Berechnen Sie $\\bigwedge^3 \\mathbb{R}^4$ und bestimmen Sie eine Basis.",
+            "title": "Lineare Unabhängigkeit von Funktionen",
+            "description": "Zeigen Sie, dass in $C(\\mathbb{R})$ (stetige Funktionen) die Funktionen (a) $1, x, x^2$ und (b) $\\sin x, \\cos x$ linear unabhängig sind.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Schritt 1: Dimension\n$\\dim(\\bigwedge^3 \\mathbb{R}^4) = \\binom{4}{3} = 4$",
-                "Schritt 2: Basis\n$\\{\\vec{e}_1 \\wedge \\vec{e}_2 \\wedge \\vec{e}_3, \\vec{e}_1 \\wedge \\vec{e}_2 \\wedge \\vec{e}_4, \\vec{e}_1 \\wedge \\vec{e}_3 \\wedge \\vec{e}_4, \\vec{e}_2 \\wedge \\vec{e}_3 \\wedge \\vec{e}_4\\}$",
-                "Schritt 3: Berechnung\n$\\vec{e}_1 \\wedge \\vec{e}_2 \\wedge \\vec{e}_3 = \\begin{pmatrix} 0 \\\\ 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$",
-                "Schritt 4: Verifikation\nDie Vektoren sind linear unabhängig"
+                "Schritt 1: Überblick: Was ist gefragt?\nFunktionen sind linear unabhängig, wenn aus $c_1f_1 + \\dots + c_nf_n = 0$ (als Funktion, also für **alle** $x$) folgt $c_1 = \\dots = c_n = 0$. Da die Gleichung für alle $x$ gilt, dürfen wir spezielle $x$-Werte einsetzen.",
+                "Schritt 2: (a) $1, x, x^2$\nAus $a + bx + cx^2 = 0$ für alle $x$: $x = 0$ gibt $a = 0$; $x = 1$ gibt $b + c = 0$; $x = -1$ gibt $-b + c = 0$. Addition: $c = 0$, dann $b = 0$.",
+                "Schritt 3: (b) $\\sin x, \\cos x$\nAus $a\\sin x + b\\cos x = 0$ für alle $x$: $x = 0$ gibt $b = 0$; $x = \\frac\\pi2$ gibt $a = 0$.",
+                "Schritt 4: Gegenbeispiel: abhängige Funktionen\n$1, \\cos2x, \\cos^2x$ sind linear abhängig: $\\cos2x = 2\\cos^2x - 1$, also $2\\cos^2x - \\cos2x - 1\\cdot1 = 0$ (nichttriviale Relation).",
+                "Schritt 5: Merke: Worauf es ankommt\nIn $C(\\mathbb{R})$ ist die Dimension unendlich: $1, x, x^2, x^3, \\dots$ sind linear unabhängig. Ein allgemeines Kriterium liefert die Wronski-Determinante. Auch hier gilt: Zum Nachweis der Unabhängigkeit reichen endlich viele passende $x$-Werte."
             ]
         },
         {
             "id": 25,
             "topic": "Vektorräume",
-            "title": "Tensorprodukt von Dualräumen",
-            "description": "Seien $V = \\mathbb{R}^2$ und $W = \\mathbb{R}^2$. Bestimmen Sie eine Basis von $V^* \\otimes W^*$.",
+            "title": "Lösungsraum eines homogenen Systems",
+            "description": "Bestimmen Sie eine Basis und die Dimension des Lösungsraums von $x_1 + x_2 + x_3 + x_4 = 0$, $x_1 - x_2 + x_3 - x_4 = 0$.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Schritt 1: Dimension\n$\\dim(V^* \\otimes W^*) = \\dim(V^*) \\cdot \\dim(W^*) = 2 \\cdot 2 = 4$",
-                "Schritt 2: Basis\n$\\{\\varphi_1 \\otimes \\psi_1, \\varphi_1 \\otimes \\psi_2, \\varphi_2 \\otimes \\psi_1, \\varphi_2 \\otimes \\psi_2\\}$",
-                "Schritt 3: Berechnung\n$\\varphi_1 \\otimes \\psi_1 = \\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}$",
-                "Schritt 4: Verifikation\nDie Abbildungen sind linear unabhängig"
+                "Schritt 1: Überblick: Was ist gefragt?\nDie Lösungsmenge eines homogenen Systems $A\\vec x = \\vec0$ ist ein Unterraum (der Kern von $A$). Nach der Dimensionsformel gilt $\\dim\\ker A = n - \\operatorname{rang}A$. Wir lösen das System und lesen eine Basis ab.",
+                "Schritt 2: Eliminieren\nAddition: $2x_1 + 2x_3 = 0 \\Rightarrow x_3 = -x_1$. Subtraktion: $2x_2 + 2x_4 = 0 \\Rightarrow x_4 = -x_2$.",
+                "Schritt 3: Allgemeine Lösung\nFrei: $x_1 = a$, $x_2 = b$. Lösung: $(a,\\ b,\\ -a,\\ -b) = a(1,0,-1,0) + b(0,1,0,-1)$.",
+                "Schritt 4: Basis und Dimension\n$\\{(1,0,-1,0),\\ (0,1,0,-1)\\}$ ist linear unabhängig (Einträge $1$ in verschiedenen Positionen) und erzeugend. $\\dim = 2$.",
+                "Schritt 5: Probe mit der Dimensionsformel\nDie Koeffizientenmatrix hat Rang $2$ (die beiden Zeilen sind nicht proportional). $\\dim\\ker = 4 - 2 = 2$ ✓. Einsetzen: $(1,0,-1,0)$: $1 + 0 - 1 + 0 = 0$ ✓ und $1 - 0 - 1 - 0 = 0$ ✓.",
+                "Schritt 6: Merke: Worauf es ankommt\nZahl der freien Variablen $=$ Dimension des Lösungsraums. Jede unabhängige Gleichung senkt die Dimension um $1$. Die Lösungen sind genau die Vektoren, die zu beiden Zeilen von $A$ orthogonal sind."
             ]
         },
         {
             "id": 26,
             "topic": "Vektorräume",
-            "title": "Äußere Potenz von Dualräumen",
-            "description": "Berechnen Sie $\\bigwedge^2 (\\mathbb{R}^3)^*$ und bestimmen Sie eine Basis.",
+            "title": "Spurfreie Matrizen: Basis und Dimension",
+            "description": "Zeigen Sie, dass $W = \\{A \\in \\mathbb{R}^{2\\times 2} \\mid \\operatorname{tr}(A) = 0\\}$ ein Unterraum von $\\mathbb{R}^{2\\times 2}$ ist, und bestimmen Sie eine Basis sowie $\\dim W$.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Schritt 1: Dimension\n$\\dim(\\bigwedge^2 (\\mathbb{R}^3)^*) = \\binom{3}{2} = 3$",
-                "Schritt 2: Basis\n$\\{\\varphi_1 \\wedge \\varphi_2, \\varphi_1 \\wedge \\varphi_3, \\varphi_2 \\wedge \\varphi_3\\}$",
-                "Schritt 3: Berechnung\n$\\varphi_1 \\wedge \\varphi_2 = \\begin{pmatrix} 0 & 1 & 0 \\\\ -1 & 0 & 0 \\\\ 0 & 0 & 0 \\end{pmatrix}$",
-                "Schritt 4: Verifikation\nDie Abbildungen sind linear unabhängig"
+                "Schritt 1: Überblick: Was ist gefragt?\nMatrizen bilden selbst einen Vektorraum (hier $\\mathbb{R}^{2\\times2}$ mit $\\dim = 4$). Die Bedingung $\\operatorname{tr}(A) = 0$ ist linear, also erwarten wir einen Unterraum der Dimension $4 - 1 = 3$. Das prüfen wir und geben eine Basis an.",
+                "Schritt 2: Unterraum nachweisen\n$\\operatorname{tr}(0) = 0$, also $0 \\in W$. Für $A,B \\in W$ und $\\lambda \\in \\mathbb{R}$ gilt $\\operatorname{tr}(A+B) = \\operatorname{tr}(A)+\\operatorname{tr}(B) = 0$ und $\\operatorname{tr}(\\lambda A) = \\lambda\\operatorname{tr}(A) = 0$. Also ist $W$ ein Unterraum.",
+                "Schritt 3: Allgemeine Matrix in $W$\n$A = \\begin{pmatrix} a & b \\\\ c & d \\end{pmatrix}$ mit $a + d = 0$, also $d = -a$: $A = \\begin{pmatrix} a & b \\\\ c & -a \\end{pmatrix}$.",
+                "Schritt 4: Zerlegung\n$A = a\\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix} + b\\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix} + c\\begin{pmatrix} 0 & 0 \\\\ 1 & 0 \\end{pmatrix}$. Setze $H = \\begin{pmatrix} 1 & 0 \\\\ 0 & -1 \\end{pmatrix}$, $E = \\begin{pmatrix} 0 & 1 \\\\ 0 & 0 \\end{pmatrix}$, $F = \\begin{pmatrix} 0 & 0 \\\\ 1 & 0 \\end{pmatrix}$.",
+                "Schritt 5: Lineare Unabhängigkeit\nAus $aH + bE + cF = \\begin{pmatrix} 0 & 0 \\\\ 0 & 0 \\end{pmatrix}$ folgt durch Vergleich der Einträge $a = 0$ (Eintrag $(1,1)$), $b = 0$ (Eintrag $(1,2)$) und $c = 0$ (Eintrag $(2,1)$).",
+                "Schritt 6: Ergebnis\n$\\{H, E, F\\}$ ist eine Basis von $W$ und $\\dim W = 3$. Das passt zu $\\dim \\mathbb{R}^{2\\times 2} = 4$ und der einen Bedingung $\\operatorname{tr}(A) = 0$: $4 - 1 = 3$.",
+                "Schritt 7: Merke: Worauf es ankommt\nEine Basis findet man, indem man die allgemeine Matrix des Unterraums als Linearkombination fester Matrizen schreibt und die Unabhängigkeit durch Koeffizientenvergleich zeigt. Die Dimension lässt sich vorher mit der Faustregel abschätzen."
             ]
         },
         {
             "id": 27,
             "topic": "Vektorräume",
-            "title": "Tensorprodukt von Quotientenräumen",
-            "description": "Seien $V = \\mathbb{R}^3/U_1$ und $W = \\mathbb{R}^3/U_2$ mit $U_1 = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}\\}$ und $U_2 = \\text{span}\\{\\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}\\}$. Bestimmen Sie eine Basis von $V \\otimes W$.",
+            "title": "Beweis: Lineare Unabhängigkeit von Summenvektoren",
+            "description": "Seien $\\vec{u},\\vec{v},\\vec{w}$ linear unabhängige Vektoren eines reellen Vektorraums $V$. Beweisen Sie, dass dann auch $\\vec{u}+\\vec{v},\\ \\vec{v}+\\vec{w},\\ \\vec{u}+\\vec{w}$ linear unabhängig sind.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Schritt 1: Dimension\n$\\dim(V) = 2, \\dim(W) = 2$\n$\\dim(V \\otimes W) = 2 \\cdot 2 = 4$",
-                "Schritt 2: Basis\n$\\{\\vec{v}_1 \\otimes \\vec{w}_1, \\vec{v}_1 \\otimes \\vec{w}_2, \\vec{v}_2 \\otimes \\vec{w}_1, \\vec{v}_2 \\otimes \\vec{w}_2\\}$",
-                "Schritt 3: Berechnung\n$\\vec{v}_1 = \\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\end{pmatrix} + U_1$\n$\\vec{w}_1 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix} + U_2$",
-                "Schritt 4: Verifikation\nDie Vektoren sind linear unabhängig"
+                "Schritt 1: Überblick: Was ist gefragt?\nBei Beweisen zur linearen Unabhängigkeit startet man mit einer Linearkombination, die den Nullvektor ergibt, und zeigt, dass alle Koeffizienten $0$ sein müssen. Der Trick: Die Voraussetzung (Unabhängigkeit von $\\vec{u},\\vec{v},\\vec{w}$) wird auf die umsortierte Gleichung angewendet.",
+                "Schritt 2: Beweisidee\nWir nehmen eine Linearkombination der neuen Vektoren, die $\\vec{0}$ ergibt, und zeigen, dass alle Koeffizienten $0$ sein müssen.",
+                "Schritt 3: Ansatz\nSeien $\\alpha,\\beta,\\gamma \\in \\mathbb{R}$ mit $\\alpha(\\vec{u}+\\vec{v}) + \\beta(\\vec{v}+\\vec{w}) + \\gamma(\\vec{u}+\\vec{w}) = \\vec{0}$.",
+                "Schritt 4: Nach den Ausgangsvektoren sortieren\n$(\\alpha + \\gamma)\\vec{u} + (\\alpha + \\beta)\\vec{v} + (\\beta + \\gamma)\\vec{w} = \\vec{0}$.",
+                "Schritt 5: Unabhängigkeit von $\u000bec{u},\u000bec{v},\u000bec{w}$ nutzen\nDa $\\vec{u},\\vec{v},\\vec{w}$ linear unabhängig sind, müssen alle Koeffizienten verschwinden: $\\alpha + \\gamma = 0$, $\\alpha + \\beta = 0$, $\\beta + \\gamma = 0$.",
+                "Schritt 6: Gleichungssystem lösen\nAddition aller drei Gleichungen: $2(\\alpha+\\beta+\\gamma) = 0$, also $\\alpha+\\beta+\\gamma = 0$. Subtraktion der Gleichung $\\beta+\\gamma = 0$ liefert $\\alpha = 0$; entsprechend ergibt sich $\\gamma = 0$ (aus $\\alpha+\\beta=0$) und $\\beta = 0$ (aus $\\alpha+\\gamma=0$).",
+                "Schritt 7: Schluss\nNur die triviale Linearkombination ergibt $\\vec{0}$, also sind $\\vec{u}+\\vec{v},\\ \\vec{v}+\\vec{w},\\ \\vec{u}+\\vec{w}$ linear unabhängig. $\\blacksquare$ (Hinweis: Das Argument nutzt, dass in $\\mathbb{R}$ die Zahl $2$ invertierbar ist.)",
+                "Schritt 8: Merke: Worauf es ankommt\nTypische Struktur: Ansatz, nach den bekannten Vektoren umsortieren, Voraussetzung benutzen, entstehendes Gleichungssystem lösen. Dieselbe Struktur trägt viele Unabhängigkeitsbeweise."
             ]
         },
         {
             "id": 28,
             "topic": "Vektorräume",
-            "title": "Äußere Potenz von Quotientenräumen",
-            "description": "Sei $V = \\mathbb{R}^4/U$ mit $U = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 1 \\end{pmatrix}\\}$. Bestimmen Sie eine Basis von $\\bigwedge^2 V$.",
+            "title": "Basiswechsel: Koordinaten in einer neuen Basis",
+            "description": "Gegeben ist $B = \\{\\vec{b}_1, \\vec{b}_2, \\vec{b}_3\\}$ mit $\\vec{b}_1 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\vec{b}_2 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix}, \\vec{b}_3 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix}$. (a) Zeigen Sie, dass $B$ eine Basis des $\\mathbb{R}^3$ ist. (b) Bestimmen Sie die Koordinaten von $\\vec{v} = \\begin{pmatrix} 4 \\\\ 5 \\\\ 3 \\end{pmatrix}$ bezüglich $B$.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Schritt 1: Dimension\n$\\dim(V) = 2$\n$\\dim(\\bigwedge^2 V) = \\binom{2}{2} = 1$",
-                "Schritt 2: Basis\n$\\{\\vec{v}_1 \\wedge \\vec{v}_2\\}$",
-                "Schritt 3: Berechnung\n$\\vec{v}_1 = \\begin{pmatrix} 1 \\\\ -1 \\\\ 0 \\\\ 0 \\end{pmatrix} + U$\n$\\vec{v}_2 = \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ -1 \\end{pmatrix} + U$",
-                "Schritt 4: Verifikation\nDie Vektoren sind linear unabhängig"
+                "Schritt 1: Überblick: Was ist gefragt?\nGesucht sind die Koordinaten von $\\vec{v}$ in der neuen Basis. Mit der Matrix $M$, deren Spalten die Basisvektoren sind, lautet die Gleichung $M\\vec{x} = \\vec{v}$. Zuerst zeigen wir, dass $M$ invertierbar ist (also eine Basis vorliegt), dann lösen wir.",
+                "Schritt 2: (a) Basis nachweisen\nMit $M = \\begin{pmatrix} 1 & 0 & 1 \\\\ 1 & 1 & 0 \\\\ 0 & 1 & 1 \\end{pmatrix}$ (Spalten $\\vec{b}_1,\\vec{b}_2,\\vec{b}_3$) gilt $\\det M = 1\\cdot(1-0) - 0 + 1\\cdot(1-0) = 2 \\neq 0$. Also sind die drei Vektoren linear unabhängig und bilden eine Basis.",
+                "Schritt 3: (b) Ansatz\nGesucht sind $x_1,x_2,x_3$ mit $x_1\\vec{b}_1 + x_2\\vec{b}_2 + x_3\\vec{b}_3 = \\vec{v}$, d.h. $M\\vec{x} = \\vec{v}$. Komponentenweise: $x_1 + x_3 = 4$, $x_1 + x_2 = 5$, $x_2 + x_3 = 3$.",
+                "Schritt 4: Lösen\nAddition aller drei Gleichungen: $2(x_1+x_2+x_3) = 12$, also $x_1+x_2+x_3 = 6$. Daraus: $x_2 = 6 - 4 = 2$, $x_3 = 6 - 5 = 1$, $x_1 = 6 - 3 = 3$.",
+                "Schritt 5: Probe\n$3\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} + 2\\begin{pmatrix} 0 \\\\ 1 \\\\ 1 \\end{pmatrix} + 1\\begin{pmatrix} 1 \\\\ 0 \\\\ 1 \\end{pmatrix} = \\begin{pmatrix} 3+0+1 \\\\ 3+2+0 \\\\ 0+2+1 \\end{pmatrix} = \\begin{pmatrix} 4 \\\\ 5 \\\\ 3 \\end{pmatrix}$ ✓",
+                "Schritt 6: Ergebnis\n$[\\vec{v}]_B = \\begin{pmatrix} 3 \\\\ 2 \\\\ 1 \\end{pmatrix}$. Die Matrix $M$ wandelt $B$-Koordinaten in Standardkoordinaten um: $\\vec{v} = M[\\vec{v}]_B$; umgekehrt gilt $[\\vec{v}]_B = M^{-1}\\vec{v}$.",
+                "Schritt 7: Merke: Worauf es ankommt\nMerke: Standardkoordinaten $= M\\cdot$ ($B$-Koordinaten). Für die Gegenrichtung braucht man $M^{-1}$. Bei Basiswechseln ist die Richtung die häufigste Fehlerquelle, deshalb immer eine Probe machen."
             ]
         },
         {
             "id": 29,
             "topic": "Vektorräume",
-            "title": "Tensorprodukt von Polynomräumen",
-            "description": "Seien $V = \\mathbb{R}[x]_{\\leq 1}$ und $W = \\mathbb{R}[x]_{\\leq 1}$. Bestimmen Sie eine Basis von $V \\otimes W$.",
+            "title": "Direkte Summe: symmetrische und schiefsymmetrische Matrizen",
+            "description": "Sei $\\operatorname{Sym} = \\{A \\in \\mathbb{R}^{2\\times 2} \\mid A^T = A\\}$ und $\\operatorname{Skew} = \\{A \\in \\mathbb{R}^{2\\times 2} \\mid A^T = -A\\}$. Zeigen Sie, dass $\\mathbb{R}^{2\\times 2} = \\operatorname{Sym} \\oplus \\operatorname{Skew}$ gilt.",
             "difficulty": "hard",
             "points": 12,
             "solutionSteps": [
-                "Schritt 1: Dimension\n$\\dim(V) = 2, \\dim(W) = 2$\n$\\dim(V \\otimes W) = 2 \\cdot 2 = 4$",
-                "Schritt 2: Basis\n$\\{1 \\otimes 1, 1 \\otimes x, x \\otimes 1, x \\otimes x\\}$",
-                "Schritt 3: Berechnung\n$1 \\otimes 1 = 1$\n$1 \\otimes x = x$\n$x \\otimes 1 = x$\n$x \\otimes x = x^2$",
-                "Schritt 4: Verifikation\nDie Polynome sind linear unabhängig"
+                "Schritt 1: Überblick: Was ist gefragt?\n„Direkte Summe“ bedeutet: Jeder Vektor lässt sich auf genau eine Weise als Summe aus einem Element von $\\operatorname{Sym}$ und einem von $\\operatorname{Skew}$ schreiben. Wir zeigen dafür Existenz der Zerlegung und trivialen Schnitt.",
+                "Schritt 2: Beide Mengen sind Unterräume\nDie Nullmatrix liegt in beiden Mengen. Aus $A^T = \\pm A$ und $B^T = \\pm B$ folgt $(A+B)^T = A^T+B^T = \\pm(A+B)$ und $(\\lambda A)^T = \\pm\\lambda A$.",
+                "Schritt 3: Zerlegung existiert\nFür beliebiges $A$ sei $S = \\tfrac12(A + A^T)$ und $K = \\tfrac12(A - A^T)$. Dann ist $S^T = \\tfrac12(A^T + A) = S$, also $S \\in \\operatorname{Sym}$, und $K^T = \\tfrac12(A^T - A) = -K$, also $K \\in \\operatorname{Skew}$. Außerdem $S + K = A$.",
+                "Schritt 4: Schnitt ist trivial\nSei $A \\in \\operatorname{Sym}\\cap\\operatorname{Skew}$. Dann gilt $A^T = A$ und $A^T = -A$, also $A = -A$ und somit $A = 0$.",
+                "Schritt 5: Dimensionskontrolle\n$\\operatorname{Sym}$ hat die Basis $\\begin{pmatrix} 1 & 0 \\\\ 0 & 0 \\end{pmatrix}, \\begin{pmatrix} 0 & 0 \\\\ 0 & 1 \\end{pmatrix}, \\begin{pmatrix} 0 & 1 \\\\ 1 & 0 \\end{pmatrix}$, also $\\dim = 3$. $\\operatorname{Skew}$ hat die Basis $\\begin{pmatrix} 0 & 1 \\\\ -1 & 0 \\end{pmatrix}$, also $\\dim = 1$. Es gilt $3 + 1 = 4 = \\dim\\mathbb{R}^{2\\times 2}$.",
+                "Schritt 6: Ergebnis\nJede Matrix lässt sich eindeutig als Summe einer symmetrischen und einer schiefsymmetrischen Matrix schreiben: $\\mathbb{R}^{2\\times 2} = \\operatorname{Sym} \\oplus \\operatorname{Skew}$. $\\blacksquare$ (Der Beweis funktioniert analog für $n\\times n$-Matrizen.)",
+                "Schritt 7: Merke: Worauf es ankommt\nZerlegungskriterium: $V = U \\oplus W \\iff V = U + W$ und $U \\cap W = \\{\\vec{0}\\}$. Die Dimensionskontrolle $\\dim U + \\dim W = \\dim V$ ist ein guter Plausibilitätstest, ersetzt aber nicht den Beweis."
             ]
         },
         {
             "id": 30,
             "topic": "Vektorräume",
-            "title": "Äußere Potenz von Polynomräumen",
-            "description": "Sei $V = \\mathbb{R}[x]_{\\leq 2}$. Bestimmen Sie eine Basis von $\\bigwedge^2 V$.",
+            "title": "Dualräume",
+            "description": "Sei $V = \\mathbb{R}^3$ und $\\varphi: V \\to \\mathbb{R}$ eine lineare Abbildung mit $\\varphi(\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}) = 1, \\varphi(\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}) = 2, \\varphi(\\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix}) = 3$. Bestimmen Sie die Darstellungsmatrix von $\\varphi$ bezüglich der Standardbasis.",
             "difficulty": "hard",
-            "points": 12,
+            "points": 15,
             "solutionSteps": [
-                "Schritt 1: Dimension\n$\\dim(V) = 3$\n$\\dim(\\bigwedge^2 V) = \\binom{3}{2} = 3$",
-                "Schritt 2: Basis\n$\\{1 \\wedge x, 1 \\wedge x^2, x \\wedge x^2\\}$",
-                "Schritt 3: Berechnung\n$1 \\wedge x = x - 1$\n$1 \\wedge x^2 = x^2 - 1$\n$x \\wedge x^2 = x^2 - x$",
-                "Schritt 4: Verifikation\nDie Polynome sind linear unabhängig"
+                "Schritt 1: Basisvektoren\n$\\vec{e}_1 = \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\vec{e}_2 = \\begin{pmatrix} 0 \\\\ 1 \\\\ 0 \\end{pmatrix}, \\vec{e}_3 = \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\end{pmatrix}$",
+                "Schritt 2: Lineare Unabhängigkeit\n$\\vec{e}_2 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix} - \\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\end{pmatrix}$\n$\\vec{e}_3 = \\begin{pmatrix} 1 \\\\ 1 \\\\ 1 \\end{pmatrix} - \\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\end{pmatrix}$",
+                "Schritt 3: Funktionswerte\n$\\varphi(\\vec{e}_1) = 1$\n$\\varphi(\\vec{e}_2) = 2 - 1 = 1$\n$\\varphi(\\vec{e}_3) = 3 - 2 = 1$",
+                "Schritt 4: Darstellungsmatrix\n$[\\varphi] = (1, 1, 1)$"
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Vektorräume",
+            "title": "Quotientenvektorräume",
+            "description": "Sei $V = \\mathbb{R}^4$ und $U = \\text{span}\\{\\begin{pmatrix} 1 \\\\ 1 \\\\ 0 \\\\ 0 \\end{pmatrix}, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 1 \\end{pmatrix}\\}$. Bestimmen Sie eine Basis des Quotientenvektorraums $V/U$ und die Dimension von $V/U$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Schritt 1: Dimension von U\n$\\dim(U) = 2$, da die Vektoren linear unabhängig sind",
+                "Schritt 2: Dimension von V/U\n$\\dim(V/U) = \\dim(V) - \\dim(U) = 4 - 2 = 2$",
+                "Schritt 3: Basis von V/U\n$\\{\\begin{pmatrix} 1 \\\\ 0 \\\\ 0 \\\\ 0 \\end{pmatrix} + U, \\begin{pmatrix} 0 \\\\ 0 \\\\ 1 \\\\ 0 \\end{pmatrix} + U\\}$",
+                "Schritt 4: Verifikation\nDie Vektoren sind linear unabhängig modulo U und bilden eine Basis von V/U"
             ]
         }
     ]
-} 
+}

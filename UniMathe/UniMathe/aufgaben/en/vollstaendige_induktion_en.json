@@ -1,7 +1,82 @@
 {
     "exercises": [
         {
-            "id": 26,
+            "id": 1,
+            "topic": "Mathematical Induction",
+            "title": "Geometric sum of powers of two",
+            "description": "Prove by induction: $\\sum_{k=0}^{n} 2^k = 2^{n+1} - 1$ for all $n \\in \\mathbb{N}_0$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe prove the statement by mathematical induction: base case, induction hypothesis (IH), induction step $n \\to n+1$ using the IH.",
+                "Step 2: Base case\n$n = 0$: left side $2^0 = 1$, right side $2^1 - 1 = 1$ ✓.",
+                "Step 3: Induction hypothesis\nFor a fixed $n$ assume $\\sum_{k=0}^{n} 2^k = 2^{n+1} - 1$.",
+                "Step 4: Induction step\n$\\sum_{k=0}^{n+1} 2^k = \\sum_{k=0}^{n} 2^k + 2^{n+1} \\overset{\\text{IH}}{=} 2^{n+1} - 1 + 2^{n+1} = 2\\cdot 2^{n+1} - 1 = 2^{n+2} - 1$. This is the claim for $n+1$. $\\blacksquare$",
+                "Step 5: Takeaway: What to remember\nIn the induction step first split off the new summand, then insert the IH. The result also follows from the geometric sum formula with $q = 2$."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Mathematical Induction",
+            "title": "Sum of an arithmetic sequence",
+            "description": "Prove: $\\sum_{k=1}^{n} (3k - 2) = \\frac{n(3n-1)}{2}$ for all $n \\in \\mathbb{N}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe prove the statement by mathematical induction: base case, induction hypothesis (IH), induction step $n \\to n+1$ using the IH.",
+                "Step 2: Base case\n$n = 1$: left $3 - 2 = 1$, right $\\frac{1\\cdot 2}{2} = 1$ ✓. (Check $n = 2$: $1 + 4 = 5 = \\frac{2\\cdot5}{2}$.)",
+                "Step 3: Induction hypothesis\nFor a fixed $n$ assume $\\sum_{k=1}^{n} (3k-2) = \\frac{n(3n-1)}{2}$.",
+                "Step 4: Induction step\n$\\sum_{k=1}^{n+1} (3k-2) = \\frac{n(3n-1)}{2} + 3(n+1) - 2 = \\frac{3n^2 - n + 6n + 2}{2} = \\frac{3n^2 + 5n + 2}{2} = \\frac{(n+1)(3n+2)}{2}$. This equals $\\frac{(n+1)(3(n+1)-1)}{2}$ ✓. $\\blacksquare$",
+                "Step 5: Takeaway: What to remember\nAt the end write down the target (formula with $n+1$ instead of $n$) and tailor the calculation to it; check a factorisation like $3n^2 + 5n + 2 = (n+1)(3n+2)$ by multiplying out."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Mathematical Induction",
+            "title": "Divisibility by 6",
+            "description": "Prove: $n^3 + 5n$ is divisible by $6$ for all $n \\in \\mathbb{N}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe prove the statement by mathematical induction: base case, induction hypothesis (IH), induction step $n \\to n+1$ using the IH.",
+                "Step 2: Base case\n$n = 1$: $1 + 5 = 6$ ✓ (and $n = 2$: $8 + 10 = 18 = 3\\cdot6$).",
+                "Step 3: Induction hypothesis\nFor a fixed $n$ let $6 \\mid n^3 + 5n$, i.e. $n^3 + 5n = 6m$ with $m \\in \\mathbb{Z}$.",
+                "Step 4: Induction step\n$(n+1)^3 + 5(n+1) = n^3 + 3n^2 + 3n + 1 + 5n + 5 = (n^3 + 5n) + 3n^2 + 3n + 6 = 6m + 3n(n+1) + 6$. Since $n(n+1)$ is even, $3n(n+1)$ is divisible by $6$. So the sum is divisible by $6$. $\\blacksquare$",
+                "Step 5: Takeaway: What to remember\nIn divisibility proofs rewrite the term for $n+1$ so that the term for $n$ (with the divisibility from the IH) becomes visible and the remainder is obviously divisible."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Mathematical Induction",
+            "title": "Inequality with the factorial",
+            "description": "Prove: $n! \\geq 2^{n-1}$ for all $n \\in \\mathbb{N}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe prove the statement by mathematical induction: base case, induction hypothesis (IH), induction step $n \\to n+1$ using the IH.",
+                "Step 2: Base case\n$n = 1$: $1! = 1 \\geq 2^0 = 1$ ✓.",
+                "Step 3: Induction hypothesis\nFor a fixed $n \\geq 1$ assume $n! \\geq 2^{n-1}$.",
+                "Step 4: Induction step\n$(n+1)! = (n+1)\\cdot n! \\overset{\\text{IH}}{\\geq} (n+1)\\cdot 2^{n-1} \\geq 2\\cdot 2^{n-1} = 2^n$, because $n + 1 \\geq 2$ for $n \\geq 1$. This is $(n+1)! \\geq 2^{(n+1)-1}$. $\\blacksquare$",
+                "Step 5: Takeaway: What to remember\nFor inequalities use the IH only in the correct direction and then reach the target with a further (true) estimate. Here: $n+1 \\geq 2$."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Mathematical Induction",
+            "title": "Recursive sequence: explicit formula",
+            "description": "Let the sequence be defined by $a_1 = 2$ and $a_{n+1} = a_n + 2n$. Show by induction: $a_n = n^2 - n + 2$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe prove the statement by mathematical induction: base case, induction hypothesis (IH), induction step $n \\to n+1$ using the IH.",
+                "Step 2: Base case\n$n = 1$: $a_1 = 2$ and $1 - 1 + 2 = 2$ ✓. (Check: $a_2 = 2 + 2 = 4 = 4 - 2 + 2$.)",
+                "Step 3: Induction hypothesis\nFor a fixed $n$ assume $a_n = n^2 - n + 2$.",
+                "Step 4: Induction step\n$a_{n+1} = a_n + 2n \\overset{\\text{IH}}{=} n^2 - n + 2 + 2n = n^2 + n + 2$. And $(n+1)^2 - (n+1) + 2 = n^2 + 2n + 1 - n - 1 + 2 = n^2 + n + 2$ ✓. $\\blacksquare$",
+                "Step 5: Takeaway: What to remember\nFor recursive sequences insert the **recursion rule** and the IH one after the other. Compute the target formula for $n+1$ on the side and compare."
+            ]
+        },
+        {
+            "id": 6,
             "topic": "Mathematical Induction",
             "title": "Sum of the first $n$ natural numbers",
             "description": "Prove by mathematical induction: $\\sum_{k=1}^n k = \\frac{n(n+1)}{2}$.",
@@ -17,7 +92,7 @@
             ]
         },
         {
-            "id": 27,
+            "id": 7,
             "topic": "Mathematical Induction",
             "title": "Sum of odd numbers",
             "description": "Prove by mathematical induction: $\\sum_{k=1}^n (2k-1) = n^2$.",
@@ -32,7 +107,144 @@
             ]
         },
         {
-            "id": 28,
+            "id": 8,
+            "topic": "Mathematical Induction",
+            "title": "Divisibility by 3",
+            "description": "Prove: $4^n - 1$ is divisible by $3$ for all $n \\in \\mathbb{N}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Base Case: For $n=1$, it holds: $4^1-1=3$ is divisible by $3$.",
+                "Inductive Hypothesis: Assume $4^n-1$ is divisible by $3$.",
+                "Inductive Step: $4^{n+1}-1=4\\cdot4^n-1=4(4^n-1)+3$.",
+                "Both terms are divisible by $3$, so $4^{n+1}-1$ is divisible by $3$."
+            ]
+        },
+        {
+            "id": 9,
+            "topic": "Mathematical Induction",
+            "title": "Sum of the first $n$ even numbers",
+            "description": "Prove by mathematical induction: $\\sum_{k=1}^n 2k = n(n+1)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Base Case: For $n=1$, it holds: $2=1\\cdot2=1(1+1)=2$.",
+                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n \\geq 1$.",
+                "Inductive Step: Show the statement for $n+1$:",
+                "$\\sum_{k=1}^{n+1} 2k = \\left(\\sum_{k=1}^n 2k\\right) + 2(n+1) = n(n+1) + 2(n+1)$",
+                "$= (n+1)(n+2)$.",
+                "Thus, the statement is proven."
+            ]
+        },
+        {
+            "id": 10,
+            "topic": "Mathematical Induction",
+            "title": "Sum of the first $n$ multiples of 3",
+            "description": "Prove by mathematical induction: $\\sum_{k=1}^n 3k = \\frac{3n(n+1)}{2}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Base Case: For $n=1$, it holds: $3=\\frac{3\\cdot1\\cdot2}{2}=3$.",
+                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n \\geq 1$.",
+                "Inductive Step: Show the statement for $n+1$:",
+                "$\\sum_{k=1}^{n+1} 3k = \\left(\\sum_{k=1}^n 3k\\right) + 3(n+1) = \\frac{3n(n+1)}{2} + 3(n+1)$",
+                "$= \\frac{3n(n+1)+6(n+1)}{2} = \\frac{3(n+1)(n+2)}{2}$.",
+                "Thus, the statement is proven."
+            ]
+        },
+        {
+            "id": 11,
+            "topic": "Mathematical Induction",
+            "title": "Sum of the first $n$ triangular numbers",
+            "description": "Prove: $\\sum_{k=1}^n \\frac{k(k+1)}{2} = \\frac{n(n+1)(n+2)}{6}$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Base Case: For $n=1$, it holds: $\\frac{1\\cdot2}{2}=1=\\frac{1\\cdot2\\cdot3}{6}$.",
+                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n \\geq 1$.",
+                "Inductive Step: $\\sum_{k=1}^{n+1} \\frac{k(k+1)}{2} = \\frac{n(n+1)(n+2)}{6} + \\frac{(n+1)(n+2)}{2}$",
+                "$= \\frac{n(n+1)(n+2)+3(n+1)(n+2)}{6}$",
+                "$= \\frac{(n+1)(n+2)(n+3)}{6}$.",
+                "Thus, the statement is proven."
+            ]
+        },
+        {
+            "id": 12,
+            "topic": "Mathematical Induction",
+            "title": "Bernoulli's inequality",
+            "description": "Prove: for all real $x \\geq -1$ and all $n \\in \\mathbb{N}$ we have $(1 + x)^n \\geq 1 + nx$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe prove the statement by mathematical induction: base case, induction hypothesis (IH), induction step $n \\to n+1$ using the IH.",
+                "Step 2: Base case\n$n = 1$: $(1+x)^1 = 1 + x \\geq 1 + x$ ✓ (equality).",
+                "Step 3: Induction hypothesis\nFor a fixed $n$ and all $x \\geq -1$ assume $(1+x)^n \\geq 1 + nx$.",
+                "Step 4: Induction step\nSince $1 + x \\geq 0$ one may multiply the IH by $(1+x)$ without flipping the inequality: $(1+x)^{n+1} = (1+x)^n(1+x) \\geq (1 + nx)(1+x) = 1 + (n+1)x + nx^2 \\geq 1 + (n+1)x$ since $nx^2 \\geq 0$. $\\blacksquare$",
+                "Step 5: Takeaway: What to remember\nWhen multiplying an inequality the factor must be $\\geq 0$ — here the hypothesis $x \\geq -1$ ensures that. The inequality is central in analysis (e.g. convergence of $(1+1/n)^n$)."
+            ]
+        },
+        {
+            "id": 13,
+            "topic": "Mathematical Induction",
+            "title": "Sum with powers of two and index",
+            "description": "Prove: $\\sum_{k=1}^{n} k\\cdot 2^k = (n-1)\\,2^{n+1} + 2$ for all $n \\in \\mathbb{N}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe prove the statement by mathematical induction: base case, induction hypothesis (IH), induction step $n \\to n+1$ using the IH.",
+                "Step 2: Base case\n$n = 1$: left $1\\cdot 2 = 2$, right $0\\cdot 4 + 2 = 2$ ✓. ($n = 2$: $2 + 8 = 10 = 1\\cdot 8 + 2$ ✓.)",
+                "Step 3: Induction hypothesis\nFor a fixed $n$ assume $\\sum_{k=1}^{n} k 2^k = (n-1)2^{n+1} + 2$.",
+                "Step 4: Induction step\n$\\sum_{k=1}^{n+1} k2^k = (n-1)2^{n+1} + 2 + (n+1)2^{n+1} = 2n\\cdot 2^{n+1} + 2 = n\\cdot 2^{n+2} + 2 = ((n+1)-1)\\,2^{(n+1)+1} + 2$. $\\blacksquare$",
+                "Step 5: Takeaway: What to remember\nFactor out common powers ($2^{n+1}$) and add the coefficients. Such sum formulas are found by computing small cases first and conjecturing a pattern."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Mathematical Induction",
+            "title": "Divisibility by 7",
+            "description": "Prove: $7 \\mid 8^n - 1$ for all $n \\in \\mathbb{N}$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe prove the statement by mathematical induction: base case, induction hypothesis (IH), induction step $n \\to n+1$ using the IH.",
+                "Step 2: Base case\n$n = 1$: $8 - 1 = 7$ ✓.",
+                "Step 3: Induction hypothesis\nFor a fixed $n$ assume $8^n - 1 = 7m$ with $m \\in \\mathbb{Z}$.",
+                "Step 4: Induction step\n$8^{n+1} - 1 = 8\\cdot 8^n - 1 = 8(8^n - 1) + 8 - 1 = 8\\cdot 7m + 7 = 7(8m + 1)$. This is divisible by $7$. $\\blacksquare$",
+                "Step 5: Takeaway: What to remember\nTrick: $a\\cdot b^n - 1 = a(b^n - 1) + (a - 1)$. Here the IH $8^n - 1$ appears directly. (Alternatively: $8 \\equiv 1 \\pmod 7$, so $8^n \\equiv 1$.)"
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Mathematical Induction",
+            "title": "Fibonacci sum",
+            "description": "Let the Fibonacci numbers be $F_1 = F_2 = 1$ and $F_{n+2} = F_{n+1} + F_n$. Prove: $\\sum_{k=1}^{n} F_k = F_{n+2} - 1$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe prove the statement by mathematical induction: base case, induction hypothesis (IH), induction step $n \\to n+1$ using the IH.",
+                "Step 2: Base case\n$n = 1$: left $F_1 = 1$, right $F_3 - 1 = 2 - 1 = 1$ ✓. ($n = 2$: $1 + 1 = 2 = F_4 - 1 = 3 - 1$.)",
+                "Step 3: Induction hypothesis\nFor a fixed $n$ assume $\\sum_{k=1}^{n} F_k = F_{n+2} - 1$.",
+                "Step 4: Induction step\n$\\sum_{k=1}^{n+1} F_k = \\sum_{k=1}^{n} F_k + F_{n+1} \\overset{\\text{IH}}{=} F_{n+2} - 1 + F_{n+1} = F_{n+3} - 1$ (by the recursion $F_{n+3} = F_{n+2} + F_{n+1}$). $\\blacksquare$",
+                "Step 5: Takeaway: What to remember\nFor sequences with a recursion one uses the recursion equation in the step to combine two consecutive terms."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Mathematical Induction",
+            "title": "Recursion with explicit solution",
+            "description": "Let $a_1 = 2$ and $a_{n+1} = 3a_n - 2$. Show by induction: $a_n = 3^{n-1} + 1$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe prove the statement by mathematical induction: base case, induction hypothesis (IH), induction step $n \\to n+1$ using the IH.",
+                "Step 2: Base case\n$n = 1$: $a_1 = 2 = 3^0 + 1$ ✓. ($a_2 = 4 = 3^1 + 1$, $a_3 = 10 = 3^2 + 1$ ✓.)",
+                "Step 3: Induction hypothesis\nFor a fixed $n$ assume $a_n = 3^{n-1} + 1$.",
+                "Step 4: Induction step\n$a_{n+1} = 3a_n - 2 \\overset{\\text{IH}}{=} 3(3^{n-1} + 1) - 2 = 3^n + 3 - 2 = 3^n + 1$. This is the claim for $n+1$. $\\blacksquare$",
+                "Step 5: Takeaway: What to remember\nThe explicit formula is obtained by guessing from the first terms; induction confirms it. The fixed point $a = 3a - 2 \\Rightarrow a = 1$ explains the summand $+1$."
+            ]
+        },
+        {
+            "id": 17,
             "topic": "Mathematical Induction",
             "title": "Inequality $2^n \\geq n^2$",
             "description": "Prove for all $n \\geq 4$ by mathematical induction: $2^n \\geq n^2$.",
@@ -50,24 +262,7 @@
             ]
         },
         {
-            "id": 29,
-            "topic": "Mathematical Induction",
-            "title": "Factorial Inequality",
-            "description": "Prove by mathematical induction: $n! > 2^n$ for all $n \\geq 4$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Base Case: For $n=4$, it holds: $4! = 24 > 16 = 2^4$.",
-                "Inductive Hypothesis: Assume $n! > 2^n$ holds for an arbitrary $n \\geq 4$.",
-                "Inductive Step: Show $(n+1)! > 2^{n+1}$:",
-                "$(n+1)! = (n+1)\\cdot n! > (n+1)\\cdot2^n$ (by IH).",
-                "Since $n+1 \\geq 5$ for $n \\geq 4$,",
-                "$(n+1)2^n \\geq 2^{n+1} + 2^n > 2^{n+1}$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 30,
+            "id": 18,
             "topic": "Mathematical Induction",
             "title": "Geometric Sum",
             "description": "Prove by mathematical induction: $\\sum_{k=0}^n q^k = \\frac{1-q^{n+1}}{1-q}$ for $q \\neq 1$.",
@@ -83,7 +278,7 @@
             ]
         },
         {
-            "id": 31,
+            "id": 19,
             "topic": "Mathematical Induction",
             "title": "Sum of the squares of the first $n$ natural numbers",
             "description": "Prove by mathematical induction: $\\sum_{k=1}^n k^2 = \\frac{n(n+1)(2n+1)}{6}$.",
@@ -99,23 +294,7 @@
             ]
         },
         {
-            "id": 32,
-            "topic": "Mathematical Induction",
-            "title": "Exponential Inequality",
-            "description": "Prove by mathematical induction: $5^n > n^3$ for all $n \\geq 5$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Base Case: For $n=5$, it holds: $5^5 = 3125 > 125 = 5^3$.",
-                "Inductive Hypothesis: Assume $5^n > n^3$ holds for an arbitrary $n \\geq 5$.",
-                "Inductive Step: Show $5^{n+1} > (n+1)^3$:",
-                "$5^{n+1} = 5\\cdot5^n > 5\\cdot n^3$ (by IH).",
-                "Show: $5n^3 > (n+1)^3$ for $n\\geq5$.",
-                "By expanding and comparing, the inequality holds."
-            ]
-        },
-        {
-            "id": 33,
+            "id": 20,
             "topic": "Mathematical Induction",
             "title": "Divisibility Proof",
             "description": "Prove: $7^n - 1$ is divisible by $6$ for all $n \\in \\mathbb{N}$.",
@@ -130,7 +309,7 @@
             ]
         },
         {
-            "id": 34,
+            "id": 21,
             "topic": "Mathematical Induction",
             "title": "Recursive Sequence",
             "description": "Given the sequence $a_1 = 1$, $a_{n+1} = 2a_n + 1$. Show: $a_n = 2^n - 1$ for all $n \\in \\mathbb{N}$.",
@@ -141,6 +320,210 @@
                 "Inductive Hypothesis: Assume $a_n=2^n-1$ holds for an arbitrary $n \\geq 1$.",
                 "Inductive Step: Show $a_{n+1}=2^{n+1}-1$:",
                 "$a_{n+1}=2a_n+1=2(2^n-1)+1=2^{n+1}-2+1=2^{n+1}-1$.",
+                "Thus, the statement is proven."
+            ]
+        },
+        {
+            "id": 22,
+            "topic": "Mathematical Induction",
+            "title": "Sum of the cubes of the first $n$ natural numbers",
+            "description": "Prove by mathematical induction: $\\sum_{k=1}^n k^3 = \\left(\\frac{n(n+1)}{2}\\right)^2$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Base Case: For $n=1$, it holds: $1^3=1$ and $(\\frac{1\\cdot2}{2})^2=1$.",
+                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n \\geq 1$.",
+                "Inductive Step: Show the statement for $n+1$:",
+                "$\\sum_{k=1}^{n+1}k^3=\\left(\\sum_{k=1}^n k^3\\right)+(n+1)^3$",
+                "$=\\left(\\frac{n(n+1)}{2}\\right)^2+(n+1)^3$",
+                "After transformation, we obtain $(\\frac{(n+1)(n+2)}{2})^2$."
+            ]
+        },
+        {
+            "id": 23,
+            "topic": "Mathematical Induction",
+            "title": "Sum of the reciprocals",
+            "description": "Prove: $\\sum_{k=1}^n \\frac{1}{k(k+1)}=\\frac{n}{n+1}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Base Case: For $n=1$, it holds: $\\frac{1}{1\\cdot2}=\\frac{1}{2}=\\frac{1}{1+1}$.",
+                "Inductive Hypothesis: Assume $\\sum_{k=1}^n \\frac{1}{k(k+1)}=\\frac{n}{n+1}$.",
+                "Inductive Step: Show the statement for $n+1$:",
+                "$\\frac{n}{n+1}+\\frac{1}{(n+1)(n+2)}=\\frac{n(n+2)+1}{(n+1)(n+2)}$",
+                "$=\\frac{(n+1)^2}{(n+1)(n+2)}=\\frac{n+1}{n+2}$."
+            ]
+        },
+        {
+            "id": 24,
+            "topic": "Mathematical Induction",
+            "title": "Divisibility by 11",
+            "description": "Prove: $10^{2n}-1$ is divisible by $11$ for all $n\\in\\mathbb{N}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Base Case: For $n=1$, it holds: $10^2-1=99$ is divisible by $11$.",
+                "Inductive Hypothesis: Assume $10^{2n}-1$ is divisible by $11$.",
+                "Inductive Step: Show $10^{2(n+1)}-1$.",
+                "$10^{2(n+1)}-1=(10^2)^n\\cdot100-1=100(10^{2n}-1)+99$.",
+                "Both terms are divisible by $11$."
+            ]
+        },
+        {
+            "id": 25,
+            "topic": "Mathematical Induction",
+            "title": "Sum of the squares of the first $n$ natural numbers plus $n$",
+            "description": "Prove by mathematical induction: $\\sum_{k=1}^n (k^2 + k) = \\frac{n(n+1)(n+2)}{3}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Base Case: For $n=1$, it holds: $1^2+1=2=\\frac{1\\cdot2\\cdot3}{3}=2$.",
+                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n \\geq 1$.",
+                "Inductive Step: $\\sum_{k=1}^{n+1} (k^2 + k) = \\frac{n(n+1)(n+2)}{3} + (n+1)^2 + (n+1)$",
+                "$= \\frac{n(n+1)(n+2) + 3(n+1)^2 + 3(n+1)}{3}$",
+                "$= \\frac{n(n+1)(n+2) + 3(n+1)(n+2)}{3}$",
+                "$= \\frac{(n+1)(n+2)(n+3)}{3}$.",
+                "Thus, the statement is proven."
+            ]
+        },
+        {
+            "id": 26,
+            "topic": "Mathematical Induction",
+            "title": "Sum of the first $n$ powers of 5",
+            "description": "Prove: $\\sum_{k=1}^n 5^k = \\frac{5^{n+1}-5}{4}$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Base Case: For $n=1$, it holds: $5^1=5=\\frac{5^2-5}{4}=5$.",
+                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n \\geq 1$.",
+                "Inductive Step: $\\sum_{k=1}^{n+1} 5^k = \\frac{5^{n+1}-5}{4} + 5^{n+1}$",
+                "$= \\frac{5^{n+1}-5+4\\cdot5^{n+1}}{4}$",
+                "$= \\frac{5^{n+2}-5}{4}$.",
+                "Thus, the statement is proven."
+            ]
+        },
+        {
+            "id": 27,
+            "topic": "Mathematical Induction",
+            "title": "Divisibility of $n^3-n$ by 6",
+            "description": "Prove: $n^3-n$ is divisible by $6$ for all $n \\geq 1$.",
+            "difficulty": "medium",
+            "points": 10,
+            "solutionSteps": [
+                "Base Case: For $n=1$, it holds: $1^3-1=0$ is divisible by $6$.",
+                "Inductive Hypothesis: Assume $n^3-n$ is divisible by $6$.",
+                "Inductive Step: $(n+1)^3-(n+1) = n^3+3n^2+3n+1-(n+1) = n^3-n+3n^2+3n$.",
+                "By IH, $n^3-n$ is divisible by $6$, $3n^2+3n$ is divisible by $6$.",
+                "Thus, the statement is proven."
+            ]
+        },
+        {
+            "id": 28,
+            "topic": "Mathematical Induction",
+            "title": "Product formula",
+            "description": "Prove by induction: $\\prod_{k=2}^{n}\\left(1 - \\frac{1}{k^2}\\right) = \\frac{n+1}{2n}$ for all $n \\geq 2$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe prove the claim by induction starting at $n = 2$. In the step we multiply the result by the new factor $1 - \\frac{1}{(n+1)^2}$ and simplify with the third binomial formula.",
+                "Step 2: Base case\n$n = 2$: left $1 - \\frac14 = \\frac34$, right $\\frac{3}{4}$ ✓. ($n = 3$: $\\frac34\\cdot\\frac89 = \\frac23 = \\frac{4}{6}$ ✓.)",
+                "Step 3: Induction hypothesis\nFor a fixed $n \\geq 2$ assume $\\prod_{k=2}^n\\left(1 - \\frac1{k^2}\\right) = \\frac{n+1}{2n}$.",
+                "Step 4: Induction step\n$\\prod_{k=2}^{n+1} = \\frac{n+1}{2n}\\cdot\\left(1 - \\frac{1}{(n+1)^2}\\right) = \\frac{n+1}{2n}\\cdot\\frac{(n+1)^2 - 1}{(n+1)^2} = \\frac{n+1}{2n}\\cdot\\frac{n(n+2)}{(n+1)^2} = \\frac{n+2}{2(n+1)}$. This is $\\frac{(n+1)+1}{2(n+1)}$. $\\blacksquare$",
+                "Step 5: Takeaway: What to remember\nThe factorisation $1 - \\frac1{k^2} = \\frac{(k-1)(k+1)}{k^2}$ shows that the product telescopes. In the limit $n \\to \\infty$ the product converges to $\\frac12$."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Mathematical Induction",
+            "title": "Sum with factorials",
+            "description": "Prove: $\\sum_{k=1}^{n} k\\cdot k! = (n+1)! - 1$ for all $n \\in \\mathbb{N}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe prove the statement by mathematical induction: base case, induction hypothesis (IH), induction step $n \\to n+1$ using the IH.",
+                "Step 2: Base case\n$n = 1$: left $1\\cdot 1! = 1$, right $2! - 1 = 1$ ✓. ($n = 2$: $1 + 4 = 5 = 3! - 1$ ✓.)",
+                "Step 3: Induction hypothesis\nFor a fixed $n$ assume $\\sum_{k=1}^{n} k\\cdot k! = (n+1)! - 1$.",
+                "Step 4: Induction step\n$\\sum_{k=1}^{n+1} k\\cdot k! = (n+1)! - 1 + (n+1)(n+1)! = (n+1)!\\,(1 + n + 1) - 1 = (n+2)(n+1)! - 1 = (n+2)! - 1$. $\\blacksquare$",
+                "Step 5: Takeaway: What to remember\nWith $(n+1)! = (n+1)\\cdot n!$ factorials can be factored out. Insight: $k\\cdot k! = (k+1)! - k!$, so the sum is a telescoping sum."
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Mathematical Induction",
+            "title": "Strong induction: prime factorisation",
+            "description": "Prove by strong induction: every natural number $n \\geq 2$ is a product of primes.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nIn **strong induction** one may assume in the step that the statement holds for **all** smaller numbers $m$ with $2 \\leq m < n$ (not only for $n-1$). This fits because the factors of a product are smaller than $n$.",
+                "Step 2: Base case\n$n = 2$ is prime, hence a (one-factor) product of primes.",
+                "Step 3: Induction hypothesis\nLet $n > 2$ and assume every number $m$ with $2 \\leq m < n$ is a product of primes.",
+                "Step 4: Case 1: $n$ is prime\nThen $n$ itself is a one-factor product of primes.",
+                "Step 5: Case 2: $n$ is not prime\nThen $n = a\\cdot b$ with $2 \\leq a,b < n$. By the IH $a = p_1\\cdots p_r$ and $b = q_1\\cdots q_s$ are products of primes. So $n = p_1\\cdots p_r\\, q_1\\cdots q_s$ is a product of primes. $\\blacksquare$",
+                "Step 6: Takeaway: What to remember\nStrong induction is needed when the step relies on several (not just the immediate) predecessors. It is logically equivalent to ordinary induction. **Uniqueness** of the factorisation additionally needs Euclid's lemma."
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Mathematical Induction",
+            "title": "Strong induction: Fibonacci bound",
+            "description": "With $F_1 = F_2 = 1$ and $F_{n+2} = F_{n+1} + F_n$ show $F_n < 2^n$ for all $n \\in \\mathbb{N}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe recursion relies on **two** predecessors, so the proof needs two base cases and a strong induction hypothesis.",
+                "Step 2: Base cases\n$n = 1$: $F_1 = 1 < 2 = 2^1$ ✓. $n = 2$: $F_2 = 1 < 4 = 2^2$ ✓.",
+                "Step 3: Induction hypothesis\nLet $n \\geq 2$ and assume $F_n < 2^n$ and $F_{n-1} < 2^{n-1}$.",
+                "Step 4: Induction step\n$F_{n+1} = F_n + F_{n-1} < 2^n + 2^{n-1} = 2^{n-1}(2 + 1) = 3\\cdot 2^{n-1} < 4\\cdot 2^{n-1} = 2^{n+1}$. $\\blacksquare$",
+                "Step 5: Takeaway: What to remember\nTwo predecessors $\\Rightarrow$ two base cases. A sharper bound is $F_n \\leq \\varphi^{n-1}$ with the golden ratio $\\varphi \\approx 1.618$; $2^n$ is only a rough but easy-to-prove upper bound."
+            ]
+        },
+        {
+            "id": 32,
+            "topic": "Mathematical Induction",
+            "title": "Finding the flaw in an induction proof",
+            "description": "“Proof”: In every set of $n$ horses all horses have the same colour. Base case: trivial for $n = 1$. Step: given $n+1$ horses, remove one; the remaining $n$ have the same colour (IH). Remove a different one; again the same colour. The two groups overlap, so all have the same colour. Where is the flaw?",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nAn induction proof consists of two **independent** parts: base case and step. The step must work for **all** $n \\geq n_0$, including the smallest case right after the base. We test the step for small $n$.",
+                "Step 2: Test the step $n = 1 \\to n = 2$\nLet there be $2$ horses $A$ and $B$. Removing $A$ leaves $\\{B\\}$; removing $B$ leaves $\\{A\\}$. The two groups $\\{B\\}$ and $\\{A\\}$ have **no** horse in common.",
+                "Step 3: Where the argument breaks\nThe argument “the groups overlap” needs at least one common horse, i.e. $n + 1 \\geq 3$ (then the groups share $n - 1 \\geq 1$ horses). For $n = 1$ the overlap is empty.",
+                "Step 4: Consequence\nThe step is valid only for $n \\geq 2$, but the implication $P(1) \\Rightarrow P(2)$ is missing. The base $P(1)$ carries nothing further. If $P(2)$ had been shown as a second base case (which is false, since two horses can have different colours) the proof would work — but $P(2)$ is false.",
+                "Step 5: Takeaway: What to remember\nThe induction step must hold **without gaps for every** $n \\geq n_0$, not only for “typical” $n$. When checking an induction proof always verify the first step $n_0 \\to n_0 + 1$ explicitly."
+            ]
+        },
+        {
+            "id": 33,
+            "topic": "Mathematical Induction",
+            "title": "Bounding the series of reciprocal squares",
+            "description": "Prove: $\\sum_{k=1}^{n} \\frac{1}{k^2} \\leq 2 - \\frac1n$ for all $n \\in \\mathbb{N}$. Conclude that the partial sums are bounded.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe prove a **stronger** statement ($2 - \\frac1n$ instead of just $2$). That is the trick: the weaker statement $\\sum \\frac{1}{k^2} \\leq 2$ could not be proved inductively because the IH leaves too little room.",
+                "Step 2: Base case\n$n = 1$: left $\\frac11 = 1$, right $2 - 1 = 1$ ✓ (equality).",
+                "Step 3: Induction hypothesis\nFor a fixed $n$ assume $\\sum_{k=1}^{n} \\frac1{k^2} \\leq 2 - \\frac1n$.",
+                "Step 4: Induction step: target inequality\n$\\sum_{k=1}^{n+1} \\frac1{k^2} \\leq 2 - \\frac1n + \\frac1{(n+1)^2}$. We must show this is $\\leq 2 - \\frac1{n+1}$, i.e. $\\frac1{(n+1)^2} \\leq \\frac1n - \\frac1{n+1}$.",
+                "Step 5: Induction step: verification\nRight side: $\\frac1n - \\frac1{n+1} = \\frac{1}{n(n+1)}$. Since $n(n+1) \\leq (n+1)^2$ we have $\\frac1{(n+1)^2} \\leq \\frac1{n(n+1)}$ ✓. $\\blacksquare$",
+                "Step 6: Consequence\nThe partial sums $s_n$ are bounded by $2$ and monotonically increasing. By the monotone convergence criterion the series $\\sum \\frac1{k^2}$ converges (its value is $\\frac{\\pi^2}{6}$).",
+                "Step 7: Takeaway: What to remember\nSometimes one has to **strengthen** the claim (“strengthen the induction hypothesis”) so that the step succeeds. The telescoping idea $\\frac1{n(n+1)} = \\frac1n - \\frac1{n+1}$ is a standard tool."
+            ]
+        },
+        {
+            "id": 34,
+            "topic": "Mathematical Induction",
+            "title": "Factorial Inequality",
+            "description": "Prove by mathematical induction: $n! > 2^n$ for all $n \\geq 4$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Base Case: For $n=4$, it holds: $4! = 24 > 16 = 2^4$.",
+                "Inductive Hypothesis: Assume $n! > 2^n$ holds for an arbitrary $n \\geq 4$.",
+                "Inductive Step: Show $(n+1)! > 2^{n+1}$:",
+                "$(n+1)! = (n+1)\\cdot n! > (n+1)\\cdot2^n$ (by IH).",
+                "Since $n+1 \\geq 5$ for $n \\geq 4$,",
+                "$(n+1)2^n \\geq 2^{n+1} + 2^n > 2^{n+1}$.",
                 "Thus, the statement is proven."
             ]
         },
@@ -162,454 +545,6 @@
         {
             "id": 36,
             "topic": "Mathematical Induction",
-            "title": "Sum of the first $n$ odd numbers",
-            "description": "Prove by mathematical induction: $1+3+5+\\dots+(2n-1)=n^2$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $1=1^2$.",
-                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n \\geq 1$.",
-                "Inductive Step: Show the statement for $n+1$:",
-                "$(1+3+\\dots+(2n-1))+(2(n+1)-1)=n^2+2n+1=(n+1)^2$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 37,
-            "topic": "Mathematical Induction",
-            "title": "Divisibility by 3",
-            "description": "Prove: $4^n - 1$ is divisible by $3$ for all $n \\in \\mathbb{N}$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $4^1-1=3$ is divisible by $3$.",
-                "Inductive Hypothesis: Assume $4^n-1$ is divisible by $3$.",
-                "Inductive Step: $4^{n+1}-1=4\\cdot4^n-1=4(4^n-1)+3$.",
-                "Both terms are divisible by $3$, so $4^{n+1}-1$ is divisible by $3$."
-            ]
-        },
-        {
-            "id": 38,
-            "topic": "Mathematical Induction",
-            "title": "Sum of the cubes of the first $n$ natural numbers",
-            "description": "Prove by mathematical induction: $\\sum_{k=1}^n k^3 = \\left(\\frac{n(n+1)}{2}\\right)^2$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $1^3=1$ and $(\\frac{1\\cdot2}{2})^2=1$.",
-                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n \\geq 1$.",
-                "Inductive Step: Show the statement for $n+1$:",
-                "$\\sum_{k=1}^{n+1}k^3=\\left(\\sum_{k=1}^n k^3\\right)+(n+1)^3$",
-                "$=\\left(\\frac{n(n+1)}{2}\\right)^2+(n+1)^3$",
-                "After transformation, we obtain $(\\frac{(n+1)(n+2)}{2})^2$."
-            ]
-        },
-        {
-            "id": 39,
-            "topic": "Mathematical Induction",
-            "title": "Inequality $n! > 2^n$",
-            "description": "Prove by mathematical induction: $n! > 2^n$ for $n \\geq 5$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Base Case: For $n=5$, it holds: $5! = 120 > 32 = 2^5$.",
-                "Inductive Hypothesis: Assume $n! > 2^n$ holds for an arbitrary $n \\geq 5$.",
-                "Inductive Step: Show $(n+1)! > 2^{n+1}$:",
-                "$(n+1)! = (n+1) \\cdot n! > (n+1) \\cdot 2^n$ (by IH).",
-                "For $n+1 \\geq 6$ for $n \\geq 5$, $(n+1) \\cdot 2^n > 2^{n+1}$."
-            ]
-        },
-        {
-            "id": 40,
-            "topic": "Mathematical Induction",
-            "title": "Sum of the reciprocals",
-            "description": "Prove: $\\sum_{k=1}^n \\frac{1}{k(k+1)}=\\frac{n}{n+1}$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $\\frac{1}{1\\cdot2}=\\frac{1}{2}=\\frac{1}{1+1}$.",
-                "Inductive Hypothesis: Assume $\\sum_{k=1}^n \\frac{1}{k(k+1)}=\\frac{n}{n+1}$.",
-                "Inductive Step: Show the statement for $n+1$:",
-                "$\\frac{n}{n+1}+\\frac{1}{(n+1)(n+2)}=\\frac{n(n+2)+1}{(n+1)(n+2)}$",
-                "$=\\frac{(n+1)^2}{(n+1)(n+2)}=\\frac{n+1}{n+2}$."
-            ]
-        },
-        {
-            "id": 41,
-            "topic": "Mathematical Induction",
-            "title": "Divisibility by 11",
-            "description": "Prove: $10^{2n}-1$ is divisible by $11$ for all $n\\in\\mathbb{N}$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $10^2-1=99$ is divisible by $11$.",
-                "Inductive Hypothesis: Assume $10^{2n}-1$ is divisible by $11$.",
-                "Inductive Step: Show $10^{2(n+1)}-1$.",
-                "$10^{2(n+1)}-1=(10^2)^n\\cdot100-1=100(10^{2n}-1)+99$.",
-                "Both terms are divisible by $11$."
-            ]
-        },
-        {
-            "id": 42,
-            "topic": "Mathematical Induction",
-            "title": "Recursively defined sequence",
-            "description": "Show: $a_n=3^n-2^n$ satisfies the recursion $a_{n+1}=5a_n+6\\cdot2^n$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Base Case: Calculation for $n=1$ and $n=2$ agree.",
-                "Inductive Hypothesis: Assume $a_n=3^n-2^n$ holds for an arbitrary $n$.",
-                "Inductive Step: $a_{n+1}=3^{n+1}-2^{n+1}=3\\cdot3^n-2\\cdot2^n$",
-                "$=3(3^n-2^n)+5\\cdot2^n=5a_n+6\\cdot2^n$."
-            ]
-        },
-        {
-            "id": 43,
-            "topic": "Mathematical Induction",
-            "title": "Inequality $n^2 < 2^n$",
-            "description": "Prove by mathematical induction: $n^2<2^n$ for all $n\\geq5$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Base Case: For $n=5$, it holds: $5^2=25<32=2^5$.",
-                "Inductive Hypothesis: Assume $n^2<2^n$ holds for an arbitrary $n\\geq5$.",
-                "Inductive Step: Show $(n+1)^2<2^{n+1}$.",
-                "Calculation and estimation lead to the proof."
-            ]
-        },
-        {
-            "id": 44,
-            "topic": "Mathematical Induction",
-            "title": "Product of the first $n$ odd numbers",
-            "description": "Prove: $\\prod_{k=1}^n (2k-1)=\\frac{(2n)!}{2^n n!}$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $1=\\frac{2!}{2^1\\cdot1!}=1$.",
-                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n$.",
-                "Inductive Step: Show the statement for $n+1$.",
-                "Expanding and simplifying leads to the desired form."
-            ]
-        },
-        {
-            "id": 45,
-            "topic": "Mathematical Induction",
-            "title": "Sum of the first $n$ even numbers",
-            "description": "Prove by mathematical induction: $\\sum_{k=1}^n 2k = n(n+1)$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $2=1\\cdot2=1(1+1)=2$.",
-                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n \\geq 1$.",
-                "Inductive Step: Show the statement for $n+1$:",
-                "$\\sum_{k=1}^{n+1} 2k = \\left(\\sum_{k=1}^n 2k\\right) + 2(n+1) = n(n+1) + 2(n+1)$",
-                "$= (n+1)(n+2)$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 46,
-            "topic": "Mathematical Induction",
-            "title": "Sum of the first $n$ multiples of 3",
-            "description": "Prove by mathematical induction: $\\sum_{k=1}^n 3k = \\frac{3n(n+1)}{2}$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $3=\\frac{3\\cdot1\\cdot2}{2}=3$.",
-                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n \\geq 1$.",
-                "Inductive Step: Show the statement for $n+1$:",
-                "$\\sum_{k=1}^{n+1} 3k = \\left(\\sum_{k=1}^n 3k\\right) + 3(n+1) = \\frac{3n(n+1)}{2} + 3(n+1)$",
-                "$= \\frac{3n(n+1)+6(n+1)}{2} = \\frac{3(n+1)(n+2)}{2}$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 47,
-            "topic": "Mathematical Induction",
-            "title": "Sum of the squares of the first $n$ natural numbers",
-            "description": "Prove by mathematical induction: $\\left(\\sum_{k=1}^n k\\right)^2 = \\sum_{k=1}^n k^3$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $1^2=1^3=1$.",
-                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n \\geq 1$.",
-                "Inductive Step: Show the statement for $n+1$:",
-                "$\\left(\\sum_{k=1}^{n+1} k\\right)^2 = (\\sum_{k=1}^n k + (n+1))^2 = (S_n + n+1)^2$",
-                "$= S_n^2 + 2S_n(n+1) + (n+1)^2$",
-                "By Inductive Hypothesis: $S_n^2 = \\sum_{k=1}^n k^3$",
-                "Thus: $\\sum_{k=1}^{n+1} k^3 = \\sum_{k=1}^n k^3 + (n+1)^3$",
-                "Comparison shows equality."
-            ]
-        },
-        {
-            "id": 48,
-            "topic": "Mathematical Induction",
-            "title": "Divisibility of $9^n-1$ by 8",
-            "description": "Prove: $9^n-1$ is divisible by $8$ for all $n \\in \\mathbb{N}$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $9^1-1=8$ is divisible by $8$.",
-                "Inductive Hypothesis: Assume $9^n-1$ is divisible by $8$.",
-                "Inductive Step: $9^{n+1}-1=9\\cdot9^n-1=9(9^n-1)+8$.",
-                "Both terms $9(9^n-1)$ and $8$ are divisible by $8$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 49,
-            "topic": "Mathematical Induction",
-            "title": "Sum of the first $n$ triangular numbers",
-            "description": "Prove: $\\sum_{k=1}^n \\frac{k(k+1)}{2} = \\frac{n(n+1)(n+2)}{6}$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $\\frac{1\\cdot2}{2}=1=\\frac{1\\cdot2\\cdot3}{6}$.",
-                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n \\geq 1$.",
-                "Inductive Step: $\\sum_{k=1}^{n+1} \\frac{k(k+1)}{2} = \\frac{n(n+1)(n+2)}{6} + \\frac{(n+1)(n+2)}{2}$",
-                "$= \\frac{n(n+1)(n+2)+3(n+1)(n+2)}{6}$",
-                "$= \\frac{(n+1)(n+2)(n+3)}{6}$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 50,
-            "topic": "Mathematical Induction",
-            "title": "Divisibility of $5^n-1$ by 4",
-            "description": "Prove: $5^n-1$ is divisible by $4$ for all $n \\geq 1$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $5^1-1=4$ is divisible by $4$.",
-                "Inductive Hypothesis: Assume $5^n-1$ is divisible by $4$.",
-                "Inductive Step: $5^{n+1}-1=5\\cdot5^n-1=5(5^n-1)+4$.",
-                "Both terms are divisible by $4$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 51,
-            "topic": "Mathematical Induction",
-            "title": "Sum of the first $n$ numbers with step 2",
-            "description": "Prove: $\\sum_{k=1}^n (2k) = n(n+1)$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $2=1\\cdot2=1(1+1)=2$.",
-                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n \\geq 1$.",
-                "Inductive Step: $\\sum_{k=1}^{n+1} 2k = n(n+1) + 2(n+1) = (n+1)(n+2)$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 52,
-            "topic": "Mathematical Induction",
-            "title": "Sum of the first $n$ numbers with step 3",
-            "description": "Prove: $\\sum_{k=1}^n (3k) = \\frac{3n(n+1)}{2}$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $3=\\frac{3\\cdot1\\cdot2}{2}=3$.",
-                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n \\geq 1$.",
-                "Inductive Step: $\\sum_{k=1}^{n+1} 3k = \\frac{3n(n+1)}{2} + 3(n+1) = \\frac{3(n+1)(n+2)}{2}$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 53,
-            "topic": "Mathematical Induction",
-            "title": "Sum of the squares of the first $n$ natural numbers plus $n$",
-            "description": "Prove by mathematical induction: $\\sum_{k=1}^n (k^2 + k) = \\frac{n(n+1)(n+2)}{3}$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $1^2+1=2=\\frac{1\\cdot2\\cdot3}{3}=2$.",
-                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n \\geq 1$.",
-                "Inductive Step: $\\sum_{k=1}^{n+1} (k^2 + k) = \\frac{n(n+1)(n+2)}{3} + (n+1)^2 + (n+1)$",
-                "$= \\frac{n(n+1)(n+2) + 3(n+1)^2 + 3(n+1)}{3}$",
-                "$= \\frac{n(n+1)(n+2) + 3(n+1)(n+2)}{3}$",
-                "$= \\frac{(n+1)(n+2)(n+3)}{3}$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 54,
-            "topic": "Mathematical Induction",
-            "title": "Inequality $3^n > 2n+1$",
-            "description": "Prove by mathematical induction: $3^n > 2n+1$ for all $n \\geq 2$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Base Case: For $n=2$, it holds: $3^2=9 > 5=2\\cdot2+1$.",
-                "Inductive Hypothesis: Assume $3^n > 2n+1$ holds for an arbitrary $n \\geq 2$.",
-                "Inductive Step: Show $3^{n+1} > 2(n+1)+1$:",
-                "$3^{n+1} = 3\\cdot3^n > 3(2n+1)$ (by IH).",
-                "$= 6n+3$.",
-                "To show: $6n+3 \\geq 2n+3$ for $n \\geq 2$.",
-                "This holds for $n \\geq 2$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 55,
-            "topic": "Mathematical Induction",
-            "title": "Sum of the squares of the first $n$ odd numbers",
-            "description": "Prove: $\\sum_{k=1}^n (2k-1)^2 = \\frac{n(4n^2-1)}{3}$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $(2\\cdot1-1)^2=1=\\frac{1\\cdot(4\\cdot1^2-1)}{3}=1$.",
-                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n \\geq 1$.",
-                "Inductive Step: $\\sum_{k=1}^{n+1} (2k-1)^2 = \\frac{n(4n^2-1)}{3} + (2(n+1)-1)^2$",
-                "$= \\frac{n(4n^2-1) + (2n+1)^2\\cdot3}{3}$",
-                "$= \\frac{n(4n^2-1) + 4n^2+4n+1}{3}$",
-                "After transformation, we obtain $\\frac{(n+1)(4(n+1)^2-1)}{3}$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 56,
-            "topic": "Mathematical Induction",
-            "title": "Divisibility of $2^{2n}-1$ by 3",
-            "description": "Prove: $2^{2n}-1$ is divisible by $3$ for all $n \\geq 1$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $2^2-1=3$ is divisible by $3$.",
-                "Inductive Hypothesis: Assume $2^{2n}-1$ is divisible by $3$.",
-                "Inductive Step: $2^{2(n+1)}-1=4\\cdot2^{2n}-1=4(2^{2n}-1)+3$.",
-                "Both terms are divisible by $3$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 57,
-            "topic": "Mathematical Induction",
-            "title": "Sum of the first $n$ numbers with step 4",
-            "description": "Prove: $\\sum_{k=1}^n (4k) = 2n(n+1)$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $4=2\\cdot1\\cdot2=2$.",
-                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n \\geq 1$.",
-                "Inductive Step: $\\sum_{k=1}^{n+1} 4k = 2n(n+1) + 4(n+1) = 2(n+1)(n+2)$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 58,
-            "topic": "Mathematical Induction",
-            "title": "Inequality $n^3 < 2^n$",
-            "description": "Prove by mathematical induction: $n^3 < 2^n$ for all $n \\geq 10$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Base Case: For $n=10$, it holds: $10^3=1000 < 1024=2^{10}$.",
-                "Inductive Hypothesis: Assume $n^3 < 2^n$ holds for an arbitrary $n \\geq 10$.",
-                "Inductive Step: Show $(n+1)^3 < 2^{n+1}$.",
-                "Calculation and estimation lead to the proof.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 59,
-            "topic": "Mathematical Induction",
-            "title": "Sum of the first $n$ powers of 5",
-            "description": "Prove: $\\sum_{k=1}^n 5^k = \\frac{5^{n+1}-5}{4}$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $5^1=5=\\frac{5^2-5}{4}=5$.",
-                "Inductive Hypothesis: Assume the statement holds for an arbitrary $n \\geq 1$.",
-                "Inductive Step: $\\sum_{k=1}^{n+1} 5^k = \\frac{5^{n+1}-5}{4} + 5^{n+1}$",
-                "$= \\frac{5^{n+1}-5+4\\cdot5^{n+1}}{4}$",
-                "$= \\frac{5^{n+2}-5}{4}$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 60,
-            "topic": "Mathematical Induction",
-            "title": "Divisibility of $n^3-n$ by 6",
-            "description": "Prove: $n^3-n$ is divisible by $6$ for all $n \\geq 1$.",
-            "difficulty": "medium",
-            "points": 10,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $1^3-1=0$ is divisible by $6$.",
-                "Inductive Hypothesis: Assume $n^3-n$ is divisible by $6$.",
-                "Inductive Step: $(n+1)^3-(n+1) = n^3+3n^2+3n+1-(n+1) = n^3-n+3n^2+3n$.",
-                "By IH, $n^3-n$ is divisible by $6$, $3n^2+3n$ is divisible by $6$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 61,
-            "topic": "Mathematical Induction",
-            "title": "Inequality $n! > n^2$ for $n \\geq 5$",
-            "description": "Prove by mathematical induction: $n! > n^2$ for all $n \\geq 5$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Base Case: For $n=5$, it holds: $5! = 120 > 25 = 5^2$.",
-                "Inductive Hypothesis: Assume $n! > n^2$ holds for an arbitrary $n \\geq 5$.",
-                "Inductive Step: Show $(n+1)! > (n+1)^2$:",
-                "$(n+1)! = (n+1) \\cdot n! > (n+1) \\cdot n^2$ (by IH).",
-                "For $n+1 \\geq 6$ for $n \\geq 5$, $(n+1) \\cdot n^2 > (n+1)^2$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 62,
-            "topic": "Mathematical Induction",
-            "title": "Inequality $2^n > n^3$ for $n \\geq 10$",
-            "description": "Prove by mathematical induction: $2^n > n^3$ for all $n \\geq 10$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Base Case: For $n=10$, it holds: $2^{10} = 1024 > 1000 = 10^3$.",
-                "Inductive Hypothesis: Assume $2^n > n^3$ holds for an arbitrary $n \\geq 10$.",
-                "Inductive Step: Show $2^{n+1} > (n+1)^3$:",
-                "$2^{n+1} = 2 \\cdot 2^n > 2n^3$ (by IH).",
-                "For $n \\geq 10$, it holds: $2n^3 > (n+1)^3$.",
-                "Since $2n^3 - (n+1)^3 = n^3 - 3n^2 - 3n - 1 > 0$ for $n \\geq 10$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 63,
-            "topic": "Mathematical Induction",
-            "title": "Divisibility of $n^5-n$ by 30",
-            "description": "Prove: $n^5-n$ is divisible by $30$ for all $n \\geq 1$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $1^5-1=0$ is divisible by $30$.",
-                "Inductive Hypothesis: Assume $n^5-n$ is divisible by $30$.",
-                "Inductive Step: $(n+1)^5-(n+1) = n^5+5n^4+10n^3+10n^2+5n+1-(n+1)$.",
-                "$= n^5-n + 5n^4+10n^3+10n^2+5n$.",
-                "Each term is divisible by $30$ for $n \\geq 1$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 64,
-            "topic": "Mathematical Induction",
-            "title": "Inequality $n! > 2^n$ for $n \\geq 4$",
-            "description": "Prove by mathematical induction: $n! > 2^n$ for all $n \\geq 4$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Base Case: For $n=4$, it holds: $4! = 24 > 16 = 2^4$.",
-                "Inductive Hypothesis: Assume $n! > 2^n$ holds for an arbitrary $n \\geq 4$.",
-                "Inductive Step: Show $(n+1)! > 2^{n+1}$:",
-                "$(n+1)! = (n+1) \\cdot n! > (n+1) \\cdot 2^n$ (by IH).",
-                "For $n+1 \\geq 5$, it holds: $(n+1) \\cdot 2^n > 2^{n+1}$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 65,
-            "topic": "Mathematical Induction",
             "title": "Sum of the first $n$ binomial coefficients",
             "description": "Prove: $\\sum_{k=0}^n \\binom{n}{k} = 2^n$.",
             "difficulty": "hard",
@@ -623,7 +558,7 @@
             ]
         },
         {
-            "id": 66,
+            "id": 37,
             "topic": "Mathematical Induction",
             "title": "Inequality $n^n > n!$ for $n \\geq 4$",
             "description": "Prove by mathematical induction: $n^n > n!$ for all $n \\geq 4$.",
@@ -634,36 +569,6 @@
                 "Inductive Hypothesis: Assume $n^n > n!$ holds for an arbitrary $n \\geq 4$.",
                 "Inductive Step: Show $(n+1)^{n+1} > (n+1)!$:",
                 "$(n+1)^{n+1} = (n+1) \\cdot (n+1)^n > (n+1) \\cdot n! = (n+1)!$ (by IH).",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 67,
-            "topic": "Mathematical Induction",
-            "title": "Divisibility of $7^n+2^n$ by 3",
-            "description": "Prove: $7^n+2^n$ is divisible by $3$ for all $n \\geq 1$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Base Case: For $n=1$, it holds: $7^1+2^1=9$ is divisible by $3$.",
-                "Inductive Hypothesis: Assume $7^n+2^n$ is divisible by $3$.",
-                "Inductive Step: $7^{n+1}+2^{n+1}=7\\cdot7^n+2\\cdot2^n=7(7^n+2^n)-7\\cdot2^n+2\\cdot2^n$.",
-                "Both terms are divisible by $3$.",
-                "Thus, the statement is proven."
-            ]
-        },
-        {
-            "id": 68,
-            "topic": "Mathematical Induction",
-            "title": "Inequality $n^4 > 4^n$ for $n \\geq 9$",
-            "description": "Prove by mathematical induction: $n^4 > 4^n$ for all $n \\geq 17$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Base Case: For $n=9$, it holds: $9^4=6561 > 262144=4^9$ is false, hence check from $n=17$.",
-                "Inductive Hypothesis: Assume $n^4 > 4^n$ holds for an arbitrary $n \\geq 17$.",
-                "Inductive Step: Show $(n+1)^4 > 4^{n+1}$.",
-                "Calculation and estimation lead to the proof.",
                 "Thus, the statement is proven."
             ]
         }

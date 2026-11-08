@@ -3,6 +3,83 @@
         {
             "id": 1,
             "topic": "Multivariable Calculus",
+            "title": "Partial derivatives",
+            "description": "Compute all first-order partial derivatives of $f(x,y) = x^2y^3 + 2x - y$ and evaluate them at $(1,2)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nFor the partial derivative with respect to $x$ one treats $y$ as a constant and differentiates with respect to $x$, and vice versa. The same rules as in one variable apply.",
+                "Step 2: $\\frac{\\partial f}{\\partial x}$\n$y$ constant: $\\frac{\\partial f}{\\partial x} = 2xy^3 + 2$.",
+                "Step 3: $\\frac{\\partial f}{\\partial y}$\n$x$ constant: $\\frac{\\partial f}{\\partial y} = 3x^2y^2 - 1$.",
+                "Step 4: Evaluate at $(1,2)$\n$f_x(1,2) = 2\\cdot1\\cdot8 + 2 = 18$, $f_y(1,2) = 3\\cdot1\\cdot4 - 1 = 11$.",
+                "Step 5: Check\n$f(1,2) = 8 + 2 - 2 = 8$; $f(1.001, 2) = 8.016024 + 2.002 - 2 = 8.018$ — increase $\\approx 0.018 = 18\\cdot0.001$ ✓.",
+                "Step 6: Takeaway: What to remember\nThe partial derivative $f_x$ is the slope in the $x$-direction at fixed $y$ (section of the surface with the plane $y = \\text{const}$). All variables except the differentiation variable stay constants."
+            ]
+        },
+        {
+            "id": 2,
+            "topic": "Multivariable Calculus",
+            "title": "Gradient",
+            "description": "Compute the gradient of $f(x,y) = x^2 + xy$ at $(1,2)$ and its magnitude. In which direction does $f$ increase most at that point?",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe gradient $\\nabla f = (f_x, f_y)$ points in the direction of steepest ascent; its magnitude is the maximal rate of change.",
+                "Step 2: Partial derivatives\n$f_x = 2x + y$, $f_y = x$.",
+                "Step 3: Gradient at $(1,2)$\n$\\nabla f(1,2) = (2 + 2,\\ 1) = (4,1)$.",
+                "Step 4: Magnitude and direction\n$|\\nabla f| = \\sqrt{16 + 1} = \\sqrt{17} \\approx 4.12$. Steepest ascent in direction $\\frac{1}{\\sqrt{17}}(4,1)$ with rate of change $\\sqrt{17}$.",
+                "Step 5: Check\nA step of $0.01$ in this direction: $(1.00970; 2.00243)$; $f \\approx 1.0195 + 2.0217 = 3.0412$, increase over $f(1,2) = 3$ is $0.0412 \\approx 4.12\\cdot0.01$ ✓.",
+                "Step 6: Takeaway: What to remember\nThe gradient is perpendicular to the level curves $f = \\text{const}$. In direction $-\\nabla f$, $f$ decreases most steeply (gradient descent)."
+            ]
+        },
+        {
+            "id": 3,
+            "topic": "Multivariable Calculus",
+            "title": "Mixed and higher derivatives",
+            "description": "Compute all second-order partial derivatives of $f(x,y) = x^3y$ and confirm Schwarz's theorem.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nOne first differentiates with respect to one variable and then differentiates the result again. Schwarz's theorem says: if the second derivatives are continuous then $f_{xy} = f_{yx}$ (the order does not matter).",
+                "Step 2: First derivatives\n$f_x = 3x^2y$, $f_y = x^3$.",
+                "Step 3: Second derivatives\n$f_{xx} = 6xy$, $f_{yy} = 0$, $f_{xy} = \\frac{\\partial}{\\partial y}(3x^2y) = 3x^2$, $f_{yx} = \\frac{\\partial}{\\partial x}(x^3) = 3x^2$.",
+                "Step 4: Schwarz\n$f_{xy} = f_{yx} = 3x^2$ ✓. The Hessian matrix $\\begin{pmatrix}6xy & 3x^2\\\\ 3x^2 & 0\\end{pmatrix}$ is symmetric.",
+                "Step 5: Takeaway: What to remember\nThe notation $f_{xy}$ means “first $x$ then $y$” or vice versa depending on the book — for $C^2$ functions it does not matter. The Hessian describes curvature and is the basis of classifying extrema."
+            ]
+        },
+        {
+            "id": 4,
+            "topic": "Multivariable Calculus",
+            "title": "Tangent plane",
+            "description": "Determine the tangent plane to $f(x,y) = x^2 + y^2$ at the point $(1,1)$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe tangent plane is the best linear approximation: $z = f(a,b) + f_x(a,b)(x - a) + f_y(a,b)(y - b)$. We need the function value and both partial derivatives at the point.",
+                "Step 2: Values at the point\n$f(1,1) = 2$, $f_x = 2x \\Rightarrow f_x(1,1) = 2$, $f_y = 2y \\Rightarrow f_y(1,1) = 2$.",
+                "Step 3: Plane\n$z = 2 + 2(x - 1) + 2(y - 1) = 2x + 2y - 2$.",
+                "Step 4: Approximation\nFor $(1.1; 0.9)$: plane $2.2 + 1.8 - 2 = 2$; exact $1.21 + 0.81 = 2.02$. Error $0.02$ (second order) ✓.",
+                "Step 5: Takeaway: What to remember\nThe normal vector of the tangent plane is $(f_x, f_y, -1) = (2,2,-1)$. With the plane one can estimate function values near $(1,1)$ linearly (total differential $dz = f_xdx + f_ydy$)."
+            ]
+        },
+        {
+            "id": 5,
+            "topic": "Multivariable Calculus",
+            "title": "Level curves",
+            "description": "Describe the level curves $f(x,y) = c$ of $f(x,y) = x^2 + y^2$ and $g(x,y) = x - 2y$ for $c = 0, 1, 4$.",
+            "difficulty": "easy",
+            "points": 5,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nA **level curve** consists of all points where the function takes the same value $c$ (contour lines of a map). One solves $f(x,y) = c$ for a variable or recognises the curve.",
+                "Step 2: $f = x^2 + y^2$\n$x^2 + y^2 = c$: for $c = 0$ only the point $(0,0)$; for $c = 1$ the unit circle; for $c = 4$ the circle of radius $2$. Concentric circles (radius $\\sqrt c$) — a paraboloid.",
+                "Step 3: $g = x - 2y$\n$x - 2y = c \\iff y = \\frac{x - c}{2}$: parallel lines with slope $\\frac12$ (e.g. $c = 0$: $y = \\frac x2$; $c = 1$: $y = \\frac{x-1}{2}$; $c = 4$: $y = \\frac{x-4}{2}$). A plane.",
+                "Step 4: Gradient and level curves\n$\\nabla g = (1,-2)$ is perpendicular to the lines (direction $(2,1)$): $(1,-2)\\cdot(2,1) = 0$ ✓. For $f$, $\\nabla f = (2x,2y)$ points radially outward, perpendicular to the circles.",
+                "Step 5: Takeaway: What to remember\nLevel curves make functions of two variables visible. Dense lines mean steep terrain (large gradient)."
+            ]
+        },
+        {
+            "id": 6,
+            "topic": "Multivariable Calculus",
             "title": "Partial Derivatives of a Polynomial Function",
             "description": "Calculate the first-order partial derivatives of the function $f(x,y) = x^2y + 3xy^2 - 2x + y$.",
             "difficulty": "easy",
@@ -16,7 +93,7 @@
             ]
         },
         {
-            "id": 2,
+            "id": 7,
             "topic": "Multivariable Calculus",
             "title": "Partial Derivatives of an Exponential Function",
             "description": "Calculate the first-order partial derivatives of the function $f(x,y) = e^{x^2 + y^2}$.",
@@ -31,7 +108,7 @@
             ]
         },
         {
-            "id": 3,
+            "id": 8,
             "topic": "Multivariable Calculus",
             "title": "Partial Derivatives of a Trigonometric Function",
             "description": "Calculate the first-order partial derivatives of the function $f(x,y) = \\sin(xy)$.",
@@ -46,7 +123,7 @@
             ]
         },
         {
-            "id": 4,
+            "id": 9,
             "topic": "Multivariable Calculus",
             "title": "Partial Derivatives of a Square Root Function",
             "description": "Calculate the first-order partial derivatives of the function $f(x,y) = \\sqrt{x^2 + y^2}$.",
@@ -61,7 +138,7 @@
             ]
         },
         {
-            "id": 5,
+            "id": 10,
             "topic": "Multivariable Calculus",
             "title": "Partial Derivatives of a Logarithmic Function",
             "description": "Calculate the first-order partial derivatives of the function $f(x,y) = \\ln(x^2 + y^2)$.",
@@ -76,22 +153,7 @@
             ]
         },
         {
-            "id": 6,
-            "topic": "Multivariable Calculus",
-            "title": "Partial Derivatives of a Product Function",
-            "description": "Calculate the first-order partial derivatives of the function $f(x,y) = x\\sin(y)$.",
-            "difficulty": "easy",
-            "points": 5,
-            "solutionSteps": [
-                "Step 1: Analysis of the Function\nThe function $f(x,y)$ is a product of a linear and a trigonometric function.",
-                "Step 2: Calculation of the Partial Derivative with Respect to x\n$\\frac{\\partial f}{\\partial x} = \\sin(y)$\nExplanation: We differentiate with respect to x, treating y as a constant.",
-                "Step 3: Calculation of the Partial Derivative with Respect to y\n$\\frac{\\partial f}{\\partial y} = x\\cos(y)$\nExplanation: We differentiate with respect to y, treating x as a constant.",
-                "Step 4: Verification\nWe verify the results by substituting test values:\nFor $(x,y) = (2,\\frac{\\pi}{2})$:\n$\\frac{\\partial f}{\\partial x}(2,\\frac{\\pi}{2}) = 1$\n$\\frac{\\partial f}{\\partial y}(2,\\frac{\\pi}{2}) = 0$",
-                "Step 5: Summary\nThe partial derivatives are:\n$\\frac{\\partial f}{\\partial x} = \\sin(y)$\n$\\frac{\\partial f}{\\partial y} = x\\cos(y)$"
-            ]
-        },
-        {
-            "id": 7,
+            "id": 11,
             "topic": "Multivariable Calculus",
             "title": "Partial Derivatives of a Quotient Function",
             "description": "Calculate the first-order partial derivatives of the function $f(x,y) = \\frac{x}{y}$.",
@@ -106,22 +168,85 @@
             ]
         },
         {
-            "id": 8,
+            "id": 12,
             "topic": "Multivariable Calculus",
-            "title": "Partial Derivatives of a Composite Function",
-            "description": "Calculate the first-order partial derivatives of the function $f(x,y) = e^{xy}$.",
-            "difficulty": "easy",
-            "points": 5,
+            "title": "Chain rule in several variables",
+            "description": "Compute $\\frac{d}{dt}f(x(t),y(t))$ for $f(x,y) = xy$, $x(t) = t^2$, $y(t) = \\sin t$ in two ways.",
+            "difficulty": "medium",
+            "points": 8,
             "solutionSteps": [
-                "Step 1: Analysis of the Function\nThe function $f(x,y)$ is an exponential function with a product argument.",
-                "Step 2: Calculation of the Partial Derivative with Respect to x\n$\\frac{\\partial f}{\\partial x} = ye^{xy}$\nExplanation: We apply the chain rule and differentiate with respect to x.",
-                "Step 3: Calculation of the Partial Derivative with Respect to y\n$\\frac{\\partial f}{\\partial y} = xe^{xy}$\nExplanation: We apply the chain rule and differentiate with respect to y.",
-                "Step 4: Verification\nWe verify the results by substituting test values:\nFor $(x,y) = (1,1)$:\n$\\frac{\\partial f}{\\partial x}(1,1) = e$\n$\\frac{\\partial f}{\\partial y}(1,1) = e$",
-                "Step 5: Summary\nThe partial derivatives are:\n$\\frac{\\partial f}{\\partial x} = ye^{xy}$\n$\\frac{\\partial f}{\\partial y} = xe^{xy}$"
+                "Step 1: Overview: What is asked?\nThe multidimensional chain rule reads $\\frac{d}{dt}f(x(t),y(t)) = f_x\\,\\dot x + f_y\\,\\dot y$. As a check we substitute $x(t), y(t)$ directly and differentiate with the product rule.",
+                "Step 2: Way 1: chain rule\n$f_x = y$, $f_y = x$, $\\dot x = 2t$, $\\dot y = \\cos t$. So $\\frac{df}{dt} = y\\cdot2t + x\\cos t = 2t\\sin t + t^2\\cos t$.",
+                "Step 3: Way 2: substitute\n$f(x(t),y(t)) = t^2\\sin t$, product rule: $2t\\sin t + t^2\\cos t$ ✓.",
+                "Step 4: Interpretation\nThe curve $(x(t),y(t))$ runs over the surface $z = xy$; $\\frac{df}{dt}$ is the rate of change of height along the curve, composed of the two directional parts.",
+                "Step 5: Takeaway: What to remember\nWritten with the gradient: $\\frac{d}{dt}f(\\gamma(t)) = \\nabla f(\\gamma(t))\\cdot\\dot\\gamma(t)$. Convenient for functions one does not want to express explicitly in $t$."
             ]
         },
         {
-            "id": 9,
+            "id": 13,
+            "topic": "Multivariable Calculus",
+            "title": "Local extrema in two dimensions",
+            "description": "Determine the local extrema of $f(x,y) = x^2 + y^2 - 2x + 4y$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nCandidates are critical points $\\nabla f = \\vec0$. The type is decided by the Hessian $H$: positive definite (all eigenvalues $> 0$) $\\Rightarrow$ minimum, negative definite $\\Rightarrow$ maximum, indefinite $\\Rightarrow$ saddle.",
+                "Step 2: Critical point\n$f_x = 2x - 2 = 0 \\Rightarrow x = 1$; $f_y = 2y + 4 = 0 \\Rightarrow y = -2$. Only critical point: $(1,-2)$.",
+                "Step 3: Hessian\n$H = \\begin{pmatrix}f_{xx} & f_{xy}\\\\ f_{yx} & f_{yy}\\end{pmatrix} = \\begin{pmatrix}2 & 0\\\\ 0 & 2\\end{pmatrix}$. Eigenvalues $2, 2 > 0$: positive definite.",
+                "Step 4: Type and value\nLocal (even global) **minimum** at $(1,-2)$ with $f(1,-2) = 1 + 4 - 2 - 8 = -5$.",
+                "Step 5: Check by completing the square\n$f = (x-1)^2 + (y+2)^2 - 5 \\geq -5$ with equality only at $(1,-2)$ ✓.",
+                "Step 6: Takeaway: What to remember\nFor $2\\times2$: with $D = f_{xx}f_{yy} - f_{xy}^2$: $D > 0$ and $f_{xx} > 0$ minimum; $D > 0$ and $f_{xx} < 0$ maximum; $D < 0$ saddle; $D = 0$ inconclusive."
+            ]
+        },
+        {
+            "id": 14,
+            "topic": "Multivariable Calculus",
+            "title": "Directional derivative",
+            "description": "Compute the directional derivative of $f(x,y) = xy$ at the point $(2,1)$ in the direction $\\vec v = (3,4)$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe directional derivative in the direction of a **unit vector** $\\vec e$ is $D_{\\vec e}f = \\nabla f\\cdot\\vec e$. First $\\vec v$ must be normalised.",
+                "Step 2: Gradient\n$\\nabla f = (y, x)$, so $\\nabla f(2,1) = (1,2)$.",
+                "Step 3: Normalise\n$|\\vec v| = 5$, so $\\vec e = \\left(\\frac35,\\frac45\\right)$.",
+                "Step 4: Dot product\n$D_{\\vec e}f(2,1) = (1,2)\\cdot\\left(\\frac35,\\frac45\\right) = \\frac35 + \\frac85 = \\frac{11}5 = 2.2$.",
+                "Step 5: Check\nStep $0.01$ in direction $\\vec e$: $(2.006; 1.008)$, $f = 2.022048$; increase $0.022048$, divided by $0.01$: $2.2048 \\approx 2.2$ ✓.",
+                "Step 6: Takeaway: What to remember\nThe directional derivative is maximal in direction $\\nabla f$ (value $|\\nabla f| = \\sqrt5 \\approx 2.24$), zero perpendicular to it. If $\\vec v$ is not normalised the values are $5$ times too large."
+            ]
+        },
+        {
+            "id": 15,
+            "topic": "Multivariable Calculus",
+            "title": "Constrained extrema (Lagrange)",
+            "description": "Determine the maximum of $f(x,y) = xy$ subject to the constraint $x + y = 10$ using Lagrange multipliers and compare with the substitution method.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nAt an extremum under the constraint $g(x,y) = 0$ the gradients are parallel: $\\nabla f = \\lambda\\nabla g$. Together with $g = 0$ this gives a system for $x,y,\\lambda$.",
+                "Step 2: Lagrange equations\n$g = x + y - 10$. $\\nabla f = (y,x)$, $\\nabla g = (1,1)$. So $y = \\lambda$, $x = \\lambda$, $x + y = 10$.",
+                "Step 3: Solution\n$x = y = \\lambda$ and $2\\lambda = 10$: $x = y = 5$, $f = 25$.",
+                "Step 4: Check by substitution\n$y = 10 - x$: $h(x) = x(10 - x) = 10x - x^2$, $h'(x) = 10 - 2x = 0 \\Rightarrow x = 5$, $h'' = -2 < 0$: maximum $25$ ✓.",
+                "Step 5: Meaning of $\\lambda$\n$\\lambda = 5$ indicates how strongly the maximal value changes when the constraint is slightly changed ($x + y = 10 + \\delta$ changes the maximum by $\\approx 5\\delta$; indeed $\\left(\\frac{10+\\delta}{2}\\right)^2 \\approx 25 + 5\\delta$).",
+                "Step 6: Takeaway: What to remember\nThe Lagrange method is superior when the constraint cannot be solved for one variable. Geometrically the level curve of $f$ touches the curve $g = 0$ at the optimum."
+            ]
+        },
+        {
+            "id": 16,
+            "topic": "Multivariable Calculus",
+            "title": "Double integral over a rectangle",
+            "description": "Compute $\\displaystyle\\iint_R xy\\,dA$ over $R = [0,1]\\times[0,2]$ and $\\displaystyle\\iint_R(x + y)\\,dA$.",
+            "difficulty": "medium",
+            "points": 8,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nBy Fubini's theorem a double integral over a rectangle is computed as an iterated integral in either order. For product functions $f(x)g(y)$ the integral splits into a product.",
+                "Step 2: $\\iint xy\\,dA$\n$\\int_0^1x\\,dx\\cdot\\int_0^2y\\,dy = \\frac12\\cdot2 = 1$.",
+                "Step 3: $\\iint(x+y)\\,dA$\n$\\int_0^1\\int_0^2(x + y)\\,dy\\,dx = \\int_0^1\\left[xy + \\frac{y^2}{2}\\right]_0^2dx = \\int_0^1(2x + 2)\\,dx = \\left[x^2 + 2x\\right]_0^1 = 3$.",
+                "Step 4: Check with swapped order\n$\\int_0^2\\int_0^1(x+y)\\,dx\\,dy = \\int_0^2\\left(\\frac12 + y\\right)dy = 1 + 2 = 3$ ✓.",
+                "Step 5: Takeaway: What to remember\nThe double integral is the volume under the surface $z = f(x,y)$ over the region. For $\\iint(x+y)$ linearity gives a check too: $\\iint x = 2\\cdot\\frac12 = 1$, $\\iint y = 1\\cdot2 = 2$, sum $3$."
+            ]
+        },
+        {
+            "id": 17,
             "topic": "Multivariable Calculus",
             "title": "Partial Derivatives",
             "description": "Calculate all first- and second-order partial derivatives of the function $f(x,y) = x^2y + \\sin(xy)$.",
@@ -135,7 +260,7 @@
             ]
         },
         {
-            "id": 10,
+            "id": 18,
             "topic": "Multivariable Calculus",
             "title": "Gradient and Directional Derivative",
             "description": "Calculate the gradient of the function $f(x,y,z) = x^2 + y^2 + z^2$ at the point $(1,2,3)$ and the directional derivative in the direction of the vector $\\vec{v} = (1,1,1)$.",
@@ -149,49 +274,7 @@
             ]
         },
         {
-            "id": 11,
-            "topic": "Multivariable Calculus",
-            "title": "Extremum Problems",
-            "description": "Find the local extrema of the function $f(x,y) = x^3 + y^3 - 3xy$ and determine their nature.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Step 1: Critical Points\n$\\frac{\\partial f}{\\partial x} = 3x^2 - 3y = 0$\n$\\frac{\\partial f}{\\partial y} = 3y^2 - 3x = 0$\nSolution: $(0,0)$ and $(1,1)$",
-                "Step 2: Hessian Matrix\n$H_f = \\begin{pmatrix} 6x & -3 \\\\ -3 & 6y \\end{pmatrix}$",
-                "Step 3: Determinant and Trace\n$\\det(H_f) = 36xy - 9$\n$\\text{tr}(H_f) = 6(x+y)$",
-                "Step 4: Classification\n$(0,0)$: $\\det(H_f) = -9 < 0$ (saddle point)\n$(1,1)$: $\\det(H_f) = 27 > 0$, $\\text{tr}(H_f) = 12 > 0$ (minimum)"
-            ]
-        },
-        {
-            "id": 12,
-            "topic": "Multivariable Calculus",
-            "title": "Multiple Integrals",
-            "description": "Calculate the double integral $\\iint_D (x^2 + y^2) dxdy$ over the region $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid 0 \\leq x \\leq 1, 0 \\leq y \\leq x\\}$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Step 1: Integration Limits\n$\\int_0^1 \\int_0^x (x^2 + y^2) dy dx$",
-                "Step 2: Inner Integration\n$\\int_0^x (x^2 + y^2) dy = x^2y + \\frac{y^3}{3}|_0^x = x^3 + \\frac{x^3}{3} = \\frac{4}{3}x^3$",
-                "Step 3: Outer Integration\n$\\int_0^1 \\frac{4}{3}x^3 dx = \\frac{4}{3} \\cdot \\frac{x^4}{4}|_0^1 = \\frac{1}{3}$",
-                "Step 4: Result\n$\\iint_D (x^2 + y^2) dxdy = \\frac{1}{3}$"
-            ]
-        },
-        {
-            "id": 13,
-            "topic": "Multivariable Calculus",
-            "title": "Coordinate Transformation",
-            "description": "Calculate the integral $\\iint_D \\frac{1}{\\sqrt{x^2 + y^2}} dxdy$ over the region $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid 1 \\leq x^2 + y^2 \\leq 4\\}$ by transforming to polar coordinates.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Step 1: Polar Coordinates\n$x = r\\cos(\\phi), y = r\\sin(\\phi)$\n$dxdy = r dr d\\phi$",
-                "Step 2: Integration Region\n$1 \\leq r \\leq 2, 0 \\leq \\phi \\leq 2\\pi$",
-                "Step 3: Transformation\n$\\int_0^{2\\pi} \\int_1^2 \\frac{1}{r} \\cdot r dr d\\phi = \\int_0^{2\\pi} \\int_1^2 1 dr d\\phi$",
-                "Step 4: Calculation\n$= \\int_0^{2\\pi} (2-1) d\\phi = 2\\pi$"
-            ]
-        },
-        {
-            "id": 14,
+            "id": 19,
             "topic": "Multivariable Calculus",
             "title": "Higher Partial Derivatives",
             "description": "Calculate all second-order partial derivatives of the function $f(x,y) = e^{x^2y}$.",
@@ -205,7 +288,7 @@
             ]
         },
         {
-            "id": 15,
+            "id": 20,
             "topic": "Multivariable Calculus",
             "title": "Gradient and Directional Derivative",
             "description": "Calculate the gradient of the function $f(x,y) = \\ln(x^2 + y^2)$ at the point $(1,1)$ and the directional derivative in the direction of the vector $\\vec{v} = (1,2)$.",
@@ -219,7 +302,7 @@
             ]
         },
         {
-            "id": 16,
+            "id": 21,
             "topic": "Multivariable Calculus",
             "title": "Total Differential",
             "description": "Calculate the total differential of the function $f(x,y) = \\sin(xy) + e^{x+y}$ at the point $(0,0)$.",
@@ -233,7 +316,7 @@
             ]
         },
         {
-            "id": 17,
+            "id": 22,
             "topic": "Multivariable Calculus",
             "title": "Chain Rule",
             "description": "Calculate the derivative of the function $f(x,y) = e^{x^2 + y^2}$ along the curve $x(t) = \\cos(t), y(t) = \\sin(t)$.",
@@ -247,7 +330,7 @@
             ]
         },
         {
-            "id": 18,
+            "id": 23,
             "topic": "Multivariable Calculus",
             "title": "Implicit Differentiation",
             "description": "Calculate $\\frac{dy}{dx}$ for the implicit function $x^2 + y^2 = 1$.",
@@ -261,7 +344,7 @@
             ]
         },
         {
-            "id": 19,
+            "id": 24,
             "topic": "Multivariable Calculus",
             "title": "Directional Derivative and Gradient",
             "description": "Calculate the directional derivative of the function $f(x,y) = x^2y$ at the point $(1,2)$ in the direction of the vector $\\vec{v} = (3,4)$.",
@@ -275,7 +358,7 @@
             ]
         },
         {
-            "id": 20,
+            "id": 25,
             "topic": "Multivariable Calculus",
             "title": "Higher Derivatives and Taylor Expansion",
             "description": "Calculate the second-order Taylor expansion of the function $f(x,y) = e^{x+y}$ around the point $(0,0)$.",
@@ -289,7 +372,7 @@
             ]
         },
         {
-            "id": 21,
+            "id": 26,
             "topic": "Multivariable Calculus",
             "title": "Total Differential and Error Propagation",
             "description": "Calculate the total differential of the function $f(x,y) = \\sqrt{x^2 + y^2}$ and estimate the error if $x = 3 \\pm 0.1$ and $y = 4 \\pm 0.1$.",
@@ -303,21 +386,131 @@
             ]
         },
         {
-            "id": 22,
+            "id": 27,
             "topic": "Multivariable Calculus",
-            "title": "Complex Extremum Problem with Constraints",
-            "description": "Find the extrema of the function $f(x,y,z) = x^2 + y^2 + z^2$ subject to the constraints $x + y + z = 1$ and $x^2 + y^2 = 1$.",
+            "title": "Classifying critical points",
+            "description": "Determine and classify all critical points of $f(x,y) = x^3 - 3x + y^2$.",
             "difficulty": "hard",
-            "points": 15,
+            "points": 12,
             "solutionSteps": [
-                "Step 1: Lagrange Function\n$L(x,y,z,\\lambda,\\mu) = x^2 + y^2 + z^2 + \\lambda(1-x-y-z) + \\mu(1-x^2-y^2)$",
-                "Step 2: Partial Derivatives\n$\\frac{\\partial L}{\\partial x} = 2x - \\lambda - 2\\mu x = 0$\n$\\frac{\\partial L}{\\partial y} = 2y - \\lambda - 2\\mu y = 0$\n$\\frac{\\partial L}{\\partial z} = 2z - \\lambda = 0$",
-                "Step 3: Critical Points\n$(x,y,z) = (\\frac{1}{2}, \\frac{1}{2}, 0)$ and $(x,y,z) = (-\\frac{1}{2}, -\\frac{1}{2}, 2)$",
-                "Step 4: Classification\nMinimum at $(\\frac{1}{2}, \\frac{1}{2}, 0)$\nMaximum at $(-\\frac{1}{2}, -\\frac{1}{2}, 2)$"
+                "Step 1: Overview: What is asked?\nWe solve $\\nabla f = \\vec0$ and classify each point via the eigenvalues of the Hessian (or $D = f_{xx}f_{yy} - f_{xy}^2$).",
+                "Step 2: Critical points\n$f_x = 3x^2 - 3 = 0 \\Rightarrow x = \\pm1$, $f_y = 2y = 0 \\Rightarrow y = 0$. Critical points: $(1,0)$ and $(-1,0)$.",
+                "Step 3: Hessian\n$H(x,y) = \\begin{pmatrix}6x & 0\\\\ 0 & 2\\end{pmatrix}$.",
+                "Step 4: Point $(1,0)$\n$H = \\operatorname{diag}(6,2)$, $D = 12 > 0$, $f_{xx} = 6 > 0$: local **minimum** with $f(1,0) = -2$.",
+                "Step 5: Point $(-1,0)$\n$H = \\operatorname{diag}(-6,2)$, $D = -12 < 0$, eigenvalues of different signs: **saddle point** with $f(-1,0) = 2$.",
+                "Step 6: No global extremum\nSince $f(x,0) = x^3 - 3x \\to \\pm\\infty$ for $x \\to \\pm\\infty$ there is no global extremum. The local minimum is not global.",
+                "Step 7: Takeaway: What to remember\nIn the $x$-direction $f$ behaves like $x^3 - 3x$ (maximum at $-1$, minimum at $1$), in the $y$-direction like $y^2$ (minimum). At $(-1,0)$ it is a maximum in $x$ and a minimum in $y$: a saddle."
             ]
         },
         {
-            "id": 23,
+            "id": 28,
+            "topic": "Multivariable Calculus",
+            "title": "Lagrange on the circle",
+            "description": "Determine the extrema of $f(x,y) = x + y$ on the circle $x^2 + y^2 = 2$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe circle is compact, so the continuous function $f$ attains a maximum and minimum there. We find the candidates with Lagrange: $\\nabla f = \\lambda\\nabla g$ with $g = x^2 + y^2 - 2$.",
+                "Step 2: Lagrange equations\n$\\nabla f = (1,1)$, $\\nabla g = (2x,2y)$. So $1 = 2\\lambda x$, $1 = 2\\lambda y$ and $x^2 + y^2 = 2$.",
+                "Step 3: Solving\nFrom the first two: $x = y = \\frac{1}{2\\lambda}$ ($\\lambda \\neq 0$). Substituting: $2x^2 = 2 \\Rightarrow x = \\pm1$. Candidates: $(1,1)$ and $(-1,-1)$.",
+                "Step 4: Compare values\n$f(1,1) = 2$ (maximum), $f(-1,-1) = -2$ (minimum).",
+                "Step 5: Check with parametrisation\n$x = \\sqrt2\\cos t$, $y = \\sqrt2\\sin t$: $f = \\sqrt2(\\cos t + \\sin t) = 2\\sin\\left(t + \\frac\\pi4\\right) \\in [-2,2]$ ✓ — maximum $2$ at $t = \\frac\\pi4$, i.e. $(1,1)$.",
+                "Step 6: Takeaway: What to remember\nOn compact sets it suffices to compare all candidates. Geometrically: the lines $x + y = c$ (level curves) touch the circle at $(\\pm1,\\pm1)$; there $\\nabla f$ and $\\nabla g$ are parallel."
+            ]
+        },
+        {
+            "id": 29,
+            "topic": "Multivariable Calculus",
+            "title": "Integral in polar coordinates",
+            "description": "Compute $\\iint_D(x^2+y^2)\\,dA$ over the unit disc $D = \\{x^2 + y^2 \\leq 1\\}$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nFor circular regions and integrands with $x^2 + y^2$ **polar coordinates** $x = r\\cos\\varphi$, $y = r\\sin\\varphi$ are ideal. The area element is $dA = r\\,dr\\,d\\varphi$ (Jacobian determinant $r$).",
+                "Step 2: Transformation\n$x^2 + y^2 = r^2$. The region: $0 \\leq r \\leq 1$, $0 \\leq \\varphi < 2\\pi$.",
+                "Step 3: Set up the integral\n$\\iint_D(x^2+y^2)\\,dA = \\int_0^{2\\pi}\\int_0^1r^2\\cdot r\\,dr\\,d\\varphi = \\int_0^{2\\pi}\\int_0^1r^3\\,dr\\,d\\varphi$.",
+                "Step 4: Evaluate\n$\\int_0^1r^3\\,dr = \\frac14$ and $\\int_0^{2\\pi}d\\varphi = 2\\pi$. Result: $2\\pi\\cdot\\frac14 = \\frac\\pi2$.",
+                "Step 5: Check\nWith $f \\equiv 1$ one gets $\\int_0^{2\\pi}\\int_0^1r\\,dr\\,d\\varphi = 2\\pi\\cdot\\frac12 = \\pi$, the area of the disc ✓. The integrand $r^2 \\leq 1$, so the result must be $\\leq \\pi$: $\\frac\\pi2 \\approx 1.57$ ✓.",
+                "Step 6: Takeaway: What to remember\nThe **factor $r$** from the Jacobian determinant is the most commonly forgotten. The integral is the area moment of inertia (polar moment) of the disc: $\\frac{\\pi R^4}{2}$ for radius $R$."
+            ]
+        },
+        {
+            "id": 30,
+            "topic": "Multivariable Calculus",
+            "title": "Second-order Taylor expansion",
+            "description": "Determine the second-order Taylor polynomial of $f(x,y) = e^x\\cos y$ about the expansion point $(0,0)$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nThe second-order Taylor polynomial is $T_2(x,y) = f + f_xx + f_yy + \\frac12\\left(f_{xx}x^2 + 2f_{xy}xy + f_{yy}y^2\\right)$ with all derivatives at the expansion point.",
+                "Step 2: Derivatives\n$f_x = e^x\\cos y$, $f_y = -e^x\\sin y$, $f_{xx} = e^x\\cos y$, $f_{xy} = -e^x\\sin y$, $f_{yy} = -e^x\\cos y$.",
+                "Step 3: Values at $(0,0)$\n$f = 1$, $f_x = 1$, $f_y = 0$, $f_{xx} = 1$, $f_{xy} = 0$, $f_{yy} = -1$.",
+                "Step 4: Taylor polynomial\n$T_2(x,y) = 1 + x + \\frac12\\left(x^2 - y^2\\right)$.",
+                "Step 5: Check via product of series\n$e^x \\approx 1 + x + \\frac{x^2}{2}$ and $\\cos y \\approx 1 - \\frac{y^2}{2}$. Product up to order $2$: $1 + x + \\frac{x^2}{2} - \\frac{y^2}{2}$ ✓.",
+                "Step 6: Numerical check\nAt $(0.1; 0.1)$: exact $e^{0.1}\\cos0.1 = 1.105171\\cdot0.995004 = 1.099649$; $T_2 = 1 + 0.1 + 0 = 1.1$. Error $\\approx 3.5\\cdot10^{-4}$ ✓.",
+                "Step 7: Takeaway: What to remember\nFor product functions $g(x)h(y)$ one multiplies the one-dimensional Taylor series and truncates at the desired degree. The quadratic part $\\frac12\\,\\vec x^TH\\vec x$ contains the Hessian."
+            ]
+        },
+        {
+            "id": 31,
+            "topic": "Multivariable Calculus",
+            "title": "Triple integral over a simplex",
+            "description": "Compute the volume of the tetrahedron $T = \\{(x,y,z) \\mid x,y,z \\geq 0,\\ x + y + z \\leq 1\\}$ and $\\iiint_Tz\\,dV$.",
+            "difficulty": "hard",
+            "points": 12,
+            "solutionSteps": [
+                "Step 1: Overview: What is asked?\nWe set up the region as an iterated integral: for fixed $x,y$, $z$ runs from $0$ to $1 - x - y$; for fixed $x$, $y$ runs from $0$ to $1 - x$; finally $x$ from $0$ to $1$.",
+                "Step 2: Volume\n$V = \\int_0^1\\int_0^{1-x}\\int_0^{1-x-y}dz\\,dy\\,dx = \\int_0^1\\int_0^{1-x}(1 - x - y)\\,dy\\,dx$. Inner integral: $\\left[(1-x)y - \\frac{y^2}2\\right]_0^{1-x} = \\frac{(1-x)^2}{2}$. Then $\\int_0^1\\frac{(1-x)^2}{2}dx = \\frac16$.",
+                "Step 3: Plausibility\nThe volume of a pyramid is $\\frac13\\cdot\\text{base}\\cdot\\text{height} = \\frac13\\cdot\\frac12\\cdot1 = \\frac16$ ✓.",
+                "Step 4: $\\iiint z\\,dV$\n$\\int_0^1\\int_0^{1-x}\\int_0^{1-x-y}z\\,dz\\,dy\\,dx = \\int_0^1\\int_0^{1-x}\\frac{(1-x-y)^2}{2}dy\\,dx = \\int_0^1\\frac{(1-x)^3}{6}dx = \\frac{1}{24}$.",
+                "Step 5: Centre of mass\nThe $z$-coordinate of the centre of mass is $\\bar z = \\frac{\\iiint z\\,dV}{V} = \\frac{1/24}{1/6} = \\frac14$ (a quarter of the height, matching the pyramid).",
+                "Step 6: Takeaway: What to remember\nFor triple integrals set up the limits **from inside out** (inner limits may depend on the outer variables). A sketch of the region prevents most mistakes."
+            ]
+        },
+        {
+            "id": 32,
+            "topic": "Multivariable Calculus",
+            "title": "Extremum Problems",
+            "description": "Find the local extrema of the function $f(x,y) = x^3 + y^3 - 3xy$ and determine their nature.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Critical Points\n$\\frac{\\partial f}{\\partial x} = 3x^2 - 3y = 0$\n$\\frac{\\partial f}{\\partial y} = 3y^2 - 3x = 0$\nSolution: $(0,0)$ and $(1,1)$",
+                "Step 2: Hessian Matrix\n$H_f = \\begin{pmatrix} 6x & -3 \\\\ -3 & 6y \\end{pmatrix}$",
+                "Step 3: Determinant and Trace\n$\\det(H_f) = 36xy - 9$\n$\\text{tr}(H_f) = 6(x+y)$",
+                "Step 4: Classification\n$(0,0)$: $\\det(H_f) = -9 < 0$ (saddle point)\n$(1,1)$: $\\det(H_f) = 27 > 0$, $\\text{tr}(H_f) = 12 > 0$ (minimum)"
+            ]
+        },
+        {
+            "id": 33,
+            "topic": "Multivariable Calculus",
+            "title": "Multiple Integrals",
+            "description": "Calculate the double integral $\\iint_D (x^2 + y^2) dxdy$ over the region $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid 0 \\leq x \\leq 1, 0 \\leq y \\leq x\\}$.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Integration Limits\n$\\int_0^1 \\int_0^x (x^2 + y^2) dy dx$",
+                "Step 2: Inner Integration\n$\\int_0^x (x^2 + y^2) dy = x^2y + \\frac{y^3}{3}|_0^x = x^3 + \\frac{x^3}{3} = \\frac{4}{3}x^3$",
+                "Step 3: Outer Integration\n$\\int_0^1 \\frac{4}{3}x^3 dx = \\frac{4}{3} \\cdot \\frac{x^4}{4}|_0^1 = \\frac{1}{3}$",
+                "Step 4: Result\n$\\iint_D (x^2 + y^2) dxdy = \\frac{1}{3}$"
+            ]
+        },
+        {
+            "id": 34,
+            "topic": "Multivariable Calculus",
+            "title": "Coordinate Transformation",
+            "description": "Calculate the integral $\\iint_D \\frac{1}{\\sqrt{x^2 + y^2}} dxdy$ over the region $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid 1 \\leq x^2 + y^2 \\leq 4\\}$ by transforming to polar coordinates.",
+            "difficulty": "hard",
+            "points": 15,
+            "solutionSteps": [
+                "Step 1: Polar Coordinates\n$x = r\\cos(\\phi), y = r\\sin(\\phi)$\n$dxdy = r dr d\\phi$",
+                "Step 2: Integration Region\n$1 \\leq r \\leq 2, 0 \\leq \\phi \\leq 2\\pi$",
+                "Step 3: Transformation\n$\\int_0^{2\\pi} \\int_1^2 \\frac{1}{r} \\cdot r dr d\\phi = \\int_0^{2\\pi} \\int_1^2 1 dr d\\phi$",
+                "Step 4: Calculation\n$= \\int_0^{2\\pi} (2-1) d\\phi = 2\\pi$"
+            ]
+        },
+        {
+            "id": 35,
             "topic": "Multivariable Calculus",
             "title": "Multiple Integral with Coordinate Transformation",
             "description": "Calculate the integral $\\iiint_V \\frac{1}{\\sqrt{x^2 + y^2 + z^2}} dxdydz$ over the region $V = \\{(x,y,z) \\in \\mathbb{R}^3 \\mid 1 \\leq x^2 + y^2 + z^2 \\leq 4\\}$ by transforming to spherical coordinates.",
@@ -331,35 +524,7 @@
             ]
         },
         {
-            "id": 24,
-            "topic": "Multivariable Calculus",
-            "title": "Complex Chain Rule with Multiple Variables",
-            "description": "Calculate the derivative of the function $f(x,y,z) = e^{xyz}$ along the curve $x(t) = \\cos(t), y(t) = \\sin(t), z(t) = t$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Step 1: Partial Derivatives\n$\\frac{\\partial f}{\\partial x} = yze^{xyz}$\n$\\frac{\\partial f}{\\partial y} = xze^{xyz}$\n$\\frac{\\partial f}{\\partial z} = xye^{xyz}$",
-                "Step 2: Derivatives of the Curve\n$\\frac{dx}{dt} = -\\sin(t)$\n$\\frac{dy}{dt} = \\cos(t)$\n$\\frac{dz}{dt} = 1$",
-                "Step 3: Chain Rule\n$\\frac{df}{dt} = -\\sin(t)\\cos(t)te^{xyz} + \\cos(t)\\sin(t)te^{xyz} + \\cos(t)\\sin(t)e^{xyz}$",
-                "Step 4: Simplification\n$\\frac{df}{dt} = \\cos(t)\\sin(t)e^{xyz}$"
-            ]
-        },
-        {
-            "id": 25,
-            "topic": "Multivariable Calculus",
-            "title": "Implicit Functions and Jacobian Matrix",
-            "description": "Calculate the Jacobian matrix of the implicit function $F(x,y,z) = (x^2 + y^2 + z^2 - 1, x + y + z - 1)$ and determine $\\frac{\\partial z}{\\partial x}$ and $\\frac{\\partial z}{\\partial y}$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Step 1: Jacobian Matrix\n$DF = \\begin{pmatrix} 2x & 2y & 2z \\\\ 1 & 1 & 1 \\end{pmatrix}$",
-                "Step 2: Implicit Differentiation\n$\\frac{\\partial z}{\\partial x} = -\\frac{2x}{2z} = -\\frac{x}{z}$\n$\\frac{\\partial z}{\\partial y} = -\\frac{2y}{2z} = -\\frac{y}{z}$",
-                "Step 3: Verification\nFor $(x,y,z) = (\\frac{1}{2}, \\frac{1}{2}, \\frac{1}{\\sqrt{2}})$:\n$\\frac{\\partial z}{\\partial x} = -\\frac{1}{\\sqrt{2}}$\n$\\frac{\\partial z}{\\partial y} = -\\frac{1}{\\sqrt{2}}$",
-                "Step 4: Interpretation\nThe derivatives give the slope of the tangent plane."
-            ]
-        },
-        {
-            "id": 26,
+            "id": 36,
             "topic": "Multivariable Calculus",
             "title": "Multiple Integral with Complex Integration Region",
             "description": "Calculate the integral $\\iint_D \\frac{1}{\\sqrt{1-x^2-y^2}} dxdy$ over the region $D = \\{(x,y) \\in \\mathbb{R}^2 \\mid x^2 + y^2 \\leq \\frac{1}{2}\\}$.",
@@ -373,21 +538,7 @@
             ]
         },
         {
-            "id": 27,
-            "topic": "Multivariable Calculus",
-            "title": "Higher-Order Taylor Expansion",
-            "description": "Calculate the third-order Taylor expansion of the function $f(x,y) = \\sin(xy)$ around the point $(0,0)$.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Step 1: Partial Derivatives\n$\\frac{\\partial f}{\\partial x} = y\\cos(xy)$\n$\\frac{\\partial f}{\\partial y} = x\\cos(xy)$\n$\\frac{\\partial^2 f}{\\partial x^2} = -y^2\\sin(xy)$\n$\\frac{\\partial^2 f}{\\partial y^2} = -x^2\\sin(xy)$\n$\\frac{\\partial^2 f}{\\partial x \\partial y} = \\cos(xy) - xy\\sin(xy)$",
-                "Step 2: Values at the Expansion Point\n$f(0,0) = 0$\n$\\frac{\\partial f}{\\partial x}(0,0) = 0$\n$\\frac{\\partial f}{\\partial y}(0,0) = 0$\n$\\frac{\\partial^2 f}{\\partial x^2}(0,0) = 0$\n$\\frac{\\partial^2 f}{\\partial y^2}(0,0) = 0$\n$\\frac{\\partial^2 f}{\\partial x \\partial y}(0,0) = 1$",
-                "Step 3: Taylor Expansion\n$T_3(x,y) = xy - \\frac{1}{6}x^3y - \\frac{1}{6}xy^3$",
-                "Step 4: Interpretation\nThe Taylor expansion gives a cubic approximation of the function."
-            ]
-        },
-        {
-            "id": 28,
+            "id": 37,
             "topic": "Multivariable Calculus",
             "title": "Complex Directional Derivative and Gradient",
             "description": "Calculate the directional derivative of the function $f(x,y,z) = x^2y + y^2z + z^2x$ at the point $(1,1,1)$ in the direction of the vector $\\vec{v} = (1,2,3)$ and determine the direction of the maximum rate of change.",
@@ -398,20 +549,6 @@
                 "Step 2: Normalization of the Direction Vector\n$\\vec{v}_0 = \\frac{1}{\\sqrt{14}}(1,2,3)$",
                 "Step 3: Directional Derivative\n$D_{\\vec{v}}f = \\nabla f \\cdot \\vec{v}_0 = \\frac{1}{\\sqrt{14}}(3 + 6 + 9) = \\frac{18}{\\sqrt{14}}$",
                 "Step 4: Maximum Rate of Change\nThe maximum rate of change occurs in the direction of the gradient: $\\frac{1}{\\sqrt{3}}(1,1,1)$"
-            ]
-        },
-        {
-            "id": 29,
-            "topic": "Multivariable Calculus",
-            "title": "Multiple Integral with Complex Transformation",
-            "description": "Calculate the integral $\\iiint_V \\frac{1}{(x^2 + y^2 + z^2)^{3/2}} dxdydz$ over the region $V = \\{(x,y,z) \\in \\mathbb{R}^3 \\mid 1 \\leq x^2 + y^2 \\leq 4, 0 \\leq z \\leq 1\\}$ by transforming to cylindrical coordinates.",
-            "difficulty": "hard",
-            "points": 15,
-            "solutionSteps": [
-                "Step 1: Cylindrical Coordinates\n$x = r\\cos\\phi$\n$y = r\\sin\\phi$\n$z = z$\n$dxdydz = r drd\\phi dz$",
-                "Step 2: Integration Region\n$1 \\leq r \\leq 2$\n$0 \\leq \\phi \\leq 2\\pi$\n$0 \\leq z \\leq 1$",
-                "Step 3: Transformation\n$\\int_0^{2\\pi} \\int_1^2 \\int_0^1 \\frac{r}{(r^2 + z^2)^{3/2}} drd\\phi dz$",
-                "Step 4: Calculation\n$= 2\\pi(\\ln(2 + \\sqrt{5}) - \\ln(1 + \\sqrt{2}))$"
             ]
         }
     ]
