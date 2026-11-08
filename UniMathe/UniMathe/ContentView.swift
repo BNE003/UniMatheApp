@@ -1237,6 +1237,7 @@ struct BackStepButton: View {
 
 struct InteractiveLearningView: View {
     let topic: MathTopic
+    private let freeLessonSteps = 8
     @State private var currentStep = 0
     @State private var showNextStep = false
     @State private var example: InteractiveExample?
@@ -1387,7 +1388,7 @@ struct InteractiveLearningView: View {
             }
         }
         .onChange(of: currentStep) { newStep in
-            if newStep >= 4 && storeManager.purchasedProductIDs.isEmpty {
+            if newStep >= freeLessonSteps && storeManager.purchasedProductIDs.isEmpty {
                 if UIDevice.current.userInterfaceIdiom == .pad {
                     withAnimation {
                         blurBackground = true
@@ -1397,8 +1398,8 @@ struct InteractiveLearningView: View {
             }
         }
         .fullScreenCover(isPresented: $showProSheet, onDismiss: {
-            if currentStep >= 4 && storeManager.purchasedProductIDs.isEmpty {
-                currentStep = 3
+            if currentStep >= freeLessonSteps && storeManager.purchasedProductIDs.isEmpty {
+                currentStep = freeLessonSteps - 1
                 if UIDevice.current.userInterfaceIdiom == .pad {
                     withAnimation {
                         blurBackground = false

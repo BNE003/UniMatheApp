@@ -9,7 +9,7 @@ struct ExerciseDetailView: View {
     @State private var solutionHeights: [CGFloat] = []
     @State private var titleHeight: CGFloat = 32
     @State private var showPaywall = false
-    private let freeStepLimit = 10
+    private let freeStepLimit = 8
     @ObservedObject private var settings = SettingsModel.shared
     @ObservedObject private var storeManager = StoreKitManager.shared
     @ObservedObject private var tabBarManager = TabBarManager.shared
